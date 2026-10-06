@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cbb_BlockAmountGreaterThanZero</fullName>
+    <active>false</active>
+    <description>The amount entered in the bolck process must be greater than zero</description>
+    <errorConditionFormula>BlockAmountBHDB__c &lt;= 0</errorConditionFormula>
+    <errorMessage>The blocked Amount must be greater than Zero</errorMessage>
+</ValidationRule>

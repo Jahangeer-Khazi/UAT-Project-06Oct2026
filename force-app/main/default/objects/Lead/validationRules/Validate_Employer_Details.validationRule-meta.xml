@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Employer_Details</fullName>
+    <active>true</active>
+    <description>Employer City and Employer Address are required when Employment Status is &apos;Employed&apos;.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;),
+    ISPICKVAL(Employment_Status__c, &quot;Employed&quot;),
+    OR(
+        ISBLANK(Employer_City__c),
+        ISBLANK(Employer_Address__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>Employer City and Employer Address are required when Employment Status is &apos;Employed&apos;.</errorMessage>
+</ValidationRule>

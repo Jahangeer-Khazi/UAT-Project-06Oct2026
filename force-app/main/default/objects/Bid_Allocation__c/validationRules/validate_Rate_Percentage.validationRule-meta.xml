@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>validate_Rate_Percentage</fullName>
+    <active>true</active>
+    <errorConditionFormula>!REGEX( Yield_Rate__c,&quot;^(?:100(?:\\.0(?:0)?)?|\\d{1,2}(?:\\.\\d{1,15})?)$&quot;)</errorConditionFormula>
+    <errorDisplayField>Yield_Rate__c</errorDisplayField>
+    <errorMessage>Please provide a valid input</errorMessage>
+</ValidationRule>

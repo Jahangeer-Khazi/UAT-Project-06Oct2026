@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_PLA_OTP_email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked  flag will decide if the OTP email has been sent to staff.</description>
+    <label>Send PLA OTP Email</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

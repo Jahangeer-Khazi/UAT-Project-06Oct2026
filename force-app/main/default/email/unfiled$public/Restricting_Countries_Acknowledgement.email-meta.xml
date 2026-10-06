@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be sent when a customer is entering Country Code of Restricting Countries</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Restricting Countries Acknowledgement</name>
+    <style>none</style>
+    <subject>Prohibited Countries Mobile Update has been received by ila</subject>
+    <textOnly>Highly Confidential Prohibited Country Alert
+
+Hi there,
+
+We are pleased to let you know that our ila agent is trying to update the mobile number which is in the prohibited country list.
+
+Case Number: {!Case.CaseNumber}
+Customer Name: {!Case.Contact_Name__c}
+Customer Email: {!Case.cc_Email_Address__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

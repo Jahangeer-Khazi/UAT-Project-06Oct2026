@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartialSettlementRestructure__c</fullName>
+    <description>This field is for Partial Settlement sub type that is controlled by New Loan / Finance Service Request type.</description>
+    <label>Partial Settlement Option</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Keep same installment amount</fullName>
+                <default>false</default>
+                <label>Keep same installment amount</label>
+            </value>
+            <value>
+                <fullName>Change the loan term</fullName>
+                <default>false</default>
+                <label>Keep same loan term</label>
+            </value>
+            <value>
+                <fullName>Reduce Loan Duration</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reduce Loan Duration</label>
+            </value>
+            <value>
+                <fullName>Reduce Loan Duration &amp; Monthly Instalment Amount</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reduce Loan Duration &amp; Monthly Instalment Amount</label>
+            </value>
+            <value>
+                <fullName>Reduce Monthly Instalment Amount</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reduce Monthly Instalment Amount</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

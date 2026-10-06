@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Status__c</field>
+        <field>Grand_Prize__c</field>
+        <field>Draw_Type__c</field>
+        <field>Total_Prize_Fund__c</field>
+        <field>Selected_Draw__c</field>
+        <field>Draw_Date__c</field>
+        <field>Owner</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Bahrain_Draw_Checker</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Initial Validation - Is Approved/Rejected</label>
+        <name>Initial_Validation_Is_Approved_Rejected</name>
+    </approvalStep>
+    <description>For Bahrain - Initial Validation for Draws/Raffle</description>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <field>Draw__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Pending Validation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Draw__c.RegionFlag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Draw__c.RegionFlag__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Status_Validation_Complete</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Draw_Assigne_to_Draw_Maker</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Status_Rework</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Draw_Assigne_to_Draw_Checker</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Draw - Initial Validation</label>
+    <processOrder>1</processOrder>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>false</showApprovalHistory>
+</ApprovalProcess>

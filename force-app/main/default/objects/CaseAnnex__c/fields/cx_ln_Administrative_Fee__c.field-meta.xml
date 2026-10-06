@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cx_ln_Administrative_Fee__c</fullName>
+    <defaultValue>&quot;Upfront&quot;</defaultValue>
+    <description>Used for secured Loans (because of NBA-15983 (change5) we changed the label)</description>
+    <label>Processing Fee Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Upfront</fullName>
+                <default>true</default>
+                <label>Upfront</label>
+            </value>
+            <value>
+                <fullName>Monthly instalment</fullName>
+                <default>false</default>
+                <label>Monthly instalment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Maker_From_Being_Checker</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL(cc_Checker_Result__c, &quot;Approve&quot;),
+CreatedById = $User.Id,
+RecordType_DeveloperName__c = &quot;Request&quot;,
+TEXT(Type) = &quot;Funds Transfer&quot;,
+TEXT(Sub_Type__c) = &quot;EFTS&quot;
+)</errorConditionFormula>
+    <errorDisplayField>cc_Checker_Result__c</errorDisplayField>
+    <errorMessage>As the Maker/Creator of this case, you cannot also act as the Checker to approve it.</errorMessage>
+</ValidationRule>

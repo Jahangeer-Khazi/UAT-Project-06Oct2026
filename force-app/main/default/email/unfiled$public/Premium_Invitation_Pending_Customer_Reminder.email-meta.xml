@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>when discount is granted and pending customer action</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Premium_Invitation_Pending_Customer_Reminder</name>
+    <style>none</style>
+    <subject>ila Premium Discount</subject>
+    <textOnly>ila Premium Discount
+Hi,
+
+Thank you for being a loyal customer.
+
+To enjoy the benefits of ila Premium, we have granted you a discount of BHD {!Case.Discount_Amount__c} on your ila Premium subscription.
+
+The discount will expire in {!Case.Retention_Expiry_Days__c} Days.
+
+To redeem the offer and upgrade to ila Premium, please visit the debit card section in the ila Bank app.
+
+Here are the benefits of ila Premium:
+
+
+
+Should you need any assistance, please feel free to call us on +973 17123456 or email us on support@ilabank.com
+
+
+
+Open ila App
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

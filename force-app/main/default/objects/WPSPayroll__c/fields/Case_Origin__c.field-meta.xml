@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Origin__c</fullName>
+    <label>Case Origin</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Phone</fullName>
+                <default>false</default>
+                <label>Phone</label>
+            </value>
+            <value>
+                <fullName>Web</fullName>
+                <default>false</default>
+                <label>Web</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+                <label>Twitter</label>
+            </value>
+            <value>
+                <fullName>App</fullName>
+                <default>false</default>
+                <label>App</label>
+            </value>
+            <value>
+                <fullName>Fraud Alert</fullName>
+                <default>false</default>
+                <label>Fraud Alert</label>
+            </value>
+            <value>
+                <fullName>CBB</fullName>
+                <default>false</default>
+                <label>CBB</label>
+            </value>
+            <value>
+                <fullName>Senior Management</fullName>
+                <default>false</default>
+                <label>Senior Management</label>
+            </value>
+            <value>
+                <fullName>Service Centre</fullName>
+                <default>false</default>
+                <label>Service Centre</label>
+            </value>
+            <value>
+                <fullName>Siron AML</fullName>
+                <default>false</default>
+                <label>Siron AML</label>
+            </value>
+            <value>
+                <fullName>Internal UAR</fullName>
+                <default>false</default>
+                <label>Internal UAR</label>
+            </value>
+            <value>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+                <label>Instagram</label>
+            </value>
+            <value>
+                <fullName>YouTube</fullName>
+                <default>false</default>
+                <label>YouTube</label>
+            </value>
+            <value>
+                <fullName>Wathiq</fullName>
+                <default>false</default>
+                <label>Wathiq</label>
+            </value>
+            <value>
+                <fullName>EKYC-SIGNOFF</fullName>
+                <default>false</default>
+                <label>EKYC-SIGNOFF</label>
+            </value>
+            <value>
+                <fullName>EKYC-FETCH</fullName>
+                <default>false</default>
+                <label>EKYC-FETCH</label>
+            </value>
+            <value>
+                <fullName>EKYC-UPLOAD</fullName>
+                <default>false</default>
+                <label>EKYC-UPLOAD</label>
+            </value>
+            <value>
+                <fullName>CRM</fullName>
+                <default>false</default>
+                <label>CRM</label>
+            </value>
+            <value>
+                <fullName>Civil</fullName>
+                <default>false</default>
+                <label>Civil</label>
+            </value>
+            <value>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <label>Social Media</label>
+            </value>
+            <value>
+                <fullName>Roadshow</fullName>
+                <default>false</default>
+                <label>Roadshow</label>
+            </value>
+            <value>
+                <fullName>Retail Credit - Collection</fullName>
+                <default>false</default>
+                <label>Retail Credit - Collection</label>
+            </value>
+            <value>
+                <fullName>Chat</fullName>
+                <default>false</default>
+                <label>Chat</label>
+            </value>
+            <value>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+                <label>Compliance</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Operation</fullName>
+                <default>false</default>
+                <label>Operation</label>
+            </value>
+            <value>
+                <fullName>Service Center</fullName>
+                <default>false</default>
+                <label>Service Center</label>
+            </value>
+            <value>
+                <fullName>ICU</fullName>
+                <default>false</default>
+                <label>ICU</label>
+            </value>
+            <value>
+                <fullName>RCD</fullName>
+                <default>false</default>
+                <label>RCD</label>
+            </value>
+            <value>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <label>Mobile</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

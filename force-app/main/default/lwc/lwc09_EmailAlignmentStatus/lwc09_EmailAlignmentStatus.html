@@ -1,0 +1,75 @@
+<template>
+    <lightning-card title="Email Alignment Status" icon-name="utility:email">
+        <div class="slds-p-around_x-small">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+            </template>
+
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    Error loading email details.
+                </div>
+            </template>
+
+            <template if:true={emailDetails}>
+                <!-- Header Section: Icon + Text Aligned -->
+                <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_x-small">
+                    <div class="slds-col slds-grow-none slds-m-right_x-small">
+                        <lightning-icon icon-name={iconName} variant={iconVariant} size="small"></lightning-icon>
+                    </div>
+                    <div class="slds-col">
+                        <template if:true={isAligned}>
+                            <div class="slds-text-heading_small slds-text-color_success">Emails Aligned</div>
+                        </template>
+                        <template if:true={isNotAligned}>
+                            <div class="slds-text-heading_small slds-text-color_error reduced-font-size">Emails Not
+                                Aligned</div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Details Section: Only for Not Aligned -->
+                <template if:true={isNotAligned}>
+                    <div class="slds-m-left_large slds-m-bottom_x-small">
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-text-title_caps slds-text-color_weak"><b>CRM Email</b></div>
+                                <div class="slds-text-body_regular">{emailDetails.crmEmail}</div>
+                            </div>
+                            <div class="slds-col">
+                                <div class="slds-text-title_caps slds-text-color_weak"><b>Core DB Email</b></div>
+                                <div class="slds-text-body_regular">{emailDetails.dbEmail}</div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Fraud Activity Summary -->
+                <div class="slds-m-top_x-small slds-border_top slds-p-top_x-small">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <span class="slds-m-right_x-small"
+                                    style="font-size: 1.5em; line-height: 0;">&bull;</span>
+                                <span class="slds-text-body_regular">No. of Mobile Change:
+                                    <b>{emailDetails.mobileChangeCount}</b></span>
+                                <lightning-button label="View" variant="base" class="slds-m-left_small"
+                                    onclick={handleViewMobileChanges}></lightning-button>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <span class="slds-m-right_x-small"
+                                    style="font-size: 1.5em; line-height: 0;">&bull;</span>
+                                <span class="slds-text-body_regular">No. of Email Changes:
+                                    <b>{emailDetails.emailChangeCount}</b></span>
+                                <lightning-button label="View" variant="base" class="slds-m-left_small"
+                                    onclick={handleViewEmailChanges}></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

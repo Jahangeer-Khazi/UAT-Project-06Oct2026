@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_deposit_more_than_Actual__c</fullName>
+    <formula>IF (ISPICKVAL (Gross_Monthly_Income__c , &apos;500&apos;) &amp;&amp; Expected_Monthly_deposits__c &gt; 500 , TRUE,
+IF (ISPICKVAL (Gross_Monthly_Income__c , &apos;750&apos;) &amp;&amp; Expected_Monthly_deposits__c &gt; 999 , TRUE,
+IF (ISPICKVAL (Gross_Monthly_Income__c , &apos;1500&apos;) &amp;&amp; Expected_Monthly_deposits__c &gt; 1999 , TRUE,
+IF (ISPICKVAL (Gross_Monthly_Income__c , &apos;2500&apos;) &amp;&amp; Expected_Monthly_deposits__c &gt; 2999 , TRUE,
+IF (ISPICKVAL (Gross_Monthly_Income__c , &apos;4000&apos;) &amp;&amp; Expected_Monthly_deposits__c &gt; 5000 , TRUE,
+
+FALSE)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Expected deposit more than Actual</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

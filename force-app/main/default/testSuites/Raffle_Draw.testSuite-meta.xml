@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexTestSuite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <testClassName>DM004_DrawTest</testClassName>
+    <testClassName>DM03_RaffleServiceApiCallsTest</testClassName>
+    <testClassName>DrawEntryReviewTriggerTest</testClassName>
+    <testClassName>EM03_RaffleServiceApiCallsTest</testClassName>
+    <testClassName>LTNG10_GetDrawListControllerTest</testClassName>
+    <testClassName>LTNG11_DrawDataCsvControllerTest</testClassName>
+    <testClassName>LTNG14_CallDrawApisControllerTest</testClassName>
+    <testClassName>PrizeTriggerTest</testClassName>
+    <testClassName>RaffleComponentControllerTest</testClassName>
+    <testClassName>RaffleDrawComponentControllerTest</testClassName>
+    <testClassName>RaffleSummaryControllerTest</testClassName>
+    <testClassName>RaffleWinnerComponentControllerTest</testClassName>
+    <testClassName>ShowRaffleApexControllerTest</testClassName>
+    <testClassName>SM003_DrawHandlerTest</testClassName>
+    <testClassName>VF01_DrawDetailsControllerTest</testClassName>
+</ApexTestSuite>

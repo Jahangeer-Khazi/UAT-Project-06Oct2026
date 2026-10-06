@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PrizeOut Dispute Email Template</name>
+    <style>none</style>
+    <subject>{!Case.Subject}</subject>
+    <textOnly>Your Message Subject or Title
+
+Dear Prizeout,
+
+A customer {!Case.Customer_CIF__c} with the following details is facing an issue with rizeout and we would like your kind support in resolving it.
+
+CIF
+
+{!Case.Customer_CIF__c}
+
+Email Address
+
+{!Contact.Email}
+
+Case ID
+
+{!Case.CaseNumber}
+
+DateTime
+
+{!Case.Transaction_Date__c}
+
+Transaction Number
+
+{!Case.cc_Transaction_Reference_Number__c}
+
+Merchant Name
+
+{!Case.Merchant_Name__c}
+
+Reason of the issue
+
+{!Case.Prizeout_Reason__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

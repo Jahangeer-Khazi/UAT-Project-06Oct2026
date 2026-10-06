@@ -1,0 +1,1474 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *      #CH01# #Swapna Added Logic to Register an Event.
+ *		#CH02# #Jahangeer Mohammed #24-03-2022# Added new fields on Credit Card Details( NBA-4106 )
+ *      #CH03# #Jayanth Kumar #20-10-2022#
+ *		#CH04# #Jahangeer Mohammed #15-01-2023#  Added a sub type attribute for credit limit decrease(NBA-6757)
+ *		#CH05# #Jahangeer Mohammed #13-03-2023# Added Campaign Related fields
+ *		#CH06# #Jahangeer Mohammed #14-03-2024# Added EPP Enhancements related to Credit Card Details
+ *      #CH07# #Maksud Ali #25-03-2025# Added 'Dowload Cash Collateral Letter' and 'Send Cash Collateral Letter By Email' buttons and added 2 new fields on details section 'HoldAmount' and 'HoldReference'
+ *		#CH08# #Jahangeer Mohammed #23-04-2025# Added EPP Enhancements related to Credit Card Details (NBA-12047)
+        #CH09# #Jahangeer Mohammed #09-11-2025# Added Logic for Credit Card Spouse (NBA-15728)
+  #CH10# #Ranjith #18-12-2025# Added New fields For OTP & Transactions Notifications (NBA-15179)
+		#CH11# #Maksud Ali #26-01-2026# Added Annual Membership section (NBA-16151)
+        #CH12#  #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705) 
+-->
+<aura:component controller="creditCardListController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="cardId" type="String" required="true" />
+    <aura:attribute name="caseId" type="String" required="false" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <aura:attribute name="enableActions" type="Boolean" required="true" />
+    <aura:attribute name="cc_CardStatus" type="String" />
+    <aura:attribute name="currencyCode" type="String" />
+    <!--CH03 start-->
+    <aura:attribute name="preferredReward" type="Object" />
+    <aura:attribute name="isRewardDetailAvailable" type="Boolean" required="false" />
+    <!--CH03 End-->
+
+    <!-- ============================================ -->
+    <!--CH01 - Swapna - Start -->
+    <aura:attribute name="cardData" type="Object" access="private" />
+    <!--CH01 - Swapna - End -->
+    <aura:attribute name="productName" type="String" />
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}" />
+    <aura:method name="reload" action="{!c.load}" />
+
+    <!-- #CH02 Start : Aniss -->
+    <aura:attribute name="targetType" type="String" />
+    <!-- #CH02 : End-->
+
+    <!--CH01 - Swapna - Start -->
+    <aura:registerEvent name="cmpEvent" type="c:CardNameEvent" />
+    <!--CH01 - Swapna - End -->
+
+    <!--CH04 START -->
+    <aura:attribute name="caseSubType" type="String" />
+    <!--CH04 END -->
+
+    <!-- CH07: START -->
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="cardType" type="String" />
+    <aura:attribute name="caseStatus" type="String" />
+    <aura:attribute name="isCreditCardUser" type="Boolean" />
+    <aura:attribute name="holdAmount" type="String" />
+    <aura:attribute name="holdReference" type="String" />
+    <!-- CH07: END -->
+    <!-- CH09: START -->
+    <aura:attribute name="isSpouse" type="Boolean" />
+    <!-- CH09: END -->
+    <!-- CH12 start -->
+    <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false" />
+    <!-- CH12 end -->
+
+    <aura:attribute name="cardDetails" type="Map" default="{}" />
+
+    <lightning:card title="{! 'Card: ' +  v.cardData.productType + ' - ' +  v.cardData.pciNumber }">
+
+        <!-- CH07: START -->
+        <aura:if isTrue="{! and(v.caseStatus != 'Closed',and(v.enableActions,v.caseRecordType == 'Credit_Card_FCR'))}">
+            <aura:if
+                isTrue="{! and(v.isCreditCardUser, and(v.caseSubType == 'Generate Cash Collateral Letter',v.cardType == 'Cash Collateral')) }">
+                <div style="display:flex;margin-top:-30px" class="slds-float--right">
+                    <div>
+                        <lightning:button label="View / Download Cash Collateral Letter"
+                            onclick="{!c.onDownloadCashCollateralClick}" />
+                    </div>
+                    <div style="margin-left:10px;margin-right:5px;">
+                        <lightning:button label="Send Cash Collateral Letter By Email"
+                            onclick="{!c.onSendCashCollateralClick}" />
+                    </div>
+                </div>
+            </aura:if>
+        </aura:if>
+        <!-- CH07: END -->
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Classification</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.cmsProductDescription}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start : Added by Jahangeer Mohammed -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Primary Card</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.isPrimary}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cc_CardStatus}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Name on Credit Card</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.embossName}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Default Account</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.defaultAccount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Linked Accounts</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <aura:if isTrue="{!empty(v.cardData.linkedAccounts)}">
+                                    &nbsp;
+                                    <aura:set attribute="else">
+                                        {!v.cardData.linkedAccounts[0]}
+                                        <aura:iteration items="{!v.cardData.linkedAccounts}" var="item" start="1">
+                                            ,{!item}
+                                        </aura:iteration>
+
+                                    </aura:set>
+                                </aura:if>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issue Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.issueDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Activation Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.activationDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Block Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.blockDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Expiry date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.expiryDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.currency.code}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Credit Limit</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.creditLimit}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Available Limit</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.availableCreditLimit}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Billed amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.lastStatementBalance}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12  start -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.holdAmount}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Unbilled amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.unbilledAmount}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Minimum dues</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.minimumDues}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total dues</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.totalDues}
+                                </aura:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Past dues</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.pastDues}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Payment due date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.paymentDueDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Last statement date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.lastStatementDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Last Payment Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.lastPaymentDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Last Payment Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.lastPaymentAmount}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Product</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.cmsProductDescription}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Current Month Points balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.pointsBalance}
+                                </aura:if>
+                                <!-- CH12 start   -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Cash Limit</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.cashLimit}
+                                </aura:if>
+                                <!-- CH12 end   -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+       
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Available Cash Limit</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <!-- CH12 start  -->
+                                    <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                        {!v.cardData.availableCashLimit}
+                                    </aura:if>
+                                    <!-- CH12 end   -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Start : Added by Jahangeer Mohammed -->
+
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Current Month Cashback Amount
+                                {!v.currencyCode}</span>
+                            <div class="slds-form-element__control">
+
+                                <div class="slds-form-element__static">
+                                    <!-- CH12 start  -->
+                                    <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                        {!v.cardData.cashbackAmount}
+                                    </aura:if>
+                                    <!-- CH12 end   -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- END -->
+            </div> <!-- end row -->
+            <!-- Start : Added by Jahangeer Mohammed -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Earned Cashback Amount {!v.currencyCode}</span>
+                        <div class="slds-form-element__control">
+
+                            <div class="slds-form-element__static">
+                                {!v.cardData.totalCashbackAmount}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CH02 Start -->
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Code 1</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <div class="slds-text-color_error">
+                                    <!-- CH12 start  -->
+                                    <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                        <b>{!v.cardData.accountBlockCode1}</b>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Code 2</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <div class="slds-text-color_error">
+                                    <!-- CH12 start  -->
+                                    <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                        <b>{!v.cardData.accountBlockCode2}</b>
+                                    </aura:if>
+                                    <!-- CH12 end  -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Date 1</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <div class="slds-text-color_error">
+                                    <!-- CH12 start  -->
+                                    <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                        <b>{!v.cardData.accountBlockDate1}</b>
+                                    </aura:if>
+                                    <!-- CH12 end   -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Date 2</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <div class="slds-text-color_error">
+                                    <!-- CH12 start  -->
+                                    <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                        <b>{!v.cardData.accountBlockDate2}</b>
+                                    </aura:if>
+                                    <!-- CH12 end -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label"> Original Outstanding Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.cardData.usedCreditLimit}
+                                </aura:if>
+                                <!-- CH12 end -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- CH05 Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Approved Campaign Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <div class="slds-text-color_error">
+                                    <b>{!v.cardData.campaign.name}</b>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Campaign Expiry Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.campaign.expiryDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--CH05 END -->
+            <!--CH08 START -->
+            <!-- CH06 START -->
+            <!--<div class="slds-form__row">
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Unpaid EPP Installments</span>
+                        <div class="slds-form-element__control">
+                           <div class="slds-form-element__static">
+                              
+                                   {!v.cardData.totalUnpaidEPPInstallments}
+                               
+                           </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Minimum Dues Balance Excluding EPP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.minimumDuesExcludingEPP}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="slds-form__row">
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Last Statement Balance Excluding EPP</span>
+                        <div class="slds-form-element__control">
+                           <div class="slds-form-element__static">
+                               
+                                   {!v.cardData.lastStatementBalanceExcludingEPP}
+                               
+                           </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Outstanding Balance Excluding EPP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.outstandingBalanceExcludingEPP}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>-->
+            <!-- CH06 END -->
+            <!--CH08 END -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Account</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.holdAccount}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Account Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.holdAccountType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- CH02 END -->
+            <!-- CH07 START -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.holdAmount}
+                                </aura:if>
+                                <!-- CH12 end   -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Reference</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.holdReference}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- CH07 END -->
+            <!-- CH09 START -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issued For Spouse</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.isSpouse}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label"></span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--CH10 - Ranjith - Start -->
+
+            <div class="slds-form__row">
+                <aura:if isTrue="{!not(empty(v.cardDetails.sendOTPNotificationsTo))}">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Send OTP Notifications To</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <aura:if isTrue="{!v.cardDetails.sendOTPNotificationsTo == 'CARD_HOLDER'}">
+                                        Card Holder
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.cardDetails.sendOTPNotificationsTo == 'PRIMARY_CUSTOMER'}">
+                                        Primary Customer
+                                    </aura:if>
+                                    <aura:if isTrue="{!empty(v.cardDetails.sendOTPNotificationsTo)}">
+                                        <!-- Empty case -->
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!not(empty(v.cardDetails.sendTransactionsNotificationsTo))}">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Send Transaction Notifications To</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <aura:if isTrue="{!v.cardDetails.sendTransactionsNotificationsTo == 'CARD_HOLDER'}">
+                                        Card Holder
+                                    </aura:if>
+                                    <aura:if
+                                        isTrue="{!v.cardDetails.sendTransactionsNotificationsTo == 'PRIMARY_CUSTOMER'}">
+                                        Primary Customer
+                                    </aura:if>
+                                    <aura:if isTrue="{!empty(v.cardDetails.sendTransactionsNotificationsTo)}">
+                                        <!-- Empty case -->
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+            </div>
+
+            <div class="slds-form__row">
+                <!-- <aura:if isTrue="{!not(empty(v.cardDetails.cardHolderMobileNumber))}"> -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Holder Mobile Number</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- <aura:if isTrue="{!v.cardDetails.sendOTPNotificationsTo == 'PRIMARY_CUSTOMER'}">
+                                    <aura:set attribute="else"> -->
+                                <p>{!v.cardDetails.cardHolderMobileNumber}</p>
+                                <!-- </aura:set>
+                                </aura:if> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </aura:if> -->
+                <!-- <aura:if isTrue="{!not(empty(v.cardDetails.cardHolderEmail))}"> -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Holder Email Address</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- <aura:if isTrue="{!v.cardDetails.sendOTPNotificationsTo == 'PRIMARY_CUSTOMER'}">
+                                    <aura:set attribute="else"> -->
+                                <p>{!v.cardDetails.cardHolderEmail}</p>
+                                <!--  </aura:set>
+                                </aura:if> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </aura:if> -->
+            </div>
+
+            <!--CH10 - Ranjith - End -->
+
+            <!-- CH09 END -->
+
+            <!-- Commented by Ashish during Code Review / Comparison from DEV to UATx  
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Code 1</span>
+                        <div class="slds-form-element__control">
+                             <div class="slds-form-element__static" style="color:red">
+                                 <b>{!v.cardData.accountBlockCode1}</b>
+                            </div>
+                              
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Code 2</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static" style="color:red">
+                                <b>{!v.cardData.accountBlockCode2}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Date 1</span>
+                        <div class="slds-form-element__control">
+                             <div class="slds-form-element__static" style="color:red">
+                                 <b>{!v.cardData.accountBlockDate1}</b>
+                            </div>
+                              
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Block Date 2</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static" style="color:red">
+                                <b>{!v.cardData.accountBlockDate2}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Outstandng Balance</span>
+                        <div class="slds-form-element__control">
+                             <div class="slds-form-element__static">
+                                 <b>{!v.cardData.usedCreditLimit}</b>
+                            </div>
+                              
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                       <span class="slds-form-element__label">Total Earned Cashback Amount (BHD)</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       end row -->
+
+        </div>
+
+    </lightning:card>
+
+    <lightning:card title="Balance Details">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Retail Plan</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.retailPlanBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Fee Plan</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.feePlanBalance}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Cash Plan</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.cashPlanBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">EPP Plan</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.eppPlanBalance}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Balance Transfer Plan</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.balanceTransferPlanBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Payments Since Last Statement</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.paymentSinceLastStatements}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Last statement balance including due EPP </span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.lastStatementWithDueEpp}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Outstanding balance including due EPP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.outstandingBalance}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Future EPP Installments </span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.totalFutureEPP}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Due EPP Installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.totalDueEPP}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Current balance </span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.currentBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Memo Debit</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.memoDebit}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Memo Credit </span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.memoCredit}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Outstanding Balance Excluding Future EPP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.outstandingBalance}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Original Last Statement Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.lastStatmentBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Recent Payments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.recentCreditsAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Unpaid Transactions Balance (Outstanding
+                            Breakdown)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.unpaidTransactionsBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Future EPP Installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.futureEPP }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </lightning:card>
+    <lightning:card title="Minimum Due Details">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Minimum Due</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.minimumDues}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Minimum Due Excluding EPP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.minimumDuesExcludingEPP }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">EPP Due installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.totalDueEPP}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Recent Payments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!(v.cardData.memoCredit==0?v.cardData.memoCredit:'-'+v.cardData.memoCredit)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </lightning:card>
+    <lightning:card title="Last Statement Details">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Last Statement Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH12 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+
+                                    {!v.cardData.paymentLastStatementBalanceNew}
+                                </aura:if>
+                                <!-- CH12 end  -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Original Statement Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.lastStatmentBalance }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Remaining EPP Installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!(v.cardData.futureEPP==0?v.cardData.futureEPP:'-'+v.cardData.futureEPP)}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Recent Payments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!(v.cardData.lastStatementRecentPayments==0?v.cardData.lastStatementRecentPayments:'-'+v.cardData.lastStatementRecentPayments)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </lightning:card>
+    <lightning:card title="Outstanding Details">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Outstanding Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                                {!v.cardData.paymentOutstandingBalance}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Full Outstanding</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.usedCreditLimit}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Remaining EPP Installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!(v.cardData.futureEPP==0?v.cardData.futureEPP:'-'+v.cardData.futureEPP)}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                </div>
+
+            </div>
+        </div>
+    </lightning:card>
+    <!-- CH11 START -->
+    <lightning:card title="Annual Membership Details">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Next Membership Renewal Date</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.nextMembershipRenewalDate}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Next Membership Renewal Fee</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.nextMembershipRenewalFee}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Next Membership Renewal Fee VAT</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.nextMembershipRenewalFeeVAT}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Next Membership Renewal Waiver Flag</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.nextMembershipRenewalWaiverFlag}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Next Membership Renewal Waiver Limit</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.nextMembershipRenewalWaiverLimit}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Total Spending Since Last Renewal</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.totalSpendSinceLastRenewal}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Remaining Spend For Waiver</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.cardData.remainingSpendForWaiver}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form__item" role="listitem">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+    <!-- CH11 END -->
+    <!-- CH04 START Added a AND Condition in aura:if v.caseSubType != 'Credit Limit Decrease'-->
+    <!-- CH07:  added if condition to control the visibility when casesubtype is 'Generate Cash Collateral Letter'-->
+    <aura:if
+        isTrue="{!and(true == v.enableActions, and(v.caseSubType != 'Credit Limit Decrease',v.caseSubType != 'Generate Cash Collateral Letter'))}">
+        <!-- #CH02 : Add targetType Variable -->
+        <c:creditCardAction customerId="{!v.customerId}" cardDetails="{!v.cardData}" account="{!v.account}"
+            caseId="{!v.caseId}" accountId="{!v.accountId}" targetType="{!v.targetType}" />
+    </aura:if>
+    <!-- CH04 END -->
+
+
+    <c:apexService aura:id="apexService" />
+</aura:component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Credit Retention Result --></label>
+    <name>cx_ln_Credit_Retention_Result__c</name>
+    <picklistValues>
+        <masterLabel>Customer Cannot be Reached</masterLabel>
+        <translation><!-- Customer Cannot be Reached --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Declined Offer</masterLabel>
+        <translation><!-- Customer Declined Offer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer accepted to Convert application to Loan against deposit</masterLabel>
+        <translation><!-- Customer accepted to Convert application to Loan against deposit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer accepted to Proceed with application</masterLabel>
+        <translation><!-- Customer accepted to Proceed with application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Waiting for Documents</masterLabel>
+        <translation><!-- Waiting for Documents --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Lead_Referred_Back_to_Maker</fullName>
+        <description>Lead Referred Back to Maker</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Lead_Referred_Back_to_Maker</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_assigned_to_Checker</fullName>
+        <description>Lead assigned to Checker</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Lead_Assigned_to_Checker</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Lead_has_been_created</fullName>
+        <description>New Lead has been created</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/New_Lead_Created</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>UpdateLeadRecordType_on_Save</fullName>
+        <description>Once the Lead is Saved, the record type of the lead is updated to full Detail View</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Lead_Detail_Onboarding</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>UpdateLeadRecordType on Save</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_the_RecordType_when_to_Checker</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Lead_with_Checker</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update the RecordType when to Checker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update the RecordType on Save</fullName>
+        <actions>
+            <name>New_Lead_has_been_created</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>UpdateLeadRecordType_on_Save</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>RecordType.DeveloperName != &apos;Relative&apos;</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update the RecordType when assign to Checker</fullName>
+        <actions>
+            <name>Lead_assigned_to_Checker</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Update_the_RecordType_when_to_Checker</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Status</field>
+            <operation>equals</operation>
+            <value>Data Validation - Checker</value>
+        </criteriaItems>
+        <description>Update the RecordType when assign to Checker</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update the RecordType when assign to Maker</fullName>
+        <actions>
+            <name>Lead_Referred_Back_to_Maker</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>UpdateLeadRecordType_on_Save</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the RecordType when assign to Maker</description>
+        <formula>TEXT(Status) = &apos;Referred Back by - Checker&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

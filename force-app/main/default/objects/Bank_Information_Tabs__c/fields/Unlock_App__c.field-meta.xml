@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unlock_App__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Enable &quot;Unlock App&quot; tab</inlineHelpText>
+    <label>Unlock App</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

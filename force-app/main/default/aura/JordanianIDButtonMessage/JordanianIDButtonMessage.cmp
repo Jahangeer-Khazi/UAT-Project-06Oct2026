@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<div style="margin-top:20px;">
+        	<p style="color:green;font-size:18px;">Please Click on the Retreive Jordanian ID Button on Case Details Page.</p>
+    </div>
+</aura:component>

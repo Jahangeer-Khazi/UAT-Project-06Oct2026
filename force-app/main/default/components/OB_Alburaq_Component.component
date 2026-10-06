@@ -1,0 +1,28 @@
+<apex:component controller="OutstandingBalanceCmpController" >
+    <apex:attribute name="cardWrapperObj" assignTo="{!wrapperObject}" type="Object" description="Card Name details" required="true" />
+    <apex:attribute name="loanOutstandingBalance" assignTo="{!formattedTotalLoanBalance}" type="String" description="Outstanding Balance of Loans" required="true" />
+    <apex:repeat var="cardWrapper" value="{!obWrapper.cardWrapperList}">
+        <p>
+            {!cardWrapper.cardNumber}
+        </p>
+    </apex:repeat>
+    <div  style="margin-top:15px;font-size:14px;width:100%">
+        <table width="100%">
+            <tr style="background-color:#00153e;color:#79ED00;padding:10px;">
+                <td style="text-align:center;height:40px">Finance Type(s)</td>
+                <td style="text-align:center">Finance Account(s)</td>
+                <td style="text-align:center">Outstanding Balance(s)</td>
+            </tr>
+            <apex:repeat var="loanWrapper" value="{!obWrapper.alburaqLoanWrapperList}">
+                <tr style="background-color:#eee">
+                    <td style="height:30px;padding-left:10px;text-align:center;text-transform: capitalize">{!loanWrapper.financeType}</td>
+                    <td style="padding-left:10px;text-align:center">{!loanWrapper.financeAccount}</td>
+                    <td style="padding-left:10px;text-align:center">BHD {!loanWrapper.formattedOutstandingBalance}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </div>
+    <div style="margin-top:15px;font-size:14px;width:100%">
+        The total Finance(s) outstanding balance including Fees and Charges: BHD {!totalLoanBalance}
+    </div>
+</apex:component>

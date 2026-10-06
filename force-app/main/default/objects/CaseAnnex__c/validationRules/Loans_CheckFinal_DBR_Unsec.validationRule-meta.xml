@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_CheckFinal_DBR_Unsec</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    !ISPICKVAL(Case__r.cc_Control_Type__c, &apos;STP&apos;),
+    ISPICKVAL(cx_ln_Product__c, &apos;Unsecured&apos;),
+    OR(
+    AND(ISCHANGED(cx_ln_Credit_Pre_Screening_Result__c),ISPICKVAL(cx_ln_Credit_Pre_Screening_Result__c, &apos;Accept&apos;)),
+    AND(ISCHANGED(cx_ln_Credit_Approval_Result__c),ISPICKVAL(cx_ln_Credit_Approval_Result__c, &apos;Approve&apos;))
+    ),
+    cx_ln_Final_DBR__c &gt; 100
+)</errorConditionFormula>
+    <errorMessage>Final DBR cannot be greater than 100, Please check the Financial Details tab.</errorMessage>
+</ValidationRule>

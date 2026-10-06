@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Case Category --></label>
+    <name>Case_Category__c</name>
+    <picklistValues>
+        <masterLabel>Checking CPR/Wathiq Form Availability</masterLabel>
+        <translation><!-- Checking CPR/Wathiq Form Availability --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fetching iGA &amp; Checking Additional Docs</masterLabel>
+        <translation><!-- Fetching iGA &amp; Checking Additional Docs --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Having Existing Periodic Review Case</masterLabel>
+        <translation><!-- Having Existing Periodic Review Case --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IDandV Document Hash Updated</masterLabel>
+        <translation><!-- IDandV Document Hash Updated --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wathiq Acceptance Required on Customer</masterLabel>
+        <translation><!-- Wathiq Acceptance Required on Customer --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

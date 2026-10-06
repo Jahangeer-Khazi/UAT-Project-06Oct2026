@@ -1,0 +1,17 @@
+<template>
+    <div style="background:white;height:130px">
+        <template if:true={showSpinner}>
+            <lightning-spinner variant="brand" size="small" style="position:inherit"> </lightning-spinner>
+        </template>
+        <template if:true={isSuccess}>
+            <div style="color:green;display:flex;align-items: center;height:100%;justify-content: center;">
+                {msg}
+            </div>
+        </template>
+        <template if:false={isSuccess}>
+            <div style="color:red;display:flex;align-items: center;height:100%;justify-content: center;">
+                {msg}
+            </div>
+        </template>
+    </div>
+</template>

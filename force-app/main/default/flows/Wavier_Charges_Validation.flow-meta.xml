@@ -1,0 +1,3934 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_CEO_Budget_Matrix</name>
+        <label>Assign CEO Budget Matrix</label>
+        <locationX>11740</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_ceo</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assigning CEO QueueId to Record Owner.</description>
+        <name>Assign_CEO_Queue</name>
+        <label>Assign CEO Queue</label>
+        <locationX>14746</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Wavier_CEO_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>CEO</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Center_Budget</name>
+        <label>Assign Contact Center Budget</label>
+        <locationX>10420</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_headof_contact_center</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Center_Date</name>
+        <label>Assign Contact Center Date</label>
+        <locationX>16594</locationX>
+        <locationY>3599</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Contact_Center_Internal_Result_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Centre</name>
+        <label>Assign Contact Centre</label>
+        <locationX>16198</locationX>
+        <locationY>3491</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Contact_Center_Internal</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Contact Center</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Ops_Date</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Contact_Centre2</name>
+        <label>Assign Contact Centre</label>
+        <locationX>17122</locationX>
+        <locationY>3383</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Contact_Center_Internal</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Contact Center</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Contact_Center_Date</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Customer_Service_Budget_Matrix</name>
+        <label>Assign Customer Service Budget Matrix</label>
+        <locationX>10684</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_headof_customer_service</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Customer Service QueueId to Record Owner.</description>
+        <name>Assign_Head_of_Business_Queue</name>
+        <label>Assign Head of Business Queue</label>
+        <locationX>13426</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Business_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>HoB</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Contact Center QueueId to Record Owner.</description>
+        <name>Assign_Head_of_Contact_Center</name>
+        <label>Assign Head of Contact Center</label>
+        <locationX>9730</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Contact_Center_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Contact Center</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Customer Service QueueId to Record Owner. Head of Customer Service Role would also go to Product Manager Queue.</description>
+        <name>Assign_Head_of_Customer_Service_Queue</name>
+        <label>Assign Head of Customer Service Queue</label>
+        <locationX>10698</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Customer_Service_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Customer Service</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Customer Service QueueId to Record Owner. Head of Customer Service Role would also go to Product Manager Queue.</description>
+        <name>Assign_Head_of_Customer_Service_Queue_2</name>
+        <label>Assign Head of Customer Service Queue</label>
+        <locationX>12078</locationX>
+        <locationY>5075</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Customer_Service_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Customer Service</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Proposition QueueId to Record Owner.</description>
+        <name>Assign_Head_of_Proposition_Queue</name>
+        <label>Assign Head of Proposition Queue</label>
+        <locationX>12106</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Proposition_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Proposition</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_HoB_Budget_Matrix</name>
+        <label>Assign HoB Budget Matrix</label>
+        <locationX>11476</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_hob</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Ops_Date_To_Current_Date</name>
+        <label>Assign Ops Date To Current Date</label>
+        <locationX>16066</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Ops_Result_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Ops Queue</description>
+        <name>Assign_Ops_Queue</name>
+        <label>Assign Ops Queue</label>
+        <locationX>15538</locationX>
+        <locationY>3383</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Operations_Queue_ID</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Product_Manager_Budget_Matrix</name>
+        <label>Assign Product Manager Budget Matrix</label>
+        <locationX>10948</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_productmanager</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assigning Product Manager QueueId to Record Owner.</description>
+        <name>Assign_Product_Manager_Queue</name>
+        <label>Assign Product Manager Queue</label>
+        <locationX>8586</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Product_Manager_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Product Manager</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Proposition_Budget_Matrix</name>
+        <label>Assign Proposition Budget Matrix</label>
+        <locationX>11212</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_headof_proposition</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Queue_Name</name>
+        <label>Assign Queue Name</label>
+        <locationX>4043</locationX>
+        <locationY>3383</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Route_to_Queue__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Reassign_Queue_Waiver_Level</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Regular_Premium</name>
+        <label>Assign Regular Premium</label>
+        <locationX>10200</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>customer_segment</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Regular / Premium</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ByPass_Owner_Routing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Staff_Segment</name>
+        <label>Assign Staff Segment</label>
+        <locationX>9936</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>customer_segment</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Staff</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ByPass_Owner_Routing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Team_Leaders_Budget</name>
+        <label>Assign Team Leaders Budget</label>
+        <locationX>10156</locationX>
+        <locationY>1859</locationY>
+        <assignmentItems>
+            <assignToReference>budget_record_teamleader</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_Budget_Matrix</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Wavier1</name>
+        <label>Assign Wavier1</label>
+        <locationX>7491</locationX>
+        <locationY>2675</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 1</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_Resigned</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assigning Customer Service Teamleader QueueId to Record Owner.</description>
+        <name>Assing_Customer_Service_Teamleader_Queue</name>
+        <label>Assing Customer Service Teamleader Queue</label>
+        <locationX>7178</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Customer_Service_Teamleaders_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Team Leaders</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Contact Center QueueId to Record Owner.</description>
+        <name>Assing_Head_of_Contact_Center_Queue</name>
+        <label>Assing Head of Contact Center Queue</label>
+        <locationX>7882</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Contact_Center_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Contact Center</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Case_Closed</name>
+        <label>Case Closed</label>
+        <locationX>16726</locationX>
+        <locationY>3383</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Contact_Center_Internal_Result__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Customer Contacted</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Contact_Center_Date</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Case_Closed2</name>
+        <label>Case Closed</label>
+        <locationX>17386</locationX>
+        <locationY>3383</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>CEO_New_Approver</name>
+        <label>CEO_New_Approver</label>
+        <locationX>6122</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Wavier_CEO_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 5</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>CEO</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Head of Proposition QueueId to Record Owner.</description>
+        <name>Copy_1_of_Assign_Head_of_Proposition_Queue</name>
+        <label>Assign Head of Proposition Queue</label>
+        <locationX>13046</locationX>
+        <locationY>5075</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Proposition_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Proposition</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigning Product Manager QueueId to Record Owner.</description>
+        <name>Copy_1_of_Assign_Product_Manager_Queue</name>
+        <label>Assign Product Manager Queue</label>
+        <locationX>11226</locationX>
+        <locationY>3923</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Product_Manager_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Product Manager</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Assign_Staff_Segment</name>
+        <label>Assign Staff Segment</label>
+        <locationX>9936</locationX>
+        <locationY>1019</locationY>
+        <assignmentItems>
+            <assignToReference>customer_segment</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Staff</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Customer_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Update_Wavier_Level_4</name>
+        <label>Update Wavier Level 5</label>
+        <locationX>13954</locationX>
+        <locationY>3707</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 5</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Wavier5_Queue</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Head_of_CC_New_Approver2</name>
+        <label>Head of CC New Approver</label>
+        <locationX>2162</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Contact_Center_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Contact Center</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Head_of_CS_New_Approver</name>
+        <label>Head of CS New Approver</label>
+        <locationX>2954</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Customer_Service_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Customer Service</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>HoB_New_Approver</name>
+        <label>HoB_New_Approver</label>
+        <locationX>5330</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Business_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 4</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>HoB</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Product_Team_New_Approver</name>
+        <label>Product Team New Approver</label>
+        <locationX>3746</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Product_Manager_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Product Manager</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Proposition_New_Approver2</name>
+        <label>Proposition_New_Approver</label>
+        <locationX>4538</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Head_of_Proposition_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Head of Proposition</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Reset_Reviewer_User_ID</name>
+        <label>Reset Reviewer User ID</label>
+        <locationX>8019</locationX>
+        <locationY>2783</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Request_Approver_User_ID__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Owner_Resigned</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Max_Amount</name>
+        <label>Set Max Amount</label>
+        <locationX>2223</locationX>
+        <locationY>2243</locationY>
+        <assignmentItems>
+            <assignToReference>max_amount</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>Min_Max_Amount_Check</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Teamlead_New_Approver</name>
+        <label>Teamlead New Approver</label>
+        <locationX>1370</locationX>
+        <locationY>4115</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Customer_Service_Teamleaders_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Queue_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Team Leaders</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Customer_Email</name>
+        <label>Update Customer Email</label>
+        <locationX>10068</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Customer_Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Customer__r.PersonEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Wavier_Hierarchy</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>update_waiver_level_1</name>
+        <label>update waiver level 1</label>
+        <locationX>3647</locationX>
+        <locationY>3599</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 1</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Checking_is_Valid_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>update_waiver_level_2</name>
+        <label>update waiver level 2</label>
+        <locationX>3911</locationX>
+        <locationY>3599</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 2</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Checking_is_Valid_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>update_waiver_level_3</name>
+        <label>update waiver level 3</label>
+        <locationX>4175</locationX>
+        <locationY>3599</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 3</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Checking_is_Valid_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Wavier_Level</name>
+        <label>Update Wavier Level</label>
+        <locationX>11292</locationX>
+        <locationY>4559</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 3</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Wavier3_Queue</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Wavier_Level_2</name>
+        <label>Update Wavier Level 2</label>
+        <locationX>8223</locationX>
+        <locationY>4175</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 2</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Wavier2_Queue</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Wavier_Level_4</name>
+        <label>Update Wavier Level 4</label>
+        <locationX>12936</locationX>
+        <locationY>5543</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Wavier_Level__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Waiver Level 4</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Wavier4_Queue</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Business_amount_error</name>
+        <label>Business amount error</label>
+        <locationX>13162</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_hob.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>ceo_amount_error</name>
+        <label>ceo amount error</label>
+        <locationX>14482</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_ceo.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>CEO_Insufficient_Amount</name>
+        <label>CEO Insufficient Amount</label>
+        <locationX>6386</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>CEO_Wavier_Amount_Exceed_Error</name>
+        <label>CEO Wavier Amount Exceed Error</label>
+        <locationX>5858</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_ceo.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <description>Claim amount is less then the configure min amount in Wavier Matrix</description>
+        <name>Claim_Amount</name>
+        <label>Claim Amount</label>
+        <locationX>578</locationX>
+        <locationY>2567</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be less than {!Get_Wavier_Charges.Min_Charges__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <description>Claim amount must be a within the Min Max amount from wavier matrix custom metadata</description>
+        <name>Claim_Amount_Exceeded</name>
+        <label>Claim Amount Exceeded</label>
+        <locationX>314</locationX>
+        <locationY>2459</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount must be between {!Get_Wavier_Charges.Min_Charges__c} and {!Get_Wavier_Charges.Max_Charges__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>contact_center_error</name>
+        <label>contact center error</label>
+        <locationX>9466</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_headof_contact_center.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Copy_1_of_Copy_1_of_TeamLead_Wavier_Amount_Exceed_Error</name>
+        <label>Head of CC Wavier Amount Exceed Error</label>
+        <locationX>1898</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_headof_contact_center.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Copy_1_of_proposition_amount_error</name>
+        <label>proposition amount error</label>
+        <locationX>12782</locationX>
+        <locationY>5075</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_headof_proposition.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Copy_1_of_TeamLead_Insufficient_Amount</name>
+        <label>Head of CC Insufficient Amount</label>
+        <locationX>2426</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Copy_1_of_TeamLead_Wavier_Amount_Exceed_Error</name>
+        <label>TeamLead Wavier Amount Exceed Error</label>
+        <locationX>1106</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_teamleader.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Copy_2_of_VAT_validation_error</name>
+        <label>VAT validation error</label>
+        <locationX>15802</locationX>
+        <locationY>3491</locationY>
+        <customErrorMessages>
+            <errorMessage>Transaction Refund Reference Number or VAT Refund Reference Number are required.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>customer_service_amount_error</name>
+        <label>customer service amount error</label>
+        <locationX>11814</locationX>
+        <locationY>5075</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_headof_customer_service.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Customer_Service_Amount_Exceeded_Error</name>
+        <label>Customer Service Amount Exceeded Error</label>
+        <locationX>10434</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_headof_customer_service.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Duplicate_Record_Error</name>
+        <label>Duplicate Record Error</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <customErrorMessages>
+            <errorMessage>There is already a record created with same data.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>HCC_Wavier_Amount_Exceed_Error</name>
+        <label>HCC Wavier Amount Exceed Error</label>
+        <locationX>7618</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_headof_contact_center.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Head_of_CS_Insufficient_Amount</name>
+        <label>Head of CS Insufficient Amount</label>
+        <locationX>3218</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Head_of_CS_Wavier_Amount_Exceed_Error</name>
+        <label>Head of CS Wavier Amount Exceed Error</label>
+        <locationX>2690</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_headof_customer_service.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Head_of_Proposition_Insufficient_Amount</name>
+        <label>Head of Proposition Insufficient Amount</label>
+        <locationX>4802</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Head_of_Proposition_Wavier_Amount_Exceed_Error</name>
+        <label>Head of Propostion Wavier Amount Exceed Error</label>
+        <locationX>4274</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_headof_proposition.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>HoB_Budget_not_sufficient</name>
+        <label>HoB Budget not sufficient</label>
+        <locationX>13690</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>HoB does not have sufficient budget.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>HoB_Insufficient_Amount</name>
+        <label>HoB Insufficient Amount</label>
+        <locationX>5594</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>HoB_Wavier_Amount_Exceed_Error</name>
+        <label>HoB Wavier Amount Exceed Error</label>
+        <locationX>5066</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_hob.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Invalid_Queue</name>
+        <label>Invalid Queue</label>
+        <locationX>6650</locationX>
+        <locationY>3899</locationY>
+        <customErrorMessages>
+            <errorMessage>This is not a valid queue. Please select a valid queue.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Invalid_Record_Selection</name>
+        <label>Invalid Record Selection</label>
+        <locationX>17914</locationX>
+        <locationY>2243</locationY>
+        <customErrorMessages>
+            <errorMessage>Type SubType and Request Type is not a valid combination.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Limit_Exceed_Error</name>
+        <label>Limit Exceed Error</label>
+        <locationX>15010</locationX>
+        <locationY>3599</locationY>
+        <customErrorMessages>
+            <errorMessage>Waiver Approval Budget not available for this request. Please check with RMT</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Maker_Checker_Error</name>
+        <label>Maker Checker Error</label>
+        <locationX>7755</locationX>
+        <locationY>2783</locationY>
+        <customErrorMessages>
+            <errorMessage>Maker and Checker cannot be the same user</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Product_Manager_Amount_Exceeded_Error</name>
+        <label>Product Manager Amount Exceeded Error</label>
+        <locationX>10962</locationX>
+        <locationY>3923</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than 
+{!budget_record_productmanager.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Product_Manger_Wavier_Amount_Exceed_Error</name>
+        <label>Product Manger Wavier Amount Exceed Error</label>
+        <locationX>8322</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_productmanager.Remaining_Limit__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Product_Team_Insufficient_Amount</name>
+        <label>Product Team Insufficient Amount</label>
+        <locationX>4010</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Product_Team_Wavier_Amount_Exceed_Error</name>
+        <label>Product Team Wavier Amount Exceed Error</label>
+        <locationX>3482</locationX>
+        <locationY>4115</locationY>
+        <customErrorMessages>
+            <errorMessage>{!$Record.Route_to_Queue__c} can approve max {!budget_record_productmanager.Max_Waiver_Amount__c} amount only.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>proposition_amount_error</name>
+        <label>proposition amount error</label>
+        <locationX>11842</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_headof_proposition.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Staff_Segment_Reassignment</name>
+        <label>Staff Segment Reassignment</label>
+        <locationX>842</locationX>
+        <locationY>3383</locationY>
+        <customErrorMessages>
+            <errorMessage>Staff segment customer can only be reassign to HoB or CEO Queue.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>TeamLead_Insufficient_Amount</name>
+        <label>TeamLead Insufficient Amount</label>
+        <locationX>1634</locationX>
+        <locationY>4007</locationY>
+        <customErrorMessages>
+            <errorMessage>Insufficient limit. Please escalate to next level</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>TeamLead_Wavier_Amount_Excced_Error</name>
+        <label>TeamLead Wavier Amount Excced Error</label>
+        <locationX>6914</locationX>
+        <locationY>3707</locationY>
+        <customErrorMessages>
+            <errorMessage>Claim amount cannot be greater than {!budget_record_teamleader.Max_Waiver_Amount__c}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>Assigning all 7 Budget Matrix record to their respective field</description>
+        <name>Budget_Matrix_Conditions</name>
+        <label>Budget Matrix Conditions</label>
+        <locationX>11080</locationX>
+        <locationY>1751</locationY>
+        <defaultConnector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Team_Leaders_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Team Leaders</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Team_Leaders_Budget</targetReference>
+            </connector>
+            <label>Team Leaders Budget Matrix</label>
+        </rules>
+        <rules>
+            <name>Head_Of_Contact_Center_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contact_Center_Budget</targetReference>
+            </connector>
+            <label>Head Of Contact Center Budget Matrix</label>
+        </rules>
+        <rules>
+            <name>Head_of_Customer_Service_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Customer Service</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Customer_Service_Budget_Matrix</targetReference>
+            </connector>
+            <label>Head of Customer Service Budget Matrix</label>
+        </rules>
+        <rules>
+            <name>Product_Manager_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Product_Manager_Budget_Matrix</targetReference>
+            </connector>
+            <label>Product Manager Budget Matrix</label>
+        </rules>
+        <rules>
+            <name>Head_of_Proposition_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Proposition</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Proposition_Budget_Matrix</targetReference>
+            </connector>
+            <label>Head of Proposition Budget Matrix</label>
+        </rules>
+        <rules>
+            <name>HoB_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HoB</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_HoB_Budget_Matrix</targetReference>
+            </connector>
+            <label>HoB Budget Matrix</label>
+        </rules>
+        <rules>
+            <name>CEO_Budget_Matrix</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_Budget_Matrix.Role_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CEO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_CEO_Budget_Matrix</targetReference>
+            </connector>
+            <label>CEO Budget Matrix</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Business_Budget_Amount_Check</name>
+        <label>Business Budget Amount Check</label>
+        <locationX>13294</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Head_of_Business_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Business_Budget_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_hob.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_hob.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Business_amount_error</targetReference>
+            </connector>
+            <label>Business Budget Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Business_Budget_Check</name>
+        <label>Business Budget Check</label>
+        <locationX>13558</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Bypass_Waiver_Routing</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Business_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_hob</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_hob.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Business_Budget_Amount_Check</targetReference>
+            </connector>
+            <label>Business Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ByPass_Owner_Routing</name>
+        <label>ByPass Owner Routing</label>
+        <locationX>10068</locationX>
+        <locationY>911</locationY>
+        <defaultConnector>
+            <targetReference>Update_Customer_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_Routing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Label.Waiver_Bypass_Routing</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Assign_Staff_Segment</targetReference>
+            </connector>
+            <label>Bypass Routing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Bypass_Waiver_Routing</name>
+        <label>Bypass Waiver Routing</label>
+        <locationX>13822</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Update_Wavier_Level_4</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_Routing1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Label.Waiver_Bypass_Routing</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HoB_Budget_not_sufficient</targetReference>
+            </connector>
+            <label>Bypass Routing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CEO_Amount_Check</name>
+        <label>CEO Amount Check</label>
+        <locationX>6188</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>CEO_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CEO_Amount_Available2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_ceo.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CEO_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>CEO Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CEO_Budget_Amount_Check</name>
+        <label>CEO Budget Amount Check</label>
+        <locationX>14614</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assign_CEO_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CEO_Budget_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_ceo.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_ceo.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ceo_amount_error</targetReference>
+            </connector>
+            <label>CEO Budget Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CEO_Budget_Check</name>
+        <label>CEO Budget Check</label>
+        <locationX>14812</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Limit_Exceed_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CEO_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_ceo</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_ceo.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CEO_Budget_Amount_Check</targetReference>
+            </connector>
+            <label>CEO Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CEO_Wavier_Amount_Check</name>
+        <label>CEO Wavier Amount Check</label>
+        <locationX>5990</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>CEO_New_Approver</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CEO_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_ceo.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_ceo.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CEO_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>CEO of Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>checking if the record is available or not.</description>
+        <name>Check_If_Record_Found</name>
+        <label>If Record Found</label>
+        <locationX>10068</locationX>
+        <locationY>2135</locationY>
+        <defaultConnector>
+            <targetReference>Invalid_Record_Selection</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Charges</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Charges.Min_Charges__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Max_Amount</targetReference>
+            </connector>
+            <label>Record Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Checking_is_Valid_Owner</name>
+        <label>Checking is Valid Owner</label>
+        <locationX>4043</locationX>
+        <locationY>3791</locationY>
+        <defaultConnector>
+            <targetReference>Invalid_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Teamlead_Queue</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Team leaders</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TeamLead_Amount_Check</targetReference>
+            </connector>
+            <label>TeamLead Queue</label>
+        </rules>
+        <rules>
+            <name>Head_of_CC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of contact center</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_CC_Amount_Check2</targetReference>
+            </connector>
+            <label>Head of CC</label>
+        </rules>
+        <rules>
+            <name>Head_of_CS</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of customer service</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_CS_Amount_Check2</targetReference>
+            </connector>
+            <label>Head of CS</label>
+        </rules>
+        <rules>
+            <name>Product_Manager3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Team_Amount_Check</targetReference>
+            </connector>
+            <label>Product Manager</label>
+        </rules>
+        <rules>
+            <name>Head_of_Proposition_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Proposition</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_Proposition_Amount_Check</targetReference>
+            </connector>
+            <label>Head of Proposition</label>
+        </rules>
+        <rules>
+            <name>HoB</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HoB</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HOB_Amount_Check</targetReference>
+            </connector>
+            <label>HoB</label>
+        </rules>
+        <rules>
+            <name>CEO_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CEO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CEO_Amount_Check</targetReference>
+            </connector>
+            <label>CEO</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Contact_Center_Amount_Check</name>
+        <label>Contact Center Amount Check</label>
+        <locationX>9598</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Head_of_Contact_Center</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Center_Amount_Exceed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_contact_center.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>contact_center_error</targetReference>
+            </connector>
+            <label>Contact Center Amount Exceed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Contact_Center_Budget_Check</name>
+        <label>Contact Center Budget Check</label>
+        <locationX>9862</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Contact_Center_has_Product_Manager</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Center_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contact_Center_Amount_Check</targetReference>
+            </connector>
+            <label>Contact Center Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>This specific condition is only for &quot;Head of Contact Center &amp; Product Manager&quot; scenario, When Type = &apos;Fee &amp; Charges &apos;, Sub Type = &apos;Credit card&apos; and Request type = &apos;Paper Statement reprint/ month&apos;</description>
+        <name>Contact_Center_has_Product_Manager</name>
+        <label>Contact Center has Product Manger</label>
+        <locationX>10126</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Center_And_Product_Manager</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center &amp; Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Customer_Service_Budget_Check</targetReference>
+            </connector>
+            <label>Contact Center And Product Manager</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>This specific condition is only for &quot;Head of Proposition &amp; Head of Customer Service&quot; scenario</description>
+        <name>Copy_1_of_Customer_Service_has_Product_Manager</name>
+        <label>Customer Service has Product Manager</label>
+        <locationX>12474</locationX>
+        <locationY>4967</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level_4</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_Proposition_And_Head_of_Customer_Service</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_3__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Proposition &amp; Head of Customer Service</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Copy_1_of_Proposition_Budget_Check</targetReference>
+            </connector>
+            <label>Head of Proposition And Head of Customer Service</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_1_of_Proposition_Amount_Check</name>
+        <label>Proposition Amount Check</label>
+        <locationX>12914</locationX>
+        <locationY>4967</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Assign_Head_of_Proposition_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Proposition_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_proposition.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_proposition_amount_error</targetReference>
+            </connector>
+            <label>Proposition Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_1_of_Proposition_Budget_Check</name>
+        <label>Proposition Budget Check</label>
+        <locationX>13112</locationX>
+        <locationY>4859</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level_4</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Proposition_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Proposition_Amount_Check</targetReference>
+            </connector>
+            <label>Proposition Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_2_of_Validate_Return_Refereence_number</name>
+        <label>Validate Return Refereence number</label>
+        <locationX>16000</locationX>
+        <locationY>3383</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Contact_Centre</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_2_of_Validate_Return_Reference_and_VAT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ops</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Transaction_Refund_Reference_Number__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.VAT_Refund_Reference_Number__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_VAT_validation_error</targetReference>
+            </connector>
+            <label>Copy 2 of Validate Return Reference and VAT</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Customer_Service_Amount_Check</name>
+        <label>Customer Service Amount Check</label>
+        <locationX>10566</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Head_of_Customer_Service_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Customer_Service_Amount_Exceed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_customer_service.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Customer_Service_Amount_Exceeded_Error</targetReference>
+            </connector>
+            <label>Customer Service Amount Exceed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Customer_Service_Amount_Check_2</name>
+        <label>Customer Service Amount Check</label>
+        <locationX>11946</locationX>
+        <locationY>4967</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Head_of_Customer_Service_Queue_2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Customer_Service_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_customer_service.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>customer_service_amount_error</targetReference>
+            </connector>
+            <label>Customer Service Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Customer_Service_Budget_Check</name>
+        <label>Customer Service Budget Check</label>
+        <locationX>11022</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Customer_Service_has_Product_Manager</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Customer_Service_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center &amp; Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Customer_Service_Amount_Check</targetReference>
+            </connector>
+            <label>Customer Service Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Customer_Service_Budget_Check_2</name>
+        <label>Customer Service Budget Check</label>
+        <locationX>12210</locationX>
+        <locationY>4859</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Customer_Service_has_Product_Manager</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Customer_Service_Budget_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Customer_Service_Amount_Check_2</targetReference>
+            </connector>
+            <label>Customer Service Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>This specific condition is only for &quot;Head of Contact Center &amp; Product Manager&quot; scenario</description>
+        <name>Customer_Service_has_Product_Manager</name>
+        <label>Customer Service has Product Manager</label>
+        <locationX>11479</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Contact_Center_And_Product_Manager</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center &amp; Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Manager_Budget_Check</targetReference>
+            </connector>
+            <label>Copy 1 of Contact Center And Product Manager</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Duplicate_Record</name>
+        <label>Duplicate Record</label>
+        <locationX>5059</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Get_Customer</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Duplicate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Existing_Wavier_Matrix_Record</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Duplicate_Record_Error</targetReference>
+            </connector>
+            <label>Is Duplicate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>HCC_Wavier_Amount_Check</name>
+        <label>HCC Wavier Amount Check</label>
+        <locationX>7750</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assing_Head_of_Contact_Center_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_HCC_Wavier_Amount_Check</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_contact_center.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HCC_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>Outcome 1 of HCC Wavier Amount Check</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Head_of_CC_Amount_Check2</name>
+        <label>Head of CC Amount Check</label>
+        <locationX>2228</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_TeamLead_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_CC_Amount_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_CC_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>Head of CC Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Head_of_CC_Wavier_Amount_Check</name>
+        <label>Head of CC Wavier Amount Check</label>
+        <locationX>2030</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>Head_of_CC_New_Approver2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_contact_center.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Copy_1_of_TeamLead_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>Head of Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checking if Budget Record max waiver record is exceeded</description>
+        <name>head_of_Contact_Center_Budget_Record</name>
+        <label>head of Contact Center Budget Record Check</label>
+        <locationX>7948</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level_2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>HCC_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_headof_contact_center.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HCC_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>HCC Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Head_of_CS_Amount_Check2</name>
+        <label>Head of CS Amount Check</label>
+        <locationX>3020</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>Head_of_CS_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_CS_Amount_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_CS_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>Head of CS Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Head_of_CS_Wavier_Amount_Check</name>
+        <label>Head of CS Wavier Amount Check</label>
+        <locationX>2822</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>Head_of_CS_New_Approver</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_CS_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_customer_service.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_customer_service.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_CS_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>Head of CSWavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Head_of_Proposition_Amount_Check</name>
+        <label>Head of Proposition Amount Check</label>
+        <locationX>4604</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>Head_of_Proposition_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_Proposition_Amount_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_Proposition_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>Head of Proposition Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Head_of_Proposition_Wavier_Amount_Check</name>
+        <label>Head of Proposition Wavier Amount Check</label>
+        <locationX>4406</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>Proposition_New_Approver2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_Proposition_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_proposition.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Head_of_Proposition_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>Head of Proposition Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>HOB_Amount_Check</name>
+        <label>HOB Amount Check</label>
+        <locationX>5396</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>HoB_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>HoB_Amount_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_hob.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HoB_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>HoB Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>HoB_Wavier_Amount_Check</name>
+        <label>HoB Wavier Amount Check</label>
+        <locationX>5198</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>HoB_New_Approver</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>HoB_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_hob.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_hob.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HoB_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>HoB Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_New_Record_decision</name>
+        <label>Is New Record_decision</label>
+        <locationX>7689</locationX>
+        <locationY>2567</locationY>
+        <defaultConnector>
+            <targetReference>Maker_Checker_Check</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Is_New_Record</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Wavier1</targetReference>
+            </connector>
+            <label>New_Record</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Maker_Checker_Check</name>
+        <label>Maker Checker Check</label>
+        <locationX>7887</locationX>
+        <locationY>2675</locationY>
+        <defaultConnector>
+            <targetReference>Reset_Reviewer_User_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Maker_Checker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CreatedById</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>$Record.Request_Approver_User_ID__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Maker_Checker_Error</targetReference>
+            </connector>
+            <label>Maker Checker</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When Wavier Matrix (custom metdata) only has Min amount in a record</description>
+        <name>Min_Amount_Check</name>
+        <label>Min Amount Check</label>
+        <locationX>4133</locationX>
+        <locationY>2459</locationY>
+        <defaultConnector>
+            <targetReference>Is_New_Record_decision</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Min_Amount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Charges.Min_Charges__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>Get_Wavier_Charges.Min_Charges__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Claim_Amount</targetReference>
+            </connector>
+            <label>Min Amount</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Min and Max Amount claim checking</description>
+        <name>Min_Max_Amount_Check</name>
+        <label>Min Max Amount Check</label>
+        <locationX>2223</locationX>
+        <locationY>2351</locationY>
+        <defaultConnector>
+            <targetReference>Min_Amount_Check</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Min_Max_Check</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Charges.Min_Charges__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Charges.Max_Charges__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>Get_Wavier_Charges.Max_Charges__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>Get_Wavier_Charges.Min_Charges__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Claim_Amount_Exceeded</targetReference>
+            </connector>
+            <label>Min Max Check</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Condition would takes place when owner is reassigned through.</description>
+        <name>Owner_Resigned</name>
+        <label>Owner Resigned</label>
+        <locationX>7689</locationX>
+        <locationY>3167</locationY>
+        <defaultConnector>
+            <targetReference>Wavier_Level_Condition</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Owner_Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Is_Reassign__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Staff_User_Check</targetReference>
+            </connector>
+            <label>Owner Updated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Manager_Amount_Check</name>
+        <label>Product Manager Amount Check</label>
+        <locationX>8454</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Product_Manager_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ProductManger_Amount_Check</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_productmanager.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_productmanager.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Manger_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>ProductManger Amount Check</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Manager_Amount_Check12</name>
+        <label>Product Manager Amount Check</label>
+        <locationX>11094</locationX>
+        <locationY>3815</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Assign_Product_Manager_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Manager_Amount_Exceed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_productmanager.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_productmanager.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Manager_Amount_Exceeded_Error</targetReference>
+            </connector>
+            <label>Product Manager Amount Exceed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Manager_Budget_Check</name>
+        <label>Product Manager Budget Check</label>
+        <locationX>11292</locationX>
+        <locationY>3707</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Manager_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_productmanager</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_productmanager.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Manager_Amount_Check12</targetReference>
+            </connector>
+            <label>Product Manager Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Manger_Budget_Record_Check</name>
+        <label>Product Manger Budget Record Check</label>
+        <locationX>8652</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level_2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Manager_Budget_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_productmanager</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_productmanager.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Manager_Amount_Check</targetReference>
+            </connector>
+            <label>Product Manager Budget Record</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Team_Amount_Check</name>
+        <label>Product Team Amount Check</label>
+        <locationX>3812</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>Product_Team_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Amount_Available1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_productmanager.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Team_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>Product Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Product_Team_Wavier_Amount_Check</name>
+        <label>Product Team Wavier Amount Check</label>
+        <locationX>3614</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>Product_Team_New_Approver</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Team_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_productmanager.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_productmanager.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Team_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>Product Team Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Proposition_Amount_Check</name>
+        <label>Proposition Amount Check</label>
+        <locationX>11974</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Head_of_Proposition_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Proposition_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_headof_proposition.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>proposition_amount_error</targetReference>
+            </connector>
+            <label>Proposition Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Proposition_Budget_Check</name>
+        <label>Proposition Budget Check</label>
+        <locationX>12172</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Proposition_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_headof_proposition.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Proposition_Amount_Check</targetReference>
+            </connector>
+            <label>Proposition Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checking the waiver level from waiver level hierarchy record.</description>
+        <name>Reassign_Queue_Waiver_Level</name>
+        <label>Reassign Queue Waiver Level</label>
+        <locationX>4043</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Checking_is_Valid_Owner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Waiver_Level_1</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Team leaders</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Service Teamleaders</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_1__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>$Record.Route_to_Queue__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_waiver_level_1</targetReference>
+            </connector>
+            <label>Waiver Level 1</label>
+        </rules>
+        <rules>
+            <name>Waiver_Level_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>$Record.Route_to_Queue__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_waiver_level_2</targetReference>
+            </connector>
+            <label>Waiver Level 2</label>
+        </rules>
+        <rules>
+            <name>Waiver_Level_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_3__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>$Record.Route_to_Queue__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_waiver_level_3</targetReference>
+            </connector>
+            <label>Waiver Level 3</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checking customer segment if value is Regular or Premium then it value will be assigned to segment variable as &quot;Regular / Premium&quot; else &quot;Staff&quot; would assign</description>
+        <name>Segment_Check</name>
+        <label>Segment Check</label>
+        <locationX>10068</locationX>
+        <locationY>611</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Regular_Premium</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Staff_Segment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Customer.Customer_Segment__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Staff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Staff_Segment</targetReference>
+            </connector>
+            <label>Staff Segment</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Staff segment can only be reassign to HoB or CEO</description>
+        <name>Staff_User_Check</name>
+        <label>Staff User Check</label>
+        <locationX>2442</locationX>
+        <locationY>3275</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Queue_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Staff_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Customer__r.Segment__pc</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Staff</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>HoB</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Route_to_Queue__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>CEO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Staff_Segment_Reassignment</targetReference>
+            </connector>
+            <label>Staff User</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>TeamLead_Amount_Check</name>
+        <label>TeamLead Amount Check</label>
+        <locationX>1436</locationX>
+        <locationY>3899</locationY>
+        <defaultConnector>
+            <targetReference>TeamLead_Insufficient_Amount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TeamLead_Amount_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_teamleader.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TeamLead_Wavier_Amount_Check2</targetReference>
+            </connector>
+            <label>TeamLead Amount Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checking Budget Record ,if Remaining limit is available or not</description>
+        <name>TeamLead_Budget_Record_Check</name>
+        <label>TeamLead Budget Record Check</label>
+        <locationX>7244</locationX>
+        <locationY>3491</locationY>
+        <defaultConnector>
+            <targetReference>Update_Wavier_Level_2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Team_Lead_Budget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_teamleader</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>budget_record_teamleader.Remaining_Limit__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Claim_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TeamLead_Wavier_Amount_Check</targetReference>
+            </connector>
+            <label>Team Lead Budget</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checking if max wavier amount is exceed or not</description>
+        <name>TeamLead_Wavier_Amount_Check</name>
+        <label>TeamLead Wavier Amount Check</label>
+        <locationX>7046</locationX>
+        <locationY>3599</locationY>
+        <defaultConnector>
+            <targetReference>Assing_Customer_Service_Teamleader_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TeamLead_Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_teamleader.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_teamleader.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TeamLead_Wavier_Amount_Excced_Error</targetReference>
+            </connector>
+            <label>TeamLead Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>TeamLead_Wavier_Amount_Check2</name>
+        <label>TeamLead Wavier Amount Check</label>
+        <locationX>1238</locationX>
+        <locationY>4007</locationY>
+        <defaultConnector>
+            <targetReference>Teamlead_New_Approver</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Wavier_Amount_Exceeded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>budget_record_teamleader.Max_Waiver_Amount__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Claim_Amount__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>budget_record_teamleader.Max_Waiver_Amount__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_TeamLead_Wavier_Amount_Exceed_Error</targetReference>
+            </connector>
+            <label>Wavier Amount Exceeded</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Updating Contact Center Date Time if it is not empty.</description>
+        <name>Update_Contact_Center_Date</name>
+        <label>Update Contact Center Date</label>
+        <locationX>16726</locationX>
+        <locationY>3491</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Contact_Center_Date_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Contact_Center_Internal_Result_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contact_Center_Date</targetReference>
+            </connector>
+            <label>Is Contact Center Date Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Updating Ops Date Time if it is not empty.</description>
+        <name>Update_Ops_Date</name>
+        <label>Update Ops Date</label>
+        <locationX>16198</locationX>
+        <locationY>3599</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Ops_Date_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Ops_Result_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Ops_Date_To_Current_Date</targetReference>
+            </connector>
+            <label>Is Ops Date Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Wavier1_Queue</name>
+        <label>Wavier1_Queue</label>
+        <locationX>8223</locationX>
+        <locationY>3383</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Customer_Service_Teamleaders</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Service Teamleaders</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>TeamLead_Budget_Record_Check</targetReference>
+            </connector>
+            <label>Customer Service Teamleaders</label>
+        </rules>
+        <rules>
+            <name>Head_of_Contact_Center</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>head_of_Contact_Center_Budget_Record</targetReference>
+            </connector>
+            <label>Head of Contact Center</label>
+        </rules>
+        <rules>
+            <name>Product_Manager</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product_Manger_Budget_Record_Check</targetReference>
+            </connector>
+            <label>Product Manager</label>
+        </rules>
+        <rules>
+            <name>N_A</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>N/A</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Wavier_Level_2</targetReference>
+            </connector>
+            <label>N/A</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Wavier2_Queue</name>
+        <label>Wavier2_Queue</label>
+        <locationX>11292</locationX>
+        <locationY>3383</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_Contact_Center_Wavier2</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Head of Contact Center</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contact_Center_Budget_Check</targetReference>
+            </connector>
+            <label>Head of Contact Center</label>
+        </rules>
+        <rules>
+            <name>Head_of_Customer_Service</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Customer Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Product Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Customer_Service_Budget_Check</targetReference>
+            </connector>
+            <label>Head of Customer Service</label>
+        </rules>
+        <rules>
+            <name>Head_of_Proposition</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Proposition</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Proposition_Budget_Check</targetReference>
+            </connector>
+            <label>Head of Proposition</label>
+        </rules>
+        <rules>
+            <name>N_A_Wavier2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_2__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>N/A</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Wavier_Level</targetReference>
+            </connector>
+            <label>N/A</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Wavier3_Queue</name>
+        <label>Wavier3_Queue</label>
+        <locationX>12936</locationX>
+        <locationY>4751</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_Customer_Service_Wavier3</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_3__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Customer Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_3__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Head of Customer Service</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Customer_Service_Budget_Check_2</targetReference>
+            </connector>
+            <label>Head of Customer Service</label>
+        </rules>
+        <rules>
+            <name>Head_Of_Proposition_123</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_3__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Head of Proposition</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Proposition_Budget_Check</targetReference>
+            </connector>
+            <label>Head Of Proposition</label>
+        </rules>
+        <rules>
+            <name>N_A_Wavier3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_3__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>N/A</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Wavier_Level_4</targetReference>
+            </connector>
+            <label>N/A</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Wavier4_Queue</name>
+        <label>Wavier4_Queue</label>
+        <locationX>13888</locationX>
+        <locationY>3383</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Head_of_Business</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_4__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Head of Business</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Business_Budget_Check</targetReference>
+            </connector>
+            <label>Head of Business</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Wavier5_Queue</name>
+        <label>Wavier5_Queue</label>
+        <locationX>15043</locationX>
+        <locationY>3383</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CEO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wavier_Hierarchy.Wavier_Level_5__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CEO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CEO_Budget_Check</targetReference>
+            </connector>
+            <label>CEO</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Wavier_Level_Condition</name>
+        <label>Wavier Level</label>
+        <locationX>12936</locationX>
+        <locationY>3275</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>WavierLevel1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiver Level 1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Wavier1_Queue</targetReference>
+            </connector>
+            <label>WavierLevel1</label>
+        </rules>
+        <rules>
+            <name>WavierLevel2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiver Level 2</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Wavier2_Queue</targetReference>
+            </connector>
+            <label>WavierLevel2</label>
+        </rules>
+        <rules>
+            <name>WavierLevel3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiver Level 3</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Wavier3_Queue</targetReference>
+            </connector>
+            <label>WavierLevel3</label>
+        </rules>
+        <rules>
+            <name>WavierLevel4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiver Level 4</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Wavier4_Queue</targetReference>
+            </connector>
+            <label>WavierLevel4</label>
+        </rules>
+        <rules>
+            <name>WavierLevel5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiver Level 5</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Wavier5_Queue</targetReference>
+            </connector>
+            <label>WavierLevel5</label>
+        </rules>
+        <rules>
+            <name>Ops_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ops</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ops__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Ops_Queue</targetReference>
+            </connector>
+            <label>Ops Request</label>
+        </rules>
+        <rules>
+            <name>Ops_Response</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ops</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Ops__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Refund Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Validate_Return_Refereence_number</targetReference>
+            </connector>
+            <label>Ops Response</label>
+        </rules>
+        <rules>
+            <name>Contact_Center_Response</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact Center</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Center_Internal_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Contacted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Closed</targetReference>
+            </connector>
+            <label>Contact Center Response</label>
+        </rules>
+        <rules>
+            <name>Case_Rejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Approval_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approval_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contact_Centre2</targetReference>
+            </connector>
+            <label>Case Rejected</label>
+        </rules>
+        <rules>
+            <name>Contact_Center_Rejected_Response</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Wavier_Level__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact Center</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Approval_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Center_Internal_Result__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Closed2</targetReference>
+            </connector>
+            <label>Contact Center Rejected Response</label>
+        </rules>
+    </decisions>
+    <description>This flow would validate the Claim Amount range based on custom metadata (Wavier_Matrix_Charges__mdt)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Current_Datetime</name>
+        <dataType>DateTime</dataType>
+        <expression>Now()</expression>
+    </formulas>
+    <formulas>
+        <name>Is_New_Record</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>Wavier Charges Validation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Wavier Charges Validation</label>
+    <loops>
+        <name>Iterate_Budget_Matrix</name>
+        <label>Iterate Budget Matrix</label>
+        <locationX>10068</locationX>
+        <locationY>1643</locationY>
+        <collectionReference>Get_Budget_Matrix</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Budget_Matrix_Conditions</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Check_If_Record_Found</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Checking if the Wavier record is already exists with below combination Type,Sub Type, Request Type and Customer CIF No.</description>
+        <name>Existing_Wavier_Matrix_Record</name>
+        <label>Existing Wavier Matrix Record</label>
+        <locationX>5059</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Duplicate_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Sub_Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Request_Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Customer__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Customer__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>New_Wavier_Approval__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Budget_Matrix</name>
+        <label>Get Budget Matrix</label>
+        <locationX>10068</locationX>
+        <locationY>1535</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Iterate_Budget_Matrix</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Budget_Matrix__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Customer</name>
+        <label>Get Customer</label>
+        <locationX>10068</locationX>
+        <locationY>503</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Segment_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Customer__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Customer_Segment__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Wavier_Charges</name>
+        <label>Get Wavier Charges</label>
+        <locationX>10068</locationX>
+        <locationY>1427</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Budget_Matrix</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Sub_Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Request_Type__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Wavier_Matrix_Charges__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Fetching the Wavier Level Hierarchy record to assign the record to respective queue</description>
+        <name>Get_Wavier_Hierarchy</name>
+        <label>Get Wavier Hierarchy</label>
+        <locationX>10068</locationX>
+        <locationY>1319</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Wavier_Charges</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Sub_Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Request_Type__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Segment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>customer_segment</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Wavier_Level_Hierarchy__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>4933</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Existing_Wavier_Matrix_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Request_Type__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <object>New_Wavier_Approval__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>budget_record_ceo</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>budget_record_headof_contact_center</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>budget_record_headof_customer_service</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>budget_record_headof_proposition</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>budget_record_hob</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>budget_record_productmanager</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>budget_record_teamleader</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Budget_Matrix__c</objectType>
+    </variables>
+    <variables>
+        <name>customer_segment</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>max_amount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>3</scale>
+    </variables>
+    <variables>
+        <name>newApprover</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Wavier_Queue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

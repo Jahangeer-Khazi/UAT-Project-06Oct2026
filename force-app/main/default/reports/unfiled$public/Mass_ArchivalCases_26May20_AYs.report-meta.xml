@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Status</field>
+    </columns>
+    <columns>
+        <field>Account$PersonContact.Onboarding_Stage__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <column>Account$PersonContact.CIF__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1742422,1731098,1727517,1722065,1909777,1692507,1926328,1920009,1689396,1689508,1689431,1690440,1690810,1691333,1688913,1689788,1692493,1692349,1914927,1909011,1914949,1907987,1906908,1909410,1909641,1908224,1912024,1919277,1920339,1919056,1919309,1919430,1919976,1918471,1918539,1676591,1687226,1905151,1907054,1894087,1896269,1905179,1906083,1872117,1904922,1911680,1905165,1561766,1910649,1680938,1681597,1682009,1681541,1682003,1677230,1680473,1885440,1676675,1674925,1669154,1676731,1670147,1675813,1887751,1886843,1888377,1874333,1829911,1888391,1665628,1879369,1871716,1838929,1659420,1657024,1656739,1857590,1834606,1761956,1866343,1865122,1768458,1751842,1733789,1812989,1844948,1862875,1861986,1829119,1831744,1858670,1865799,1838840,1859940,1693448,1822478,1858290,1858065,1845154</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$PersonContact.CIF__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1855263,1857745,1857133,1845582,1856837,1836376,1846084,1846007,1632508,1827074,1830922,1826916,1830632,1807236,1837637,1834858,1826171,1830246,1826125,1834394,1830946,1618560,1827847,1822240,1820475,1814298,1815569,1811490,1608551,1559425,1806546,1812483,1812132,1808366,1750160,1809215,1751226,1784759,1785694,1750170,1807255,1805647,1798925,1783889,1782586,1748544,1792148,1800012,1769553,1771687,1782862,1774765,1775940,1596265,1596424,1790789,1788200,1791619,1581084,1586444,1783149,1788840,1788938,1788956,1560301,1784930,1784337,1788136,1788638,1570527,1575099,1571075,1578299,1578092,1577779,1578100,1571133,1573353,1576343,1730135,1684278,1781181,1774999,1566199,1764913,1766148,1768128,1770590,1560096,1560354,1560141,1558633,1564453,1557548,1563171,1762744,1761258,1550215,1550433,1756015,1548764,1751331,1537509</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$PersonContact.CIF__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Mass ArchivalCases_26May20</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Customers_with_Cases_new__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.Cases$Status</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$Bank_Account_Opening_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

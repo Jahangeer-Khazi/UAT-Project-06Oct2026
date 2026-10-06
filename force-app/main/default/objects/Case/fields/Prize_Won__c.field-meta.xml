@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prize_Won__c</fullName>
+    <label>Prize Won</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Prize Won – Thank you for participating!</fullName>
+                <default>false</default>
+                <label>No Prize Won – Thank you for participating!</label>
+            </value>
+            <value>
+                <fullName>BHD 5</fullName>
+                <default>false</default>
+                <label>BHD 5</label>
+            </value>
+            <value>
+                <fullName>BHD 10</fullName>
+                <default>false</default>
+                <label>BHD 10</label>
+            </value>
+            <value>
+                <fullName>BHD 20</fullName>
+                <default>false</default>
+                <label>BHD 20</label>
+            </value>
+            <value>
+                <fullName>BHD 50</fullName>
+                <default>false</default>
+                <label>BHD 50</label>
+            </value>
+            <value>
+                <fullName>BHD 100</fullName>
+                <default>false</default>
+                <label>BHD 100</label>
+            </value>
+            <value>
+                <fullName>BHD 500</fullName>
+                <default>false</default>
+                <label>BHD 500</label>
+            </value>
+            <value>
+                <fullName>BHD 1,000</fullName>
+                <default>false</default>
+                <label>BHD 1,000</label>
+            </value>
+            <value>
+                <fullName>BHD 2,000</fullName>
+                <default>false</default>
+                <label>BHD 2,000</label>
+            </value>
+            <value>
+                <fullName>Gift</fullName>
+                <default>false</default>
+                <label>Gift -</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

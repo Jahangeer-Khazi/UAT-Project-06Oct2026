@@ -1,0 +1,27 @@
+.checkbox-margin {
+	margin-top: 2%;
+}
+
+.box-border {
+    border-top: 1px solid #C9C9C9; /* Line below header */
+	overflow-y: auto;
+	max-height: 580px;
+}
+
+footer {
+    background: #fff; /* Footer stands out */
+    padding: 1rem;
+    border-top: 1px solid #C9C9C9; /* Line above footer */
+    z-index: 1;
+    text-align: center;
+}
+
+.dual-field-container {
+    display: flex;
+    gap: 1rem; /* Space between Case Origin and Case Nature */
+    align-items: center; /* Aligns fields vertically in the same row */
+}
+
+.pad-st {
+    padding-bottom: 5px;
+}

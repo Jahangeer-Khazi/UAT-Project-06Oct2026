@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Type__c</fullName>
+    <description>NBA-13877 sub type will be update rm by default for the segment request creation</description>
+    <label>Sub Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Update RM</fullName>
+                <default>true</default>
+                <label>Update RM</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

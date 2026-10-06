@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Contact_Center_Date_Empty__c</fullName>
+    <formula>ISBLANK( Contact_Center_Internal_Result_Date_Time__c )</formula>
+    <label>Is Contact Center Date Empty</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

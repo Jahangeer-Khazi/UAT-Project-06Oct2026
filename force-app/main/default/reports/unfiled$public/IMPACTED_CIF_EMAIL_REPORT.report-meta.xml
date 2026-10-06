@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>PC_EMAIL</field>
+    </columns>
+    <columns>
+        <field>RECORDTYPE</field>
+    </columns>
+    <description>Template of how to run a CRM report based on known CIF, to generate a report showing each CIF email Address</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.CIF__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>4841092,3138116,1660168,3945100,2686108,1177080,1122930,3743583,4372208,4596142,3595435,2873178,1995095,1453572,4315207,4104470,1330435,1679595,3554208,4762813,3430695,2710808,2490221,1527502,1928073,2613199,4214863,2400649,2803441,1922109,2277477,1151903,3315195,3960972,1099252,4288852,3913556,2671125,4843694,1855478,1544105,1574110,2244027,3768238,3507829,1205790,1847391,2025749,3208054,2588454,1338903,4147228,1332616,3514251,1150151,4513980,2183227,3677614,2869353,3056277,3511914,1323888,1611929,2570698,2760438,2587956,1224535,3599223,3343608,1524606,1002490,2487240,1485470,1799894,1805355,1415453,2124713,3649566,1815659,4504739,1269538,3088490</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>IMPACTED_CIF_EMAIL_REPORT</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

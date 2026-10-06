@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Draw</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Draws</value>
+    </caseValues>
+    <layouts>
+        <layout>Draw Layout</layout>
+        <sections>
+            <label><!-- Attendees --></label>
+            <section>Attendees</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Raffle Draw Maker --></label>
+            <section>Raffle Draw Maker</section>
+        </sections>
+        <sections>
+            <label><!-- Summary --></label>
+            <section>Summary</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Approve Draw --></label>
+        <name>Approve_Draw</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Draw --></label>
+        <name>Create_Draw</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Draw Details Pdf --></label>
+        <name>Draw_Details_Pdf</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Execute Raffle --></label>
+        <name>Execute_Raffle</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Checker --></label>
+        <name>Send_to_Checker</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Final Checker --></label>
+        <name>Send_to_Final_Checker</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Finance Checker --></label>
+        <name>Send_to_ICU_Checker</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Maker --></label>
+        <name>Send_to_Maker</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Operations Checker --></label>
+        <name>Send_to_Operations_Checker</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Operations Department --></label>
+        <name>Send_to_Operations_Department</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Finance Department --></label>
+        <name>Send_to_Risk_Department</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Shuffle Draw --></label>
+        <name>Shuffle_Draw</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Bahrain Draw --></label>
+        <name>Bahrain_Draw</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- to handle Bahrain Draws with drawType equal to &quot;AlKanz Staff &amp; Relatives&quot; --></description>
+        <label><!-- Bahrain Draw AlKanz Staff &amp; Relatives --></label>
+        <name>Bahrain_Draw_AlKanz_Staff_Relatives</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Jordan Draw --></label>
+        <name>Jordan_Draw</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot validate the draw if you were the previous Owner. Please check with someone from your team and ensure a different user validates the draw. --></errorMessage>
+        <name>Disallow_Draw_Maker_from_Being_Checker</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide justification to the modification(s) --></errorMessage>
+        <name>Justification_needed_if_checkbox_changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot make changes to the &quot;Raffle Draw Maker&quot; section at this stage --></errorMessage>
+        <name>MakerDetailsNotEditable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You should add at least one prize to proceed --></errorMessage>
+        <name>Prize_Cannot_be_zero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status cannot go to Rework from the New Status. Please select Pending Validation to continue. --></errorMessage>
+        <name>Status_Cannot_go_to_Rework_from_New</name>
+    </validationRules>
+</CustomObjectTranslation>

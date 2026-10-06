@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Listed Employers</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Listed Employers</value>
+    </caseValues>
+    <layouts>
+        <layout>Listed Employers Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Status cannot be updated once it is Approved or Rejected. --></errorMessage>
+        <name>Status_Cannot_be_Updated</name>
+    </validationRules>
+</CustomObjectTranslation>

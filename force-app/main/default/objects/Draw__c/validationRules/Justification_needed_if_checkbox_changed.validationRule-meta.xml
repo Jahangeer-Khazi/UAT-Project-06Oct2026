@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Justification_needed_if_checkbox_changed</fullName>
+    <active>false</active>
+    <description>This validation rule prevents a record from being saved if the &apos;Requires Modification&apos; checkbox is changed and there is no justification provided. This ensures that the user provides a Justification reason for modifications to the Draw.</description>
+    <errorConditionFormula>AND (
+ISCHANGED(Draw_Approved__c),
+ISBLANK(Justification__c)
+)</errorConditionFormula>
+    <errorDisplayField>Justification__c</errorDisplayField>
+    <errorMessage>Please provide justification to the modification(s)</errorMessage>
+</ValidationRule>

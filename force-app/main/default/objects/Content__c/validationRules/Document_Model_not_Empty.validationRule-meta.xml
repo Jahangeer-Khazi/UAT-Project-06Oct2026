@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Model_not_Empty</fullName>
+    <active>true</active>
+    <description>Ensures that the Document Model is not empty, instead of marking the field as required on the object</description>
+    <errorConditionFormula>AND(
+    NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+    ISBLANK(TEXT( Document_Model__c )),
+    $Permission.Ability_to_Approve_Credit_Cards=FALSE
+    
+)</errorConditionFormula>
+    <errorMessage>Document Model on the Content record is empty. Please contact your administrator.</errorMessage>
+</ValidationRule>

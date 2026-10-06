@@ -1,0 +1,28 @@
+<aura:component controller="DeviceDetailsController" implements="lightning:availableForFlowScreens" access="global">
+	<aura:attribute name="customerId" type="String"/>
+    <aura:attribute name="cifNumber" type="String" access="global"/>
+    <aura:attribute name="spColumns" type="List"/>
+    <aura:attribute name="savingPots" type="List"/>
+    <aura:attribute name="isLoadingpots" type="Boolean" default="false"/>
+    <aura:attribute name="message" type="String" default = ""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.isLoadingpots}">
+        <lightning:spinner size="medium"/>
+    </aura:if>
+    <aura:if isTrue="{!empty(v.savingPots)}">
+        <div class="slds-text-color_error slds-text-title_bold">
+        	{!v.message}
+        </div>
+        
+        <aura:set attribute="else">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{!v.savingPots}"
+                                 columns="{!v.spColumns}"
+                                 hideCheckboxColumn="true"/>
+        </aura:set>
+    </aura:if>
+    <br/>
+</aura:component>

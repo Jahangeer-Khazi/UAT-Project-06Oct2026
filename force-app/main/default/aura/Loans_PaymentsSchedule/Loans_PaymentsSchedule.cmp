@@ -1,0 +1,331 @@
+<!--
+  @description       : 
+  @author            : Elmustapha ELGARNI
+  @group             : 
+  @last modified on  : 05-10-2024
+  @last modified by  : Elmustapha ELGARNI
+-->
+<aura:component controller="Loans_LoansListController"  implements="flexipage:availableForAllPageTypes,force:hasRecordId"  access="global" >
+    <aura:html tag="style">
+            <!-- Define a new CSS class for the two-column layout -->
+            .two-column-layout {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .column {
+                width: 48%; /* Adjust the width as needed */
+            }
+    </aura:html>
+
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="searchParameterJSON" type="Object"/>
+    <aura:attribute name="account" type="Account"/>
+    <aura:attribute name="page" type="String" required="true" default="case"/>
+    <!-- <aura:attribute name="account" type="Account" required="true" /> -->
+    <aura:attribute name="loanId" type="String" />
+    <aura:attribute name="loanFacilityNumber" type="String" />
+    <aura:attribute name="scheduleType" type="String" default="Simulation"/>
+    <aura:attribute name="responseLoanListdata" type="Object" />
+    <aura:attribute name="pendingLoan" type="Object" />
+    <aura:attribute name="type" type="String" />
+    <aura:attribute name="viewReccPay" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]" />
+    <aura:attribute name="headerData" type="Object" />
+    <aura:attribute name="columns" type="List" access="private" />
+    <aura:attribute name="loanOrFinance" type="String" default="Loan"/>
+    <aura:attribute name="InterestOrProfit" type="String" default="Interest"/>
+    <!-- To handle alburaq Product  -->
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    
+
+    <aura:attribute name="viewPaymentDetails" type="Boolean" default="false" />
+    <aura:attribute name="scheduleId" type="String" />
+    <aura:attribute name="dataPaymentDetails" type="Object[]" access="private" default="[]" />
+    <aura:attribute name="columnsDataPaymentDetails" type="List" access="private" />
+    <aura:handler name="change" value="{!v.loanId}" action="{!c.init}"/>
+    <aura:handler name="init" value="{!this }" action="{!c.init }" />
+    <!-- <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/> class="slds-hidden" -->
+
+    <aura:attribute name="subtypeCase" type="String"/> <!-- #CH02 -->
+    <aura:attribute name="Approved_Loan_Amount" type="Decimal"/> <!-- #CH02 -->
+
+    <lightning:messageChannel 
+        aura:id="triggerChannel"
+        type="TriggerChannel__c"
+        onMessage="{!c.handleLwcMessage}"
+    />
+	
+    <div style="padding-top: 2rem;">
+        <lightning:card>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <aura:If isTrue="{!v.viewReccPay}">
+                    <div class="slds-col slds-size_1-of-2">
+                        <h1 class="slds-text-heading--medium">
+                            {!'Payments Schedule: ' + v.loanId}
+                        </h1>
+                    </div>
+                    <aura:If isTrue="{!v.page == 'customer'}">
+                        <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                            <lightning:button variant="neutral" label="Extract Schedule" onclick="{!c.generatePDF}"/>
+                            &nbsp;&nbsp;<lightning:button variant="neutral" label="Export Schedule Excel" onclick="{!c.generateActiveLoanExcel}"/>
+                        </div>
+                    </aura:If>
+                    <aura:If isTrue="{!v.page == 'case'}">
+                            <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                                <lightning:button variant="neutral" label="Export Schedule PDF" onclick="{!c.generateCasePDF}"/>
+                                &nbsp;&nbsp;<lightning:button variant="neutral" label="Export Schedule Excel" onclick="{!c.generateCaseExcel}"/>
+                            </div>
+                         </aura:If>
+                </aura:If>
+            </div>
+            <!-- Show on the case page -->
+            <aura:If isTrue="{!v.page == 'case'}">
+                <div class="slds-hidden" style="height: 0px;">
+                    <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleLoadOnCasePage}">
+                        <!--<lightning:inputField aura:id="LoanApplicationId" fieldName="Loan_Application_ID__c" /> -->
+                        <lightning:inputField aura:id="caseModel" fieldName="Case_Model__c" />
+                        <lightning:inputField aura:id="customerIdField" fieldName="Customer_CIF__c" />
+                        <lightning:inputField aura:id="subtypeField" fieldName="Sub_Type__c" /><!-- #CH02 -->
+                    </lightning:recordEditForm>
+                </div>
+            </aura:If>
+
+            <aura:If isTrue="{!v.page == 'customer'}">
+                <aura:If isTrue="{!not(v.viewReccPay)}">
+                    <div style="overflow:auto">
+                        <lightning:button variant="brand" label="Show Payments Schedule"
+                            onclick="{!c.onLoadviewReccPayments}" />
+        
+                    </div>
+                </aura:If>
+                
+            </aura:If>
+          
+            <div style="padding-top: 1rem;">
+                <aura:If isTrue="{!v.viewReccPay}">
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+                        <!-- First column -->
+                        <div class="column">
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Loan/ Finance Amount (principal amount)</span>
+                                    <div class="slds-form-element__control">
+                                        <!-- Start : #CH02 -->
+                                        <aura:If isTrue="{! OR (v.subtypeCase == 'Top-up',v.subtypeCase == 'Partial Settlement') }">
+                                            <div class="slds-form-element__static">
+                                                BHD {!v.headerData.principleAmountChanged} <!-- {!v.headerData.principleAmount} -->
+                                            </div>
+                                            <aura:set attribute="else">
+                                                <div class="slds-form-element__static">
+                                                    BHD {!v.headerData.principleAmount}
+                                                </div>
+                                            </aura:set>
+                                        </aura:If>
+                                        <!-- End : #CH02 -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Loan/ Finance period in months</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.loanPeriod} months
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Monthly Intallment</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.monthlyInstallment}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Number of payments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.numberOfPayments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Cash In Hand</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.cashInHand}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Administration fees VAT</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.administrationFeesVat}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Loan/ Finance start date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.loanStartDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">First Installment Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.firstInstallmentDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Second column -->
+                        <div class="column">
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label"> Reducing Interest/Profit rate</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.interestRate} %
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Life insurance rate Per thousand</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.lifeInsuranceRate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">APR</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.apr} %
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total interest/ Profit</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.totalInterest}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total cost of loan/finance</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.totalCostOfLoan}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Insurance Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.insuranceAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Administration fees</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            BHD {!v.headerData.administrationFees}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Last Installment Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.headerData.lastInstallmentDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+                    
+                    <lightning:datatable aura:id="ReccPayTable" data="{!v.data}" columns="{!v.columns}" keyField="id"
+                        hideCheckboxColumn="false" maxRowSelection="0" onrowselection="{! c.handleRowSelection }" />
+                </aura:If>
+
+                <aura:If isTrue="{!v.viewPaymentDetails}">
+                    <br />
+                    <br />
+                    <lightning:card title="{!'Details of Schedule Transactions : ' + v.scheduleId}">
+
+                        <lightning:datatable aura:id="PayDetailsTable" data="{! v.dataPaymentDetails}"
+                            columns="{! v.columnsDataPaymentDetails}" keyField="id" hideCheckboxColumn="true" />
+
+                    </lightning:card>
+
+                </aura:If>
+            </div>
+
+        </lightning:card>
+
+      
+    </div>
+
+    <c:apexService aura:id="apexService"/>
+    
+</aura:component>

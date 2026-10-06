@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>15</label>
+    <protected>false</protected>
+    <values>
+        <field>Card_Type__c</field>
+        <value xsi:type="xsd:string">Credit Card</value>
+    </values>
+    <values>
+        <field>User_Id__c</field>
+        <value xsi:type="xsd:string">0051t000003EQVPAA4</value>
+    </values>
+    <values>
+        <field>User_Name__c</field>
+        <value xsi:type="xsd:string">Shujaie, Asma</value>
+    </values>
+    <values>
+        <field>User_Team__c</field>
+        <value xsi:type="xsd:string">Credit Buyout</value>
+    </values>
+</CustomMetadata>

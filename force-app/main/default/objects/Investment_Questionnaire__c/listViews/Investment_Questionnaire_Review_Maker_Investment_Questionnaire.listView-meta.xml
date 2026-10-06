@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investment_Questionnaire_Review_Maker_Investment_Questionnaire</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Investment Questionnaire Review Maker</label>
+    <queue>Investment_Questionnaire_Review_Maker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

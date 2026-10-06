@@ -1,0 +1,26 @@
+.THIS {
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+.THIS .transTable .slds-table thead .slds-checkbox {
+    visibility: hidden;
+}
+
+
+.THIS .modal-container {
+    max-width:90rem !important;
+    width:90% !important;
+    overflow-y:hidden !important;
+}
+
+
+.THIS .slds-modal__container {
+    max-width:90rem !important;
+    width:70% !important;
+    overflow-y:hidden !important;
+}
+
+.THIS .slds-modal__content {
+    height:auto !important;
+}

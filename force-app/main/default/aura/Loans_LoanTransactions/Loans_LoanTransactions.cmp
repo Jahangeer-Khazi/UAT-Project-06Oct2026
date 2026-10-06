@@ -1,0 +1,132 @@
+<aura:component controller="Loans_LoansListController">
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="loanId" type="String" />
+    <aura:attribute name="account" type="Account" /> 
+    <!-- ============================================ -->
+    <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent"/>
+    <aura:handler event="c:jqDataTableEvent" action="{!c.handleJqDataTableEvent}"/>
+
+    <!-- Internal attributes -->
+    <aura:attribute name="selectedTransaction" type="Object" access="private"/>
+    <aura:attribute name="gridDataRows" type="Object[]"/>
+    <aura:attribute name="gridDataColumns" type="Object[]"/>
+    <aura:attribute name="gridDataColumnDefs" type="Object[]"/>
+    <aura:attribute name="tbId" type="string"/>
+    
+    <!-- search filter attributes -->
+    <aura:attribute name="amountFrom" type="Decimal" access="private"/>
+    <aura:attribute name="amountTo" type="Decimal" access="private"/>
+    <aura:attribute name="dateTo" type="Date" access="private"/>
+    <aura:attribute name="dateFrom" type="Date" access="private"/>
+    <aura:attribute name="debitCreditIndicator" type="String" access="private"/>
+    <aura:attribute name="transactionStatus" type="String" access="private" default="completed"/>
+
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:attribute name="viewTransactions" type="Boolean" default="false" />
+    <aura:attribute name="loanOrFinance" type="String" default="Loan"/>
+
+    <!-- internal events -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.loanId}" action="{!c.init}"/>
+	
+    <aura:handler name="change" value="{!v.dateFrom}" action="{!c.changedateTo}"/>
+    <aura:handler name="change" value="{!v.dateTo}" action="{!c.changedateFrom}"/>
+    
+    <aura:If isTrue="{!not(v.viewTransactions)}">
+        <div style="overflow:auto">
+            <lightning:button variant="brand" label="Show Transactions"
+                onclick="{!c.load}" />
+
+        </div>
+    </aura:If>
+
+    <aura:If isTrue="{!v.viewTransactions}">
+        <lightning:card title="{!'Transactions of '+ v.loanOrFinance + ': ' + v.loanId}">
+            <!-- <div style="margin-left:0px;margin-top:20px;width:700px;">
+                <ui:message title="Information:" severity="confirm" closable="false">
+                <b>* User will only be able to view last 50 transactions by default.</b><br/>
+                <b>* On search, maximum of 1000 transactions will be only available.</b><br/>
+                <b>* User will only be able to search the transactions for a maximum of 3 months duration at a given period.</b><br/>
+                </ui:message>
+            </div> -->
+            <div style="padding: 1rem;">
+
+                <fieldset class="slds-form-element slds-form-element_compound">
+                    <legend class="slds-form-element__legend slds-form-element__label">Search</legend>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__row">
+                            <div class="slds-size_1-of-6">		
+                                <div class="slds-form-element">		
+                                    <lightning:select label="Status" required="false" value="{!v.transactionStatus}"> 		
+                                        <option value="completed">Completed</option>		
+                                        <option value="failed">Failed</option>		
+                                        <option value="pending">Pending</option>	
+                                        <option value="failed_pending">Pending/Failed</option>	
+                                    </lightning:select>		
+                                </div>		
+                            </div>		
+                            <div class="slds-size_1-of-6">
+                            
+                            
+                                <div class="slds-form-element">
+                                    <lightning:input value="{!v.amountFrom}" label="Amount From" type="number" 
+                                        formatter="decimal" step="0.01" maxlength="10"/>
+                                </div>
+                            </div>
+                            <div class="slds-size_1-of-6">
+                                <div class="slds-form-element">
+                                    <lightning:input value="{!v.amountTo}" label="Amount To" type="number" 
+                                        formatter="decimal" step="0.01" maxlength="10"/>
+                                </div>
+                            </div>
+                            <div class="slds-size_1-of-6">
+                                <div class="slds-form-element">
+                                    <ui:inputDate label="Date From" value="{!v.dateFrom}" format="DD-MM-YYYY" displayDatePicker="true"/>
+                                </div>
+                            </div>
+                            <div class="slds-size_1-of-6">
+                                <div class="slds-form-element">
+                                    <ui:inputDate label="Date To" value="{!v.dateTo}" format="DD-MM-YYYY" displayDatePicker="true"/>
+                                </div>
+                            </div>
+                            <div class="slds-size_1-of-6">
+                                <div class="slds-form-element">
+                                        <lightning:select label="Debit/Credit" required="false" value="{!v.debitCreditIndicator}">
+                                            <option value="all">choose one...</option>
+                                            <option value="credit">Credit</option>
+                                            <option value="debit">Debit</option>
+                                        </lightning:select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element__control slds-align_absolute-center">
+                        <div class="slds-form-element__row">
+                            <div class="slds-size_1-of-1">
+                                <div class="slds-form-element">
+                                    <lightning:button variant="neutral" label="Search" onclick="{! c.onSearchClick }" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <c:jqDataTable id="{!v.tbId}"
+                            rows="{! v.gridDataRows }" 
+                            columns="{! v.gridDataColumns }" 
+                            columnDefs="{! v.gridDataColumnDefs }" 
+                            keyField="id"
+                            orderBy="desc"              
+                            sortedBy="transactionDate"                 
+                            showCheckboxColumn="false"
+                            selectStyle="multi+shift"
+                            />
+            </div>
+            
+        </lightning:card>
+    </aura:If>
+    
+    
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

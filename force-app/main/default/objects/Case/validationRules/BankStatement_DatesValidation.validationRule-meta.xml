@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BankStatement_DatesValidation</fullName>
+    <active>true</active>
+    <description>To Date should be greater than From Date</description>
+    <errorConditionFormula>$User.LastName &lt;&gt; &quot;Integration&quot; &amp;&amp; RecordType_DeveloperName__c == &apos;BankStatementRequest&apos; &amp;&amp; (From_Date__c &gt; To_Date__c)</errorConditionFormula>
+    <errorDisplayField>To_Date__c</errorDisplayField>
+    <errorMessage>&quot;To Date&quot; must be greater or equal than &quot;From Date&quot;.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Document Type --></label>
+    <name>Document_Type__c</name>
+    <picklistValues>
+        <masterLabel>Approval Attached</masterLabel>
+        <translation><!-- Approval Attached --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary Credit Declaration attached</masterLabel>
+        <translation><!-- Temporary Credit Declaration attached --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

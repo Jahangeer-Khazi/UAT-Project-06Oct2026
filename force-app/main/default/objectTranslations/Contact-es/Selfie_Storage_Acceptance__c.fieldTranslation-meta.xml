@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Selfie Storage Acceptance --></label>
+    <name>Selfie_Storage_Acceptance__c</name>
+</CustomFieldTranslation>

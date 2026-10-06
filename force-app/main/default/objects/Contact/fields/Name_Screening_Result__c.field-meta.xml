@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Screening_Result__c</fullName>
+    <description>Results of the Name Screening in Siron</description>
+    <inlineHelpText>Results of the Name Screening in Siron:
+No Match – no action required
+Potential Match – account cannot be opened until alert is managed.</inlineHelpText>
+    <label>Name Screening Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Match</fullName>
+                <default>false</default>
+                <label>No Match</label>
+            </value>
+            <value>
+                <fullName>Potential Match - Watchlist</fullName>
+                <default>false</default>
+                <label>Potential Match - Watchlist</label>
+            </value>
+            <value>
+                <fullName>Potential Match - PEP</fullName>
+                <default>false</default>
+                <label>Potential Match - PEP</label>
+            </value>
+            <value>
+                <fullName>True Match-PEP</fullName>
+                <default>false</default>
+                <label>True Match-PEP</label>
+            </value>
+            <value>
+                <fullName>True Match-WatchList</fullName>
+                <default>false</default>
+                <label>True Match-WatchList</label>
+            </value>
+            <value>
+                <fullName>Potential Match-Both</fullName>
+                <default>false</default>
+                <label>Potential Match-Both</label>
+            </value>
+            <value>
+                <fullName>Hit - PEP</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hit - PEP</label>
+            </value>
+            <value>
+                <fullName>Hit - Watchlist</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hit - Watchlist</label>
+            </value>
+            <value>
+                <fullName>No Hit</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No Hit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

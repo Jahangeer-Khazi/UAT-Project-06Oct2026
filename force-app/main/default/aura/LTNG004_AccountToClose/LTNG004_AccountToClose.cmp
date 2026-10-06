@@ -1,0 +1,25 @@
+<aura:component controller="LTNG004_AccountClosureController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="accToCloseList" type="List" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="currentAcc" type="Object" />
+    <aura:attribute name="caseModel" type="String" /><!--CH01 : by D&A team-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <lightning:select aura:id="accToClose" label="Account to close" required="true" onchange="{!c.accToCloseChange}">
+        <option text="--None--" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.accToCloseList}" var="accToCloseData">
+                <option text="{!accToCloseData.ac_label}" value="{!accToCloseData.iban}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select>
+
+</aura:component>

@@ -1,0 +1,163 @@
+<apex:page controller="loanPaymentPdfController" readOnly="true" contentType="application/vnd.ms-excel" standardStylesheets="false" showHeader="false">
+     
+    <table>
+        <tr>
+        	<td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td style="font-size:24px;"><b>Repayment Schedule</b></td>
+            <td></td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        	<td>Customer Name</td>
+            <td><strong>{!decodedaccName}</strong></td>
+        </tr>
+        <tr>
+            <td></td>
+        	<td>Customer CIF</td>
+            <td align="left"><strong>{!decodedcustomerCIFNo}</strong></td>
+        </tr>
+        <tr>
+            <td></td>
+        	<td>Application Submission Date</td>
+            <td><strong>{!caseCreatedDate}</strong></td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Application No.</td>
+                <td style="text-align: left;">{!applicationNo}</td>
+                <td style="text-align: left;">Number of Payments</td>
+                <td style="text-align: left;">{!header.numberOfPayments}</td>
+            </tr>
+        	<tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Loan/ Finance Start Date</td>
+                <td style="text-align: left;">{!header.loanStartDate}</td>
+                <td style="text-align: left;">Interest Rate (Reducing)</td>
+                <td style="text-align: left;">{!header.formattedInterestRate} %</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Total Loan Amount</td>
+                <td style="text-align: left;">BHD <!--{!header.formattedPrincipleAmount}-->
+                	<apex:outputText value="{0, number, ###,###.000}">
+                    	<apex:param value="{!header.principleAmount}"/>
+                    </apex:outputText>
+                </td>
+                <td style="text-align: left;">Total Intrest Amount</td>
+                <td style="text-align: left;">BHD <!--{!header.formattedTotalInterest}-->
+                	<apex:outputText value="{0, number, ###,###.000}">
+                    	<apex:param value="{!header.totalInterest}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Cash in Hand</td>
+                <td style="text-align: left;">BHD {!header.formattedCashInHand}</td>
+                <td style="text-align: left;">Life Insurance Rate</td>
+                <td style="text-align: left;">{!header.formattedLifeInsuranceRate} %</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Monthly Installment</td>
+                <td style="text-align: left;">BHD {!header.formattedMonthlyInstallment}</td>
+                <td style="text-align: left;">Insurance Amount</td>
+                <td style="text-align: left;">BHD {!header.formattedInsuranceAmount}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Loan Duration</td>
+                <td style="text-align: left;">{!header.loanPeriod} months</td>
+                <td style="text-align: left;">Processing Fee</td>
+                <td style="text-align: left;">BHD {!header.formattedAdministrationFees}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">First Installment Date</td>
+                <td style="text-align: left;">{!header.firstInstallmentDate}</td>
+                <td style="text-align: left;">VAT Processing Fee</td>
+                <td style="text-align: left;">BHD {!header.formattedAdministrationFeesVat}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Last Installment Date:</td>
+                <td style="text-align: left;">{!header.lastInstallmentDate}</td>
+                <td style="text-align: left;">Annual Percentage Rate (APR)</td>
+                <td style="text-align: left;">{!header.formattedApr} %</td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+        	</tr>
+        	<tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+        	</tr>
+        </table>
+    
+    <table>
+                <thead>
+                  <tr style="background-color:#000F3B;color:#FFFFFF" border="1">
+                    <th rowspan="2" class="right-border font11">Installment No</th>
+                    <th rowspan="2" class="right-border font11">Installment Due Date</th>
+                    <th rowspan="2" class="right-border font11">No. of Days</th>
+                    <th rowspan="2" class="right-border font11">Beginning Balance</th>
+                    <th colspan="5" class="right-border font11 bottom-border">Installment Breakdown</th>
+                    <th rowspan="2" class="right-border font11">Monthly Installment (full amount)</th>  
+                    <th rowspan="2" class="right-border font11">Monthly Installment (excl. Charges)</th>
+                    <th rowspan="2" class="right-border font11">Monthly Insurance Fee (reducing balance)</th>  
+                    <th rowspan="2" class="font11">Ending Balance</th>
+                  </tr>
+                    <tr style="background-color:#000F3B;color:#FFFFFF;border-top:1px solid white">
+                        <th class="right-border font11">Principal Amount</th>
+                        <th class="right-border font11">Interest/Profit Amount</th> 
+                        <th class="right-border font11">Admin Fees(flat)</th>                       
+                        <th class="right-border font11">Admin Fees VAT</th>
+                        <th class="right-border font11">Insurance Fee (flat)</th>
+                    </tr>
+               </thead>
+               <tbody>
+                <apex:variable var="rowCount" value="{!0}"/>
+                <apex:repeat value="{!paymentsList}" var="payment">
+                    <tr style="border-bottom:1px solid #000">
+                        <td align="center">{!payment.installmentNo}</td>
+                        <td align="center">{!payment.installmentDueDate}</td>
+                        <td align="center">{!payment.noOfDays}</td>
+                        <td align="center">{!payment.formattedBeginningBalance}</td>
+                        <!------------- Installment Breakdown ------------------->
+                        <td align="center">{!payment.formattedPrincipalAmount}</td>
+                        <td align="center">{!payment.formattedInterestAmount}</td>
+                        <td align="center">{!payment.formattedAdminFeesFlat}</td>
+                        <td align="center">{!payment.formattedAdminFeesVat}</td>
+                        <td align="center">{!payment.monthlyInsuranceFeesFlat}</td>
+                        <!------------------------------------------------------->
+                        <td align="center">{!payment.formattedMonthlyInstallmentFull}</td>
+                        <td align="center">{!payment.formattedMonthlyInstallmentExcludingCharges}</td>
+                        <td align="center">{!payment.formattedMonthlyInsuranceFeesReducing}</td>
+                        <td align="center">{!payment.formattedEndingBalance}</td>
+                    </tr>
+                    <apex:variable var="rowCount" value="{!rowCount+1}"/>
+                </apex:repeat>
+               </tbody>
+            </table>
+</apex:page>

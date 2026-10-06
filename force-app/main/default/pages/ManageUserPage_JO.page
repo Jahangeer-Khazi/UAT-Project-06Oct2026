@@ -1,0 +1,255 @@
+<!--
+*		Organization : ABC Bank
+*       Created By: Jahangeer Mohammed
+*       Created Date: 03-07-2023
+*       Change History: 
+-->
+
+<apex:page controller="ManageUserPageController_JO" lightningStylesheets="true" showHeader="false" standardStylesheets="false" sidebar="false"  applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <head>
+        <apex:slds />
+    </head>
+    
+    <style>
+    	.activeTab {background-color: lightgrey; color:black; background-image:none;}
+    	.inactiveTab { background-color: white; color:black; background-image:none}
+    </style>
+     
+    
+   <apex:form styleClass="form-horizontal" id="mngUSER">
+    
+    <div class="slds-scope">
+    
+        <div class="slds-grid">
+            <div class="slds-col slds-size_3-of-3">
+                <div class="slds-page-header" style="background-color: #EEE8E8;">
+                    <div class="slds-media">
+                    	<div class="slds-media__figure">
+                    		<div class="slds-page-header__name">
+                    			<div class="slds-page-header__name-title">
+                        			<h1>
+                                        <span class="slds-page-header__title slds-truncate" align="center"  title="Global Search" style="color: black;"><center>Manage User - JORDAN</center></span>
+                        			</h1>
+                    			</div>
+                    		</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div>
+           <apex:tabPanel switchType="client" id="theTabPanel" value="{!selectedTab}" tabClass="activeTab" inactiveTabClass="inactiveTab">
+               
+               <!----------------------------------------- Start: First Tab/Contact Center Users ---------------------------------------------------------> 
+               
+               <apex:tab label="Contact Center Users" name="CCenter" id="tabOne" rendered="{!enableCCTab}" >
+                    <apex:pageMessages id="errmsg" rendered="{!blnError}"></apex:pageMessages>
+                    <br/><br></br>
+               
+                	<apex:outputpanel id="ldtable" rendered="{!ldboolean}">     
+       					<h2 id="badges" class="slds-text-heading--small slds-m-vertical--small"><b><u>Active Contact-Center Overflow Users:</u></b> {!lstActiveUserSize}</h2>
+       				<br/><br></br>
+        
+          			<table class="slds-table slds-table--bordered">
+            			<thead>
+                			<tr class="slds-text-title_caps">
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Name</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Username</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Email</left></th>
+                                <th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Profile</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Status</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><center>Action</center></th>
+                			</tr>
+            			</thead>
+            			<tbody>
+                			<apex:repeat value="{!lstContactCentreUser}" var="ld" >
+                    			<tr>
+                        			<td><left><apex:outputLink value="/{!ld.Id}"> {!ld.Name} </apex:outputLink></left>
+                        			</td>
+                        			<td><left>{!ld.Username}</left></td>
+                        			<td><left>{!ld.Email}</left></td>
+                                    <td><left>{!ld.profile.Name}</left></td>
+                        			<td><left>{!IF(ld.isActive=true,'Active','Inactive')}</left></td>
+                        			<td><center><apex:commandButton styleClass="slds-button slds-button--brand"  action="{!doSearch}"  value="{!IF(ld.isActive=False,'Activate','Deactivate')}" status="actStatusId"  reRender="mngUSER">
+                        				<apex:param name="camId" value="{!ld.id}" assignTo="{!cmemberId}"/>
+                        			</apex:commandButton>  </center></td>
+                    			</tr>
+                			</apex:repeat>
+            			</tbody>
+        			</table>
+        		<br/><br/>  
+   				</apex:outputpanel>
+         	</apex:tab>
+        <!----------------------------------------- END: First Tab/Contact Center Users ---------------------------------------------------------> 
+
+        <!----------------------------------------- Start: Second Tab/RMT Users ---------------------------------------------------------> 
+
+         	<apex:tab label="RMT Users" name="RMT" id="tabTwo" rendered="{!enableRMTTab}" >
+                <apex:pageMessages id="errmsg2" rendered="{!blnErrorRMT}"></apex:pageMessages>
+                    <br/><br></br>
+                	<apex:outputpanel id="ldtableRMT" rendered="{!ldRMTboolean}">     
+       					<h2 id="badges" class="slds-text-heading--small slds-m-vertical--small"><b><u>Active RMT Overflow Users:</u></b> {!lstActiveRMTUserSize}</h2>
+       				<br/><br></br>
+        
+          			<table class="slds-table slds-table--bordered">
+            			<thead>
+                			<tr class="slds-text-title_caps">
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Name</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Username</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Email</left></th>
+                                <th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Profile</left></th>
+								<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Status</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><center>Action</center></th> 
+                			</tr>
+            			</thead>
+            			<tbody>
+                			<apex:repeat value="{!lstRMTUser}" var="ld" >
+                    			<tr>
+                        			<td><left><apex:outputLink value="/{!ld.Id}"> {!ld.Name} </apex:outputLink></left>
+                        			</td>
+                        			<td><left>{!ld.Username}</left></td>
+                        			<td><left>{!ld.Email}</left></td>
+                                    <td><left>{!ld.profile.Name}</left></td>
+                        			<td><left>{!IF(ld.isActive=true,'Active','Inactive')}</left></td>
+                        			<td><center><apex:commandButton styleClass="slds-button slds-button--brand"  action="{!doSearchRMT}"  value="{!IF(ld.isActive=False,'Activate','Deactivate')}" status="actStatusId"  reRender="mngUSER">
+                        				<apex:param name="camId" value="{!ld.id}" assignTo="{!cmemberId}"/>
+                        			</apex:commandButton>  </center></td>
+                    			</tr>
+                			</apex:repeat>
+            			</tbody>
+        			</table>
+        		<br/><br/>  
+   				</apex:outputpanel>
+            </apex:tab> 
+    <!----------------------------------------- END: Second Tab/RMT Users ---------------------------------------------------------> 
+
+    <!----------------------------------------- Start: Third Tab/Operation Users ---------------------------------------------------------> 
+
+         	<apex:tab label="Operations Users" name="OPS" id="tabThree" rendered="{!enableOPSTab}">
+                <apex:pageMessages id="errmsg3" rendered="{!blnErrorOPS}"></apex:pageMessages>
+                    <br/><br></br>
+                	<apex:outputpanel id="ldtableOPS" rendered="{!ldOperationboolean}">     
+       					<h2 id="badges" class="slds-text-heading--small slds-m-vertical--small"><b><u>Active Operations Overflow Users:</u></b> {!lstActiveOperationsUserSize}</h2>
+       				<br/><br></br>
+        
+          			<table class="slds-table slds-table--bordered">
+            			<thead>
+                			<tr class="slds-text-title_caps">
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Name</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Username</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Email</left></th>
+                                <th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Profile</left></th>
+								<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Status</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><center>Action</center></th> 
+                			</tr>
+            			</thead>
+            			<tbody>
+                			<apex:repeat value="{!lstOperationsUser}" var="ld" >
+                    			<tr>
+                        			<td><left><apex:outputLink value="/{!ld.Id}"> {!ld.Name} </apex:outputLink></left>
+                        			</td>
+                        			<td><left>{!ld.Username}</left></td>
+                        			<td><left>{!ld.Email}</left></td>
+                                    <td><left>{!ld.profile.Name}</left></td>
+                        			<td><left>{!IF(ld.isActive=true,'Active','Inactive')}</left></td>
+                        			<td><center><apex:commandButton styleClass="slds-button slds-button--brand"  action="{!doSearchOps}"  value="{!IF(ld.isActive=False,'Activate','Deactivate')}" status="actStatusId"  reRender="mngUSER">
+                        				<apex:param name="camId" value="{!ld.id}" assignTo="{!cmemberId}"/>
+                        			</apex:commandButton>  </center></td>
+                    			</tr>
+                			</apex:repeat>
+            			</tbody>
+        			</table>
+        		<br/><br/>  
+   				</apex:outputpanel>
+            </apex:tab> 
+	<!----------------------------------------- END: Third Tab/Operation Users ---------------------------------------------------------> 
+
+	<!----------------------------------------- Start: Fourth Tab/Third Line Support Users ---------------------------------------------------------> 
+
+         	<apex:tab label="Third Line Support Users" name="TLSU" id="tabFour" rendered="{!enableTLSTab}">
+                <apex:pageMessages id="errmsg4" rendered="{!blnErrorTLSU}"></apex:pageMessages>
+                    <br/><br></br>
+                	<apex:outputpanel id="ldtableTLSU" rendered="{!lstThirdLineSupportboolean}">     
+       					<h2 id="badges" class="slds-text-heading--small slds-m-vertical--small"><b><u>Active Third Line Support Overflow Users:</u></b> {!lstActiveThirdLineSupportUserSize}</h2>
+       				<br/><br></br>
+        
+          			<table class="slds-table slds-table--bordered">
+            			<thead>
+                			<tr class="slds-text-title_caps">
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Name</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Username</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Email</left></th>
+                                <th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Profile</left></th>
+								<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Status</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><center>Action</center></th> 
+                			</tr>
+            			</thead>
+            			<tbody>
+                			<apex:repeat value="{!lstThirdLineSupportUser}" var="ld" >
+                    			<tr>
+                        			<td><left><apex:outputLink value="/{!ld.Id}"> {!ld.Name} </apex:outputLink></left>
+                        			</td>
+                        			<td><left>{!ld.Username}</left></td>
+                        			<td><left>{!ld.Email}</left></td>
+                                    <td><left>{!ld.profile.Name}</left></td>
+                        			<td><left>{!IF(ld.isActive=true,'Active','Inactive')}</left></td>
+                        			<td><center><apex:commandButton styleClass="slds-button slds-button--brand"  action="{!doSearchSupportUsers}"  value="{!IF(ld.isActive=False,'Activate','Deactivate')}" status="actStatusId"  reRender="mngUSER">
+                        				<apex:param name="camId" value="{!ld.id}" assignTo="{!cmemberId}"/>
+                        			</apex:commandButton>  </center></td>
+                    			</tr>
+                			</apex:repeat>
+            			</tbody>
+        			</table>
+        		<br/><br/>  
+   				</apex:outputpanel>
+            </apex:tab> 
+	<!----------------------------------------- END: Fourth Tab/Third Line Support Users ---------------------------------------------------------> 
+
+	<!----------------------------------------- Start: Fifth Tab/TMU Support Users ---------------------------------------------------------> 
+
+         	<apex:tab label="TMU Support Users" name="TMU" id="tabFive" rendered="{!enableTMUTab}">
+                <apex:pageMessages id="errmsg5" rendered="{!blnErrorTMU}"></apex:pageMessages>
+                    <br/><br></br>
+                	<apex:outputpanel id="ldtableTMU" rendered="{!lstTMUSupportboolean}">     
+       					<h2 id="badges" class="slds-text-heading--small slds-m-vertical--small"><b><u>Active TMU Support Overflow Users:</u></b> {!lstActiveTMUSupportUserSize}</h2>
+       				<br/><br></br>
+        
+          			<table class="slds-table slds-table--bordered">
+            			<thead>
+                			<tr class="slds-text-title_caps">
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Name</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Username</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Email</left></th>
+                                <th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Profile</left></th>
+								<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><left>Status</left></th>
+                    			<th style="margin-left:30%;font-family: Helvetica; font-size:15px;color:#00008B;float:center;" scope="col"><center>Action</center></th> 
+                			</tr>
+            			</thead>
+            			<tbody>
+                			<apex:repeat value="{!lstTMUSupportUser}" var="ld" >
+                    			<tr>
+                        			<td><left><apex:outputLink value="/{!ld.Id}"> {!ld.Name} </apex:outputLink></left>
+                        			</td>
+                        			<td><left>{!ld.Username}</left></td>
+                        			<td><left>{!ld.Email}</left></td>
+                                    <td><left>{!ld.profile.Name}</left></td>
+                        			<td><left>{!IF(ld.isActive=true,'Active','Inactive')}</left></td>
+                        			<td><center><apex:commandButton styleClass="slds-button slds-button--brand"  action="{!doSearchTMUSupportUsers}"  value="{!IF(ld.isActive=False,'Activate','Deactivate')}" status="actStatusId"  reRender="mngUSER">
+                        				<apex:param name="camId" value="{!ld.id}" assignTo="{!cmemberId}"/>
+                        			</apex:commandButton>  </center></td>
+                    			</tr>
+                			</apex:repeat>
+            			</tbody>
+        			</table>
+        		<br/><br/>  
+   				</apex:outputpanel>
+            </apex:tab> 
+	<!----------------------------------------- END: Fifth Tab/TMU Support Users ---------------------------------------------------------> 
+
+    	</apex:tabPanel>
+      </div>
+
+	</div>      
+    </apex:form>
+</apex:page>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Typology --></label>
+    <name>Typology__c</name>
+    <picklistValues>
+        <masterLabel>3rd party use</masterLabel>
+        <translation><!-- 3rd party use --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Auction House</masterLabel>
+        <translation><!-- Auction House --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Business Use</masterLabel>
+        <translation><!-- Business Use --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cash Smurfing</masterLabel>
+        <translation><!-- Cash Smurfing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Charity front</masterLabel>
+        <translation><!-- Charity front --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud</masterLabel>
+        <translation><!-- Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud Investment middleman</masterLabel>
+        <translation><!-- Fraud Investment middleman --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud Peer-to-Peer / pooling funds</masterLabel>
+        <translation><!-- Fraud Peer-to-Peer / pooling funds --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud – Disclosure of Personal Data</masterLabel>
+        <translation><!-- Fraud – Disclosure of Personal Data --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Funneling</masterLabel>
+        <translation><!-- Funneling --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gambling</masterLabel>
+        <translation><!-- Gambling --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Identity Theft</masterLabel>
+        <translation><!-- Identity Theft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Passthrough</masterLabel>
+        <translation><!-- Passthrough --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transaction not within profile</masterLabel>
+        <translation><!-- Transaction not within profile --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unusual Behavior</masterLabel>
+        <translation><!-- Unusual Behavior --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Upgrade_Credit_Card_Type__c</fullName>
+    <label>Target Upgrade Credit Card Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PLATINUM_BALANCE_TRANSFER_01</fullName>
+                <default>false</default>
+                <label>ila Switch</label>
+            </value>
+            <value>
+                <fullName>PLATINUM_CASHBACK_AND_REWARD_01</fullName>
+                <default>false</default>
+                <label>ila Blue</label>
+            </value>
+            <value>
+                <fullName>WORLD_CASHBACK_AND_REWARDS_01</fullName>
+                <default>false</default>
+                <label>ila White</label>
+            </value>
+            <value>
+                <fullName>WORLD_ELITE_CASHBACK_AND_REWARDS_01</fullName>
+                <default>false</default>
+                <label>ila Black</label>
+            </value>
+            <value>
+                <fullName>ILA_GULF_AIR_COBRAND_01</fullName>
+                <default>false</default>
+                <label>ila Gulf Air</label>
+            </value>
+            <value>
+                <fullName>WORLD_ELITE_CASHBACK_AND_REWARDS_02</fullName>
+                <default>false</default>
+                <label>ila Black Metal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

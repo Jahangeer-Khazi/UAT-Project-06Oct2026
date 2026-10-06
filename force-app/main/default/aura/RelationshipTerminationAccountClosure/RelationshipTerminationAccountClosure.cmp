@@ -1,0 +1,26 @@
+<aura:component controller="RelationshipTerminationAccController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,force:hasSObjectName" 
+                access="global" >
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="errMsg" type="String" />
+    <aura:attribute name="msg" type="String" />
+    <aura:if isTrue="{!v.showLoadingSpinner}">
+        <div class="slds-text-body_small slds-text-color_error">
+            <img src="/auraFW/resources/aura/images/spinner.gif" class="spinner-img" alt="Loading" style="position: relative; display: inline-block; left: 50%; transform: translate(-50%);"/>
+        </div>
+    </aura:if>    
+    <div>
+    	<!--{!v.errMsg}</p>
+        {!v.msg}</p>-->
+        
+        <p style="color: red;font-weight: 500;">
+	        <lightning:formattedRichText value="{!v.errMsg}" style="color:#FF0000"/>
+        </p>
+        <p style="color: green;font-weight: 500;">
+        	<lightning:formattedRichText value="{!v.msg}" style="color:green"/>
+        </p>
+        
+    </div>
+</aura:component>

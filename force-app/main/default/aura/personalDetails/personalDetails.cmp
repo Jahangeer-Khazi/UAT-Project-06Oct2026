@@ -1,0 +1,83 @@
+<aura:component controller="BankInformationController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <!-- ============================================ -->
+    <aura:attribute name="newEmail" type="String" access="private"/>
+    <aura:attribute name="newMobile" type="String" access="private"/>
+    <aura:attribute name="mode" type="String" access="private" default="view" description="view|edit"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <aura:if isTrue="{! 'edit' == v.mode}">
+        <lightning:card iconName="standard:account" title="{!'Details of: ' + v.account.Name}">
+            <aura:set attribute="actions">
+                <lightning:button label="Cancel" onclick="{!c.onCancelClick}"/>
+                <lightning:button label="Save"   onclick="{!c.onSaveClick}"/>
+            </aura:set>
+            <div class="slds-form" role="list" style="padding: 1rem;">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-is-editing slds-form-element_horizontal">
+                            <lightning:input value="{!v.newEmail}" label="New Email" 
+                                aura:id="new-email"
+                                type="email" 
+                                maxlength="80"
+                                placeholder="{!v.account.PersonEmail}"
+                                />
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-is-editing slds-form-element_horizontal">
+                            <lightning:input value="{!v.newMobile}" label="New Mobile Phone" 
+                                aura:id="new-mobile"
+                                type="tel" 
+                                maxlength="40"
+                                placeholder="{!v.account.PersonMobilePhone}"
+                                />
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+        </lightning:card>
+        
+    <aura:set attribute="else">
+        <lightning:card iconName="standard:account" title="{!'Details of: ' + v.account.Name}">
+            <aura:set attribute="actions">
+                <aura:if isTrue="{!v.enableActions}">
+                    <lightning:button label="Edit" onclick="{!c.onEditClick}"/>
+                </aura:if>
+            </aura:set>
+            <div class="slds-form" role="list" style="padding: 1rem;">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Email</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.account.PersonEmail}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Mobile Phone</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.account.PersonMobilePhone}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+        </lightning:card>
+        
+    </aura:set>
+    </aura:if>
+
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

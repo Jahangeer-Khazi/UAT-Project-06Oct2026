@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Route_Case_To_Retail_Credit_Manually</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL( Region_Flag__c ,&apos;Bahrain&apos;),
+ISCHANGED(OwnerId),
+OR(
+OwnerId = &apos;00G6N0000014wax&apos;,
+OwnerId = &apos;00G6N0000013UW5&apos;,
+OwnerId = &apos;00G6N0000013UW2&apos;,
+OwnerId = &apos;00G6N0000014wb0&apos;,
+OwnerId = &apos;00G6N0000013UW4&apos;,
+OwnerId = &apos;00G6N0000013UW6&apos;,
+OwnerId = &apos;00GPw000002SvS1&apos;
+),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+NOT(ISPICKVAL(Type , &quot;Credit Card Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Cash Collateral Credit Limit Increase Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Card Upgrade&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Card Supplementary Application&quot;)),
+NOT(ISPICKVAL(Sub_Type__c, &quot;Manual Credit Limit Decrease&quot;)),
+NOT(ISPICKVAL(Type , &quot;New Loan / Finance Application&quot;))
+
+)</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>Case can’t be routed to Pre-screener/ Evaluator/ Verifier/ Approver/Temp queue. Please route the case to &quot;Retail Credit – Other Requests&quot;.</errorMessage>
+</ValidationRule>

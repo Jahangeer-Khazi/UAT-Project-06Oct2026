@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>when the customer request to reverse minimum balance fee is pending supporting documents</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MIN_FEE_REVERSAL_PENDNG</name>
+    <style>none</style>
+    <subject>Your request to reverse the minimum balance fee is pending</subject>
+    <textOnly>Your request to reverse the minimum balance fee is pending
+
+Hi,
+
+Your request to reverse minimum balance fee on your account ending {!Case.ac_ibanLastFourDigits__c} is pending.
+Please share with us one of the following documents:
+
+1.Orphan – copy of self-attested Social Subsidy Letter
+
+2.Widow – copy of self-attested Social Subsidy Letter
+
+3.Disabled customers – copy of self-attested Disability Card
+
+4.Pensioner – copy of self-attested GOSI payment or CPR print-out
+
+5.Customers on Social Subsidy – self-attested copy of self-attested Social Subsidy Letter
+
+6.Student – self-attested copy of Student ID from an educational institution
+
+7.Salary less than BHD 250 – self-attested copy of salary slip. In case of salary certificate, account statement showing salary credits to be provided.
+
+Please use the request ID {!Case.CaseNumber}to follow up.
+
+For any questions, call us +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

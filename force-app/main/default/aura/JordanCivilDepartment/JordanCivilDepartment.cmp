@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" 
+                controller="JordanCivilDepartmentController">
+    <aura:attribute name="case" type="Object" />
+    <aura:attribute name="recordId" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <lightning:notificationsLibrary aura:id="idValNotice"/>
+
+    <aura:if isTrue="{!and('Case' == v.sObjectName, and(v.case.RecordType.Name == 'On-Boarding', v.case.Region_Flag__c == 'Jordan'))}">
+        <!-- IBJ-6004 -->
+        <aura:if isTrue="{!and(v.case.Origin == 'Civil', v.case.Type == 'eKYC')}">
+            <lightning:card iconName="action:user_activation" title="Civil Department">
+                <aura:set attribute="actions">           
+                    <lightning:button label="Retry" onclick="{!c.onClickeKycRetry}"/>
+                    <lightning:button label="Convert to Identification" onclick="{!c.onClickeKycConvert}"/>                
+                </aura:set>             
+            </lightning:card>
+        </aura:if>
+        <!-- IBJ-6003 -->
+        <aura:if isTrue="{! v.case.Type == 'Civil Department'}">
+            <lightning:card iconName="action:user_activation" title="Civil Department">
+                <aura:set attribute="actions">           
+                    <lightning:button label="Civil Department Retry" onclick="{!c.onClickeKYCDetailsRetry}"/>               
+                </aura:set>             
+            </lightning:card>
+        </aura:if>
+    </aura:if>
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

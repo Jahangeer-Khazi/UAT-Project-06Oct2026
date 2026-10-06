@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_verifier_Other</fullName>
+    <active>true</active>
+    <description>If Verifier Decline Reason = Other then the agent has to fill Verifier Other reason manually.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Verifier_Decline_Reason__c),
+INCLUDES(cc_Verifier_Decline_Reason__c, &quot;Other&quot;), ISBLANK(cc_Verifier_Other_reason__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Verifier_Other_reason__c</errorDisplayField>
+    <errorMessage>Please fill the Verifier Other reason manually.</errorMessage>
+</ValidationRule>

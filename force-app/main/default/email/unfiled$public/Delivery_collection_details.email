@@ -1,0 +1,1 @@
+To update Delivery/Collection status of Case <b>{!Case.Subject}</b> click <a href="https://sit-neobank.cs101.force.com/VisitResult?id={!Case.Uuid__c}">this link</>.

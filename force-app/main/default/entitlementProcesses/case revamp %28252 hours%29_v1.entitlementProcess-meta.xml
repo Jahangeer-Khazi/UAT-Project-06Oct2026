@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <businessHours>Default</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Apple Pay / Samsung Pay&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Adding card&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Apple Pay / Samsung Pay&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Difficult user interface&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Applepay&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Samsungpay&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Fitbit&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Applepay&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Samsungpay&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Fitbit&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Garmin&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>252</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (252 hours)</name>
+    <versionMaster>552QI00000CRbZF</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

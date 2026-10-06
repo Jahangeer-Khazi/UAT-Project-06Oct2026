@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_Date__c</fullName>
+    <description>used in the Bank STatement Generation project/ will be used to store the SLA end Date for New Issue &amp; Dispute cases (NBA-11066)</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>To Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

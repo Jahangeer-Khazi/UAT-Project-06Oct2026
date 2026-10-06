@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waiver_Reason_is_mandatory</fullName>
+    <active>false</active>
+    <description>Waiver Reason field is mandatory if Waiver Flag is ticked</description>
+    <errorConditionFormula>AND( Waiver_Flag__c == true , ISBLANK(text(Waiver_Reason__c)), TEXT(Type)==&apos;Fee Waiver&apos; )</errorConditionFormula>
+    <errorMessage>Waiver Reason is mandatory if Waiver Flag is ticked</errorMessage>
+</ValidationRule>

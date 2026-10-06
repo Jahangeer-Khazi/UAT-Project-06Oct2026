@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreditCard_FCR</fullName>
+    <fields>CaseNumber</fields>
+    <fields>Priority</fields>
+    <fields>Status</fields>
+    <fields>Customer_Since__c</fields>
+    <fields>Customer_CIF__c</fields>
+    <fields>Awaiting_Customer_Feedback__c</fields>
+    <label>CreditCard-FCR</label>
+</CompactLayout>

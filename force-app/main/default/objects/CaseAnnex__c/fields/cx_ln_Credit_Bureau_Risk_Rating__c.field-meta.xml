@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cx_ln_Credit_Bureau_Risk_Rating__c</fullName>
+    <label>Credit Bureau Risk Rating</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Low Risk</fullName>
+                <default>false</default>
+                <label>Low Risk 750-850</label>
+            </value>
+            <value>
+                <fullName>Medium - Low Risk</fullName>
+                <default>false</default>
+                <label>Medium to Low Risk 650-750</label>
+            </value>
+            <value>
+                <fullName>Medium Risk</fullName>
+                <default>false</default>
+                <label>Medium Risk 550-650</label>
+            </value>
+            <value>
+                <fullName>Medium - High Risk</fullName>
+                <default>false</default>
+                <label>Medium to High Risk 450-550</label>
+            </value>
+            <value>
+                <fullName>High Risk</fullName>
+                <default>false</default>
+                <label>High Risk 300-450</label>
+            </value>
+            <value>
+                <fullName>Zero Score - 1st Facility</fullName>
+                <default>false</default>
+                <label>Zero Score - 1st Facility</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

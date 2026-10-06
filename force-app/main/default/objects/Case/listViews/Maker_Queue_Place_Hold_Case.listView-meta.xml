@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maker_Queue_Place_Hold_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Maker Queue - Place Hold</label>
+    <queue>Maker_Queue_Place_Hold</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

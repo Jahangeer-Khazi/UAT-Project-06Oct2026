@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca1B6N000000QfrGUAS</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>BH-NONStaff-ilaBlue</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(IF($Site.prefix == &apos;/s&apos;,&apos;/apex/dfsle__sending&apos;, $Site.Prefix +&apos;/apex/dfsle__sending&apos;), null, [sId = Case.Id, quickSend = false, isEmbedded = false, templateId = &apos;a1BPw000003DyXhMAK&apos;, recordId = Case.Id, title = &apos;BH-NONStaff-ilaBlue&apos;])}</url>
+</WebLink>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_close_a_case_if_child_is_open</fullName>
+    <active>true</active>
+    <description>This validation prevents a case from being closed if it has open child cases</description>
+    <errorConditionFormula>ISPICKVAL(Status, &quot;Closed&quot;)  
+&amp;&amp;
+Number_of_Open_Child_Cases__c &lt;&gt;0
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Service_Request&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Issue&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Enquiry&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Complaint&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Internal_Case&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Customer_Profile_Update&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Credit_Card_Services&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;db_AccountHold&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Prizeout&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Walkin_Customers&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Customer_Periodic_Review&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Compliance_Query&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Deceased_Customer&apos;
+&amp;&amp;
+RecordType_DeveloperName__c &lt;&gt; &apos;Loan_Application&apos;</errorConditionFormula>
+    <errorMessage>A case cannot be closed if it has a child case open!</errorMessage>
+</ValidationRule>

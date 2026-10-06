@@ -1,0 +1,45 @@
+<!-- 	
+    Organization : ABC Bank
+    * 	Created By: Wissal Benqezza
+    *	Created Date: 02-11-2022
+    * 	Change History: 
+                        *CH01 : Add alburaq logic by Elmustapha Elgarni
+-->
+<aura:component controller="LTNG028_ShowUncollectedFeesController" implements= "flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="viewUncollectedFees" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <!-- CH01 - Start -->
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <!-- CH01 - Start -->
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+
+    <aura:if isTrue="{!v.showCmp}">
+        <div style="padding-top: 2rem;">
+            <lightning:card title="Uncollected Minimum Balance Fees">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="Show Uncollected Fees" onclick="{!c.onLoadUncollectedFees}" />
+    
+                </div>
+                <div style="padding-top: 1rem;">
+                    <aura:If isTrue="{!v.viewUncollectedFees}">
+                        <!--<aura:if isTrue="{!empty(v.data)}">
+                        No statement is available for this Credit Card.
+                        <aura:set attribute="else">-->
+                        <lightning:datatable data="{!v.data}" aura:id="StatementTable" columns="{!v.columns}"
+                            keyField="id" hideCheckboxColumn="true" maxRowSelection="1" />
+    
+                        <!-- </aura:set>
+                    </aura:if>-->
+                    </aura:If>
+                </div>
+    
+            </lightning:card>
+        </div>
+    </aura:if>
+</aura:component>

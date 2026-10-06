@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Status_Employed_Validation</fullName>
+    <active>true</active>
+    <description>If Customer is Employed, then Employer Name is mandatory</description>
+    <errorConditionFormula>(TEXT( Employment_Status__c ) = &apos;Employed&apos; &amp;&amp; ISBLANK( Employer_Name__c ))</errorConditionFormula>
+    <errorMessage>If Customer is Employed, then Employer Name is mandatory</errorMessage>
+</ValidationRule>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCard_HR_Approve</fullName>
+    <active>true</active>
+    <description>Whenever HR Approves then CPR Number &amp; CPR Expiry are Mandatory fields and it is applicable to Credit Card, Credit Limit Increase &amp; Cash Collateral Application</description>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) == &apos;Bahrain&apos;,
+ISCHANGED(cc_HR_Result__c),
+ISPICKVAL(cc_HR_Result__c, &quot;Approved&quot;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISNULL(cc_CPR_Expiry_Date__c),
+ISBLANK(cc_CPR_Number__c)
+),
+OR(
+AND(
+ISPICKVAL(Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Please fill in the CPR Number and CPR Expiry Date fields.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,108 @@
+<!-- renderAs="pdf" -->
+<apex:page readOnly="true" contentType="application/vnd.ms-excel;charset=UTF-8" Controller="ExcelGenerationController" standardStylesheets="false" showHeader="false">
+    <head>
+        <style>
+            table, td, th {
+              border: 1px solid #cccccc;
+            }
+            table {
+            	border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!--Header title -->
+        <table borer="1">
+            <tr>
+                <td></td>
+                <td><b style="font-size:18px">Account Transactions</b></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <!--Customer Details -->
+        <table borer="1">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><b style="font-size:15px">CUSTOMER INFORMATION</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><b>Customer Name</b></td>
+                <td>{!customerName}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><b>Account</b></td>
+                <td style="mso-number-format: '\@'">{!accountName}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><b>Customer CIF</b></td>
+                <td style="mso-number-format: '\@'">{!cifNumber}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Unit</b></td>
+                <td style="mso-number-format: '\@'">{!unit}</td>
+            </tr>
+            <apex:outputPanel rendered="{!isFromDateIncludedInFilter}">
+            <tr>
+            	<td></td>
+                <td><b>From Date</b></td>
+                <td style="mso-number-format: '\@'">{!fromDate}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>To Date</b></td>
+                <td style="mso-number-format: '\@'">{!toDate}</td>
+            </tr>
+            </apex:outputPanel>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <!-- Account Transactions -->
+        <table borer="1">
+            <tr>
+                <th>S.No.</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Description</th>
+                <th>Reference</th>
+            </tr>
+            <apex:variable value="{!1}" var="count"/>
+            	<apex:repeat var="transWrapper" value="{!transactionList}">
+                <tr>
+                    <td style="mso-number-format: '\@';text-align:center">{!FLOOR(count)}</td>
+                    <td style="mso-number-format: '\@'">{!transWrapper.transactionDate}</td>
+                    <td style="mso-number-format: '\@'">{!transWrapper.transactionType}</td>
+                    <td>{!transWrapper.status}</td>
+                    <td>{!transWrapper.formattedOriginalAmount}</td>
+                    <td>{!transWrapper.currencyCode }</td>
+                    <td>{!transWrapper.description}</td>
+                    <td style="mso-number-format: '\@'">{!transWrapper.reference}</td>
+                </tr>
+            	<apex:variable var="count" value="{!count+ 1}"/>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

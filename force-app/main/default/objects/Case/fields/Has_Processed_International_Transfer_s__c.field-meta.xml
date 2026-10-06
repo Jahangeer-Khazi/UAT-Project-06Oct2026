@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Processed_International_Transfer_s__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Jira Id NBA-4456: Relationship Termination</description>
+    <inlineHelpText>Has Processed International Transfer(s) Recently</inlineHelpText>
+    <label>Recently International Transfer(s)</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

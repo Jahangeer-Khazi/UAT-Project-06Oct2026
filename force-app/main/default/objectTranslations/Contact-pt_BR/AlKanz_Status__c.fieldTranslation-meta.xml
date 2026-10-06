@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- AlKanz Status --></label>
+    <name>AlKanz_Status__c</name>
+    <picklistValues>
+        <masterLabel>Eligible - Active - Funded</masterLabel>
+        <translation><!-- Eligible - Active - Funded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eligible - Active - NonFunded</masterLabel>
+        <translation><!-- Eligible - Active - NonFunded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eligible - Inactive - NonFunded</masterLabel>
+        <translation><!-- Eligible - Inactive - NonFunded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ineligible - Active - Funded</masterLabel>
+        <translation><!-- Ineligible - Active - Funded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ineligible - Active - NonFunded</masterLabel>
+        <translation><!-- Ineligible - Active - NonFunded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ineligible - Inactive - NonFunded</masterLabel>
+        <translation><!-- Ineligible - Inactive - NonFunded --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

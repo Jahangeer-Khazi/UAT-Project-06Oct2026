@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>when prepaid credit card request has been submitted and case in CRM is created successfully</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_PREPAID_REQUEST_SUBMITTED_ALBURAQ</name>
+    <style>none</style>
+    <subject>Prepaid Credit Card Application Received</subject>
+    <textOnly>Prepaid Credit Card Application Received
+
+Hi,
+
+Thank you for applying for ila Prepaid Credit Card.
+
+Your Prepaid Credit Card Request with the following details has been received and is currently under review:
+
+Prepaid Credit Card Design: {!Case.ppc_CardDesign__c}
+
+Prepaid Credit Card Holder Name: {!Case.cc_Name_on_the_Card__c}
+
+Relationship: {!Case.sc_Relationship__c}
+
+For any questions, call us on +973 17123456
+
+Request ID {!Case.CaseNumber}is assigned for this request.
+
+
+
+
+You can contact the contact center on +973 17123456 to check the status of your request
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

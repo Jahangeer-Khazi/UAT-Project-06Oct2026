@@ -1,0 +1,31 @@
+<!--
+Change History :
+*         #CH01 :  Added by D&A technologies team 22-06-2022 add case model field
+*/
+-->
+
+<aura:component controller="LTNG003_BlockUnblockProcessController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="blockAmountList" type="List" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="currentBlockAmount" type="Object" />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <lightning:select aura:id="cbbBlock" label="Existing CBB Block" required="true" onchange="{!c.cbbBlockChange}">
+        <option text="--None--" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.blockAmountList}" var="blockAmount">
+                <option text="{!blockAmount.letterReferenceNumber}" value="{!blockAmount.blockId}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select>
+
+</aura:component>

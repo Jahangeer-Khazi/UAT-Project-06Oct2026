@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>UAR</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>UAR</value>
+    </caseValues>
+    <layouts>
+        <layout>UAR Layout</layout>
+        <sections>
+            <label><!-- Checker Section --></label>
+            <section>Checker Section</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Profile Section --></label>
+            <section>Customer Profile Section</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation --></label>
+            <section>Investigation</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation Reason --></label>
+            <section>Investigation Reason</section>
+        </sections>
+        <sections>
+            <label><!-- MLRO --></label>
+            <section>MLRO</section>
+        </sections>
+        <sections>
+            <label><!-- Maker Section --></label>
+            <section>Maker Section</section>
+        </sections>
+        <sections>
+            <label><!-- Suspicious Transaction Details --></label>
+            <section>Suspicious Transaction Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- UAR Details --></label>
+            <section>UAR Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Export to PDF --></label>
+        <name>Export_PDF</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Export to PDF --></label>
+        <name>Export_to_PDF</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update UAR --></label>
+        <name>Update_UAR</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- As a member of the Checker Queue you can not update the fields in the section &quot;Maker Section&quot; --></errorMessage>
+        <name>Checker_Cannot_Update_Maker_Sections</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- As a member of the Maker Queue you can not update the fields in the section &quot;Checker Section&quot; --></errorMessage>
+        <name>Maker_Cannot_Update_Checker_Sections</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Transaction Date cannot be in the future. Please select today’s date or an earlier date. --></errorMessage>
+        <name>Restrict_Future_Transaction_Date</name>
+    </validationRules>
+</CustomObjectTranslation>

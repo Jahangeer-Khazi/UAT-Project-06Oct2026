@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Age__c</fullName>
+    <description>Age of the customer as of today based on the Date of Birth provided by customer</description>
+    <externalId>false</externalId>
+    <formula>IF(Birthdate__c &lt;TODAY(), (TODAY()-  Birthdate__c)/365.25, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Customer Age</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

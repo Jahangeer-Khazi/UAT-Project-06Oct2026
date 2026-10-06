@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_otherreason_Cancellation_Closure</fullName>
+    <active>true</active>
+    <description>This validation rule prevent user to save the case record until Other Closure Reason  text is populated when Cancellation/Closure Reason is &apos;Other reason&apos;</description>
+    <errorConditionFormula>$User.LastName &lt;&gt; &quot;Integration&quot; &amp;&amp;
+ISPICKVAL(Type,&apos;Credit Card Account Closing&apos;) &amp;&amp;
+ISPICKVAL(Sub_Type__c,&apos;Credit Card Account Closing&apos;) &amp;&amp;
+ISPICKVAL(Closure_Reason__c, &apos;Other reason&apos;) &amp;&amp;
+ISBLANK(Other_Closure_Reason__c)</errorConditionFormula>
+    <errorDisplayField>Other_Closure_Reason__c</errorDisplayField>
+    <errorMessage>Other Closure Reason is mandatory for &apos;Other reason&apos; closure</errorMessage>
+</ValidationRule>

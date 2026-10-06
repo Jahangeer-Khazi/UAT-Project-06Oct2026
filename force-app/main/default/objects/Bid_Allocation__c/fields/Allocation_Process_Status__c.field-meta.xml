@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allocation_Process_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (  CONTAINS(Last_Api_Call_Status__c ,&apos;Success&apos;),
+IMAGE(&apos;/img/samples/light_green.gif&apos;,&apos;Success&apos;,25,35) ,
+IF ( CONTAINS(Last_Api_Call_Status__c ,&apos;Failed&apos;),
+IMAGE(&apos;/img/samples/light_red.gif&apos;,&apos;Failed&apos;,25,35) ,
+IF ( CONTAINS(Last_Api_Call_Status__c ,&apos;Processing&apos;),  IMAGE(&apos;/img/samples/light_yellow.gif&apos;,&apos;Waiting..&apos;,25,35)  , &apos;&apos; ) )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Allocation Process Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

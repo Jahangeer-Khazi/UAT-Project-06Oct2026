@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Credit_Approver_Comments__c</fullName>
+    <description>This field is used by the Credit Approver to populate their comments</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Credit Approver Comments</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

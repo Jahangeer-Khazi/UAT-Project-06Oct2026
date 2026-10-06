@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gold_Silver_Questionnaire_Status__c</fullName>
+    <description>This field shows the current status of the Gold &amp; Silver Accounts Investment Questionnaire → (empty) means the customer has not submitted the questionnaire. Approved means the questionnaire is approved automatically by backend or manually by an agent. Under Review means the questionnaire is pending manual review (case created). Rejected means it was manually reviewed and rejected, and the customer cannot proceed with creating a Gold or Silver Account.</description>
+    <label>Gold &amp; Silver Questionnaire Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Under Review</fullName>
+                <default>false</default>
+                <label>Under Review</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

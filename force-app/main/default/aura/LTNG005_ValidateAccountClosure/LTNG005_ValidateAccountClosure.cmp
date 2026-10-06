@@ -1,0 +1,77 @@
+<aura:component controller="LTNG005_ValidateAccountClosureController" implements="forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId"
+    access="global">
+
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+        .slds-modal__container {
+        transform: none !important;
+        width : 70% !important;
+        max-width : 70% !important;
+        }
+    </aura:html>
+
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="diableButton" type="Boolean" default="false" />
+    <aura:attribute name="isProcessing" type="Boolean" default="false" />
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <!--Modal Header-->
+            <header class="slds-modal__header">
+
+                <lightning:buttonIcon aura:id="exit" size="large" iconName="utility:close" variant="bare"
+                    onclick="{!c.close}" alternativeText="Close the window."
+                    class="slds-modal__close slds-button_icon-inverse" />
+
+
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                    <span>
+                        <h4 class="title slds-text-heading--medium">Validate Account Closure</h4>
+                    </span>
+                </h2>
+            </header>
+            <!--End Modal Header-->
+
+            <!--Modal Body-->
+
+            <div class="slds-modal__content slds-p-around_medium slds-p-top_x-small" id="modal-content-id-1">
+                <div style="margin: auto;">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                        <lightning:icon iconName="utility:warning" alternativeText="Attention" size="small">
+                        </lightning:icon>
+                        <h2 style="margin-left: 40px;">
+                            The goal of this service is to validate the dependencies of the account before closing it!
+                        </h2>
+                    </div>
+                </div>
+                <lightning:spinner class="{!((v.isProcessing)? '': 'slds-hide')}" />
+            </div>
+            <!--End of Modal Body-->
+
+            <!-- MODAL FOOTER -->
+            <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+                <div class="forceChangeRecordTypeFooter">
+
+                    <lightning:button label="Validate" class="slds-button slds-button_neutral" variant="brand"
+                        onclick="{!c.validateAcc}" disabled="{!v.diableButton}" />
+
+                    <lightning:button aura:id="Footer-id" label="Cancel" class="slds-button slds-button_neutral"
+                        onclick="{!c.close}" />
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</aura:component>

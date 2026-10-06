@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Checker Approved</masterLabel>
+        <translation><!-- Checker Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Checker Review</masterLabel>
+        <translation><!-- Checker Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closed</masterLabel>
+        <translation><!-- Closed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maker Review</masterLabel>
+        <translation><!-- Maker Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maker/Checker Rejected</masterLabel>
+        <translation><!-- Maker/Checker Rejected --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Processing</masterLabel>
+        <translation><!-- Processing --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

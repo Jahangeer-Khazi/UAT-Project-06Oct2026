@@ -1,0 +1,26 @@
+<aura:component controller="LTNG10_GetDrawListController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="drawList" type="List" />
+    <aura:attribute name="drawType" type="String" />
+    <aura:attribute name="regionFlag" type="String" />
+    <aura:attribute name="currentDraw" type="Object" />
+
+    <aura:handler name="change" value="{!v.drawType}" action="{!c.drawTypeChange}"/>
+    <aura:handler name="change" value="{!v.regionFlag}" action="{!c.regionFlagChange}"/>
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <lightning:select aura:id="drawToChange" label="Draw List" required="true" onchange="{!c.drawToChange}">
+        <option text="--None--" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.drawList}" var="drawDetail">
+                <option text="{!drawDetail.name}" value="{!drawDetail.id}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select>
+
+</aura:component>

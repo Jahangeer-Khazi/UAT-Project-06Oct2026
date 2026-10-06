@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Past_Experience__c</fullName>
+    <inlineHelpText>In the past, when faced with investment losses, what action did you take?</inlineHelpText>
+    <label>Past Experience</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sold Investment</fullName>
+                <default>false</default>
+                <label>Sold Investment</label>
+            </value>
+            <value>
+                <fullName>Did Nothing</fullName>
+                <default>false</default>
+                <label>Did Nothing</label>
+            </value>
+            <value>
+                <fullName>Purchased More</fullName>
+                <default>false</default>
+                <label>Purchased More</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

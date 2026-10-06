@@ -1,0 +1,84 @@
+<!--
+  Change History :
+*         #CH01 :Added by D&A technologies team 22-06-2022 add case model field
+*/
+-->
+<aura:component controller="LTNG003_BlockUnblockProcessController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    
+    <aura:attribute name="cc_type" type="String" default="CBB Amount block/unblock request"/> 
+    <aura:attribute name="cc_subType" type="String" />
+    <aura:attribute name="recordTypeId" type="String" default="" />
+    <aura:attribute name="currentBlockAmount" type="Object" />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Block/Unblock Amount Case Request</h4>
+            </span>
+        </h2>
+    </header>
+    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+    <!--CH01 - End--> 
+    
+    <lightning:card>
+        <aura:if isTrue="{! v.recordTypeId != '' }">
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"
+                                      onload="{!c.handleOnload}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                <!--on load handle name on Card, handle Submit -->
+                <lightning:inputField fieldName="Subject" aura:id="subject"/>
+                <lightning:inputField fieldName="Description" aura:id="description" />
+                <!--CH01 Start Added by D&A technologies team 22-06-2022 add case model field -->
+                <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/><!--CH01-->
+                <!--CH01 END -->
+                <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+                <lightning:inputField fieldName="Case_Nature__c" aura:id="Case_Nature" required="true"/>
+    
+                 <lightning:inputField fieldName="Type" value="{!v.cc_type}" aura:id="type" required="true"/>
+                <lightning:inputField fieldName="Sub_Type__c" value="{!v.cc_subType}" aura:id="subType" required="true"/>
+                
+                <aura:if isTrue="{! v.cc_subType == 'CBB Amount unblock' }">
+                    <c:LTNG003_ExistingCbbBlock accountId = "{!v.recordId}" currentBlockAmount = "{!v.currentBlockAmount}" caseModel="{!v.caseModel}" /><!--CH01-->
+                    <lightning:inputField fieldName="cbb_BlockAmountU__c" aura:id="cbb_BlockAmountU" disabled="true" value="{! v.currentBlockAmount.blockedAmount}"/>
+                    <lightning:inputField fieldName="cbb_CaseExecutionNumberU__c" aura:id="cbb_CaseExecutionNumberU" disabled="true" value="{! v.currentBlockAmount.caseNumber}" />
+                    <lightning:inputField fieldName="cbb_LetterReferenceNumberU__c" aura:id="cbb_LetterReferenceNumberU" disabled="true" value="{! v.currentBlockAmount.letterReferenceNumber}"/>
+                    <div class="slds-hide">
+                        <lightning:inputField fieldName="cbb_BlockIdU__c" aura:id="cbb_BlockIdU" value="{! v.currentBlockAmount.blockId}"/>
+                    </div>
+                </aura:if>
+
+                <aura:if isTrue="{! v.cc_subType == 'CBB Amount block' }">
+                    <lightning:inputField fieldName="BlockAmountBHDB__c" aura:id="BlockAmountBHDB" required="true"/>
+                    <lightning:inputField fieldName="CaseExecutionNumberB__c" aura:id="CaseExecutionNumberB" required="true"/>
+                    <lightning:inputField fieldName="LetterReferenceNumberB__c" aura:id="LetterReferenceNumberB" required="true"/>
+                </aura:if>
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                </div>
+                
+                <footer>
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" label="Save" type="submit" />
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    </div>
+                </footer>
+            </lightning:recordEditForm>
+        </aura:if>
+    </lightning:card>
+</aura:component>

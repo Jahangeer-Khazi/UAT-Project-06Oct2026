@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <businessHours>Default</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(
+  (
+    ISPICKVAL(Type, &quot;Official letter&quot;) &amp;&amp;
+    ISPICKVAL(Sub_Type__c, &quot;Bank statement&quot;) &amp;&amp;
+    (
+      ISPICKVAL(cc_Request_Type__c, &quot;Account&quot;) ||
+      ISPICKVAL(cc_Request_Type__c, &quot;Credit Card&quot;)
+    )
+  ) ||
+  (
+    ISPICKVAL(Type, &quot;Credit Card&quot;) &amp;&amp;
+    ISPICKVAL(Sub_Type__c, &quot;ila Blue&quot;) &amp;&amp;
+    ISPICKVAL(cc_Request_Type__c, &quot;Decrease credit limit&quot;)
+  ) ||
+  (
+    ISPICKVAL(Type, &quot;Fraud&quot;) &amp;&amp;
+    (
+      ISPICKVAL(Sub_Type__c, &quot;Credit Card&quot;) || ISPICKVAL(Sub_Type__c, &quot;Debit Card&quot;)
+    ) &amp;&amp;
+    ISPICKVAL(cc_Request_Type__c, &quot;Freeze - Detokinize&quot;)
+  ) ||
+  (
+    ISPICKVAL(Type, &quot;Account&quot;) &amp;&amp;
+    ISPICKVAL(Sub_Type__c, &quot;Cheque issuance&quot;) &amp;&amp;
+    ISPICKVAL(cc_Request_Type__c, &quot;Customer Request&quot;)
+  ) ||
+  (
+    ISPICKVAL(Type, &quot;Account&quot;) &amp;&amp;
+    ISPICKVAL(Sub_Type__c, &quot;Transacation amount&quot;) &amp;&amp;
+    (
+      ISPICKVAL(cc_Request_Type__c, &quot;Hold - By Operation&quot;) ||
+      ISPICKVAL(cc_Request_Type__c, &quot;Hold- By Fraud&quot;)
+    )
+  ) ||
+  (
+    ISPICKVAL(Type, &quot;Official letter&quot;) &amp;&amp;
+    ISPICKVAL(Sub_Type__c, &quot;Outstanding letter&quot;) &amp;&amp;
+    ISPICKVAL(cc_Request_Type__c, &quot;Loans&quot;)
+  )
+)
+&amp;&amp; 
+(Account.VVIP__pc = TRUE || ISPICKVAL(Account.Segment__pc, &quot;Premium&quot;))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>2</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>ISPICKVAL(Type, &quot;Tokenization&quot;) &amp;&amp;
+(
+  (
+    ISPICKVAL(Sub_Type__c, &quot;ApplePay&quot;) ||
+    ISPICKVAL(Sub_Type__c, &quot;SamsungPay&quot;) ||
+    ISPICKVAL(Sub_Type__c, &quot;others&quot;)
+  ) &amp;&amp;
+  (
+    ISPICKVAL(cc_Request_Type__c, &quot;added through device&apos;s wallet&quot;) ||
+    ISPICKVAL(cc_Request_Type__c, &quot;added through ila application&quot;)
+  )
+)
+&amp;&amp;
+(Account.VVIP__pc = TRUE || ISPICKVAL(Account.Segment__pc, &quot;Premium&quot;))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>2</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>ISPICKVAL(Type, &quot;Product&quot;) &amp;&amp;
+(
+(
+ISPICKVAL(Sub_Type__c, &quot;Onboarding&quot;)
+) &amp;&amp;
+(
+ISPICKVAL(cc_Request_Type__c, &quot;Process/journey&quot;)
+)
+)
+&amp;&amp;
+(Account.VVIP__pc = TRUE || ISPICKVAL(Account.Segment__pc, &quot;Premium&quot;))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>2</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (24 hours)</name>
+    <versionMaster>552QI00000CRTQP</versionMaster>
+    <versionNumber>2</versionNumber>
+</EntitlementProcess>

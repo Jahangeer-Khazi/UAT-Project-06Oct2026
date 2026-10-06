@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Draw_Checker</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Bahrain_Draw_Checker</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Draw Checker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Draw_ICU_Checker</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Bahrain_ICU_Draw_Checker</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Draw Finance Checker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Draw_Maker</fullName>
+        <description>After Rejecting the initial Draw Approval process</description>
+        <field>OwnerId</field>
+        <lookupValue>Bahrain_Draw_Maker</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Draw Maker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Draw_Operations_Checker</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Bahrain_Operations_Checker</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Draw Operations Checker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Draw_Operations_Dept</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Bahrain_Operations_Department</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Draw Operations Dept</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Draw_Risk_Dept</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Bahrain_Risk_Department</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Draw Finance Dept</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Jordan_Checker</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Jordan_Draw_Checker</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Jordan Checker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Assigne_to_Jordan_Maker</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Jordan_Draw_Maker</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Draw Assigne to Jordan Maker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Status_Approved</fullName>
+        <field>Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Draw_Status -Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Draw_Status_Rejected</fullName>
+        <field>Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Draw_Status-Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Pending_ICU_Validation_1</fullName>
+        <field>Status__c</field>
+        <literalValue>Pending ICU Validation 1</literalValue>
+        <name>Pending ICU Validation 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_ICU_Validation_1_Failed</fullName>
+        <field>Status__c</field>
+        <literalValue>ICU Validation 1 Failed</literalValue>
+        <name>Status-Finance Checker Validation Failed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_ICU_Validation_2_Complete</fullName>
+        <field>Status__c</field>
+        <literalValue>ICU Validation 2 Complete</literalValue>
+        <name>Status - ICU Validation 2 Complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Jordan_Maker_Validation_Failed</fullName>
+        <field>Status__c</field>
+        <literalValue>Maker Validation Failed</literalValue>
+        <name>Status - Jordan Maker Validation Failed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Operations_Validation_Failed</fullName>
+        <field>Status__c</field>
+        <literalValue>Operations Checker Failed</literalValue>
+        <name>Status - Operations Validation Failed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Pending_ICU_Validation_1</fullName>
+        <field>Status__c</field>
+        <literalValue>Pending ICU Validation 1</literalValue>
+        <name>Status - Pending ICU Validation 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Pending_ICU_Validation_2</fullName>
+        <field>Status__c</field>
+        <literalValue>Pending ICU Validation 2</literalValue>
+        <name>Status - Pending ICU Validation 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Pending_Validation</fullName>
+        <field>Status__c</field>
+        <literalValue>Pending Validation</literalValue>
+        <name>Status - Pending Validation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Ready</fullName>
+        <field>Status__c</field>
+        <literalValue>Ready</literalValue>
+        <name>Status - Ready</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Rework</fullName>
+        <field>Status__c</field>
+        <literalValue>Rework</literalValue>
+        <name>Status - Rework</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Risk_Dept_Validation_Complete</fullName>
+        <field>Status__c</field>
+        <literalValue>Risk Dept Validation Complete</literalValue>
+        <name>Status - Risk Dept Validation Complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Validation_Complete</fullName>
+        <field>Status__c</field>
+        <literalValue>Ready for Scattering</literalValue>
+        <name>Status - Validation Complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Validation_Failed</fullName>
+        <field>Status__c</field>
+        <literalValue>Failed Validation</literalValue>
+        <name>Status - Validation Failed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Approved_Checkbox</fullName>
+        <field>Draw_Approved__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Approved Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Checkbox</fullName>
+        <field>Draw_Approved__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

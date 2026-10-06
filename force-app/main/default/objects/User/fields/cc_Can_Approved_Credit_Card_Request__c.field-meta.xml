@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Can_Approved_Credit_Card_Request__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used whether user is having an credit card approval access.</description>
+    <label>Can Approved Credit Card Request</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

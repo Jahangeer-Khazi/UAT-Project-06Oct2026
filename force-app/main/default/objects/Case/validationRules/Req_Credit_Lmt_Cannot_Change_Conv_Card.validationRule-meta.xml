@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_Credit_Lmt_Cannot_Change_Conv_Card</fullName>
+    <active>true</active>
+    <description>Requested and Approved Requested Limit Cannot be Changed for Converted Cards</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()), 
+$User.LastName &lt;&gt; &apos;Integration&apos;,
+ISPICKVAL(Type, &apos;Convert Credit Card Nature Application&apos;),
+ISPICKVAL(Sub_Type__c, &apos;Convert to Unsecured&apos;),
+ISPICKVAL(Region_Flag__c, &apos;Bahrain&apos;),
+OR(
+ISCHANGED(cc_Requested_Credit_Limit__c),
+ISCHANGED(cc_Approved_Credit_Limit__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Requested Limit and Approved Credit Limit Cannot be Changed for Converted Cards.</errorMessage>
+</ValidationRule>

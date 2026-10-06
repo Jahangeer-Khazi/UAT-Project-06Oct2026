@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BankStatement_CheckerNotChangedIfAccept</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				$User.LastName &lt;&gt; &quot;Integration&quot; , 
+				RecordType_DeveloperName__c == &apos;BankStatementRequest&apos;,
+    ISCHANGED(cc_Checker_Result__c),
+				TEXT(PRIORVALUE(cc_Checker_Result__c)) == &apos;Accept&apos;  
+)</errorConditionFormula>
+    <errorDisplayField>cc_Checker_Result__c</errorDisplayField>
+    <errorMessage>Once it&apos;s Accepted you cannot change the checker result</errorMessage>
+</ValidationRule>

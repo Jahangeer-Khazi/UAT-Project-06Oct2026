@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Letter_Checker__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field used to give access to action the letter generation case as Checker / NBA-13537</description>
+    <inlineHelpText>This field used to give access to action the letter generation case as Checker / NBA-13537</inlineHelpText>
+    <label>Letter Checker</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

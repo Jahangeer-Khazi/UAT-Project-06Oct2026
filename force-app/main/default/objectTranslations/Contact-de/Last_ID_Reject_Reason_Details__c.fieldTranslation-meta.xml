@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Last ID Reject Reason Details --></help>
+    <label><!-- ID Reject Reason Details --></label>
+    <name>Last_ID_Reject_Reason_Details__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Jo Block/Unblock Account Maker Queue</name>
+    <queueMembers>
+        <users>
+            <user>imane.tsioucha@da-tech.ma</user>
+            <user>jayanth.manickam@bank-abc.com</user>
+            <user>ligin.george@ilabank.com</user>
+            <user>praveen.cc.jordan@bank-abc.com</user>
+            <user>santhoshiniv.cc.jordan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>ManageUserPageController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ManageUserPageController_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>This PS is to give the permission to the manage the over flow contact Center users on a rotational license.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Managing CC overflow users</label>
+    <pageAccesses>
+        <apexPage>ManageUserPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <tabSettings>
+        <tab>Manage_User</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

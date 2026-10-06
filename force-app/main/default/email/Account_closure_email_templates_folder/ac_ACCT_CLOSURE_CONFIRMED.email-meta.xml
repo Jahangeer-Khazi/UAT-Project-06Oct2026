@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>The email triggers in case of successful account closure.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ac_ACCT_CLOSURE_CONFIRMED</name>
+    <style>none</style>
+    <subject>Your ila account has been closed successfully.</subject>
+    <textOnly>Your ila account has been closed successfully.
+
+Hi,
+
+Your request to close your ila account ending {!Case.ac_ibanLastFourDigits__c} has been confirmed.
+
+Your {!Case.ac_Currency__c} account is now closed due to {!ac_AccountClosingReason__c} on {!TODAY()}.
+
+Our team is available 24/7 to help you on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

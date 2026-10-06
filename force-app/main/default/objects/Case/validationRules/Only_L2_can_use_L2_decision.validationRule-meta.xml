@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_L2_can_use_L2_decision</fullName>
+    <active>true</active>
+    <description>Used to prevent non-L2 users to use the decision quick action</description>
+    <errorConditionFormula>AND(
+	ISCHANGED (L2_Decision__c),
+	$UserRole.Name &lt;&gt; &apos;L2&apos;,
+	$UserRole.Name &lt;&gt; &apos;Jordan L2&apos;,
+	$User.L2_Access__c != TRUE
+)</errorConditionFormula>
+    <errorMessage>Only L2 users can perform this action</errorMessage>
+</ValidationRule>

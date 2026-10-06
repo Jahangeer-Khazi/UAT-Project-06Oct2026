@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.custom-container {
+    margin: 0 !important;
+    padding: 0.125rem 0 !important;
+     display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+}
+
+.slds-card {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.slds-m-left_medium {
+    margin-left: 0.5rem !important;
+   
+}

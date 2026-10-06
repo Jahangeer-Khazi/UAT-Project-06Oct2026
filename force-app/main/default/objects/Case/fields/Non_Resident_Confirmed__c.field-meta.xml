@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Resident_Confirmed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will update the Customer&apos;s &quot;No Resident Permit&quot; field on Name Screening Case CLosure</description>
+    <label>Non Resident Confirmed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

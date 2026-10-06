@@ -1,0 +1,252 @@
+<template>
+    <lightning-card title="Login Activity Details Tracker">
+        <div slot="actions">
+            <template if:true={isPollingReport}>
+                <div class="report-progress">
+                    <lightning-progress-bar value={reportProgress} size="medium"></lightning-progress-bar>
+                    <div class="slds-text-body_small slds-m-top_xx-small">{pollStatusLabel}</div>
+                </div>
+            </template>
+            <template if:false={isPollingReport}>
+                <template if:true={hasReportDownload}>
+                    <lightning-button label="Download Excel" icon-name="utility:download" variant="brand"
+                        onclick={openReportDownload} class="slds-m-right_x-small"></lightning-button>
+                </template>
+                <lightning-button label="Generate Report" icon-name="utility:download" onclick={openReportModal}
+                    variant="brand-outline"></lightning-button>
+            </template>
+        </div>
+
+        <template if:true={error}>
+            <div class="slds-p-around_medium slds-text-color_error">
+                {error}
+            </div>
+        </template>
+
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium is-relative">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:false={error}>
+
+                <!-- Collapsed View: 5 Recent Records -->
+                <template if:false={isExpanded}>
+                    <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                        <template if:true={hasData}>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Timestamp">Timestamp</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Result">Result</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Device ID">Device ID</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="IP Address">IP Address</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Location">Location</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Description">Description</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Error">Error</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={recentActivity} for:item="item">
+                                        <tr key={item.id} class="slds-hint-parent">
+                                            <td data-label="Timestamp">
+                                                <lightning-formatted-date-time value={item.timestamp} year="numeric"
+                                                    month="short" day="2-digit" hour="2-digit"
+                                                    minute="2-digit"></lightning-formatted-date-time>
+                                            </td>
+                                            <td data-label="Result">
+                                                <lightning-badge label={item.result} class={item.badgeClass}></lightning-badge>
+                                            </td>
+                                            <td data-label="Device ID">
+                                                <div class="slds-truncate" title={item.channel}>{item.channel}</div>
+                                            </td>
+                                            <td data-label="IP Address">
+                                                <div class="slds-truncate" title={item.category}>{item.category}</div>
+                                            </td>
+                                            <td data-label="Location">
+                                                <div class="slds-truncate" title={item.unit}>{item.unit}</div>
+                                            </td>
+                                            <td data-label="Description">
+                                                <div class="slds-truncate" title={item.description}>{item.description}</div>
+                                            </td>
+                                            <td data-label="Error">
+                                                <div class="slds-truncate" title={item.errorCode}>{item.errorCode}</div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </template>
+                        <template if:false={hasData}>
+                            <p class="slds-text-align_center slds-text-color_weak">No recent details found.</p>
+                        </template>
+                    </div>
+                    <div slot="footer" class="slds-text-align_right">
+                        <lightning-button label="View All" title="View All Details" onclick={handleViewAll}
+                            variant="base"></lightning-button>
+                    </div>
+                </template>
+
+                <!-- Expanded View -->
+                <template if:true={isExpanded}>
+                    <div class="slds-p-around_medium">
+                        <div class="slds-grid slds-gutters slds-m-bottom_small">
+                            <div class="slds-col slds-size_1-of-3">
+                                <lightning-input type="date" label="From" value={filterFromDate}
+                                    onchange={handleFilterChange} name="fromDate"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-3">
+                                <lightning-input type="date" label="To" value={filterToDate}
+                                    onchange={handleFilterChange} name="toDate"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-3">
+                                <div class="slds-grid slds-gutters slds-grid_vertical-align-end">
+                                    <div class="slds-col">
+                                        <lightning-combobox label="Status" value={filterStatus} placeholder="All"
+                                            options={statusOptions} onchange={handleFilterChange}
+                                            name="status"></lightning-combobox>
+                                    </div>
+                                    <div class="slds-col slds-grow-none">
+                                        <lightning-button label="Apply" onclick={applyFilters}
+                                            variant="brand"></lightning-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <template if:true={filterDateError}>
+                            <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_small" role="alert">
+                                <span class="slds-assistive-text">error</span>
+                                <h2>{filterDateError}</h2>
+                            </div>
+                        </template>
+
+                        <div style="height: 300px;">
+                            <lightning-datatable key-field="id" data={historyData} columns={columns}
+                                hide-checkbox-column>
+                            </lightning-datatable>
+                        </div>
+
+                        <div class="slds-m-top_medium slds-align_absolute-center">
+                            <lightning-button-group>
+                                <lightning-button label="Previous" icon-name="utility:chevronleft"
+                                    onclick={handlePrevPage} disabled={isFirstPage}></lightning-button>
+
+                                <template for:each={pageList} for:item="page">
+                                    <template if:true={page.isDots}>
+                                        <lightning-button key={page.value} label="..." disabled variant="base"
+                                            class="slds-p-horizontal_x-small"></lightning-button>
+                                    </template>
+                                    <template if:false={page.isDots}>
+                                        <lightning-button key={page.value} label={page.label} data-value={page.value}
+                                            onclick={handlePageClick} variant={page.variant}></lightning-button>
+                                    </template>
+                                </template>
+
+                                <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right"
+                                    onclick={handleNextPage} disabled={isLastPage}></lightning-button>
+                            </lightning-button-group>
+                        </div>
+
+                    </div>
+                    <div slot="footer" class="slds-text-align_right">
+                        <lightning-button label="Collapse" title="Collapse View" onclick={handleCollapse}
+                            variant="base"></lightning-button>
+                    </div>
+                </template>
+
+            </template>
+        </template>
+    </lightning-card>
+
+    <template if:true={isReportModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small"
+            aria-labelledby="report-modal-heading" aria-modal="true">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                    title="Close" onclick={closeReportModal}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                        size="small"></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="report-modal-heading" class="slds-modal__title slds-hyphenate">Generate Login Activity Report</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <template if:true={isReportReady}>
+                        <div class="slds-text-align_center slds-p-around_small">
+                            <lightning-icon icon-name="action:approval" alternative-text="Ready" size="small"></lightning-icon>
+                            <h2 class="slds-text-heading_small slds-m-top_small">Your Excel report is ready</h2>
+                            <p class="slds-m-top_x-small slds-text-body_regular">
+                                Click the button below to download the login history file.
+                            </p>
+                            <div class="slds-m-top_medium">
+                                <lightning-button label="Download Excel Report" variant="brand"
+                                    icon-name="utility:download" onclick={openReportDownload}></lightning-button>
+                            </div>
+                            <template if:true={reportExpiresAt}>
+                                <p class="slds-text-body_small slds-text-color_weak slds-m-top_small">
+                                    This download link expires
+                                    <lightning-formatted-date-time value={reportExpiresAt} year="numeric" month="short"
+                                        day="2-digit" hour="2-digit" minute="2-digit"></lightning-formatted-date-time>.
+                                </p>
+                            </template>
+                        </div>
+                    </template>
+                    <template if:false={isReportReady}>
+                        <p class="slds-m-bottom_medium">Select a date range of up to 90 days (3 months). The report will be generated as an Excel file.</p>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <lightning-input type="date" label="Date From" name="reportFromDate" value={reportFromDate}
+                                    onchange={handleReportFilterChange} required></lightning-input>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-input type="date" label="Date To" name="reportToDate" value={reportToDate}
+                                    onchange={handleReportFilterChange} required></lightning-input>
+                            </div>
+                        </div>
+                        <template if:true={reportDateError}>
+                            <div class="slds-text-color_error slds-m-top_small">{reportDateError}</div>
+                        </template>
+                        <template if:true={isPollingReport}>
+                            <div class="slds-m-top_medium">
+                                <lightning-progress-bar value={reportProgress} size="medium"></lightning-progress-bar>
+                                <p class="slds-text-body_small slds-m-top_x-small">{pollStatusLabel}</p>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning-button label={reportModalCloseLabel} onclick={closeReportModal} class="slds-m-right_x-small"></lightning-button>
+                    <template if:true={isReportReady}>
+                        <lightning-button label="Download Excel Report" variant="brand" icon-name="utility:download"
+                            onclick={openReportDownload}></lightning-button>
+                    </template>
+                    <template if:false={isReportReady}>
+                        <template if:false={isPollingReport}>
+                            <lightning-button label="Generate Report" onclick={handleGenerateAndDownload} variant="brand"
+                                icon-name="utility:download" disabled={disableGenerate}></lightning-button>
+                        </template>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

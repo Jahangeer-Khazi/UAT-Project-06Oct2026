@@ -1,0 +1,278 @@
+<template>
+    <template if:true={isLoading} class="slds-is-relative">
+        <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+    </template>
+    <div class="payroll-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Payrolls List</h1>
+            <div class="header-controls">
+                <div class="filter-group">
+                    <div class="entries-selector">
+                        <span>Show</span>
+                        <select class="entries-dropdown" onchange={handleEntriesChange}>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                        <span>Entries</span>
+                    </div>
+                    <div class="payroll-filter">
+                        <span>Filter:</span>
+                        <select class="filter-dropdown" onchange={handleFilterChange}>
+                            <option value="all">All Payrolls</option>
+                            <option value="available">Available Payrolls</option>
+                            <option value="historical">Historical Payrolls</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+            <div class="loading-state">
+                Loading payroll data...
+            </div>
+        </template>
+
+        <!-- No Data State -->
+        <template if:true={hasDataLoaded}>
+            <template if:false={hasData}>
+                <template if:true={isLoading} class="slds-is-relative">
+                    <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+                </template>
+                <template if:false={isLoading}>
+                    <div class="no-data">
+                        This customer has no payrolls.
+                    </div>
+                </template>
+            </template>
+
+            <template if:true={hasData}>
+                <!-- Main Table -->
+                <table class="payroll-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">Select</th>
+                            <th>Debit Account</th>
+                            <th>LMRA Payroll Reference</th>
+                            <th>Salary Month</th>
+                            <th>Payment Date</th>
+                            <th>Currency</th>
+                            <th>No of Salary</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={displayedRecords} for:item="record">
+                            <tr key={record.id} class={record.rowClass}>
+                                <td>
+                                    <input
+                                        type="radio"
+                                        name="payrollRadio"
+                                        checked={record.selected}
+                                        data-id={record.id}
+                                        onchange={handleRadioChange}
+                                        class="radio-input"
+                                    />
+                                </td>
+                                <td>{record.debitAccount}</td>
+                                <td>{record.payrollRef}</td>
+                                <td>{record.salaryMonth}</td>
+                                <td>{record.paymentDate}</td>
+                                <td>{record.currency}</td>
+                                <td>{record.numberOfSalaries}</td>
+                                <td>{record.amount}</td>
+                                <td>
+                                    <span class={record.statusClass}>{record.status}</span>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+
+                <!-- Pagination Controls -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        Showing {startRecord} to {endRecord} of {filteredRecordsLength} entries
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" onclick={handlePreviousPage} disabled={isFirstPage}>
+                            Previous
+                        </button>
+                        <span class="page-numbers">
+                            <template for:each={pageButtons} for:item="button">
+                                <button 
+                                    key={button.page} 
+                                    data-page={button.page} 
+                                    onclick={handlePageClick}
+                                    class={button.className}>
+                                    {button.label}
+                                </button>
+                            </template>
+                        </span>
+                        <button class="pagination-btn" onclick={handleNextPage} disabled={isLastPage}>
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </template>
+
+        <!-- Detail Panel (shown when a record is selected via radio button) -->
+        <template if:true={selectedRecord}>
+            <div class="detail-panel">
+                <div class="panel-header">
+                    <h2>Payroll Details</h2>
+                    <div class="panel-actions">
+                        <button class="download-btn" onclick={handleDownload}>
+                            Download as PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-content">
+                    <!-- Loading state for detail content -->
+                    <template if:true={isDetailLoading}>
+                        <div class="loading-state">
+                            Loading payroll details...
+                        </div>
+                    </template>
+
+                    <template if:false={isDetailLoading}>
+                        <div class="panel-section">
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Detail Account (IBAN)</label>
+                                    <span>{selectedRecord.detailAccount}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Currency</label>
+                                    <span>{selectedRecord.currency}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Reference</label>
+                                    <span>{selectedRecord.references}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Payroll Amount</label>
+                                    <span>{selectedRecord.payrollAmount}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Salary Month</label>
+                                    <span>{formattedMonthYear}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Transaction Fees</label>
+                                    <span>{selectedRecord.transactionAmount}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Creation Date</label>
+                                    <span>{formattedCreationDate}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>VAT</label>
+                                    <span>{selectedRecord.vat}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Payment Date</label>
+                                    <span>{formattedPaymentDate}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Total Debit Amount</label>
+                                    <span>{totalDebitAmt}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Employer Name</label>
+                                    <span>{selectedRecord.employerName}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Status</label>
+                                    <span class={selectedRecord.statusClass}>{selectedRecord.status}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>No. of Salaries</label>
+                                    <span>{selectedRecord.employeeCount}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Reason</label>
+                                    <span>{selectedRecord.reason}</span>
+                                </div>
+                            </div>
+                            <div class="panel-row">
+                                <div class="panel-field">
+                                    <label>Description</label>
+                                    <span>{selectedRecord.description}</span>
+                                </div>
+                                <div class="panel-field">
+                                    <label>Payroll Id</label>
+                                    <span>{selectedRecord.ref}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Employee Details Table -->
+                        <div class="employee-section">
+                            <div class="section-header">
+                                <h3>Employee Details</h3>
+                                <div class="employee-controls">
+                                    <span>Show</span>
+                                    <select class="entries-dropdown">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                    </select>
+                                    <span>Entries</span>
+                                </div>
+                            </div>
+
+                            <table class="employee-table">
+                                <thead>
+                                    <tr>
+                                        <th>Record No.</th>
+                                        <th>Employee Name</th>
+                                        <th>Credit Account</th>
+                                        <th>Bank (BIC)</th>
+                                        <th>Currency</th>
+                                        <th>Amount</th>
+                                        <th>ID Type</th>
+                                        <th>ID Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={selectedRecord.employees} for:item="employee">
+                                        <tr key={employee.id}>
+                                            <td>{employee.recordNo}</td>
+                                            <td>{employee.name}</td>
+                                            <td>{employee.creditAccount}</td>
+                                            <td>{employee.bankSec}</td>
+                                            <td>{employee.currency}</td>
+                                            <td>{employee.amount}</td>
+                                            <td>{employee.idType}</td>
+                                            <td>{employee.idNumber}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,198 @@
+<!--
+* Change History :
+*         #CH01 :  Added by Maksud Ali 23-12-2025
+*        
+-->
+<aura:component controller="WaiverRequestController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader">
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+        .slds-modal__container {
+        transform: none !important;
+        
+        width : 80% !important;
+        max-width : 80% !important;
+        }
+        
+        @media (min-width: 48em){
+        	.slds-modal__container {
+        		width: 95% !important;
+        		max-width: 55% !important;
+        	}
+        }
+        
+    </aura:html>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="waiverFile" type="Object" />
+    <aura:attribute name="waiverFileName" type="String" default="" />
+    <aura:attribute name="fileSizeError" type="String" default="" />
+    <aura:attribute name="isDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="contentDocumentId" type="String" default=""/>
+    <aura:attribute name="documentIdList" type="String[]" default=""/>
+    
+    <aura:attribute name="selectedAccount" type="String" default="none" />
+    <aura:attribute name="accountList" type="String[]" default=""/>
+    <aura:attribute name="alburaqAccountList" type="String[]" default=""/>
+    <aura:attribute name="transactionData" type="Object[]" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="selectedRows" type="List" default="[]"/>
+    <aura:attribute name="selectedDateTo" type="Date" />
+    <aura:attribute name="selectedDateFrom" type="Date" />
+    <aura:attribute name="filterError" type="String" />
+    <aura:attribute name="selectedReference" type="String" />
+    <aura:attribute name="totalAmount" type="String" default="" />
+    <aura:attribute name="hasData" type="String" default=""/>
+    <aura:attribute name="selectedCaseModel" type="String" default="ila"/>
+    <aura:attribute name="claimAmountError" type="Boolean" default="false" />
+    <aura:attribute name="isTransRef" type="Boolean" default="false" />
+    <aura:attribute name="prevSelectedRows" type="List" default="[]"/>
+    
+    <aura:attribute name="filetype" type="List" 
+                    default="['.pdf','.doc','.docx','.xls','.xlsx','.ppt','.pptx','.png','.jpg','.jpeg','.gif','.bmp']" />
+	<header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Waiver Request</h4>
+            </span>
+        </h2>
+    </header>
+    <lightning:spinner aura:id="waiverSpinner" 
+                       alternativeText="Saving..." 
+                       title="Saving.." 
+                       variant="brand" 
+                       size="large" 
+                       class="slds-hide"/>
+    
+    <lightning:card>
+        <div aura:id="dvForm" style="overflow:hidden">
+        <lightning:recordEditForm aura:id="form"
+                                      objectApiName="New_Wavier_Approval__c"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}">
+            <lightning:messages/>
+            <lightning:inputField fieldName="Subject__c" variant="label-stacked" aura:id="subject" required="true" />
+            <lightning:inputField fieldName="Description__c" variant="label-stacked" aura:id="description" required="true"/>
+            <lightning:inputField fieldName="Case_Model__c" variant="label-stacked" value="{!v.selectedCaseModel}" aura:id="caseModel" required="true"/>
+            <lightning:inputField fieldName="Type__c" variant="label-stacked" aura:id="waiverType" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" variant="label-stacked" aura:id="subType" required="true"/>
+            <lightning:inputField fieldName="Request_Type__c" variant="label-stacked" aura:id="requestType" required="true"/>
+            <lightning:inputField fieldName="Case_Origin__c" variant="label-stacked" aura:id="caseOrigin" required="true"/>
+            
+            
+            <div style="margin-left:5px;margin-right:5px;">
+                <aura:if isTrue="{!v.selectedCaseModel == 'ila'}">
+                	<lightning:select name="accountList" label="Select Account" 
+                                  class="customSelect" onchange="{!c.handleAccountChange}">
+                        <aura:iteration items="{!v.accountList}" var="opt">
+                            <option value="{!opt.value}" text="{!opt.label}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+                <aura:if isTrue="{!v.selectedCaseModel == 'alburaq'}">
+                	<lightning:select name="alburaqAccountList" label="Select Account" 
+                                  class="customSelect" onchange="{!c.handleAccountChange}">
+                        <aura:iteration items="{!v.alburaqAccountList}" var="opt">
+                            <option value="{!opt.value}" text="{!opt.label}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+            </div>
+            <aura:if isTrue="{!v.selectedAccount != 'none'}">
+                
+                <div style="margin-top:13px;margin-bottom:13px;margin-left:5px;margin-right:5px;">
+                    <div style="font-style: italic;margin-bottom:5px;">Search Filter - (Transaction can be filtered and max date range would be a one month only with max 50 records.)</div>
+                    <div style="display:flex;">
+                        <div style="flex:1">
+                            <lightning:input type="date" placeholder="From Date" name="dateFrom" variant="label-hidden" aura:id="dateFrom" value="{!v.selectedDateFrom}" onchange="{!c.fromDateChanged}"/>
+                        </div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div style="flex:1">
+                        	<lightning:input type="date" placeholder="To Date" name="dateFrom" variant="label-hidden" aura:id="dateTo" value="{!v.selectedDateTo}" onchange="{!c.toDateChanged}"/>
+                        </div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div style="flex:1">
+                        	<lightning:button variant="neutral" label="Search" onclick="{! c.searchFilterClicked }" />
+                        </div>
+                    </div>
+                    <div style="color:red;">
+                    	{!v.filterError}
+                    </div>
+                </div>
+            	<div class="transTable" style="margin-bottom:5px;margin-left:5px;margin-right:5px;border:1px solid">
+                	<lightning:datatable
+                        keyField="rowNo"
+                        data="{!v.transactionData}"
+                        selectedRows = "{!v.selectedRows}"
+                        onrowselection = "{!c.handleTransactionCellChange}"
+                        columns="{!v.columns}"/>
+                    <aura:if isTrue="{!v.hasData == 'no'}">
+                        <div style="font-style: italic;padding:15px;">There is no transaction data found.</div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.hasData == 'loading'}">
+                        <div style="font-style: italic;padding:15px;">Loading data...</div>
+                    </aura:if>
+                </div>
+            </aura:if>
+            
+            
+            <lightning:inputField variant="label-stacked" fieldName="Transaction_Reference_Number__c" value="{!v.selectedReference}" aura:id="transactionRefNum" disabled="true" required="true" />
+            <aura:if  isTrue="{!v.isTransRef}">
+                <div style="color:red;margin-top:5px;margin-bottom:5px;">
+                    Transaction Reference Number is required.
+                </div>
+            </aura:if>
+            
+            <div style="margin-left:5px;margin-right:5px;">
+            	<lightning:input label="Total Amount" value="{!v.totalAmount}" disabled="true" />
+            </div>
+            <label class="slds-form-element__label" for="customFieldId" style="margin-left:4px;">
+                <abbr class="slds-required" part="required" aria-hidden="true" lwc-enmikoh2qu="" title="required">*</abbr>Claim Amount
+                <span style="font-weight: normal;font-style: italic;margin-left: 2px;">(Exclusive of VAT. Enter Actual Claim Amount only)</span>
+            </label>
+            <div style="margin-left:5px;margin-right:5px;">
+            	<lightning:inputField fieldName="Claim_Amount__c" variant="label-hidden" aura:id="claimAmount" required="true"/>
+            </div>
+            <!--<lightning:input type="file" label="Upload File" onchange="{!c.handleFileChange}"/>
+            
+            <span style="color:red">{!v.fileSizeError}</span>-->
+            <lightning:fileUpload 
+                                  aura:id="fileUploader" 
+                                  label="Upload File" 
+                                  multiple="false"
+                                  accept="{!v.filetype}"
+                                  recordId="{!v.recordId}" 
+                                  onuploadfinished="{!c.handleUploadFinished}" />
+            <aura:if isTrue="{!not(empty(v.waiverFileName))}">
+                <lightning:icon iconName="utility:check" size="xx-small" class="slds-icon-text-success"/>&nbsp;
+                <span style="color:green">Uploaded file:&nbsp;<b>{!v.waiverFileName}</b></span>
+            </aura:if>
+            <aura:if isTrue="{!v.claimAmountError}">
+            	<div style="color:red;margin-top:5px;margin-bottom:5px;">
+                    	Claim amount cannot be greater than total amount.
+                    </div>
+            </aura:if>
+            
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.isDisabled}"/>&nbsp;&nbsp;
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                </div>
+                <div>&nbsp;</div>
+            </footer>
+        </lightning:recordEditForm>
+        </div>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

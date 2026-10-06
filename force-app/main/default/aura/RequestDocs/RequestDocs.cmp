@@ -1,0 +1,42 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                controller="OnboardingCaseController"
+                access="global" >
+    
+    <ltng:require styles="{!$Resource.RequestDocCss}"/>
+    
+    <aura:attribute name="caseId" type="String" default="{!v.recordId}"/>
+    <aura:attribute name="caseRecord" type="Case" />
+    <aura:attribute name="spinner" type="boolean" default="false" />
+    <aura:attribute name="isValidCase" type="boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:if isTrue="{!v.spinner}">
+		<div aura:id="spinnerId" class="slds-spinner_container"
+			style="position: fixed; z-index: 9;">
+            <lightning:spinner alternativeText="Loading" variant="brand" size="medium" />
+		</div>
+	</aura:if>
+    
+	<div class="slds-grid slds-wrap">
+    	
+    		<div class="slds-size--1-of-1, slds-form-element__label">
+				<ui:outputText value="{!$Label.c.Click_Send_to_Confirm}"/>
+			</div>
+		
+	
+			<div class="slds-size--1-of-1">
+				<ui:outputText value="{!$Label.c.Confirm}" />
+			</div>
+			
+        	<aura:if isTrue="{!v.isValidCase}">
+                <div class="slds-size--1-of-1">
+                    <span class="slds-float_right">
+                        <lightning:button variant="brand" label="Send" title="Send action" onclick="{!c.doRequestDocs}"/>
+                    </span>
+                </div>
+            </aura:if>
+	
+    </div>
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SourceofWealthAndActualEstimationMandat</fullName>
+    <active>true</active>
+    <description>Source of Wealth and Actual Estimated Net Wealth Mandatory for EDD Cases If customer is PEP</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+RecordType.DeveloperName = &quot;On_Boarding&quot;,
+ISPICKVAL(Type, &quot;EDD&quot;),
+ISCHANGED(Status),
+ISPICKVAL(Status, &quot;All Documents Uploaded&quot;),
+OR(
+PEP_Customer__c = true,
+Customer_Risk_Rating__c = &apos;Restricted&apos;,
+Customer_Risk_Rating__c = &apos;High&apos;
+),
+OR(
+ISBLANK(TEXT(Source_of_Wealth__c)),
+ISBLANK(Actual_or_Estimated_net_wealth__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Source of Wealth and Actual or Estimated Net Wealth Fields are mandatory for PEP Customers</errorMessage>
+</ValidationRule>

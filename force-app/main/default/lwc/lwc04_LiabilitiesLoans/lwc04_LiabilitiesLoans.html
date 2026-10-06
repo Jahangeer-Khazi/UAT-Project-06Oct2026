@@ -1,0 +1,95 @@
+<template>
+    <template if:true={loadingSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+
+    <!-- Existing liabilities section -->
+    <div class={liabilitiesSectionClass}>
+        <h3 class="slds-section__title">
+            <button
+                class="slds-button slds-section__title-action"
+                aria-expanded={isLiabilitiesSectionOpen}
+                onclick={toggleLiabilitiesSection}>
+                <lightning-icon
+                    icon-name={liabilitiesSectionIcon}
+                    size="x-small"
+                    alternative-text="Toggle Liabilities / Loans"
+                    class="slds-section__title-action-icon slds-button__icon_left">
+                </lightning-icon>
+                <span class="slds-truncate" title="Liabilities / Loans">Liabilities / Loans</span>
+            </button>
+        </h3>
+
+        <!-- Keep content mounted while collapsed so datatable drafts are not lost. -->
+        <div class={liabilitiesContentClass}>
+            <div style="width: 66%;">
+                <lightning-datatable
+                    key-field="Id"
+                    data={liabilitiesOptions}
+                    columns={liabilitiesColumns}
+                    selected-rows={requestedLiabilitiesSelectedRows}
+                    onsave={handleSave}
+                    oncancel={handleCancel}
+                    onrowselection={handleLiabilitiesRowSelection}
+                    draft-values={draftValues}
+                    editable="true">
+                </lightning-datatable>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Add Row" onclick={handleAddRow} variant="brand"></lightning-button>
+            </div>
+
+            <div class="slds-m-top_large">
+                <h2 class="slds-text-heading_small">Liabilities Totals</h2>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-size_1-of-3 slds-p-around_medium">
+                        <lightning-input
+                            label="Total Selected Liabilities Amount"
+                            value={totalSelectedLiabilities}
+                            disabled>
+                        </lightning-input>
+                    </div>
+
+                    <div class="slds-size_1-of-3 slds-p-around_medium">
+                        <lightning-input
+                            label="Total Selected Liability Monthly Installment Amount"
+                            value={totalSelectedMonthlyInstallment}
+                            disabled>
+                        </lightning-input>
+                    </div>
+
+                    <div class="slds-size_1-of-3 slds-p-around_medium">
+                        <lightning-input
+                            label="Total Actual Obligations Amount"
+                            value={totalActualObligations}
+                            disabled>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-Bank liabilities section -->
+    <div class={multiBankSectionClass}>
+        <h3 class="slds-section__title">
+            <button
+                class="slds-button slds-section__title-action"
+                aria-expanded={isMultiBankSectionOpen}
+                onclick={toggleMultiBankSection}>
+                <lightning-icon
+                    icon-name={multiBankSectionIcon}
+                    size="x-small"
+                    alternative-text="Toggle Multi-Bank Liabilities"
+                    class="slds-section__title-action-icon slds-button__icon_left">
+                </lightning-icon>
+                <span class="slds-truncate" title="Multi-Bank Liabilities">Multi-Bank Liabilities</span>
+            </button>
+        </h3>
+
+        <div class={multiBankContentClass}>
+            <c-lwc07_-multi-bank-liability record-id={recordId}></c-lwc07_-multi-bank-liability>
+        </div>
+    </div>
+</template>

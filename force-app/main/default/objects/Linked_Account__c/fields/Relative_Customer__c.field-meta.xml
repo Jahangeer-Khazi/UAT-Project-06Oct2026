@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relative_Customer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Finds an existing customer account who is related to a staff member</description>
+    <label>Relative Customer</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Linked Accounts - Relatives</relationshipLabel>
+    <relationshipName>Linked_Accounts</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Cannot_go_to_Rework_from_New</fullName>
+    <active>false</active>
+    <description>If Draw Status is New, a user cannot move it to Rework. The Rework status is for when the Initial Validation gets rejected.</description>
+    <errorConditionFormula>AND (
+				ISPICKVAL(PRIORVALUE(Status__c), &apos;New&apos;),
+				ISPICKVAL(Status__c, &apos;Rework&apos;)
+				)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Status cannot go to Rework from the New Status. Please select Pending Validation to continue.</errorMessage>
+</ValidationRule>

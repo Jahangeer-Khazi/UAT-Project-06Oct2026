@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForRecordHome" controller="BankInformationController" >
+	
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <!-- ============================================ -->
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <!-- ============================================ -->
+    <div class="slds-clearfix">
+        <!-- class="slds-align_absolute-center" -->
+        <div class="">
+            <aura:if isTrue="{!empty(v.account.PersonEmail)}">
+                Unlock App feature is not available for customer without email address
+            <aura:set attribute="else">
+                <lightning:button aura:id="submit" class="slds-float_right" type="submit" label="Old_Request App Unlock"  onclick="{!c.onAppUnlockClick}" />
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+
+
+    <c:apexService aura:id="apexService"/>
+</aura:component>

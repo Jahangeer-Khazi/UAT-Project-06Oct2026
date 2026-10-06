@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Due_Diligence_Category_Staff__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+				OR(
+								$UserRole.Name = &apos;Integration&apos;,
+								TEXT(Segment__c) &lt;&gt; &quot;Staff&quot;,
+								AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c), 
+								AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c),
+								$User.Staff_Access__c
+				),
+				CASE(Risk_Rating_Staff__c ,
+									&quot;Prohibited&quot;, &quot;Enhanced Due Diligence&quot;, 
+									&quot;High&quot;, &quot;Enhanced Due Diligence&quot;, 
+									&quot;Restricted&quot;, &quot;Enhanced Due Diligence&quot;, 
+									&quot;Extreme&quot;, &quot;Enhanced Due Diligence&quot;, 
+									&quot;Standard Due Diligence&quot;),  
+				&quot;&quot; 
+)</formula>
+    <label>Due Diligence Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

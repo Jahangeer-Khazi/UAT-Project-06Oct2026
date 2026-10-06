@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Debit_Card_Temp_Queue_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Debit Card Temp Queue</label>
+    <queue>Debit_Card_Temp_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

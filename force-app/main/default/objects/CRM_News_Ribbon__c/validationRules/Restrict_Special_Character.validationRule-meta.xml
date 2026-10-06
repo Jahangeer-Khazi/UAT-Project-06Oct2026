@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Special_Character</fullName>
+    <active>false</active>
+    <description>Special character will not be allowed to save.</description>
+    <errorConditionFormula>NOT(REGEX(Message__c, &quot;^[A-Za-z0-9 @#$&amp;*()_\\[\\]|;:,./-]*$&quot;))</errorConditionFormula>
+    <errorDisplayField>Message__c</errorDisplayField>
+    <errorMessage>Special Characters are not allowed.</errorMessage>
+</ValidationRule>

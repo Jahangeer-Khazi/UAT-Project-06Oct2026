@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>The 1st reminder will go directly to the assigned users on the FloD queue to remind them to action the case (regardless of case nature).</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>COMPLIANCE_CASE_REMINDER_1</name>
+    <style>none</style>
+    <subject>Reminder 1 - Compliance Case</subject>
+    <textOnly>Hi,
+
+Case {!Case.CaseNumber} has been in your ownership for more than {!Case.Case_age__c} days.
+
+Case details:
+
+Case Type: {!Case.Type}
+Case Sub-Type: {!Case.Sub_Type__c}
+Case Nature: {!Case.Case_Nature__c}
+
+This is a reminder to action the case.
+
+Thank you.
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

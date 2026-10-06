@@ -1,0 +1,398 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *      #CH01# #Jahangeer Mohammed #29-08-2021 Added No Due Functionality.
+        #CH02# #Jahangeer Mohammed #25-11-2021# Instantiate New EPP Component from Credit Card List. [Not deployed]
+        #CH03# #Swapna Reddy #09-01-2022# call credit Card Statement. [Not deployed]
+        #CH04# #ANISS MBARKI #09-08-2022# add targetType & add prepaid card logic
+        #CH05# #Jayanth Kumar #10/20/2022# Ila Reward
+        #CH06# #Jahangeer Mohammed #15-01-2023# Added a sub type attribute for credit limit decrease(NBA-6757)
+        #CH07# #Jahangeer Mohammed #15-10-2023# Added Logic for Ila World and Ila World Elite Enhancements(NBA-9090)
+        #CH08# #Imane Tsioucha #08-12-2023#  added recordId for updating the fields on case
+        #CH09# #Jahangeer Mohammed# #31-12-2023# Added option value for Purged Credit Cards
+		#CH10# : #Aniss# #30-07-2024# Added Logic for Credit Card - Renewal - CRM not to call any API when credit card is renewed (NBA-11756)
+		#CH11# #Jahangeer Mohammed# #24-10-2024# Added Logic for Credit Card Account Closure(NBA-9192)
+		#CH12# #Maksud Ali# #27-03-2025# Added caseRecordType,caseStatus and CardType param to creditcardDetail cmp. Added logic to hide other sections
+		#CH13# #Jahangeer Mohammed# #07-05-2025# Added Logic for Credit Card Cancellation Process(NBA-13500)
+ 		#CH14# #Jahangeer Mohammed #09-11-2025# Added Logic for Credit Card Spouse (NBA-15728)
+        #CH15#  #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705) 
+		#CH16# #Jahangeer Mohammed# #20-09-2026# Add Logic for Credit Card Payment Restriction (NBA-16942)
+-->
+<aura:component controller="creditCardListController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <!-- CH11: Start -->
+    <aura:attribute name="caseIdRelatedToCard" type="String"/>
+    <!-- CH11: END -->
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="isCreditCardService" type="Boolean" required="false"/>
+    <!-- CH07: Start -->
+    <aura:attribute name="isCreditCardServiceEPP" type="Boolean" required="false"/>
+    <aura:attribute name="isCreditCardUpgrade" type="Boolean" required="false"/>
+    <aura:attribute name="cardNature" type="String"/>
+    <aura:attribute name="holdAccount" type="String"/>
+    <aura:attribute name="holdAmount" type="String"/>
+    <aura:attribute name="holdReference" type="String"/>
+    <aura:attribute name="typeOfCase" type="String"/>
+	<!-- CH07: END -->
+    <aura:attribute name="showCreditCardStatement" type="Boolean" required="false"/>
+    
+    <aura:attribute name="recordId" type="Id" /> <!-- #CH08 -->
+    
+    <!-- #CH04  Start -->
+    <aura:attribute name="targetType" type="String" />
+    <aura:attribute name="caseRecordType" type="String"/>
+    <aura:attribute name="caseType" type="String"/>
+    <!-- #CH04  End -->
+    
+    <!--CH06 START -->
+    <aura:attribute name="caseSubType" type="String"/>
+    <aura:attribute name="activeCardList" type="Object"/>
+    <aura:attribute name="caseStatus" type="String"/>
+    <!-- CH06 END -->
+    
+    <!-- CH15 start   -->
+    <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false"/>
+    <!-- CH15 end   -->
+     
+    <!-- ============================================ -->
+    <aura:attribute name="data" type="Object[]" default="[]"/>
+    <!-- CH01 Added by Jahangeer Mohammed 29-08-2021 For No Due Functionality -->
+    <aura:attribute name="CaptureDataBasedOnFilter" type="Object[]" default="[]"/>
+    <!-- CH01 END -->
+    <!-- CH09 Start -->
+    <aura:attribute name="option" type="String" required="true"/>
+    <aura:attribute name="purgeData" type="Object[]" default="[]"/>
+    <aura:attribute name = "purgeSelected" type="boolean" default="false"/>
+    <!-- CH09 END -->
+    <!--<aura:attribute name="copyData" type="Object[]" default="[]"/> -->
+    <!-- CH13 Start -->
+    <aura:attribute name = "currentCreditLmt" type = "Decimal"/>
+    <aura:attribute name = "currentOutStandingBalance" type = "Decimal"/>
+    <aura:attribute name = "cardProductId" type = "String"/>
+    <!-- CH13 END -->
+    
+    <!-- CH14 Start -->
+    <aura:attribute name = "isSpouse" type="boolean" default="false"/>
+    <!-- CH14 END -->
+    <aura:attribute name="displayRejectButton" type="Boolean" default="false"/>
+    <aura:attribute name="displayGenerateCertificateButton" type="Boolean" default="false"/>
+    <aura:attribute name="displaySendForBusinessApprovalButton" type="Boolean" default="false"/>
+    
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="selectedCardId" type="String" access="private"/>
+    
+    <aura:attribute name="cardType" type="String" access="public"/>
+    <aura:attribute name="maskedNumber" type="String"/>
+    <aura:attribute name="pci_ID" type="String"/>
+    <aura:attribute name="cardStatusValue" type="String"/>
+    <aura:attribute name="productName" type="String" />
+    <aura:attribute name="isPrimary" type="Boolean"/>
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+    
+    <aura:handler event="c:PassAccountIdEvent" action="{!c.LoadAccountId}"/>
+    <aura:handler name="cmpEvent" event="c:CardNameEvent" action="{!c.handleComponentEvent}"/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+    <!-- CH09 Start -->
+    <aura:handler name="change" value="{!v.option}" action="{!c.onChangeOption}"/>
+    <!-- CH09 END -->
+    <aura:method name="reload" action="{!c.load}" />
+    
+    <!--CH05 start-->
+    <aura:attribute name="preferredReward" type="Object"/>
+    <aura:attribute name="isRewardDetailAvailable" type="Boolean" required="false"/>
+    <aura:attribute name="cardData" type="Object" access="private"/>
+    <!--CH05 End-->
+    
+    <aura:attribute name="allCardDetails" type="Map" default="{}"/>
+    <aura:attribute name="currentCards" type="Object[]" default="[]"/>
+    <aura:attribute name="selectedCardDetails" type="Map" default="{}"/>
+    <aura:attribute name="selCardId" type="String" default=""/>
+
+    <aura:attribute name="showIsRenewedError" type="Boolean" required="false"/> <!--CH10-->
+    
+    <!-- CH12 START added props for hold card type e.g. Cash Collateral,Credit or Prepaid card etc.-->
+    <aura:attribute name="selectedCardType" type="String"/>
+    <!-- CH12 END-->
+    
+    <aura:attribute name="btSubmitted" type="Boolean" required="false"/>
+    <aura:attribute name="btPlans" type="Object[]" default="[]"/>
+    <aura:attribute name="btColumns" type="Object[]" default="[]"/>
+    <aura:attribute name="selectedBTPlanId" type="String" default=""/>
+    <aura:attribute name="pciNumber" type="String" default=""/>
+
+    <aura:attribute name="isSecondary" type="Boolean" default="false"/>
+    <aura:attribute name="selectedBTPlan" type="Object" default="{}"/>
+    <aura:attribute name="selectedBTPlanNumber" type="String" default=""/>
+    <aura:attribute name="selectedBTSequenceNumber" type="String" default=""/>
+    <aura:attribute name="selectedBTPlanBalance" type="Decimal" default="0"/>
+    <!-- CH16: Start -->
+    <aura:registerEvent name="creditCardListEvent" type="c:creditCardListEvent"/>
+    <!-- CH16: END -->
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+        <aura:set attribute="else">
+            <lightning:datatable data="{! v.data}" 
+                                 aura:id="cardsListTable"
+                                 columns="{! v.columns}" 
+                                 keyField="id"
+                                 hideCheckboxColumn="false"
+                                 maxRowSelection="1"
+                                 onrowselection="{! c.handleRowSelection }"
+                                 onrowaction="{! c.handleRowAction }"/>
+            
+                                 
+            <!-- CH10: Start -->
+            <aura:if isTrue="{!v.showIsRenewedError}">
+                <div class="slds-notify slds-notify_toast slds-theme_error" style="width: 100%;">
+                    <p style="text-align: center;margin: auto;">No details for the renewed card available</p>
+                </div>
+                <aura:set attribute="else">
+                    <!-- CH09: Added a and condition and checking the credit card filter option -->
+                    <aura:if isTrue="{!and(not(empty(v.selectedCardId)), v.option != 'P')}"> 
+                        <br/>
+                        <!-- CH07: Start #Added isCreditCardUpgrade in If condition-->
+                        <!-- CH02 Start -->
+                         <!-- region flag added by Meryem Bakir -->
+                        <!--<aura:if isTrue="{! AND(v.isCreditCardServiceEPP == true, and(v.isCreditCardUpgrade == false,v.account.Region_Flag__c == 'Bahrain'))}">
+                            <c:creditCardEPP customerId="{!v.customerId}" 
+                                             accountId="{!v.accountId}" 
+                                             pcICardId="{!v.selectedCardId}"
+                                             account="{!v.account}"
+                                             />
+                        </aura:if> -->
+                        <!-- CH02 END -->
+                        <!-- CH07: END -->
+                        <!-- CH07: Start #Added isCreditCardUpgrade in If condition-->
+                        <!-- CH11: Start #Added extra parameter caseIdRelatedToCard-->
+                        <!-- CH13: Start #Added extra parameter currentCreditLmt,currentOutStandingBalance -->
+                        <aura:if isTrue="{!and(v.isCreditCardService == true,v.isCreditCardUpgrade == false)}">
+                            <aura:if isTrue="{!and(v.isSecondary == false, not(empty(v.selectedCardId)), v.option != 'P')}">
+                                <c:creditCardHandOffProcess 
+                                                            customerId="{!v.customerId}" 
+                                                             accountId="{!v.accountId}" 
+                                                            account="{!v.account}"
+                                                            caseId="{!v.caseId}" 
+                                                            cc_CardId="{!v.selectedCardId}"
+                                                            cc_CardNumber = "{!v.maskedNumber}"
+                                                            cc_CardType="{!v.cardType}"
+                                                            cc_Status="{!v.cardStatusValue}"
+                                                            cc_displayRejectButton ="{!v.displayRejectButton}"
+                                                            cc_displayGenerateCertificateButton="{!v.displayGenerateCertificateButton}"
+                                                            cc_displaySendForBusinessApprovalButton="{!v.displaySendForBusinessApprovalButton}"
+                                                            caseIdRelatedToCard="{!v.caseIdRelatedToCard}"
+                                                            currentCreditLmt="{!v.currentCreditLmt}"
+                                                            currentOutStandingBalance="{!v.currentOutStandingBalance}"
+                                                            cardNature="{!v.cardNature}"
+                                                            cardProductId="{!v.cardProductId}"/>
+                            </aura:if>
+                        </aura:if>
+                        <!-- CH13: END -->
+                        <!-- CH11: END -->
+                        <!-- CH07: END -->
+                        <!-- CH07: Start #Added isCreditCardUpgrade in If condition-->
+                        <aura:if isTrue="{!and(v.isCreditCardService == false,v.isCreditCardUpgrade == false)}">
+                            <!-- #CH04 : Add targetType Variable -->
+                            <!-- CH06 : Added Sub type(caseSubType) value as a parameter in component -->
+                            <!-- CH12 : Added Case RecordType(caseRecordType), caseStatus,holdAmount,holdReference and CardType value as a parameter in component -->
+                            <!-- CH14 : Added isSpouse value as a paramter in component -->
+                            <!-- CH15 added hideJordanFinancialDetails -->
+                            <c:creditCardDetails customerId="{!v.customerId}"
+                                                    accountId="{!v.accountId}"
+                                                    cardId="{!v.selectedCardId}"
+                                                    caseId="{!v.caseId}"
+                                                    account="{!v.account}"
+                                                    enableActions="{!v.enableActions}"
+                                                    aura:id="CreditCardDetails" 
+                                                    cc_CardStatus="{!v.cardStatusValue}"
+                                                    targetType = "{!v.targetType}"
+                                                    preferredReward="{!v.preferredReward}"
+                                                    isRewardDetailAvailable="{!v.isRewardDetailAvailable}"  
+                                                    caseSubType = "{!v.caseSubType}"
+                                                 	caseRecordType = "{!v.caseRecordType}"
+                                                 	cardType = "{!v.selectedCardType}"
+                                                 	caseStatus = "{!v.caseStatus}"
+                                                 	holdAmount="{!v.holdAmount}"
+                                                    holdReference="{!v.holdReference}"
+                                                    isSpouse ="{!v.isSpouse}"
+                                                 	cardDetails="{!v.selectedCardDetails}"
+                                                    hideJordanFinancialDetails="{!v.hideJordanFinancialDetails}"
+                                                    
+                            />
+                        </aura:if>
+                        <!-- CH07: END -->
+                        
+                        <!-- CH07: Start -->
+                        <aura:if isTrue="{!and(v.isCreditCardService == false,v.isCreditCardUpgrade == true)}">
+                            <c:creditCardUpgradeDetails customerId="{!v.customerId}"
+                                                         accountId="{!v.accountId}"
+                                                         cardId="{!v.selectedCardId}"
+                                                         caseId="{!v.caseId}"
+                                                         account="{!v.account}"
+                                                        cardNature="{!v.cardNature}"
+                                                        holdAccount="{!v.holdAccount}"
+                                                        holdAmount="{!v.holdAmount}"
+                                                        holdReference="{!v.holdReference}"
+                                                        caseType="{!v.typeOfCase}"/>
+                        </aura:if>
+                        <!-- CH07: END -->
+                        <!-- CH06: Start -->
+                        <aura:if isTrue = "{!and(true == v.enableActions,v.caseSubType == 'Credit Limit Decrease')}">
+                            <aura:if isTrue = "{! 'Closed' != v.caseStatus}">
+                                <c:creditLimitDecrease 	customerId="{!v.customerId}" 
+                                                           account="{!v.account}"
+                                                           cardId="{!v.selectedCardId}"
+                                                           caseId="{!v.caseId}"  
+                                                           accountId = "{!v.accountId}"
+                                                           activeCards = "{!v.activeCardList}"/>
+                            </aura:if>
+                        </aura:if> 
+                            <!-- CH06: END -->
+                        <!-- region flag added by Meryem Bakir -->
+                        <!-- #CH12 - Added one more condition, checking subtype != Generate Cash Collateral Letter -->
+                        <aura:if isTrue="{! AND( v.isRewardDetailAvailable == true, and(v.account.Region_Flag__c == 'Bahrain',v.caseSubType != 'Generate Cash Collateral Letter'))}">
+                            <!-- #CH05 :rewardDetails -->
+                            <c:rewardDetails customerId="{!v.customerId}"
+                                             accountId="{!v.accountId}"
+                                             preferredReward="{!v.preferredReward}"
+                                             cardId="{!v.selectedCardId}"
+                                             caseId="{!v.caseId}"
+                                             cardData="{!v.cardData}"
+                                             account="{!v.account}"/>
+                            
+                            <!-- #CH05 : Add Redemption_History -->
+                            <c:Redemption_History 
+                                                  customerId="{!v.customerId}"
+                                                  cardId="{!v.selectedCardId}"
+                                                  preferredReward="{!v.preferredReward}"
+                                                  cardData="{!v.cardData}"
+                                                  accountId="{!v.accountId}"
+                                                  account="{!v.account}"/>
+                            
+                            <!-- #CH05 : Reward_Program_History -->
+                            <c:Reward_Program_History 
+                                                      customerId="{!v.customerId}"
+                                                      cardId="{!v.selectedCardId}"
+                                                      accountId="{!v.accountId}"
+                                                      account="{!v.account}"/>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!(v.isCreditCardService == false)}">
+                            <aura:if isTrue="{!true != v.enableActions}">
+                                <!--CH12 added selectedCardType property -->
+                                <!-- CH15 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}"> 
+                                    <c:creditCardTransactions customerId="{!v.customerId}" 
+                                                          accountId="{!v.accountId}"
+                                                          account="{!v.account}" 
+                                                          selectedCardId="{!v.selectedCardId}"
+                                                          selectedCardType="{!v.selectedCardType}"
+                                                          isPrimary="{!v.isPrimary}"/>
+                                </aura:if> 
+                                <!-- CH15 end  -->
+                            </aura:if>
+                            
+                        </aura:if> 
+                        
+                        <!-- CH07: Start #Added isCreditCardUpgrade in If condition-->
+                        <!-- CH02 Start -->
+                         <!-- region flag added by Meryem Bakir -->
+                       <!-- <aura:if isTrue="{! AND(v.isCreditCardService == false, and(v.isCreditCardUpgrade == false,v.account.Region_Flag__c == 'Bahrain'))}">-->
+                        <aura:if isTrue="{! AND(v.isCreditCardService == false, v.isCreditCardUpgrade == false)}">
+                            <!-- #CH12 - START Added if condition, checking subtype != Generate Cash Collateral Letter -->
+                            <aura:if isTrue="{!v.caseSubType != 'Generate Cash Collateral Letter'}">
+                            	<c:creditCardEPP customerId="{!v.customerId}" 
+                                             accountId="{!v.accountId}" 
+                                             pcICardId="{!v.selectedCardId}"
+                                             account="{!v.account}"
+                                             />
+                            </aura:if>
+                            <!--#CH12 END -->
+                        </aura:if>
+                      <!-- <aura:if isTrue="{! AND(v.isCreditCardUpgrade == false,v.account.Region_Flag__c == 'Jordan')}">-->
+                       <!-- <aura:if isTrue="{! AND(v.isCreditCardService == false, v.isCreditCardUpgrade == false)}">-->
+                            <!-- #CH12 - START Added if condition, checking subtype != Generate Cash Collateral Letter -->
+                           <!-- <aura:if isTrue="{!v.caseSubType != 'Generate Cash Collateral Letter'}">
+                            	<c:creditCardEPP customerId="{!v.customerId}" 
+                                             accountId="{!v.accountId}" 
+                                             pcICardId="{!v.selectedCardId}"
+                                             account="{!v.account}"
+                                             />
+                            </aura:if>-->
+                            <!--#CH12 END -->
+                        <!--</aura:if>-->
+                        <!-- CH02 END -->
+                        <!-- CH07: END -->
+                        
+                        <!-- CH03 Start -->
+                        <aura:if isTrue="{!(v.showCreditCardStatement == true)}">
+                            <c:creditCardStatement customerId="{!v.customerId}" 
+                                                   accountId="{!v.accountId}" 
+                                                   pcICardId="{!v.selectedCardId}"
+                                                   account="{!v.account}"
+                                                   productName="{!v.productName}"
+                                                   />
+                        </aura:if>
+                        <!-- CH03 END -->
+                        
+                    </aura:if>
+                    
+                    <!-- CH09: Start -->
+                    <aura:if isTrue="{!and(not(empty(v.selectedCardId)), v.option == 'P')}"> 
+                         <br/>
+                        <c:creditCardPurgeDetails customerId="{!v.customerId}"
+                                            accountId="{!v.accountId}"
+                                            account="{!v.account}"
+                                            purgeDetailData="{!v.purgeData}"
+                                            purgeSel = "{!v.purgeSelected}"/>
+                    </aura:if>
+                    <!-- CH09: END -->
+                    
+                    <aura:if isTrue="{!and(v.isSecondary == true, not(empty(v.selectedCardId)), v.option != 'P')}">
+                <br/>
+                <h3 class="slds-text-heading_medium slds-text-color_brand slds-m-bottom_small">
+                    Active Balance Transfer (BT) Plans
+                </h3>
+                
+                <lightning:datatable 
+                    data="{!v.btPlans}"
+    aura:id="btPlansTable"
+    columns="{!v.btColumns}"
+    keyField="planNumber"
+    hideCheckboxColumn="false"
+    maxRowSelection="1"
+    onrowselection="{!c.handleBTPlanSelection}"/>
+
+                <br/>
+                <div class="slds-align_absolute-center slds-m-top_medium">
+                    <lightning:button 
+                        variant="brand" 
+                        label="Submit" 
+                        onclick="{!c.handleBTSubmit}" 
+                        disabled="{!v.btSubmitted}"/>
+                    
+                    <lightning:button 
+                        variant="destructive" 
+                        label="Cancelled by Customer" 
+                        onclick="{!c.handleCancelledByCustomer}" 
+                        disabled="{!v.btSubmitted}"
+                        class="slds-m-left_small"/>
+                </div>
+            </aura:if>
+                    
+                </aura:set>
+            </aura:if>
+			<!-- CH10: END -->
+        </aura:set>
+    </aura:if>
+    
+    <c:apexService aura:id="apexService"/>
+    
+</aura:component>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Not At All Knowledgeable (1), Minimally Knowledgeable (2), Moderately Knowledgeable (3), Competent (4), Very Knowledgeable (5) --></help>
+    <label><!-- Knowledge Level Score --></label>
+    <name>Knowledge_Level_Score__c</name>
+</CustomFieldTranslation>

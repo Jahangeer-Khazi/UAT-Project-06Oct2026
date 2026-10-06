@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Awaiting_Customer_Feedback__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox to be used to exclude pending cases from reports</description>
+    <inlineHelpText>Check if a client feedback is pending</inlineHelpText>
+    <label>Awaiting Customer or 3rd Party Feedback</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

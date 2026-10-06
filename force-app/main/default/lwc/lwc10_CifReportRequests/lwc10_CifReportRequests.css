@@ -1,0 +1,25 @@
+.status-active {
+    color: #2e7d32; /* Green */
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #fbc02d; /* Yellow/Amber */
+    font-weight: bold;
+}
+
+.status-failed {
+    color: #d32f2f; /* Red */
+    font-weight: bold;
+}
+
+.slds-box {
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    background: #fff;
+    transition: box-shadow 0.2s;
+}
+
+.slds-box:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

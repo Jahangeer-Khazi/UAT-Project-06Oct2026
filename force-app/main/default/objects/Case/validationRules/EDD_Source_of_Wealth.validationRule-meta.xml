@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDD_Source_of_Wealth</fullName>
+    <active>false</active>
+    <description>Source of Wealth - mandatory</description>
+    <errorConditionFormula>AND(ISPICKVAL(Type,&apos;EDD&apos;), ISBLANK( TEXT(Source_of_Wealth__c) ), ($User.LastName &lt;&gt; &quot;Integration&quot;))</errorConditionFormula>
+    <errorMessage>Source of Wealth cannot be null for Case type of EDD.</errorMessage>
+</ValidationRule>

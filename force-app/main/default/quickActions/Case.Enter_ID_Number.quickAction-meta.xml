@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>used for Jordan Supplementary card requirment if Veriff response is received and Verification Status is  NOT “APPROVED_VERIFIED” AND Not Null</description>
+    <height>350</height>
+    <label>Enter ID Number</label>
+    <lightningComponent>LTNG31_EnterIdNumberCivilApi</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

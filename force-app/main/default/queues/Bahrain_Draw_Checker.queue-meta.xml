@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Bahrain Draw Checker</name>
+    <queueMembers>
+        <users>
+            <user>aniss.mbarki@da-tech.ma</user>
+            <user>rafflechecker@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Draw__c</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Number of Years at Current Residence --></label>
+    <name>cc_Number_of_years_at_current_residence__c</name>
+    <picklistValues>
+        <masterLabel>1 to 2 Years</masterLabel>
+        <translation><!-- 1 to 2 Years --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 to 3 Years</masterLabel>
+        <translation><!-- 2 to 3 Years --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3 to 5 Years</masterLabel>
+        <translation><!-- 3 to 5 Years --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>5 Years &amp; Above</masterLabel>
+        <translation><!-- 5 Years &amp; Above --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Less Than 1 Year</masterLabel>
+        <translation><!-- Less Than 1 Year --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

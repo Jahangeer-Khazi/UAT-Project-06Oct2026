@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Applepay&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Samsungpay&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Fitbit&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Applepay&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Samsungpay&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Fitbit&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;App&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Debit Card Section&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Provision Garmin&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;)))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>7920</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Interest Miscalculation&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;EPP related&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Onboarding&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Process/journey&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawri&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawri+&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawateer&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>7920</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (132 hours)</name>
+    <versionMaster>552QI00000CRawX</versionMaster>
+    <versionNumber>3</versionNumber>
+</EntitlementProcess>

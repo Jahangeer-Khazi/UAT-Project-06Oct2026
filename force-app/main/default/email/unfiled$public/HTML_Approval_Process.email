@@ -1,0 +1,18 @@
+<html><head>
+<style>
+@font-face {
+ font-family: ''Inter'';
+ font-style: normal;
+ font-weight: 400;
+ src: url(''https://fonts.gstatic.com/s/inter/v12/UcCO3FwrQ3m1.woff2'') format(''woff2'');
+}
+</style>
+</head>
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';" aEditID="c1r1" locked="0" >
+<![CDATA[<div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial">Hi!</font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial"><br></font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial">Case <a href="https://neobank--sit.lightning.force.com/lightning/r/Case/{!Case.Link}/View">{!Case.CaseNumber}</a> needs to be approved.</font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial"><br></font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial">This is the final recommendation:</font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial"><br></font></div><div style=""><font face="arial" style="">{!Case.Final_Recommendation_for_Closing_Case__c}</font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial"><br></font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial">Thank you!</font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial"><br></font></div><div style="color: rgb(0, 0, 0); font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';; font-size: 12pt;"><font face="arial">{!User.FirstName} {!User.LastName}</font></div></td>
+</tr>
+</table>
+
+</html>

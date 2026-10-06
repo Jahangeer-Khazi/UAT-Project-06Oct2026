@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_ila_Sal_Checkbox</fullName>
+    <active>false</active>
+    <description>If Pre-screening Result = Accept then Salary is transferred to ila is mandatory.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &quot;Accept&quot;),
+ISPICKVAL(cc_Approved_Requested_Card_Type__c, &quot;PLATINUM_BALANCE_TRANSFER_01&quot;),
+IF(cc_Salary_is_Transferred_to_ila__c == false , true, false),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Salary_is_Transferred_to_ila__c</errorDisplayField>
+    <errorMessage>Please fill the Salary is Transferred to ila field.</errorMessage>
+</ValidationRule>

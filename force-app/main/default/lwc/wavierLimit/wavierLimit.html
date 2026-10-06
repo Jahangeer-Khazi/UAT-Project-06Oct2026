@@ -1,0 +1,21 @@
+<template>
+    <div style="border:1px solid rgb(211 209 209);border-bottom:0px">
+        
+        <div class="datatable-wrapper" style="border-top:1px solid #999;max-height:300px">
+            <template if:true={showSpinner}>
+                <div class="spinner-overlay">
+                    <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                hide-checkbox-column="true"
+                onsave={handleSave}
+                draft-values={draftValues}>
+            </lightning-datatable>
+        </div>
+    </div>
+</template>

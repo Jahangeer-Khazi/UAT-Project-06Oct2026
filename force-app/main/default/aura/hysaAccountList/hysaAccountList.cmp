@@ -1,0 +1,98 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Maksud Ali
+ *		Created Date: 08-12-2025 (Below code is cloned from bank account List cmp)
+ * 		Change History:
+ *	    	   
+-->
+
+<aura:component controller="BankAccountController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="true"/>
+    <aura:attribute name="caseRecordType" type="String"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    
+    <aura:attribute name="accountId" type="String" access="private"/>
+    <aura:attribute name="displayAccountDetails" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="displayAccountTransactions" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:method name="reload" action="{!c.load}" />
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>    
+    <aura:registerEvent name="onSelectionPassId" type="c:PassAccountIdEvent"/>
+    
+    <aura:attribute name="bankProductName" type="string"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    
+    <aura:attribute name="hysaRate" type="string"/>
+    <aura:attribute name="debitInterestRate" type="String"/>
+    <aura:attribute name="debitInterestHY" type="String"/>
+    
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+        <aura:set attribute="else">
+            <lightning:datatable
+                                 aura:id="accountListTable"
+                                 data="{! v.data}"
+                                 columns="{! v.columns}"
+                                 keyField="id"
+                                 hideCheckboxColumn="false"
+                                 maxRowSelection="1"
+                                 onrowselection="{! c.handleRowSelection }"
+                                 onrowaction="{! c.handleRowAction }"/>
+            
+            <aura:if isTrue="{!and(not(empty(v.accountId)),  true == v.displayAccountDetails)}">
+                <br/>
+                <c:hysaAccountDetails customerId="{!v.customerId}"
+                                      accountId="{!v.accountId}"
+                                      caseId="{!v.caseId}"
+                                      account="{!v.account}"
+                                      enableActions="{!v.enableActions}"
+                                      caseRecordType = "{!v.caseRecordType}"
+                                      hysaRate = "{!v.hysaRate}"
+                                      debitInterestRate = "{!v.debitInterestRate}"
+                                      debitInterestHY = "{!v.debitInterestHY}"
+                                      isAlburaqProduct = "{!v.isAlburaqProduct}"/>
+                <br/>
+                <c:hysaAccountLastTransaction customerId="{!v.customerId}"
+                                              accountId="{!v.accountId}"
+                                              caseId="{!v.caseId}"
+                                              account="{!v.account}"
+                                              enableActions="{!v.enableActions}"
+                                              isAlburaqProduct="{!v.isAlburaqProduct}"
+                                              aura:id="bankLastTransaction" />
+            </aura:if>
+            <aura:if isTrue="{! 'FCR' != v.caseRecordType}">
+                <aura:if isTrue="{!and(not(empty(v.accountId)),  true == v.displayAccountTransactions)}">
+                    <br/>
+                    <c:hysaAccountTransactions customerId="{!v.customerId}" 
+                                               account="{!v.account}" 
+                                               accountId="{!v.accountId}"
+                                               bankProductName = "{!v.bankProductName}"
+                                      		   bankAccountNo = "{!v.accountNumber}"
+                                               isAlburaqProduct = "{!v.isAlburaqProduct}" />
+                </aura:if>
+            </aura:if>            
+            <!-- <aura:if isTrue="{!and( and(not(empty(v.accountId)),  true == v.enableActions), and(not(empty(v.caseId)) , v.isAlburaqProduct == false ))}">
+                <c:requestCashCollectionOrDelivery aura:id="cashCollectionOrDelivery-popup" account="{!v.account}" customerId="{!v.customerId}" caseId="{!v.caseId}" />
+            </aura:if>
+            <aura:if isTrue="{!and (and(not(empty(v.accountId)), not(empty(v.customerId))), v.isAlburaqProduct == false )}">
+                <c:LTNG006_StampedStatements aura:id="LTNG006_StampedStatements-popup" account="{!v.account}" customerId="{!v.customerId}" accountId="{!v.accountId}" />
+            </aura:if>
+            <aura:if isTrue="{!and (and(not(empty(v.accountId)), not(empty(v.customerId))), v.isAlburaqProduct == false ) }">
+                <c:LTNG028_ShowUncollectedFees   aura:id="LTNG028_ShowUncollectedFees-popup" 
+                                               account="{!v.account}" 
+                                               customerId="{!v.customerId}" 
+                                               accountId="{!v.accountId}" 
+                                               isAlburaqProduct = "{!v.isAlburaqProduct}"/>
+            </aura:if> -->
+        </aura:set>
+    </aura:if>
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

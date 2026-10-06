@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Checker_Result</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &apos;Credit_Collection_Letter&apos;,
+	 $Profile.Name != &apos;System Administrator&apos;,
+	 $Profile.Name != &apos;Integration Gateway&apos;,
+	 !ISPICKVAL(cc_Maker__c,&apos;Accept&apos;),
+	 OR(ISPICKVAL(cc_Checker_Result__c,&apos;Accept&apos;),
+		ISPICKVAL(cc_Checker_Result__c,&apos;Decline&apos;)
+	 )
+)
+||
+( TEXT(Sub_Type__c) = &apos;Alburaq Segment Change&apos; &amp;&amp; 
+	 ( TEXT(cc_Checker_Result__c) != &apos;&apos; &amp;&amp;
+	   TEXT(cc_Maker__c) = &apos;&apos;
+		 ) 
+	 &amp;&amp;
+	 !( TEXT(cc_Checker_Result__c) = &apos;Return to Maker&apos; &amp;&amp;
+	    TEXT(PRIORVALUE(cc_Maker__c)) = &apos;Send to Checker&apos; &amp;&amp; 
+	    TEXT(cc_Maker__c) = &apos;&apos;
+		  ) 
+	)</errorConditionFormula>
+    <errorMessage>Maker has to update Maker Result before Checker Result.</errorMessage>
+</ValidationRule>

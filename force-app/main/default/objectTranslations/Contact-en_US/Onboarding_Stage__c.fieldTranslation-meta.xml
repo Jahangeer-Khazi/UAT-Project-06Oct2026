@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Onboarding Stage --></label>
+    <name>Onboarding_Stage__c</name>
+    <picklistValues>
+        <masterLabel>ACCOUNT_ACTIVATED</masterLabel>
+        <translation><!-- ACCOUNT_ACTIVATED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ACCOUNT_FUNDED</masterLabel>
+        <translation><!-- ACCOUNT_FUNDED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ACCOUNT_OPENING_REASON_SET</masterLabel>
+        <translation><!-- ACCOUNT_OPENING_REASON_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ADDRESS_DOC_TYPE_SET</masterLabel>
+        <translation><!-- ADDRESS_DOC_TYPE_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ADDRESS_SCAN_COMPLETE</masterLabel>
+        <translation><!-- ADDRESS_SCAN_COMPLETE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ADDRESS_VERIFICATION_FAIL</masterLabel>
+        <translation><!-- ADDRESS_VERIFICATION_FAIL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ADDRESS_VERIFICATION_SUCCESS</masterLabel>
+        <translation><!-- ADDRESS_VERIFICATION_SUCCESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CRS</masterLabel>
+        <translation><!-- CRS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DEVICE_PIN_SET</masterLabel>
+        <translation><!-- DEVICE_PIN_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EMAIL_VERIFIED</masterLabel>
+        <translation><!-- EMAIL_VERIFIED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EMPLOYMENT_INFO_SET</masterLabel>
+        <translation><!-- EMPLOYMENT_INFO_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FAILED_TECHNICAL</masterLabel>
+        <translation><!-- FAILED_TECHNICAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FATCA_FORM</masterLabel>
+        <translation><!-- FATCA_FORM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FATCA_FORM_RESUBMIT</masterLabel>
+        <translation><!-- FATCA_FORM_RESUBMIT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FUNDS_DATA_SET</masterLabel>
+        <translation><!-- FUNDS_DATA_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID_DATA_VERIFICATION_SUCCESS</masterLabel>
+        <translation><!-- ID_DATA_VERIFICATION_SUCCESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID_ENTERED_MANUALLY</masterLabel>
+        <translation><!-- ID_ENTERED_MANUALLY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID_LIVENESS_COMPLETE</masterLabel>
+        <translation><!-- ID_LIVENESS_COMPLETE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID_LIVENESS_VERIFICATION_FAIL</masterLabel>
+        <translation><!-- ID_LIVENESS_VERIFICATION_FAIL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID_MANUAL_ENTRY</masterLabel>
+        <translation><!-- ID_MANUAL_ENTRY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID_MANUAL_ENTRY_APPROVED</masterLabel>
+        <translation><!-- ID_MANUAL_ENTRY_APPROVED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MOBILE_VERIFIED</masterLabel>
+        <translation><!-- MOBILE_VERIFIED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NON_PERMITTED_ID_SELECTED</masterLabel>
+        <translation><!-- NON_PERMITTED_ID_SELECTED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PERMITTED_ID_SELECTED</masterLabel>
+        <translation><!-- PERMITTED_ID_SELECTED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PLACE_OF_BIRTH_SET</masterLabel>
+        <translation><!-- PLACE_OF_BIRTH_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RECOVERY_CODE_SET</masterLabel>
+        <translation><!-- RECOVERY_CODE_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_COUNTRY_UNAUTHORIZED</masterLabel>
+        <translation><!-- REFERRED_COUNTRY_UNAUTHORIZED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_EDD</masterLabel>
+        <translation><!-- REFERRED_EDD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_MANUAL_STOP</masterLabel>
+        <translation><!-- REFERRED_MANUAL_STOP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_NAME_SCREENING</masterLabel>
+        <translation><!-- REFERRED_NAME_SCREENING --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_NO_RETRY</masterLabel>
+        <translation><!-- REFERRED_NO_RETRY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_NO_RETRY_ADDRESS</masterLabel>
+        <translation><!-- REFERRED_NO_RETRY_ADDRESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REFERRED_NO_RETRY_ID</masterLabel>
+        <translation><!-- REFERRED_NO_RETRY_ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REJECTED_EDD</masterLabel>
+        <translation><!-- REJECTED_EDD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REJECTED_NAME_SCREENING</masterLabel>
+        <translation><!-- REJECTED_NAME_SCREENING --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>REJECTED_UNDERAGE</masterLabel>
+        <translation><!-- REJECTED_UNDERAGE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RESIDENCY_SET</masterLabel>
+        <translation><!-- RESIDENCY_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ROB_DEVICE_PIN_SET</masterLabel>
+        <translation><!-- ROB_DEVICE_PIN_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ROB_EMAIL_VERIFIED</masterLabel>
+        <translation><!-- ROB_EMAIL_VERIFIED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ROB_MOBILE_VERIFIED</masterLabel>
+        <translation><!-- ROB_MOBILE_VERIFIED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SCREENING_IN_PROGRESS</masterLabel>
+        <translation><!-- SCREENING_IN_PROGRESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SCREENING_SUCCESS</masterLabel>
+        <translation><!-- SCREENING_SUCCESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TAX_DATA_SET</masterLabel>
+        <translation><!-- TAX_DATA_SET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TERMS_ACCEPTED</masterLabel>
+        <translation><!-- TERMS_ACCEPTED --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

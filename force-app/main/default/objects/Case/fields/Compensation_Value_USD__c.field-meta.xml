@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compensation_Value_USD__c</fullName>
+    <description>Complaint - Compensation Value (USD)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Compensation Value (USD): use if Closure Reason is Financial Compensation</inlineHelpText>
+    <label>Compensation Value (USD)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- For successful Validation, the Total Amount of All Prizes should be equal to the Total Prize Fund --></help>
+    <label><!-- Prize Amount Validation --></label>
+    <name>Prize_Amount_Validation__c</name>
+</CustomFieldTranslation>

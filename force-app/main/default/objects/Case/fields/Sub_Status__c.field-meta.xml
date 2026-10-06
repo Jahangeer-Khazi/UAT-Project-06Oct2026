@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Status__c</fullName>
+    <description>This is dependent on the status for Credit Card cases</description>
+    <label>Sub Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Documents Received</fullName>
+                <default>false</default>
+                <label>Docs Received</label>
+            </value>
+            <value>
+                <fullName>Discrepancies</fullName>
+                <default>false</default>
+                <label>Discrepancies</label>
+            </value>
+            <value>
+                <fullName>In-Progress</fullName>
+                <default>false</default>
+                <label>In-Progress</label>
+            </value>
+            <value>
+                <fullName>Referred  by Pre-Screener</fullName>
+                <default>false</default>
+                <label>Ref. by Pre-Screener</label>
+            </value>
+            <value>
+                <fullName>Referred by Evaluator</fullName>
+                <default>false</default>
+                <label>Ref. by Evaluator</label>
+            </value>
+            <value>
+                <fullName>Referred by Verifier</fullName>
+                <default>false</default>
+                <label>Ref. by Verifier</label>
+            </value>
+            <value>
+                <fullName>Referred by Approver</fullName>
+                <default>false</default>
+                <label>Ref. by Approver</label>
+            </value>
+            <value>
+                <fullName>Pending Balance Transfer</fullName>
+                <default>false</default>
+                <label>Pending Balance Transfer</label>
+            </value>
+            <value>
+                <fullName>Balance Transfer Processed</fullName>
+                <default>false</default>
+                <label>Balance Transfer Processed</label>
+            </value>
+            <value>
+                <fullName>Release Letter Received</fullName>
+                <default>false</default>
+                <label>Release Letter Received</label>
+            </value>
+            <value>
+                <fullName>Card Block Released</fullName>
+                <default>false</default>
+                <label>Card Block Released</label>
+            </value>
+            <value>
+                <fullName>Pending Signature Verification</fullName>
+                <default>false</default>
+                <label>Pending Signature Verification</label>
+            </value>
+            <value>
+                <fullName>Pending Disable EPP</fullName>
+                <default>false</default>
+                <label>Pending Disable EPP</label>
+            </value>
+            <value>
+                <fullName>Referred by Signature Verifier</fullName>
+                <default>false</default>
+                <label>Referred by Signature Verifier</label>
+            </value>
+            <value>
+                <fullName>Pending Release Letter</fullName>
+                <default>false</default>
+                <label>Pending Release Letter</label>
+            </value>
+            <value>
+                <fullName>Approved BT</fullName>
+                <default>false</default>
+                <label>Approved BT</label>
+            </value>
+            <value>
+                <fullName>Declined</fullName>
+                <default>false</default>
+                <label>Declined</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Waiting for Customer to Pay Outstanding Balance</fullName>
+                <default>false</default>
+                <label>Waiting for Customer to Pay Outstanding Balance</label>
+            </value>
+            <value>
+                <fullName>Release Letter Accepted</fullName>
+                <default>false</default>
+                <label>Release Letter Accepted</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Pending Relationship</fullName>
+                <default>false</default>
+                <label>Pending Relationship</label>
+            </value>
+            <value>
+                <fullName>Screening</fullName>
+                <default>false</default>
+                <label>Screening</label>
+            </value>
+            <value>
+                <fullName>Referred by Maker</fullName>
+                <default>false</default>
+                <label>Ref. by Maker</label>
+            </value>
+            <value>
+                <fullName>Processed</fullName>
+                <default>false</default>
+                <label>Processed</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Pending Customer</fullName>
+                <default>false</default>
+                <label>Pending Customer</label>
+            </value>
+            <value>
+                <fullName>Accepted by Customer</fullName>
+                <default>false</default>
+                <label>Accepted by Customer</label>
+            </value>
+            <value>
+                <fullName>Declined by Customer</fullName>
+                <default>false</default>
+                <label>Declined by Customer</label>
+            </value>
+            <value>
+                <fullName>Not-Eligilble</fullName>
+                <default>false</default>
+                <label>Not-Eligilble</label>
+            </value>
+            <value>
+                <fullName>Pending Exit Interview</fullName>
+                <default>false</default>
+                <label>Pending Exit Interview</label>
+            </value>
+            <value>
+                <fullName>Retained Without Discount</fullName>
+                <default>false</default>
+                <label>Retained Without Discount</label>
+            </value>
+            <value>
+                <fullName>Downgraded</fullName>
+                <default>false</default>
+                <label>Downgraded</label>
+            </value>
+            <value>
+                <fullName>Retained With Discount</fullName>
+                <default>false</default>
+                <label>Retained With Discount</label>
+            </value>
+            <value>
+                <fullName>Pending Discount From Bank</fullName>
+                <default>false</default>
+                <label>Pending Discount From Bank</label>
+            </value>
+            <value>
+                <fullName>Rolled Back by Bank</fullName>
+                <default>false</default>
+                <label>Rolled Back by Bank</label>
+            </value>
+            <value>
+                <fullName>Pending Business</fullName>
+                <default>false</default>
+                <label>Pending Business</label>
+            </value>
+            <value>
+                <fullName>Feedback available</fullName>
+                <default>false</default>
+                <label>Feedback available</label>
+            </value>
+            <value>
+                <fullName>Not-Eligible</fullName>
+                <default>false</default>
+                <label>Not-Eligible</label>
+            </value>
+            <value>
+                <fullName>Pending Documents</fullName>
+                <default>false</default>
+                <label>Pending Documents</label>
+            </value>
+            <value>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+                <label>Incomplete</label>
+            </value>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <label>Scheduled</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 1</fullName>
+                <default>false</default>
+                <label>Overdue Stage 1</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 2</fullName>
+                <default>false</default>
+                <label>Overdue Stage 2</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 3</fullName>
+                <default>false</default>
+                <label>Overdue Stage 3</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 4</fullName>
+                <default>false</default>
+                <label>Overdue Stage 4</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 5</fullName>
+                <default>false</default>
+                <label>Overdue Stage 5</label>
+            </value>
+            <value>
+                <fullName>Follow Up</fullName>
+                <default>false</default>
+                <label>Follow Up</label>
+            </value>
+            <value>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+                <label>Overdue</label>
+            </value>
+            <value>
+                <fullName>Pending Sales Team</fullName>
+                <default>false</default>
+                <label>Pending Sales Team</label>
+            </value>
+            <value>
+                <fullName>Pending Contact Center</fullName>
+                <default>false</default>
+                <label>Pending Contact Center</label>
+            </value>
+            <value>
+                <fullName>Referred by Card Admin</fullName>
+                <default>false</default>
+                <label>Referred by Card Admin</label>
+            </value>
+            <value>
+                <fullName>Referred by Operations</fullName>
+                <default>false</default>
+                <label>Referred by Operations</label>
+            </value>
+            <value>
+                <fullName>Referred by Operations(BT)</fullName>
+                <default>false</default>
+                <label>Referred by Operations(BT)</label>
+            </value>
+            <value>
+                <fullName>Discrepancy in documents</fullName>
+                <default>false</default>
+                <label>Discrepancy in documents</label>
+            </value>
+            <value>
+                <fullName>Discrepancies Re-Upload</fullName>
+                <default>false</default>
+                <label>Discrepancies Re-Upload</label>
+            </value>
+            <value>
+                <fullName>Review Offer</fullName>
+                <default>false</default>
+                <label>Review Offer</label>
+            </value>
+            <value>
+                <fullName>Offer Rejected</fullName>
+                <default>false</default>
+                <label>Offer Rejected</label>
+            </value>
+            <value>
+                <fullName>Secure Loan Offer</fullName>
+                <default>false</default>
+                <label>Secure Loan Offer</label>
+            </value>
+            <value>
+                <fullName>Processing</fullName>
+                <default>false</default>
+                <label>Processing</label>
+            </value>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Sold</fullName>
+                <default>false</default>
+                <label>Sold</label>
+            </value>
+            <value>
+                <fullName>Pending Signature In-App</fullName>
+                <default>false</default>
+                <label>Pending Signature In-App</label>
+            </value>
+            <value>
+                <fullName>Pending Signature Email</fullName>
+                <default>false</default>
+                <label>Pending Signature Email</label>
+            </value>
+            <value>
+                <fullName>Pending Signature</fullName>
+                <default>false</default>
+                <label>Pending Signature</label>
+            </value>
+            <value>
+                <fullName>Pending DocuSign Envelope Creation</fullName>
+                <default>false</default>
+                <label>Pending DocuSign Envelope Creation</label>
+            </value>
+            <value>
+                <fullName>Pending Buyout</fullName>
+                <default>false</default>
+                <label>Pending Buyout</label>
+            </value>
+            <value>
+                <fullName>Pending Disbursement</fullName>
+                <default>false</default>
+                <label>Pending Disbursement</label>
+            </value>
+            <value>
+                <fullName>Need Benefit Decision</fullName>
+                <default>false</default>
+                <label>Need Benefit Decision</label>
+            </value>
+            <value>
+                <fullName>Resume ID&amp;V Verification</fullName>
+                <default>false</default>
+                <label>Resume ID&amp;V Verification</label>
+            </value>
+            <value>
+                <fullName>Resubmit ID&amp;V Verification</fullName>
+                <default>false</default>
+                <label>Resubmit ID&amp;V Verification</label>
+            </value>
+            <value>
+                <fullName>Pending Outstanding Letter</fullName>
+                <default>false</default>
+                <label>Pending Outstanding Letter</label>
+            </value>
+            <value>
+                <fullName>Pending STL</fullName>
+                <default>false</default>
+                <label>Pending STL</label>
+            </value>
+            <value>
+                <fullName>Salary Transfer Letter And No Due Certificate</fullName>
+                <default>false</default>
+                <label>Salary Transfer Letter And No Due Certificate</label>
+            </value>
+            <value>
+                <fullName>Documents Uploaded</fullName>
+                <default>false</default>
+                <label>Documents Uploaded</label>
+            </value>
+            <value>
+                <fullName>Pending Callback</fullName>
+                <default>false</default>
+                <label>Pending Callback</label>
+            </value>
+            <value>
+                <fullName>Death Confirmed</fullName>
+                <default>false</default>
+                <label>Death Confirmed</label>
+            </value>
+            <value>
+                <fullName>Death Notified</fullName>
+                <default>false</default>
+                <label>Death Notified</label>
+            </value>
+            <value>
+                <fullName>Pending No Due Letter</fullName>
+                <default>false</default>
+                <label>Pending No Due Letter</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Skipped</fullName>
+                <default>false</default>
+                <label>Skipped</label>
+            </value>
+            <value>
+                <fullName>Referred by Document Verifier STL</fullName>
+                <default>false</default>
+                <label>Referred by Document Verifier STL</label>
+            </value>
+            <value>
+                <fullName>Pending Buy Out</fullName>
+                <default>false</default>
+                <label>Pending Buy Out</label>
+            </value>
+            <value>
+                <fullName>Referred by Document Verifier OBL</fullName>
+                <default>false</default>
+                <label>Referred by Document Verifier OBL</label>
+            </value>
+            <value>
+                <fullName>STL Received</fullName>
+                <default>false</default>
+                <label>STL Received</label>
+            </value>
+            <value>
+                <fullName>OBL Received</fullName>
+                <default>false</default>
+                <label>OBL Received</label>
+            </value>
+            <value>
+                <fullName>NDL Received</fullName>
+                <default>false</default>
+                <label>NDL Received</label>
+            </value>
+            <value>
+                <fullName>Returned</fullName>
+                <default>false</default>
+                <label>Returned</label>
+            </value>
+            <value>
+                <fullName>Pending Retention Feedback</fullName>
+                <default>false</default>
+                <label>Pending Retention Feedback</label>
+            </value>
+            <value>
+                <fullName>Customer Retained</fullName>
+                <default>false</default>
+                <label>Customer Retained</label>
+            </value>
+            <value>
+                <fullName>Pending Retail Credit Collection Feedback</fullName>
+                <default>false</default>
+                <label>Pending Retail Credit Collection Feedback</label>
+            </value>
+            <value>
+                <fullName>Pending Credit Card Operation Feedback</fullName>
+                <default>false</default>
+                <label>Pending Credit Card Operation Feedback</label>
+            </value>
+            <value>
+                <fullName>Pending Contact Center Feedback</fullName>
+                <default>false</default>
+                <label>Pending Contact Center Feedback</label>
+            </value>
+            <value>
+                <fullName>Pending Release by ICU Team</fullName>
+                <default>false</default>
+                <label>Pending Release by ICU Team</label>
+            </value>
+            <value>
+                <fullName>Pending Due Collection</fullName>
+                <default>false</default>
+                <label>Pending Due Collection</label>
+            </value>
+            <value>
+                <fullName>Cancellation Completed</fullName>
+                <default>false</default>
+                <label>Cancellation Completed</label>
+            </value>
+            <value>
+                <fullName>Due Collection Completed</fullName>
+                <default>false</default>
+                <label>Due Collection Completed</label>
+            </value>
+            <value>
+                <fullName>Referred by Document Verifier NDL</fullName>
+                <default>false</default>
+                <label>Referred by Document Verifier NDL</label>
+            </value>
+            <value>
+                <fullName>Pending Offer Acceptance</fullName>
+                <default>false</default>
+                <label>Pending Offer Acceptance</label>
+            </value>
+            <value>
+                <fullName>Declined ID&amp;V Fraud</fullName>
+                <default>false</default>
+                <label>Declined ID&amp;V Fraud</label>
+            </value>
+            <value>
+                <fullName>Pending ID&amp;V</fullName>
+                <default>false</default>
+                <label>Pending ID&amp;V</label>
+            </value>
+            <value>
+                <fullName>Failed ID&amp;V</fullName>
+                <default>false</default>
+                <label>Failed ID&amp;V</label>
+            </value>
+            <value>
+                <fullName>Pending DocuSign Callback</fullName>
+                <default>false</default>
+                <label>Pending DocuSign Callback</label>
+            </value>
+            <value>
+                <fullName>Pending ID&amp;V Callback</fullName>
+                <default>false</default>
+                <label>Pending ID&amp;V Callback</label>
+            </value>
+            <value>
+                <fullName>Referred by Pre-Screening</fullName>
+                <default>false</default>
+                <label>Referred by Pre-Screening</label>
+            </value>
+            <value>
+                <fullName>Pending Processing</fullName>
+                <default>false</default>
+                <label>Pending Processing</label>
+            </value>
+            <value>
+                <fullName>Pending Transact Callback</fullName>
+                <default>false</default>
+                <label>Pending Transact Callback</label>
+            </value>
+            <value>
+                <fullName>Accounts Closed Successfully</fullName>
+                <default>false</default>
+                <label>Accounts Closed Successfully</label>
+            </value>
+            <value>
+                <fullName>Failed - Hassala Closure</fullName>
+                <default>false</default>
+                <label>Failed - Hassala Closure</label>
+            </value>
+            <value>
+                <fullName>Pending - Hassala Closure</fullName>
+                <default>false</default>
+                <label>Pending - Hassala Closure</label>
+            </value>
+            <value>
+                <fullName>Success - Hassala Closure</fullName>
+                <default>false</default>
+                <label>Success - Hassala Closure</label>
+            </value>
+            <value>
+                <fullName>Pending - Waiting for customer Feedback</fullName>
+                <default>false</default>
+                <label>Pending - Waiting for customer Feedback</label>
+            </value>
+            <value>
+                <fullName>Buyout</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Buyout</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>New Loan</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>New Loan</label>
+            </value>
+            <value>
+                <fullName>Re-Send DocuSign</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Re-Send DocuSign</label>
+            </value>
+            <value>
+                <fullName>Refer to Service Center</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Refer to Service Center</label>
+            </value>
+            <value>
+                <fullName>Referred By Pre-Screener for Physical Signature</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Referred By Pre-Screener for Physical Signature</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

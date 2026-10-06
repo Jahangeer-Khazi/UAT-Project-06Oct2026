@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DC_Not_Required_Support_Docs</fullName>
+    <active>true</active>
+    <description>This validation will fire if Maker is selecting Request Support Document for fawri or international transfer.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Type , &quot;Release Hold Amount&quot;),
+ISCHANGED(cc_Maker__c),
+ISPICKVAL(cc_Maker__c, &apos;Request Supporting Document&apos;),
+NOT(ISPICKVAL(Sub_Type__c, &apos;Release Debit Card Transaction&apos;)),
+($User.LastName &lt;&gt; &quot;Integration&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Maker__c</errorDisplayField>
+    <errorMessage>Maker cannot able to select Request support documents for Fawri &amp; International Transfers.</errorMessage>
+</ValidationRule>

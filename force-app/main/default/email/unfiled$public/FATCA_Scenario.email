@@ -1,0 +1,8 @@
+Dear {!Contact.Title} {!Contact.LastName},
+
+Please update the documents!
+
+Thanks!
+
+
+{!Case.Thread_Id}

@@ -1,0 +1,21 @@
+<!-- 	
+    Organization : ABC Bank
+    * 	Created By: Aniss Mbarki
+    *	Created Date: 21-06-2024
+    * 	Change History: 
+-->
+<aura:component controller="LTNG052_DeviceActivitiesController" implements= "flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+
+    <aura:if isTrue="{!v.showCmp}">
+        <div style="padding-top: 2rem;">
+            <lightning:datatable column-widths-mode="auto" data="{!v.data}" aura:id="deviceActivitiesTable" columns="{!v.columns}"
+                keyField="id" hideCheckboxColumn="true" maxRowSelection="1"/>
+        </div>
+    </aura:if>
+</aura:component>

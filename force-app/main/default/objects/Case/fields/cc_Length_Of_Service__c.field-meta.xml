@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Length_Of_Service__c</fullName>
+    <description>credit card Case</description>
+    <label>Length Of Service</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Less than 1 year</fullName>
+                <default>false</default>
+                <label>Less than 1 year</label>
+            </value>
+            <value>
+                <fullName>1 to 3 years</fullName>
+                <default>false</default>
+                <label>1 to 3 years</label>
+            </value>
+            <value>
+                <fullName>3 to 5 years</fullName>
+                <default>false</default>
+                <label>3 to 5 years</label>
+            </value>
+            <value>
+                <fullName>5 years &amp; above</fullName>
+                <default>false</default>
+                <label>5 years &amp; above</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

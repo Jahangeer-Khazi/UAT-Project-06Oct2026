@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOF_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(  Sources_of_Funds__c  , &quot;Salary&quot;), &quot;Salary&quot;, NULL)  + &quot; &quot; +
+IF(INCLUDES(Sources_of_Funds__c   , &quot;Inheritance&quot;), &quot;Inheritance&quot;, NULL)  + &quot; &quot; + 
+IF(INCLUDES( Sources_of_Funds__c   , &quot;Business Ownership&quot;), &quot;Business Ownership&quot;, NULL)  + &quot; &quot; + 
+IF(INCLUDES( Sources_of_Funds__c   , &quot;Other&quot;), &quot;Other&quot;, NULL)  + &quot; &quot; + 
+IF(INCLUDES( Sources_of_Funds__c   , &quot;Investment&quot;), &quot;Investment&quot;, NULL)  + &quot; &quot; + 
+IF(INCLUDES( Sources_of_Funds__c   , &quot;Rental Income&quot;), &quot;Rental Income&quot;, NULL)  + &quot; &quot; + 
+IF(INCLUDES( Sources_of_Funds__c   , &quot;Family Support&quot;), &quot;Family Support&quot;, NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SOF Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

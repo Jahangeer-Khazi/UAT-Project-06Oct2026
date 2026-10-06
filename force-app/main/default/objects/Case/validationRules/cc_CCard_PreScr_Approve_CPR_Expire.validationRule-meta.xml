@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CCard_PreScr_Approve_CPR_Expire</fullName>
+    <active>true</active>
+    <description>Whenever Pre-screener Approves check CPR Expiry &lt; Today for Credit Card, Credit Limit Increase &amp; Cash Collateral Application</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &quot;Accept&quot;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+cc_Nationality__c &lt;&gt; &quot;BH&quot;,
+cc_CPR_Expiry_Date__c &lt; TODAY(),
+OR(
+AND(
+ISPICKVAL(Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;),
+ISPICKVAL(Type , &quot;Cash Collateral Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)
+
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_CPR_Expiry_Date__c</errorDisplayField>
+    <errorMessage>CPR Expiry date must be greater than today&apos;s date. Please request an updated CPR from the customer.</errorMessage>
+</ValidationRule>

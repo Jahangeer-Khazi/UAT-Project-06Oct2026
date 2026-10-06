@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>when discount is granted and pending customer action</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Premium_Invitation_Pending_Customer_Reminder Alburaq</name>
+    <style>none</style>
+    <subject>ila Premium Discount</subject>
+    <textOnly>Pending Premium Discount - Reminder
+
+Hi,
+
+Your discount offer is about to expire. Please accept the discount offer using the ila app before {!Case.Premium_Substatus_Changed__c+2} or with 24 hours or we regret that the discount will expire and you will be charged the full amount for your ila premium subscription
+
+Please confirm using the ila app
+
+For any questions, call us on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

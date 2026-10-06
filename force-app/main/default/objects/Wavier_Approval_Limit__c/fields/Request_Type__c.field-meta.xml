@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Type__c</fullName>
+    <label>Request Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Increase</fullName>
+                <default>false</default>
+                <label>Increase</label>
+            </value>
+            <value>
+                <fullName>Decrease</fullName>
+                <default>false</default>
+                <label>Decrease</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Budget</controllingFieldValue>
+            <controllingFieldValue>Max Waiver Amount per Transaction</controllingFieldValue>
+            <valueName>Increase</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Budget</controllingFieldValue>
+            <controllingFieldValue>Max Waiver Amount per Transaction</controllingFieldValue>
+            <valueName>Decrease</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

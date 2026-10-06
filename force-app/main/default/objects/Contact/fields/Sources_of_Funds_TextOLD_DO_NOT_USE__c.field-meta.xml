@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sources_of_Funds_TextOLD_DO_NOT_USE__c</fullName>
+    <description>Used to store the multi plicklist sources of funds as a plain text</description>
+    <encryptionScheme>None</encryptionScheme>
+    <externalId>false</externalId>
+    <inlineHelpText>Used to store the multi plicklist sources of funds as a plain text</inlineHelpText>
+    <label>Sources of Funds TextOLD DO NOT USE</label>
+    <length>200</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

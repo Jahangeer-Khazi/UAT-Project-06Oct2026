@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Which are not Closed --></help>
+    <label><!-- Having Existing Periodic Review Case --></label>
+    <name>Having_Existing_Periodic_Review_Case__c</name>
+</CustomFieldTranslation>

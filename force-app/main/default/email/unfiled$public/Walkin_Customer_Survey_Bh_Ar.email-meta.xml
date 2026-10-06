@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be sent for walkin customer case record type</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Walkin Customer Survey BH AR</name>
+    <style>none</style>
+    <subject>تقييم الخدمة</subject>
+    <textOnly>Dear Valued Customer
+
+Thank you for visiting our service center today. We appreciate your time and would love to hear about your experience. Kindly take a few minutes to complete our short customer satisfaction survey.
+
+Your feedback is valuable in helping us serve you better.
+
+Should you need any assistance, please feel free to call us on  +973 17123456 or email us on support@ilabank.com
+
+
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

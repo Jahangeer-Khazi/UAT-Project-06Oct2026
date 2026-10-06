@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubStatus__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Sub Status</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Discrepancies Re-Upload</fullName>
+                <default>true</default>
+                <label>Discrepancies Re-Upload</label>
+            </value>
+            <value>
+                <fullName>Discrepancy in Documents</fullName>
+                <default>false</default>
+                <label>Discrepancy in Documents</label>
+            </value>
+            <value>
+                <fullName>Review Offer</fullName>
+                <default>false</default>
+                <label>Review Offer</label>
+            </value>
+            <value>
+                <fullName>Pending Signature In-App</fullName>
+                <default>false</default>
+                <label>Pending Signature In-App</label>
+            </value>
+            <value>
+                <fullName>Pending Signature Email</fullName>
+                <default>false</default>
+                <label>Pending Signature Email</label>
+            </value>
+            <value>
+                <fullName>Pending Outstanding Letter</fullName>
+                <default>false</default>
+                <label>Pending Outstanding Letter</label>
+            </value>
+            <value>
+                <fullName>Pending STL</fullName>
+                <default>false</default>
+                <label>Pending STL</label>
+            </value>
+            <value>
+                <fullName>Pending No Due Letter</fullName>
+                <default>false</default>
+                <label>Pending No Due Letter</label>
+            </value>
+            <value>
+                <fullName>Resume ID&amp;V Verification</fullName>
+                <default>false</default>
+                <label>Resume ID&amp;V Verification</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Pending Documents</fullName>
+                <default>false</default>
+                <label>Pending Documents</label>
+            </value>
+            <value>
+                <fullName>Resubmit ID&amp;V Verification</fullName>
+                <default>false</default>
+                <label>Resubmit ID&amp;V Verification</label>
+            </value>
+            <value>
+                <fullName>Pending Signature</fullName>
+                <default>false</default>
+                <label>Pending Signature</label>
+            </value>
+            <value>
+                <fullName>Pending Offer Acceptance</fullName>
+                <default>false</default>
+                <label>Pending Offer Acceptance</label>
+            </value>
+            <value>
+                <fullName>Pending ID&amp;V</fullName>
+                <default>false</default>
+                <label>Pending ID&amp;V</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

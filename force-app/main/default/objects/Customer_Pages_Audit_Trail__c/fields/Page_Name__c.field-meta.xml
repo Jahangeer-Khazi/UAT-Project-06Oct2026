@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Page_Name__c</fullName>
+    <description>This field is used to track page name</description>
+    <label>Page Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Detail</fullName>
+                <default>false</default>
+                <label>Customer Detail</label>
+            </value>
+            <value>
+                <fullName>Cases List</fullName>
+                <default>false</default>
+                <label>Cases List</label>
+            </value>
+            <value>
+                <fullName>Specific Case Detail</fullName>
+                <default>false</default>
+                <label>Specific Case Detail</label>
+            </value>
+            <value>
+                <fullName>Documents List</fullName>
+                <default>false</default>
+                <label>Documents List</label>
+            </value>
+            <value>
+                <fullName>Specific Document Detail</fullName>
+                <default>false</default>
+                <label>Specific Document Detail</label>
+            </value>
+            <value>
+                <fullName>Customer Activities List</fullName>
+                <default>false</default>
+                <label>Customer Activities List</label>
+            </value>
+            <value>
+                <fullName>Customer History List</fullName>
+                <default>false</default>
+                <label>Customer History List</label>
+            </value>
+            <value>
+                <fullName>Ila Bank Accounts List</fullName>
+                <default>false</default>
+                <label>Ila Bank Accounts List</label>
+            </value>
+            <value>
+                <fullName>Alburaq Bank Accounts List</fullName>
+                <default>false</default>
+                <label>Alburaq Bank Accounts List</label>
+            </value>
+            <value>
+                <fullName>Credit Card List</fullName>
+                <default>false</default>
+                <label>Credit Card List</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposits List</fullName>
+                <default>false</default>
+                <label>Fixed Deposits List</label>
+            </value>
+            <value>
+                <fullName>Debit Cards List</fullName>
+                <default>false</default>
+                <label>Debit Cards List</label>
+            </value>
+            <value>
+                <fullName>Saving Pots List</fullName>
+                <default>false</default>
+                <label>Saving Pots List</label>
+            </value>
+            <value>
+                <fullName>Jamiyah Accounts List</fullName>
+                <default>false</default>
+                <label>Jamiyah Accounts List</label>
+            </value>
+            <value>
+                <fullName>Bank Account Detail</fullName>
+                <default>false</default>
+                <label>Bank Account Detail</label>
+            </value>
+            <value>
+                <fullName>Credit Card Detail</fullName>
+                <default>false</default>
+                <label>Credit Card Detail</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit Detail</fullName>
+                <default>false</default>
+                <label>Fixed Deposit Detail</label>
+            </value>
+            <value>
+                <fullName>Debit Card Detail</fullName>
+                <default>false</default>
+                <label>Debit Card Detail</label>
+            </value>
+            <value>
+                <fullName>Saving Pot Detail</fullName>
+                <default>false</default>
+                <label>Saving Pot Detail</label>
+            </value>
+            <value>
+                <fullName>Kanz Detail</fullName>
+                <default>false</default>
+                <label>Kanz Detail</label>
+            </value>
+            <value>
+                <fullName>Jamiyah Detail</fullName>
+                <default>false</default>
+                <label>Jamiyah Detail</label>
+            </value>
+            <value>
+                <fullName>Document Detail</fullName>
+                <default>false</default>
+                <label>Document Detail</label>
+            </value>
+            <value>
+                <fullName>Wakala Detail</fullName>
+                <default>false</default>
+                <label>Wakala Detail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexTestSuite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <testClassName>APB02_UpdateCustomersToActiveTest</testClassName>
+    <testClassName>DM001_ApiCallsTest</testClassName>
+    <testClassName>LTNG001_PrimCardPickListControllerTest</testClassName>
+    <testClassName>LTNG006_StampedStatmtsControllerTest</testClassName>
+    <testClassName>SensitiveDataCleanerTest</testClassName>
+    <testClassName>SM001_ApiCallsTest</testClassName>
+</ApexTestSuite>

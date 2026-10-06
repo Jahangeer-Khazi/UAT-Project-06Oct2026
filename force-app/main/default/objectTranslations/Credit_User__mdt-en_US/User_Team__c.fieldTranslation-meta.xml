@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- User Team --></label>
+    <name>User_Team__c</name>
+    <picklistValues>
+        <masterLabel>Credit Approval</masterLabel>
+        <translation><!-- Credit Approval --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Business Team</masterLabel>
+        <translation><!-- Credit Business Team --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Buyout</masterLabel>
+        <translation><!-- Credit Buyout --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit CEO</masterLabel>
+        <translation><!-- Credit CEO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Contact Centre</masterLabel>
+        <translation><!-- Credit Contact Centre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Evaluation</masterLabel>
+        <translation><!-- Credit Evaluation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit HR Team</masterLabel>
+        <translation><!-- Credit HR Team --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Pre-Screening</masterLabel>
+        <translation><!-- Credit Pre-Screening --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Service Centre</masterLabel>
+        <translation><!-- Credit Service Centre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Signature Verification</masterLabel>
+        <translation><!-- Credit Signature Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Verification</masterLabel>
+        <translation><!-- Credit Verification --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

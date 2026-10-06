@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DuplicateRule xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOnInsert>Block</actionOnInsert>
+    <actionOnUpdate>Block</actionOnUpdate>
+    <alertText>Use one of these records?</alertText>
+    <description>Duplicate Rule on Lead for Id No, Email and Mobile.</description>
+    <duplicateRuleFilter xsi:nil="true"/>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>Lead</matchRuleSObjectType>
+        <matchingRule>Lead_Custom_Matching_Rule</matchingRule>
+        <objectMapping xsi:nil="true"/>
+    </duplicateRuleMatchRules>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>Blacklist_Accounts__c</matchRuleSObjectType>
+        <matchingRule>Blacklisted_Customers_Matching_Rule</matchingRule>
+        <objectMapping>
+            <inputObject>Lead</inputObject>
+            <mappingFields>
+                <inputField>Email</inputField>
+                <outputField>Email__c</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>ID_Number__c</inputField>
+                <outputField>ID_Number__c</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>MobilePhone</inputField>
+                <outputField>Mobile__c</outputField>
+            </mappingFields>
+            <outputObject>Blacklist_Accounts__c</outputObject>
+        </objectMapping>
+    </duplicateRuleMatchRules>
+    <duplicateRuleMatchRules>
+        <matchRuleSObjectType>PersonAccount</matchRuleSObjectType>
+        <matchingRule>Person_Account_Custom_Matching_Rule</matchingRule>
+        <objectMapping>
+            <inputObject>Lead</inputObject>
+            <mappingFields>
+                <inputField>Email</inputField>
+                <outputField>PersonEmail</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>ID_Number__c</inputField>
+                <outputField>ID_Number__pc</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>MobilePhone</inputField>
+                <outputField>PersonMobilePhone</outputField>
+            </mappingFields>
+            <outputObject>PersonAccount</outputObject>
+        </objectMapping>
+    </duplicateRuleMatchRules>
+    <isActive>false</isActive>
+    <masterLabel>Lead Duplicate Rule</masterLabel>
+    <securityOption>EnforceSharingRules</securityOption>
+    <sortOrder>2</sortOrder>
+</DuplicateRule>

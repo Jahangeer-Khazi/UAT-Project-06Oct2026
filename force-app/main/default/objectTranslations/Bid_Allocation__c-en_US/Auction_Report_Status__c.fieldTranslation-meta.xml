@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Auction Report Status --></label>
+    <name>Auction_Report_Status__c</name>
+    <picklistValues>
+        <masterLabel>Post Issuance Completed</masterLabel>
+        <translation><!-- Post Issuance Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pre Issuance Completed</masterLabel>
+        <translation><!-- Pre Issuance Completed --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

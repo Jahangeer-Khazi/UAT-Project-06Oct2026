@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Ln Pending - Pending</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Type__c</field>
+        <value xsi:type="xsd:string">New Loan / Finance Application</value>
+    </values>
+    <values>
+        <field>Email_Alert_Name__c</field>
+        <value xsi:type="xsd:string">ILA_PL_PROOFOFINCOME</value>
+    </values>
+    <values>
+        <field>Expiry_Hours__c</field>
+        <value xsi:type="xsd:double">720.0</value>
+    </values>
+    <values>
+        <field>Reminder_1_Hours__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Reminder_2_Hours__c</field>
+        <value xsi:type="xsd:double">72.0</value>
+    </values>
+    <values>
+        <field>Reminder_3_Hours__c</field>
+        <value xsi:type="xsd:double">240.0</value>
+    </values>
+    <values>
+        <field>Status__c</field>
+        <value xsi:type="xsd:string">Pending</value>
+    </values>
+    <values>
+        <field>SubStatus__c</field>
+        <value xsi:type="xsd:string">Pending</value>
+    </values>
+</CustomMetadata>

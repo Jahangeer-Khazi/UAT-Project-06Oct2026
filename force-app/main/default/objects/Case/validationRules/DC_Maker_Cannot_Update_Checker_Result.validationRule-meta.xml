@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DC_Maker_Cannot_Update_Checker_Result</fullName>
+    <active>true</active>
+    <description>This validation will fire if Maker is updating the checker result</description>
+    <errorConditionFormula>AND(
+    OR(ISPICKVAL(Type , &quot;Release Hold Amount&quot;),
+        AND(
+            ISPICKVAL(Type , &quot;New Bank Statement Request&quot;),
+            $User.Maker_Checker_Bypass_Flag__c = false
+        )
+    ),
+    ISCHANGED(cc_Checker_Result__c),
+    NOT(ISPICKVAL(cc_Checker_Result__c, &quot;&quot;)),
+    (Address_Updated_By__c = $User.Id),
+    ($User.LastName &lt;&gt; &quot;Integration&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Checker_Result__c</errorDisplayField>
+    <errorMessage>Maker cannot update the Checker Result.</errorMessage>
+</ValidationRule>

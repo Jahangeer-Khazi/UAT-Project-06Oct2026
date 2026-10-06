@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Unqualified</fullName>
+        <default>false</default>
+        <label>Unqualified</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Data Capture - Maker</fullName>
+        <default>true</default>
+        <label>Data Capture - Maker</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Data Validation - Checker</fullName>
+        <default>false</default>
+        <label>Data Validation - Checker</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Referred Back by - Checker</fullName>
+        <default>false</default>
+        <label>Referred Back by - Checker</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Qualified</fullName>
+        <default>false</default>
+        <label>Qualified</label>
+        <converted>true</converted>
+    </standardValue>
+</StandardValueSet>

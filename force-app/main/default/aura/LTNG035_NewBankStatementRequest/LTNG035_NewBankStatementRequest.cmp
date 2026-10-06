@@ -1,0 +1,139 @@
+<!--
+    Author : ANISS MBARKI 
+    Created Date : 24/11/2023
+    Change History:
+        CH01 : set Fee_Waiver__c to false and Fee_Waiver_Reason__c = null // By elmustapha 26/12/2023
+        CH02 : set Fee_Waiver__c & Fee_Waiver_Reason__c from customer profile // By Aniss 10/01/2024
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="LTNG035_NewBankStatementReqController" >
+    
+    <aura:attribute name="bankStatementRecordTypeId" type="String"/>
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="subType" type="String" />
+    <aura:attribute name="segment" type="String" />
+    <aura:attribute name="selectedCurrency" type="String" />
+    
+    <aura:attribute name="showAccountsSection" type="Boolean" default="false" />
+    <aura:attribute name="accountOptions" type="List" />
+    <aura:attribute name="currentAcc" type="Object" />
+    <aura:attribute name="defaultAcc" type="Object" />
+    
+    <aura:attribute name="showCCSection" type="Boolean" default="false" />
+    <aura:attribute name="creditOptions" type="List" />
+    <aura:attribute name="currentCard" type="Object" />
+
+    <!--START #CH02-->
+    <aura:attribute name="feeWaiver" type="Boolean" />
+    <aura:attribute name="feeWaiverReason" type="String" />
+    <!--END #CH02-->
+    
+    
+    <!--START handlers-->
+    <aura:handler name="change" value="{!v.subType}" action="{!c.subTypeIsChanged}" />
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+    
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Bank Statement Request</h4>
+            </span>
+        </h2>
+    </header>
+    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+    
+     <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <lightning:inputField aura:id="Segment" fieldName="Segment__pc" />
+            <lightning:inputField aura:id="Fee_Waiver_Flag" fieldName="Fee_Waiver_Flag__pc" /> <!-- #CH02-->
+            <lightning:inputField aura:id="Fee_Waiver_Reason" fieldName="Fee_Waiver_Reason__pc" /> <!-- #CH02-->
+        </lightning:recordEditForm>
+    </div>
+
+    <lightning:card>
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!v.bankStatementRecordTypeId}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+
+            <lightning:inputField fieldName="Subject" aura:id="subject"/>
+            <lightning:inputField fieldName="Description" aura:id="description"/>
+            <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value="{!v.caseModel}" onchange="{!c.handleChange}"/>
+            <lightning:inputField fieldName="Type" value="New Bank Statement Request" aura:id="type" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" value="{!v.subType}" aura:id="subType" required="true"/>            
+            <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+            <lightning:inputField fieldName="Case_Nature__c" aura:id="caseNature" required="true"/>
+
+
+            
+            <aura:if isTrue="{! v.showAccountsSection }">
+                <lightning:select aura:id="requestedAccount" label="Bank Accounts" required="true" onchange="{!c.requestedAccountChange}">
+                    <option text="--None--" value="" />
+                    <aura:iteration items="{!v.accountOptions}" var="accObj">
+                        <option text="{!accObj.label}" value="{!accObj.id}" />
+                    </aura:iteration>
+                </lightning:select>
+                
+                <lightning:inputField fieldName="ac_Iban__c" disabled="true" required="true" value="{!v.currentAcc.id}" />
+                <lightning:inputField fieldName="Currency__c" disabled="true" required="true" value="{!v.selectedCurrency}"  />
+                <lightning:inputField fieldName="Debit_Account_IBAN__c" disabled="true" required="true" value="{!v.defaultAcc.account.iban}" />
+                <div aura:id="balance" class="{!if(v.segment!= 'Staff','slds-show','slds-hide')}">
+                    <lightning:inputField fieldName="Debit_Account_Available_Balance__c" disabled="true" required="true" value="{!v.defaultAcc.account.availableBalance}" />
+                </div>
+                <!-- Start CH01 -->
+                <!-- <lightning:inputField fieldName="Fee_Waiver__c" disabled="true" required="true" value="{!v.defaultAcc.minimumBalance.feeWaiver}" />
+                <lightning:inputField fieldName="Fee_Waiver_Reason__c" disabled="true" required="true" value="{!v.defaultAcc.minimumBalance.feeWaiverReason}" /> -->
+                <lightning:inputField fieldName="Fee_Waiver__c" disabled="true" required="true" value="{!v.feeWaiver}" /> <!-- #CH02-->
+                <lightning:inputField fieldName="Fee_Waiver_Reason__c" disabled="true" required="true" value="{!v.feeWaiverReason}" /> <!-- #CH02-->
+                
+                <!-- End CH01 -->
+                <lightning:inputField fieldName="From_Date__c" required="true" />
+                <lightning:inputField fieldName="To_Date__c" required="true" />
+                <lightning:inputField fieldName="Delivery_Preference__c" required="true" />
+
+            </aura:if>
+
+            <aura:if isTrue="{! v.showCCSection }">
+                <lightning:select aura:id="requestedCard" label="Credit Cards" required="true" onchange="{!c.requestedCardChange}">
+                    <option text="--None--" value="" />
+                    <aura:iteration items="{!v.creditOptions}" var="cardObj">
+                        <option text="{!cardObj.maskedCardNumber}" value="{!cardObj.id}" />
+                    </aura:iteration>
+                </lightning:select>
+                
+                <lightning:inputField fieldName="cc_Credit_Card_PCI_Number__c" disabled="true" required="true" value="{!v.currentCard.maskedCardNumber}" />
+                <lightning:inputField fieldName="Currency__c" disabled="true" required="true" value="BHD" />
+                <lightning:inputField fieldName="Debit_Account_IBAN__c" disabled="true" required="true" value="{!v.defaultAcc.account.iban}" />
+                <div aura:id="balance" class="{!if(v.segment!= 'Staff','slds-show','slds-hide')}">
+                    <lightning:inputField fieldName="Debit_Account_Available_Balance__c" disabled="true" required="true" value="{!v.defaultAcc.account.availableBalance}" />
+                </div>
+                <lightning:inputField fieldName="Fee_Waiver__c" disabled="true" required="true" value="{!v.feeWaiver}" /> <!-- #CH02-->
+                <lightning:inputField fieldName="Fee_Waiver_Reason__c" disabled="true" required="true" value="{!v.feeWaiverReason}" /> <!-- #CH02-->
+                
+                <!-- End CH01 -->
+                <lightning:inputField fieldName="From_Date__c" required="true" />
+                <lightning:inputField fieldName="To_Date__c" required="true" />
+                <lightning:inputField fieldName="Delivery_Preference__c" required="true" />
+
+            </aura:if>
+            
+            <div class="slds-hide">
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+            </div> 
+
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+    </lightning:card>
+</aura:component>

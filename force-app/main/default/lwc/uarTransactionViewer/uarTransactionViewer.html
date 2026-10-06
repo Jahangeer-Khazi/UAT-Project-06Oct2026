@@ -1,0 +1,99 @@
+<template>
+    <lightning-card>
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span class="slds-text-heading_small">Transactions</span>
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <template if:true={isEditMode}>
+                        <lightning-button label="Add Transaction" variant="neutral" icon-name="utility:add" 
+                                        onclick={handleAddNew} class="slds-m-right_x-small" disabled={isTransactionLimitReached}>
+                        </lightning-button>
+                        <lightning-button label="Cancel" variant="neutral" onclick={handleCancel} 
+                                        disabled={isLoading} class="slds-m-right_x-small">
+                        </lightning-button>
+                        <lightning-button label="Save" variant="brand" onclick={handleSave} 
+                                        disabled={saveDisabled}>
+                        </lightning-button>
+                    </template>
+                    <template if:false={isEditMode}>
+                        <lightning-button label="Edit" variant="brand" onclick={handleEdit} disabled={isButtonDisabled}>
+                        </lightning-button>
+                    </template>
+                </div>
+            </header>
+        </div>
+
+        <div class="slds-card__body slds-card__body_inner">
+            <lightning-spinner if:true={isLoading} alternative-text="Loading"></lightning-spinner>
+
+            <!-- Transactions Section -->
+            <div class="slds-box slds-theme_default">
+                <template if:true={hasTransactions}>
+                    <div class="slds-scrollable_x">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th scope="col" width="40%">
+                                        <div class="slds-truncate">Value of Transaction</div>
+                                    </th>
+                                    <th scope="col" width="40%">
+                                        <div class="slds-truncate">Date of Transaction</div>
+                                    </th>
+                                    <th scope="col" width="20%" if:true={isEditMode}>
+                                        <div class="slds-truncate">Actions</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={transactions} for:item="transaction" for:index="index">
+                                    <tr key={transaction.Id} class="slds-hint-parent">
+                                        <td data-label="Amount">
+                                            <template if:true={isReadOnly}>
+                                                <div class="slds-truncate">{transaction.Transaction_Amount__c}</div>
+                                            </template>
+                                            <template if:false={isReadOnly}>
+                                                <lightning-input type="number" value={transaction.Transaction_Amount__c}
+                                                    onchange={handleTransactionChange} data-index={index}
+                                                    data-field="Transaction_Amount__c" class="input-no-border" required >
+                                                </lightning-input>
+                                            </template>
+                                        </td>
+                                        <td data-label="Date">
+                                            <template if:true={isReadOnly}>
+                                                <div class="slds-truncate">{transaction.Transaction_Date__c}</div>
+                                            </template>
+                                            <template if:false={isReadOnly}>
+                                                <lightning-input type="date" value={transaction.Transaction_Date__c}
+                                                    onchange={handleTransactionChange} data-index={index}
+                                                    data-field="Transaction_Date__c" class="input-no-border" max={today} required >
+                                                </lightning-input>
+                                            </template>
+                                        </td>
+                                        <td data-label="Actions" if:true={isEditMode}>
+                                            <lightning-button-icon icon-name="utility:delete" variant="bare"
+                                                alternative-text="Delete" onclick={handleDelete} data-index={index}
+                                                class="slds-m-left_xx-small">
+                                            </lightning-button-icon>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </template>
+                <template if:false={hasTransactions}>
+                    <div class="slds-text-align_center slds-p-around_large">
+                        <p>No transactions found</p>
+                        <lightning-button if:true={isEditMode} label="Add Transaction" variant="neutral" 
+                                        icon-name="utility:add" onclick={handleAddNew} disabled={isTransactionLimitReached}>
+                        </lightning-button>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Rework</fullName>
+                <default>false</default>
+                <label>Rework</label>
+            </value>
+            <value>
+                <fullName>Pending Validation</fullName>
+                <default>false</default>
+                <label>Pending Validation</label>
+            </value>
+            <value>
+                <fullName>Ready for Scattering</fullName>
+                <default>false</default>
+                <label>Ready for Scattering</label>
+            </value>
+            <value>
+                <fullName>Pending ICU Validation 1</fullName>
+                <default>false</default>
+                <label>Finance Checker</label>
+            </value>
+            <value>
+                <fullName>ICU Validation 1 Failed</fullName>
+                <default>false</default>
+                <label>Finance Checker Failed</label>
+            </value>
+            <value>
+                <fullName>Operations Checker</fullName>
+                <default>false</default>
+                <label>Operations Checker</label>
+            </value>
+            <value>
+                <fullName>Operations Checker Failed</fullName>
+                <default>false</default>
+                <label>Operations Checker Failed</label>
+            </value>
+            <value>
+                <fullName>Pending Maker Validation</fullName>
+                <default>false</default>
+                <label>Pending Maker Validation</label>
+            </value>
+            <value>
+                <fullName>Maker Validation Failed</fullName>
+                <default>false</default>
+                <label>Maker Validation Failed</label>
+            </value>
+            <value>
+                <fullName>Ready</fullName>
+                <default>false</default>
+                <label>Ready</label>
+            </value>
+            <value>
+                <fullName>Raffle Completed</fullName>
+                <default>false</default>
+                <label>Raffle Completed</label>
+            </value>
+            <value>
+                <fullName>Pending Risk Dept Validation</fullName>
+                <default>false</default>
+                <label>Pending Finance Dept Validation</label>
+            </value>
+            <value>
+                <fullName>Pending Operations Dept Validation</fullName>
+                <default>false</default>
+                <label>Pending Operations Dept Validation</label>
+            </value>
+            <value>
+                <fullName>Pending Checker Validation</fullName>
+                <default>false</default>
+                <label>Pending Checker Validation</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Failed Validation</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Failed Validation</label>
+            </value>
+            <value>
+                <fullName>ICU Validation 1 Complete</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ICU Validation 1 Complete</label>
+            </value>
+            <value>
+                <fullName>ICU Validation 2 Complete</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ICU Validation 2 Complete</label>
+            </value>
+            <value>
+                <fullName>ICU Validation 2 Failed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ICU Validation 2 Failed</label>
+            </value>
+            <value>
+                <fullName>Modification in Progress</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Modification in Progress</label>
+            </value>
+            <value>
+                <fullName>Pending ICU Validation 2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pending ICU Validation 2</label>
+            </value>
+            <value>
+                <fullName>Raffle In Progress</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Raffle In Progress</label>
+            </value>
+            <value>
+                <fullName>Randomization Complete</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Randomization Complete</label>
+            </value>
+            <value>
+                <fullName>Risk Dept Validation Complete</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Risk Dept Validation Complete</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

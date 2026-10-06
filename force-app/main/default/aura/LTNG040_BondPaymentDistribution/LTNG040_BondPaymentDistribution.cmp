@@ -1,0 +1,84 @@
+<aura:component implements="force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="LTNG040_BondPaymentDistribution">
+    <aura:attribute name="recordtypeId" type="Id" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="InstrumentList" type="List" />
+    <aura:attribute name="SelInstrument" type="Object" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:html tag="style">
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        }
+        
+    </aura:html>
+    <!-- Modal/Popup Box starts here-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box Header Starts here-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                                      onclick="{!c.onCancel }"
+                                      alternativeText="close"
+                                      variant="bare-inverse"
+                                      class="slds-modal__close"/>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Bond Payment Distribution</h2>
+            </header>
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning:recordEditForm aura:id="form"
+                                          recordTypeId="{!v.recordTypeId}"
+                                          objectApiName="Investment_Distribution__c"     
+                                          onload="{!c.handleOnload}"
+                                          onsubmit="{!c.handleOnSubmit}"
+                                          onsuccess="{!c.handleOnSuccess}"
+                                          onerror="{!c.handleOnError}"
+                                          >
+                    <lightning:messages/>
+                    <div class="slds-p-around--large">
+                        <div  aura:id="articleOne">
+                            <aura:if isTrue="{! v.isLoading }">
+                                <lightning:spinner alternativeText="Loading" />
+                            </aura:if>
+                            <lightning:card>
+                                
+                                <!--<div class="slds-p-around_small slds-grid slds-grid_align-spread slds-grid_horizontal-align-start">-->
+                                <div>      
+                                    
+                                    <lightning:select aura:id="ISINCODE" label="Instrument" required="true" onchange="{!c.OnSelectingInstrument}">
+                                        <option text="--None--" value="" />
+                                        <aura:iteration items="{!v.InstrumentList}" var="InstData">
+                                            <option text="{!InstData.bs_label}" value="{!InstData.bs_label}" />
+                                        </aura:iteration>                         
+                                    </lightning:select>
+                                    <br></br>
+                                    <div class="slds-grid slds-wrap">
+                                        <!--on load handle name on Card, handle Submit -->
+                                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="ISIN_Code__c" aura:id="ISINCode" disable="true" value="{!v.SelInstrument.bs_ISIN_Code}"/></div>
+                                        <div class="slds-col slds-size_1-of-2"> <lightning:inputField fieldName="ISIN_Type__c" aura:id="ISINType" disable="true" value="{!v.SelInstrument.bs_ISIN_Type}"/></div>
+                                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Instrument_ID__c" aura:id="instId" disable="true" value="{!v.SelInstrument.referenceNo}"/></div>
+                                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Type__c" aura:id="Type" /></div>
+                                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Amount__c" aura:id="Amount"/> </div>                                           
+                                        <!--<lightning:input type="date" name="BID Due Date" label="BID Due Date" required="true" />-->
+                                        <!-- <lightning:datatable data="{! v.mydata }" 
+                                             columns="{! v.mycolumns }" keyField="id" aura:id="caseTable"/>-->
+                                    </div>
+                                </div>
+                            </lightning:card>
+                        </div>
+                    </div>
+                    <footer>
+                        <div class="slds-float_right">
+                            <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                            <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                        </div>
+                    </footer>
+                </lightning:recordEditForm>                                               
+            </div>
+            
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    <!--CH01 - End-->
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Details__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This check is used for restrict the Cases/ accounts/ Details/ Documents for specific customers</description>
+    <label>Restricted Details</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

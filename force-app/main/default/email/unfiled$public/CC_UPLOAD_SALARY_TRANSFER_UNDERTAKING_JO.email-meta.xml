@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>After application is approved, send to regular customer who wants to transfer money to ila that they need to send salary transfer undertaking letter</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_UPLOAD_SALARY_TRANSFER_UNDERTAKING_JO</name>
+    <style>none</style>
+    <subject>Document Request for your Credit Card Application</subject>
+    <textOnly>Hi,
+
+We can&apos;t wait for you to start using our Credit Card, but we need a bit more information first to complete the application.
+
+We would really appreciate it if you could reply to this email with the below documents to complete the process of your application:
+
+Authorized salary transfer undertaking letter (not older than one month)
+
+
+
+For any questions, call us on +962 65100001
+
+Open ila app
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files 								transmitted with it are confidential and 								intended solely for the use of the individual or 								entity to whom they are addressed. If you have 								received this email in error, please notify the 								system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

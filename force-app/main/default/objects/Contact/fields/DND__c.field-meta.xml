@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DND__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>this is to capture &quot;Do Not Disturb&quot; customer profile in CRM. So that, DND preference can be maintained in CRM under customer profile - NBA-6707</description>
+    <label>DND</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

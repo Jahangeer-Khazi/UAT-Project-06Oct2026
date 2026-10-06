@@ -1,0 +1,54 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global"
+                controller="customerProductStatusCtrl">
+
+
+<aura:attribute name="recordId" type="String" />
+<aura:attribute name="Customer" type="Account"/>
+<aura:attribute name="caseType" type="String"/>
+<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
+
+<lightning:card>
+    <h4 style="text-align: left; font-weight: bold; font-size: 1.2em; margin-left: 8%; margin-bottom: 15px;">Collection / Legal cases</h4>
+    
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Customer_CIF" fieldName="Customer_CIF__c" />
+            <lightning:inputField aura:id="caseType" fieldName="Type" />
+        </lightning:recordEditForm>
+    </div> 
+
+
+    
+    <p class="slds-p-horizontal_small">
+
+        <div style="margin-left: 5%"> 
+            <div class="slds-grid slds-gutters slds-wrap">  
+
+                <!-- <aura:if isTrue="{! or(v.caseType=='Credit Card Application', v.caseType=='Credit Limit Increase Application', v.caseType=='Credit Card Cash Collateral Application', v.caseType=='Cash Collateral Credit Limit Increase Application') }"> -->
+                    <aura:if isTrue="{!v.Customer.Collection_Case__c==true }"> 
+                        <img style="margin-left:3%; margin-bottom:2%" src="{!$Resource.Credit_Card_Collection}" height="100" width="175"/> 
+                    </aura:if>
+                    <aura:if isTrue="{!v.Customer.Legal_Action__c==true }"> 
+                        <img style="margin-left:3%; margin-bottom:2%" src="{!$Resource.Credit_Card_Legal}" height="100" width="175"/> 
+                    </aura:if>
+                <!-- </aura:if> -->
+
+
+
+                <!-- <aura:if isTrue="{!v.caseType=='New Loan / Finance Application' }"> -->
+                    <aura:if isTrue="{!v.Customer.Loan_Collection_Case__c==true }"> 
+                    <img style="margin-left:3%; margin-bottom:2%" src="{!$Resource.Loan_Collection}" height="100" width="175"/> 
+                    </aura:if>
+                    <aura:if isTrue="{!v.Customer.Loan_Legal_Action__c==true }"> 
+                        <img style="margin-left:3%; margin-bottom:2%" src="{!$Resource.Loan_Legal}" height="100" width="175"/> 
+                    </aura:if>
+                <!-- </aura:if> -->
+                
+
+            </div> 
+
+        </div>       
+    </p>
+</lightning:card>
+
+</aura:component>

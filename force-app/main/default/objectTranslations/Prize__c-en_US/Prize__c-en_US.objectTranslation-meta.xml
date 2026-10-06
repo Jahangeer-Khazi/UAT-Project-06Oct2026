@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Prize</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Prizes</value>
+    </caseValues>
+    <layouts>
+        <layout>Prize Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Max decimal places for BHD currency is 3 --></errorMessage>
+        <name>CurrencyAmountDecimalPlaces</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot create or update prizes at this stage of the draw --></errorMessage>
+        <name>Disallow_CreationOrUpdateOfPrizes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Max decimal places for this prize currency is 2 --></errorMessage>
+        <name>OtherCurrencyAmountDecimalPlaces</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the same Prize Type as the current draw --></errorMessage>
+        <name>Raffle_SamePrizeType</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Unique</aggregateTypes>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Type</field>
+    </columns>
+    <columns>
+        <field>Case$Sub_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case$cc_Request_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Agings__r$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case$Status</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case$SLA__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.Case_Agings__r.Case_Aging_Line_Items__r$Total_Time__c</field>
+    </columns>
+    <columns>
+        <field>CDF1</field>
+    </columns>
+    <customDetailFormulas>
+        <calculatedFormula>IF(
+  AND(
+    Case.SLA__c &gt;= Case_Aging__c.Total_Time_Age__c,
+    TEXT(Case.Status) = &quot;Closed&quot;
+  ),
+  &quot;Met&quot;,
+  IF(
+    AND(
+      Case.SLA__c &gt;= Case_Aging__c.Total_Time_Age__c,
+      TEXT(Case.Status) &lt;&gt; &quot;Closed&quot;
+    ),
+    &quot;In Progress&quot;,
+    &quot;Breached&quot;
+  )
+)</calculatedFormula>
+        <dataType>Text</dataType>
+        <developerName>CDF1</developerName>
+        <label>SLA Status</label>
+        <scale>2</scale>
+    </customDetailFormulas>
+    <filter>
+        <booleanFilter>(1 OR 3 OR 4 OR 5) AND 2 AND 6</booleanFilter>
+        <criteriaItems>
+            <column>Case$RecordType_DeveloperName__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Case_Disputes_and_Frauds</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$SLA__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$RecordType_DeveloperName__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Case_Faults_and_Incidents</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$RecordType_DeveloperName__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$RecordType_DeveloperName__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Request</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Case_Agings__r$Total_Time_Age__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Case_Agings__r.Case_Aging_Line_Items__r$Group_Queue__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Case_Agings__r.Case_Aging_Line_Items__r$New_Owner__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>New Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Case_with_Aging_and_Aging_Line_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case.Case_Agings__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

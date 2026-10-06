@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Settings</fullName>
+    <columns>SETUP_TYPE</columns>
+    <columns>SETUP_OWNER_NAME</columns>
+    <columns>Bypass_Trigger__c</columns>
+    <columns>Bypass_Validation_Rules__c</columns>
+    <columns>Bypass_Flows__c</columns>
+    <columns>Bypass_Process_Builder__c</columns>
+    <columns>Bypass_Approval_Processes__c</columns>
+    <columns>Bypass_Jordan_Loan_Validation__c</columns>
+    <columns>View_Staff_Data__c</columns>
+    <columns>View_Staff_Data_Jordan__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Settings</label>
+</ListView>

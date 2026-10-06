@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_DBR_Mandatory</fullName>
+    <active>true</active>
+    <description>If Credit Evaluation Result = Accept then Final DBR is a mandatory field.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Evaluation_Result__c),
+ISPICKVAL( cc_Credit_Evaluation_Result__c , &quot;Accept&quot;),
+ISBLANK( cc_Final_DBR__c ),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;),
+AND(ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;))
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Final_DBR__c</errorDisplayField>
+    <errorMessage>Please fill the Final DBR Value</errorMessage>
+</ValidationRule>

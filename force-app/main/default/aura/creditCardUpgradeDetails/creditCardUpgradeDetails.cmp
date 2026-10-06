@@ -1,0 +1,151 @@
+<aura:component controller="creditCardListController" >
+	
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="cardId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="cardNature" type="String" required="true"/>
+    <aura:attribute name="holdAccount" type="String" required="false"/>
+    <aura:attribute name="holdAmount" type="String" required="false"/>
+    <aura:attribute name="holdReference" type="String" required="false"/>
+    <aura:attribute name="caseType" type="String" required="false"/>
+    <!-- ============================================ -->
+    
+    <aura:attribute name="cardData" type="Object" access="private"/>
+    <aura:attribute name="isEnableButton" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+    
+    
+	
+    <lightning:card title="{! 'Card: ' +  v.cardData.productType + ' - ' +  v.cardData.pciNumber }">
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">PCI Number</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.pciNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start : Added by Jahangeer Mohammed -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Classification</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.cardData.cmsProductDescription}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Name on Credit Card</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.embossName}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Credit Limit</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.creditLimit}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Nature</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardNature}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Account</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.holdAccount}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.holdAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Hold Reference</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.holdReference}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            			
+          </div>
+        
+        <lightning:recordEditForm aura:id="recordEditForm"
+                                  recordId="{!v.caseId}" 
+                                  recordTypeId="{!$Label.c.CREDIT_CARD_SERVICE_REQUEST}"
+                                  objectApiName="Case"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}">
+                
+        <div class="slds-hide">
+             <lightning:inputField fieldName="cc_Credit_Card_PCI_Number__c" value="{!v.cardData.pciNumber}"/>
+             <lightning:inputField fieldName="cc_Name_on_the_Card__c" value="{!v.cardData.embossName}"/>
+             <lightning:inputField fieldName="cc_Current_Credit_Limit__c" value="{!v.cardData.creditLimit}"/>
+             <lightning:inputField fieldName="Card_Nature__c" value="{!v.cardNature}"/>
+             <lightning:inputField fieldName="Card_Classification__c" value="{!v.cardData.cmsProductDescription}"/>
+             <lightning:inputField fieldName="ccol_Hold_Amount__c" value="{!v.holdAmount}"/>
+             <lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" value="{!v.holdAccount}"/>
+             <lightning:inputField fieldName="ccol_Hold_Reference_Number__c" value="{!v.holdReference}"/>
+		</div>
+        
+        <aura:if isTrue = "{!v.isEnableButton == true}">
+        	<div class="slds-p-left_xx-small">
+             	<lightning:button class="slds-m-top_small" type="submit" label="Save" variant = "brand"/>
+        	</div>
+        	<lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+        </aura:if>
+   </lightning:recordEditForm>
+       
+</lightning:card>
+   
+	<c:apexService aura:id="apexService"/>
+</aura:component>

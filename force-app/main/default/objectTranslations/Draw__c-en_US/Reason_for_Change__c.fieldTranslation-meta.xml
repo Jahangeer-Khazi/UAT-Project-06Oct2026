@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If modifications to data were made, provide reason for change --></help>
+    <label><!-- Reason for Change --></label>
+    <name>Reason_for_Change__c</name>
+</CustomFieldTranslation>

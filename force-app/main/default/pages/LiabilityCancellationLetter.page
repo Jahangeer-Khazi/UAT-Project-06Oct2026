@@ -1,0 +1,222 @@
+<apex:page applyHtmlTag="false"
+           showHeader="false" Controller="NoLiabilityController" renderAs="pdf">
+    
+    <html>
+        <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <TITLE>No liability (cancellation) letter</TITLE>
+            <META name="generator" content="BCL easyConverter SDK 5.0.252">
+            <META name="title" content="No liability (cancellation) letter">
+            <STYLE type="text/css">
+            
+                @page {
+                    size: A4;
+                    margin-top: 1cm;
+                    margin-bottom: 4cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                    font-family: 'Open Sans', Inter, sans-serif;
+                    @top {
+                        content: element(header);
+                    }
+                    @bottom-left {
+                                     content: element(footer);
+                               }
+                            }
+                
+                div.footer {
+                                display: block;
+                             padding: 5px;
+                               position: running(footer);
+                      }
+                #footer {position: fixed;bottom: 0; }
+
+            body {margin-top: 0px;margin-left: 0px; font-family: 'Open Sans', Inter, sans-serif; }
+
+            #page_1 {position:relative; overflow: hidden;margin: 14px 0px 18px 23px;padding: 0px;border: none;width: 771px; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_1 {border:none;margin: 0px 0px 0px 235px;padding: 0px;border:none;width: 490px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_2 {border:none;margin: 73px 0px 0px 4px;padding: 0px;border:none;width: 767px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_2 #id1_2_1 {float:left;border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 690px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_2 #id1_2_2 {float:left;border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 328px;overflow: hidden;}
+            #page_1 #id1_3 {border:none;margin: 0px 0px 0px 35px;padding: 20px;border:none;width: 734px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_4 {border:none;margin: 110px 0px 0px 0px;padding: 0px;border:none;width: 746px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_4 #id1_4_1 {float:left;border:none;margin: 5px 0px 0px 0px;padding: 0px;border:none;width: 426px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #id1_4 #id1_4_2 {float:left;border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 320px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+			
+            #page_1 #id1_5 {border:none; margin-top:60px;margin-left:250px;}
+			 #page_1 #id1_6 {border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 734px;overflow: hidden; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #p1dimg1 {position:absolute;top:0px;left:300px;z-index:-1;width:432px;height:896px; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #p1dimg1 #p1img1 {width:432px;height:896px; font-family: 'Open Sans', Inter, sans-serif;}
+
+            #page_1 #p1inl_img1 {position:relative;width:1px;height:8px; font-family: 'Open Sans', Inter, sans-serif;}
+            #page_1 #p1inl_img2 {position:relative;width:4px;height:11px; font-family: 'Open Sans', Inter, sans-serif;}
+
+
+
+            .dclr {clear:both;float:none;height:1px;margin:0px;padding:0px;overflow:hidden; font-family: 'Open Sans', Inter, sans-serif;}
+
+            .ft0{font: 19px 'Arial';line-height: 22px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft1{font: 23px 'Arial';line-height: 26px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft2{font: 16px 'Arial';line-height: 18px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft3{font: 16px 'Arial';line-height: 23px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft4{font: 15px 'Arial';line-height: 25px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft5{font: 16px 'Arial';line-height: 25px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft6{font: 13px 'Arial';color: #231f20;line-height: 16px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft7{font: 12px 'Arial';color: #0c1d3c;line-height: 15px;font-family: 'Open Sans', Inter, sans-serif;}
+            .ft8{font: 11px 'Arial';color: #0c1d3c;line-height: 14px;font-family: 'Open Sans', Inter, sans-serif;}
+            /* .ft9{font: 12px 'Neo Sans';color: #0c143b;line-height: 16px;font-family: 'Open Sans', Inter, sans-serif;} */
+            .ft9 {font: 12px 'Open Sans', Inter, sans-serif; color: #0c143b;line-height: 16px;}
+
+            .ft10{font: 12px 'Arial';color: #0c143b;line-height: 15px;font-family: 'Open Sans', Inter, sans-serif;}
+
+            .p0{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+            .p1{text-align: left;padding-left: 20px;margin-top: 10px;margin-bottom: 0px;font-family: 'Open Sans', Inter, sans-serif;}
+            .p2{text-align: left;margin-top: 20px;margin-bottom: 0px;font-family: 'Open Sans', Inter, sans-serif;}
+            .p3{text-align: left;margin-top: 2px;margin-bottom: 0px;font-family: 'Open Sans', Inter, sans-serif;}
+            .p4{text-align: left;margin-top: 2px;margin-bottom: 0px;font-family: 'Open Sans', Inter, sans-serif;}
+            .p5{text-align: justify;margin-top: 53px;margin-bottom: 0px;font-family: 'Open Sans', Inter, sans-serif;}
+            .p6{text-align: justify;margin-top: 83px;margin-bottom: 0px;font-family: 'arial,sans-serif';color: inherit;}
+            .p7{text-align: left;padding-left: 264px;margin-top: 0px;margin-bottom: 0px; font-family: 'Open Sans', Inter, sans-serif;}
+            .p8{text-align: right;padding-left: 160px;padding-right: 25px;margin-top: 41px;margin-bottom: 0px;  font-family: 'Open Sans', Inter, sans-serif;}
+            .p9{text-align: right;padding-left: 4px;padding-right: 25px;margin-top: 60px;margin-bottom: 0px; font-family: 'Open Sans', Inter, sans-serif;}
+            .p10{text-align: justify;padding-right: 25px;margin-top: 29px;margin-bottom: 0px;text-indent: 63px; font-family: 'Open Sans', Inter, sans-serif;}
+            .p11{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap; font-family: 'Open Sans', Inter, sans-serif;}
+            .p12{text-align: right;margin-top: 0px;margin-bottom: 0px;white-space: nowrap; font-family: 'Open Sans', Inter, sans-serif;}
+            .p13{text-align: left;padding-right: 67px;margin-top: 0px;margin-bottom: 0px; font-family: 'Open Sans', Inter, sans-serif; font-family: 'Open Sans', Inter, sans-serif;}
+            .p14{text-align: right;margin-top: 0px;margin-bottom: 0px; font-family: 'Open Sans', Inter, sans-serif;}
+
+            .td0{padding: 0px;margin: 0px;width: 679px;vertical-align: bottom; font-family: 'Open Sans', Inter, sans-serif;}
+            .td1{padding: 0px;margin: 0px;width: 55px;vertical-align: bottom; font-family: 'Open Sans', Inter, sans-serif;}
+
+            .tr0{height: 26px;font-family: 'Open Sans', Inter, sans-serif;}
+            .tr1{height: 22px;font-family: 'Open Sans', Inter, sans-serif;}
+
+            .t0{width: 734px;font: 13px 'Arial';color: #231f20;}
+            
+            
+        </style>    
+            
+    </META>
+</META>
+</META> 
+<style>
+* {
+ box-sizing: border-box;
+}
+.tableClass {
+   font-family: arial, sans-serif;
+
+    border: 2px solid #ffff;
+}
+
+ .theHead, .col, t2 {
+  border: 1px solid #fff;
+    text-align: left;
+    padding: 8px;
+ }
+ h2 {
+  
+  margin-left: 10px;
+  padding: 20px;
+ }
+ .odd{
+    background-color: #f4fbe7;
+    border: 2px solid #ccc;
+    }
+ .even {
+    background-color: #e7e9ed;
+    border: 2px solid #ccc;
+}
+.even:hover {
+ border: 1px solid #222;
+}
+
+</style>
+            
+        </head>
+        <body>
+            <div class="header">
+   
+            <td style="width:1225px;text-align:right">
+                <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45"/>
+            </td>
+        
+</div>
+             <div class="footer">
+                <p style="font-size:60%;color:#606060;font-family:'Calibri',sans-serif;margin-top: 1.7cm;">Building: 152, Road: 1703, Block: 317, Manama, Kingdom of Bahrain. Licensed as a Conventional Retail Bank - Branch by the Central Bank of Bahrain. Powered by Bank ABC (Arab Banking Corporation B.S.C.). Representative of Arab Banking Corporation (B.S.C.) Tax Group. Group TRN: 210000425500002.Disclaimer: This is an auto generated letter from ila Bank’s official channel. The information contained here within may be privileged or confidential. If you are not the intended recipient, you are hereby notified that you have received this letter in error; any review, dissemination, distribution or copying of this letter is strictly prohibited. If you have received this letter and/or attachments in error, please notify us immediately by reply to ila Bank or delete this message and all its attachments immediately.<br/>
+               </p>
+                </div>
+      
+    <DIV id="page_1">
+    
+    
+        <DIV id="id1_2">
+           <DIV id="id1_2_1">
+
+            <P class="p0 ft2">Ref  &nbsp;:&nbsp;&nbsp;{!caseNumber}</P>
+            <P class="p0 ft2">Date:&nbsp;<apex:outputText value="{0, date,  dd-MM-yyyy}"><apex:param value="{!Today()}" /></apex:outputText></P>
+            </DIV>
+       </DIV>
+        <DIV>
+            <center><P class="p0 ft0" style="text-align:center">To Whom It May Concern</P></center><br/>
+            <center><P class="p0 ft0" style="text-align:center"><span style="text-decoration:underline;">Subject: Credit Card(s) No Liability Letter</span>
+                </P></center>
+    	</DIV>
+        
+       <DIV id="id1_2">
+           <DIV id="id1_2_1">
+           <P class="p0 ft2">This is to certify that {!gender}.{!acc.Name} has the following Outstanding Balance on his ila Bank Credit Card(s):</P><br/>
+                              
+           </DIV>
+       </DIV>
+        
+        <DIV id="id1_4_2">
+
+            <apex:dataTable value="{!cardDetails}" var="case" id="theTable" headerClass="theHead"
+        rowClasses="even,odd" styleClass="tableClass" width="90%">       
+       
+        <apex:column styleClass="col">
+            <apex:facet name="header">Card Type</apex:facet>            
+            <apex:outputText value="{!case.displayName}"/>
+            <apex:facet name="footer"></apex:facet>
+        </apex:column>
+        <apex:column styleClass="col">
+            <apex:facet name="header">Limit</apex:facet>            
+            <apex:outputText value="{!case.cardLimit}"/>
+            <apex:facet name="footer"></apex:facet>
+        </apex:column>
+         <apex:column styleClass="col width:90px">
+            <apex:facet name="header">Card Number</apex:facet>            
+            <apex:outputText value="{!case.pciNumber}"/>
+            <apex:facet name="footer"></apex:facet>
+        </apex:column>
+        <apex:column styleClass="col">
+            <apex:facet name="header">Issue Date </apex:facet>            
+            <apex:outputText value="{0, date,  dd-MM-yyyy}"><apex:param value="{!case.issueDate}" /></apex:outputText>
+            <apex:facet name="footer"></apex:facet>
+        </apex:column>
+       <apex:column styleClass="col">
+            <apex:facet name="header">Cancellation Date</apex:facet>            
+            <apex:outputText value="{!case.cancellationDate}"/>
+            <apex:facet name="footer"></apex:facet>
+        </apex:column>
+    </apex:dataTable>
+
+        </DIV>
+       
+          <DIV id="id1_2">
+              <DIV id="id1_2_1">
+            <P class="p0 ft2">Since the Outstanding Balance is a net residual of daily transaction processed to the Card(s), the net balance shown above does not necessarily reflect the actual Outstanding Balance any date after the date of this letter. Any transaction(s) made prior to the cancellation of the card(s) and not yet billed will continue to be payable to ila Bank according to the Card's terms and conditions.</P>
+              <br/><P class="p0 ft2">This letter has been issued upon the customer's request and without any obligation on our part.</P>
+                  <br/>  <P class="p0 ft2">Sincerely,</P><br/>
+			<apex:image value="{!URLFOR($Resource.ilaLogo)}" style="width:28%;"/>
+              </DIV>
+        </DIV>
+
+            </DIV>
+           
+           
+            
+		</body>
+    </html>
+</apex:page>

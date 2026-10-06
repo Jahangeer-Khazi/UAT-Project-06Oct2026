@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>Default</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Cash Collateral&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;From Kanz to Salary&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Cash Collateral&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;From Salary to Kanz&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>10080</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (168 hours)</name>
+    <versionMaster>552QI00000CRb7p</versionMaster>
+    <versionNumber>2</versionNumber>
+</EntitlementProcess>

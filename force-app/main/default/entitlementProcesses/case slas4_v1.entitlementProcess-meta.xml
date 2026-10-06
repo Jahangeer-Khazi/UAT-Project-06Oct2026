@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Delay_Entitlement_Closure__c</field>
+        <operation>equals</operation>
+        <value>false</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Region_Flag__c</field>
+        <operation>equals</operation>
+        <value>Bahrain</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>PMT</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Payments %26 Transfers 1</milestoneName>
+        <minutesToComplete>1440</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>PMT</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Payments %26 Transfers 2</milestoneName>
+        <minutesToComplete>2160</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>PMT</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Payments %26 Transfers 3</milestoneName>
+        <minutesToComplete>2640</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>Disputes</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue Escalation 2</milestoneName>
+        <minutesToComplete>1320</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Complaint</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Complaint Escalation 1</milestoneName>
+        <minutesToComplete>14400</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Complaint</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Complaint Escalation 2</milestoneName>
+        <minutesToComplete>24480</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>Acc Services</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Account Services 1</milestoneName>
+        <minutesToComplete>1440</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>Disputes</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue Escalation 1</milestoneName>
+        <minutesToComplete>4</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>Acc Services</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Account Services 2</milestoneName>
+        <minutesToComplete>2160</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Entitlement_Trigger__c</field>
+            <operation>equals</operation>
+            <value>Acc Services</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Account Services 3</milestoneName>
+        <minutesToComplete>2640</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>case slas4</name>
+    <versionMaster>5521t0000000KQ4</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

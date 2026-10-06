@@ -1,0 +1,25 @@
+<apex:page standardController="Account" docType="html-5.0" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false" standardStylesheets="false" >
+    <head>
+        <apex:slds />
+    </head>
+    <style>
+             body{ background-color:#FFFFFF;  }
+    </style>
+    
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+        
+        <title>ILA Bank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Import the Design System style sheet -->
+        <apex:slds />
+    </head>
+        
+    <apex:form styleClass="form-horizontal" id="mngUSER">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <apex:image id="theImage" value="{!If(Account.VVIP__pc == TRUE, $Resource.VVIPFlag, null)}" width="75" height="75"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <apex:image id="theImage1" value="{!If(Account.VVIP__pc == TRUE, $Resource.KanzStatus, null)}" width="65" height="65"/>
+        <!--<apex:image id="theImage" value="{!If(Account.VIP__pc == TRUE, $Resource.VVIPFlag, If(e.Country =="United Kingdom", $Resource.Logo_UK, $Resource.EUQuote_Logo_blue))}" width="25" height="12"/>-->
+    
+    </apex:form>
+</apex:page>

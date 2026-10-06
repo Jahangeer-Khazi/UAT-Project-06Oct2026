@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ac_AccountClosingReason__c</fullName>
+    <label>Account Closing Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>ac_RequestedBy__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Complying with a court order</fullName>
+                <default>false</default>
+                <label>Complying with a court order</label>
+            </value>
+            <value>
+                <fullName>Suspected fraudulent activity</fullName>
+                <default>false</default>
+                <label>Suspected fraudulent activity</label>
+            </value>
+            <value>
+                <fullName>Breach of terms and conditions</fullName>
+                <default>false</default>
+                <label>Breach of terms and conditions</label>
+            </value>
+            <value>
+                <fullName>Account used inappropriately</fullName>
+                <default>false</default>
+                <label>Account used inappropriately</label>
+            </value>
+            <value>
+                <fullName>Uncleared overdrawn balance</fullName>
+                <default>false</default>
+                <label>Uncleared overdrawn balance</label>
+            </value>
+            <value>
+                <fullName>Adverse customer Risk rating</fullName>
+                <default>false</default>
+                <label>Adverse customer Risk rating</label>
+            </value>
+            <value>
+                <fullName>Acted abusively towards bank staff</fullName>
+                <default>false</default>
+                <label>Acted abusively towards bank staff</label>
+            </value>
+            <value>
+                <fullName>Does not require this account</fullName>
+                <default>false</default>
+                <label>Does not require this account</label>
+            </value>
+            <value>
+                <fullName>Poor customer service</fullName>
+                <default>false</default>
+                <label>Poor customer service</label>
+            </value>
+            <value>
+                <fullName>Switching Banks</fullName>
+                <default>false</default>
+                <label>Switching Banks</label>
+            </value>
+            <value>
+                <fullName>Salary transferred to another bank</fullName>
+                <default>false</default>
+                <label>Salary transferred to another bank</label>
+            </value>
+            <value>
+                <fullName>Higher interest rate elsewhere</fullName>
+                <default>false</default>
+                <label>Higher interest rate elsewhere</label>
+            </value>
+            <value>
+                <fullName>Leaving Bahrain</fullName>
+                <default>false</default>
+                <label>Leaving Bahrain</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Does not require this account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Poor customer service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Switching Banks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Salary transferred to another bank</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Higher interest rate elsewhere</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer</controllingFieldValue>
+            <valueName>Leaving Bahrain</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Complying with a court order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Suspected fraudulent activity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Breach of terms and conditions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Account used inappropriately</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Uncleared overdrawn balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Adverse customer Risk rating</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank / CBB</controllingFieldValue>
+            <valueName>Acted abusively towards bank staff</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

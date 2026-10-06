@@ -1,0 +1,190 @@
+<!--
+  @description       : 
+  @author            : ismael.ocana
+  @group             : 
+  @last modified on  : 07/02/22
+  @last modified by  : juan.trujillo
+  @history : 
+    #CH01 : 29/12/2022 by Aniss Raffle Application Ad-hoc Recurring Raffle Automation  (CRM-Changes)
+-->
+<apex:page controller="RaffleWinnerComponentController" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false"
+    standardStylesheets="false">
+
+    <head>
+
+        <apex:includeScript value="{!URLFOR($Resource.Raffles,'Raffles/jquery-3.5.1.min.js')}"></apex:includeScript>
+        <apex:includeScript value="{!URLFOR($Resource.Raffles,'Raffles/ocanvas-2.10.0.min.js')}"></apex:includeScript>
+        <!--<apex:includeScript value="{!URLFOR($Resource.Raffles, 'Raffles/confetti.js')}"></apex:includeScript>-->
+        <apex:stylesheet value="{!URLFOR($Resource.Raffles, 'Raffles/style2.css')}" />
+
+        <style>
+            body {
+                background-image: url("{!URLFOR($Resource.Raffles, 'Raffles/images/splash.png')}");
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100%;
+                animation: mymove 3s both;
+            }
+
+            @-webkit-keyframes mymove {
+                from {
+                    background-image: url("{!URLFOR($Resource.Raffles, 'Raffles/images/splash.png')}");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+                to {
+                    background-image: url("{!URLFOR($Resource.Raffles, 'Raffles/images/splash.png')}");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            @font-face{
+              font-family: Neo Sans Arabic;
+              src: url("{!URLFOR($Resource.Raffles, 'Raffles/fonts/NeoSansArabic.ttf')}") format('truetype');
+            }
+            
+            @font-face{
+              font-family: SF Pro Text;
+              src: url("{!URLFOR($Resource.Raffles, 'Raffles/fonts/SF-Pro-Text-Regular.otf')}") format('opentype');
+            }
+    
+        </style>
+
+    </head>
+
+    <body onload="">
+        <apex:form id="winnerSection">
+            <div id="container">
+                <canvas id="canvas"> </canvas>
+                <div id="controls">
+                    <div class="main">
+
+                        <div class="logo">
+                            <apex:image styleClass="ila-logo" url="{!URLFOR($Resource.Raffles, 'Raffles/images/logo.png')}" />
+                        </div>
+
+                        <div class="winner">
+                            <!-- Congratulations to N winner + WinnerString + removed -->
+                            <span>{!'Congratulations to our Winner'}</span>
+                        </div>
+
+                        <div class="winner-cif">
+                            <!-- Name + CIF -->
+                            <span>{!nameCif}</span>
+                        </div>
+
+                        <div class="prize">
+                            <div class="prize-child" style="text-align: center">
+                            <!-- Your prize -->
+                            <!-- #CH01: Start -->
+                            <!-- <dev class="prize-num" >{!winnerSelected.Prize__r.Tier__c +' 💰'}</dev> -->
+                            <dev class="prize-num" style="font-size : 18px">Prize to win 🎁</dev>
+                            <dev class="prize-amount" style="width: unset;">
+                                <span class="amount">{!winnerSelected.Prize__r.Tier__c}</span>
+                                <!-- <span class="currency">{!winnerSelected.Prize__r.Prize_Currency__c}</span>
+                                <span class="amount">
+                                    <apex:outputText value="{0, number, ###,##0}" id="myNumberDisplay">
+                                        <apex:param value="{!winnerSelected.Prize__r.Winning_Amount__c}" />
+                                    </apex:outputText>
+                                </span>
+                                <span class="decimal">.000</span> -->
+                            </dev>
+                            <!-- #CH01: End -->
+                        </div>
+                        </div>
+
+                            <div class="finish-btn-parent">            
+                            <div class="finish-btn" onclick="nextAction();">
+                            <span>{!IF(finish, 'Finish', 'Next Winner')}</span>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+            <apex:actionFunction name="nextActionFuntion" action="{!buttonAction}"></apex:actionFunction>
+        </apex:form>
+    </body>
+            <script>
+            jQuery(document).ready(function ($) {
+
+                var windowXArray = [],
+                    windowYArray = [];
+
+                for (var i = 0; i < $(window).innerWidth(); i++) {
+                    windowXArray.push(i);
+                }
+
+                for (var i = 0; i < $(window).innerHeight(); i++) {
+                    windowYArray.push(i);
+                }
+
+                function randomPlacement(array) {
+                    var placement = array[Math.floor(Math.random() * array.length)];
+                    return placement;
+                }
+
+                var canvas = oCanvas.create({
+                    canvas: '#canvas',
+                    background: '#121C39',
+                    fps: 60
+                });
+
+                setInterval(function () {
+
+                    var rectangle = canvas.display.ellipse({
+                        x: randomPlacement(windowXArray),
+                        y: randomPlacement(windowYArray),
+                        origin: { x: 'center', y: 'center' },
+                        radius: 0,
+                        fill: '#FFD400',
+                        opacity: 1
+                    });
+
+                    canvas.addChild(rectangle);
+
+                    rectangle.animate({
+                        radius: 5,
+                        opacity: 0
+                    }, {
+                        duration: '1000',
+                        easing: 'linear',
+                        callback: function () {
+                            this.remove();
+                        }
+                    });
+
+                }, 100);
+
+                $(window).resize(function () {
+                    canvas.width = $(window).innerWidth();
+                    canvas.height = $(window).innerHeight();
+                });
+
+                $(window).resize();
+
+            });
+        </script>
+
+    <script>
+
+       function nextAction() {
+           nextActionFuntion(); }
+           /*stopConfetti();
+            
+        }
+
+        function popConfetti(){
+            startConfetti();
+        }
+
+        function startConfetti(){
+            confetti.start();
+        }
+        function stopConfetti(){
+            confetti.stop();
+        }*/
+    </script>
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirm_Docs_action_not_for_FATCA_case</fullName>
+    <active>true</active>
+    <description>The Confirm Docs Uploaded action should not be used on FATCA cases.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Status, &quot;All Documents Uploaded&quot;),
+ISPICKVAL(Type, &quot;FATCA&quot;))</errorConditionFormula>
+    <errorMessage>This action cannot be performed on FATCA cases.</errorMessage>
+</ValidationRule>

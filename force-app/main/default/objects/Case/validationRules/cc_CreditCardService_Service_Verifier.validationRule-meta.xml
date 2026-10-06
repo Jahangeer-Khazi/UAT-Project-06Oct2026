@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Service_Verifier</fullName>
+    <active>true</active>
+    <description>If Verification Result is Refer to Service Center then Service Center Result must be Refer to Return to Verifier</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(cc_Credit_Verification_Result__c, &quot;Refer to Service Center&quot;),ISCHANGED(cc_Service_Centre_Result__c),
+NOT(ISPICKVAL(cc_Service_Centre_Result__c, &quot;Return to Verifier&quot;)),
+NOT(ISBLANK(TEXT(cc_Service_Centre_Result__c))),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Service_Centre_Result__c</errorDisplayField>
+    <errorMessage>The Case Should be return to Verifier as it was assigned by Verification Team.</errorMessage>
+</ValidationRule>

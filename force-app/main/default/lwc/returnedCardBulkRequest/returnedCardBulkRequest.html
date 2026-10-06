@@ -1,0 +1,260 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="loading-overlay">
+            <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+        </div>
+    </template>
+
+    <lightning-card icon-name="standard:address" title="Please upload excel file for batch returned cards.">
+        <lightning-button slot="actions" label="Download Template" onclick={handleDownloadTemplate}>
+        </lightning-button>
+
+        <div class="file-upload-container">
+            <!-- CHANGED: Replaced lightning-file-upload with lightning-input type="file" -->
+            <div class="file-input-wrapper">
+                <label class="slds-form-element__label" for="csvFileInput">Upload CSV File</label>
+                <lightning-input type="file" name="csvFileInput" accept=".csv" onchange={handleFileChange}
+                    variant="label-hidden">
+                </lightning-input>
+                <template if:true={fileName}>
+                    <div class="slds-m-top_x-small">
+                        <lightning-icon icon-name="utility:attach" size="x-small"></lightning-icon>
+                        <span class="slds-text-body_small">{fileName}</span>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Summary Dashboard -->
+            <template if:true={showFooter}>
+                <div class="summary-dashboard slds-m-top_small">
+                    <div class="dashboard-header">
+                        <h4 class="dashboard-title">Preview Upload</h4>
+                        <div class="record-count">Total Records: <strong>{totalRecords}</strong></div>
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon success">
+                                <lightning-icon icon-name="utility:database" size="small"></lightning-icon>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Total Records</div>
+                                <div class="stat-value">{totalRecords}</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon valid">
+                                <lightning-icon icon-name="utility:check" size="small"></lightning-icon>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Valid Records</div>
+                                <div class="stat-value">{validRecordsCount}</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon status">
+                                <lightning-icon icon-name="utility:forward" size="small"></lightning-icon>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Status</div>
+                                <div class="stat-value status-ready">Ready for Processing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3 class="preview-title">Records Preview</h3>
+                        <lightning-datatable key-field="rowNumber" data={parsedData} columns={previewColumns}
+                            hide-checkbox-column="true" show-row-number-column="true">
+                        </lightning-datatable>
+                    </div>
+
+                    <div class="action-buttons">
+                        <lightning-button label="Create Batch" onclick={handleProceed} variant="brand">
+                        </lightning-button>
+                        <lightning-button label="Cancel" onclick={resetForm} variant="neutral">
+                        </lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Region Selection Modal -->
+            <template if:true={showRegionModal}>
+                <div class="modal-overlay">
+                    <div class="modal-container region-modal">
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <lightning-icon icon-name="utility:location" class="modal-title-icon" size="small">
+                                </lightning-icon>
+                                <h2 class="modal-title">Select Region</h2>
+                            </div>
+                            <div class="modal-subtitle">
+                                Please select the region for the file you are uploading
+                            </div>
+                        </div>
+
+                        <div class="region-selection">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning-combobox name="regionSelect" label="Region" value={selectedRegion}
+                                        options={regionOptions} placeholder="Select Region"
+                                        onchange={handleRegionChange} required>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <lightning-button label="Cancel" onclick={closeRegionModal} variant="neutral">
+                            </lightning-button>
+                            <lightning-button label="Upload File" onclick={handleRegionConfirm} variant="brand">
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Validation Results Modal -->
+            <template if:true={showValidationModal}>
+                <div class="modal-overlay">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <lightning-icon icon-name="utility:scan" class="modal-title-icon" size="small">
+                                </lightning-icon>
+                                <h2 class="modal-title">Validation Results</h2>
+                            </div>
+                            <div class="modal-subtitle">
+                                {totalRecords} records analyzed
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <!-- Errors Section -->
+                            <template if:true={showErrorsTable}>
+                                <div class="validation-section error-section">
+                                    <div class="section-header">
+                                        <lightning-icon icon-name="utility:error" class="error-icon" size="small">
+                                        </lightning-icon>
+                                        <h3 class="section-title">Errors Found ({validationErrors.length})</h3>
+                                        <span class="badge error-badge">Error</span>
+                                    </div>
+                                    <p class="section-description">
+                                        Upload failed. One or more mandatory columns are missing or not mapped
+                                        correctly. Please review the uploaded file and re-upload the file.
+                                    </p>
+                                    <lightning-datatable key-field="id" data={validationErrors} columns={columns}
+                                        hide-checkbox-column="true" class="validation-table">
+                                    </lightning-datatable>
+                                </div>
+                            </template>
+
+                            <!-- Warnings Section -->
+                            <template if:true={showWarningsTable}>
+                                <div class="validation-section warning-section">
+                                    <div class="section-header">
+                                        <lightning-icon icon-name="utility:warning" class="warning-icon" size="small">
+                                        </lightning-icon>
+                                        <h3 class="section-title">Warnings Found ({validationWarnings.length})</h3>
+                                        <span class="badge warning-badge">Review Required</span>
+                                    </div>
+                                    <p class="section-description">
+                                        Manual replacement cases detected. You can proceed or cancel the upload.
+                                    </p>
+                                    <lightning-datatable key-field="id" data={validationWarnings} columns={columns}
+                                        hide-checkbox-column="true" class="validation-table">
+                                    </lightning-datatable>
+                                </div>
+                            </template>
+
+                            <!-- No Issues Found -->
+                            <template if:false={hasValidationIssues}>
+                                <div class="success-section">
+                                    <div class="success-icon">
+                                        <lightning-icon icon-name="utility:success" size="large"></lightning-icon>
+                                    </div>
+                                    <h3 class="success-title">All checks passed!</h3>
+                                    <p class="success-description">
+                                        Your file is ready for processing. Click "Proceed" to create the batch.
+                                    </p>
+                                    <div class="success-stats">
+                                        <div class="success-stat">
+                                            <div class="stat-number">{totalRecords}</div>
+                                            <div class="stat-label">Total Records</div>
+                                        </div>
+                                        <div class="success-stat">
+                                            <div class="stat-number">{validRecordsCount}</div>
+                                            <div class="stat-label">Valid Records</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <div class="modal-footer">
+                            <template if:true={showErrorsTable}>
+                                <lightning-button label="Close" onclick={closeValidationModal} variant="neutral">
+                                </lightning-button>
+                            </template>
+                            <template if:true={showProceedButton}>
+                                <div class="button-group">
+                                    <lightning-button label="Cancel" onclick={closeValidationModal} variant="neutral">
+                                    </lightning-button>
+                                    <lightning-button label="Proceed Anyway" onclick={handleProceed} variant="brand">
+                                    </lightning-button>
+                                </div>
+                            </template>
+                            <template if:false={hasValidationIssues}>
+                                <lightning-button label="Proceed to Create Batch" onclick={handleProceed}
+                                    variant="brand">
+                                </lightning-button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template Download Modal -->
+            <template if:true={showTemplateModal}>
+                <div class="modal-overlay">
+                    <div class="modal-container template-download-modal">
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <lightning-icon icon-name="utility:download" class="modal-title-icon" size="small">
+                                </lightning-icon>
+                                <h2 class="modal-title">Download Template</h2>
+                            </div>
+                            <div class="modal-subtitle">
+                                Please select region for template download
+                            </div>
+                        </div>
+
+                        <div style="padding: 20px;">
+                            <div class="region-selection">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <lightning-combobox name="templateRegionSelect" label="Region"
+                                            value={selectedTemplateRegion} options={regionOptions}
+                                            placeholder="Select Region" onchange={handleTemplateRegionChange} required>
+                                        </lightning-combobox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <lightning-button label="Cancel" onclick={closeTemplateModal} variant="neutral">
+                            </lightning-button>
+                            <lightning-button label="Download" onclick={handleTemplateDownload} variant="brand">
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

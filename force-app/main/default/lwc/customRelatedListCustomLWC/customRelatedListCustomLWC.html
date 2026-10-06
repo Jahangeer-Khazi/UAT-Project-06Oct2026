@@ -1,0 +1,45 @@
+<template>
+    <lightning-card variant="Narrow" title={title} icon-name="custom:custom18">
+        <hr class="slds-m-top_medium slds-m-bottom_small">
+        
+        <div class="slds-p-horizontal_small">
+            <template if:true={showMessage}>
+                <h2 style="font-size: larger;font-weight: 700;color:red;">{message}</h2>
+            </template>
+            <template if:false={showMessage}>
+                <h2 style="font-size: larger;font-weight: 700;">
+                    Case Reference Number: {caseNumber}
+                </h2><br>
+                <template for:each={visibleData} for:item="item" for:index="index">
+                    <div key={item.Id}>
+                        <a href="javascript:void(0);" onclick={openSubTab} data-index={index}>
+                            {item.Name}
+                        </a><br>
+                        Document Type: <lightning-formatted-text value={item.Document_Type__c}></lightning-formatted-text><br>
+                        Created Date: 
+                        <lightning-formatted-date-time 
+                            value={item.CreatedDate} 
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit" 
+                            minute="2-digit">
+                        </lightning-formatted-date-time>
+                        <br><br>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <p slot="footer">
+            <lightning-button 
+                variant="base" 
+                label="View All" 
+                title="Looks like a link" 
+                onclick={navigateToCustomTab}
+                class="slds-m-left_x-small" 
+                disabled={showMessage}>
+            </lightning-button>
+        </p>
+    </lightning-card>
+</template>

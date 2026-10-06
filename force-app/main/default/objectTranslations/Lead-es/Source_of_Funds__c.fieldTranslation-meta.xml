@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Source of Funds --></label>
+    <name>Source_of_Funds__c</name>
+    <picklistValues>
+        <masterLabel>Business Ownership</masterLabel>
+        <translation><!-- Business Ownership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Family Support</masterLabel>
+        <translation><!-- Family Support --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inheritance</masterLabel>
+        <translation><!-- Inheritance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Investment</masterLabel>
+        <translation><!-- Investment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rental Income</masterLabel>
+        <translation><!-- Rental Income --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Salary</masterLabel>
+        <translation><!-- Salary --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

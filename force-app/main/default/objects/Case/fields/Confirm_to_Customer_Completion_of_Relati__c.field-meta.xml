@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirm_to_Customer_Completion_of_Relati__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Jira Id NBA-4456: Relationship Termination</description>
+    <inlineHelpText>Confirm to Customer Completion of Relationship Termination</inlineHelpText>
+    <label>Confirm Case Completion</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

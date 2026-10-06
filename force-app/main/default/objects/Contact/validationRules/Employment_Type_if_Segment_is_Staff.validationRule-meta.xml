@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Type_if_Segment_is_Staff</fullName>
+    <active>true</active>
+    <description>Validates that the Employment Type field value is chosen if the field Segment is &apos;Staff&apos;</description>
+    <errorConditionFormula>AND(
+				NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+    ISPICKVAL(Segment__c , &apos;Staff&apos;), 
+    ISBLANK( Employment_Type__c )
+)</errorConditionFormula>
+    <errorDisplayField>Employment_Type__c</errorDisplayField>
+    <errorMessage>Please select an Employment Type</errorMessage>
+</ValidationRule>

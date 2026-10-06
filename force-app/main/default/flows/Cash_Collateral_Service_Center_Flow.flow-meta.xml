@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>ActionBasedonCashCollateralServiceCenter_Result</name>
+        <label>ActionBasedonCashCollateralServiceCenter Result</label>
+        <locationX>444</locationX>
+        <locationY>199</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Servicecenter_Return_to_Prescreener</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.cc_Service_Centre_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Pre-Screener</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>u_Servicecenter_Return_to_Prescreener</targetReference>
+            </connector>
+            <label>Servicecenter-Return to Prescreener</label>
+        </rules>
+        <rules>
+            <name>Servicecenter_Return_to_Approver</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.cc_Service_Centre_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Approver</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>u_Servicecenter_Return_to_Approver</targetReference>
+            </connector>
+            <label>Servicecenter-Return to Approver</label>
+        </rules>
+        <rules>
+            <name>Servicecenter_Return_to_Signature_Verifier</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.cc_Service_Centre_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Signature Verifier</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>u_Servicecenter_Return_to_Signature_Verifier</targetReference>
+            </connector>
+            <label>Servicecenter-Return to Signature Verifier</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>currentDateTime</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>SupplimentaryMakerQueue</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.Supplimentary_Maker_Queue}</expression>
+    </formulas>
+    <interviewLabel>Cash Collateral Service Center Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Cash Collateral Service Center Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>This will bring the current Case</description>
+        <name>GetCaseRecord</name>
+        <label>GetCaseRecord</label>
+        <locationX>448</locationX>
+        <locationY>55</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>ActionBasedonCashCollateralServiceCenter_Result</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 3 AND(4 OR 5 OR 6)</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Credit Card Cash Collateral Application</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New Cash Collateral</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Pre-Screener</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Approver</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Signature Verifier</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>u_Servicecenter_Return_to_Approver</name>
+        <label>Servicecenter-Return to Approver</label>
+        <locationX>455</locationX>
+        <locationY>411</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Approver</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Label.Credit_Approval_Queue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>In-Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>IN PROGRESS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Credit_Approval_Result__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Service_Centre_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>u_Servicecenter_Return_to_Prescreener</name>
+        <label>Servicecenter-Return to Prescreener</label>
+        <locationX>212</locationX>
+        <locationY>313</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Pre-Screener</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Label.Credit_Card_Pre_Screener_Queue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>In-Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Pre-Screening</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>IN PROGRESS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Credit_Pre_Screening_Result__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Service_Centre_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>u_Servicecenter_Return_to_Signature_Verifier</name>
+        <label>Servicecenter-Return to Signature Verifier</label>
+        <locationX>710</locationX>
+        <locationY>291</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Signature Verifier</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Label.Credit_Signature_Verification</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>Pending Signature Verification</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Signature Verification</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>APPROVED PENDING</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Service_Centre_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Signature_Verifier_Result__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>GetCaseRecord</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This will fetch teh case record Id which will be passed from the process Buiolder</description>
+        <name>caseRecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

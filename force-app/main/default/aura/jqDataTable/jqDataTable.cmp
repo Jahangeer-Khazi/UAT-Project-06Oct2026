@@ -1,0 +1,69 @@
+<aura:component >
+    <!-- EXTERNAL ATTRIBUTES -->
+	<aura:attribute name="id" type="String" required="true"/> 
+	<aura:attribute name="columns" type="Object[]" required="true"/> 
+	<aura:attribute name="rows" type="Object[]" required="true"/> 
+	<aura:attribute name="columnDefs" type="Object[]"/> 
+	<aura:attribute name="keyField" type="String"/> 
+    <aura:attribute name="sortedBy" type="String"/> 
+    <aura:attribute name="orderBy" type="String" default="asc"/> 
+	<aura:attribute name="showCheckboxColumn" type="Boolean" default="true"/> 
+	<aura:attribute name="selectStyle" type="String" default="single"/> 
+    <!-- /EXTERNAL ATTRIBUTES -->
+	
+    <!-- Events -->
+    <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent"/>
+    <aura:handler event="c:jqDataTableEvent" action="{!c.handleJqDataTableEvent}"/>
+
+    <!-- internal attributes -->
+    <!-- note - these can not have access="private" because they will not be available from JQuery callbacks -->
+    <aura:attribute name="ready" type="Boolean" default="false" description="Used to check if resources have been loaded" />
+    <aura:attribute name="selectedRows" type="Object[]" default="[]" description="rows user selected in the DataTable" />
+    <aura:attribute name="deSelectedRows" type="Object[]" default="[]" description="rows user De-selected in the DataTable by last select/deselect action" />
+    <aura:attribute name="isSelectAllChecked" type="Boolean" default="false" description="persist state of Select ALL checkbox" />
+
+    <!-- handle updates to table rows collection -->
+    <aura:handler name="change" value="{!v.rows}" action="{!c.onRowsChange}"/>
+    <aura:handler name="change" value="{!v.selectedRows}" action="{!c.onRowSelectionChange}"/>
+    <aura:handler name="change" value="{!v.deSelectedRows}" action="{!c.onRowDeSelectionChange}"/>
+
+    <ltng:require styles="{!$Resource.dataTables_with_JQuery + '/datatables.min.css'}" />
+
+    <ltng:require scripts="{!$Resource.dataTables_with_JQuery + '/datatables.min.js' }" 
+                   afterScriptsLoaded="{!c.scriptsLoaded}"/>
+
+    <div id="withoutThisDivDataTableDoesNotWork">
+        <table id="{!v.id}" class="display" width="100%"></table>
+    </div>
+
+    <!-- type of row selection dialogue -->
+    <div id="rowSelectionChoiceDialogue" style="display:none">
+        <section role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" 
+            class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-theme_shade">
+                    <h2 class="slds-text-heading_medium" id="prompt-heading-id">Select option</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
+                    <span id="rowSelectionChoiceDialogueText">
+                        <p class="onSelect">
+                            Please select the appropriate button to select all rows or to select the current data on the page. 
+                            If you don't want to select anything, then please select the Cancel Button. 
+                        </p>
+                        <p class="onDeSelect">
+                            Please select the appropriate button to deselect all rows or to deselect the current data on the page. 
+                            If you don't want to change anything, then please select the Cancel Button.
+                        </p>
+                    </span>
+                </div>
+                <footer class="slds-modal__footer slds-theme_default">
+                    <lightning:button variant="neutral" label="Select Shown" onclick="{! c.selectShown }" aura:id="btnSelectShown" />
+                    <lightning:button variant="neutral" label="Select All Data" onclick="{! c.selectAll }" aura:id="btnSelectAll" />
+                    <lightning:button variant="neutral" label="Cancel" onclick="{! c.closeSelectionDialogue }" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    <br/>
+</aura:component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Information Type --></label>
+    <name>Information_Type__c</name>
+    <picklistValues>
+        <masterLabel>Purpose of Transaction</masterLabel>
+        <translation><!-- Purpose of Transaction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Source of Fund</masterLabel>
+        <translation><!-- Source of Fund --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

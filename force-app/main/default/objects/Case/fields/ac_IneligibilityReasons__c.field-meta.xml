@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ac_IneligibilityReasons__c</fullName>
+    <description>if an account is not eligible to close , the ineligibility reasons shows why from an api response</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Ineligibility Reasons</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans Support Process</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>All Documents Uploaded</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>New</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>Pending</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pending Documents</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pending Signature</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Referred</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Review</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Under Review</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

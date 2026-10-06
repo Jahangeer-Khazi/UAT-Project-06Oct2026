@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MembershipId_Cannot_Be_Empty_At_Approval</fullName>
+    <active>true</active>
+    <description>When Credit Approval Accepts for Co-Branded Cards Membership Id cannot be empty</description>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) ==&apos;Bahrain&apos;,
+ISCHANGED(cc_Credit_Approval_Result__c),
+ISPICKVAL(cc_Credit_Approval_Result__c , &quot;Approve&quot;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL(Type , &quot;Credit Card Application&quot;),
+AND(
+ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;),
+TEXT(cc_Control_Type__c) != &quot;STP&quot;
+),
+ISPICKVAL(Type , &quot;Credit Card Upgrade&quot;)
+),
+ISPICKVAL(cc_Requested_Card_Type__c, &quot;ILA_GULF_AIR_COBRAND_01&quot;),
+Has_Co_Brand_Membership_Number__c = true,
+(ISBLANK(cc_Embossing_Line_4__c))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Embossing_Line_4__c</errorDisplayField>
+    <errorMessage>Please send the case to the contact center to collect and validate Co-brand Membership Number</errorMessage>
+</ValidationRule>

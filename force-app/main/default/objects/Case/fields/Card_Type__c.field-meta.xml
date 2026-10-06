@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Card_Type__c</fullName>
+    <description>This field gives an option to select the card type, while raising the dispute case
+This field is used in Credit Card Upgrade Request (NBA-11451)</description>
+    <label>Card Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Debit Card</fullName>
+                <default>false</default>
+                <label>Debit Card</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card</fullName>
+                <default>false</default>
+                <label>Prepaid Card</label>
+            </value>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+                <label>01</label>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+                <label>02</label>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+                <label>03</label>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+                <label>04</label>
+            </value>
+            <value>
+                <fullName>PLATINUM_BALANCE_TRANSFER_01</fullName>
+                <default>false</default>
+                <label>ila Switch</label>
+            </value>
+            <value>
+                <fullName>PLATINUM_CASHBACK_AND_REWARD_01</fullName>
+                <default>false</default>
+                <label>ila Blue</label>
+            </value>
+            <value>
+                <fullName>WORLD_CASHBACK_AND_REWARDS_01</fullName>
+                <default>false</default>
+                <label>ila White</label>
+            </value>
+            <value>
+                <fullName>WORLD_ELITE_CASHBACK_AND_REWARDS_01</fullName>
+                <default>false</default>
+                <label>ila Black</label>
+            </value>
+            <value>
+                <fullName>ILA_GULF_AIR_COBRAND_01</fullName>
+                <default>false</default>
+                <label>ila Gulf Air</label>
+            </value>
+            <value>
+                <fullName>WORLD_ELITE_CASHBACK_AND_REWARDS_02</fullName>
+                <default>false</default>
+                <label>ila Black Metal</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Roadshow</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade - No Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Card Limit Split</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <valueName>PLATINUM_BALANCE_TRANSFER_01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Roadshow</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade - No Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Card Limit Split</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <valueName>PLATINUM_CASHBACK_AND_REWARD_01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Roadshow</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade - No Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Card Limit Split</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <valueName>ILA_GULF_AIR_COBRAND_01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Debit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Credit card</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Credit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Prepaid Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>New Prepaid Application</controllingFieldValue>
+            <valueName>01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>New Prepaid Application</controllingFieldValue>
+            <valueName>02</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>New Prepaid Application</controllingFieldValue>
+            <valueName>03</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>New Prepaid Application</controllingFieldValue>
+            <valueName>04</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade - No Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Card Limit Split</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <valueName>WORLD_CASHBACK_AND_REWARDS_01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Loan / Finance Application Request</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade - No Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Card Limit Split</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <valueName>WORLD_ELITE_CASHBACK_AND_REWARDS_01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Upgrade - No Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Card Limit Split</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <valueName>WORLD_ELITE_CASHBACK_AND_REWARDS_02</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Status_Required_Fields_Validation</fullName>
+    <active>false</active>
+    <description>Ensures mandatory fields are populated when Sub Status is updated to Dispatch, Collected by Customer, or Dispatch Return.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Sub_Status__c),
+    OR(
+        /* Dispatch */
+        AND(
+            ISPICKVAL(Sub_Status__c, &quot;Dispatch&quot;),
+            ISBLANK(TEXT(Dispatch_To_Branch__c))
+        ),
+
+        /* Collected by Customer */
+        AND(
+            ISPICKVAL(Sub_Status__c, &quot;Collected by Customer&quot;),
+            ISBLANK(TEXT(Collected_From_Branch__c))
+        ),
+
+        /* Dispatch Return */
+        AND(
+            ISPICKVAL(Sub_Status__c, &quot;Dispatch Return&quot;),
+            ISBLANK(Returned_From__c)
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>Please fill in the required field for the selected Sub Status before saving the record.</errorMessage>
+</ValidationRule>

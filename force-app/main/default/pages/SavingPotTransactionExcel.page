@@ -1,0 +1,133 @@
+<!--  -->
+<apex:page controller="ExcelGenerationController" contentType="application/vnd.ms-excel;charset=UTF-8" readOnly="true" standardStylesheets="false" showHeader="false">
+	<head>
+        <style>
+        	table, td, th {
+              border: 1px solid #cccccc;
+            }
+            table {
+            	border-collapse: collapse;
+            }
+            .text-format {
+            	mso-number-format: "\@";
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!--Header title -->
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><h2>Saving Pots Transactions</h2></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <!--Customer Details -->
+        <table>
+            <tr>
+            	<td></td>
+                <td></td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><h3>CUSTOMER INFORMATION</h3></td>
+                <td></td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Customer Name</b></td>
+                <td>{!customerName}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Customer CIF</b></td>
+                <td style="mso-number-format: '\@'">{!cifNumber}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Saving Pot</b></td>
+                <td style="mso-number-format: '\@'">{!potName} - {!potId}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Unit</b></td>
+                <td style="mso-number-format: '\@'">{!unit}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Goal Amount</b></td>
+                <td style="mso-number-format: '\@'">{!goalAmount}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Monthly Deposit Amount</b></td>
+                <td style="mso-number-format: '\@'">{!monthlyDepositAmount}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>Earn Interest</b></td>
+                <td style="mso-number-format: '\@'">{!earnInterest}</td>
+            </tr>            
+            <apex:outputPanel rendered="{!isFromDateIncludedInFilter}">
+            <tr>
+            	<td></td>
+                <td><b>From Date</b></td>
+                <td style="mso-number-format: '\@'">{!fromDate}</td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td><b>To Date</b></td>
+                <td style="mso-number-format: '\@'">{!toDate}</td>
+            </tr>
+            </apex:outputPanel>
+            <tr>
+            	<td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+            	<td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <!-- Card Transactions -->
+        <table>
+            <tr>
+            	<th>Sno</th>
+                <th>Date</th>
+            	<th>Type</th>
+            	<th>Status</th>
+            	<th>Amount</th>
+            	<th>Currency</th>
+            	<th>Description</th>
+                <th>Reference</th>
+            </tr>
+            <apex:variable value="{!1}" var="count"/>
+            <apex:repeat value="{!transactionList}" var="transaction">
+                <tr>
+                 <td style="mso-number-format: '\@';text-align:center">{!FLOOR(count)} </td>
+                 <td style="mso-number-format: '\@'">{!transaction.transactionDate}</td>
+                 <td style="mso-number-format: '\@'">{!transaction.transactionType}</td>
+                 <td>{!transaction.status}</td>
+                 <td>{!transaction.formattedOriginalAmount}</td>
+                 <td>{!transaction.currencyCode}</td>
+                 <td>{!transaction.description}</td>
+                 <td style="mso-number-format: '\@'">{!transaction.reference}</td> 
+               </tr>
+               <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

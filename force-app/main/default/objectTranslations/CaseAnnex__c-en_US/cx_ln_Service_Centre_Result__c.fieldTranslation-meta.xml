@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Service Centre Result --></label>
+    <name>cx_ln_Service_Centre_Result__c</name>
+    <picklistValues>
+        <masterLabel>Customer Declined Offer</masterLabel>
+        <translation><!-- Customer Declined Offer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer accepted to Proceed with application</masterLabel>
+        <translation><!-- Customer accepted to Proceed with application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Approver</masterLabel>
+        <translation><!-- Return to Approver --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Document Verifier NDL</masterLabel>
+        <translation><!-- Return to Document Verifier NDL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Document Verifier OBL</masterLabel>
+        <translation><!-- Return to Document Verifier OBL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Document Verifier STL</masterLabel>
+        <translation><!-- Return to Document Verifier STL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Evaluator</masterLabel>
+        <translation><!-- Return to Evaluator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Pre-Screener</masterLabel>
+        <translation><!-- Return to Pre-Screener --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Signature Verifier</masterLabel>
+        <translation><!-- Return to Signature Verifier --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Verifier</masterLabel>
+        <translation><!-- Return to Verifier --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

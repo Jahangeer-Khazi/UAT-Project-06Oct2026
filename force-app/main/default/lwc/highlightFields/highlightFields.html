@@ -1,0 +1,46 @@
+<template>
+    <lightning-card>
+        <template if:true={caseRecord}>
+            <!-- Field Container -->
+            <div class="slds-theme_default">
+                <!-- Number Field 1 -->
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2 slds-border_bottom custom-box-alignment">
+                        <div class="slds-text-title text-custom-color label-alignment">
+                            <span class={noOfArrearsClass}>No. of Arrears Current</span></div>
+                        <lightning-formatted-number value={caseRecord.No_of_Arrears_Current_and_Historical__c}
+                            class={noOfArrears}>
+                        </lightning-formatted-number>
+                    </div>
+
+                    <!-- Number Field 2 -->
+                    <div class="slds-col slds-size_1-of-2 slds-border_bottom custom-box-alignment-right">
+                        <div class="slds-text-title text-custom-color label-alignment">
+                            <span style="padding-left: 3%;">Control Type / STP Decisioning Result</span></div>
+                        <lightning-formatted-text value={caseRecord.cc_Control_Type__c} class="slds-text-color_default value-alignment">
+                        </lightning-formatted-text>
+                    </div>
+                </div>
+
+                <!-- Picklist Field -->
+                <div class="slds-grid slds-wrap" style="padding-top: 0.45rem;">
+                    <div class="slds-col slds-size_1-of-2 slds-border_bottom custom-box-alignment">
+                        <div class="slds-text-title text-custom-color label-alignment">
+                            <span class={totalObligationsClass}>No. of Penalties & Contravention account</span></div>
+                        <lightning-formatted-number value={caseRecord.cc_Total_Obligations__c}
+                            class={totalObligations}>
+                        </lightning-formatted-number>
+                    </div>
+
+                    <!-- Text Field -->
+                    <div class="slds-col slds-size_1-of-2 slds-border_bottom custom-box-alignment-right">
+                        <div class="slds-text-title text-custom-color label-alignment">
+                            <span class={currentSegmentClass}>Current Segment/ Current Customer Status</span></div>
+                        <lightning-formatted-text value={caseRecord.asc_Current_Segment__c} class={currentSegment}>
+                        </lightning-formatted-text>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

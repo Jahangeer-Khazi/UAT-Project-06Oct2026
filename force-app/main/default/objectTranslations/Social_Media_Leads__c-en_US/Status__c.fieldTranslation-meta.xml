@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Applied</masterLabel>
+        <translation><!-- Applied --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Call back</masterLabel>
+        <translation><!-- Call back --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interested</masterLabel>
+        <translation><!-- Interested --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mobile off</masterLabel>
+        <translation><!-- Mobile off --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No Answer</masterLabel>
+        <translation><!-- No Answer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not interested</masterLabel>
+        <translation><!-- Not interested --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected</masterLabel>
+        <translation><!-- Rejected --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>Case_Model__c</field>
+        <formula>IF(TEXT(Account.PersonContact.Subscription_Model__c) = &quot;alburaq&quot; , &quot;alburaq&quot; , &quot;ila&quot;)</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Case_Nature__c</field>
+        <literalValue>WPS Payroll</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Case_Origin__c</field>
+        <literalValue>CRM</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Customer__c</field>
+        <formula>Account.Id</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Description__c</field>
+        <formula>&apos;New Update WPS Payroll&apos;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status__c</field>
+        <literalValue>Open</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Sub_Status__c</field>
+        <literalValue>New</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Subject__c</field>
+        <formula>&apos;Update WPS Payroll&apos;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Type__c</field>
+        <literalValue>New Update WPS Payroll</literalValue>
+    </fieldOverrides>
+    <label>New Update WPS Payroll</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Case_Model__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Type__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Case_Nature__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Case_Origin__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Subject__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Description__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <targetObject>WPSPayroll__c</targetObject>
+    <targetParentField>Customer__c</targetParentField>
+    <targetRecordType>WPSPayroll__c.WPS_Payroll</targetRecordType>
+    <type>Create</type>
+</QuickAction>

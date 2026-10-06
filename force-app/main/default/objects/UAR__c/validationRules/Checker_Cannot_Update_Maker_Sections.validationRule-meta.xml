@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checker_Cannot_Update_Maker_Sections</fullName>
+    <active>true</active>
+    <description>As a member of the Checker Queue you can not update the fields in the section &quot;Maker Section&quot;</description>
+    <errorConditionFormula>AND(
+  OR(
+    ISCHANGED(Checker_Comments__c),
+    ISCHANGED(Checker_Result__c),
+    ISCHANGED(Checker_Result_Date_Time__c)
+  ),
+  NOT(
+    OR(
+      Owner:Queue.Name = &quot;UAR Checker&quot;,
+      AND(
+        Previous_Owner_Queue__c = &quot;UAR Checker&quot;,
+        ISCHANGED(OwnerId)
+      )
+    )
+  )
+)</errorConditionFormula>
+    <errorMessage>As a member of the Checker Queue you can not update the fields in the section &quot;Maker Section&quot;</errorMessage>
+</ValidationRule>

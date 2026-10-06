@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Time_Age__c</fullName>
+    <label>Total Time (Age)</label>
+    <summarizedField>Case_Aging_Line_Item__c.Total_Time__c</summarizedField>
+    <summaryForeignKey>Case_Aging_Line_Item__c.Case_Aging__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

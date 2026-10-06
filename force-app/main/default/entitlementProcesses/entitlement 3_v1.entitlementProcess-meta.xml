@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <description>Used for Case = Account Service and SubType = Adhoc Accounting Entries/BUSINESS, Account Block/Unblock
+Dormant Account Reactivation
+Complaints</description>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Region_Flag__c</field>
+        <operation>equals</operation>
+        <value>Bahrain</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/BUSINESS, Account Block/Unblock, Dormant Account Reactivation, Account Closure</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>72 Hours Come to Service Centre</milestoneName>
+        <minutesToComplete>4320</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Come_to_branch_breach</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Come_to_branch_reminder</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-36</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/BUSINESS</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Confirm_Customer_Authorised__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 48 Hours</milestoneName>
+        <minutesToComplete>3000</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Breach_Products</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-14</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Reminder_Products</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-26</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/BUSINESS</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Ops escalation 2</milestoneName>
+        <minutesToComplete>1440</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Fire_Entitlement__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/BUSINESS</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 24 Hours RMT</milestoneName>
+        <minutesToComplete>1440</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Confirm_Customer_Authorised__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Account Closure</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 1 1%2E5 hours</milestoneName>
+        <minutesToComplete>90</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Account Closure</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Ops escalation 2</milestoneName>
+        <minutesToComplete>120</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Account_closure_Creation</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-119</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Account_Closure_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-60</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Account_closure_breach</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Fees/Charges, Technical, Product, Service, Escalation</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Complaint</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Complaint Escalation 1</milestoneName>
+        <minutesToComplete>2880</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <criteriaBooleanFilter>(1 AND 2) OR (1 AND (3 AND 4))</criteriaBooleanFilter>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Internal Case</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Fees/Charges, Technical, Product, Service</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Escalation</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Other, Product, Process</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Complaint Escalation 1</milestoneName>
+        <minutesToComplete>7200</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Rude Behaviour Contact Centre, Rude Behaviour Service Centre</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Complaint Escalation 2</milestoneName>
+        <minutesToComplete>480</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Complaint_Breach</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Complaint_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-4</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>Entitlement 3</name>
+    <versionMaster>5521l000000CbAl</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

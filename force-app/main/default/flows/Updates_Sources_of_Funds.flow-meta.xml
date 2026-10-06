@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Add Business Ownership</description>
+        <name>Add_Business_Ownership</name>
+        <label>Add Business Ownership</label>
+        <locationX>808</locationX>
+        <locationY>449</locationY>
+        <assignmentItems>
+            <assignToReference>SourceofFundsCombinedValue</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&quot; Business Ownership &quot;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Other</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Add Inheritance</description>
+        <name>Add_Inheritance</name>
+        <label>Add Inheritance</label>
+        <locationX>628</locationX>
+        <locationY>426</locationY>
+        <assignmentItems>
+            <assignToReference>SourceofFundsCombinedValue</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&quot; Inheritance &quot;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Business_Ownership</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Add Investment</description>
+        <name>Add_Investment</name>
+        <label>Add Investment</label>
+        <locationX>442</locationX>
+        <locationY>403</locationY>
+        <assignmentItems>
+            <assignToReference>SourceofFundsCombinedValue</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&quot; Investment &quot;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Add Other</description>
+        <name>Add_Other</name>
+        <label>Add Other</label>
+        <locationX>936</locationX>
+        <locationY>492</locationY>
+        <assignmentItems>
+            <assignToReference>SourceofFundsCombinedValue</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&quot; Other &quot;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Add Salary</description>
+        <name>Add_Salary</name>
+        <label>Add Salary</label>
+        <locationX>260</locationX>
+        <locationY>381</locationY>
+        <assignmentItems>
+            <assignToReference>SourceofFundsCombinedValue</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>&quot;Salary &quot; </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Investment</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Is Inheritance</description>
+        <name>Is</name>
+        <label>Is Inheritance</label>
+        <locationX>623</locationX>
+        <locationY>274</locationY>
+        <defaultConnector>
+            <targetReference>Is_Business_Ownership</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Inheritance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAccountInfo.Sources_of_Funds__pc</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Inheritance</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Inheritance</targetReference>
+            </connector>
+            <label>Is Inheritance</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is Business Ownership</description>
+        <name>Is_Business_Ownership</name>
+        <label>Is Business Ownership</label>
+        <locationX>797</locationX>
+        <locationY>293</locationY>
+        <defaultConnector>
+            <targetReference>Is_Other</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_BusinessOwnership</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAccountInfo.Sources_of_Funds__pc</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Business Ownership</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Business_Ownership</targetReference>
+            </connector>
+            <label>Is Business Ownership</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is Investment</description>
+        <name>Is_Investment</name>
+        <label>Is Investment</label>
+        <locationX>435</locationX>
+        <locationY>252</locationY>
+        <defaultConnector>
+            <targetReference>Is</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IsInvestment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAccountInfo.Sources_of_Funds__pc</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Investment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Investment</targetReference>
+            </connector>
+            <label>Is Investment</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is Other</description>
+        <name>Is_Other</name>
+        <label>Is Other</label>
+        <locationX>942</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Update_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Others</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAccountInfo.Sources_of_Funds__pc</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Other</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Other</targetReference>
+            </connector>
+            <label>Is Other</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is Salary</description>
+        <name>Is_Salary</name>
+        <label>Is Salary</label>
+        <locationX>253</locationX>
+        <locationY>221</locationY>
+        <defaultConnector>
+            <targetReference>Is_Investment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IsSalary</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAccountInfo.Sources_of_Funds__pc</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Salary</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Salary</targetReference>
+            </connector>
+            <label>Is Salary</label>
+        </rules>
+    </decisions>
+    <description>Update Source of Funds</description>
+    <interviewLabel>Updates Sources of Funds {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Updates Sources of Funds</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get Account Information</description>
+        <name>getAccountInfo</name>
+        <label>getAccountInfo</label>
+        <locationX>261</locationX>
+        <locationY>69</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Salary</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varAccountID</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>varAccountInfo</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Sources_of_Funds__pc</queriedFields>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update Account</description>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>1111</locationX>
+        <locationY>357</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varAccountID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Sources_of_Funds_TextOLD_DO_NOT_USE__pc</field>
+            <value>
+                <elementReference>SourceofFundsCombinedValue</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <startElementReference>getAccountInfo</startElementReference>
+    <status>Obsolete</status>
+    <variables>
+        <description>Sources of Funds</description>
+        <name>SourceofFundsCombinedValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Account ID</description>
+        <name>varAccountID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Account Info</description>
+        <name>varAccountInfo</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

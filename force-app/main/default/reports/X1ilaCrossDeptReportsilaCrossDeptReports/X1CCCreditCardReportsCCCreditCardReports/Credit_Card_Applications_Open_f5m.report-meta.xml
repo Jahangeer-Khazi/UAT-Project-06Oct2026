@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_1169295</developerName>
+        <masterLabel>Approval status</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case.Sub_Status__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Approved</sourceValue>
+            </sourceValues>
+            <value>Approved</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Pending</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Documents Received</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Discrepancies</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>In-Progress</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Referred  by Pre-Screener</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Referred by Evaluator</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Referred by Verifier</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Referred by Approver</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending Balance Transfer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Balance Transfer Processed</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Release Letter Received</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Card Block Released</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending Signature Verification</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending Disable EPP</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Referred by Signature Verifier</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending Release Letter</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Waiting for Customer to Pay Outstanding Balance</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Release Letter Accepted</sourceValue>
+            </sourceValues>
+            <value>In Progress</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Expired</sourceValue>
+            </sourceValues>
+            <value>Expired</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Declined</sourceValue>
+            </sourceValues>
+            <value>Declined</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_41315525</developerName>
+        <masterLabel>completion</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case.cc_Application_Stages__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Completed</sourceValue>
+            </sourceValues>
+            <value>Completed</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>New</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Pre-Screening</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Evaluation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Verification</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Approval</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Signature Verification</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Buyout</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Business Team</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Contact Centre</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit Service Centre</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Credit HR Team</sourceValue>
+            </sourceValues>
+            <value>In Progress</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>Case.Sub_Status__c</field>
+    </columns>
+    <columns>
+        <field>CLOSED</field>
+    </columns>
+    <columns>
+        <field>Case.cc_Application_Stages__c</field>
+    </columns>
+    <columns>
+        <field>BucketField_41315525</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Credit_Card,Case.Credit_Card_Staff_Application</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CASE_NUMBER</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>00312163,00316263,00318151</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Customer_Segment__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OPEN</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_1169295</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Credit Card Applications - Avg age</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

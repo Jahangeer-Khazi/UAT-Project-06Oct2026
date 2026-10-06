@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Identification_Rejection_Reason__c</fullName>
+    <description>This is related to https://bank-abc.atlassian.net/browse/NBA-8836</description>
+    <label>Identification Rejection Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ID mismatch</fullName>
+                <default>false</default>
+                <label>ID mismatch</label>
+            </value>
+            <value>
+                <fullName>Non Arabic/English speaker</fullName>
+                <default>false</default>
+                <label>Non Arabic/English speaker</label>
+            </value>
+            <value>
+                <fullName>Rejected by management</fullName>
+                <default>false</default>
+                <label>Rejected by management</label>
+            </value>
+            <value>
+                <fullName>Technical assessment failed</fullName>
+                <default>false</default>
+                <label>Technical assessment failed</label>
+            </value>
+            <value>
+                <fullName>Procedural</fullName>
+                <default>false</default>
+                <label>Procedural</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <valueName>ID mismatch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <valueName>Non Arabic/English speaker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <valueName>Rejected by management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <valueName>Technical assessment failed</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

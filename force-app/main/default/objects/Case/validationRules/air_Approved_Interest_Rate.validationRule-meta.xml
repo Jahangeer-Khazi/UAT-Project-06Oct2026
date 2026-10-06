@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>air_Approved_Interest_Rate</fullName>
+    <active>true</active>
+    <description>The Approved Interest Rate is blank , the checker can not approve</description>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;AIR_AccountInterestRate&quot; 
+&amp;&amp; TEXT(cc_Checker_Result__c )= &apos;Approve&apos; 
+&amp;&amp;  ISBLANK( AIR_ApprovedInterestRate__c )</errorConditionFormula>
+    <errorMessage>The Approved Interest Rate is blank , the checker can not approve</errorMessage>
+</ValidationRule>

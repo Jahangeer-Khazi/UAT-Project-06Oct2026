@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ILAServiceTeam_can_close_the_case</fullName>
+    <active>true</active>
+    <errorConditionFormula>($User.ProfileId != $Label.ila_Digital_Service_Desk) &amp;&amp; TEXT(Status) = &apos;Closed&apos; &amp;&amp; TEXT(Type) == &apos;Prizeout&apos; &amp;&amp; TEXT(Sub_Type__c) == &apos;Technical Resolution&apos; &amp;&amp; ($User.LastName) &lt;&gt; &quot;Integration&quot;</errorConditionFormula>
+    <errorMessage>ILA Service Desk Team will only close the case.</errorMessage>
+</ValidationRule>

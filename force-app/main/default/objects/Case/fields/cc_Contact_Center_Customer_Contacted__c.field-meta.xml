@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Contact_Center_Customer_Contacted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This feld is checked, once the Contact Center team has contacted the Customer</description>
+    <label>Contact Center - Customer Contacted</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title="Last Login Activity Tracker">
+
+        <!-- Error State -->
+        <template if:true={error}>
+            <div class="slds-p-around_medium slds-text-color_error">
+                <lightning-icon icon-name="utility:error" size="small" class="slds-m-right_x-small"></lightning-icon>
+                {error}
+            </div>
+        </template>
+
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium is-relative">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Content -->
+        <template if:false={isLoading}>
+            <template if:false={error}>
+                <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                    <template if:true={lastLogin}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Timestamp">Timestamp</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Status">Status</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Location">Location</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Device IP">Device IP</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Error">Error</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="slds-hint-parent">
+                                    <td data-label="Timestamp">
+                                        <lightning-formatted-date-time value={lastLogin.loginTimestamp}
+                                            year="numeric" month="short" day="2-digit" hour="2-digit"
+                                            minute="2-digit"></lightning-formatted-date-time>
+                                    </td>
+                                    <td data-label="Status">
+                                        <div class="slds-truncate" title={lastLogin.status}>{lastLogin.status}</div>
+                                    </td>
+                                    <td data-label="Location">
+                                        <div title={locationDisplay}>{locationDisplay}</div>
+                                    </td>
+                                    <td data-label="Device IP">
+                                        <div class="slds-truncate" title={lastLogin.deviceIp}>{lastLogin.deviceIp}</div>
+                                    </td>
+                                    <td data-label="Error">
+                                        <div class="slds-truncate" title={lastLogin.errorCode}>{lastLogin.errorCode}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </template>
+                    <template if:false={lastLogin}>
+                        <p class="slds-text-align_center slds-text-color_weak">No login activity found.</p>
+                    </template>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

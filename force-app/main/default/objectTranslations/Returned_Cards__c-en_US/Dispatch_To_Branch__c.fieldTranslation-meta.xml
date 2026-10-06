@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Dispatch To Branch --></label>
+    <name>Dispatch_To_Branch__c</name>
+    <picklistValues>
+        <masterLabel>Abdali Mall Branch</masterLabel>
+        <translation><!-- Abdali Mall Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Abdoun Branch</masterLabel>
+        <translation><!-- Abdoun Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Al Karak Branch</masterLabel>
+        <translation><!-- Al Karak Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Al Mafraq Branch</masterLabel>
+        <translation><!-- Al Mafraq Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Al Muqabalayn Branch</masterLabel>
+        <translation><!-- Al Muqabalayn Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Al Salt Branch</masterLabel>
+        <translation><!-- Al Salt Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Al Sweifiyah Branch</masterLabel>
+        <translation><!-- Al Sweifiyah Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Aqaba Branch</masterLabel>
+        <translation><!-- Aqaba Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bayader Wadi Al Seer Branch</masterLabel>
+        <translation><!-- Bayader Wadi Al Seer Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>City Mall Branch</masterLabel>
+        <translation><!-- City Mall Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head Office &amp; Main Branch</masterLabel>
+        <translation><!-- Head Office &amp; Main Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Irbid Branch</masterLabel>
+        <translation><!-- Irbid Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jabal Amman Branch</masterLabel>
+        <translation><!-- Jabal Amman Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jerash Branch</masterLabel>
+        <translation><!-- Jerash Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Madaba Branch</masterLabel>
+        <translation><!-- Madaba Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Marj Al Hamam Branch</masterLabel>
+        <translation><!-- Marj Al Hamam Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tlaa Al Ali / Al Gardens Branch</masterLabel>
+        <translation><!-- Tlaa Al Ali / Al Gardens Branch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zarqa Branch</masterLabel>
+        <translation><!-- Zarqa Branch --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Decline_Reason</fullName>
+    <active>true</active>
+    <description>if Credit Pre-Screening Result = Decline then the agent has to fill Pre-screener Decline Reason field.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &quot;Decline&quot;), ISBLANK(cc_Pre_screener_Decline_Reason__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+  ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+  ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+  ISPICKVAL(Type, &quot;Credit Card Cash Collateral Application&quot;),
+  ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+  ISPICKVAL(Type, &quot;Cash Collateral Credit Limit Increase Application&quot;),
+  ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Pre_screener_Decline_Reason__c</errorDisplayField>
+    <errorMessage>Please fill the Pre-screener Decline Reason field.</errorMessage>
+</ValidationRule>

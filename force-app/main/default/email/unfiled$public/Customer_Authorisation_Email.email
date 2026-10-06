@@ -1,0 +1,15 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+   <head>
+<style>
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/inter/v12/UcC03FwrQ3m1.woff2') format('woff2');
+}
+</style>
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial"><span style="font-size: 12pt;">THIS IS A SAMPLE EMAIL FOR TEST PURPOSES- Please confirm and authorise your request</span></font><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style=""><font face="arial">{!Case.Thread_Id}</font></div>]]></td>
+</tr>
+</table>

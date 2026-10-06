@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Model_Change_Prevention_Lead</fullName>
+    <active>true</active>
+    <description>Ensures that changes to the Document Model are not possible ,If the lead subscription model is &quot;ila&quot; or &quot;alburaq&quot;</description>
+    <errorConditionFormula>AND(
+NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+ISCHANGED( Document_Model__c ),
+OR(
+TEXT(Lead__r.Subscription_Model__c ) = &apos;ila&apos;,
+TEXT(Lead__r.Subscription_Model__c ) = &apos;alburaq&apos;
+)
+)</errorConditionFormula>
+    <errorMessage>Document Model on the Content record cannot be changed. Please contact your administrator.</errorMessage>
+</ValidationRule>

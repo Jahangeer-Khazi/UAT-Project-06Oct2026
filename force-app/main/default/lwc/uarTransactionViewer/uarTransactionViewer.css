@@ -1,0 +1,40 @@
+.input-no-border .slds-input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    height: auto;
+    box-shadow: none;
+}
+
+.input-no-border .slds-input:focus {
+    box-shadow: none;
+}
+
+.slds-card {
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    background-clip: padding-box;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.slds-table {
+    font-size: 0.8125rem;
+}
+
+.slds-table th {
+    background-color: #f3f2f2;
+    font-weight: 700;
+}
+
+.slds-table td, .slds-table th {
+    white-space: nowrap;
+    padding: 0.5rem;
+}
+
+.slds-scrollable_x {
+    overflow-x: auto;
+}
+
+.slds-button_neutral {
+    margin-right: 0.5rem;
+}

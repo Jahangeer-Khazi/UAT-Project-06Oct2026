@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ID_V_Required_Reason__c</fullName>
+    <label>ID&amp;V Required Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Forced</fullName>
+                <default>false</default>
+                <label>Forced</label>
+            </value>
+            <value>
+                <fullName>Missing Documents</fullName>
+                <default>false</default>
+                <label>Missing Documents</label>
+            </value>
+            <value>
+                <fullName>Complete Documents &amp; Non-Excluded Nationality</fullName>
+                <default>false</default>
+                <label>Complete Documents &amp; Non-Excluded Nationality</label>
+            </value>
+            <value>
+                <fullName>Complete Documents &amp; Excluded Nationality</fullName>
+                <default>false</default>
+                <label>Complete Documents &amp; Excluded Nationality</label>
+            </value>
+            <value>
+                <fullName>Unable to Perform ID&amp;V (Manually Onboarded Using Non-BH Documents)</fullName>
+                <default>false</default>
+                <label>Unable to Perform ID&amp;V (Manually Onboarded Using Non-BH Documents)</label>
+            </value>
+            <value>
+                <fullName>Suspected Identity Fraud</fullName>
+                <default>false</default>
+                <label>Suspected Identity Fraud</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

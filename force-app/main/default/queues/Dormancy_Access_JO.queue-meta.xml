@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Jordan Dormant Profile View Access</description>
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Dormancy Access</name>
+    <queueSobject>
+        <sobjectType>Customer</sobjectType>
+    </queueSobject>
+</Queue>

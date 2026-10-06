@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Account</fullName>
+        <default>false</default>
+        <label>Account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Maintenance</fullName>
+        <default>false</default>
+        <label>Account Maintenance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Service</fullName>
+        <default>false</default>
+        <label>Account Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Change</fullName>
+        <default>false</default>
+        <label>Address Change</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Address Verification</fullName>
+        <default>false</default>
+        <label>Address Verification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>App</fullName>
+        <default>false</default>
+        <label>App</label>
+    </standardValue>
+    <standardValue>
+        <fullName>App Failure</fullName>
+        <default>false</default>
+        <label>App Failure</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Apple Pay</fullName>
+        <default>false</default>
+        <label>Apple Pay</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Apple Pay / Samsung Pay</fullName>
+        <default>false</default>
+        <label>Apple Pay / Samsung Pay</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Application Guide</fullName>
+        <default>false</default>
+        <label>Application Guide</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Benefit</fullName>
+        <default>false</default>
+        <label>Benefit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Biometric Verification</fullName>
+        <default>false</default>
+        <label>Biometric Verification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Black-List – Manual Override</fullName>
+        <default>false</default>
+        <label>Black-List – Manual Override</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Block Account</fullName>
+        <default>false</default>
+        <label>Block Account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Call Outcome</fullName>
+        <default>false</default>
+        <label>Call Outcome</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Campaign</fullName>
+        <default>false</default>
+        <label>Campaign</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Canceled Work Permit</fullName>
+        <default>false</default>
+        <label>Canceled Work Permit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Card request/Delivery</fullName>
+        <default>false</default>
+        <label>Card request/Delivery</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cards</fullName>
+        <default>false</default>
+        <label>Cards</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Card Service</fullName>
+        <default>false</default>
+        <label>Card Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Card Usage Control</fullName>
+        <default>false</default>
+        <label>Card Usage Control</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Case Management</fullName>
+        <default>false</default>
+        <label>Case Management</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cash Collateral Credit Limit Increase Application</fullName>
+        <default>false</default>
+        <label>Cash Collateral Credit Limit Increase Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cash Collateral Letter</fullName>
+        <default>false</default>
+        <label>Cash Collateral Letter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cash Collection</fullName>
+        <default>false</default>
+        <label>Cash Collection</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cash Delivery</fullName>
+        <default>false</default>
+        <label>Cash Delivery</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CBB Amount block/unblock request</fullName>
+        <default>false</default>
+        <label>CBB Amount block/unblock request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CC Reapplying Restriction Update</fullName>
+        <default>false</default>
+        <label>CC Reapplying Restriction Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cheque</fullName>
+        <default>false</default>
+        <label>Cheque</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cheques</fullName>
+        <default>false</default>
+        <label>Cheques</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Civil Department</fullName>
+        <default>false</default>
+        <label>Civil Department</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Collection Case</fullName>
+        <default>false</default>
+        <label>Collection Case</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Collection Letters</fullName>
+        <default>false</default>
+        <label>Collection Letters</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Compliance</fullName>
+        <default>false</default>
+        <label>Compliance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Compliance Query</fullName>
+        <default>false</default>
+        <label>Compliance Query</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Convert Credit Card Nature Application</fullName>
+        <default>false</default>
+        <label>Convert Credit Card Nature Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card</fullName>
+        <default>false</default>
+        <label>Credit Card</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Account Closing</fullName>
+        <default>false</default>
+        <label>Credit Card Account Closing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Application</fullName>
+        <default>false</default>
+        <label>Credit Card Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Cash Collateral Application</fullName>
+        <default>false</default>
+        <label>Credit Card Cash Collateral Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card - Collection Case</fullName>
+        <default>false</default>
+        <label>Credit Card - Collection Case</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card FCR</fullName>
+        <default>false</default>
+        <label>Credit Card FCR</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Invitation</fullName>
+        <default>false</default>
+        <label>Credit Card Invitation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Prepaid Application</fullName>
+        <default>false</default>
+        <label>Credit Card Prepaid Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Services</fullName>
+        <default>false</default>
+        <label>Credit Card Services</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Supplementary Application</fullName>
+        <default>false</default>
+        <label>Credit Card Supplementary Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Card Upgrade</fullName>
+        <default>false</default>
+        <label>Credit Card Upgrade / Split</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Limit Increase Application</fullName>
+        <default>false</default>
+        <label>Credit Limit Increase Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Limit Update</fullName>
+        <default>false</default>
+        <label>Credit Limit Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CRS</fullName>
+        <default>false</default>
+        <label>CRS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Restriction</fullName>
+        <default>false</default>
+        <label>Customer Restriction</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Services</fullName>
+        <default>false</default>
+        <label>Customer Services</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Status Update</fullName>
+        <default>false</default>
+        <label>Customer Status Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Debit Card</fullName>
+        <default>false</default>
+        <label>Debit Card</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Deceased Customer</fullName>
+        <default>false</default>
+        <label>Deceased Customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Detokinization</fullName>
+        <default>false</default>
+        <label>Detokinization</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EDD</fullName>
+        <default>false</default>
+        <label>EDD</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EFTs</fullName>
+        <default>false</default>
+        <label>EFTs</label>
+    </standardValue>
+    <standardValue>
+        <fullName>eKYC</fullName>
+        <default>false</default>
+        <label>eKYC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EPP</fullName>
+        <default>false</default>
+        <label>EPP</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalation</fullName>
+        <default>false</default>
+        <label>Escalation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Exit Recommendation</fullName>
+        <default>false</default>
+        <label>Exit Recommendation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FATCA</fullName>
+        <default>false</default>
+        <label>FATCA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fee Reversal</fullName>
+        <default>false</default>
+        <label>Fee Reversal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fees/Charges</fullName>
+        <default>false</default>
+        <label>Fees/Charges</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fees Reversal</fullName>
+        <default>false</default>
+        <label>Fees Reversal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fee Waiver</fullName>
+        <default>false</default>
+        <label>Fee Waiver</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fitbit Pay</fullName>
+        <default>false</default>
+        <label>Fitbit Pay</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fixed Deposit</fullName>
+        <default>false</default>
+        <label>Fixed Deposit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Follow-Up Call</fullName>
+        <default>false</default>
+        <label>Follow-Up Call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Follow Up on Pending Cases</fullName>
+        <default>false</default>
+        <label>Follow Up on Pending Cases</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fraud</fullName>
+        <default>false</default>
+        <label>Fraud</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fraud Alert</fullName>
+        <default>false</default>
+        <label>Fraud Alert</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Funds Transfer</fullName>
+        <default>false</default>
+        <label>Funds Transfer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Garmin Pay</fullName>
+        <default>false</default>
+        <label>Garmin Pay</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General Inquiries</fullName>
+        <default>false</default>
+        <label>General Inquiries</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GPH</fullName>
+        <default>false</default>
+        <label>GPH</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Hassala</fullName>
+        <default>false</default>
+        <label>Hassala</label>
+    </standardValue>
+    <standardValue>
+        <fullName>IBAN Certificate</fullName>
+        <default>false</default>
+        <label>IBAN Certificate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ID&amp;V Verification</fullName>
+        <default>false</default>
+        <label>ID&amp;V Verification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Identification</fullName>
+        <default>false</default>
+        <label>Identification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ila Bank</fullName>
+        <default>false</default>
+        <label>ila Bank</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ila ServiceDesk</fullName>
+        <default>false</default>
+        <label>ila ServiceDesk</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Incident</fullName>
+        <default>false</default>
+        <label>Incident</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Interest Reversal</fullName>
+        <default>false</default>
+        <label>Interest Reversal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Investment Questionnaire</fullName>
+        <default>false</default>
+        <label>Investment Questionnaire</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Jamiyah</fullName>
+        <default>false</default>
+        <label>Jamiyah</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Kanz</fullName>
+        <default>false</default>
+        <label>Kanz</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Action</fullName>
+        <default>false</default>
+        <label>Legal Action</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Credit Collection Letter Application</fullName>
+        <default>false</default>
+        <label>Letter Generation Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Loans</fullName>
+        <default>false</default>
+        <label>Loans</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Manual Onboarding</fullName>
+        <default>false</default>
+        <label>Manual Onboarding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Manual Verification</fullName>
+        <default>false</default>
+        <label>Manual Verification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketing</fullName>
+        <default>false</default>
+        <label>Marketing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketing Preference</fullName>
+        <default>false</default>
+        <label>Marketing Preference</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MasterCard</fullName>
+        <default>false</default>
+        <label>MasterCard</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Name/ Address Change</fullName>
+        <default>false</default>
+        <label>Name/ Address Change</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Name and Risk Screening – Manual Override</fullName>
+        <default>false</default>
+        <label>Name and Risk Screening – Manual Override</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Name Screening</fullName>
+        <default>false</default>
+        <label>Name Screening</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Bank Statement Request</fullName>
+        <default>false</default>
+        <label>New Bank Statement Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Bond/Sukuk Buy Request</fullName>
+        <default>false</default>
+        <label>New Bond/Sukuk Buy Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Bond/Sukuk Sell Request</fullName>
+        <default>false</default>
+        <label>New Bond/Sukuk Sell Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Loan / Finance Application</fullName>
+        <default>false</default>
+        <label>New Loan / Finance Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Loan / Finance Service Request</fullName>
+        <default>false</default>
+        <label>New Loan / Finance Service Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Offers/campaigns</fullName>
+        <default>false</default>
+        <label>Offers/campaigns</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Official letter</fullName>
+        <default>false</default>
+        <label>Official letter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Onboarding</fullName>
+        <default>false</default>
+        <label>Onboarding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>On-boarding</fullName>
+        <default>false</default>
+        <label>On-boarding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Onboarding Journey Support</fullName>
+        <default>false</default>
+        <label>Onboarding Journey Support</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Outbound call</fullName>
+        <default>false</default>
+        <label>Outbound call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Password</fullName>
+        <default>false</default>
+        <label>Password</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Payments &amp; Transfer</fullName>
+        <default>false</default>
+        <label>Payments &amp; Transfer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Periodic Review</fullName>
+        <default>false</default>
+        <label>Periodic Review</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Personal Info Update</fullName>
+        <default>false</default>
+        <label>Personal Info Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Personal Info Update Mobile</fullName>
+        <default>false</default>
+        <label>Personal Info Update Mobile</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PingOne Support</fullName>
+        <default>false</default>
+        <label>PingOne Support</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PLA</fullName>
+        <default>false</default>
+        <label>PLA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Post Transaction on Dormant Account</fullName>
+        <default>false</default>
+        <label>Post Transaction on Dormant Account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Premium</fullName>
+        <default>false</default>
+        <label>Premium</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Premium Invitation Application</fullName>
+        <default>false</default>
+        <label>Premium Invitation Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Premium Retention Application</fullName>
+        <default>false</default>
+        <label>Premium Retention Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prizeout</fullName>
+        <default>false</default>
+        <label>Prizeout</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product</fullName>
+        <default>false</default>
+        <label>Product</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Manual Customer Archival</fullName>
+        <default>false</default>
+        <label>Prospect Archival</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Query</fullName>
+        <default>false</default>
+        <label>Query</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reactivate Dormant Relationship</fullName>
+        <default>false</default>
+        <label>Reactivate Dormant Relationship</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Relationship Termination</fullName>
+        <default>false</default>
+        <label>Relationship Termination</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Release Hold Amount</fullName>
+        <default>false</default>
+        <label>Release Hold Amount</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rewards</fullName>
+        <default>false</default>
+        <label>Rewards</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RFI</fullName>
+        <default>false</default>
+        <label>RFI</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales</fullName>
+        <default>false</default>
+        <label>Sales</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Samsung Pay</fullName>
+        <default>false</default>
+        <label>Samsung Pay</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service</fullName>
+        <default>false</default>
+        <label>Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Stop Jamiyah</fullName>
+        <default>false</default>
+        <label>Stop Jamiyah</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Subscription Model Termination</fullName>
+        <default>false</default>
+        <label>Subscription Model Termination</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sukuk/bonds/Government security</fullName>
+        <default>false</default>
+        <label>Sukuk/bonds/Government security</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SWIFT</fullName>
+        <default>false</default>
+        <label>SWIFT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Swift Transfer</fullName>
+        <default>false</default>
+        <label>Swift Transfer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical</fullName>
+        <default>false</default>
+        <label>Technical</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Term Deposit</fullName>
+        <default>false</default>
+        <label>Term Deposit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tokenization</fullName>
+        <default>false</default>
+        <label>Tokenization</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transfers/Payment</fullName>
+        <default>false</default>
+        <label>Transfers/Payment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unblock Account</fullName>
+        <default>false</default>
+        <label>Unblock Account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unblock App Access</fullName>
+        <default>false</default>
+        <label>Unblock App Access</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Core Client Status</fullName>
+        <default>false</default>
+        <label>Update Core Client Status</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Wakala</fullName>
+        <default>false</default>
+        <label>Wakala</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Walkin Customer</fullName>
+        <default>false</default>
+        <label>Walkin Customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Walkin Customer Pop Up</fullName>
+        <default>false</default>
+        <label>Walkin Customer Pop Up</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Loan/ Finance Reapplying Restriction Update</fullName>
+        <default>false</default>
+        <label>Loan/ Finance Reapplying Restriction Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Call Verification</fullName>
+        <default>false</default>
+        <label>Customer Call Verification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Transaction &amp; Payment Disputes- Benefit</fullName>
+        <default>false</default>
+        <label>Customer Transaction &amp; Payment Disputes- Benefit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Business Light Flag</fullName>
+        <default>false</default>
+        <label>Customer Business Light Flag Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update ABCI Flag</fullName>
+        <default>false</default>
+        <label>Customer ABCI Flag Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Delinquency Reason</fullName>
+        <default>false</default>
+        <label>Customer Delinquency Reason Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancel Balance Transfer Plan</fullName>
+        <default>false</default>
+        <label>Cancel Balance Transfer Plan</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Funds Transfer - Fawri</fullName>
+        <default>false</default>
+        <label>Funds Transfer - Fawri</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Investment Questionnaire Review</fullName>
+        <default>false</default>
+        <label>New Investment Questionnaire Review</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Failed Authentication</fullName>
+        <default>false</default>
+        <label>Failed Authentication</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Place Hold</fullName>
+        <default>false</default>
+        <label>Place Hold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Release Hold</fullName>
+        <default>false</default>
+        <label>Release Hold</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Faults</fullName>
+        <default>false</default>
+        <label>Account Faults</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Login Failure</fullName>
+        <default>false</default>
+        <label>Login Failure</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transfer Issues</fullName>
+        <default>false</default>
+        <label>Transfer Issues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Card Faults</fullName>
+        <default>false</default>
+        <label>Card Faults</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Onboarding faults</fullName>
+        <default>false</default>
+        <label>Onboarding faults</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fees &amp; Charges/interest</fullName>
+        <default>false</default>
+        <label>Fees &amp; Charges/interest</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other issues</fullName>
+        <default>false</default>
+        <label>Other issues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Profile Update</fullName>
+        <default>false</default>
+        <label>Profile Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Manager Cheque</fullName>
+        <default>false</default>
+        <label>Manager Cheque</label>
+    </standardValue>
+    <standardValue>
+        <fullName>App Login</fullName>
+        <default>false</default>
+        <label>App Login</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Preferential FD Rate Flag</fullName>
+        <default>false</default>
+        <label>Update Preferential FD Rate Flag</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Loans - Collection Case</fullName>
+        <default>false</default>
+        <label>Loans - Collection Case</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Caller&apos;s Call Back</fullName>
+        <default>false</default>
+        <label>Caller&apos;s Call Back</label>
+    </standardValue>
+</StandardValueSet>

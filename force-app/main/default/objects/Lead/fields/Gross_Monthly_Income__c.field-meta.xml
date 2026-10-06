@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gross_Monthly_Income__c</fullName>
+    <description>Including Salary/Pension (BD)</description>
+    <label>Gross Monthly Income</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Region_Flag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>500</fullName>
+                <default>false</default>
+                <label>Below 500</label>
+            </value>
+            <value>
+                <fullName>750</fullName>
+                <default>false</default>
+                <label>500 – 999</label>
+            </value>
+            <value>
+                <fullName>1500</fullName>
+                <default>false</default>
+                <label>1,000 – 1,999</label>
+            </value>
+            <value>
+                <fullName>2500</fullName>
+                <default>false</default>
+                <label>2,000 – 2,999</label>
+            </value>
+            <value>
+                <fullName>4000</fullName>
+                <default>false</default>
+                <label>3,000 – 5,000</label>
+            </value>
+            <value>
+                <fullName>5000</fullName>
+                <default>false</default>
+                <label>Above 5,000</label>
+            </value>
+            <value>
+                <fullName>jor5000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Above JOD 5,000</label>
+            </value>
+            <value>
+                <fullName>jor0</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Below JOD 500</label>
+            </value>
+            <value>
+                <fullName>jor1000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>JOD 1,000 - JOD 1,999</label>
+            </value>
+            <value>
+                <fullName>jor2000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>JOD 2,000 - JOD 2,999</label>
+            </value>
+            <value>
+                <fullName>jor3000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>JOD 3,000 - JOD 5,000</label>
+            </value>
+            <value>
+                <fullName>jor500</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>JOD 500 - JOD 999</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>750</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>1500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>2500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>4000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>5000</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

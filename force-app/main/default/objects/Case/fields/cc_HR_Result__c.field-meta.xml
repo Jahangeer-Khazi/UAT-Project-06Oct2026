@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_HR_Result__c</fullName>
+    <label>HR Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Accept Release Letter</fullName>
+                <default>false</default>
+                <label>Accept Release Letter</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Escalate to Outside CRM Team</fullName>
+                <default>false</default>
+                <label>Escalate to Outside CRM Team</label>
+            </value>
+            <value>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+                <label>Cancel</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_CheckApprovedBuyoutAmount_Buyout</fullName>
+    <active>true</active>
+    <description>Approved Buyout Amount Calculation must be done before accepting the loan on OBL stage</description>
+    <errorConditionFormula>AND(
+ !ISPICKVAL(Case__r.cc_Control_Type__c, &apos;STP&apos;),
+	ISPICKVAL(cx_ln_Business_Nature_Type__c, &apos;Buyout Loan/Finance&apos;),
+	ISCHANGED(cx_ln_Document_Verifier_OBL_Result__c),
+	ISPICKVAL(cx_ln_Document_Verifier_OBL_Result__c, &apos;Accept&apos;),
+	OR( ISNULL(cx_ln_Approved_Buyout_Amount__c), cx_ln_Approved_Buyout_Amount__c = 0)
+)</errorConditionFormula>
+    <errorMessage>Approved Buyout Amount Calculation must be Completed ,please check the Liabilities Details tab</errorMessage>
+</ValidationRule>

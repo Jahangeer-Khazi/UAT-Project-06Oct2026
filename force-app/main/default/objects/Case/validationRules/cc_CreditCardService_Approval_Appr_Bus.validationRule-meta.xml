@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Approval_Appr_Bus</fullName>
+    <active>true</active>
+    <description>Business Team Cannot Change the Business Team result until Approver Escalate to Business.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Business_Approval_Result__c),
+NOT(ISPICKVAL(cc_Credit_Approval_Result__c, &apos;Escalate to Business Team&apos;)),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;),
+AND(ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;))
+)  
+)</errorConditionFormula>
+    <errorDisplayField>cc_Business_Approval_Result__c</errorDisplayField>
+    <errorMessage>Business team cannot change the Business team result until Approval Escalate to Business</errorMessage>
+</ValidationRule>

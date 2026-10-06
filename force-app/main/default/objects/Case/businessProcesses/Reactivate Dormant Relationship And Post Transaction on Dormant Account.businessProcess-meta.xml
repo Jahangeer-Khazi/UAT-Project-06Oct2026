@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reactivate Dormant Relationship And Post Transaction on Dormant Account</fullName>
+    <description>case opened when the customer is located at the Service Center and asking for reactivating his dormant relationship or there is a need to post a debit transaction on a dormant account</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Open</fullName>
+        <default>true</default>
+    </values>
+</BusinessProcess>

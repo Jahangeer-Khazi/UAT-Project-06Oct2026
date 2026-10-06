@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Current Accounts Dormant Stage --></label>
+    <name>Current_Accounts_Dormant_Stage__c</name>
+    <picklistValues>
+        <masterLabel>Closed</masterLabel>
+        <translation><!-- Closed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dormant</masterLabel>
+        <translation><!-- Dormant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_1</masterLabel>
+        <translation><!-- POST_DORMANT_1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_2</masterLabel>
+        <translation><!-- POST_DORMANT_2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_3</masterLabel>
+        <translation><!-- POST_DORMANT_3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_4</masterLabel>
+        <translation><!-- POST_DORMANT_4 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_5</masterLabel>
+        <translation><!-- POST_DORMANT_5 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_6</masterLabel>
+        <translation><!-- POST_DORMANT_6 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_7</masterLabel>
+        <translation><!-- POST_DORMANT_7 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_8</masterLabel>
+        <translation><!-- POST_DORMANT_8 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POST_DORMANT_9</masterLabel>
+        <translation><!-- POST_DORMANT_9 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PRE_DORMANT_1</masterLabel>
+        <translation><!-- PRE_DORMANT_1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PRE_DORMANT_2</masterLabel>
+        <translation><!-- PRE_DORMANT_2 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

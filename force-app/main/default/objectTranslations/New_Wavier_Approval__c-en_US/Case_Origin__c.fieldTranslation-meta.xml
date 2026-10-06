@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Case Origin --></label>
+    <name>Case_Origin__c</name>
+    <picklistValues>
+        <masterLabel>App</masterLabel>
+        <translation><!-- App --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Chat</masterLabel>
+        <translation><!-- Chat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Compliance</masterLabel>
+        <translation><!-- Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Email</masterLabel>
+        <translation><!-- Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud</masterLabel>
+        <translation><!-- Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ICU</masterLabel>
+        <translation><!-- ICU --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operation</masterLabel>
+        <translation><!-- Operation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Phone</masterLabel>
+        <translation><!-- Phone --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RCD</masterLabel>
+        <translation><!-- RCD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Service Center</masterLabel>
+        <translation><!-- Service Center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Social media</masterLabel>
+        <translation><!-- Social media --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

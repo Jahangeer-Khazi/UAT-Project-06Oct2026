@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_in_Mandaotry</fullName>
+    <active>false</active>
+    <errorConditionFormula>(TEXT( Residency__c)!=&apos;&apos;) &amp;&amp; (ISBLANK(Street) || ISBLANK( PostalCode ) || ISBLANK( City) ||ISBLANK( Country))</errorConditionFormula>
+    <errorMessage>Please fill the customer&apos;s Street address, City, Country and Postal code to proceed,</errorMessage>
+</ValidationRule>

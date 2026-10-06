@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attended_Identification_in_Person__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to track whether a customer attended the identification meeting in person</description>
+    <label>Attended Identification in Person?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

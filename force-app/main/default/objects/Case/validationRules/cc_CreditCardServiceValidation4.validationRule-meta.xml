@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardServiceValidation4</fullName>
+    <active>false</active>
+    <description>to validate the filed value changes after completion</description>
+    <errorConditionFormula>(Address_Updated_By__c = $User.Id) &amp;&amp; ISCHANGED(cc_Checker_Result__c) &amp;&amp; (TEXT(Type) != &quot;New Bank Statement Request&quot;  || TEXT(Type) = &quot;New Bank Statement Request&quot;  &amp;&amp; $User.Maker_Checker_Bypass_Flag__c = False) &amp;&amp;(TEXT(Type) != &quot;Customer Status Update&quot;  || TEXT(Type) = &quot;Customer Status Update&quot;  &amp;&amp; $User.Maker_Checker_Bypass_Flag__c = False)
+&amp;&amp; ($Profile.Name &lt;&gt; &apos;System Administrator&apos; &amp;&amp; $User.LastName &lt;&gt; &quot;Integration&quot;) &amp;&amp; (RecordType.DeveloperName != &apos;Credit_Collection_Letter&apos;)</errorConditionFormula>
+    <errorMessage>Maker of the case cannot update checker results</errorMessage>
+</ValidationRule>

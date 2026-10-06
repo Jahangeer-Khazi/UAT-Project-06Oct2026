@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Displays the current active segment of the customer --></help>
+    <label><!-- Segment --></label>
+    <name>Segment__c</name>
+    <picklistValues>
+        <masterLabel>Friends&amp;Family</masterLabel>
+        <translation><!-- Friends&amp;Family --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium</masterLabel>
+        <translation><!-- Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium Plus</masterLabel>
+        <translation><!-- Premium Plus --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Regular</masterLabel>
+        <translation><!-- Regular --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Staff</masterLabel>
+        <translation><!-- Staff --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Traders</masterLabel>
+        <translation><!-- Traders --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ultimate</masterLabel>
+        <translation><!-- Ultimate --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

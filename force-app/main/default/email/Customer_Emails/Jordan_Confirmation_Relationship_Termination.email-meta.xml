@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Jordan Confirmation Relationship Termination</name>
+    <style>none</style>
+    <subject>Account Closure Completed</subject>
+    <textOnly>Your ila case was closed
+
+Hi {!Case.Contact_First_Name__c}, please note your complaint {!Case.Subject} with the case number {!Case.CaseNumber} was closed with the following outcome:
+
+{!Case.Child_Case_Closure_Recommendation__c}.
+
+We hope that you are happy with the result.
+
+If you are not satisfied with the outcome, you can submit your complaint to the Central Bank of Jordan (CBJ) within 30 calendar days from the date of receiving our final response. You can raise your complaint on www.cbj.gov.jo
+
+Customers are at the heart of everything that we do at ila. We are constantly striving to enhance your banking experience. Thank you for being part of the ila family.
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

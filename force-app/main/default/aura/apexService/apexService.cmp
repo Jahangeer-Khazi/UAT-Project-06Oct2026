@@ -1,0 +1,29 @@
+<aura:component description="shared service code for communicating with apex controllers">
+    <!-- ========================== ATTRIBUTES ================================================ -->
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private"/>
+    <!-- ========================== METHOD ==================================================== -->
+    <aura:method name="request" action="{!c.doRequest}" >
+        <aura:attribute name="action" type="Object" required="true" />
+        <aura:attribute name="params" type="Object" required="true" />
+        <aura:attribute name="successCallback" type="function" required="true" />
+        <aura:attribute name="showLoading" type="Boolean" default="true"/>
+    </aura:method>
+    <aura:method name="showSpinner" action="{!c.doShowSpinner}" />
+    <aura:method name="showSuccessMessage" action="{!c.showSuccess}" >
+        <aura:attribute name="message" type="String" required="true" />
+    </aura:method>
+    <aura:method name="showWarningMessage" action="{!c.showWarning}" >
+        <aura:attribute name="message" type="String" required="true" />
+        <aura:attribute name="mode" type="String" required="false" default="dismissible" 
+            description="valid values are: pester|sticky|dismissible" />
+    </aura:method>
+    <aura:method name="showErrorMessage" action="{!c.showError}" >
+        <aura:attribute name="message" type="String" required="true" />
+        <aura:attribute name="mode" type="String" required="false" default="dismissible" 
+            description="valid values are: pester|sticky|dismissible" />
+    </aura:method>
+    <!-- ========================== LAYOUT ==================================================== -->
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner variant="brand" size="large" alternativeText="Please wait..."/>
+    </aura:if>
+</aura:component>

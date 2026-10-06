@@ -1,0 +1,83 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History: 
+ *	    	   #CH01# Added #28-10-2021# IBJCRM-86 "ID Type" and "Proof of Address ID Type" should not be greyed by YZ.
+ *	    	   #CH02# Added #18-11-2022# NBA-6348 "Address ID Issuance Date" and "Marital Status" fields become optional
+ *			   #CH03# Added #29-04-2025# #Jahangeer Mohammed# Added Passport Number, Passport Expiry Date field (NBA-13626)	   
+-->
+<aura:component >
+	<aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="string" default="view"/>
+    <aura:attribute name="caseRecordType" type="String" access="public" default=""/>
+    <aura:attribute name="readOnlyFields" type="Map" default="{}"/>
+    <aura:attribute name="isOnbording" type="Boolean" default="false"/>
+
+    <aura:attribute name="accountFLS" type="Map" default="{}"/>
+    <aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                         recordId="{!v.account.Id}"
+                                  		 recordTypeId="{!v.account.RecordTypeId}"
+                                         objectApiName="Account">
+
+           <!-- <lightning:notificationsLibrary aura:id="idValNotice"/>-->
+            <lightning:inputField aura:id="idType" fieldName="ID_Type__pc" required="{!v.isOnbording}" value="{!v.account.ID_Type__pc}"  disabled="{!v.readOnlyFields.id_type__pc}" variant="label-inline" />
+            <lightning:inputField  aura:id="idNationality" fieldName="ID_Nationality__pc" required="{!v.isOnbording}" value="{!v.account.ID_Nationality__pc}" disabled="{!v.readOnlyFields.id_nationality__pc}" variant="label-inline"/>
+            <lightning:input aura:id="idNumber" type="text" required="{!v.isOnbording}" value="{!v.account.ID_Number__pc}" disabled="{!v.readOnlyFields.id_number__pc}" label="ID Number" variant="label-inline" />
+            <!-- IBJCRM-92 - Display additional ID Number for Jordan-->
+            <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                <lightning:input type="text" required="{!and(v.isOnbording, v.account.Nationality__pc=='JO')}" value="{!v.account.ID_Number_2__pc}" disabled="{!v.readOnlyFields.ID_Number_2__pc}" label="Jordan ID Number" variant="label-inline" />
+            </aura:if>
+            <lightning:input aura:id="idExpiryDate" type="date" required="{!v.isOnbording}" value="{!v.account.ID_Expiry_Date__pc}" disabled="{!v.readOnlyFields.id_expiry_date__pc}" label="ID Expiry Date" variant="label-inline"/>
+            <lightning:inputField aura:id="poaIdType" fieldName="Proof_of_Address_ID_Type__pc" required="{!v.isOnbording}" value="{!v.account.Proof_of_Address_ID_Type__pc}" disabled="{!v.readOnlyFields.proof_of_address_id_type__pc}" variant="label-inline" />
+            <!-- IBJCRM-92 - Proof of address ID not required for Jordan-->
+            <lightning:input aura:id="poaIdNumber" type="text" required="{!and(v.isOnbording, v.account.Region_Flag__c=='Bahrain')}" value="{!v.account.Proof_of_Address_Id__pc}" disabled="{!v.readOnlyFields.proof_of_address_id__pc}" label="Proof of Address Id" variant="label-inline" />
+            <!--CH03 Start -->
+            <lightning:inputField aura:id="passportNumber" fieldName="Passport_Number__pc" value="{!v.account.Passport_Number__pc}" disabled="{!v.readOnlyFields.Passport_Number__pc}" required="{!v.account.ID_Type__pc == 'Passport'}" variant="label-inline"/>
+            <lightning:inputField aura:id="passExpiry" fieldName="Passport_Expiry_Date__pc" value="{!v.account.Passport_Expiry_Date__pc}" disabled="{!v.readOnlyFields.Passport_Expiry_Date__pc}" variant="label-inline"/>
+			<!-- CH03 END -->
+            <!-- IBJCRM-92 - Residency Permit Number and Residency Permit Expiry required for Jordan-->
+            <lightning:inputField fieldName="Residency_Permit_Number__pc" required="{!and(v.account.Region_Flag__c=='Jordan', or(and(v.account.Nationality__pc=='JO', v.account.Residency__pc!='JO'), and(v.account.Nationality__pc!='JO', v.account.Residency__pc=='JO')))}" value="{!v.account.Residency_Permit_Number__pc}" disabled="{!v.readOnlyFields.residency_permit_number__pc}" variant="label-inline"/>
+            <lightning:inputField fieldName="Residency_Permit_Expiry__pc" required="{!and(v.account.Region_Flag__c=='Jordan', or(and(v.account.Nationality__pc=='JO', v.account.Residency__pc!='JO'), and(v.account.Nationality__pc!='JO', v.account.Residency__pc=='JO')))}" value="{!v.account.Residency_Permit_Expiry__pc}" disabled="{!v.readOnlyFields.residency_permit_expiry__pc}" variant="label-inline" aura:id="rpExpiryDate"/>
+            <!-- IBJCRM-92 - Address ID Expiry Date not required for Jordan-->
+            <lightning:inputField aura:id="poaIDDate" fieldName="Address_ID_Expiry_Date__pc" required="{!and(v.isOnbording, v.account.Region_Flag__c=='Bahrain')}" value="{!v.account.Address_ID_Expiry_Date__pc}" disabled="{!v.readOnlyFields.address_id_expiry_Date__pc}" variant="label-inline"/>
+            <!-- IBJCRM-92 - Address ID Issuance Date required for Jordan-->  <!-- CH02 -->	
+            <lightning:inputField fieldName="Address_ID_Issuance_Date__pc" required="false" value="{!v.account.Address_ID_Issuance_Date__pc}" disabled="{!v.readOnlyFields.Address_ID_Issuance_Date__pc}" variant="label-inline"/>
+            <!-- CH01 Start-->
+            <lightning:inputField variant="label-inline" disabled="true" fieldName="Region_Flag__pc" value="{!v.account.Region_Flag__pc}" /> 
+            <!-- CH01 End-->
+        </lightning:recordEditForm>
+
+   <aura:set attribute="else">
+             <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    <div class="slds-box">
+                        <lightning:outputField aura:id="idType" fieldName="ID_Type__pc" />
+                        <lightning:outputField fieldName="Nationality__pc" />
+                        <lightning:outputField fieldName="ID_Number__pc" />
+                        <!-- IBJCRM-92 - Jordan field-->
+                        <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                            <lightning:outputField fieldName="ID_Number_2__pc" />
+                        </aura:if>
+                        <lightning:outputField fieldName="ID_Expiry_Date__pc" />
+                        <lightning:outputField fieldName="Proof_of_Address_ID_Type__pc" />
+                        <lightning:outputField fieldName="Proof_of_Address_Id__pc" />
+                        <lightning:outputField fieldName="Passport_Number__pc" />
+                        <lightning:outputField fieldName="Passport_Expiry_Date__pc" />
+                        <lightning:outputField fieldName="Residency_Permit_Number__pc" />
+                        <lightning:outputField fieldName="Residency_Permit_Expiry__pc" />
+                        <lightning:outputField fieldName="Address_ID_Expiry_Date__pc" />
+                        <!-- IBJCRM-92 - Jordan field-->
+                        <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                            <lightning:outputField fieldName="Address_ID_Issuance_Date__pc" />
+                        </aura:if>
+                    </div>
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

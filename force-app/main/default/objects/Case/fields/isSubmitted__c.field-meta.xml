@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isSubmitted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>to make the fields readonly after submitting the data from creditcardhandoff component</description>
+    <label>isSubmitted</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

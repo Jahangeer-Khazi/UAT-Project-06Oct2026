@@ -1,0 +1,133 @@
+<aura:component controller="BankCardListController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="cardId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    <aura:attribute name="selectedCardId" type="String" required="true" />
+    <!-- ============================================ -->
+
+    <aura:attribute name="cardData" type="Object" access="private"/>
+
+    <!-- CH01 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+
+
+    <lightning:card title="{! 'Card: ' +  v.cardData.provider + ' - ' +  v.cardData.maskedCardNumber }">
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Classification</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.productType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.cardType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Card Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Name on Card</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.embossName}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Default Account</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.defaultAccount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Linked Accounts</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <aura:if isTrue="{!empty(v.cardData.linkedAccounts)}">
+                                    &nbsp;
+                                <aura:set attribute="else">
+                                        {!v.cardData.linkedAccounts[0]}
+                                        <aura:iteration items="{!v.cardData.linkedAccounts}" var="item" start="1">
+                                            ,{!item}
+                                        </aura:iteration>
+
+                                </aura:set>
+                                </aura:if>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issue Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.issueDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Activation Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.cardData.activationDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+        </div>
+
+    </lightning:card>
+
+    <aura:if isTrue="{!true == v.enableActions}">
+        <c:bankCardActions customerId="{!v.customerId}" cardDetails="{!v.cardData}" selectedCardId="{!v.selectedCardId}"
+                           account="{!v.account}" caseId="{!v.caseId}"  accountId = "{!v.accountId}" isAlburaqProduct = "{!v.isAlburaqProduct}" />
+    </aura:if>
+
+
+    <c:apexService aura:id="apexService"/>
+</aura:component>

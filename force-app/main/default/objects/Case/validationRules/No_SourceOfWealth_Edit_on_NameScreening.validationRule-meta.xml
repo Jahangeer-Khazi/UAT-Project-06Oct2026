@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_SourceOfWealth_Edit_on_NameScreening</fullName>
+    <active>true</active>
+    <description>An error will occur if the source of wealth field is changed on cases where the case type is name screening.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Type,&apos;Name Screening&apos;), ISCHANGED(Source_of_Wealth__c))</errorConditionFormula>
+    <errorMessage>The Source of Wealth field cannot be edited on name screening cases.</errorMessage>
+</ValidationRule>

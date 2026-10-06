@@ -1,0 +1,280 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 15-08-2024
+ * 		Change History: 		
+     					#CH01# #03-08-2026# #Jahangeer Mohammed# Added Campaign Upgrade Logic(NBA-17681)
+ *					
+ *	    	   
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" controller="CreditCardUpgradeRequestController">
+	<aura:attribute name="cc_type" type="String" default="Credit Card Upgrade"/> 
+    <aura:attribute name="cc_subType" type="String" default="Credit Card Upgrade - No Limit Increase"/>
+    <aura:attribute name="cc_cardPCINumber" type="Map"/>
+    <aura:attribute name="cardUpgradeOptions" type="Map"/>
+    <aura:attribute name="selectedPCINumber" type="String"/>
+    <aura:attribute name="selectedCard" type="String"/>
+    <aura:attribute name="caseModel" type="String" />
+
+    <aura:attribute name="requestedCardType" type="String"/>
+    
+    <aura:attribute name="isHavingSuppCards" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="suppCardList" type="List" default="[]"/>
+    <aura:attribute name="selectedsuppCardList" type="List" default="[]"/>
+    <aura:attribute name="suppPCINames" type="String" />
+    <aura:attribute name="unselsuppPCINames" type="String" />
+    <aura:attribute name="ishandleLoad" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="currentCreditLimit" type="Decimal" />
+    <aura:attribute name="maskCardNumber" type="String" />
+    <aura:attribute name="isCashCollateral" type="Boolean" default="false" access="private"/>
+    
+    <aura:attribute name="hasCoBrandMembership" type="Boolean" default="false" />
+    <aura:attribute name="embossingLine4" type="String" default=""/>
+    <aura:attribute name = "hasValidateNumberButtonClicked" type="Boolean" default="false"/>
+
+    <aura:attribute name="pciNumber" type="String" />
+    <aura:attribute name="isDelinquent" type="Boolean"/>
+    <aura:attribute name="currentCardMinCreditLimit" type="Decimal"/>
+    <aura:attribute name="currentCardMinOutStandingBalance" type="Decimal"/>
+    <aura:attribute name="currentCardHoldRefNumber" type="String"/>
+    <aura:attribute name="currentCardHoldIBAN" type="String"/>
+    <aura:attribute name="newCardCustomerName" type="String"/>
+    <aura:attribute name="newCardLimit" type="Decimal"/>
+    <aura:attribute name="newCardMinCreditLimit" type="Decimal"/>
+    <aura:attribute name="newCardConfigurationId" type="String"/>
+    <aura:attribute name="existingCardNewCreditLimit" type="Decimal"/>
+    <aura:attribute name="existingCardNewHoldAmount" type="Decimal"/>
+    <aura:attribute name="existingCardNewPercentage" type="Integer"/>
+    <aura:attribute name="newHoldAmount" type="Decimal"/>
+    <aura:attribute name="newCardPercentage" type="Integer"/>
+    <!--CH01: Start -->
+    <aura:attribute name="isCampaignUpgradeUser" type="Boolean" default = "false"/>
+    <aura:attribute name="customerSegment" type="String"/>
+	<!-- CH01: END -->    
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/>		
+    
+    <div class="slds-hidden" style="height: 0px;">	
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">	
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <lightning:inputField aura:id="Segment" fieldName="Segment__pc" />
+        </lightning:recordEditForm>	
+    </div>	
+    
+     <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Credit Card Upgrade Request / Split Request</h4>
+            </span>
+        </h2>
+    </header>
+    
+    <lightning:card>
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!$Label.c.CREDIT_CARD_UPGRADE_REQUEST}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+           
+            <lightning:inputField fieldName="Subject" aura:id="subject"/>
+            <lightning:inputField fieldName="Description" aura:id="description"/>
+           	
+            <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value ="{!v.caseModel}"/>	
+            
+            <lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="namOnCard" required="true"/>
+            <lightning:inputField fieldName="Type" value="{!v.cc_type}" aura:id="type" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" value="{!v.cc_subType}" aura:id="subType" required="true" onchange="{!c.handlesubTypeChange}"/>
+            
+            
+            <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+            <lightning:inputField fieldName="Case_Nature__c" aura:id="Case_Nature__c" value="Credit Card"/>
+
+            <lightning:select aura:id="requestedPCINumber" value="{!v.selectedPCINumber}" name="Masked Card Number" label="Masked Card Number" required="true" onchange="{!c.requestPCINumberChange}" >
+                <option value="">--None--</option>
+                <aura:iteration items="{!v.cc_cardPCINumber}" var="i" indexVar="key">
+                    	<option text="{!i.cardObj.maskedCardNumber}" value="{!i.cardId}" selected="{!i.selected}" />
+                </aura:iteration>
+            </lightning:select>
+            <br/>
+            <!-- CH01 Start -->
+            <aura:if isTrue="{!and(v.customerSegment != 'Staff',and(v.cc_subType == 'Credit Card Upgrade - No Limit Increase',v.isCampaignUpgradeUser == true))}">
+                <div class="slds-col slds-size_1-of-1"> 
+            		<label for="campaignUpgrade" style="font-size: 12px;">Campaign Upgrade</label>
+            		<lightning:inputField fieldName="isSubmitted__c" aura:id="campaignUpgrade" disabled="false" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            <!-- CH01 END -->
+            <br/>
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Upgrade - No Limit Increase'}">
+                <lightning:inputField fieldName="Is_Initiated_from_Limit_Increase_Case__c" aura:id="Is_LMTIncrease_Case"/>                
+            </aura:if>
+            <aura:if isTrue="{! OR(v.cc_subType == 'Credit Card Limit Split', v.cc_subType == 'Credit Card Upgrade - No Limit Increase')}"> 
+				<lightning:inputField fieldName="Is_Cash_Collateral__c" aura:id="Is_Cash_Collateral" disabled="true" value="{! v.isCashCollateral}"/>
+            </aura:if>
+            <br/>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+                <lightning:inputField fieldName="Is_Delinquent__c" aura:id="Is_Delinquent" disabled="true" value="{! v.isDelinquent}"/>
+			</aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="pciNumber" style="font-size: 12px;">Current Card PCI Number</label>
+            		<lightning:inputField fieldName="cc_PCI_Id__c" aura:id="pciNumber" disabled="true" value="{!v.selectedPCINumber}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+           <aura:if isTrue="{! OR(v.cc_subType == 'Credit Card Limit Split', v.cc_subType == 'Credit Card Upgrade - No Limit Increase')}"> 
+           		<div class="slds-col slds-size_1-of-1"> 
+           			<label for="reqCardType" style="font-size: 12px;">Current Card Type</label>
+           			<lightning:inputField fieldName="Card_Type__c" aura:id="reqCardType" value="{!v.requestedCardType}" disabled="true" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <aura:if isTrue="{! OR(v.cc_subType == 'Credit Card Limit Split', v.cc_subType == 'Credit Card Upgrade - No Limit Increase')}"> 
+				<lightning:inputField fieldName="cc_Current_Credit_Limit__c" aura:id="cc_Current_Credit_Limit" disabled="true" value="{! v.currentCreditLimit}"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="currentCardMinLmt" style="font-size: 12px;">Current Card Minimum Credit Limit</label>
+            		<lightning:inputField fieldName="cc_Monthly_Limit_Value__c" aura:id="currentCardMinLmt" disabled="true" value="{!v.currentCardMinCreditLimit}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="currentCardOutBal" style="font-size: 12px;">Current Card Outstanding Balance</label>
+            		<lightning:inputField fieldName="Credit_Card_Outstanding_Balance__c" aura:id="currentCardOutBal" disabled="true" value="{!v.currentCardMinOutStandingBalance}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+             <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="currentCardHoldRefNumber" style="font-size: 12px;">Current Card Hold Ref No</label>
+            		<lightning:inputField fieldName="ccol_Hold_Reference_Number__c" aura:id="currentCardHoldRefNumber" disabled="true" value="{!v.currentCardHoldRefNumber}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="currentCardHoldIBAN" style="font-size: 12px;">Current Card Hold IBAN</label>
+            		<lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" aura:id="currentCardHoldIBAN" disabled="true" value="{!v.currentCardHoldIBAN}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Upgrade - No Limit Increase'}"> 
+                <lightning:select aura:id="upgradeCardTo" value="{!v.selectedCard}" name = "Upgrade Card To" label = "Upgrade Card To / Split Credit Limit To" required="true">
+                	<option value="">--None--</option>
+                	<aura:iteration items="{!v.cardUpgradeOptions}" var="i" indexVar="key">
+                    	<option text="{!i.key}" value="{!i.value}" selected="{!i.selected}" />
+                	</aura:iteration>
+            	</lightning:select>
+            </aura:if>
+                        
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}"> 
+                <lightning:select aura:id="upgradeCardTo" value="{!v.selectedCard}" name = "Upgrade Card To" label = "Upgrade Card To / Split Credit Limit To" required="true" onchange="{!c.upgradeCardTypeChange}">
+                	<option value="">--None--</option>
+                	<aura:iteration items="{!v.cardUpgradeOptions}" var="i" indexVar="key">
+                    	<option text="{!i.key}" value="{!i.value.productMappingCode}" selected="{!i.selected}" />
+                	</aura:iteration>
+            	</lightning:select>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="newCardCustName" style="font-size: 12px;">New Card Customer Name</label>
+            		<lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="newCardCustName" disabled="false" value="{!v.newCardCustomerName}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="newCardLimit" style="font-size: 12px;">New Card Limit</label>
+            		<lightning:inputField fieldName="AIR_CreditCardLimit__c" aura:id="newCardLimit" disabled="false" value="{!v.newCardLimit}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+            	<div class="slds-col slds-size_1-of-1"> 
+            		<label for="newCardMinLimit" style="font-size: 12px;">New Card Minimum Credit Limit</label>
+            		<lightning:inputField fieldName="sc_Spending_Limit_Amount__c" aura:id="newCardMinLimit" disabled="true" value="{!v.newCardMinCreditLimit}" variant="label-hidden"/>
+            	</div>
+            </aura:if>
+            
+            <div class="slds-hide">
+                <lightning:inputField fieldName="cc_Requested_Card_Type__c" value="{!v.selectedCard}" aura:id="card"/>
+                <lightning:inputField fieldName="cc_PCI_Id__c" value="{!v.selectedPCINumber}" aura:id="mcard"/>
+		   </div>
+            
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Limit Split'}">
+                <div class="slds-hide"> 
+                    <lightning:inputField fieldName="PrimaryCardProductConfigurationId__c" value="{!v.newCardConfigurationId}" aura:id="newCardConfigId"/>
+                    <lightning:inputField fieldName="Existing_Card_New_Credit_Limit__c" value="{!v.existingCardNewCreditLimit}" aura:id="existCardNewLimit"/>
+					<lightning:inputField fieldName="Current_Card_New_Hold_Amount__c" value="{!v.existingCardNewHoldAmount}" aura:id="existingCardNewHold"/>
+                    <lightning:inputField fieldName="ppc_HoldAmount__c" value="{!v.existingCardNewPercentage}" aura:id="existingCardNewPercentage"/>
+                    <lightning:inputField fieldName="ccol_New_Hold_Amount__c" value="{!v.newHoldAmount}" aura:id="newHoldAmt"/>
+                    <lightning:inputField fieldName="Other_Fees__c" value="{!v.newCardPercentage}" aura:id="newCardPercent"/>
+
+                </div>
+            </aura:if>
+            
+            <!--/********************************** Checking for Co-Branded Cards Start ****************************************/-->
+            
+            <aura:if isTrue="{! OR(v.cc_subType == 'Credit Card Limit Split', v.cc_subType == 'Credit Card Upgrade - No Limit Increase')}"> 
+				<aura:if isTrue="{!v.selectedCard == 'ILA_GULF_AIR_COBRAND_01'}">	
+                	<lightning:inputField fieldName="Consent_to_share_information__c" required="true"/>
+                	<lightning:inputField fieldName="Has_Co_Brand_Membership_Number__c" onchange="{!c.handleCobrandChange}"/>
+                
+                	<aura:if isTrue="{!v.hasCoBrandMembership}">
+                    	<div style="display: flex; align-items: center; gap: 8px;">
+                     		<div style="flex: 1;">
+            					<lightning:inputField fieldName="cc_Embossing_Line_4__c" value="{!v.embossingLine4}" onchange="{!c.handleEmbossChange}"/>
+                     		</div>
+                        	<div class="button-container">
+                            	<aura:if isTrue="{!v.embossingLine4}">
+                           			<lightning:button variant="brand" label="Validate Number" onclick="{!c.fetchMembershipId}"/>
+                            	</aura:if>
+                        	</div>
+                    	</div>           
+        			</aura:if>
+            	</aura:if>
+            </aura:if>
+            
+            <!--/***************************************** Checking for Co-Branded Cards END *******************************/ -->
+            <aura:if isTrue="{!v.cc_subType == 'Credit Card Upgrade - No Limit Increase'}">
+            	<aura:if isTrue="{!v.isHavingSuppCards == true}">      
+                	<lightning:dualListbox  aura:id="selectedSupp"
+                    				    name="Supplementarycards"
+                    					label="Supplementary Cards"
+                    					sourceLabel="Available Supplementary Cards"
+                    					selectedLabel="Selected Supplementary Cards"
+                    					options="{!v.suppCardList }"
+                                        value="{!v.selectedsuppCardList}"
+                                        onchange="{!c.handlesuppCardChange}"/>
+                
+               		<lightning:inputField fieldName="Selected_Supplementary_Cards__c" aura:id="Selected_Supplementary_Cards" disabled="true" value="{! v.suppPCINames}"/>
+               		<lightning:inputField fieldName="Un_Selected_Supplementary_Cards__c" aura:id="UnSelected_Supplementary_Cards" disabled="true" value="{! v.unselsuppPCINames}"/>
+				</aura:if>
+            </aura:if>                                                                                                                                                                
+            
+            <div class="slds-hide">
+                <!--- Masked Card Number -->
+                <lightning:inputField fieldName="cc_Credit_Card_PCI_Number__c" value="{!v.maskCardNumber}" aura:id="card"/>
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+            </div> 
+           
+            
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

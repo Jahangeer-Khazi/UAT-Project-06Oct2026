@@ -1,0 +1,9 @@
+.slds-modal__close{
+    display: none!important;
+}
+.slds-button{
+    display: none!important;
+}
+.slds-modal__container{
+    display: none!important;
+}

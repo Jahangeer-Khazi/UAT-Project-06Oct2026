@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>Related to Salesforce Case Record Type. Classifies the process involved in the System Action.</description>
+    <inlineHelpText>Related to Salesforce Case Record Type. Classifies the process involved in the System Action.</inlineHelpText>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>On-boarding</fullName>
+                <default>false</default>
+                <label>On-boarding</label>
+            </value>
+            <value>
+                <fullName>Transaction</fullName>
+                <default>false</default>
+                <label>Transaction</label>
+            </value>
+            <value>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+                <label>Complaint</label>
+            </value>
+            <value>
+                <fullName>Service Request</fullName>
+                <default>false</default>
+                <label>Service Request</label>
+            </value>
+            <value>
+                <fullName>Manual Authentication</fullName>
+                <default>false</default>
+                <label>Manual Authentication</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Jamiyah</fullName>
+                <default>false</default>
+                <label>Jamiyah</label>
+            </value>
+            <value>
+                <fullName>Credit Card - FCR</fullName>
+                <default>false</default>
+                <label>Credit Card - FCR</label>
+            </value>
+            <value>
+                <fullName>Credit Card - Staff  Application</fullName>
+                <default>false</default>
+                <label>Credit Card - Staff  Application</label>
+            </value>
+            <value>
+                <fullName>Update Customer Profile</fullName>
+                <default>false</default>
+                <label>Update Customer Profile</label>
+            </value>
+            <value>
+                <fullName>Periodic Review</fullName>
+                <default>false</default>
+                <label>Periodic Review</label>
+            </value>
+            <value>
+                <fullName>Credit Card Upgrade</fullName>
+                <default>false</default>
+                <label>Credit Card Upgrade</label>
+            </value>
+            <value>
+                <fullName>Jordan Periodic Review</fullName>
+                <default>false</default>
+                <label>Jordan Periodic Review</label>
+            </value>
+            <value>
+                <fullName>Credit Card Limit Increase</fullName>
+                <default>false</default>
+                <label>Credit Card Limit Increase</label>
+            </value>
+            <value>
+                <fullName>Credit Card Account Closure</fullName>
+                <default>false</default>
+                <label>Credit Card Account Closure</label>
+            </value>
+            <value>
+                <fullName>Credit Card Limit Split</fullName>
+                <default>false</default>
+                <label>Credit Card Limit Split</label>
+            </value>
+            <value>
+                <fullName>Credit Card BCRB</fullName>
+                <default>false</default>
+                <label>Credit Card BCRB</label>
+            </value>
+            <value>
+                <fullName>Convert Credit Card Application</fullName>
+                <default>false</default>
+                <label>Convert Credit Card Application</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

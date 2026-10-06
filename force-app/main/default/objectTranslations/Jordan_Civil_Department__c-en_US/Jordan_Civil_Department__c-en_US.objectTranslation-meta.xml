@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Jordan Civil Department</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Jordan Civil Department Items</value>
+    </caseValues>
+    <layouts>
+        <layout>Jordan Civil Department Layout</layout>
+        <sections>
+            <label><!-- Birth Info --></label>
+            <section>Birth Info</section>
+        </sections>
+        <sections>
+            <label><!-- Birth Location --></label>
+            <section>Birth Location</section>
+        </sections>
+        <sections>
+            <label><!-- Card Info --></label>
+            <section>Card Info</section>
+        </sections>
+        <sections>
+            <label><!-- Children --></label>
+            <section>Children</section>
+        </sections>
+        <sections>
+            <label><!-- Civil Info --></label>
+            <section>Civil Info</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Family Info --></label>
+            <section>Family Info</section>
+        </sections>
+        <sections>
+            <label><!-- General Info --></label>
+            <section>General Info</section>
+        </sections>
+        <sections>
+            <label><!-- Marriage Info --></label>
+            <section>Marriage Info</section>
+        </sections>
+        <sections>
+            <label><!-- Passport Info --></label>
+            <section>Passport Info</section>
+        </sections>
+        <sections>
+            <label><!-- Personal Image --></label>
+            <section>Personal Image</section>
+        </sections>
+        <sections>
+            <label><!-- Religion Info --></label>
+            <section>Religion Info</section>
+        </sections>
+        <sections>
+            <label><!-- Residency Info --></label>
+            <section>Residency Info</section>
+        </sections>
+        <sections>
+            <label><!-- Social Status Info --></label>
+            <section>Social Status Info</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

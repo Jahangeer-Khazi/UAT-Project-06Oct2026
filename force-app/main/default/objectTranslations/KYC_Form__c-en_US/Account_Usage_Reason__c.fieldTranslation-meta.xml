@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Account Usage Reason --></label>
+    <name>Account_Usage_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Current account</masterLabel>
+        <translation><!-- Current account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Daily expenses</masterLabel>
+        <translation><!-- Daily expenses --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposits</masterLabel>
+        <translation><!-- Fixed Deposits --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Foreign currency transactions</masterLabel>
+        <translation><!-- Foreign currency transactions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hassala (Saving)</masterLabel>
+        <translation><!-- Hassala (Saving) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Islamic Banking Products</masterLabel>
+        <translation><!-- Islamic Banking Products --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jamiyah</masterLabel>
+        <translation><!-- Jamiyah --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Obtaining credit facility</masterLabel>
+        <translation><!-- Obtaining credit facility --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Remittances</masterLabel>
+        <translation><!-- Remittances --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Salary transfer</masterLabel>
+        <translation><!-- Salary transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Saving</masterLabel>
+        <translation><!-- Saving --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Travel expenses</masterLabel>
+        <translation><!-- Travel expenses --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

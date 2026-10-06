@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Residence_Mand</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+$User.LastName &lt;&gt; &apos;Integration&apos;,
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;),
+ISCHANGED(cc_Same_Residence_Address__c ),
+IF(cc_Same_Residence_Address__c == false , true, false),
+OR(
+ISBLANK(cc_House_Flat_Number__c),ISBLANK(cc_Building__c),
+ISBLANK(Street_Road_No__c),ISBLANK(cc_Block_No__c),
+ISBLANK(cc_City__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Please provide House Flat Number, Building, Street/Road No, Block No, and City.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Application_Stages__c</fullName>
+    <label>Application Stages</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Credit Pre-Screening</fullName>
+                <default>false</default>
+                <label>Credit Pre-Screening</label>
+            </value>
+            <value>
+                <fullName>Credit Evaluation</fullName>
+                <default>false</default>
+                <label>Credit Evaluation</label>
+            </value>
+            <value>
+                <fullName>Credit Verification</fullName>
+                <default>false</default>
+                <label>Credit Verification</label>
+            </value>
+            <value>
+                <fullName>Credit Approval</fullName>
+                <default>false</default>
+                <label>Credit Approval</label>
+            </value>
+            <value>
+                <fullName>Credit CEO</fullName>
+                <default>false</default>
+                <label>Credit CEO</label>
+            </value>
+            <value>
+                <fullName>Credit Business Team</fullName>
+                <default>false</default>
+                <label>Credit Business Team</label>
+            </value>
+            <value>
+                <fullName>Credit Contact Centre</fullName>
+                <default>false</default>
+                <label>Credit Contact Centre</label>
+            </value>
+            <value>
+                <fullName>Credit Service Centre</fullName>
+                <default>false</default>
+                <label>Credit Service Centre</label>
+            </value>
+            <value>
+                <fullName>Credit HR Team</fullName>
+                <default>false</default>
+                <label>Credit HR Team</label>
+            </value>
+            <value>
+                <fullName>Credit Buyout</fullName>
+                <default>false</default>
+                <label>Credit Buyout</label>
+            </value>
+            <value>
+                <fullName>Credit Signature Verification</fullName>
+                <default>false</default>
+                <label>Credit Signature Verification</label>
+            </value>
+            <value>
+                <fullName>Document Verifier</fullName>
+                <default>false</default>
+                <label>Document Verifier</label>
+            </value>
+            <value>
+                <fullName>Credit Maker</fullName>
+                <default>false</default>
+                <label>Credit Maker</label>
+            </value>
+            <value>
+                <fullName>CRM Team</fullName>
+                <default>false</default>
+                <label>CRM Team</label>
+            </value>
+            <value>
+                <fullName>Credit Card Retention</fullName>
+                <default>false</default>
+                <label>Credit Card Retention</label>
+            </value>
+            <value>
+                <fullName>Credit Business Team L2</fullName>
+                <default>false</default>
+                <label>Credit Business Team L2</label>
+            </value>
+            <value>
+                <fullName>Credit Business Team L3</fullName>
+                <default>false</default>
+                <label>Credit Business Team L3</label>
+            </value>
+            <value>
+                <fullName>Credit Admin</fullName>
+                <default>false</default>
+                <label>Credit Admin</label>
+            </value>
+            <value>
+                <fullName>Credit Operation</fullName>
+                <default>false</default>
+                <label>Credit Operation</label>
+            </value>
+            <value>
+                <fullName>Credit Operation BT Team</fullName>
+                <default>false</default>
+                <label>Credit Operation BT Team</label>
+            </value>
+            <value>
+                <fullName>Credit Fraud Team</fullName>
+                <default>false</default>
+                <label>Credit Fraud Team</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Docs Discrepancy</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Docs Discrepancy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

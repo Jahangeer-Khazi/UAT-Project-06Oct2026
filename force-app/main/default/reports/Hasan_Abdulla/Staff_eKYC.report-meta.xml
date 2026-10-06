@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>PC_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>PC_LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.ID_Number__c</field>
+    </columns>
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.ID_Number__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>851005993,801107660,950501107,960908552,831273339,880508540,840878796,831480408,821126040,840306385,810729571,090213378,870403087,811052397,900710659,980504376,960501954,941100766,780307070,871003902,840509472</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Staff - eKYC</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

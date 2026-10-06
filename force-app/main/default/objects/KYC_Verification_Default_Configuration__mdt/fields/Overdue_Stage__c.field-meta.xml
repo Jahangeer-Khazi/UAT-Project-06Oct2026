@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overdue_Stage__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Overdue Stage</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Stage 1 – No Restrictions</fullName>
+                <default>true</default>
+                <label>Stage 1 – No Restrictions</label>
+            </value>
+            <value>
+                <fullName>Stage 2 – Block Debit Cards</fullName>
+                <default>false</default>
+                <label>Stage 2 – Block Debit Cards</label>
+            </value>
+            <value>
+                <fullName>Stage 3 – Block Debit Cards, Credit Cards &amp; Account Debits</fullName>
+                <default>false</default>
+                <label>Stage 3 – Block Debit Cards, Credit Cards &amp; Account Debits</label>
+            </value>
+            <value>
+                <fullName>Stage 4 – App Access</fullName>
+                <default>false</default>
+                <label>Stage 4 – App Access</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

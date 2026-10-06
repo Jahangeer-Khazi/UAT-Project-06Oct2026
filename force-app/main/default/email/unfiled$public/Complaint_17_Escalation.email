@@ -1,0 +1,10 @@
+*** CASE ESCALATION ALERT *** 
+
+The following case has been escalated because it has been open for 17 days: 
+Company: {!Account.Name} 
+Case: {!Case.CaseNumber}: {!Case.Subject} 
+Owner: {!Case.OwnerFullName} 
+
+Click on the link to access the case: {!Case.Link}
+
+Please note that according to our Policies, we should close the Case within 20 days.

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Onboarding_stage_Values__c</fullName>
+    <description>This field is used on the visibility of Manual Onboarding Case Action</description>
+    <formula>OR(
+				ISPICKVAL(Onboarding_Stage__pc, &apos;SCREENING_IN_PROGRESS&apos;) ,
+	   ISPICKVAL(Onboarding_Stage__pc, &apos;REJECTED_UNDERAGE&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;ID_MANUAL_ENTRY&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;ID_MANUAL_ENTRY_APPROVED&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;REFERRED_NO_RETRY_ID&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;REFERRED_NO_RETRY_ADDRESS&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;REFERRED_NO_RETRY&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;ACCOUNT_OPENING_REASON_SET&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;ROB_EMAIL_VERIFIED&apos;),
+    ISPICKVAL(Onboarding_Stage__pc, &apos;ROB_MOBILE_VERIFIED&apos;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Onboarding stage Values</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

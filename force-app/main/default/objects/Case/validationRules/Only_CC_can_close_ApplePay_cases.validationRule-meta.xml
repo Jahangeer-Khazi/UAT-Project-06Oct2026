@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_CC_can_close_ApplePay_cases</fullName>
+    <active>true</active>
+    <description>Apple Pay &apos;Dispute&apos; cases can be only closed by CC
+$User.LastName &lt;&gt; &apos;Pandey&apos; &amp;&amp;</description>
+    <errorConditionFormula>AND(
+				ISPICKVAL(Sub_Type__c , &apos;Dispute&apos;),
+				TEXT(Type) = &apos;Apple Pay&apos;,
+				$UserRole.Name &lt;&gt; &apos;Contact Center&apos;,
+				$UserRole.Name &lt;&gt; &apos;Jordan Contact Center&apos;,
+				ISPICKVAL (Status , &apos;Closed&apos;)
+)</errorConditionFormula>
+    <errorMessage>Only Contact Center agents can close &apos;Dispute&apos; Apple Pay cases</errorMessage>
+</ValidationRule>

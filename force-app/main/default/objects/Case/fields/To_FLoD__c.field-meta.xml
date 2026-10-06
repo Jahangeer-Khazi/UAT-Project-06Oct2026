@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_FLoD__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To be used to assign the case to the FLoD queue for RFI cases</description>
+    <label>To FLoD</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

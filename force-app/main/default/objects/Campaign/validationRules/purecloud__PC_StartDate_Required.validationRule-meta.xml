@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>purecloud__PC_StartDate_Required</fullName>
+    <active>true</active>
+    <description>A start date is required for PureCloud Campaigns</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(purecloud__PureCloud_Campaign_Setting__c)), ISBLANK(StartDate))</errorConditionFormula>
+    <errorDisplayField>StartDate</errorDisplayField>
+    <errorMessage>A start date is required for PureCloud Campaigns. Select today&apos;s date to start a PureCloud campaign immediately.</errorMessage>
+</ValidationRule>

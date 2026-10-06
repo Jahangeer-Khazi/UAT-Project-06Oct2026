@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>World Elite Benefits</masterLabel>
+        <translation><!-- World Elite Benefits --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>World Elite Metal Whitelisting</masterLabel>
+        <translation><!-- World Elite Metal Whitelisting --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

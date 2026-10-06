@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_icon__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(TEXT (Region_Flag__c) == &apos;Jordan&apos;,IMAGE(&apos;/resource/1678367073000/JO_Flag/&apos;, &apos;JO_Flag&apos;,55,90),IMAGE(&apos;/resource/1678367073000/BA_Flag/&apos;, &apos;BA_Flag&apos;,55,90) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

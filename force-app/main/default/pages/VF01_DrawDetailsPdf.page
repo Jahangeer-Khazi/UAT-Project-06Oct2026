@@ -1,0 +1,560 @@
+<!--
+  @History : #CH01 : 29/12/2022 by Aniss Raffle Application Ad-hoc Recurring Raffle Automation  (CRM-Changes)
+             #CH02 : 17/04/2025 by Aniss // NBA-13163 (Al Kanz - Changes to Raffle Application for Staff & Relatives Draws)
+-->
+<apex:page standardController="Draw__c" extensions="VF01_DrawDetailsController" renderAs="PDF" applyBodyTag="false" contentType="html" showHeader="false">
+
+    <head>
+        <!-- <apex:stylesheet value="{!$Resource.}" /> -->
+        <style>
+            @page {
+                size: A4;
+                margin-top: 1cm;
+                margin-bottom: 2cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                /* font-family: 'Neo Sans'; */
+                font-family: 'Open Sans', Inter, sans-serif;
+                @top-center {
+                    content: element(headerTitle);
+                }
+                div.headerTitle {
+                    position: running(headerTitle);
+                }
+            }
+
+            td, th {
+                border: 1px solid;
+                text-align: center;
+                /* overflow: hidden; */
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            .Draw_Page_Break {
+                page-break-after: always;
+            }
+            ul.list { list-style-type:circle;font-size:12px; padding-left:5px; }
+        </style>
+    </head>
+
+    <body>
+        <!-- toUse : border: 1px solid #000; -->
+
+        <!-- this div contains ila image and header title -->
+        <div class="headerTitle">
+            <div style="text-align:right;">
+                <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" />
+            </div>
+
+            <br />
+            <br />
+            <div style="text-align:center;">
+                <b> Raffle Draw :  </b>{!Draw__c.Draw_Name__c}
+                <br />
+                <!-- <apex:outputText value="{0, date, dd-MM-yyyy HH:mm:ss}">
+                    <apex:param value="{!Draw__c.Draw_Date__c}" />
+                </apex:outputText> -->
+                <apex:outputField value="{!Draw__c.Draw_Date__c}"/>
+            </div>
+        </div>
+        
+        <br />
+        <br />
+
+        <!-- #CH01 : Start -->
+        <b> Campaign From Date : </b> <apex:outputField value="{!Draw__c.Campaign_From_Date__c}"/>
+        <br />
+        <b> Campaign To Date : </b> <apex:outputField value="{!Draw__c.Campaign_To_Date__c}"/>
+        <br />
+        <br />
+        <!-- #CH01 : End -->
+
+        <!-- this div contains MOIC Approval Reference Number -->
+        <apex:outputPanel rendered="{!Draw__c.RegionFlag__c != 'Jordan'}">
+            <div>
+                <b>MOIC Approval Reference Number:</b>
+            </div>
+            <br />
+            <br />
+        </apex:outputPanel>
+        
+        <!-- this div contains Raffle Draw Attendees table -->
+        <div>
+            <b>Raffle Draw Attendees:</b>
+            <br />
+            <br />
+            <apex:outputPanel rendered="{!Draw__c.RegionFlag__c != 'Jordan'}">
+                <!-- #CH02 : Start -->
+                <apex:outputPanel rendered="{!Draw__c.Draw_Type__c != 'kanzStaff'}">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th> <b>No.</b></th>
+                                <th> <b>Name</b></th>
+                                <th><b>Department</b></th>
+                                <th><b>Signature</b></th>
+        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="height: 50px">
+                                <td><b>1</b></td>
+                                <td>{!Draw__c.MOIC_Representative_Name__c}</td>
+                                <td>MOIC Representative</td>
+                                <td></td>
+        
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>2</b></td>
+                                <td>{!Draw__c.Internal_Auditor_Name__c}</td>
+                                <td>Internal Auditor</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>3</b></td>
+                                <td>{!Draw__c.External_Auditor_Name__c}</td>
+                                <td>External Auditor</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>4</b></td>
+                                <td>{!Draw__c.ila_Marketing__c}</td>
+                                <td>ila Marketing</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>5</b></td>
+                                <td>{!Draw__c.ila_Business__c}</td>
+                                <td>ila Business</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>6</b></td>
+                                <td>{!Draw__c.ila_Finance__c}</td>
+                                <td>ila Finance</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!Draw__c.Draw_Type__c == 'kanzStaff'}">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th> <b>No.</b></th>
+                                <th> <b>Name</b></th>
+                                <th><b>Department</b></th>
+                                <th><b>Signature</b></th>
+        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="height: 50px">
+                                <td><b>1</b></td>
+                                <td>{!Draw__c.MOIC_Representative_Name__c}</td>
+                                <td>MOIC Representative</td>
+                                <td></td>
+        
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>2</b></td>
+                                <td>{!Draw__c.Internal_Auditor_Name__c}</td>
+                                <td>Internal Auditor</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>3</b></td>
+                                <td>{!Draw__c.External_Auditor_Name__c}</td>
+                                <td>External Auditor</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>4</b></td>
+                                <td>{!Draw__c.ila_Marketing__c}</td>
+                                <td>ila Marketing</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>5</b></td>
+                                <td>{!Draw__c.ila_Business__c}</td>
+                                <td>ila Business</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>6</b></td>
+                                <td>{!Draw__c.ila_Operations__c}</td>
+                                <td>ila Operations</td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td><b>7</b></td>
+                                <td>{!Draw__c.ila_HR__c}</td>
+                                <td>ila HR</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                <!-- #CH02 : End -->
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!Draw__c.RegionFlag__c == 'Jordan'}">
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th> <b>No.</b></th>
+                            <th> <b>Name</b></th>
+                            <th><b>Department</b></th>
+                            <th><b>Signature</b></th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height: 50px">
+                            <td><b>1</b></td>
+                            <td>{!Draw__c.Internal_Auditor_Name__c}</td>
+                            <td>Internal Auditor</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>2</b></td>
+                            <td>{!Draw__c.External_Auditor_Name__c}</td>
+                            <td>External Auditor</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>3</b></td>
+                            <td>{!Draw__c.ila_Marketing__c}</td>
+                            <td>ila Marketing</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>4</b></td>
+                            <td>{!Draw__c.ila_Business__c}</td>
+                            <td>ila Business</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>5</b></td>
+                            <td>{!Draw__c.ila_Risk__c}</td>
+                            <td>ila Risk</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>6</b></td>
+                            <td>{!Draw__c.ComplianceDepartment__c}</td>
+                            <td>Compliance Department</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>7</b></td>
+                            <td>{!Draw__c.LegalDepartment__c}</td>
+                            <td>Legal Department</td>
+                            <td></td>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td><b>8</b></td>
+                            <td>{!Draw__c.HumanResourcesDepartment__c}</td>
+                            <td>Human Resources Department</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+        </div>
+
+        <br />
+        <br />
+        
+        <!-- this div contains Raffle Draw Winners -->
+        <div>
+            <b>Winner Details ( <span>{!winnersSize} Winner(s)</span> ) :</b>
+            <br />
+            <br />
+            
+            <apex:variable var="tableCount" value="{!0}"/>
+            <apex:variable var="each6Tables" value="{!0}"/>
+
+            <apex:repeat value="{!Draw__c.Winners__r}" var="win"> 
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left;width: 35%;padding-left: 10px"><b>Name</b></td>
+                            <td >
+                                <apex:outputPanel rendered="{!Draw__c.RegionFlag__c != 'Jordan'}">
+                                    <apex:outputPanel rendered="{! win.Customer__r.iGA_English_First_Name__pc != null && win.Customer__r.iGA_English_Last_Name__pc != null}">
+                                    	{!win.Customer__r.iGA_English_First_Name__pc} {!win.Customer__r.iGA_English_Last_Name__pc}
+                                	</apex:outputPanel>
+                                	<apex:outputPanel rendered="{! win.Customer__r.iGA_English_First_Name__pc == null || win.Customer__r.iGA_English_Last_Name__pc == null}">
+                                    	{!win.Customer__r.Name}
+                                	</apex:outputPanel>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!Draw__c.RegionFlag__c == 'Jordan'}">
+                                    {!win.Customer__r.Name}
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;width: 35%;padding-left: 10px"><b>CIF</b></td>
+                            <td >{!win.Customer_CIF__c}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;width: 35%;padding-left: 10px">
+                                <apex:outputPanel rendered="{!Draw__c.RegionFlag__c != 'Jordan'}">
+                                    <b>CPR Number</b>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!Draw__c.RegionFlag__c == 'Jordan'}">
+                                    <b>ID Number</b>
+                                </apex:outputPanel>
+                            </td>
+                            <td>{!win.Customer__r.ID_Number__pc}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;width: 35%;padding-left: 10px"><b>Mobile Number</b></td>
+                            <td>{!win.Customer__r.Mobile_Country_Code__pc}&nbsp;{!win.Customer__r.PersonMobilePhone}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;width: 35%;padding-left: 10px"><b>Number of Chances in the draw</b></td>
+                            <td>
+                                {!win.nbrOfChancesOnDraw__c}
+                            </td>
+                        </tr>
+                        <tr>
+                            <!-- #CH01 : Change the label -->
+                            <td style="text-align: left;width: 35%;padding-left: 10px"><b>Winning Prize in the Draw</b></td>
+                            <td>
+                                {!win.Prize__r.Tier__c}
+                                <!-- {!win.Prize__r.Prize_Currency__c}
+                                <apex:outputText value="{0, number, ###,##0}" id="myNumberDisplay">
+                                    <apex:param value="{!win.Prize__r.Winning_Amount__c}" />
+                                </apex:outputText> -->
+                            </td>
+                            <!-- #CH01 :End -->
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <br />
+
+                <apex:variable var="tableCount" value="{!tableCount+1}"/>
+                <apex:outputPanel rendered="{!tableCount == 1}">
+                    <!-- check 2 first tables then Page Break -->
+                    <div class="Draw_Page_Break"></div>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!tableCount > 1}">
+                    <apex:variable var="each6Tables" value="{!each6Tables+1}"/>
+                    <apex:outputPanel rendered="{!each6Tables == 6}">
+                        <!-- check each 6 tables then Page Break -->
+                        <div class="Draw_Page_Break"></div>
+                        <apex:variable var="each6Tables" value="{!0}"/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+
+            </apex:repeat>
+        </div>
+
+        
+        <br />
+
+        <!-- this div contains Raffle Draw total number of accounts & chances table -->
+        <div>
+            <b>Draw Details (Accounts/Balance):</b>
+            <br />
+            <br />
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th> <b>Total Number of Accounts</b></th>
+                        <th> <b>Total Closing Balance</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{!Draw__c.TotalNumberOfCustomers__c}</td>
+                        <td>{!Draw__c.TotalBalances__c}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <br />
+        <br />
+
+        <!-- this div contains Raffle Draw Inc/Excluded cifs table -->
+        <div>
+            <b>Included/Excluded Cifs:</b>
+            <br />
+            <br />
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th> <b>CIF</b></th>
+                        <th> <b>Modification</b></th>
+                        <th><b>No of Chances</b></th>
+                        <th><b>Justification</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!Draw__c.Draw_Entries_Review__r}" var="review"> 
+                        <tr>
+                            <td>{!review.CIF__c}</td>
+                            <td>{!IF( review.Category__c == 'INC','Included','Excluded')}</td>
+                            <td>
+                                <apex:outputText value="{0, number, integer}">
+                                    <apex:param value="{!review.No_of_Chances__c}" />
+                                </apex:outputText>
+                            </td>
+                            <td>{!review.Justification__c}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                <apex:outputPanel rendered="{!reviewsSize == 0}">
+                        <div style="text-align: center">No Data available</div>
+                </apex:outputPanel>
+            </table>
+            
+        </div>
+
+        <br />
+        <br />
+
+        <!-- this div contains Raffle Draw Approval History (status and ButtonClicked) table -->
+        <div>
+            <b>Raffle Draw Approval History:</b>
+            <br />
+            <br />
+
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th><b>Approval Process</b></th>
+                        <th><b>Step Name</b></th>
+                        <th><b>Date/Time</b></th>
+                        <th><b>Status</b></th>
+                        <th><b>Assigned To</b></th>
+                        <th><b>Actual Approver</b></th>
+                        <th><b>Comments</b></th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: Arial; font-size: 13px;">
+                    <apex:repeat value="{!drawProcessSteps}" var="item"> 
+                        <tr>
+                            <td>{!item.ProcessInstance.ProcessDefinition.Name}</td>
+                            <td>{!item.ProcessNode.Name}</td>
+                            <td>
+                                <!-- <apex:outputText value="{0, date, dd-MM-yyyy HH:mm:ss}">
+                                    <apex:param value="{!item.CreatedDate}" />
+                                </apex:outputText> -->
+                                <apex:outputField value="{!item.CreatedDate}"/>
+                            </td>
+                            <td>{!item.StepStatus}</td>
+                            <td>{!item.OriginalActor.Name}</td>
+                            <td>{!item.Actor.Name}</td>
+                            <td>{!item.Comments}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="Draw_Page_Break"></div>
+
+        <!-- this div contains Raffle Draw History (status and ButtonClicked) table -->
+        <div>
+            <b>Raffle Draw History:</b>
+            <br />
+            <br />
+
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th><b>Date/Time</b></th>
+                        <th><b>Field</b></th>
+                        <th><b>Role/User</b></th>
+                        <th><b>Old Value</b></th>
+                        <th><b>New Value</b></th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: Arial; font-size: 13px;">
+                    <apex:repeat value="{!drawHistories}" var="item"> 
+                        <tr>
+                            <td>
+                                <!-- <apex:outputText value="{0, date, dd-MM-yyyy HH:mm:ss}">
+                                    <apex:param value="{!item.CreatedDate}" />
+                                </apex:outputText> -->
+                                <apex:outputField value="{!item.CreatedDate}"/>
+                            </td>
+                            <td>{!item.Field}</td>
+                            <td>{!item.CreatedBy.Name}</td>
+                            <td>{!item.OldValue}</td>
+                            <td>{!item.NewValue}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </div>
+
+        <br />
+        <br />
+
+        <!-- Page Break -->
+        <div class="Draw_Page_Break">
+        </div>
+
+        <!-- this div contains the Campaign Terms and Conditions based on draw type-->
+        <div style="margin-top: 1cm;">
+            <!-- #CH01 : Start -->
+            <b>Campaign Terms and Conditions:</b>
+            <br />
+            <apex:outputText value="{!Draw__c.Draw_Terms_Conditions__c}" escape="false" />
+            <!-- #CH01 : End -->
+            <!-- <p>
+                <ul class="list">
+                   <b>Campaign Terms and Conditions:</b>
+                   <apex:outputPanel rendered="{! Draw__c.Draw_Type__c == 'kanz' }">
+                       <li>Each BHD 50 you keep in your Al Kanz account is considered 1 chance to enter the draw.</li>
+                       <li>The amount deposited in Al Kanz account must remain till the end of the retention period to be eligible for the draw.</li>
+                       <li>The prize money will be credited in the winner’s ila account.</li>
+                       <li>Winners’ names will be published on our social media accounts and our website.</li>
+                       <li>The winners are required to take part in publicity related to the announcement of the “Al Kanz” winners, including having his/her photograph taken and his/her name being disclosed.</li>
+                       <li>The draw will be conducted in the attendance of  a representative of the Ministry of Industry Commerce and Tourism, senior bank representatives, in addition to internal and external auditors.</li>
+                       <li>Bank ABC, ila Bank and immediate family members are not eligible to participate in the draw.</li>
+                    </apex:outputPanel>
+
+
+                   <apex:outputPanel rendered="{! Draw__c.Draw_Type__c == 'hassala' }">
+                       <li>The amount deposited in Hassala must remain in it for the full month to be entitled in that month's draw‎‏.</li>
+                       <li>Each BHD 50 in the Hassala is one entry in the draw‎‏.</li>
+                       <li>Winners' names will be published on our social media accounts.</li>
+                       <li>Each customer shall be eligible to win only one (1) prize per draw.</li>
+                       <li>The draw will be conducted with an attendance of MOICT representative, bank executives and internal auditors.</li>
+                       <li>Bank ABC &amp; ila Bank employees are not eligible to participate in the raffle draw.</li>
+                    </apex:outputPanel>
+
+                   <apex:outputPanel rendered="{! Draw__c.Draw_Type__c == 'fawateer' }">
+                       <li>Every BHD 1 paid using Fawateer on the ila app is one chance to enter the draw</li>
+                       <li>The total amount of bills paid during the month has to be BD 10 or more</li>
+                       <li>The cashback will be credited into the customer’s account with ila</li>
+                       <li>The maximum cashback for the total winners bills during the month is BHD 100</li>
+                       <li>Charity donations made through Fawateer are not eligible for the draw</li>
+                       <li>The winners will be picked at random using a software with an MOICT representative in attendance</li>
+                       <li>ila Bank and Bank ABC employees are not eligible to participate in the draw</li>
+                    </apex:outputPanel>
+
+                   <apex:outputPanel rendered="{! Draw__c.Draw_Type__c == 'referrals' }">
+                       <li>Share your referral code with your friends and family to use when opening an account</li>
+                       <li>The top winner will be picked monthly based on the number of successful referral count (Referee). Each successful onboarded customer is considered as 1 count</li>
+                       <li>Prize will be allocated to the top referrer monthly worth of BHD 50 (not a raffle)</li>
+                       <li>In any case shall there be a tie in number of the successful referrals count, time &amp; date will be checked to pick the first customer to complete the referrals earliest.</li>
+                       <li>Bank ABC &amp; ila Bank staff are not eligible to participate in the campaign</li>
+                       <li>Prize can not be exchanged or transferred to another winner</li>
+                       <li>Amount will be credited into customer's ila Bank account</li>
+                    </apex:outputPanel>
+                </ul>
+            </p> -->
+        </div>
+    </body>
+</apex:page>

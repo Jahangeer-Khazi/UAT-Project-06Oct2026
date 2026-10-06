@@ -1,0 +1,540 @@
+<apex:page controller="CasePDFCommentController"
+           showHeader="false"
+           sidebar="false"
+           renderAs="pdf"
+           applyBodyTag="false"
+           applyHtmlTag="false"
+           contentType="application/pdf#CaseComments.pdf"
+           standardStylesheets="false">
+
+    <head>
+        <meta charset="UTF-8"/>
+        
+        <style type="text/css">
+            @page {
+                size: A4 landscape;
+                margin: 15mm 12mm 20mm 12mm;
+                @bottom-center {
+                    content:   counter(page) " of " counter(pages);
+                    font-family: 'Arial Unicode MS', Arial, sans-serif;
+                    font-size: 7pt;
+                    color: #666;
+                }
+            }
+
+            body {
+                font-family: 'Arial Unicode MS', Arial, sans-serif;
+                font-size: 9pt;
+                color: #333;
+                line-height: 1.4;
+            }
+
+            /* Header */
+            .report-header {
+                border-bottom: 2px solid #0070D2;
+                padding-bottom: 8px;
+                margin-bottom: 15px;
+            }
+            .report-header h1 {
+                font-size: 14pt;
+                color: #0070D2;
+                margin: 0;
+                font-weight: bold;
+            }
+            .report-header .meta {
+                font-size: 7pt;
+                color: #666;
+                margin-top: 4px;
+            }
+
+             .info-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 15px;
+                font-size: 8pt;
+            }
+            .info-table td {
+                padding: 3px 6px;
+                vertical-align: top;
+                width: 50%;
+            }
+            .info-table .label {
+                font-weight: bold;
+                color: #555;
+                width: 120px;
+            }
+            .info-table .value {
+                color: #333;
+            }
+
+            /* Section headers */
+            .section-title {
+                background-color: #F3F3F3;
+                border: 1px solid #D4D4D4;
+                border-left: 4px solid #0070D2;
+                padding: 6px 10px;
+                font-size: 10pt;
+                font-weight: bold;
+                color: #16325C;
+                margin: 15px 0 10px 0;
+            }
+
+            
+            
+            .comments-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 8pt;
+                margin-bottom: 10px;
+            }
+            .comments-table th {
+                background-color: #F3F3F3;
+                border: 1px solid #D4D4D4;
+                padding: 5px 8px;
+                text-align: left;
+                font-weight: bold;
+                color: #16325C;
+                font-size: 8pt;
+            }
+            .comments-table td {
+                border: 1px solid #D4D4D4;
+                padding: 6px 8px;
+                vertical-align: top;
+            }
+            .comments-table .col-num {
+                width: 30px;
+                text-align: center;
+                font-weight: bold;
+                color: #0070D2;
+            }
+            .comments-table .col-visibility {
+                width: 50px;
+                text-align: center;
+            }
+            .comments-table .col-date {
+                width: 110px;
+                white-space: nowrap;
+            }
+            .comments-table .col-author {
+                width: 120px;
+            }
+
+            .badge {
+                font-size: 7pt;
+                padding: 1px 4px;
+                border-radius: 2px;
+                font-weight: bold;
+            }
+            .badge-public {
+                background-color: #CCEFDC;
+                color: #04844B;
+            }
+            .badge-internal {
+                background-color: #FEF3D0;
+                color: #8A6D3B;
+            }
+            .badge-history {
+                background-color: #D8EDFF;
+                color: #0B5CAB;
+            }
+            .badge-content {
+                background-color: #E8DAFF;
+                color: #5A2CA0;
+            }
+            .badge-created {
+                background-color: #E3F3FF;
+                color: #0176D3;
+            }
+            .badge-attachment {
+                background-color: #FDECEC;
+                color: #C62828;
+                border: 1px solid #EF9A9A;
+                margin-left: 5px;
+                display: inline-block;
+            }
+
+            .comment-body {
+                line-height: 1.5;
+            }
+            
+
+            .replies-table {
+                width: 90%;
+                margin-left: 30px;
+                margin-top: 6px;
+                border-collapse: collapse;
+                font-size: 7.5pt;
+            }
+            .replies-table td {
+                border: none;
+                border-left: 3px solid #0070D2;
+                padding: 4px 6px;
+                background-color: #FAFAFA;
+            }
+            .replies-table .reply-meta {
+                font-size: 7pt;
+                color: #666;
+                margin-bottom: 2px;
+            }
+            .replies-table .reply-meta strong {
+                color: #16325C;
+            }
+
+            .no-data {
+                background-color: #FFF8E1;
+                border: 1px solid #F9C74F;
+                padding: 15px;
+                text-align: center;
+                font-size: 9pt;
+                color: #7D5A00;
+                margin: 15px 0;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+            .nowrap {
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Report Header -->
+        <div class="report-header">
+            <h1>Case Comments &amp; Replies Report</h1>
+            <div class="meta">
+                Generated: <apex:outputText value="{!generatedOn}"/>
+                <apex:outputText rendered="{!caseRecord != null}" value=" | Case: {!caseRecord.CaseNumber}"/>
+            </div>
+        </div>
+
+        <!-- Case Information -->
+        <apex:outputPanel rendered="{!caseRecord != null}">
+            <div class="section-title">Case Information</div>
+            <table class="info-table">
+                <tr>
+                    <td>
+                        <span class="label">Case Number:</span>
+                        <span class="value"><apex:outputText value="{!caseRecord.CaseNumber}"/></span>
+                    </td>
+                    <td>
+                        <span class="label">Status:</span>
+                        <span class="value"><apex:outputText value="{!caseRecord.Status}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="label">Subject:</span>
+                        <span class="value"><apex:outputText value="{!caseRecord.Subject}"/></span>
+                    </td>
+                    <td>
+                        <span class="label">Priority:</span>
+                        <span class="value"><apex:outputText value="{!caseRecord.Priority}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="label">Customer Name:</span>
+                        <span class="value"><apex:outputText value="{!caseRecord.Account.Name}"/></span>
+                    </td>
+                    <td>
+                        <span class="label">Owner:</span>
+                        <span class="value"><apex:outputText value="{!caseRecord.Owner.Name}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="label">Created Date:</span>
+                        <span class="value">
+                            <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                <apex:param value="{!caseRecord.CreatedDate}"/>
+                            </apex:outputText>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="label">Total Comments:</span>
+                        <span class="value"><apex:outputText value="{!threads.size}"/></span>
+                    </td>
+                </tr>
+            </table>
+        </apex:outputPanel>
+
+        <!-- Comments Section -->
+        <div class="section-title">Comments &amp; Replies Timeline</div>
+
+        <!-- No Data -->
+        <apex:outputPanel rendered="{!NOT(hasData)}">
+            <div class="no-data">No comments found for this case.</div>
+        </apex:outputPanel>
+
+        <!-- Comments Table -->
+        <apex:outputPanel rendered="{!hasData}">
+            <table class="comments-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th class="col-visibility">Type</th>
+                        <th class="col-author">Author</th>
+                        <th class="col-date">Date</th>
+                        <th>Comment / Replies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:variable value="{!0}" var="idx"/>
+                    <apex:repeat value="{!threads}" var="thread">
+                        <apex:variable value="{!idx + 1}" var="idx"/>
+                        <tr>
+                            <td class="col-num"><apex:outputText value="{!idx}"/></td>
+                            <td class="col-visibility">
+                                <apex:outputPanel rendered="{!thread.isPublic}">
+                                    <span class="badge badge-public">Public</span>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!thread.isInternal}">
+                                    <span class="badge badge-internal">Internal</span>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!thread.isHistory}">
+                                    <span class="badge badge-history">History</span>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!thread.isContent}">
+                                    <span class="badge badge-content">Content</span>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!thread.isCreated}">
+                                    <span class="badge badge-created"><apex:outputText value="{!thread.typeLabel}"/></span>
+                                </apex:outputPanel>
+                            </td>
+                            <td class="col-author">
+                                <apex:outputText value="{!thread.createdByName}"/>
+                                <apex:outputPanel rendered="{!thread.hasAttachment}">
+                                    <apex:repeat value="{!thread.attachments}" var="att">
+                                        <div class="badge badge-attachment"><apex:outputText value="{!att.attachmentName}"/></div>
+                                    </apex:repeat>
+                                </apex:outputPanel>
+                            </td>
+                            <td class="col-date nowrap">
+                                <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                    <apex:param value="{!thread.createdDate}"/>
+                                </apex:outputText>
+                            </td>
+                            <td class="comment-body">
+                                <apex:outputText value="{!thread.commentBody}" escape="false"/>
+
+                                <!--  Replies -->
+                                <apex:outputPanel rendered="{!thread.replies.size > 0}">
+                                    <table class="replies-table">
+                                        <apex:repeat value="{!thread.replies}" var="reply">
+                                            <tr>
+                                                <td>
+                                                    <div class="reply-meta">
+                                                        <span style="color: green; font-weight: bold;">RE: </span>
+                                                        <strong><apex:outputText value="{!reply.createdBy}"/></strong>
+                                                        <apex:outputPanel rendered="{!reply.hasAttachment}">
+                                                            <apex:repeat value="{!reply.attachments}" var="att">
+                                                                <span class="badge badge-attachment"><apex:outputText value="{!att.attachmentName}"/></span>
+                                                            </apex:repeat>
+                                                        </apex:outputPanel>
+                                                        &mdash;
+                                                        <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                                            <apex:param value="{!reply.createdDate}"/>
+                                                        </apex:outputText>
+                                                    </div>
+                                                    <div>
+                                                        <apex:outputText value="{!reply.body}" escape="false"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>
+
+        <!-- Call Log Section -->
+        <div class="section-title">Call Log</div>
+
+        <!-- No Call Log Data -->
+        <apex:outputPanel rendered="{!NOT(hasCallLogs)}">
+            <div class="no-data">No call logs found for this case.</div>
+        </apex:outputPanel>
+
+        <!-- Call Log Table -->
+        <apex:outputPanel rendered="{!hasCallLogs}">
+            <table class="comments-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th class="col-visibility">Type</th>
+                        <th class="col-author">By</th>
+                        <th class="col-date">Date</th>
+                        <th style="width:70px;">Duration</th>
+                        <th>Subject / Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:variable value="{!0}" var="cidx"/>
+                    <apex:repeat value="{!callLogs}" var="call">
+                        <apex:variable value="{!cidx + 1}" var="cidx"/>
+                        <tr>
+                            <td class="col-num"><apex:outputText value="{!cidx}"/></td>
+                            <td class="col-visibility">
+                                <apex:outputText value="{!call.callType}"/>
+                            </td>
+                            <td class="col-author">
+                                <apex:outputText value="{!call.createdByName}"/>
+                            </td>
+                            <td class="col-date nowrap">
+                                <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                    <apex:param value="{!call.createdDate}"/>
+                                </apex:outputText>
+                            </td>
+                            <td class="nowrap">
+                                <apex:outputText value="{!call.callDurationDisplay}"/>
+                            </td>
+                            <td class="comment-body">
+                                <strong><apex:outputText value="{!call.subject}"/></strong>
+                                <apex:outputPanel rendered="{!call.callDisposition != null}">
+                                    <div class="reply-meta">Disposition: <apex:outputText value="{!call.callDisposition}"/></div>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!AND(call.description != null, call.description != '')}">
+                                    <div><apex:outputText value="{!call.description}" escape="false"/></div>
+                                </apex:outputPanel>
+
+                                <!-- Call Log Nested replies / subcomments -->
+                                <apex:outputPanel rendered="{!call.replies.size > 0}">
+                                    <table class="replies-table">
+                                        <apex:repeat value="{!call.replies}" var="reply">
+                                            <tr>
+                                                <td>
+                                                    <div class="reply-meta">
+                                                        <span style="color: green; font-weight: bold;">RE: </span>
+                                                        <strong><apex:outputText value="{!reply.createdBy}"/></strong>
+                                                        <apex:outputPanel rendered="{!reply.hasAttachment}">
+                                                            <apex:repeat value="{!reply.attachments}" var="att">
+                                                                <span class="badge badge-attachment"><apex:outputText value="{!att.attachmentName}"/></span>
+                                                            </apex:repeat>
+                                                        </apex:outputPanel>
+                                                        &mdash;
+                                                        <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                                            <apex:param value="{!reply.createdDate}"/>
+                                                        </apex:outputText>
+                                                    </div>
+                                                    <div>
+                                                        <apex:outputText value="{!reply.body}" escape="false"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>
+
+        <!--  Emails Triggered Section  -->
+        <div class="section-title">Emails Triggered</div>
+
+        <!-- No Email Data -->
+        <apex:outputPanel rendered="{!NOT(hasEmails)}">
+            <div class="no-data">No emails found for this case.</div>
+        </apex:outputPanel>
+
+        <!-- Emails Table -->
+        <apex:outputPanel rendered="{!hasEmails}">
+            <table class="comments-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">#</th>
+                        <th class="col-visibility">Dir.</th>
+                        <th class="col-author">From</th>
+                        <th class="col-date nowrap">Date</th>
+                        <th>Subject / Recipients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:variable value="{!0}" var="eidx"/>
+                    <apex:repeat value="{!emails}" var="email">
+                        <apex:variable value="{!eidx + 1}" var="eidx"/>
+                        <tr>
+                            <td class="col-num"><apex:outputText value="{!eidx}"/></td>
+                            <td class="col-visibility">
+                                <apex:outputPanel rendered="{!email.isIncoming}">
+                                    <span class="badge badge-public">Inbound</span>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!NOT(email.isIncoming)}">
+                                    <span class="badge badge-internal">Outbound</span>
+                                </apex:outputPanel>
+                            </td>
+                            <td class="col-author">
+                                <apex:outputText value="{!email.fromName}"/>
+                                <apex:outputPanel rendered="{!email.fromAddress != ''}">
+                                    <div class="reply-meta"><apex:outputText value="{!email.fromAddress}"/></div>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!email.hasAttachment}">
+                                    <apex:repeat value="{!email.attachments}" var="att">
+                                        <div class="badge badge-attachment" style="margin-left:0; margin-top:2px;">
+                                            <apex:outputText value="{!att.attachmentName}"/>
+                                        </div>
+                                    </apex:repeat>
+                                </apex:outputPanel>
+                            </td>
+                            <td class="col-date nowrap">
+                                <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                    <apex:param value="{!email.messageDate}"/>
+                                </apex:outputText>
+                            </td>
+                            <td class="comment-body">
+                                <!-- Subject -->
+                                <strong><apex:outputText value="{!email.subject}"/></strong>
+                                <!-- To -->
+                                <apex:outputPanel rendered="{!email.toAddress != ''}">
+                                    <div class="reply-meta">To: <apex:outputText value="{!email.toAddress}"/></div>
+                                </apex:outputPanel>
+                                <!-- CC -->
+                                <apex:outputPanel rendered="{!email.ccAddress != ''}">
+                                    <div class="reply-meta">CC: <apex:outputText value="{!email.ccAddress}"/></div>
+                                </apex:outputPanel>
+
+                                <!-- Email Nested replies / subcomments -->
+                                <apex:outputPanel rendered="{!email.replies.size > 0}">
+                                    <table class="replies-table">
+                                        <apex:repeat value="{!email.replies}" var="reply">
+                                            <tr>
+                                                <td>
+                                                    <div class="reply-meta">
+                                                        <span style="color: green; font-weight: bold;">RE: </span>
+                                                        <strong><apex:outputText value="{!reply.createdBy}"/></strong>
+                                                        <apex:outputPanel rendered="{!reply.hasAttachment}">
+                                                            <apex:repeat value="{!reply.attachments}" var="att">
+                                                                <span class="badge badge-attachment"><apex:outputText value="{!att.attachmentName}"/></span>
+                                                            </apex:repeat>
+                                                        </apex:outputPanel>
+                                                        &mdash;
+                                                        <apex:outputText value="{0,date,dd/MM/yyyy HH:mm}">
+                                                            <apex:param value="{!reply.createdDate}"/>
+                                                        </apex:outputText>
+                                                    </div>
+                                                    <div>
+                                                        <apex:outputText value="{!reply.body}" escape="false"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>
+
+    </body>
+</apex:page>

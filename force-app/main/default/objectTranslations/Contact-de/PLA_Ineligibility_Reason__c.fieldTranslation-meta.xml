@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- PLA Category --></label>
+    <name>PLA_Ineligibility_Reason__c</name>
+    <picklistValues>
+        <masterLabel>CBB restricted</masterLabel>
+        <translation><!-- CBB restricted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Contractors</masterLabel>
+        <translation><!-- Contractors --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Deceased</masterLabel>
+        <translation><!-- Deceased --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Interested Relative</masterLabel>
+        <translation><!-- Not Interested Relative --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Probationary Relatives</masterLabel>
+        <translation><!-- Probationary Relatives --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Probationary Staff</masterLabel>
+        <translation><!-- Probationary Staff --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Relatives</masterLabel>
+        <translation><!-- Relatives --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Resigned Relatives</masterLabel>
+        <translation><!-- Resigned Relatives --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Resigned Staff</masterLabel>
+        <translation><!-- Resigned Staff --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Staff</masterLabel>
+        <translation><!-- Staff --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Third-party contractors/companies</masterLabel>
+        <translation><!-- Third-party contractors/companies --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Underage</masterLabel>
+        <translation><!-- Underage --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

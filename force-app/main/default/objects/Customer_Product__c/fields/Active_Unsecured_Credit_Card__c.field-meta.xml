@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Unsecured_Credit_Card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox would be checked if Customer has active secured loan</description>
+    <label>Active Unsecured Credit Card</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

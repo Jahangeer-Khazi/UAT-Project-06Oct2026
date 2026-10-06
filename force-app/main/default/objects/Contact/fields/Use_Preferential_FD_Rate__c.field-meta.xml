@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Preferential_FD_Rate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Fixed Deposit Implementation for ABC Board Members and Group Staff</description>
+    <label>Use Preferential FD Rate</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

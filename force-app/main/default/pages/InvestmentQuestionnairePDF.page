@@ -1,0 +1,124 @@
+<apex:page standardController="Investment_Questionnaire__c" 
+           extensions="InvestmentQuestionnairePDFController" 
+           applyHtmlTag="false" 
+           showHeader="false" 
+           renderAs="pdf">
+    
+    <head>
+        <style type="text/css">
+            body {
+                /* font-family: Arial, sans-serif; */
+                font-family: 'Open Sans', Inter, sans-serif;
+                font-size: 11px;
+                margin: 20px;
+                color: #333;
+            }
+            .header {
+                background: #2c3e50;
+                color: white;
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 4px;
+            }
+            .section-title {
+                background: #34495e;
+                color: white;
+                padding: 8px 12px;
+                margin: 15px 0 10px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+            .question {
+                border: 1px solid #ddd;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 4px;
+            }
+            .options {
+                background: #f8f9fa;
+                padding: 8px;
+                margin: 8px 0;
+                border-left: 3px solid #3498db;
+            }
+            .selected-answer {
+                background: #e8f4f8;
+                padding: 6px 10px;
+                display: inline-block;
+                border-radius: 4px;
+                color: #2980b9;
+                font-weight: bold;
+            }
+            .info-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            .info-table td {
+                padding: 8px;
+                border: 1px solid #ddd;
+            }
+            .info-table td:first-child {
+                font-weight: bold;
+                background: #f5f5f5;
+                width: 30%;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <apex:outputPanel rendered="{!NOT(ISNULL(errorMessage))}">
+            <div style="background: #f8d7da; color: #721c24; padding: 15px;">
+                {!errorMessage}
+            </div>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!ISNULL(errorMessage)}">
+            <!-- Header -->
+            <div class="header">
+                <h2 style="margin:0;">Investment Questionnaire</h2>
+                <div style="margin-top:5px;">Generated: {!formattedTodayDate}</div>
+            </div>
+            
+            <!-- Customer Info -->
+            <table class="info-table">
+                <tr>
+                    <td>Customer CIF</td>
+                    <td>{!customerCIF}</td>
+                </tr>
+                <tr>
+                    <td>Customer Name</td>
+                    <td>{!customerName}</td>
+                </tr>
+                <tr>
+                    <td>Product Type</td>
+                    <td>{!questionnaire.Product_Type__c}</td>
+                </tr>
+                <tr>
+                    <td>Total Questions</td>
+                    <td>{!questions.size}</td>
+                </tr>
+            </table>
+            
+            <!-- Questions -->
+            <apex:repeat value="{!categories}" var="category">
+                <div class="section-title">{!category}</div>
+                
+                <apex:repeat value="{!questionsByCategory[category]}" var="q">
+                    <div class="question">
+                        <div style="font-weight:bold; margin-bottom:8px;">
+                            Q. {!q.questionText}
+                        </div>
+                        
+                        <div class="options">
+                            <apex:outputText value="{!q.formattedOptions}" escape="false"/>
+                        </div>
+                        
+                        <div class="selected-answer">
+                            Selected: {!q.selectedAnswer}
+                        </div>
+                    </div>
+                </apex:repeat>
+            </apex:repeat>
+        </apex:outputPanel>
+    </body>
+</apex:page>

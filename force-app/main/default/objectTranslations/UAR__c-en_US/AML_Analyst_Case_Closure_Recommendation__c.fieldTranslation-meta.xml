@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- AML Analyst Case Closure Recommendation --></label>
+    <name>AML_Analyst_Case_Closure_Recommendation__c</name>
+    <picklistValues>
+        <masterLabel>Does not recommend an STR to be raised</masterLabel>
+        <translation><!-- Does not recommend an STR to be raised --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recommends an STR to be raised</masterLabel>
+        <translation><!-- Recommends an STR to be raised --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

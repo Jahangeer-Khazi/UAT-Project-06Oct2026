@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sub-Status --></label>
+    <name>Sub_Status__c</name>
+    <picklistValues>
+        <masterLabel>Collected by Customer</masterLabel>
+        <translation><!-- Collected by Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Destroyed</masterLabel>
+        <translation><!-- Destroyed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dispatch</masterLabel>
+        <translation><!-- Dispatch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dispatch Return</masterLabel>
+        <translation><!-- Dispatch Return --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending For Pick-up</masterLabel>
+        <translation><!-- Pending For Pick-up --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Re-delivery</masterLabel>
+        <translation><!-- Re-delivery --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

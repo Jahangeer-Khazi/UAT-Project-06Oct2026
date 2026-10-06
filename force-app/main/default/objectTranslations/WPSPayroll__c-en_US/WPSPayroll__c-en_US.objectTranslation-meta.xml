@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>WPSPayroll</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>WPSPayrolls</value>
+    </caseValues>
+    <layouts>
+        <layout>WPSPayroll Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Update WPS --></label>
+        <name>Update_WPS</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- WPS Payroll --></label>
+        <name>WPS_Payroll</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Before performing any maker action, please select the Payroll Reference and confirm the action. --></errorMessage>
+        <name>Require_Payroll_Ref_For_Maker_Action</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,506 @@
+<!--
+
+-->
+<template>
+    <template if:true={loadingSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <template if:true={showSyncButton}>
+        <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-m-bottom_small">
+            <div class="slds-col slds-m-right_small">
+                <span class="slds-text-body_small slds-text-color_error slds-m-right_small">
+                    Please click the button to sync & save the real time information from Core
+                </span>
+                <lightning-button label="Sync Core & CRM" icon-name="utility:refresh" onclick={handleRefreshApi}
+                    variant="brand" size="small"></lightning-button>
+            </div>
+        </div>
+    </template>
+    <!-- Iterte over the custom metadata's Json value  -->
+    <template for:each={configJson} for:item="section">
+        <template if:true={section.isVisible}>
+            <div key={section.sectionName} class="slds-section slds-is-open">
+
+                <div class="slds-grid slds-grid_vertical-align-center slds-theme_shade">
+                    <div class="slds-col slds-grow-none" onclick={handleToggleSection}>
+                        <h3 class="slds-section__title">
+
+                            <button aria-controls="expando-unique-id" aria-expanded="true"
+                                class="slds-button slds-section__title-action" data-section-name={section.sectionName}
+                                data-icon-name={section.iconName}>
+                                <lightning-icon icon-name={section.iconName} size="x-small" title={section.sectionName}
+                                    data-section-name={section.sectionName}></lightning-icon>
+                                &nbsp;&nbsp;
+
+                                <span class="slds-truncate" title={section.sectionName}
+                                    data-section-name={section.sectionName}>{section.sectionName}</span>
+                            </button>
+
+                        </h3>
+                    </div>
+
+
+                </div>
+                <!-- Display the sections with the fields in json value-->
+                <!-- <template if:true={section.show}> -->
+                <div class={section.ClassName}>
+
+                    <template if:true={showSectionValeurs}>
+                        <!-- Sync Button logic inside section -->
+                        <template if:true={section.showSyncButton}>
+                            <div
+                                class="slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-m-bottom_small slds-p-around_small">
+                                <div class="slds-col slds-m-right_small">
+                                    <span class="slds-text-body_small slds-text-color_error slds-m-right_small">
+                                        Please click the button to sync & save the real time information from Core
+                                    </span>
+                                    <lightning-button label="Sync Core & CRM" icon-name="utility:refresh"
+                                        onclick={handleRefreshApi} variant="brand" size="small"></lightning-button>
+                                </div>
+                            </div>
+                        </template>
+                        <!-- NBA-17570 : showBuyOutMsg logic inside section -->
+                        <template if:true={section.showBuyOutMsg}>
+                            <div
+                                class="slds-notify slds-notify_alert slds-alert_warning slds-grid slds-grid_vertical-align-center"
+                                role="alert"
+                                style="padding: 0.25rem 0.5rem; min-height: auto;">
+
+                                <lightning-icon
+                                    icon-name="utility:info"
+                                    size="xx-small"
+                                    alternative-text="Information"
+                                    class="slds-m-right_x-small">
+                                </lightning-icon>
+
+                                <span class="slds-text-body_small">
+                                    To view the <strong>Approved Total Buyout Amount Calculation</strong>, please go to the <strong>Liabilities Details</strong> tab.
+                                </span>
+                            </div>
+                        </template>
+                        <!-- Display first Form related to Case Object -->
+                        <lightning-record-view-form record-id={recordId} object-api-name="Case">
+                            <div class="slds-grid slds-wrap">
+                                <template for:each={section.fields} for:item="field">
+                                    <template lwc:if={field.isCase}>
+                                        <template if:true={field.isVisible}>
+                                            <div key={field.lwcId} data-key={field.lwcId} class={field.dynamicClass}>
+                                                <div class="slds-form__item" role="listitem">
+                                                    <div
+                                                        class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-form-element__static">
+                                                                <template lwc:if={field.overideLabel}>
+                                                                    <label class="slds-form-element__label"
+                                                                        for={field.fieldAPIName}>{field.Label}</label>
+                                                                    <lightning-output-field key={field.key}
+                                                                        name={field.fieldAPIName}
+                                                                        field-name={field.fieldAPIName}
+                                                                        variant="label-hidden"
+                                                                        id={field.fieldAPIName}></lightning-output-field>
+                                                                </template>
+                                                                <template lwc:else>
+                                                                    <lightning-output-field key={field.key}
+                                                                        name={field.fieldAPIName}
+                                                                        variant="label-stacked"
+                                                                        field-name={field.fieldAPIName}></lightning-output-field>
+                                                                </template>
+                                                            </div>
+                                                            <template if:false={field.readOnly}>
+                                                                <button class="slds-button slds-button_icon"
+                                                                    onclick={handleChangeFormValeurs}>
+                                                                    <svg class="slds-button__icon slds-button__icon_hint"
+                                                                        aria-hidden="true">
+                                                                        <use
+                                                                            xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit">
+                                                                        </use>
+                                                                    </svg>
+                                                                </button>
+                                                            </template>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </template>
+                            </div>
+                        </lightning-record-view-form>
+
+                        <!-- Display Second Form related to Case Object -->
+                        <lightning-record-view-form record-id={recordAnnexId} object-api-name="CaseAnnex__c">
+                            <div class="slds-grid slds-wrap">
+                                <template for:each={section.fields} for:item="field">
+                                    <template lwc:if={field.isCaseAnnex}>
+                                        <template if:true={field.isVisible}>
+                                            <div key={field.lwcId} data-key={field.lwcId} class={field.dynamicClass}>
+                                                <div class="slds-form__item" role="listitem">
+                                                    <div
+                                                        class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-form-element__static">
+                                                                <template lwc:if={field.overideLabel}>
+                                                                    <label class="slds-form-element__label"
+                                                                        for={field.fieldAPIName}>{field.Label}</label>
+                                                                    <lightning-output-field key={field.key}
+                                                                        name={field.fieldAPIName}
+                                                                        field-name={field.fieldAPIName}
+                                                                        variant="label-hidden"
+                                                                        id={field.fieldAPIName}></lightning-output-field>
+                                                                </template>
+                                                                <template lwc:else>
+                                                                    <lightning-output-field key={field.key}
+                                                                        name={field.fieldAPIName}
+                                                                        variant="label-stacked"
+                                                                        field-name={field.fieldAPIName}></lightning-output-field>
+                                                                </template>
+                                                            </div>
+                                                            <template if:false={field.readOnly}>
+                                                                <button class="slds-button slds-button_icon"
+                                                                    onclick={handleChangeFormValeurs}>
+                                                                    <svg class="slds-button__icon slds-button__icon_hint"
+                                                                        aria-hidden="true">
+                                                                        <use
+                                                                            xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit">
+                                                                        </use>
+                                                                    </svg>
+                                                                </button>
+                                                            </template>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </template>
+                            </div>
+                        </lightning-record-view-form>
+                    </template>
+
+                    <!-- display the fields in edit form  after the edit icon is clicked -->
+                    <template if:true={editSectionValeurs}>
+                        <!-- Display first Form related to Case Object -->
+                        <lightning-record-edit-form object-api-name="Case" record-id={recordId} density="auto"
+                            name="caseForm" data-id="Case" onsubmit={handleSubmitCase} onsuccess={handleSuccessValeurs}>
+                            <div class="slds-grid slds-wrap">
+                                <template for:each={section.fields} for:item="field">
+                                    <template lwc:if={field.isCase}>
+                                        <template if:true={field.isVisible}>
+                                            <div key={field.lwcId} data-key={field.lwcId} class={field.responsiveClass}>
+                                                <div class={field.errorDesign}>
+                                                    <div class="slds-hide">
+                                                        <lightning-input-field field-name="Type" data-field-name="Type"
+                                                            data-object-name={field.objectName}></lightning-input-field>
+                                                        <lightning-input-field field-name="Region_Flag__c"
+                                                            data-field-name="Region_Flag__c"
+                                                            data-object-name={field.objectName}></lightning-input-field>
+                                                    </div>
+                                                    <template if:true={field.overideLabel}>
+                                                        <!-- Start Overide the field label ############### -->
+                                                        <div class="slds-form slds-wrap">
+                                                            <label class="slds-form-element__label"
+                                                                for={field.fieldAPIName}>
+                                                                <template if:true={field.isRequired}>
+                                                                    <span class="slds-required">*</span>
+                                                                </template>
+                                                                {field.Label}
+
+                                                            </label>
+                                                            <template if:true={field.readOnly}>
+                                                                <div class="slds-form__item" role="listitem">
+                                                                    <div class="slds-form-element__control">
+                                                                        <div class="slds-form-element__static">
+                                                                            <lightning-output-field
+                                                                                key={field.fieldAPIName}
+                                                                                field-name={field.fieldAPIName}
+                                                                                variant="label-hidden"
+                                                                                id={field.fieldAPIName}></lightning-output-field>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </template>
+                                                            <template if:false={field.readOnly}>
+                                                                <lightning-input-field field-name={field.fieldAPIName}
+                                                                    id={field.fieldAPIName} variant="label-hidden"
+                                                                    class={field.inputErrorDesign}
+                                                                    data-field-name={field.fieldAPIName}
+                                                                    data-object-name={field.objectName}
+                                                                    onfocusout={handleInputFocusOut}
+                                                                    required={field.isRequired}></lightning-input-field>
+
+                                                                <div class="errorText" if:true={field.errorMessage}>
+                                                                    {field.errorMessage}</div>
+
+                                                            </template>
+                                                        </div>
+                                                        <!-- End Overide the field label ############### -->
+                                                    </template>
+                                                    <template if:false={field.overideLabel}>
+                                                        <!-- Start display field ############### -->
+                                                        <div class="slds-form slds-wrap">
+                                                            <template if:true={field.readOnly}>
+                                                                <div class="slds-form__item" role="listitem">
+                                                                    <div class="slds-form-element__control">
+                                                                        <div class="slds-form-element__static">
+                                                                            <lightning-output-field
+                                                                                key={field.fieldAPIName}
+                                                                                field-name={field.fieldAPIName}
+                                                                                variant="label-stacked"
+                                                                                id={field.fieldAPIName}></lightning-output-field>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </template>
+                                                            <template if:false={field.readOnly}>
+                                                                <lightning-input-field field-name={field.fieldAPIName}
+                                                                    id={field.fieldAPIName}
+                                                                    class={field.inputErrorDesign}
+                                                                    data-field-name={field.fieldAPIName}
+                                                                    data-object-name={field.objectName}
+                                                                    onfocusout={handleInputFocusOut}
+                                                                    variant="label-stacked"
+                                                                    required={field.isRequired}></lightning-input-field>
+
+                                                                <div class="errorText" if:true={field.errorMessage}>
+                                                                    {field.errorMessage}</div>
+
+                                                            </template>
+                                                        </div>
+                                                        <!-- Start display field ############### -->
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </template>
+                            </div>
+                        </lightning-record-edit-form>
+
+                        <!-- Display Second Form related to Case Object -->
+                        <lightning-record-edit-form object-api-name="CaseAnnex__c" record-id={recordAnnexId}
+                            density="auto" name="caseAnnexForm" data-id="CaseAnnex__c" onsubmit={handleSubmitCase}
+                            onsuccess={handleSuccessValeurs}>
+                            <div class="slds-grid slds-wrap">
+                                <template for:each={section.fields} for:item="field">
+                                    <template lwc:if={field.isCaseAnnex}>
+                                        <template if:true={field.isVisible}>
+                                            <div key={field.lwcId} data-key={field.lwcId} class={field.responsiveClass}>
+                                                <div class={field.errorDesign}>
+                                                    <template if:true={field.overideLabel}>
+                                                        <!-- Start Overide the field label ############### -->
+                                                        <div class="slds-form slds-wrap">
+                                                            <label class="slds-form-element__label"
+                                                                for={field.fieldAPIName}>
+                                                                <template if:true={field.isRequired}>
+                                                                    <span class="slds-required">*</span>
+                                                                </template>
+                                                                {field.Label}
+                                                            </label>
+                                                            <template if:true={field.readOnly}>
+                                                                <div class="slds-form__item" role="listitem">
+                                                                    <div class="slds-form-element__control">
+                                                                        <div class="slds-form-element__static">
+                                                                            <!-- #CH02: if isNeededCalculation is true, use a reactive disabled input instead of output-field (output-field cannot be updated by JS) -->
+                                                                            <template lwc:if={field.isNeededCalculation}>
+                                                                                <lightning-input-field
+                                                                                    key={field.fieldAPIName}
+                                                                                    field-name={field.fieldAPIName}
+                                                                                    variant="label-hidden"
+                                                                                    value={field.calculatedValue}
+                                                                                    disabled></lightning-input-field>
+                                                                            </template>
+                                                                            <template lwc:else>
+                                                                                <lightning-output-field
+                                                                                    key={field.fieldAPIName}
+                                                                                    field-name={field.fieldAPIName}
+                                                                                    variant="label-hidden"
+                                                                                    id={field.fieldAPIName}></lightning-output-field>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </template>
+                                                            <template if:false={field.readOnly}>
+                                                                <!-- #CH02: if isNeededCalculation is true, use a reactive disabled input instead of output-field (output-field cannot be updated by JS) -->
+                                                                <template lwc:if={field.isNeededCalculation}>
+                                                                    <lightning-input-field field-name={field.fieldAPIName}
+                                                                            id={field.fieldAPIName} variant="label-hidden"
+                                                                            class={field.inputErrorDesign}
+                                                                            data-field-name={field.fieldAPIName}
+                                                                            data-object-name={field.objectName}
+                                                                            value={field.calculatedValue}
+                                                                            onfocusout={handleInputFocusOut}
+                                                                            required={field.isRequired}></lightning-input-field>
+                                                                </template>
+                                                                <template lwc:else>
+                                                                    <lightning-input-field field-name={field.fieldAPIName}
+                                                                            id={field.fieldAPIName} variant="label-hidden"
+                                                                            class={field.inputErrorDesign}
+                                                                            data-field-name={field.fieldAPIName}
+                                                                            data-object-name={field.objectName}
+                                                                            onfocusout={handleInputFocusOut}
+                                                                            required={field.isRequired}></lightning-input-field>
+                                                                </template>
+                                                                
+
+                                                                <div class="errorText" if:true={field.errorMessage}>
+                                                                    {field.errorMessage}</div>
+
+                                                            </template>
+                                                        </div>
+                                                        <!-- End Overide the field label ############### -->
+                                                    </template>
+                                                    <template if:false={field.overideLabel}>
+                                                        <!-- Start display field ############### -->
+                                                        <div class="slds-form slds-wrap">
+                                                            <template if:true={field.readOnly}>
+                                                                <div class="slds-form__item" role="listitem">
+                                                                    <div class="slds-form-element__control">
+                                                                        <div class="slds-form-element__static">
+                                                                            <!-- #CH02: if isNeededCalculation is true, use a reactive disabled input instead of output-field (output-field cannot be updated by JS) -->
+                                                                            <template lwc:if={field.isNeededCalculation}>
+                                                                                <lightning-input-field
+                                                                                    key={field.fieldAPIName}
+                                                                                    field-name={field.fieldAPIName}
+                                                                                    variant="label-stacked"
+                                                                                    value={field.calculatedValue}
+                                                                                    disabled></lightning-input-field>
+                                                                            </template>
+                                                                            <template lwc:else>
+                                                                                <lightning-output-field
+                                                                                    key={field.fieldAPIName}
+                                                                                    field-name={field.fieldAPIName}
+                                                                                    variant="label-stacked"
+                                                                                    id={field.fieldAPIName}></lightning-output-field>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </template>
+                                                            <template if:false={field.readOnly}>
+                                                                <!-- #CH02: if isNeededCalculation is true, use a reactive disabled input instead of output-field (output-field cannot be updated by JS) -->
+                                                                <template lwc:if={field.isNeededCalculation}>
+                                                                    <lightning-input-field field-name={field.fieldAPIName}
+                                                                        id={field.fieldAPIName}
+                                                                        class={field.inputErrorDesign}
+                                                                        data-field-name={field.fieldAPIName}
+                                                                        data-object-name={field.objectName}
+                                                                        value={field.calculatedValue}
+                                                                        onfocusout={handleInputFocusOut}
+                                                                        variant="label-stacked"
+                                                                        required={field.isRequired}></lightning-input-field>
+                                                                </template>
+                                                                <template lwc:else>
+                                                                    <lightning-input-field field-name={field.fieldAPIName}
+                                                                        id={field.fieldAPIName}
+                                                                        class={field.inputErrorDesign}
+                                                                        data-field-name={field.fieldAPIName}
+                                                                        data-object-name={field.objectName}
+                                                                        onfocusout={handleInputFocusOut}
+                                                                        variant="label-stacked"
+                                                                        required={field.isRequired}></lightning-input-field>
+                                                                </template>
+
+
+                                                                <div class="errorText" if:true={field.errorMessage}>
+                                                                    {field.errorMessage}</div>
+
+                                                            </template>
+                                                        </div>
+                                                        <!-- Start display field ############### -->
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </template>
+                            </div>
+                        </lightning-record-edit-form>
+                    </template>
+                </div>
+                <!-- </template> -->
+            </div>
+        </template>
+
+    </template>
+
+    <!-- footer logic for updating the fields and displaying errors if needed -->
+    <template if:true={editSectionValeurs}>
+        <div class="wrapper">
+            <div class="inlineFooter" data-aura-rendered-by="4328:0">
+                <div class="slds-var-m-top_large slds-grid slds-grid_align-center">
+                    <div class={layoutClass}>
+                        <!-- Error Icon start-->
+                        <template if:true={showValidationError}>
+                            <div role="dialog" aria-labelledby="error-title" aria-describedby="error-content"
+                                tabindex="-1" class="slds-popover slds-popover_error">
+                                <header class="pageErrorHeader slds-popover__header">
+                                    <div class="slds-grid slds-grid_align-spread">
+                                        <h2 id="error-title" class="slds-truncate slds-text-heading_medium">
+                                            <lightning-icon icon-name="utility:error" alternative-text="Error"
+                                                size="small"
+                                                class="slds-icon-text-error"></lightning-icon>&nbsp;&nbsp;&nbsp;We hit a
+                                            snag.
+                                        </h2>
+                                        <div>
+                                            <lightning-icon icon-name="utility:close" alternative-text="Close"
+                                                size="small" onclick={handleCloseError}
+                                                class="slds-icon-text-default"></lightning-icon>
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <div id="error-content" class="panel-content scrollable">
+                                    <div class="slds-popover__body">
+                                        <div class="pageLevelErrors">
+                                            <div class="genericNotification">
+                                                <strong
+                                                    aria-label="We hit a snag. Review the errors on this page.">Review
+                                                    the errors
+                                                    on this page.</strong>
+                                            </div>
+                                            <ul class="errorsList slds-list_dotted slds-m-left_medium">
+                                                <!-- <template for:each={errorMessages} for:item="error"> -->
+                                                <template if:true={flowError}>
+                                                    <li> {validationErrorMessage}
+                                                    </li>
+                                                </template>
+                                                <template if:true={validationError}>
+                                                    <li> <a class="error-link"
+                                                            onclick={handleCloseError}>{validationErrorMessage}</a>
+                                                    </li>
+                                                </template>
+                                                <!-- </template> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Error Icon end-->
+                        </template>
+                    </div>
+                </div>
+                <div class="centered-container">
+                    <template if:true={showValidationErrorIcon}>
+                        <div class="slds-var-m-top_small slds-var-p-right_large">
+                            <a onclick={handleCloseError}>
+                                <svg class="slds-icon slds-icon-text-error slds-icon_small" focusable="false"
+                                    data-key="error" aria-hidden="true" viewBox="0 0 520 520" part="icon">
+                                    <g>
+                                        <path
+                                            d="M260 20C128 20 20 128 20 260s108 240 240 240 240-108 240-240S392 20 260 20zM80 260a180 180 0 01284-147L113 364a176 176 0 01-33-104zm180 180c-39 0-75-12-104-33l251-251a180 180 0 01-147 284z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </template>
+                    <lightning-button class="slds-var-m-top_small slds-var-p-right_large" type="cancel" label="Cancel"
+                        onclick={handleCancel}></lightning-button>
+                    <lightning-button class="slds-var-m-top_small" variant="brand" type="submit" onclick={handleSave}
+                        label="Save"></lightning-button>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used to automatically be sent when an Identification case is created of type Wathiq for Jordan</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Identification Request Documents HTML- Jordan</name>
+    <style>none</style>
+    <subject>You’re almost there with your ila account!</subject>
+    <textOnly>You’re almost there! Dear {!Case.Contact_First_Name__c},
+
+Thank you for your interest in opening an account with ila.
+
+In order for us to complete your on boarding process and open your account, we require you to please submit the following additional documents by replying to this email.
+
+One of our agents may call you for further details or additional documents are required.
+
+• Copy of your Jordanian ID
+
+• Resident Permit
+
+• Utility bill OR tenancy contract OR Bank statements.
+
+• Latest bank statement for the last 3 months OR salary slips for the last 3 months OR letter of employment.
+
+If you have mentioned yourself as self-employed OR business owner, please note to submit the following additional documents via email
+
+• A copy of valid commercial registration certificate
+
+• A copy of latest 3 months personal bank statements
+
+
+In some cases, you may be required to participate in a video call or we may request you to visit our service center (TBD) to complete the onboarding process.
+
+Should you require any additional information please call us at +96265100001
+
+We are available 24/7
+
+We eagerly await to welcome you to the ila family!
+
+{! Receiving_User.Name}، ة/السيد
+
+.&quot;إلى&quot; معحساببفتحاهتمامكعلىلكشكرًا
+
+لكي نتمكّن من إستكمال فتح حسابك، نطلب منك إرسال المستندات التالية من خلال الرد على هذا البريد الإلكتروني.
+
+• نسخة من بطاقة الهوية الأردنية
+
+•تصريح الإقامة
+
+•فاتورة خدمات أو عقد إيجار أو كشف حساب بنكي
+
+• أحدث كشف حساب بنكي لآخر 3 أشهر أو قسائم راتب لآخر 3 أشهر أو كتاب توظيف.
+
+قد يتصل بك أحد وكلائنا للحصول على مزيد من التفاصيل أو مستندات إضافية.
+
+إذا ذكرت بأنك صاحب العمل ولكي نتمكّن من استكمال فتح حسابك، فيرجى إرسال المستندات التالية عن طريق الرد على هذا البريد الإلكتروني:
+
+• نسخة من شهادة السجل التجاري سارية المفعول
+
+• . نسخة من آخر كشف حساب بنكي لمدة 3 أشهر
+
+
+قد نطلب منك زيارة مركز الخدمة (يتم تحديده لاحقًا)
+
+إذا احتجت إلى أي معلومات إضافية، يرجى الاتصال بنا على (سيتم تحديده لاحقًا) +96265100001
+
+حن متواجدون 24/7
+
+
+
+
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+العبدلي مول، شارع الاسواق 8، العبدلي،عمان، الأردن
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan - Arab Banking Corporation- Jordan
+
+تابع لبنك ABC في الأردن (بنك المؤسسة العربية المصرفية- الأردن)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

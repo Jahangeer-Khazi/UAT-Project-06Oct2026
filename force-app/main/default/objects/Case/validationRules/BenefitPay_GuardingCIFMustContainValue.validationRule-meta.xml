@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BenefitPay_GuardingCIFMustContainValue</fullName>
+    <active>false</active>
+    <description>Guarding CIF must contain values if customer is Minor</description>
+    <errorConditionFormula>OR(
+AND(RecordType.DeveloperName = &quot;Customer_Profile_Update&quot;,TEXT( Type)=&apos;Personal Info Update&apos;, Minor_flag__c = true, ISBLANK( Guardian_CIF__c )),
+
+AND(RecordType.DeveloperName = &quot;Customer_Profile_Update&quot;,TEXT( Type)=&apos;Personal Info Update&apos;, Minor_flag__c = false ,NOT(ISBLANK( Guardian_CIF__c )))
+
+
+)</errorConditionFormula>
+    <errorMessage>Guarding CIF must contain values if customer is Minor</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Closure_TempCredit_Request</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Sub_Type__c, &quot;Temporary Credit&quot;),
+    $RecordType.Name = &quot;Request&quot;,
+    ISPICKVAL(Status, &quot;Closed&quot;),
+    NOT(
+        OR(
+            $Profile.Name = &quot;Operations&quot;
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>Only Operations Team can close this case.</errorMessage>
+</ValidationRule>

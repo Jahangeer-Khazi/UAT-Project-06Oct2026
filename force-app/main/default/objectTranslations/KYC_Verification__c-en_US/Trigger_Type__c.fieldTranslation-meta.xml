@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Trigger Type --></label>
+    <name>Trigger_Type__c</name>
+    <picklistValues>
+        <masterLabel>Automatically</masterLabel>
+        <translation><!-- Automatically --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manually</masterLabel>
+        <translation><!-- Manually --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

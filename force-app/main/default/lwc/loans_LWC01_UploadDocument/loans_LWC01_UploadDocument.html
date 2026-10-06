@@ -1,0 +1,48 @@
+<!-- Loans_LWC01_UploadDocument.xml -->
+<template>
+    <lightning-card title="Upload Document">
+
+        <div class="uploadClass" >
+                <!-- Dropdown (picklist) -->
+            <lightning-combobox
+                label="Select Document Type"
+                value={selectedDocumentType}
+                options={documentTypeOptions}
+                onchange={handleDocumentTypeChange}
+            ></lightning-combobox>
+
+            <!-- File input component -->
+        
+            <lightning-input type="file" id="fileInput" label="Choose File" onchange={handleFileChange}></lightning-input>
+                
+            <!-- Show selected files -->
+            <template if:true={selectedFiles.length}>
+                <div class="selectedFiles">
+                    <ul>
+                        <template for:each={selectedFiles} for:item="file">
+                            <li key={file.index}>{file.fileName}</li>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+
+          
+            
+            <br/>
+            <!-- Button to trigger upload file-->
+            <lightning-button variant="brand" label="Upload" title="Upload" onclick={handleUpload} disabled={disableButtons}></lightning-button>
+            <br/>
+            <br/>
+            <!-- Confirm all documents are uploaded-->
+            <template if:true={showConfirmButton}>
+                 <lightning-button variant="brand" label="Confirm all documents are uploaded!" title="Click this button once you uploaded all files" onclick={handleConfirmAllDocsUploaded} disabled={disableButtons}></lightning-button>
+            </template>
+            <lightning-spinner class={spinnerClass} id="mySpinner" alternative-text="Uploading..." size="medium"></lightning-spinner>
+            
+        </div>
+
+        
+        
+    </lightning-card>
+
+</template>

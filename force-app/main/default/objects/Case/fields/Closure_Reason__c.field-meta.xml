@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closure_Reason__c</fullName>
+    <description>Complaint - Closure Reason</description>
+    <inlineHelpText>Cancellation/ Closure Reason</inlineHelpText>
+    <label>Cancellation/Closure Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Financial Compensation</fullName>
+                <default>false</default>
+                <label>Financial Compensation</label>
+            </value>
+            <value>
+                <fullName>Complaint Rejected</fullName>
+                <default>false</default>
+                <label>Complaint Rejected</label>
+            </value>
+            <value>
+                <fullName>Final Notice to Customer</fullName>
+                <default>false</default>
+                <label>Final Notice to Customer</label>
+            </value>
+            <value>
+                <fullName>Legal Dispute</fullName>
+                <default>false</default>
+                <label>Legal Dispute</label>
+            </value>
+            <value>
+                <fullName>Client Closes Account</fullName>
+                <default>false</default>
+                <label>Client Closes Account</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Fraud</fullName>
+                <default>false</default>
+                <label>Bank Request - Fraud</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Compliance</fullName>
+                <default>false</default>
+                <label>Bank Request - Compliance</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Credit Card Collection</fullName>
+                <default>false</default>
+                <label>Bank Request - Credit Card Collection</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Other</fullName>
+                <default>false</default>
+                <label>Bank Request - Other</label>
+            </value>
+            <value>
+                <fullName>Customer Request - Customer Service Issue</fullName>
+                <default>false</default>
+                <label>Customer Request - Customer Service Issue</label>
+            </value>
+            <value>
+                <fullName>Customer Request - Switching Banks</fullName>
+                <default>false</default>
+                <label>Customer Request - Switching Banks</label>
+            </value>
+            <value>
+                <fullName>Customer Request - Technical Challenges</fullName>
+                <default>false</default>
+                <label>Customer Request - Technical Challenges</label>
+            </value>
+            <value>
+                <fullName>Customer Request - Limited Products</fullName>
+                <default>false</default>
+                <label>Customer Request - Limited Products</label>
+            </value>
+            <value>
+                <fullName>Customer Request - Permanently Leaving Bahrain</fullName>
+                <default>false</default>
+                <label>Customer Request - Permanently Leaving Bahrain</label>
+            </value>
+            <value>
+                <fullName>Customer Request - Other</fullName>
+                <default>false</default>
+                <label>Customer Request - Other</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Declined</fullName>
+                <default>false</default>
+                <label>Declined</label>
+            </value>
+            <value>
+                <fullName>Customer Request</fullName>
+                <default>false</default>
+                <label>Customer Request</label>
+            </value>
+            <value>
+                <fullName>By Bank - Dormancy</fullName>
+                <default>false</default>
+                <label>By Bank - Dormancy</label>
+            </value>
+            <value>
+                <fullName>Liquidity</fullName>
+                <default>false</default>
+                <label>Liquidity</label>
+            </value>
+            <value>
+                <fullName>Loan</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+            <value>
+                <fullName>Additional benefits</fullName>
+                <default>false</default>
+                <label>Additional benefits</label>
+            </value>
+            <value>
+                <fullName>Leaving the country</fullName>
+                <default>false</default>
+                <label>Leaving the country</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Do not see value in ila Premium</fullName>
+                <default>false</default>
+                <label>Do not see value in ila Premium</label>
+            </value>
+            <value>
+                <fullName>Stopped using ila</fullName>
+                <default>false</default>
+                <label>Stopped using ila</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Didn’t disclose</fullName>
+                <default>false</default>
+                <label>Didn’t disclose</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Bank Due to Bank Minimum Amount</fullName>
+                <default>false</default>
+                <label>Cancelled by Bank Due to Bank Minimum Amount</label>
+            </value>
+            <value>
+                <fullName>Death Confirmed</fullName>
+                <default>false</default>
+                <label>Death Confirmed</label>
+            </value>
+            <value>
+                <fullName>Complaint Resolved</fullName>
+                <default>false</default>
+                <label>Complaint Resolved</label>
+            </value>
+            <value>
+                <fullName>Resolved with Compensation</fullName>
+                <default>false</default>
+                <label>Resolved with Compensation</label>
+            </value>
+            <value>
+                <fullName>Customer Acknowledged</fullName>
+                <default>false</default>
+                <label>Customer Acknowledged</label>
+            </value>
+            <value>
+                <fullName>BID Already Exist -Same ISINCODE</fullName>
+                <default>false</default>
+                <label>BID Already Exist -Same ISINCODE</label>
+            </value>
+            <value>
+                <fullName>Want to apply for a loan/finance</fullName>
+                <default>false</default>
+                <label>Want to apply for a loan/finance</label>
+            </value>
+            <value>
+                <fullName>Want to change the existing CC type to another ila CC type</fullName>
+                <default>false</default>
+                <label>Want to change the existing CC type to another ila CC type</label>
+            </value>
+            <value>
+                <fullName>To reduce some financial obligations</fullName>
+                <default>false</default>
+                <label>To reduce some financial obligations</label>
+            </value>
+            <value>
+                <fullName>Have a better alternative</fullName>
+                <default>false</default>
+                <label>Have a better alternative</label>
+            </value>
+            <value>
+                <fullName>Other reason</fullName>
+                <default>false</default>
+                <label>Other reason</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Bank</fullName>
+                <default>false</default>
+                <label>Cancelled by Bank</label>
+            </value>
+            <value>
+                <fullName>Need liquidity</fullName>
+                <default>false</default>
+                <label>Need liquidity</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Failed</fullName>
+                <default>false</default>
+                <label>Failed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

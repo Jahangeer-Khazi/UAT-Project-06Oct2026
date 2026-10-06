@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CIF__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Master unique ID assigned to prospects and customers identifying this record across all internal systems</description>
+    <encryptionScheme>CaseSensitiveDeterministicEncryption</encryptionScheme>
+    <externalId>true</externalId>
+    <inlineHelpText>Master unique ID assigned to prospects and customers identifying this record across all internal systems</inlineHelpText>
+    <label>CIF</label>
+    <length>8</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

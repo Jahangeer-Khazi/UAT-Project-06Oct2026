@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>POA_POI_can_be_edited_for_Non_Customers</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISNEW()) &amp;&amp; Skip_ID_Validation__c = False &amp;&amp; (ISCHANGED( Proof_of_Address_ID_Number__c ) || ISCHANGED( ID_Number__c ))</errorConditionFormula>
+    <errorMessage>For Manual On-boarding process, you cannot change the ID Number/ Proof of Address ID Number, please contact System Admin.</errorMessage>
+</ValidationRule>

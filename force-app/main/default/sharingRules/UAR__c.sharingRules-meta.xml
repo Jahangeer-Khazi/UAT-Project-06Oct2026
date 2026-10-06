@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Share_UAR_with_Compliance_Team</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share UAR with Compliance Team</label>
+        <sharedTo>
+            <group>Compliance_Team</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value>QWERTY</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_UAR_with_Fraud_Team</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share UAR with Fraud Team</label>
+        <sharedTo>
+            <group>Fraud</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value>QWERTY</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

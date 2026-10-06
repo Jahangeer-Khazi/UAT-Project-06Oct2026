@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <capacityModel>STATUS_BASED</capacityModel>
+    <doesCheckCapOnOwnerChange>true</doesCheckCapOnOwnerChange>
+    <doesCheckCapOnStatusChange>true</doesCheckCapOnStatusChange>
+    <doesMinimizeWidgetOnAccept>false</doesMinimizeWidgetOnAccept>
+    <hasAutoAcceptEnabled>true</hasAutoAcceptEnabled>
+    <isInterruptible>false</isInterruptible>
+    <label>casesChannel</label>
+    <relatedEntityType>Case</relatedEntityType>
+    <secondaryRoutingPriorityField>Handled_by__c</secondaryRoutingPriorityField>
+    <serviceChannelFieldPriorities>
+        <priority>1</priority>
+        <value>VVIP</value>
+    </serviceChannelFieldPriorities>
+    <serviceChannelFieldPriorities>
+        <priority>3</priority>
+        <value>Premium Plus</value>
+    </serviceChannelFieldPriorities>
+    <serviceChannelFieldPriorities>
+        <priority>4</priority>
+        <value>Premium</value>
+    </serviceChannelFieldPriorities>
+    <serviceChannelFieldPriorities>
+        <priority>2</priority>
+        <value>Staff</value>
+    </serviceChannelFieldPriorities>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Closed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Escalated</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Acknowledged</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Sent to Specialist</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>All Documents Uploaded</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Verified</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Alert No Match</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Alert Confirmed Match</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Visit to Service Center</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Approved</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Rejected</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Fraud Not Confirmed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Collection</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Completed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Failed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Delivery</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Head of Business Review</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>In Progress - Handed Off</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>All Child Cases Closed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Pending Documents</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Review</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Approved Pending Signature</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Referred to Service Center</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Cancelled</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Discrepancies</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Merged</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Response Received</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Account Activated</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Archived Closed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>On hold age</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>On hold language</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>On hold nationality</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>On hold restricted countries</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Pending Doc on Customer</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Reassign to New Agent</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Pending Hassala Closure</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>Completed Hassala Closure</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>New</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>In Progress</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>Reopen</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>Open</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>On Hold</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>Under Review</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>Pending Signature</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>Waiting for Customer</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>Pending</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>Referred</value>
+    </serviceChannelStatusFieldMappings>
+    <statusField>Status</statusField>
+</ServiceChannel>

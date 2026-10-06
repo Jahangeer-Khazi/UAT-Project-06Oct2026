@@ -1,0 +1,537 @@
+<!-- 	Organization : ABC Bank
+    * 		Created By: ABC Support
+    *		Created Date: 07-10-2019
+    * 		Change History: 
+   *	    	  
+   -->
+<aura:component controller="BondSukukInfoController">
+    
+    <!-- ============================================ -->
+    <aura:attribute name="data" type="Object" default="{}"/> 
+    <aura:attribute name="investmentData" type="Object" default="{}"/>  
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <!-- CH01 : Added by Hamza Chaoui *** to handle alburaq Product  --> 	
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />     
+    <!-- CH05: Start -->
+    <aura:attribute name="regionName" type="String" />
+    <aura:attribute name="dataList" type="Object[]" access="private" default="[]"/>
+    
+    <!-- CH05: END -->
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>   
+    <!-- ============================================ -->
+    
+    <lightning:card title="Instrument Detail">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Instrument No</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.id}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">ISIN Code</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.isInCodeCBB}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">ISIN Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.isInName}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Group</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.group}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Security Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.securityType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.currency}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issue No</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.issueNoCBB}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issue Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.issueAmountCBB}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issue Price</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.data.issuePrice}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Issue Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.issueDateCBB}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Due Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.bidDueDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Invitation Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.invitationDateCBB}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Maturity Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.maturityDateCBB}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--CH03 Start -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Tender Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.tenderDateCBB}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                       
+                        
+                    </div> 
+                </div>
+                <!--CH03 END -->
+            </div> <!-- end row -->
+            
+            <!--CH03 Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Rate</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.rateCBB}" minimumFractionDigits="6"/> %
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Period</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               <lightning:formattedNumber value="{!v.data.period.tenure}" minimumFractionDigits="0"/>&nbsp;&nbsp;&nbsp;{!v.data.period.tenure_type}
+                            </div>
+                        </div>
+                       </div>
+                   
+                 </div>
+            </div> 
+            <!-- CH03 END -->
+            
+            
+        </div>   
+    </lightning:card>
+    <lightning:card title="Investment Details">
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Investment No</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.investmentData.id}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.investmentData.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Funding Account - IBAN</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.investmentData.fundingAccountIban}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAmount}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Amount - Fee</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAmountFee}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Amount - VAT</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAmountVat}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Creation Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.investmentData.bidCreationDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="slds-form__item" role="listitem">
+                  <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Allocation Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAllocationAmount}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Allocation Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.investmentData.bidAllocationDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Allocation %</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAllocationPercentage}" minimumFractionDigits="2"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Allocation Amount Fee</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAllocationAmountFee}" minimumFractionDigits="2"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bid Allocation Amount VAT</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.bidAllocationAmountVat}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Maturity Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.maturityAmount}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Yield Rate</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.investmentData.yieldRate}" minimumFractionDigits="2"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+    <aura:if isTrue="{!(v.investmentData.status=='Cancelled')}">
+        <lightning:card title="Cancelation Details">
+            <div class="slds-form" role="list" style="padding: 1rem;">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Cancelation Date</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <ui:outputDate value="{!v.investmentData.cancellationDate}" format="DD-MM-YYYY" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Proceeds Credited On</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <ui:outputDate value="{!v.investmentData.proceedsCreditedOn}" format="DD-MM-YYYY" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Proceeds Credited To</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.investmentData.proceedsCreditedTo}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="slds-form__item" role="listitem">
+                   
+                 </div>
+                </div>
+            </div>
+        </lightning:card>
+    </aura:if>
+    <aura:if isTrue="{!(v.investmentData.status=='Sold')}">
+        <lightning:card title="Sell Details">
+            <div class="slds-form" role="list" style="padding: 1rem;">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Selling Price</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.investmentData.sellingPrice}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Selling Amount</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.investmentData.sellingAmount}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Selling Date</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <ui:outputDate value="{!v.investmentData.sellingDate}" format="DD-MM-YYYY" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Proceeds Credited On</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.investmentData.proceedsCreditedOn}
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="slds-form__row">
+                     <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Proceeds Credited To</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.investmentData.proceedsCreditedTo}
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                    <div class="slds-form__item" role="listitem">
+
+                   </div>
+                </div>
+            </div>
+        </lightning:card>
+    </aura:if>
+    <aura:if isTrue="{!(v.investmentData.status=='Matured')}">
+        <lightning:card title="Matured Details">
+            <div class="slds-form" role="list" style="padding: 1rem;">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Maturity Date</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <ui:outputDate value="{!v.data.maturityDateCBB}" format="DD-MM-YYYY" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Proceeds Credited On</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.investmentData.proceedsCreditedOn}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Proceeds Credited To</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.investmentData.proceedsCreditedTo}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="slds-form__item" role="listitem">
+                   
+                 </div>
+                </div>
+            </div>
+        </lightning:card>
+    </aura:if>
+    <aura:if isTrue="{!(v.investmentData.status=='Active')}">
+        <lightning:card title="Coupon Payment Details">
+             <c:LTNG044_CouponDetails 
+                                      InvestmentData="{!v.investmentData}"
+                                      InstrumentData="{!v.data}"
+                                      customerId="{!v.customerId}"
+            						  regionName="{!v.regionName}"
+                                      viewCouponDetails="false"
+                                       />
+        </lightning:card>
+    </aura:if>
+    <c:apexService aura:id="apexService"/>
+    
+</aura:component>

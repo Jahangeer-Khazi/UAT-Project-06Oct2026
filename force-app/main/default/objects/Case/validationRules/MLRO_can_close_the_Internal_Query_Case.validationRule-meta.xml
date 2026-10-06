@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MLRO_can_close_the_Internal_Query_Case</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				RecordType.DeveloperName = &apos;Internal_Query&apos;,
+				$UserRole.Name &lt;&gt; &apos;Compliance&apos;,
+				$UserRole.Name &lt;&gt; &apos;Jordan Compliance&apos;,
+				NOT(CONTAINS($Profile.Name, &quot;Admin&quot;)),
+				ISPICKVAL(Status, &apos;Closed&apos;)
+)</errorConditionFormula>
+    <errorMessage>Only MLRO  Team can close the Internal Query cases</errorMessage>
+</ValidationRule>

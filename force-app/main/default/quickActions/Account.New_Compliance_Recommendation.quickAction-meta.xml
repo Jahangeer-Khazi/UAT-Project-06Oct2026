@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This case will be initiated for the Compliance Exit Recommendation process</description>
+    <fieldOverrides>
+        <field>AccountId</field>
+        <formula>Account.Id</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Case_Model__c</field>
+        <formula>IF(TEXT(Account.PersonContact.Subscription_Model__c) = &quot;alburaq&quot; , &quot;alburaq&quot; , &quot;ila&quot;)</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Case_Nature__c</field>
+        <formula>&quot;EXIT&quot;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Compliance_Alert__c</field>
+        <formula>true</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>ContactId</field>
+        <formula>Account.PersonContactId</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Description</field>
+        <formula>&quot;Please refer to the case content&quot;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Origin</field>
+        <literalValue>CRM</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status</field>
+        <literalValue>New</literalValue>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Subject</field>
+        <formula>&quot;Compliance Recommendation&quot;</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Type</field>
+        <formula>&quot;Compliance&quot;</formula>
+        <literalValue>Compliance</literalValue>
+    </fieldOverrides>
+    <label>New Compliance Recommendation</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Subject</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Description</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Case_Model__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Origin</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Type</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Sub_Type__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <targetObject>Case</targetObject>
+    <targetParentField>Account</targetParentField>
+    <targetRecordType>Case.Compliance_Query</targetRecordType>
+    <type>Create</type>
+</QuickAction>

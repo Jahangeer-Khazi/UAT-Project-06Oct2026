@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Current Late payment charges VAT --></label>
+    <name>cx_Current_Late_payment_charges_VAT__c</name>
+</CustomFieldTranslation>

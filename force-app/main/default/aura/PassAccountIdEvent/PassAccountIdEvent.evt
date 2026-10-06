@@ -1,0 +1,7 @@
+<!--
+ - Created by Himanshu on 24/07/2019.
+ -->
+
+<aura:event type="APPLICATION" description="Pass account ID from Bank detail tab to CardList to Cardetail tab">
+    <aura:attribute name="globalAccountId" type="String"/>
+</aura:event>

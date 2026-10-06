@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardCashCol_PreScr_Approver</fullName>
+    <active>true</active>
+    <description>If Approved Requested Card Type = Ila switch and Approved Transfer Type is blank</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &apos;Accept&apos;),
+OR(
+ISPICKVAL(cc_Approved_Requested_Card_Type__c, &apos;PLATINUM_BALANCE_TRANSFER_01&apos;),
+Is_Balance_Transfer__c = true
+), 
+ISBLANK(Text(cc_Approved_Transfer_Type__c)),  
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;)  
+)</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Transfer_Type__c</errorDisplayField>
+    <errorMessage>Please fill the Approver Transfer Type field for ila switch / ila Gulf Cards</errorMessage>
+</ValidationRule>

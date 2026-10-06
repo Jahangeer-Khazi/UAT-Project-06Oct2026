@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Monthly_Other_Expenses__c</fullName>
+    <description>This field is used for the Jordan Credit Card and Limit Increase Application(NBA-16504)</description>
+    <externalId>false</externalId>
+    <label>Monthly Other Expenses</label>
+    <precision>13</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

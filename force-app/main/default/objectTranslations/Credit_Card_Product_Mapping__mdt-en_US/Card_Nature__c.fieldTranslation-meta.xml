@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Card Nature --></label>
+    <name>Card_Nature__c</name>
+    <picklistValues>
+        <masterLabel>secured</masterLabel>
+        <translation><!-- secured --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>unsecured</masterLabel>
+        <translation><!-- unsecured --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

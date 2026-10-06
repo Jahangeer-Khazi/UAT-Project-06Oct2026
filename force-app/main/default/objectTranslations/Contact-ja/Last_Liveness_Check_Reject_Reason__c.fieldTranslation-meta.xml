@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Last Liveness Check Reject Reason --></label>
+    <name>Last_Liveness_Check_Reject_Reason__c</name>
+    <picklistValues>
+        <masterLabel>DENIED_FRAUD</masterLabel>
+        <translation><!-- DENIED_FRAUD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DENIED_UNSUPPORTED_ID_COUNTRY</masterLabel>
+        <translation><!-- DENIED_UNSUPPORTED_ID_COUNTRY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DENIED_UNSUPPORTED_ID_TYPE</masterLabel>
+        <translation><!-- DENIED_UNSUPPORTED_ID_TYPE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ERROR_NOT_READABLE_ID</masterLabel>
+        <translation><!-- ERROR_NOT_READABLE_ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Expired</masterLabel>
+        <translation><!-- Expired --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NO_ID_UPLOADED</masterLabel>
+        <translation><!-- NO_ID_UPLOADED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Similarity = NOT_POSSIBLE</masterLabel>
+        <translation><!-- Similarity = NOT_POSSIBLE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Similarity = NO_MATCH</masterLabel>
+        <translation><!-- Similarity = NO_MATCH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>validity = FALSE</masterLabel>
+        <translation><!-- validity = FALSE --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

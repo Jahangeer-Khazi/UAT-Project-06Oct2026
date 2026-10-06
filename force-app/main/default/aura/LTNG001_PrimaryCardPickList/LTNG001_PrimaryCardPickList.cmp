@@ -1,0 +1,37 @@
+<!--
+Change History :
+*         #CH01 :  Added by D&A technologies team 22-06-2022 add case model field
+*		  #CH02 :  Added by Aniss Mbarki  11-09-2023 supplementary requirement jordan
+*/
+-->
+<aura:component controller="LTNG001_PrimaryCardPickListController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="currentCards" type="List" />
+    <aura:attribute name="valueCurrentCard" type="String" />
+    <aura:attribute name="maskedNumCurrentCard" type="String" />
+    <aura:attribute name="productConfigCurrentCard" type="String" />
+    <aura:attribute name="cardDisplayName" type="String" />
+    <aura:attribute name="productMappingCode" type="String" /><!-- #CH02 -->
+    
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <!--START handlers-->
+    <aura:handler name="change" value="{!v.accountId}" action="{!c.accChange}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <lightning:select aura:id="primaryRecord" label="Primary Card" value="{!v.valueCurrentCard}" required="true" onchange="{!c.primaryCardChange}">
+        <option text="--None--" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.currentCards}" var="currentCard">
+                <option text="{!currentCard.maskedCardNumber}" value="{!currentCard.id}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select>
+
+</aura:component>

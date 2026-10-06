@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bahrain_Operations_Checker_Draw</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Bahrain Operations Checker</label>
+    <queue>Bahrain_Operations_Checker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

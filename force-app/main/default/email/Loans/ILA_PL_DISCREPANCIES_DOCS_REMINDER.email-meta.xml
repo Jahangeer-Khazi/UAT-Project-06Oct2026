@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reminder to be sent, when discrepancies have been identified by Pre-screener and customer did not reply for the last XX days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ILA_PL_DISCREPANCIES_DOCS_REMINDER</name>
+    <style>none</style>
+    <subject>Requesting Documents for your {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c}  Application</subject>
+    <textOnly>Requesting Documents  for your {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c}  Application
+Hi,
+
+Thank you for applying for a {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c}.
+
+We wish to remind you to provide the following documents to help us process your application:
+
+
+•  {!Case.Sales_Call_Log__c}
+
+
+If you need any assistance, please call us on +973 17123456 or email us on support@ilabank.com
+
+
+
+Open ila App
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

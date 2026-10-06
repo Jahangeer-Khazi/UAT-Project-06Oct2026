@@ -1,0 +1,8 @@
+Dear {!Case.Account}, 
+
+Thank you for submitting your complaint to us. 
+Case #{!Case.CaseNumber}: "{!Case.Subject}" has now been Closed.
+
+
+Thank you, 
+ {!Organization.Name}

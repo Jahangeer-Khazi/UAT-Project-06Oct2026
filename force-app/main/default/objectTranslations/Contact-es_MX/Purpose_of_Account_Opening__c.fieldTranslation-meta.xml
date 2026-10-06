@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Purpose of Account Opening --></help>
+    <label><!-- Purpose of Account Opening --></label>
+    <name>Purpose_of_Account_Opening__c</name>
+    <picklistValues>
+        <masterLabel>Business</masterLabel>
+        <translation><!-- Business --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Current</masterLabel>
+        <translation><!-- Current --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Investments</masterLabel>
+        <translation><!-- Investments --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Saving</masterLabel>
+        <translation><!-- Saving --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

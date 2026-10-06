@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_ID_Expiry_Date_Mandatory</fullName>
+    <active>true</active>
+    <description>Address ID expiry Date field is mandatory if Nationality equals Bahrain</description>
+    <errorConditionFormula>AND(
+				NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+				ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+				ISBLANK(Address_ID_Expiry_Date__c),
+				OR(
+								RecordTypeId=&apos;0121t000000IVAF&apos;,
+								RecordTypeId=&apos;0121t000000IVAG&apos;
+				),
+				NOT(ISBLANK(ID_Expiry_Date__c))
+)</errorConditionFormula>
+    <errorMessage>Please fill in the Address ID expiry Date field to proceed</errorMessage>
+</ValidationRule>

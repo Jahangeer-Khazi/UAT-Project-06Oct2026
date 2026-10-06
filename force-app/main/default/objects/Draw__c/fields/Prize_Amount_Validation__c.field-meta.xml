@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prize_Amount_Validation__c</fullName>
+    <description>Total draw prize amount entered when draw is created should be equal to the total amount of all prizes defined.</description>
+    <externalId>false</externalId>
+    <formula>IF (Total_Amount_of_All_Prizes__c  =  Total_Prize_Fund__c, &apos;Prize Validation Success ✅&apos; , &apos;Prize Validation Failed 🔴&apos; )</formula>
+    <inlineHelpText>For successful Validation, the Total Amount of All Prizes should be equal to the Total Prize Fund</inlineHelpText>
+    <label>Prize Amount Validation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

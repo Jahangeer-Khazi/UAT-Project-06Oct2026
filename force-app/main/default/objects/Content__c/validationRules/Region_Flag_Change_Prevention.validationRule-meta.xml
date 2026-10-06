@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_Flag_Change_Prevention</fullName>
+    <active>true</active>
+    <description>Ensures changes to the Region Flag are not possible, and that the picklist value is not empty.</description>
+    <errorConditionFormula>AND 
+(
+				  NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+        ISCHANGED( Region_Flag__c )  
+      )</errorConditionFormula>
+    <errorMessage>Region Flag on the Content record cannot be changed. Please contact your administrator.</errorMessage>
+</ValidationRule>

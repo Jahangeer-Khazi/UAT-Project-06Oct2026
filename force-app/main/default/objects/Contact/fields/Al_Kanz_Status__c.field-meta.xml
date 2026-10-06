@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Al_Kanz_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(&apos;/resource/1656412095000/KanzStatus/&apos;, &apos;KanzStatus&apos;,75,126)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Al Kanz Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

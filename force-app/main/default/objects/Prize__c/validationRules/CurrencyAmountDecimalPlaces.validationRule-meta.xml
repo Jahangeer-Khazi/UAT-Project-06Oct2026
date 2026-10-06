@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrencyAmountDecimalPlaces</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				ISPICKVAL(Draw__r.Currency__c, &apos;BHD&apos;),
+    Winning_Amount__c &lt;&gt; ROUND(Winning_Amount__c, 3) 
+ )</errorConditionFormula>
+    <errorDisplayField>Winning_Amount__c</errorDisplayField>
+    <errorMessage>Max decimal places for BHD currency is 3</errorMessage>
+</ValidationRule>

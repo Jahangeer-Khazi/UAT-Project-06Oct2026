@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Update_compliance_recommendation</fullName>
+    <active>true</active>
+    <description>Compliance results can not be changed to blank  unless some fields under Compliance are available</description>
+    <errorConditionFormula>AND
+(
+RecordType_DeveloperName__c=&apos;Compliance_Query&apos;,
+NOT(ISNEW()),
+TEXT(Type)=&apos;Compliance&apos;,
+ISCHANGED(Compliance_Results__c),
+OR(
+ISBLANK(TEXT(Origin_of_Alert__c)),
+ISBLANK(TEXT(Speculated_FCC_Risk_Type__c))
+)
+
+)</errorConditionFormula>
+    <errorMessage>Origin of Alert, Speculated FCC Risk Type and Compliance Results are required to be filled by Compliance team post validating.</errorMessage>
+</ValidationRule>

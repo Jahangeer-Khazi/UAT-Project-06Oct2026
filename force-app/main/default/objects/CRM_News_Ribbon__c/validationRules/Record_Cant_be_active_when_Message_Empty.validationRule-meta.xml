@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Cant_be_active_when_Message_Empty</fullName>
+    <active>true</active>
+    <description>User cannot edit/save the record when message field is empty and active checkbox is ticked.</description>
+    <errorConditionFormula>LEN(Message__c) == 0 &amp;&amp; Active__c</errorConditionFormula>
+    <errorMessage>Message field is required when Active checkbox is ticked.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="pageSize" type="Integer" label="Rows per page" default="100" description="Number of records to show per page in the history table."/>
+            <property name="maxRangeMonths" type="Integer" label="Max Report Range (Months)" default="6" description="Maximum number of months allowed for report generation."/>
+            <objects>
+                <object>Account</object> 
+            </objects>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

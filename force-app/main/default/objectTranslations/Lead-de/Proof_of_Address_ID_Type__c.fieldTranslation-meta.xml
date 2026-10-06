@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Proof of Address ID Type --></label>
+    <name>Proof_of_Address_ID_Type__c</name>
+    <picklistValues>
+        <masterLabel>Bahraini Drivers Licence</masterLabel>
+        <translation><!-- Bahraini Drivers Licence --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Statement</masterLabel>
+        <translation><!-- Bank Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CPR Extract</masterLabel>
+        <translation><!-- CPR Extract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Phone Bill</masterLabel>
+        <translation><!-- Phone Bill --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tenancy Agreement</masterLabel>
+        <translation><!-- Tenancy Agreement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Utility Bill</masterLabel>
+        <translation><!-- Utility Bill --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

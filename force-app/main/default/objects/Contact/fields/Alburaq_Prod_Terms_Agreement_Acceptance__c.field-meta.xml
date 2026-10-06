@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alburaq_Prod_Terms_Agreement_Acceptance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Alburaq Product Terms Agreement Acceptance</inlineHelpText>
+    <label>Alburaq Prod Terms Agreement Acceptance</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

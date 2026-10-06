@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Including Salary/Pension (BD) --></help>
+    <label><!-- Declared gross monthly  income (BHD) --></label>
+    <name>Declared_gross_monthly_income_BHD__c</name>
+    <picklistValues>
+        <masterLabel>1,000 – 1,999</masterLabel>
+        <translation><!-- 1,000 – 1,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2,000 – 2,999</masterLabel>
+        <translation><!-- 2,000 – 2,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3,000 – 5,000</masterLabel>
+        <translation><!-- 3,000 – 5,000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>500 – 999</masterLabel>
+        <translation><!-- 500 – 999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Above 5,000</masterLabel>
+        <translation><!-- Above 5,000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Below 500</masterLabel>
+        <translation><!-- Below 500 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

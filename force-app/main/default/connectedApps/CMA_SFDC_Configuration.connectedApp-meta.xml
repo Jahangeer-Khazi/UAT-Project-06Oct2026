@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>fatema.fardan@bank-abc.com</contactEmail>
+    <label>CMA_SFDC_Configuration</label>
+    <oauthConfig>
+        <callbackUrl>https://bankal3afo.com</callbackUrl>
+        <certificate>MIIENTCCAx2gAwIBAgIJAKe6hZHahcGeMA0GCSqGSIb3DQEBCwUAMIGwMQswCQYDVQQGEwJCSDEQMA4GA1UECAwHQmFocmFpbjEYMBYGA1UEBwwPRGlwbG9tYXRpYyBBcmVhMREwDwYDVQQKDAhCYW5rIEFCQzEXMBUGA1UECwwOQ3liZXIgU2VjdXJpdHkxHjAcBgNVBAMMFUZhdGVtYSBTYWxlc2ZvcmNlIEFQSTEpMCcGCSqGSIb3DQEJARYaZmF0ZW1hLmZhcmRhbkBiYW5rLWFiYy5jb20wHhcNMjAwMTMwMDYxMzM0WhcNMjEwMTI5MDYxMzM0WjCBsDELMAkGA1UEBhMCQkgxEDAOBgNVBAgMB0JhaHJhaW4xGDAWBgNVBAcMD0RpcGxvbWF0aWMgQXJlYTERMA8GA1UECgwIQmFuayBBQkMxFzAVBgNVBAsMDkN5YmVyIFNlY3VyaXR5MR4wHAYDVQQDDBVGYXRlbWEgU2FsZXNmb3JjZSBBUEkxKTAnBgkqhkiG9w0BCQEWGmZhdGVtYS5mYXJkYW5AYmFuay1hYmMuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyPW5yw1QJMBCliwvkEaFQhNCyR134Js21N7mlZbiRVUDy1glCJtFa7rKohw3K7CMOmiGB+MimSe1Pp9A7wAFusnPOA4qnJYAnrG6BbY1stAC7jEY9g6awlciZfQmjJ9qKmIQBZaLDlVzkIVIqaTcP3Z6LKcpn6tB0h0KQzo9CvrPmna6mWdxwOL32b4xHMQkoWcXwqnZhSL9xD9gYzHGAsINvGIegILJZrIqL7LYIvwWlSUpbNQjnuomtH2DKEV8H48iU81CwQWmn97TFAP++/5OBaIKzgj28WqljEpVD6MnQPRMFct6dojXmzHzt3Hy3VmXn5SbeRO0J1x0Tg9+vQIDAQABo1AwTjAdBgNVHQ4EFgQUVhoCAAdBZNiO9a2vGL9ebef2+OAwHwYDVR0jBBgwFoAUVhoCAAdBZNiO9a2vGL9ebef2+OAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEARN+VMVrzw72nZxsZ4lGJzHJ/EHzU5hqTx5QvoCqqsKdC7dAHXczp6u2a6cdUegKbX+fgqg88W8ZwRD2WMjDvtrQZfKQppZ3m3E7h381Mag2pDb8kQ+YD7kDGQvmZ+iZwu/tBnKkkFDWNkdxzWzNnCN84i0xOMBcxBjCmxoBGZRI+uvu0GKnztYWgXI3HMlcdgyBGhk7ltig1ZDqy2+BFI/uz34Y5SRSbPj70AKUFEk3xQnkkpV5OjH8X6GL2OVDaPkaDBVQYhxeRgeUVDUTP1GpCgWPxreiJHl0KMajWv8PbjUme+/73ara29mk5djD28jagJwognti7oMgjYdudJg==</certificate>
+        <consumerKey>3MVG9Lu3LaaTCEgJ1gvddPIi1T6X_W4BO8RthcXP_.rz_gsV8dujxmCojAw572qPDafVgiwh1cVkmk5moqh5.</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isNamedUserJwtEnabled>false</isNamedUserJwtEnabled>
+        <isPkceRequired>false</isPkceRequired>
+        <isRefreshTokenRotationEnabled>false</isRefreshTokenRotationEnabled>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <isSecretRequiredForTokenExchange>false</isSecretRequiredForTokenExchange>
+        <isTokenExchangeEnabled>false</isTokenExchangeEnabled>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <isTokenExchangeFlowEnabled>false</isTokenExchangeFlowEnabled>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <profileName>System Administrator</profileName>
+    <profileName>Integration Gateway</profileName>
+    <profileName>System Administrator Custom</profileName>
+</ConnectedApp>

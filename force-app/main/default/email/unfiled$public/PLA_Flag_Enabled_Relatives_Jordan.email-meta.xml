@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>PLA - Staff declared a relative to be ineligible</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Enabled Relatives_Jordan</name>
+    <style>none</style>
+    <subject>Al Kanz Prize Linked Account Eligibility</subject>
+    <textOnly>Al Kanz Prize Linked Account Eligibility
+
+Hi,
+
+As per the  terms and conditions of Al Kanz Prize Linked account , Bank ABC and ila Bank staff and their immediate relatives are not eligible to participate in prize draws.
+
+{!Linked_Account__c.Linked_Account__c} has advised us that you are his/her relative. Because of this, we have marked your Al Kanz account as ineligible.
+
+We are collecting this information due to regulatory requirements, as we are unable to offer to our staff and their immediate relatives a product like Al Kanz. We will process your personal data according to the ila  Privacy Policy
+
+This does not affect your other accounts or your relationship with ila.
+
+If you believe there has been an error, please contact us on +96265100001.
+
+Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

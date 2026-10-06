@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Number_years_at_current_residence_jo__c</fullName>
+    <label>Number of years at current residence(JO)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Less than 1 year</fullName>
+                <default>false</default>
+                <label>Less than 1 year</label>
+            </value>
+            <value>
+                <fullName>1 to 2 Years</fullName>
+                <default>false</default>
+                <label>1 to 2 Years</label>
+            </value>
+            <value>
+                <fullName>2 to 3 years</fullName>
+                <default>false</default>
+                <label>2 to 3 years</label>
+            </value>
+            <value>
+                <fullName>3 to 5 years</fullName>
+                <default>false</default>
+                <label>3 to 5 years</label>
+            </value>
+            <value>
+                <fullName>5 years &amp; above</fullName>
+                <default>false</default>
+                <label>5 years &amp; above</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

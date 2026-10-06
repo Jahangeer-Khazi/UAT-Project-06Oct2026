@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PresenceUserConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <profiles>
+            <profile>Admin</profile>
+            <profile>Standard</profile>
+            <profile>Compliance</profile>
+            <profile>Contact Centre</profile>
+            <profile>InfoSec Restricted Admin</profile>
+            <profile>Integration User</profile>
+            <profile>NeoBank Profile</profile>
+            <profile>Operations</profile>
+            <profile>SolutionManager</profile>
+            <profile>MarketingProfile</profile>
+            <profile>ContractManager</profile>
+            <profile>RMT</profile>
+            <profile>Read Only</profile>
+            <profile>Restricted System Admin</profile>
+            <profile>StandardAul</profile>
+            <profile>Third Line Support</profile>
+        </profiles>
+    </assignments>
+    <capacity>60</capacity>
+    <enableAutoAccept>true</enableAutoAccept>
+    <enableDecline>false</enableDecline>
+    <enableDeclineReason>false</enableDeclineReason>
+    <enableDisconnectSound>true</enableDisconnectSound>
+    <enableRequestSound>true</enableRequestSound>
+    <hasAfterConvoWorkTimer>false</hasAfterConvoWorkTimer>
+    <label>cases_configuration</label>
+</PresenceUserConfig>

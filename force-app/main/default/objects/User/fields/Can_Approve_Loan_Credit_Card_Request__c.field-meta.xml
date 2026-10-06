@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Can_Approve_Loan_Credit_Card_Request__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used for Approving Loan Credit Card Request (NBA-12481)</description>
+    <label>Can Approve Loan Unsecured Request</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

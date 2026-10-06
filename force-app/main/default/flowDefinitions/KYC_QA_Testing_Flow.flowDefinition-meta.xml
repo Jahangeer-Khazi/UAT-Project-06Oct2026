@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>KYC Verification -Testing Only Minutes Based</description>
+    <masterLabel>KYC Notification Service - Sub Flow</masterLabel>
+</FlowDefinition>

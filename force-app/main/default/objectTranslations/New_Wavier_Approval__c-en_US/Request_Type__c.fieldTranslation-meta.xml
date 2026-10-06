@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Request Type --></label>
+    <name>Request_Type__c</name>
+    <picklistValues>
+        <masterLabel>(Cash withdrawal for ATM)</masterLabel>
+        <translation><!-- (Cash withdrawal for ATM) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>(applies on all types of government securities)</masterLabel>
+        <translation><!-- (applies on all types of government securities) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Balance Enquiry - GCC</masterLabel>
+        <translation><!-- ATM Balance Enquiry - GCC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Balance Enquiry - International</masterLabel>
+        <translation><!-- ATM Balance Enquiry - International --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Balance Enquiry - using payment wallets (Worldwide)</masterLabel>
+        <translation><!-- ATM Balance Enquiry - using payment wallets (Worldwide) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Cash Withdrawal - GCC</masterLabel>
+        <translation><!-- ATM Cash Withdrawal - GCC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Cash Withdrawal - International</masterLabel>
+        <translation><!-- ATM Cash Withdrawal - International --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Cash Withdrawal - using payment wallets (Worldwide)</masterLabel>
+        <translation><!-- ATM Cash Withdrawal - using payment wallets (Worldwide) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Statement via Service Centre</masterLabel>
+        <translation><!-- Account Statement via Service Centre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Replacement</masterLabel>
+        <translation><!-- Card Replacement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Replacement (upon customer request)</masterLabel>
+        <translation><!-- Card Replacement (upon customer request) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cash Advance</masterLabel>
+        <translation><!-- Cash Advance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cash Advance (Cash withdrawal for ATM)</masterLabel>
+        <translation><!-- Cash Advance (Cash withdrawal for ATM) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dormant Account Fee</masterLabel>
+        <translation><!-- Dormant Account Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Early Withdrawal Fee - For Deposits in Bahraini Dinars</masterLabel>
+        <translation><!-- Early Withdrawal Fee - For Deposits in Bahraini Dinars --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Early Withdrawal Fee - For Deposits in US Dollars</masterLabel>
+        <translation><!-- Early Withdrawal Fee - For Deposits in US Dollars --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Easy Payment Plan Early Settlement Fee</masterLabel>
+        <translation><!-- Easy Payment Plan Early Settlement Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Easy Payment Plan Processing Fee</masterLabel>
+        <translation><!-- Easy Payment Plan Processing Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FX Markup on the amount</masterLabel>
+        <translation><!-- FX Markup on the amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawri</masterLabel>
+        <translation><!-- Fawri --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawri + (for Amounts Over BHD 100)</masterLabel>
+        <translation><!-- Fawri + (for Amounts Over BHD 100) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Foreign Currency Cheque Collection</masterLabel>
+        <translation><!-- Foreign Currency Cheque Collection --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interest Reversal</masterLabel>
+        <translation><!-- Interest Reversal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>International Payments - (Correspondent Bank Charges May Apply Separately)</masterLabel>
+        <translation><!-- International Payments - (Correspondent Bank Charges May Apply Separately) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Issuing Fees</masterLabel>
+        <translation><!-- Issuing Fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Late Payment</masterLabel>
+        <translation><!-- Late Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Admin fees</masterLabel>
+        <translation><!-- Loan Admin fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Early settlement</masterLabel>
+        <translation><!-- Loan Early settlement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Late payment</masterLabel>
+        <translation><!-- Loan Late payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Min Amount Due Calculation</masterLabel>
+        <translation><!-- Loan Min Amount Due Calculation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Local Payments - SWIFT ( Correspondent Bank Charges May Apply Separately)</masterLabel>
+        <translation><!-- Local Payments - SWIFT ( Correspondent Bank Charges May Apply Separately) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manager&apos;s Cheque - Issue</masterLabel>
+        <translation><!-- Manager&apos;s Cheque - Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Overlimit</masterLabel>
+        <translation><!-- Overlimit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Paper Statement Reprint per month</masterLabel>
+        <translation><!-- Paper Statement Reprint per month --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Paper Statement reprint/ month</masterLabel>
+        <translation><!-- Paper Statement reprint/ month --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium Annual Subscription Fee</masterLabel>
+        <translation><!-- Premium Annual Subscription Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Primary Card Annual Fee</masterLabel>
+        <translation><!-- Primary Card Annual Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RTGS Within Bahrain</masterLabel>
+        <translation><!-- RTGS Within Bahrain --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Replacement</masterLabel>
+        <translation><!-- Replacement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sale Fees - % of the sale Amount (applies on all types of government securities)</masterLabel>
+        <translation><!-- Sale Fees - % of the sale Amount (applies on all types of government securities) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Supplementary Card Annual Fee</masterLabel>
+        <translation><!-- Supplementary Card Annual Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfers between ila Accounts through BenefitPay App (for amounts over BHD 100)</masterLabel>
+        <translation><!-- Transfers between ila Accounts through BenefitPay App (for amounts over BHD 100) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Virtual Card - First Issue</masterLabel>
+        <translation><!-- Virtual Card - First Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Virtual Card - Replacement</masterLabel>
+        <translation><!-- Virtual Card - Replacement --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

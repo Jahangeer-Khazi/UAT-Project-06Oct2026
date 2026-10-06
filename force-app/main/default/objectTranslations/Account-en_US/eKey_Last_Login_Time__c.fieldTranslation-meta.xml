@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- eKey Last Login Time --></label>
+    <name>eKey_Last_Login_Time__c</name>
+</CustomFieldTranslation>

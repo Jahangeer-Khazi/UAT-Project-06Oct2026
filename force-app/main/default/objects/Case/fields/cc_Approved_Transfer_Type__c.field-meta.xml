@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Approved_Transfer_Type__c</fullName>
+    <label>Approved Transfer Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>cc_Requested_Card_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Balance Transfer</fullName>
+                <default>false</default>
+                <label>Balance Transfer</label>
+            </value>
+            <value>
+                <fullName>Buy Out</fullName>
+                <default>false</default>
+                <label>Buy Out</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>PLATINUM_BALANCE_TRANSFER_01</controllingFieldValue>
+            <controllingFieldValue>PLATINUM_CASHBACK_AND_REWARD_01</controllingFieldValue>
+            <controllingFieldValue>ILA_GULF_AIR_COBRAND_01</controllingFieldValue>
+            <valueName>Balance Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PLATINUM_BALANCE_TRANSFER_01</controllingFieldValue>
+            <controllingFieldValue>PLATINUM_CASHBACK_AND_REWARD_01</controllingFieldValue>
+            <controllingFieldValue>ILA_GULF_AIR_COBRAND_01</controllingFieldValue>
+            <valueName>Buy Out</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

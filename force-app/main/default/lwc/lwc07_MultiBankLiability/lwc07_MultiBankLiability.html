@@ -1,0 +1,242 @@
+<template>
+    <div class="multi-bank-container">
+        <template if:true={loadingSpinner}>
+            <lightning-spinner alternative-text="Loading Multi-Bank Liabilities" size="medium"></lightning-spinner>
+        </template>
+
+        <div class="slds-p-around_medium">
+            <div class="table-container">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="selection-column" scope="col">
+                                <span class="slds-assistive-text">Select</span>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Entity/Bank">Entity/Bank</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Outstanding Amount">Outstanding Amount</div>
+                            </th>
+                            <template if:true={showLiabilityIdColumn}>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Liability ID">Liability ID</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Cheque Number">Cheque Number</div>
+                                </th>
+                            </template>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <template if:true={hasRows}>
+                            <template for:each={viewRows} for:item="row">
+                                <tr key={row.Id}>
+                                    <td class="selection-column">
+                                        <lightning-input
+                                            type="checkbox"
+                                            variant="label-hidden"
+                                            label="Select liability"
+                                            data-row-id={row.Id}
+                                            checked={row.selected}
+                                            disabled={disableSelection}
+                                            onchange={handleSelectionChange}>
+                                        </lightning-input>
+                                    </td>
+
+                                    <td class="entity-cell">
+                                        <template if:true={row.isEditingEntity}>
+                                            <lightning-combobox
+                                                variant="label-hidden"
+                                                label="Entity/Bank"
+                                                data-row-id={row.Id}
+                                                value={row.entity}
+                                                options={row.entityOptions}
+                                                placeholder="Select Entity/Bank"
+                                                required={canEditEntityOutstanding}
+                                                onchange={handleEntityChange}>
+                                            </lightning-combobox>
+                                        </template>
+                                        <template if:false={row.isEditingEntity}>
+                                            <div class="cell-display slds-grid slds-grid_vertical-align-center">
+                                                <span class="slds-truncate" title={row.entity}>{row.entity}</span>
+                                                <template if:true={canEditEntityOutstanding}>
+                                                    <lightning-button-icon
+                                                        class="cell-edit-icon"
+                                                        icon-name="utility:edit"
+                                                        variant="bare"
+                                                        size="small"
+                                                        alternative-text="Edit Entity/Bank"
+                                                        title="Edit Entity/Bank"
+                                                        data-row-id={row.Id}
+                                                        onclick={handleEditEntity}>
+                                                    </lightning-button-icon>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </td>
+
+                                    <td>
+                                        <template if:true={row.isEditingOutstanding}>
+                                            <lightning-input
+                                                type="number"
+                                                variant="label-hidden"
+                                                label="Outstanding Amount"
+                                                data-row-id={row.Id}
+                                                value={row.outstanding}
+                                                min="0"
+                                                step="0.01"
+                                                required={canEditEntityOutstanding}
+                                                onchange={handleOutstandingChange}>
+                                            </lightning-input>
+                                        </template>
+                                        <template if:false={row.isEditingOutstanding}>
+                                            <div class="cell-display slds-grid slds-grid_vertical-align-center">
+                                                <lightning-formatted-number
+                                                    value={row.outstanding}
+                                                    minimum-fraction-digits="0"
+                                                    maximum-fraction-digits="2">
+                                                </lightning-formatted-number>
+                                                <template if:true={canEditEntityOutstanding}>
+                                                    <lightning-button-icon
+                                                        class="cell-edit-icon"
+                                                        icon-name="utility:edit"
+                                                        variant="bare"
+                                                        size="small"
+                                                        alternative-text="Edit Outstanding Amount"
+                                                        title="Edit Outstanding Amount"
+                                                        data-row-id={row.Id}
+                                                        onclick={handleEditOutstanding}>
+                                                    </lightning-button-icon>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </td>
+
+                                    <template if:true={showLiabilityIdColumn}>
+                                        <td>
+                                            <template if:true={row.isEditingLiabilityId}>
+                                                <lightning-input
+                                                    type="text"
+                                                    variant="label-hidden"
+                                                    label="Liability ID"
+                                                    data-row-id={row.Id}
+                                                    value={row.liabilityID}
+                                                    required={canEditLiabilityId}
+                                                    onchange={handleLiabilityIdChange}>
+                                                </lightning-input>
+                                            </template>
+                                            <template if:false={row.isEditingLiabilityId}>
+                                                <div class="cell-display slds-grid slds-grid_vertical-align-center">
+                                                    <span class="slds-truncate" title={row.liabilityID}>{row.liabilityID}</span>
+                                                    <template if:true={canEditLiabilityId}>
+                                                        <lightning-button-icon
+                                                            class="cell-edit-icon"
+                                                            icon-name="utility:edit"
+                                                            variant="bare"
+                                                            size="small"
+                                                            alternative-text="Edit Liability ID"
+                                                            title="Edit Liability ID"
+                                                            data-row-id={row.Id}
+                                                            onclick={handleEditLiabilityId}>
+                                                        </lightning-button-icon>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                        </td>
+
+                                        <td>
+                                            <template if:true={row.isEditingChequeNumber}>
+                                                <lightning-input
+                                                    type="text"
+                                                    variant="label-hidden"
+                                                    label="Cheque Number"
+                                                    data-row-id={row.Id}
+                                                    value={row.chequeNumber}
+                                                    required={row.isChequePayment}
+                                                    onchange={handleChequeNumberChange}>
+                                                </lightning-input>
+                                            </template>
+                                            <template if:false={row.isEditingChequeNumber}>
+                                                <div class="cell-display slds-grid slds-grid_vertical-align-center">
+                                                    <span class="slds-truncate" title={row.chequeNumber}>{row.chequeNumber}</span>
+                                                    <template if:true={row.canEditChequeNumber}>
+                                                        <lightning-button-icon
+                                                            class="cell-edit-icon"
+                                                            icon-name="utility:edit"
+                                                            variant="bare"
+                                                            size="small"
+                                                            alternative-text="Edit Cheque Number"
+                                                            title="Edit Cheque Number"
+                                                            data-row-id={row.Id}
+                                                            onclick={handleEditChequeNumber}>
+                                                        </lightning-button-icon>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                        </td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </template>
+
+                        <template if:false={hasRows}>
+                            <tr>
+                                <td colspan={emptyStateColspan} class="slds-text-align_center slds-p-vertical_medium slds-text-color_weak">
+                                    No Multi-Bank liabilities available.
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-action-grid slds-m-top_medium">
+                <div class="table-action-left">
+                    <template if:true={canAddRow}>
+                        <lightning-button
+                            label="Add Row"
+                            variant="brand"
+                            onclick={handleAddRow}
+                            disabled={loadingSpinner}>
+                        </lightning-button>
+                    </template>
+                </div>
+
+                <div class="table-action-center">
+                    <template if:true={showGlobalActions}>
+                        <div class="slds-button-group" role="group">
+                            <lightning-button
+                                label="Cancel"
+                                onclick={handleCancel}
+                                disabled={disableCancel}>
+                            </lightning-button>
+                            <lightning-button
+                                label="Save"
+                                variant="brand"
+                                onclick={handleSave}
+                                disabled={disableSave}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                </div>
+
+                <div></div>
+            </div>
+
+            <div class="buyout-section slds-m-top_large">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Approved Total Buyout Amount Calculation</h2>
+                <div class="slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <lightning-input
+                        type="number"
+                        label="Approved Total Buyout Amount"
+                        value={approvedBuyoutAmount}
+                        step="0.01"
+                        disabled>
+                    </lightning-input>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

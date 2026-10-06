@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requested_by_Admin_new__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This Field will be manually populated to the value TRUE when Jamiyah is cancelled by Admin else false</description>
+    <label>Requested by Admin</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

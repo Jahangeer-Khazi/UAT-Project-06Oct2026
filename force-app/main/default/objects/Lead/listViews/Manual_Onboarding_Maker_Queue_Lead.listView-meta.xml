@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Onboarding_Maker_Queue_Lead</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Manual Onboarding - Maker Queue</label>
+    <queue>Manual_Onboarding_Maker_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

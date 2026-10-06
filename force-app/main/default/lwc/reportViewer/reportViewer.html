@@ -1,0 +1,209 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="slds-align_absolute-center slds-m-around_large">
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:false={isLoading}>
+        <!-- Add custom date range modal trigger -->
+        <template if:true={showCustomDatePicker}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal header -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeCustomDatePicker}>
+                            <lightning-icon icon-name="utility:close" alternative-text="Close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Select Date Range</h2>
+                    </header>
+
+                    <!-- Modal body -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-form-element">
+                            <lightning-input type="date" label="From Date" value={customFromDate}
+                                onchange={handleFromDateChange} required>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-form-element slds-m-top_medium">
+                            <lightning-input type="date" label="To Date" value={customToDate}
+                                onchange={handleToDateChange} required>
+                            </lightning-input>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeCustomDatePicker}>Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={applyCustomDateRange}>Apply</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <lightning-card title="Case Aging Report" class="full-width-container">
+
+            <div class="slds-p-around_medium">
+
+                <div class="metrics-row">
+                    <!-- Total Metrics -->
+                    <div class="metric-box total">
+                        <div class="metric-value">Total Cases: {totalCases}</div>
+                    </div>
+                    <div class="metric-box met">
+                        <div class="metric-value">Total Met: {totalMet}</div>
+                    </div>
+                    <div class="metric-box in-progress">
+                        <div class="metric-value">Total In Progress: {totalInProgress}</div>
+                    </div>
+                    <div class="metric-box breached">
+                        <div class="metric-value">Total Breached: {totalBreached}</div>
+                    </div>
+                </div>
+
+                <div class="metrics-row">
+                    <!-- VIP Metrics -->
+                    <div class="metric-box vip">
+                        <div class="metric-value">VIP Cases: {vipTotal}</div>
+                    </div>
+                    <div class="metric-box met">
+                        <div class="metric-value">VIP Met: {vipMet}</div>
+                    </div>
+                    <div class="metric-box in-progress">
+                        <div class="metric-value">VIP In Progress: {vipInProgress}</div>
+                    </div>
+                    <div class="metric-box breached">
+                        <div class="metric-value">VIP Breached: {vipBreached}</div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-grid_align-spread slds-m-bottom_medium">
+                    <div>
+                        <h2 class="slds-text-heading_medium">Report: Case Escalation SLA Report</h2>
+                        <p class="slds-text-body_small slds-m-top_x-small">
+                            <template if:true={caseData}>
+                                {caseData.length} Records | Total Case Aging | Page {currentPage} of {totalPages}
+                            </template>
+                        </p>
+                    </div>
+                    <div>
+                        <lightning-combobox label="Case Status" value={caseStatusFilter} options={caseStatusOptions}
+                            onchange={handleStatusFilterChange} style="display: inline-block">
+                        </lightning-combobox> &nbsp;
+                        <lightning-combobox label="Date Range" value={selectedDateRange} options={dateRangeOptions}
+                            onchange={handleDateRangeChange} style="display: inline-block">
+                        </lightning-combobox> &nbsp;
+                        <lightning-button label="Send Email" variant="brand" icon-name="utility:email"
+                            onclick={handleEmailClick} disabled={isEmailExporting}>
+                        </lightning-button>
+                        <lightning-button-icon label="Refresh" title="Refresh" icon-name="utility:refresh"
+                            variant="border-filled" onclick={triggerCalculations} style="padding-left: 7px;">
+                        </lightning-button-icon>
+                    </div>
+                </div>
+
+                <template if:true={isExporting}>
+                    <div class="slds-m-top_medium">
+                        <lightning-progress-indicator current-step={exportProgress} type="path" variant="base">
+                        </lightning-progress-indicator>
+                        <div class="slds-text-align_center slds-m-top_x-small">
+                            <strong>{exportStatus}</strong> ({exportProgress}% complete)
+                        </div>
+                    </div>
+                </template>
+
+                <!-- *** New Email Export Progress Indicator *** -->
+                <template if:true={isEmailExporting}>
+                    <div class="slds-m-top_medium">
+                        <lightning-progress-indicator current-step={emailExportProgress} type="path" variant="base">
+                        </lightning-progress-indicator>
+                        <div class="slds-text-align_center slds-m-top_x-small">
+                            <strong>{emailExportStatus}</strong> ({emailExportProgress}% complete)
+                        </div>
+                    </div>
+                </template>
+
+                <div class="slds-m-top_medium table-container">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                        <thead>
+                            <tr>
+                                <template for:each={tableHeaders} for:item="header">
+                                    <th key={header.label} colspan={header.colspan} rowspan={header.rowspan}>
+                                        {header.label}
+                                    </th>
+                                </template>
+                            </tr>
+                            <tr>
+                                <template for:each={tableSubHeaders} for:item="subHeader">
+                                    <th key={subHeader.label}>
+                                        {subHeader.label}
+                                    </th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={tableRows} for:item="row">
+                                <tr key={row.id}>
+                                    <template for:each={row.cells} for:item="cell">
+                                        <td key={cell.value} class={cell.cellClass}>
+                                            {cell.value}
+                                        </td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination Controls -->
+                <!-- Pagination Controls -->
+                <div class="slds-m-top_medium slds-grid slds-grid_align-spread">
+                    <div>
+                        <lightning-button label="Previous" variant="neutral" onclick={handlePrevious}
+                            disabled={isPreviousDisabled}>
+                        </lightning-button>
+                    </div>
+
+                    <div class="slds-grid slds-grid_align-center">
+                        <!-- First Page Button (when needed) -->
+                        <template if:true={showFirstPage}>
+                            <lightning-button label="1" variant="neutral" data-page="1" onclick={handlePageChange}
+                                class="slds-m-horizontal_xx-small" disabled={isExporting}>
+                            </lightning-button>
+                            <span class="slds-m-horizontal_xx-small slds-align-middle">...</span>
+                        </template>
+
+                        <!-- Visible Page Buttons (max 5) -->
+                        <template for:each={visiblePages} for:item="page">
+                            <lightning-button key={page.number} label={page.number} variant={page.variant}
+                                data-page={page.number} onclick={handlePageChange} class="slds-m-horizontal_xx-small"
+                                disabled={isExporting}>
+                            </lightning-button>
+                        </template>
+
+                        <!-- Last Page Button (when needed) -->
+                        <template if:true={showLastPage}>
+                            <span class="slds-m-horizontal_xx-small slds-align-middle">...</span>
+                            <lightning-button label={totalPages} variant="neutral" data-page={totalPages}
+                                onclick={handlePageChange} class="slds-m-horizontal_xx-small" disabled={isExporting}>
+                            </lightning-button>
+                        </template>
+                    </div>
+
+                    <div>
+                        <lightning-button label="Next" variant="neutral" onclick={handleNext} disabled={isNextDisabled}>
+                        </lightning-button>
+                    </div>
+                </div>
+
+                <div class="slds-text-align_center slds-m-top_small">
+                    Showing page {currentPage} of {totalPages} ({totalRecords} total records)
+                </div>
+
+            </div>
+        </lightning-card>
+    </template>
+</template>

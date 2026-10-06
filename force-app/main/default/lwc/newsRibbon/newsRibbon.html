@@ -1,0 +1,9 @@
+<template>
+    <template if:true={isNewsRibbonMsg}>
+        <div class="ribbon-container">
+            <marquee direction={newsRibbonRecord.Marquee_Direction__c} class="ribbon-text">
+                <lightning-formatted-rich-text value={newsRibbonRecord.Message__c}></lightning-formatted-rich-text>
+            </marquee>
+        </div>
+    </template>
+</template>

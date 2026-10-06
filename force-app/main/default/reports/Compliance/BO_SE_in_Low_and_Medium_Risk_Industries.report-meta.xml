@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Business_Industry__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Business_Name_Staff__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Business_Address__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Business_Industry_Staff__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Advertising,Agriculture,Aircraft Manufacturing,Auditing,Banking,Brokerage,Building Societies,Catering,Communication,Consultancy,Credit Agency,Heavy Construction,Roads,Electric/Electronics,Engineering,Fishing/Fisheries,Forestry,Garages and Motor Vehicle Retailers,Hotels,Information Technology,Insurance,Local Government,Central Bank,Medical,Metals (smelting),Mining,Motor Vehicles Manufacturer,Utilities,Other Financial Institutions,Pharmaceutical,Railways,Water Supply,Restaurants,Security Services,Fashion,Transportation,Leasing Services,Other Services,Other Manufacturing Industries,Other Transport Equipment,Indepdent Contractor,Film production,Stationary/Paper,Retail Distribution</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>BO&amp;SE in Low and Medium Risk Industries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

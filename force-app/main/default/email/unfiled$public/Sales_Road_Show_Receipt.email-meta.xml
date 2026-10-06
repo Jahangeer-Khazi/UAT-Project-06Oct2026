@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Sales - Road Show Receipt</name>
+    <style>none</style>
+    <subject>Al Kanz Roadshow 2023</subject>
+    <textOnly>Al Kanz Roadshow 2023
+
+Dear [Customer Name],
+
+Thank you for participating in the Al Kanz Grand Roadshow at Bahrain City Centre.
+
+• Date &amp; Time of participation: [Ticket Creation Time]
+• Amount Deposited: [Amount Deposited]
+• Chances Received: [Chances Received]
+• Prize Won: [Prize Won]
+
+Terms &amp; Conditions:
+• Prize amount won will be credited into customer’s account by 31st of January, 2024.
+• Prize amount cannot be transferred or converted to cash
+• Customer’s account must be active to receive the prize won
+
+
+Should you need any assistance, please feel free to call us on +973 17123456 or email us on support@ilabank.com
+
+
+
+Open ila App
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

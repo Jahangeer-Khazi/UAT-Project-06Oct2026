@@ -1,0 +1,15 @@
+<apex:page >
+<script type="text/javascript">    
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+    alert("Geolocation is not supported by this browser.");
+    }
+
+    function showPosition(pos) {
+    /*put logs as shown to check whether populating correctly or not*/
+        console.log("Latitude: " + pos.coords.latitude + "\nLongitude: " + pos.coords.longitude);
+    
+}
+</script>
+</apex:page>

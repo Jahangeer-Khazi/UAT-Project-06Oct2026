@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Alburaq Product Terms Agreement Acceptance --></help>
+    <label><!-- Alburaq Prod Terms Agreement Acceptance --></label>
+    <name>Alburaq_Prod_Terms_Agreement_Acceptance__c</name>
+</CustomFieldTranslation>

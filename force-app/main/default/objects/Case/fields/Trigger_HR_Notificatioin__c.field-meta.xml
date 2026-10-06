@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trigger_HR_Notificatioin__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This is a backend field to trigger teh notification to HR on a new case creation for Staff Credit Card. used this logic as on Case creation there is a process which reassign the case from the creator to HR team, which is not tracked in either Owner Change or on creation</description>
+    <label>Trigger HR Notificatioin</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

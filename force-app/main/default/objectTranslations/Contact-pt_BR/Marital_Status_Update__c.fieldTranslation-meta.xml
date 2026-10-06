@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Marital Status Update --></label>
+    <name>Marital_Status_Update__c</name>
+    <picklistValues>
+        <masterLabel>DIVORCED</masterLabel>
+        <translation><!-- DIVORCED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LESS THAN 12 YEARS OLD</masterLabel>
+        <translation><!-- LESS THAN 12 YEARS OLD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MARRIED</masterLabel>
+        <translation><!-- MARRIED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NEVER MARRIED</masterLabel>
+        <translation><!-- NEVER MARRIED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WIDOWED</masterLabel>
+        <translation><!-- WIDOWED --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

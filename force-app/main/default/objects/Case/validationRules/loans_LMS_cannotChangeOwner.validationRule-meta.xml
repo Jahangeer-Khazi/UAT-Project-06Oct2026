@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>loans_LMS_cannotChangeOwner</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISNEW() &amp;&amp; TEXT(Status) != &apos;Closed&apos; &amp;&amp; RecordType_DeveloperName__c == &apos;LoanFinanceServiceRequest&apos; &amp;&amp;  ISCHANGED(OwnerId) &amp;&amp; (isSubmitted__c == false) 
+&amp;&amp; OwnerId != $Label.Loan_manual_service_request_Docs_Queue &amp;&amp; OwnerId != $Label.Loan_Service_Request_Maker &amp;&amp; OwnerId != $Label.Loan_Finance_Request_Fees_Waiver_Queue</errorConditionFormula>
+    <errorMessage>You cannot change the Case Owner until the required documents are uploaded and the case is submitted.</errorMessage>
+</ValidationRule>

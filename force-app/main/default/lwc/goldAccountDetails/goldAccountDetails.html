@@ -1,0 +1,366 @@
+<template>
+    <!-- LDS Loading State -->
+    <template if:true={isLoadingLDS}>
+        <div class="loader-container">
+            <lightning-spinner alternative-text="Loading account information..." size="large"></lightning-spinner>
+        </div>
+    </template>
+
+    <div class="chart-section">
+
+        <template if:true={showTransactionsAndStatements}>
+
+            <div class="section-header">
+                <lightning-icon icon-name="action:new_opportunity" size="small"></lightning-icon>
+                <h2>Gold Portfolio Performance</h2>
+            </div>
+            <!-- ===== Summary Row ===== -->
+            <div class="summary-row slds-m-bottom_small">
+                <div class="summary-card">
+                    <div class="summary-label">Total P&L</div>
+                    <div class={summary.totalPLClass}>{summary.totalPL} BHD</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Unrealized P&L</div>
+                    <div class={summary.unrealizedPLClass}>{summary.unrealizedPL} BHD</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Realized P&L</div>
+                    <div class={summary.realizedPLClass}>{summary.realizedPL} BHD</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Average Cost</div>
+                    <div class={summary.averageCostClass}>{summary.averageCost} BHD</div>
+                </div>
+            </div>
+
+            <!-- ===== Duration Segmented Control ===== -->
+            <div class="duration-selector" role="tablist" aria-label="Select duration">
+                <button type="button" role="tab" class={buttonClass5D}   data-duration="5d"  onclick={handleDurationClick}>5D</button>
+                <button type="button" role="tab" class={buttonClass1M}   data-duration="1m"  onclick={handleDurationClick}>1M</button>
+                <button type="button" role="tab" class={buttonClass3M}   data-duration="3m"  onclick={handleDurationClick}>3M</button>
+                <button type="button" role="tab" class={buttonClass6M}   data-duration="6m"  onclick={handleDurationClick}>6M</button>
+                <button type="button" role="tab" class={buttonClassYTD}  data-duration="ytd" onclick={handleDurationClick}>YTD</button>
+                <button type="button" role="tab" class={buttonClass1Y}   data-duration="1y"  onclick={handleDurationClick}>1Y</button>
+            </div>
+
+            <!-- ===== Price Movement Hero (Centered & Simplified) ===== -->
+            <div class="hero-wrapper">
+                <template if:true={isPriceLoading}>
+                    <div class="hero-skeleton">
+                        <lightning-spinner alternative-text="Loading price movement..." size="small">
+                        </lightning-spinner>
+                    </div>
+                </template>
+
+                <template if:false={isPriceLoading}>
+                    <div class={heroClass} if:true={hasPriceData}>
+                        <span class="hero-glow"></span>
+
+                        <div class="hero-content">
+                            <div class="change-pill">
+                                <template if:false={isNeutral}>
+        <lightning-icon icon-name={changeArrowIcon} size="x-small" variant="inverse"></lightning-icon>
+    </template>
+    <span class="pill-text">{changePercentDisplay}</span>
+                            </div>
+                            <div class="change-amount-block">
+                                <span class="change-amount">{changeValueDisplay}</span>
+                                <span class="change-currency">BHD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-empty" if:false={hasPriceData}>
+                        <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                        <span>No price data available for the selected period.</span>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+    </div>
+
+    <!-- LDS Error State -->
+    <template if:true={ldsError}>
+        <div class="error-message">
+            <lightning-icon icon-name="utility:error" size="large"></lightning-icon>
+            <h3>Unable to load Account Data</h3>
+            <p>{ldsError}</p>
+            <p class="error-hint">Please ensure the Account has CIF__pc field populated.</p>
+        </div>
+    </template>
+
+    <!-- Main Content -->
+    <template if:false={isLoadingLDS}>
+        <template if:false={ldsError}>
+            <template if:true={goldAccountExists}>
+
+                <!-- Section 1: Account Details -->
+                <div class="account-details-section">
+                    <div class="section-header">
+                        <lightning-icon icon-name="utility:ribbon" size="small"></lightning-icon>
+                        <h2>Gold Account Details</h2>
+                    </div>
+
+                    <template if:true={isLoadingAccount}>
+                        <div class="loader-container">
+                            <lightning-spinner alternative-text="Loading account details..." size="medium">
+                            </lightning-spinner>
+                        </div>
+                    </template>
+
+                    <template if:true={accountError}>
+                        <div class="error-message">
+                            <lightning-icon icon-name="utility:error" size="small"></lightning-icon>
+                            <span>{accountError}</span>
+                            <lightning-button label="Retry" variant="brand" size="x-small" onclick={retryLoadAccount}>
+                            </lightning-button>
+                        </div>
+                    </template>
+
+                    <template if:false={isLoadingAccount}>
+                        <template if:false={accountError}>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Account Status</span>
+                                    <span class="detail-value status-badge {displayGoldAccount.statusClass}">{displayGoldAccount.status}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Account Number</span>
+                                    <span class="detail-value">{displayGoldAccount.accountNumber}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Account Created Date</span>
+                                    <span class="detail-value">{displayGoldAccount.createdDate}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Invested Amount</span>
+                                    <span class="detail-value">{investedAmount}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Available Balance</span>
+                                    <span class="detail-value highlight">{displayGoldAccount.availableBalance}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Hold Balance</span>
+                                    <span class="detail-value">{displayGoldAccount.holdBalance}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Book Balance</span>
+                                    <span class="detail-value">{displayGoldAccount.bookBalance}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Market Value</span>
+                                    <span class="detail-value">{displayGoldAccount.fiatEquivalent}</span>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+
+                <!-- Section 2: Transactions -->
+                <template if:true={showTransactionsAndStatements}>
+                    <div class="transactions-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:list" size="small"></lightning-icon>
+                            <h2>Transactions</h2>
+                        </div>
+
+                        <div class="filter-section">
+                            <div class="filter-row">
+                                <lightning-input type="search" placeholder="Search transactions..."
+                                    onchange={handleTransactionSearch}></lightning-input>
+                            </div>
+                            <div class="filter-row advanced-filters">
+                                <div class="filter-group">
+                                    <label class="custom-label">Status</label>
+                                    <select class="slds-select" onchange={filterByStatus}>
+                                        <option value="all">All Status</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Failed">Failed</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label class="custom-label">Type</label>
+                                    <select class="slds-select" onchange={filterByType}>
+                                        <option value="all">All Types</option>
+                                        <option value="Credit">Credit</option>
+                                        <option value="Debit">Debit</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Amount From" type="number" placeholder="Min"
+                                        onchange={filterAmountFrom}></lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Amount To" type="number" placeholder="Max"
+                                        onchange={filterAmountTo}></lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Date From" type="date" onchange={filterDateFrom}>
+                                    </lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Date To" type="date" onchange={filterDateTo}>
+                                    </lightning-input>
+                                </div>
+                                <div class="filter-group refresh-button">
+                                    <lightning-button label="Refresh" variant="brand" onclick={refreshTransactions}>
+                                    </lightning-button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <template if:true={isLoadingTransactions}>
+                            <div class="loader-container">
+                                <lightning-spinner alternative-text="Loading transactions..." size="medium">
+                                </lightning-spinner>
+                            </div>
+                        </template>
+
+                        <template if:true={transactionsError}>
+                            <div class="error-message">
+                                <lightning-icon icon-name="utility:error" size="small"></lightning-icon>
+                                <span>{transactionsError}</span>
+                                <lightning-button label="Retry" variant="brand" size="x-small"
+                                    onclick={refreshTransactions}></lightning-button>
+                            </div>
+                        </template>
+
+                        <template if:false={isLoadingTransactions}>
+                            <template if:false={transactionsError}>
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                                <th>Debit Account</th>
+                                                <th>Transaction Date</th>
+                                                <th>Transaction Amount</th>
+                                                <th>Exchange Rate</th>
+                                                <th>Metal Amount</th>
+                                                <th>Reference</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template if:true={hasTransactions}>
+                                                <template for:each={filteredTransactions} for:item="txn">
+                                                    <tr key={txn.id}>
+                                                        <td>{txn.description}</td>
+                                                        <td>{txn.debitAccount}</td>
+                                                        <td>{txn.transactionDate}</td>
+                                                        <td class={txn.amountClass}>{txn.transactionAmount}</td>
+                                                        <td>{txn.exchangeRate}</td>
+                                                        <td>{txn.metalAmount}</td>
+                                                        <td>{txn.reference}</td>
+                                                        <td>
+                                                            <span class="status-badge status-{txn.status.toLowerCase()}">
+                                                                {txn.status}
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </template>
+                                            </template>
+                                            <template if:false={hasTransactions}>
+                                                <tr>
+                                                    <td colspan="8" class="no-data">No transactions found</td>
+                                                </tr>
+                                            </template>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </template>
+                        </template>
+                    </div>
+
+                    <!-- Section 3: Account Statements -->
+                    <div class="statements-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:file" size="small"></lightning-icon>
+                            <h2>Account Statements</h2>
+                            <lightning-button label="Get Statements" variant="brand" onclick={fetchStatements}
+                                class="statements-button"></lightning-button>
+                        </div>
+
+                        <template if:true={showStatementsTable}>
+                            <template if:true={isLoadingStatements}>
+                                <div class="loader-container">
+                                    <lightning-spinner alternative-text="Loading statements..." size="medium">
+                                    </lightning-spinner>
+                                </div>
+                            </template>
+
+                            <template if:true={statementsError}>
+                                <div class="error-message">
+                                    <lightning-icon icon-name="utility:error" size="small"></lightning-icon>
+                                    <span>{statementsError}</span>
+                                    <lightning-button label="Retry" variant="brand" size="x-small"
+                                        onclick={fetchStatements}></lightning-button>
+                                </div>
+                            </template>
+
+                            <template if:false={isLoadingStatements}>
+                                <template if:false={statementsError}>
+                                    <div class="table-container">
+                                        <table class="data-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Statement Description</th>
+                                                    <th>Statement Date</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template if:true={hasStatements}>
+                                                    <template for:each={statements} for:item="stmt">
+                                                        <tr key={stmt.id}>
+                                                            <td>{stmt.statementDescription}</td>
+                                                            <td>{stmt.generatedDate}</td>
+                                                            <td>
+                                                                <lightning-button-icon icon-name="utility:download"
+                                                                    onclick={downloadStatement} data-id={stmt.id}
+                                                                    title="Download Statement" variant="bare">
+                                                                </lightning-button-icon>
+                                                            </td>
+                                                        </tr>
+                                                    </template>
+                                                </template>
+                                                <template if:false={hasStatements}>
+                                                    <tr>
+                                                        <td colspan="3" class="no-data">No statements available</td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </template>
+                            </template>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- Permission Denied -->
+                <template if:false={showTransactionsAndStatements}>
+                    <div class="permission-denied-message">
+                        <lightning-icon icon-name="utility:lock" size="large"></lightning-icon>
+                        <h3>Access Restricted</h3>
+                        <p>You don't have permission to view transactions and statements for this account.</p>
+                        <p class="error-hint">Please contact your administrator if you need access.</p>
+                    </div>
+                </template>
+            </template>
+
+            <!-- No Account Message -->
+            <template if:false={goldAccountExists}>
+                <div class="no-account-message">
+                    <lightning-icon icon-name="utility:error" size="large"></lightning-icon>
+                    <h3>Gold Account does not exist.</h3>
+                    <p>{accountError || 'No gold account has been opened for this customer.'}</p>
+                </div>
+            </template>
+        </template>
+    </template>
+</template>

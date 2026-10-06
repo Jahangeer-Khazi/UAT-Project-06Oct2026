@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Reassign To --></label>
+    <name>Route_to_Queue__c</name>
+    <picklistValues>
+        <masterLabel>CEO</masterLabel>
+        <translation><!-- CEO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head of Proposition</masterLabel>
+        <translation><!-- Head of Proposition --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head of contact center</masterLabel>
+        <translation><!-- Head of contact center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head of customer service</masterLabel>
+        <translation><!-- Head of customer service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HoB</masterLabel>
+        <translation><!-- HoB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Product Manager</masterLabel>
+        <translation><!-- Product Manager --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Team leaders</masterLabel>
+        <translation><!-- Team leaders --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

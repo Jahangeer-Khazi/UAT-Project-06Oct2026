@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Debt issued</fullName>
+        <default>false</default>
+        <label>Debt issued</label>
+    </customValue>
+    <customValue>
+        <fullName>Disposal of fixed assets</fullName>
+        <default>false</default>
+        <label>Disposal of fixed assets</label>
+    </customValue>
+    <customValue>
+        <fullName>Equity issued</fullName>
+        <default>false</default>
+        <label>Equity issued</label>
+    </customValue>
+    <customValue>
+        <fullName>Fair value income</fullName>
+        <default>false</default>
+        <label>Fair value income</label>
+    </customValue>
+    <customValue>
+        <fullName>Other income</fullName>
+        <default>false</default>
+        <label>Other income</label>
+    </customValue>
+    <customValue>
+        <fullName>Rental Income</fullName>
+        <default>false</default>
+        <label>Rental Income</label>
+    </customValue>
+    <customValue>
+        <fullName>Revenue Income</fullName>
+        <default>false</default>
+        <label>Revenue Income</label>
+    </customValue>
+    <customValue>
+        <fullName>Shares of income of associates and joint ventures</fullName>
+        <default>false</default>
+        <label>Shares of income of associates and joint ventures</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Operations</fullName>
+        <default>false</default>
+        <label>Business Operations</label>
+    </customValue>
+    <customValue>
+        <fullName>Divorce Settlement</fullName>
+        <default>false</default>
+        <label>Divorce Settlement</label>
+    </customValue>
+    <customValue>
+        <fullName>Donations</fullName>
+        <default>false</default>
+        <label>Donations</label>
+    </customValue>
+    <customValue>
+        <fullName>Earnings (Investment related income - e.g., dividends)</fullName>
+        <default>false</default>
+        <label>Earnings (Investment related income - e.g., dividends)</label>
+    </customValue>
+    <customValue>
+        <fullName>Earnings (Maturing Investments or policy claim)</fullName>
+        <default>false</default>
+        <label>Earnings (Maturing Investments or policy claim)</label>
+    </customValue>
+    <customValue>
+        <fullName>Earnings (Sale of Business)</fullName>
+        <default>false</default>
+        <label>Earnings (Sale of Business)</label>
+    </customValue>
+    <customValue>
+        <fullName>Earnings (Sale of Investments)</fullName>
+        <default>false</default>
+        <label>Earnings (Sale of Investments)</label>
+    </customValue>
+    <customValue>
+        <fullName>Earnings (Sale of Property)</fullName>
+        <default>false</default>
+        <label>Earnings (Sale of Property)</label>
+    </customValue>
+    <customValue>
+        <fullName>Earnings (Sale of Shares)</fullName>
+        <default>false</default>
+        <label>Earnings (Sale of Shares)</label>
+    </customValue>
+    <customValue>
+        <fullName>Employment (Retirement income)</fullName>
+        <default>false</default>
+        <label>Employment (Retirement income)</label>
+    </customValue>
+    <customValue>
+        <fullName>Employment (Salaried)</fullName>
+        <default>false</default>
+        <label>Employment (Salaried)</label>
+    </customValue>
+    <customValue>
+        <fullName>Employment (Self-employed)</fullName>
+        <default>false</default>
+        <label>Employment (Self-employed)</label>
+    </customValue>
+    <customValue>
+        <fullName>Government</fullName>
+        <default>false</default>
+        <label>Government</label>
+    </customValue>
+    <customValue>
+        <fullName>Inheritance/Family Gift</fullName>
+        <default>false</default>
+        <label>Inheritance/Family Gift</label>
+    </customValue>
+    <customValue>
+        <fullName>Insurance Proceeds/Settlement/Lawsuit Settlement</fullName>
+        <default>false</default>
+        <label>Insurance Proceeds/Settlement/Lawsuit Settlement</label>
+    </customValue>
+    <customValue>
+        <fullName>Investment Income/Returns</fullName>
+        <default>false</default>
+        <label>Investment Income/Returns</label>
+    </customValue>
+    <customValue>
+        <fullName>Spouse&apos;s Income</fullName>
+        <default>false</default>
+        <label>Spouse&apos;s Income</label>
+    </customValue>
+    <customValue>
+        <fullName>Subscriptions</fullName>
+        <default>false</default>
+        <label>Subscriptions</label>
+    </customValue>
+    <customValue>
+        <fullName>Winnings (Government Lottery)</fullName>
+        <default>false</default>
+        <label>Winnings (Government Lottery)</label>
+    </customValue>
+    <customValue>
+        <fullName>Winnings (Non-Government Lottery)</fullName>
+        <default>false</default>
+        <label>Winnings (Non-Government Lottery)</label>
+    </customValue>
+    <description>Source of Wealth</description>
+    <masterLabel>Source of Wealth</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

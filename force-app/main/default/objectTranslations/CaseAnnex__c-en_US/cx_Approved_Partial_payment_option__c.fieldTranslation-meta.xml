@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Approved Partial payment option --></label>
+    <name>cx_Approved_Partial_payment_option__c</name>
+    <picklistValues>
+        <masterLabel>Keep same installment amount</masterLabel>
+        <translation><!-- Keep same installment amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Keep same loan term</masterLabel>
+        <translation><!-- Keep same loan term --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,129 @@
+<template>
+    <template if:true={isLoading} class="slds-is-relative">
+        <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+    </template>
+    <article class="slds-card">
+        <!-- Custom Card Header -->
+        <div class="slds-card__header slds-grid slds-page-header custom-card-header slds-text-align_center">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span class="slds-text-heading_medium">Email Template Preview</span>
+                    </h2>
+                </div>
+            </header>
+        </div>
+
+        <!-- Card Body -->
+        <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
+            <!-- Template Selection Page -->
+            <template if:true={showTemplateSelection}>
+                <div class="template-table-container" style={templateTableHeight}>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col" class="slds-text-align_center" style="width: 100px;">
+                                    <div class="slds-truncate" title="Select">Select</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Template Name">Template Name</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Description">Description</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={templateOptions} for:item="template">
+                                <tr key={template.value} class="slds-hint-parent">
+                                    <td class="slds-text-align_center" style="width: 100px;">
+                                        <input
+                                            type="checkbox"
+                                            checked={template.isSelected}
+                                            value={template.value}
+                                            onchange={handleTemplateSelection}
+                                            class="slds-checkbox"
+                                            data-id={template.value} />
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">{template.label}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">{template.description}</div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Email Preview -->
+                <template if:true={selectedTemplateId}>
+                    <div class="slds-m-top_large email-preview-container">
+                        <iframe src={vfPageUrl} style="width: 100%; height: 100%; border: none;">
+                        </iframe>
+                    </div>
+
+                    <!-- Document Upload -->
+                    <div class="slds-m-top_large">
+                        <lightning-file-upload label="Upload Document" name="fileUploader" record-id={recordId} onchange={handleFileChange}
+                            file-field-name="File" onuploadfinished={handleUploadFinished}>
+                        </lightning-file-upload>
+                        
+                        <template if:true={uploadedFileName}>
+                            <div class="slds-m-top_small slds-text-color_success">
+                                <lightning-icon icon-name="utility:check" size="x-small"></lightning-icon>
+                                Uploaded file: <strong>{uploadedFileName}</strong>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Next Button -->
+                    <div class="slds-m-top_large slds-align_absolute-center">
+                        <lightning-button variant="brand" label="Next" title="Next" onclick={handleNext}
+                            disabled={isNextButtonDisabled}>
+                        </lightning-button>
+                    </div>
+                </template>
+            </template>
+
+            <!-- Email Preview Page -->
+            <template if:true={showEmailPreview}>
+                <div class="slds-border_bottom slds-p-bottom_medium">
+                    <lightning-button variant="neutral" label="Back" title="Back" icon-name="utility:left"
+                        onclick={handleBack} class="slds-m-bottom_medium">
+                    </lightning-button>
+                </div>
+
+                <!-- Email Details -->
+                <div class="slds-m-top_medium email-details-container">
+                    <lightning-input label="To" value={toAddress} readonly></lightning-input>
+                    <lightning-input class="slds-m-top_small" label="From" value={fromAddress} readonly>
+                    </lightning-input>
+                    <lightning-input class="slds-m-top_small" label="Subject" value={emailSubject} readonly>
+                    </lightning-input>
+                </div>
+
+                <!-- Email Preview -->
+                <div class="slds-m-top_large email-preview-container">
+                    <iframe src={vfPageUrl} style="width: 100%; height: 100%; border: none;">
+                    </iframe>
+                </div>
+
+                <!-- Uploaded File Info -->
+                <template if:true={fileName}>
+                    <div class="slds-m-top_medium slds-border_top slds-p-top_medium slds-text-color_success">
+                        <lightning-icon icon-name="utility:attach" size="x-small"></lightning-icon>
+                        Attached file: <strong>{fileName}</strong>
+                    </div>
+                </template>
+
+                <!-- Send Button -->
+                <div class="slds-m-top_large slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Send Email" title="Send Email" onclick={handleSendEmail}>
+                    </lightning-button>
+                </div>
+            </template>
+        </div>
+    </article>
+</template>

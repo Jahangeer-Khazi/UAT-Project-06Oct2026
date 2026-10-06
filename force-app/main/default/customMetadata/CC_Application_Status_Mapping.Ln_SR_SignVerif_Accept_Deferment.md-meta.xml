@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Ln SR SignVerif-Accept Deferment</label>
+    <protected>false</protected>
+    <values>
+        <field>Awaiting_Customer_Feedback__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Is_Balance_Transfer__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>RecordType_DeveloperName__c</field>
+        <value xsi:type="xsd:string">LoanFinanceServiceRequest</value>
+    </values>
+    <values>
+        <field>Status__c</field>
+        <value xsi:type="xsd:string">Pending</value>
+    </values>
+    <values>
+        <field>Sub_Status__c</field>
+        <value xsi:type="xsd:string">Pending Processing</value>
+    </values>
+    <values>
+        <field>Sub_Type__c</field>
+        <value xsi:type="xsd:string">Instalment Deferment / Postponement</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">New Loan / Finance Service Request</value>
+    </values>
+    <values>
+        <field>Value__c</field>
+        <value xsi:type="xsd:string">Accept</value>
+    </values>
+    <values>
+        <field>apiStatus__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>cc_Application_Stages__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>criteria__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>crmStage__c</field>
+        <value xsi:type="xsd:string">PENDING</value>
+    </values>
+    <values>
+        <field>emailAlertName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>fieldAPiName__c</field>
+        <value xsi:type="xsd:string">cc_Signature_Verifier_Result__c</value>
+    </values>
+    <values>
+        <field>fieldsToBeReseted__c</field>
+        <value xsi:type="xsd:string">CaseAnnex__c.cx_ln_Operations_Processing_Result__c</value>
+    </values>
+    <values>
+        <field>isApiCall__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>isDocuSign__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>queueDeveloperName__c</field>
+        <value xsi:type="xsd:string">Loan_Finance_Operations_Processing_Queue</value>
+    </values>
+    <values>
+        <field>regionName__c</field>
+        <value xsi:type="xsd:string">Bahrain</value>
+    </values>
+    <values>
+        <field>sectionResultFields__c</field>
+        <value xsi:type="xsd:string">cc_Signature_Verification_Date_Time__c;cc_Signature_Verifier_by__c;cc_Signature_Verification_Comments__c;Signature Verification Comments</value>
+    </values>
+</CustomMetadata>

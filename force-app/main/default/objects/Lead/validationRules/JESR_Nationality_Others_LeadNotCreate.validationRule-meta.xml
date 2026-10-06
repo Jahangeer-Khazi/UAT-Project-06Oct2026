@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JESR_Nationality_Others_LeadNotCreate</fullName>
+    <active>true</active>
+    <description>Lead should not be created, when nationality is &apos;other&apos; - JESR App</description>
+    <errorConditionFormula>TEXT(NationalityApp__c) = &apos;Other&apos; &amp;&amp; TEXT( LeadSource )= &apos;JESR App&apos; &amp;&amp; ISNEW()</errorConditionFormula>
+    <errorMessage>Lead will not be created for Nationality &apos;Other&apos; for JESR application Registration</errorMessage>
+</ValidationRule>

@@ -1,0 +1,110 @@
+<template>
+    <lightning-card title="Social Media Leads Portal" icon-name="standard:service_territory_location">
+
+        <!-- Card Actions -->
+        <div slot="actions">
+            <template if:true={isPreviewAvailable}>
+                <lightning-button label="Clear List" variant="neutral" icon-name="utility:clear"
+                    onclick={resetAnalysisView} class="slds-m-right_x-small">
+                </lightning-button>
+                <lightning-button label="Submit All Leads" variant="brand" icon-name="utility:save"
+                    onclick={processLeadSubmission} disabled={isProcessing}>
+                </lightning-button>
+            </template>
+        </div>
+
+        <div class="slds-p-around_medium">
+
+            <!-- Upload Section -->
+            <lightning-layout vertical-align="end" multiple-rows>
+                <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+                    <lightning-input type="file" label="Source Data (CSV)" accept=".csv"
+                        onchange={onFileSelection} disabled={isProcessing}>
+                    </lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Processing Spinner -->
+            <template if:true={isProcessing}>
+                <div class="slds-m-vertical_large slds-text-align_center">
+                    <!-- dedicated spinner area to avoid blurring text -->
+                    <div class="slds-is-relative" style="height: 60px;">
+                        <lightning-spinner alt-text="Processing..." size="medium" variant="brand"></lightning-spinner>
+                    </div>
+                    <!-- text area -->
+                    <div class="slds-m-top_medium">
+                        <p class="slds-text-title_caps slds-m-bottom_small" style="font-weight: bold; color: #0176d3;">
+                            {message}
+                        </p>
+                        <div class="slds-p-horizontal_large">
+                            <lightning-progress-bar value={progress} size="medium"></lightning-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Message Notification -->
+            <template if:true={message}>
+                <div class="slds-m-top_medium">
+                    <div class={messageContainerClass} role="alert">
+                        <span class="slds-assistive-text">{messageType}</span>
+                        <div class="slds-notify__content">
+                            <h2 class="slds-text-heading_small">{message}</h2>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Results Table -->
+            <template if:true={isPreviewAvailable}>
+                <div class="slds-m-top_large">
+
+                    <!-- Table Header / Record Count -->
+                    <div class="slds-page-header slds-page-header_joined">
+                        <div class="slds-page-header__row">
+                            <div class="slds-page-header__col-title">
+                                <div class="slds-media">
+                                    <div class="slds-media__figure">
+                                        <lightning-icon icon-name="utility:preview" size="small"></lightning-icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                       
+                                        <p class="slds-page-header__name-meta">
+                                            {totalRecords} recors identified (Showing page {pageNumber} of
+                                            {totalPages})
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pagination Controls -->
+                            <div class="slds-page-header__col-actions">
+                                <div class="slds-button-group" role="group">
+                                    <lightning-button-icon icon-name="utility:chevronleft" variant="border-filled"
+                                        onclick={handlePreviousPage} disabled={isFirstPage} title="Previous Page">
+                                    </lightning-button-icon>
+                                    <div class="slds-p-horizontal_medium slds-align-middle"
+                                        style="line-height: 32px; font-weight: bold;">
+                                        Page {pageNumber} / {totalPages}
+                                    </div>
+                                    <lightning-button-icon icon-name="utility:chevronright" variant="border-filled"
+                                        onclick={handleNextPage} disabled={isLastPage} title="Next Page">
+                                    </lightning-button-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div style="height: 450px;">
+                        <lightning-datatable key-field="email" data={renderedPreviewData} columns={columns}
+                            hide-checkbox-column show-row-number-column
+                            class="slds-table_bordered slds-table_col-bordered">
+                        </lightning-datatable>
+                    </div>
+
+                </div>
+            </template>
+        </div>
+
+    </lightning-card>
+</template>

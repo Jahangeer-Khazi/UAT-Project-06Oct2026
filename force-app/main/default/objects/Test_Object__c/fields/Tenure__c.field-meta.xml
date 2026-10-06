@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tenure__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISBLANK(Segment_Date__c),
+    &quot;&quot;,
+
+    /* Years */
+    IF(
+        YEAR(Today()) - YEAR(Segment_Date__c) -
+        IF(
+            OR(
+                MONTH(Today()) &lt; MONTH(Segment_Date__c),
+                AND(
+                    MONTH(Today()) = MONTH(Segment_Date__c),
+                    DAY(Today()) &lt; DAY(Segment_Date__c)
+                )
+            ),
+            1,
+            0
+        ) &gt; 0,
+
+        TEXT(
+            YEAR(Today()) - YEAR(Segment_Date__c) -
+            IF(
+                OR(
+                    MONTH(Today()) &lt; MONTH(Segment_Date__c),
+                    AND(
+                        MONTH(Today()) = MONTH(Segment_Date__c),
+                        DAY(Today()) &lt; DAY(Segment_Date__c)
+                    )
+                ),
+                1,
+                0
+            )
+        ) &amp; &quot; Years &quot;,
+        &quot;&quot;
+    ) &amp;
+
+    /* Months */
+    IF(
+        MOD(
+            (YEAR(Today()) - YEAR(Segment_Date__c)) * 12 +
+            MONTH(Today()) - MONTH(Segment_Date__c) -
+            IF(DAY(Today()) &lt; DAY(Segment_Date__c), 1, 0),
+            12
+        ) &gt; 0,
+
+        TEXT(
+            MOD(
+                (YEAR(Today()) - YEAR(Segment_Date__c)) * 12 +
+                MONTH(Today()) - MONTH(Segment_Date__c) -
+                IF(DAY(Today()) &lt; DAY(Segment_Date__c), 1, 0),
+                12
+            )
+        ) &amp; &quot; Months &quot;,
+        &quot;&quot;
+    ) &amp;
+
+    /* Days */
+    TEXT(
+        IF(
+            DAY(Today()) &gt;= DAY(Segment_Date__c),
+            DAY(Today()) - DAY(Segment_Date__c),
+            DAY(DATE(YEAR(Today()), MONTH(Today()), 1) - 1)
+            + DAY(Today()) - DAY(Segment_Date__c)
+        )
+    ) &amp; &quot; Days&quot;
+)</formula>
+    <label>Tenure</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

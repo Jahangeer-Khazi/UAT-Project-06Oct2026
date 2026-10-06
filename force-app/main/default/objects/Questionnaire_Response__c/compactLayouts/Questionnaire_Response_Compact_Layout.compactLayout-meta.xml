@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_Response_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Question_Number__c</fields>
+    <fields>Category__c</fields>
+    <fields>Answer_Type__c</fields>
+    <fields>Requires_Manual_Approval__c</fields>
+    <label>Questionnaire Response Compact Layout</label>
+</CompactLayout>

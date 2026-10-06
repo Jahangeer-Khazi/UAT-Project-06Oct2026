@@ -1,0 +1,94 @@
+<!--
+ - Created by Himanshu on 13/01/2022.
+ -->
+
+<aura:component description="ImportRaffleDrawEntries" controller="RaffleDrawExcelImportController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global">
+    <!--  <ltng:require scripts="{!$Resource.XLSX}"/>
+      <ltng:require scripts="{!$Resource.ExcelImportTest_XLSX}"/>   &lt;!&ndash;ExcelImportTest for csv &ndash;&gt;
+      <aura:registerEvent name="onImport" type="c:ExcelImportEvent"/>-->
+
+    <aura:attribute name="label" type="String" description="Label for input" default=""
+                    required="false"/>
+    <aura:attribute name="file" type="Object"/>
+    <aura:attribute name="content" type="String"/>
+    <aura:attribute name="responseText" type="String"/>
+    <aura:attribute name="showResponseText" type="Boolean"/>
+    <aura:attribute name="class" type="String" description="Additional styles" required="false"/>
+    <aura:attribute name="variant" type="String" description="Input variant" required="false" default="standard"/>
+    <aura:attribute name="required" type="Boolean" description="Shows if input is mandatory" default="false"/>
+    <aura:attribute name="disabled" type="Boolean" description="Displays input disabled" default="false"/>
+    <!--<aura:attribute name="accept" type="String" default=".xls, .xlsx"/>-->
+    <aura:attribute name="accept" type="String" default=".csv, .xls, .xlsx"/>
+
+    <aura:attribute name="stretchedDropzone" type="Boolean" description="Makes dropzone stretchable" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private"/>
+
+    <aura:attribute name="fileSizeThreshold" type="Integer" description="Max file size in bytes, default 10mb"
+                    default="10000000" required="false"/>
+    <aura:attribute name="messageFileSizeExceeded" type="String" default="File size exceeded" required="false"/>
+    <aura:attribute name="messageNoFileSpecified" type="String" default="No file specified" required="false"/>
+    <aura:attribute name="errorMessage" type="String" required="false"/>
+    <aura:attribute name="showErrors" type="Boolean" default="false" required="false"/>
+    <!--  <aura:handler name="init" value="{! this }" action="{! c.init }"/>-->
+    <aura:attribute name="fileNamedata" type="List"/>
+    <aura:attribute name="filedata" type="String"/>
+    <aura:attribute name="showFileLink" type="boolean"/>
+
+    <aura:attribute name="loaded" type="Boolean" default="false"/>
+    <lightning:spinner variant="brand" alternativeText="Loading..." class="{!(v.loaded? 'slds-show': 'slds-hide')}"/>
+
+    <lightning:card title="Draw Entry Upload (AWS)">
+
+        <div class="slds-m-left_small">
+            <lightning:button variant="brand" label="View Files" onclick="{!c.init}"/>
+            <br/>
+            <aura:if isTrue="{!v.showFileLink}">
+                <lightning:select aura:id="AWSfiles" name="AWSfiles" label="">
+                    <aura:iteration items="{!v.fileNamedata}" var="item" indexVar="key">
+                        <option text="{!item}" value="{!item}" selected="{!item.selected}"/>
+                    </aura:iteration>
+                </lightning:select>
+                <br/>
+                <lightning:button variant="brand" label="Import Data" onclick="{!c.getAWSFile}"/>
+            </aura:if>
+        </div>
+    </lightning:card>
+
+    <!-- <lightning:card title="Import Draw Entries">
+         <lightning:input type="file"
+                          label="{!v.label}"
+                          variant="{!v.variant}"
+                          required="{!v.required}"
+                          disabled="{!v.disabled}"
+                          onchange="{!c.onTableImport}"
+                          multiple="false"
+                          accept="{!v.accept}"/>
+
+         &lt;!&ndash;Subject Form Element &ndash;&gt;
+         <aura:if isTrue="{!v.showError}">
+             &lt;!&ndash; Show the message to ui &ndash;&gt;
+             <div class="slds-notify slds-notify_toast slds-theme_error">
+                 <div class="slds-notify__content">
+                     <h5 class="slds-text-heading_small slds-align_absolute-center">Error Message </h5>
+                     <br/>
+                     <p class="slds-align_absolute-center">{!v.errorMessage}</p>
+                 </div>
+             </div>
+         </aura:if>
+         &lt;!&ndash;Subject Form Element &ndash;&gt;
+         <aura:if isTrue="{!v.showResponseText}">
+             &lt;!&ndash; Show the message to ui &ndash;&gt;
+             <div class="slds-notify slds-notify_toast slds-theme_error">
+                 <div class="slds-notify__content">
+                     <h5 class="slds-text-heading_small slds-align_absolute-center">Response Message</h5>
+                     <br/>
+                     <p class="slds-align_absolute-center">{!v.responseText}</p>
+                 </div>
+             </div>
+         </aura:if>
+
+     </lightning:card>-->
+
+</aura:component>

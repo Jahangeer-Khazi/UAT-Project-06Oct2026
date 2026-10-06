@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Cards-AFS</name>
+    <queueMembers>
+        <users>
+            <user>operations@maveric-systems.com</user>
+            <user>operations@bank-abc.com</user>
+            <user>servicecenter@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>cases_Routing_config_OP</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

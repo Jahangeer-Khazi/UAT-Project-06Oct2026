@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KYC_Verification_Result__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>KYC Verification Result</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KYC Form Skipped</fullName>
+                <default>false</default>
+                <label>KYC Form Skipped</label>
+            </value>
+            <value>
+                <fullName>Documents Skipped</fullName>
+                <default>false</default>
+                <label>Documents Skipped</label>
+            </value>
+            <value>
+                <fullName>Documents Review</fullName>
+                <default>false</default>
+                <label>Documents Review</label>
+            </value>
+            <value>
+                <fullName>Documents Returned</fullName>
+                <default>false</default>
+                <label>Documents Returned</label>
+            </value>
+            <value>
+                <fullName>Documents Completed</fullName>
+                <default>false</default>
+                <label>Documents Completed</label>
+            </value>
+            <value>
+                <fullName>ID&amp;V Pending</fullName>
+                <default>false</default>
+                <label>ID&amp;V Pending</label>
+            </value>
+            <value>
+                <fullName>ID&amp;V Skipped</fullName>
+                <default>false</default>
+                <label>ID&amp;V Skipped</label>
+            </value>
+            <value>
+                <fullName>ID&amp;V Failed</fullName>
+                <default>false</default>
+                <label>ID&amp;V Failed</label>
+            </value>
+            <value>
+                <fullName>ID&amp;V Completed</fullName>
+                <default>false</default>
+                <label>ID&amp;V Completed</label>
+            </value>
+            <value>
+                <fullName>KYC Form Pending</fullName>
+                <default>false</default>
+                <label>KYC Form Pending</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,106 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 02-07-2025
+ * 		Change History: 
+ *						#CH01# #Jahangeer Mohammed# #18-08-2025 Added Masked Card Number(NBA-15639)
+ *                  
+ *	    	   
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="creditCardListController" >
+	<aura:attribute name="cc_type" type="String" default="Convert Credit Card Nature Application"/> 
+    <aura:attribute name="cc_subType" type="String" default="Convert to Unsecured"/>
+    <aura:attribute name="subject" type="String" default="Convert to Unsecured Application"/>
+    <aura:attribute name="description" type="String" default="New Convert Credit Card Nature Application"/>
+    <aura:attribute name="cc_cardPCINumber" type="Map"/>
+    <aura:attribute name="selectedPCINumber" type="String"/>
+    <aura:attribute name="requestedCardType" type="String"/>
+    <aura:attribute name="currentCreditLimit" type="Decimal" />
+    <aura:attribute name="holdAccount" type="String"/>
+    <aura:attribute name="holdAccountType" type="String"/>
+    <aura:attribute name="existingHoldAmount" type="Decimal"/>
+    <aura:attribute name="holdReferenceNumber" type="String"/>
+    <aura:attribute name="cardProductionConfigurationId" type="String"/>
+    <aura:attribute name="caseModel" type="String" />
+    <!-- CH01 Start -->
+    <aura:attribute name="maskedCardNumber" type="String"/>
+    <!-- CH01 END -->
+    
+    
+    
+    <div class="slds-hidden" style="height: 0px;">	
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">	
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <lightning:inputField aura:id="Segment" fieldName="Segment__pc" />
+        </lightning:recordEditForm>	
+    </div>	
+    
+    <lightning:card title="Convert Credit Card Application">
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!$Label.c.CONVERT_CREDIT_CARD}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+            <!--on load handle name on Card, handle Submit -->
+            <!--on load will handle the API Call for card Option and will display the Available cards. -->
+            <lightning:inputField fieldName="Subject" aura:id="subject" value ="{!v.subject}" required="true"/>
+            <lightning:inputField fieldName="Description" aura:id="description" value = "{!v.description}" required="true"/>
+            <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/>
+            <lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="namOnCard" required="true"/>
+            <lightning:inputField fieldName="Type" value="{!v.cc_type}" aura:id="type" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" value="{!v.cc_subType}" aura:id="subType" required="true"/>
+            
+           
+            <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+            <lightning:inputField fieldName="Case_Nature__c" aura:id="Case_Nature__c" value="Password" required="true"/>
+            
+            <!--aura iteration for cc_cardType-->
+
+           
+            <lightning:select aura:id="requestedPCINumber" value="{!v.selectedPCINumber}" name="Masked Card Number" label="Masked Card Number" required="true" onchange="{!c.requestPCINumberChange}" >
+                <option value="">--None--</option>
+                <aura:iteration items="{!v.cc_cardPCINumber}" var="i" indexVar="key">
+                    	<option text="{!i.cardObj.maskedCardNumber}" value="{!i.cardId}" selected="{!i.selected}" />
+                </aura:iteration>
+            </lightning:select>
+           
+
+           
+            <lightning:inputField fieldName="cc_Requested_Card_Type__c" value="{!v.requestedCardType}" disabled="true" />
+            <lightning:inputField fieldName="cc_Approved_Requested_Card_Type__c" value="{!v.requestedCardType}" disabled="true" />
+           
+
+            <div class="slds-hide">
+                <lightning:inputField fieldName="cc_Credit_Card_PCI_Number__c" value="{!v.selectedPCINumber}" aura:id="card"/>
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                <lightning:inputField fieldName="PrimaryCardProductConfigurationId__c" value="{!v.cardProductionConfigurationId}" aura:id="configId"/>
+                <!-- CH01 Start -->
+                <lightning:inputField fieldName="cc_PCI_Id__c" value="{!v.maskedCardNumber}" aura:id="maskId"/>
+				<!-- CH01 END -->
+                <lightning:inputField fieldName="cc_Approved_Credit_Limit__c" aura:id="apprequestedCardLimit" value="{!v.currentCreditLimit}"/>
+            </div> 
+           
+         
+            <lightning:inputField fieldName="cc_Requested_Credit_Limit__c" aura:id="requestedCardLimit" required="true" value="{!v.currentCreditLimit}" disabled="true"/>
+            <lightning:inputField fieldName="ccol_Existing_Hold_Amount__c" aura:id="existingholdAmount" value = "{!v.existingHoldAmount}" disabled="true"/>
+            <lightning:inputField fieldName="ccol_Hold_Account__c" aura:id="existingholdAccType" value = "{!v.holdAccountType}" disabled="true"/>
+
+            <lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" aura:id="holdAccountIBAN" value = "{!v.holdAccount}" disabled="true"/>
+            <lightning:inputField fieldName="ccol_Hold_Reference_Number__c" aura:id="holdRefNumber" value = "{!v.holdReferenceNumber}" disabled="true"/>
+
+            <lightning:inputField fieldName="Customer_Email_Suppression_on_Creation__c" aura:id="suppressionCreation"/>
+            <lightning:inputField fieldName="Customer_Email_Suppression_on_Closure__c" aura:id="suppressionClosure"/>
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proof_of_Address_ID_Type_Update__c</fullName>
+    <label>Proof of Address ID Type Update</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bahraini Drivers Licence</fullName>
+                <default>false</default>
+                <label>Bahraini Drivers Licence</label>
+            </value>
+            <value>
+                <fullName>Tenancy Agreement</fullName>
+                <default>false</default>
+                <label>Tenancy Agreement</label>
+            </value>
+            <value>
+                <fullName>Utility Bill</fullName>
+                <default>false</default>
+                <label>Utility Bill</label>
+            </value>
+            <value>
+                <fullName>Bank Statement</fullName>
+                <default>false</default>
+                <label>Bank Statement</label>
+            </value>
+            <value>
+                <fullName>CPR Extract</fullName>
+                <default>false</default>
+                <label>CPR Extract</label>
+            </value>
+            <value>
+                <fullName>Phone Bill</fullName>
+                <default>false</default>
+                <label>Phone Bill</label>
+            </value>
+            <value>
+                <fullName>IGA</fullName>
+                <default>false</default>
+                <label>IGA</label>
+            </value>
+            <value>
+                <fullName>Passport</fullName>
+                <default>false</default>
+                <label>Passport</label>
+            </value>
+            <value>
+                <fullName>Bahrain</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Bahrain</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

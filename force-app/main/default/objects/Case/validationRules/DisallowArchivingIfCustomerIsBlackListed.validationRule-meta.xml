@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisallowArchivingIfCustomerIsBlackListed</fullName>
+    <active>true</active>
+    <description>Back-end should not allow archiving for customer / prospect record which is flagged as Black-listed</description>
+    <errorConditionFormula>ISNEW() &amp;&amp;  RecordType_DeveloperName__c == &apos;Manual_Customer_Archival&apos; &amp;&amp; Account.Blacklisted__c == true</errorConditionFormula>
+    <errorMessage>You cannot create this case for customer / prospect record which is flagged as Black-listed</errorMessage>
+</ValidationRule>

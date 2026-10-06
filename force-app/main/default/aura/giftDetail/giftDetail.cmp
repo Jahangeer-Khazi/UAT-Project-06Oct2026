@@ -1,0 +1,111 @@
+<!--
+ - @author Charlie Nash (Westbrook)
+ - @date 12/01/2022
+ - @description:
+ -
+ - Used within the bankInformation.cmp component as a subcomponent, for gifting chances.
+ -->
+
+<aura:component description="giftDetail" controller="GiftingAPIController">
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="giftRecords" type="Object[]"  />
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:card title="Customer Gifts">
+
+        <aura:iteration items="{!v.giftRecords}" var="item" indexVar="key">
+            <!-- <b> Gift {!key +1} </b>  <br />
+               Description : {!item.description} <br /> -->
+
+            <!--<aura:iteration items="{!v.drawsOnPage}" var="draw" > -->
+            <div class="tileTitle">
+                <lightning:tile class="slds-p-horizontal_medium">
+                    <div style="padding-top: 20px; font-weight: bold; font-size: 14px;">
+                        Gift {!key +1} - {!item.title}
+                    </div>
+                    <div class="slds-form" role="list" style="padding: 1rem;">
+                        <div class="slds-form__row">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_stacked slds-form-element_readonly">
+                                    <span class="slds-form-element__label" for="tooltip-showing-form-element-help-01">Description</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.description}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                    <span class="slds-form-element__label">Receiver Name</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.receiverName}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end row -->
+                        <div class="slds-form__row">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                    <span class="slds-form-element__label">Receiver Mobile Number</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.mobileNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                    <span class="slds-form-element__label">Receiver CIF</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.id}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end row -->
+                        <div class="slds-form__row">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                    <span class="slds-form-element__label">Chances</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.amount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                    <span class="slds-form-element__label">Gift Status</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.status}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end row -->
+                        <div class="slds-form__row">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                    <span class="slds-form-element__label">Currency</span>
+                                    <div class="slds-form-element__control ">
+                                        <div class="slds-form-element__static">
+                                            {!item.currency.code}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end row -->
+                    </div>
+                </lightning:tile>
+            </div>
+
+        </aura:iteration>
+
+    </lightning:card>
+</aura:component>

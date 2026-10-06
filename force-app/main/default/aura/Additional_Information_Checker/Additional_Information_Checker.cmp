@@ -1,0 +1,40 @@
+<aura:component >
+  <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="string" default="view"/>
+    <aura:attribute name="caseRecordType" type="String" access="public" default=""/>
+    <aura:attribute name="readOnlyFields" type="Map" default="{}"/>
+    <aura:attribute name="accountFLS" type="Map" default="{}"/>
+    
+    <aura:if isTrue="{!'edit' == v.mode}"> 
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    <div class="slds-box">
+                        <lightning:outputField fieldName="Residency_Permit_Number__pc" />
+                        <lightning:outputField fieldName="Residency_Permit_Expiry__pc" />
+                        
+                        <lightning:outputField fieldName="Employment_Status__pc" />
+                        <lightning:outputField fieldName="Employer_Name__pc" />
+                        <lightning:outputField fieldName="Employer_Address__pc" />
+                        <lightning:outputField fieldName="Employer_Country__pc" /> 
+                        <lightning:outputField fieldName="Business_Name__pc" />
+                        <lightning:outputField fieldName="Business_Address__pc" />
+                        <lightning:outputField fieldName="Business_Industry__pc" />
+                        <lightning:outputField fieldName="Sources_of_Funds__pc" />
+                        <!-- CH01 Start-->
+                        <lightning:outputField fieldName="Gross_Monthly_Income_Staff__pc" />
+                        <!-- CH01 End-->
+                        <lightning:outputField fieldName="Expected_Monthly_deposits__pc" />
+                        <lightning:outputField fieldName="Account_Opening_Reason__pc" />
+                        <lightning:outputField fieldName="Passport_Number__pc" />
+                        <lightning:outputField fieldName="Passport_Expiry_Date__pc" />
+                        <lightning:outputField fieldName="Nationality__pc" />
+                        <lightning:outputField fieldName="Place_of_Birth__pc" />
+                    </div>
+                </lightning:recordViewForm>  
+            </div>
+    </aura:if>
+</aura:component>

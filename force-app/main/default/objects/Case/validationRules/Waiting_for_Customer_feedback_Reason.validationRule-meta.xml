@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waiting_for_Customer_feedback_Reason</fullName>
+    <active>true</active>
+    <description>This is a validation, when the Awaiting Customer or 3rd Party Feedback flag is checked, the reason is mandatory</description>
+    <errorConditionFormula>((ISCHANGED(Awaiting_Customer_Feedback__c) &amp;&amp; Awaiting_Customer_Feedback__c==true &amp;&amp; ISBLANK(TEXT(BUA_Reason__c))) ||(Awaiting_Customer_Feedback__c==true &amp;&amp; ISBLANK(TEXT(Reason)) &amp;&amp; TEXT(PRIORVALUE(Reason))!=&apos;&apos;) ) &amp;&amp; TEXT( Region_Flag__c ) = &apos;Bahrain&apos; &amp;&amp; $User.LastName &lt;&gt; &quot;Integration&quot; &amp;&amp; NOT(ISNEW()) &amp;&amp; 
+
+(RecordType_DeveloperName__c = &apos;Service_Request&apos; || 
+RecordType_DeveloperName__c = &apos;Issue&apos; || 
+RecordType_DeveloperName__c = &apos;Enquiry&apos; || 
+RecordType_DeveloperName__c = &apos;Complaint&apos; || 
+RecordType_DeveloperName__c = &apos;Internal_Case&apos; || 
+RecordType_DeveloperName__c = &apos;New_Update_Customer_Profile&apos; || 
+RecordType_DeveloperName__c = &apos;Customer_Profile_Update&apos; || 
+RecordType_DeveloperName__c = &apos;Feedback&apos; || 
+RecordType_DeveloperName__c = &apos;Update_Customer_Profile&apos; || 	
+RecordType_DeveloperName__c = &apos;Manual_Customer_Archival&apos; || 
+RecordType_DeveloperName__c = &apos;Premium_Retention&apos; || 
+RecordType_DeveloperName__c = &apos;Premium_Invitation&apos; ||
+RecordType_DeveloperName__c = &apos;ac_AccountClosure&apos; ||
+RecordType_DeveloperName__c = &apos;Prizeout&apos; ||
+RecordType_DeveloperName__c = &apos;Subscription_Model_Termination&apos; ||
+RecordType_DeveloperName__c = &apos;Request&apos; || 
+RecordType_DeveloperName__c = &apos;Case_Enquiries&apos; || 
+RecordType_DeveloperName__c = &apos;Case_Disputes_and_Frauds&apos; || 
+RecordType_DeveloperName__c = &apos;Case_Faults_and_Incidents&apos; || 
+(RecordType_DeveloperName__c = &apos;Credit_Card_Services&apos; &amp;&amp; TEXT(Type) != &apos;Credit Card Invitation&apos; &amp;&amp; TEXT(cc_Checker_Result__c) != &apos;Request to Pay Outstanding Balance&apos;)
+)</errorConditionFormula>
+    <errorMessage>Case Reason is mandatory</errorMessage>
+</ValidationRule>

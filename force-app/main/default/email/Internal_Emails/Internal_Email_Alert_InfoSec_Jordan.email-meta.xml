@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to queue members when a case is added to the InfoSec queue.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Internal_Email_Alert_InfoSec - Jordan</name>
+    <style>none</style>
+    <subject>Case Review Needed</subject>
+    <textOnly>A new Jordan case has been added to the InfoSec queue...
+
+Hi,  Please be advised that a new {!Case.Type} - {!Case.Sub_Type__c} case with case number {!Case.CaseNumber}, has been added to the queue.  Case description: {!Case.Description}
+
+Open CRM case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

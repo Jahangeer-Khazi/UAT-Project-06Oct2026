@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Scan Type --></label>
+    <name>Scan_Type__c</name>
+    <picklistValues>
+        <masterLabel>Canceled Work Permit</masterLabel>
+        <translation><!-- Canceled Work Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Activation</masterLabel>
+        <translation><!-- Credit Card Activation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Application</masterLabel>
+        <translation><!-- Credit Card Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Supplementary Application</masterLabel>
+        <translation><!-- Credit Card Supplementary Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Card Activation</masterLabel>
+        <translation><!-- Debit Card Activation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dispute</masterLabel>
+        <translation><!-- Dispute --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EDD</masterLabel>
+        <translation><!-- EDD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FATCA</masterLabel>
+        <translation><!-- FATCA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IGA</masterLabel>
+        <translation><!-- IGA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KYC - Periodic Review</masterLabel>
+        <translation><!-- KYC - Periodic Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Application</masterLabel>
+        <translation><!-- Loan Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Login from Unbound Device</masterLabel>
+        <translation><!-- Login from Unbound Device --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mobile Number Change</masterLabel>
+        <translation><!-- Mobile Number Change --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Name Screening</masterLabel>
+        <translation><!-- Name Screening --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POA</masterLabel>
+        <translation><!-- POA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POI</masterLabel>
+        <translation><!-- POI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Personal Loan / Finance</masterLabel>
+        <translation><!-- Personal Loan / Finance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid Card Activation</masterLabel>
+        <translation><!-- Prepaid Card Activation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid Card Application</masterLabel>
+        <translation><!-- Prepaid Card Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid Card Notification Settings Update</masterLabel>
+        <translation><!-- Prepaid Card Notification Settings Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Segment Update</masterLabel>
+        <translation><!-- Segment Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Supplementary Card Notification Settings Update</masterLabel>
+        <translation><!-- Supplementary Card Notification Settings Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>eKey</masterLabel>
+        <translation><!-- eKey --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,57 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" controller="DeviceDetailsController">
+    <aura:attribute name="customerId" type="String" access="global"/>
+    <aura:attribute name="cifNumber" type="String" access="global"/>
+	<aura:attribute name="columns" type="List"/>
+	<aura:attribute name="currentCards" type="List"/>
+    <aura:attribute name="pciNumber" type="String"/>
+    <aura:attribute name="currentCreditLimit" type="Decimal" />
+    <aura:attribute name="selectedCardName" type="String"/>
+    <aura:attribute name="cardNumber" type="String"/>
+    <aura:attribute name="isLoadingCards" type="Boolean" default="false"/>
+    <aura:attribute name="isLoadingLimit" type="Boolean" default="false"/>
+    <aura:attribute name="message" type="String" default = ""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.isLoadingCards}">
+        <lightning:spinner size="medium"/>
+     </aura:if>
+    	<aura:if isTrue="{!empty(v.currentCards)}">
+            <div class="slds-text-color_error slds-text-title_bold">
+        		{!v.message}
+            </div>
+        	
+    	<aura:set attribute="else">
+    		<lightning:datatable
+        						keyField="id"
+        						data="{!v.currentCards}"
+        						columns="{!v.columns}"
+        						hideCheckboxColumn="false"
+        						maxRowSelection="1"
+                				onrowselection="{!c.handleRowSelection}"/>
+    	</aura:set>
+    	</aura:if>
+    
+    
+    <br/>
+    
+    <aura:if isTrue="{!v.isLoadingLimit}">
+    	<lightning:spinner size="medium"/>
+	</aura:if>
+    
+    <aura:if isTrue="{!not(empty(v.currentCreditLimit))}">
+
+    	<lightning:card title="{!'Card Number - ' + v.cardNumber}">
+
+        	<div class="slds-p-around_medium">
+            	<p class = "slds-text-heading_small">
+                	<b>{!v.selectedCardName} Current Credit Limit : </b>
+                	<b>{!v.currentCreditLimit}</b>
+            	</p>
+        	</div>
+
+    	</lightning:card>
+
+</aura:if>
+    <br/>
+</aura:component>

@@ -1,0 +1,46 @@
+.payroll-record-component {
+    padding: 0;
+}
+
+.payroll-details-table {
+    margin-top: 1rem;
+}
+
+.payroll-details-table table {
+    width: 100%;
+}
+
+.payroll-details-table td:first-child {
+    width: 30%;
+    font-weight: 600;
+    background-color: #f3f3f3;
+}
+
+.status-pending {
+    color: #ff9a00;
+    font-weight: 600;
+    padding: 4px 8px;
+    background-color: #fff5e6;
+    border-radius: 4px;
+}
+
+.status-authorized {
+    color: #04844b;
+    font-weight: 600;
+    padding: 4px 8px;
+    background-color: #eef8f3;
+    border-radius: 4px;
+}
+
+.status-rejected {
+    color: #c23934;
+    font-weight: 600;
+    padding: 4px 8px;
+    background-color: #fdeded;
+    border-radius: 4px;
+}
+
+.slds-spinner_container {
+    position: relative;
+    height: 100px;
+}

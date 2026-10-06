@@ -1,0 +1,29 @@
+<design:component>
+    <design:attribute
+        name="recordTypeDeveloperName"
+        label="Record Type Developer Name"
+        description="Case record type used to filter related cases."
+        datasource="Loan_Application,LoanFinanceServiceRequest"
+        default="Loan_Application" />
+
+    <design:attribute
+        name="caseStatut"
+        label="Case Status"
+        description="Select None to exclude Status from the query."
+        datasource="None,Closed"
+        default="None" />
+
+    <design:attribute
+        name="caseSubStatus"
+        label="Case Sub Status"
+        description="Select None to exclude Sub_Status__c from the query."
+        datasource="None,Declined,Cancelled,Approved,Processed"
+        default="None" />
+    
+    
+    <design:attribute
+        name="caseSubType"
+        label="Case Sub Type"
+        description="For LoanFinanceServiceRequest only. Enter Case.Sub_Type__c to dynamically use the current Case Sub_Type__c value, enter a direct value to override it, or leave empty to exclude the Sub Type filter."
+    />
+</design:component>

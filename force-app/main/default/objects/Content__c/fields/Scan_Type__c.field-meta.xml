@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scan_Type__c</fullName>
+    <description>Type of document which has been scanned</description>
+    <label>Scan Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>POI</fullName>
+                <default>false</default>
+                <label>POI</label>
+            </value>
+            <value>
+                <fullName>POA</fullName>
+                <default>false</default>
+                <label>POA</label>
+            </value>
+            <value>
+                <fullName>IGA</fullName>
+                <default>false</default>
+                <label>IGA</label>
+            </value>
+            <value>
+                <fullName>FATCA</fullName>
+                <default>false</default>
+                <label>FATCA</label>
+            </value>
+            <value>
+                <fullName>Name Screening</fullName>
+                <default>false</default>
+                <label>Name Screening</label>
+            </value>
+            <value>
+                <fullName>EDD</fullName>
+                <default>false</default>
+                <label>EDD</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Credit Card Application</fullName>
+                <default>false</default>
+                <label>Credit Card Application</label>
+            </value>
+            <value>
+                <fullName>Credit Card Supplementary Application</fullName>
+                <default>false</default>
+                <label>Credit Card Supplementary Application</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card Application</fullName>
+                <default>false</default>
+                <label>Prepaid Card Application</label>
+            </value>
+            <value>
+                <fullName>Loan Application</fullName>
+                <default>false</default>
+                <label>Loan Application</label>
+            </value>
+            <value>
+                <fullName>Mobile Number Change</fullName>
+                <default>false</default>
+                <label>Mobile Number Change</label>
+            </value>
+            <value>
+                <fullName>Login from Unbound Device</fullName>
+                <default>false</default>
+                <label>Login from Unbound Device</label>
+            </value>
+            <value>
+                <fullName>Canceled Work Permit</fullName>
+                <default>false</default>
+                <label>Canceled Work Permit</label>
+            </value>
+            <value>
+                <fullName>Dispute</fullName>
+                <default>false</default>
+                <label>Dispute</label>
+            </value>
+            <value>
+                <fullName>Debit Card Activation</fullName>
+                <default>false</default>
+                <label>Debit Card Activation</label>
+            </value>
+            <value>
+                <fullName>Credit Card Activation</fullName>
+                <default>false</default>
+                <label>Credit Card Activation</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card Activation</fullName>
+                <default>false</default>
+                <label>Prepaid Card Activation</label>
+            </value>
+            <value>
+                <fullName>Segment Update</fullName>
+                <default>false</default>
+                <label>Segment Update</label>
+            </value>
+            <value>
+                <fullName>Personal Loan / Finance</fullName>
+                <default>false</default>
+                <label>Personal Loan / Finance</label>
+            </value>
+            <value>
+                <fullName>eKey</fullName>
+                <default>false</default>
+                <label>eKey</label>
+            </value>
+            <value>
+                <fullName>KYC - Periodic Review</fullName>
+                <default>false</default>
+                <label>KYC - Periodic Review</label>
+            </value>
+            <value>
+                <fullName>Supplementary Card Notification Settings Update</fullName>
+                <default>false</default>
+                <label>Supplementary Card Notification Settings Update</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card Notification Settings Update</fullName>
+                <default>false</default>
+                <label>Prepaid Card Notification Settings Update</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

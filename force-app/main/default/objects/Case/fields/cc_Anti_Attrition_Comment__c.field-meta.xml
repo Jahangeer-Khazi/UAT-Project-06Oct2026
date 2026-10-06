@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Anti_Attrition_Comment__c</fullName>
+    <description>to capture the comment from Anti Attrition team while approve or cancel</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Anti Attrition Comment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

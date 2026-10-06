@@ -1,0 +1,29 @@
+<aura:component controller="LoanCollectionLettersController" implements="force:hasRecordId,flexipage:availableForRecordHome">
+	<aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="isSubmited" type="Boolean" access="private" default="false" />
+
+
+    <force:recordData aura:id="recordLoader"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    fields="Id,Delivery_Preference__c,cc_Checker_Result__c,Letter_Type__c,Status"
+    targetFields="{!v.caseRecord}"
+    targetError="{!v.recordLoadError}"
+    />
+     <lightning:messages/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}" />-->
+    <div class="slds-p-bottom_large"> 
+      <aura:if isTrue="{!and(v.caseRecord.cc_Checker_Result__c=='Download Letter' ,v.caseRecord.Delivery_Preference__c!='Email')}">
+           <lightning:button class="slds-float_right" label="Download letter" 
+                    onclick="{!c.handleClick}" disabled="{!v.isSubmited}" />
+        </aura:if>
+        
+       <aura:if isTrue="{!and(v.caseRecord.cc_Checker_Result__c=='Send Email' ,v.caseRecord.Delivery_Preference__c=='Email' )}">
+         <lightning:button class="slds-float_right" label="Send Email" 
+                    onclick="{!c.handleSendEmail}"/>
+        </aura:if>
+            
+       
+    </div>
+</aura:component>

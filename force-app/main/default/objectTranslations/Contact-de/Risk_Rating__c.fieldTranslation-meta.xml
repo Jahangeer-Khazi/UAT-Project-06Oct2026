@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Risk Rating as per Siron screening --></help>
+    <label><!-- Risk Rating --></label>
+    <name>Risk_Rating__c</name>
+    <picklistValues>
+        <masterLabel>Auto High</masterLabel>
+        <translation><!-- Auto High --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Extreme</masterLabel>
+        <translation><!-- Extreme --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High</masterLabel>
+        <translation><!-- High --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Low</masterLabel>
+        <translation><!-- Low --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Medium</masterLabel>
+        <translation><!-- Medium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prohibited</masterLabel>
+        <translation><!-- Prohibited --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Restricted</masterLabel>
+        <translation><!-- Restricted --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

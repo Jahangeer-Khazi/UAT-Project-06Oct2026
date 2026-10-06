@@ -1,0 +1,40 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 
+ * 		Change History:  
+ *	    	  
+-->
+<aura:component>
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+    
+    <aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account">
+            <lightning:messages />
+            <label for="emailid">Email</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="Email_Update__pc" aura:id="emailid" value="{!v.account.Email_Update__pc}" variant="label-hidden"/>
+            </div>
+            <br/>
+         </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    	<div class="slds-box">
+                     		<label for="emailid">Email</label> <br/>
+                        		<lightning:outputField fieldName="Email_Update__pc" aura:id="emailid" variant="label-hidden"/>  <br/>
+                    	</div> 
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+
+</aura:component>

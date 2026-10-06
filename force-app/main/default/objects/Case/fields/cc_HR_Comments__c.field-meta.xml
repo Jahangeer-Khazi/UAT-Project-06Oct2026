@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_HR_Comments__c</fullName>
+    <description>This field is used to provide the comments for HR for staff application for new Credit Card request</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>HR Comments</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,100 @@
+<!--
+  @description       : 
+  @author            : AITOGRAM Omar
+  @group             : 
+  @last modified on  : 01-16-2024
+  @last modified by  : AITOGRAM Omar
+           #CH05# #Aniss Mbarki# #25-07-2026# change 10 NBA-17380.
+
+-->
+
+<aura:component
+    implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName"
+    access="global" controller="BankInformationController">
+
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="Type" type="String" />
+    <!-- ======================================================= -->
+    <aura:attribute name="tabsConfig" type="Object" access="private" />
+    <aura:attribute name="enableActions" type="Boolean" access="private" default="false" />
+    <aura:attribute name="caseRecordType" type="String" access="private" default="" />
+    <aura:attribute name="caseType" type="String" />
+    <!-- CH01 Added by Jahangeer Mohammed 29-08-2021 For No Due Functionality -->
+    <aura:attribute name="dataInformation" type="Object[]" default="[]" />
+    <!-- CH01 END -->
+    <aura:attribute name="selectedStatus" type="String" />
+    <!-- CH09 Start -->
+    <aura:attribute name="selectedDebitCardStatus" type="String" />
+    <aura:attribute name="selectedDebitCardData" type="Object[]" default="[]" />
+    <!-- CH09 END -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <!-- To handle alburaq Product  -->
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+
+    <!-- omar start CH04 -->
+    <aura:attribute name="loanOrFinance" type="String" default="Loan"/>
+    <!-- omar end CH04-->
+
+    <!-- start CH05 -->
+    <aura:attribute name="fixedDepositLabel" type="String" default="Fixed Deposits"/>
+    <!-- end CH05 -->
+
+    <lightning:tabset variant="scoped"> <!-- selectedTabId="loansTab" -->
+
+
+
+        <aura:if isTrue="{!!empty(v.customerId)}">
+             <!-- omar start CH04-->
+            <lightning:tab  label="{!v.loanOrFinance}">
+                 <!-- omar end CH04-->
+                <c:Loans_LoansList aura:id="Loans_LoansList" customerId="{!v.customerId}" caseId="{!v.recordId}"
+                    account="{!v.account}" enableActions="{! 'Case' == v.sObjectName }"
+                    caseRecordType="{!v.caseRecordType}" isAlburaqProduct="{!v.isAlburaqProduct}" />
+            </lightning:tab>
+        </aura:if>
+
+        <aura:if isTrue="{!true == v.tabsConfig.Bank_Accounts__c}">
+            <lightning:tab label="Bank Accounts">
+                <c:bankAccountsList aura:id="bankAccountsList" customerId="{!v.customerId}" caseId="{!v.recordId}"
+                    account="{!v.account}" enableActions="{! 'Case' == v.sObjectName }"
+                    caseRecordType="{!v.caseRecordType}"  isAlburaqProduct="{!v.isAlburaqProduct}"/>
+            </lightning:tab>
+        </aura:if>
+        
+        <!-- #CH05 : Start -->
+        <aura:if isTrue="{! true == v.tabsConfig.Term_Deposits__c}">
+            <lightning:tab label="{!v.fixedDepositLabel}">
+                
+                <c:termDepositList aura:id="termDepositList"
+                                   customerId="{!v.customerId}"
+                                   caseId="{!v.recordId}"
+                                   enableActions="{! 'Case' == v.sObjectName }"
+                                   account="{!v.account}"
+                                   caseRecordType="{!v.caseRecordType}"
+                                   sObjectName="{!v.sObjectName}"/>                  
+            </lightning:tab>
+        </aura:if>
+
+        <aura:if isTrue="{!!v.isAlburaqProduct}">
+            <aura:if isTrue="{!true == v.tabsConfig.Kanz__c}">
+                <lightning:tab label="Kanz" >
+                    <c:kanzDetail customerId="{!v.customerId}" account="{!v.account}" caseId="{!v.recordId}" regionName="Bahrain"/>
+                </lightning:tab>
+            </aura:if>
+            <aura:if isTrue="{!true == v.tabsConfig.Credit_Cards__c}">
+                <lightning:tab label="Credit Card">
+                    <c:creditCardList aura:id="creditCardList"
+                                          customerId="{!v.customerId}"
+                                          caseId="{!v.recordId}"
+                                          enableActions="{! 'Case' == v.sObjectName }"
+                                          account="{!v.account}"/>
+                </lightning:tab>
+            </aura:if>
+        </aura:if>
+        <!-- #CH05 : End -->
+
+    </lightning:tabset>
+
+    <c:apexService aura:id="apexService" />
+</aura:component>

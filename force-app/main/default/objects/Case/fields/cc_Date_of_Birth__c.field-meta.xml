@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Date_of_Birth__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISBLANK(Account.PersonContact.Birthdate),
+    &quot;&quot;,
+    RIGHT(&quot;0&quot; &amp; TEXT(DAY(Account.PersonContact.Birthdate)), 2) &amp; &quot;/&quot; &amp;
+    RIGHT(&quot;0&quot; &amp; TEXT(MONTH(Account.PersonContact.Birthdate)), 2) &amp; &quot;/&quot; &amp;
+    TEXT(YEAR(Account.PersonContact.Birthdate))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Date of Birth</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

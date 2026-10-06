@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ds_Account_Name__c</fullName>
+    <description>This account name was introduced for the Dormancy status project.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(MiddleName) , 
+IF(TEXT(CustomerStatus__c) = &apos;Dormant&apos;,
+
+   FirstName &amp;&apos; &apos;&amp; LastName  &amp; IMAGE(&quot;/resource/Red_Alert&quot;, &quot;IsDormant&quot;, 40, 40), 
+				
+				FirstName &amp;&apos; &apos;&amp; LastName
+)
+
+,
+IF(TEXT(CustomerStatus__c) = &apos;Dormant&apos;,
+
+   FirstName &amp;&apos; &apos;&amp; MiddleName &amp;&apos; &apos;&amp; LastName  &amp; IMAGE(&quot;/resource/Red_Alert&quot;, &quot;IsDormant&quot;, 40, 40), 
+				
+				FirstName &amp;&apos; &apos;&amp; MiddleName &amp;&apos; &apos;&amp; LastName 
+)
+ )</formula>
+    <label>Account Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

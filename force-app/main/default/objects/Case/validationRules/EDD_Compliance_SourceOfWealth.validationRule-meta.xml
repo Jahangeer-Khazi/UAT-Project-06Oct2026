@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDD_Compliance_SourceOfWealth</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND($Profile.Name=&apos;Compliance&apos;,ISPICKVAL(Type,&apos;EDD&apos;),ISPICKVAL(Source_of_Wealth__c,&apos;&apos;),ISPICKVAL(Region_Flag__c,&apos;Bahrain&apos;))</errorConditionFormula>
+    <errorDisplayField>Source_of_Wealth__c</errorDisplayField>
+    <errorMessage>Please Fill in Source of Wealth</errorMessage>
+</ValidationRule>

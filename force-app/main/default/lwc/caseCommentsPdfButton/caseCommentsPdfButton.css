@@ -1,0 +1,54 @@
+/* Modal Styling */
+.modal-header-custom {
+    background-color: #0070D2;
+}
+
+.modal-body-custom {
+    padding: 0;
+    position: relative;
+    height: 80vh;
+}
+
+.pdf-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+}
+
+.loading-text {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #706e6b;
+}
+
+.modal-footer-custom {
+    display: flex;
+    align-items: center;
+}
+
+.modal-footer-custom > div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #706e6b;
+}

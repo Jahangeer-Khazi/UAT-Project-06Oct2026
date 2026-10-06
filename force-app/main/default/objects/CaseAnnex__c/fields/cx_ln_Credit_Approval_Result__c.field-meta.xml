@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cx_ln_Credit_Approval_Result__c</fullName>
+    <label>Loan Credit Approval Result</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>cx_ln_Product__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approve</fullName>
+                <default>false</default>
+                <label>Approve</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Return to Pre-Screener</fullName>
+                <default>false</default>
+                <label>Return to Pre-Screener</label>
+            </value>
+            <value>
+                <fullName>Return to Verifier</fullName>
+                <default>false</default>
+                <label>Return to Verifier</label>
+            </value>
+            <value>
+                <fullName>Escalate to Business Team</fullName>
+                <default>false</default>
+                <label>Escalate to Business Team</label>
+            </value>
+            <value>
+                <fullName>Escalate to CEO</fullName>
+                <default>false</default>
+                <label>Escalate to CEO</label>
+            </value>
+            <value>
+                <fullName>Refer to Service Center</fullName>
+                <default>false</default>
+                <label>Refer to Service Center</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Cancelled By Customer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cancelled By Customer</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Approve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <valueName>Return to Verifier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Escalate to Business Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Escalate to CEO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Refer to Service Center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unsecured</controllingFieldValue>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Cancelled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Secured</controllingFieldValue>
+            <valueName>Return to Pre-Screener</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

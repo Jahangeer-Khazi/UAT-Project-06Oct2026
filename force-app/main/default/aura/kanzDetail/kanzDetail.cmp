@@ -1,0 +1,442 @@
+<!--
+  @description       :
+  @author            : Jose Caballero
+  @group             :
+  @last modified on  : 27/10/2021
+  @last modified by  : Jose Caballero
+      #CH01# #Jahangeer Mohammed# #02-06-2022# Added ledgerBalance and HoldAmount(NBA-5191)
+      #CH02# #Aniss Mbarki# #01-06-2022# Added Recurrent Payment
+      #CH03# #Aniss Mbarki# #22-05-2023# UATNB-47057
+                    #CH04# : #Aniss Mbarki# #08-01-2025# Added Logic for PLA - Double Chances - CRM Requirements (NBA-12870)
+                     #CH05#: #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705)
+
+
+-->
+<aura:component controller="KanzAPIController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="caseId" type="String" required="true" />
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <aura:attribute name="enableActions" type="Boolean" required="true" />
+    <!-- ============================================ -->
+    <aura:attribute name="data" type="Object" access="private" default="{}" />
+    <aura:attribute name="maskSensitiveInfo" type="Boolean" default="false" />
+    <aura:attribute name="existing" type="Boolean" default="false" />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="recordsPerPage" type="Integer" default="3" />
+    <aura:attribute name="disableNextPage" type="Boolean" default="true" />
+    <aura:attribute name="disablePreviousPage" type="Boolean" default="true" />
+    <aura:attribute name="drawsOnPage" type="Object[]" default="[]" />
+    <aura:attribute name="startDraw" type="Integer" default="1" />
+    <aura:attribute name="endDraw" type="Integer" />
+    <aura:attribute name="regionName" type="String" />
+    <!-- CH05 start   -->
+    <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false" />
+    <!-- CH05 end   -->
+    <aura:attribute name="viewDetails" type="Boolean" />
+    <!-- Credit Card Transactions for KANZ account Transaction type : PAFD -->
+    <aura:attribute name="selectedTransaction" type="Object" access="private" />
+    <aura:attribute name="gridDataRows" type="Object[]" />
+    <aura:attribute name="gridDataColumns" type="Object[]" />
+    <aura:attribute name="gridDataColumnDefs" type="Object[]" />
+    <aura:attribute name="tbId" type="string" />
+    <aura:attribute name="amountFrom" type="Decimal" access="private" />
+    <aura:attribute name="amountTo" type="Decimal" access="private" />
+    <aura:attribute name="dateTo" type="Date" access="private" />
+    <aura:attribute name="dateFrom" type="Date" access="private" />
+    <aura:attribute name="debitCreditIndicator" type="String" access="private" />
+    <aura:attribute name="transactionStatus" type="String" access="private" default="completed" />
+    <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent" />
+    <aura:handler event="c:jqDataTableEvent" action="{!c.handleJqDataTableEvent}" />
+    
+    <!-- CH04 Start -->
+    <aura:attribute name="accountObjdata" type="Object" access="private" default="{}" />
+    
+    
+    <!-- Events -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:method name="reload" action="{!c.load}" />
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}" />
+    
+    <aura:if isTrue="{!empty(v.data)}">
+        No data for customer: {!v.customerId}
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.existing}">
+                <aura:if isTrue="{!empty(v.data.accountBalance)}">
+                    <lightning:card>
+                        <aura:set attribute="title">
+                            Customer Balance:
+                        </aura:set>
+                        
+                    </lightning:card>
+                    <aura:set attribute="else">
+                        <lightning:card>
+                            <aura:set attribute="title">
+                                <!-- CH04 Start -->
+                                <lightning:card title="{!'Al Kanz Status: '+ v.data.kanzStatus}">
+                                </lightning:card>
+                                <lightning:card title="Account">
+                                    <table border="1" style="width: 100%; border-collapse: collapse;">
+                                        <tr>
+                                            <td style="background-color: #f3f3f3; color: Black; padding: 8px;">Status
+                                            </td>
+                                            <td style="padding: 8px;">{!v.data.status}</td>
+                                            <td style="background-color: #f3f3f3; color: Black; padding: 8px;">Available
+                                                Balance</td>
+                                            <td style="padding: 8px;">
+                                                <!-- <aura:if isTrue="{!v.viewDetails}"> -->
+                                                <!-- CH05 : added hideJordanFinancialDetails -->
+                                                <aura:if
+                                                         isTrue="{!and(v.viewDetails, v.hideJordanFinancialDetails == false)}">
+                                                    <lightning:formattedNumber value="{!v.data.accountBalance}"
+                                                                               style="currency" currencyCode="{!v.data.accountCurrency}" />
+                                                    <aura:set attribute="else">
+                                                        <span style="padding-right: 150px;"></span>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #f3f3f3; color: Black; padding: 8px;">IBAN</td>
+                                            <td style="padding: 8px;">{!v.data.accountIBAN}</td>
+                                            <td style="background-color: #f3f3f3; color: Black; padding: 8px;">Hold
+                                                Balance</td>
+                                            <td style="padding: 8px;">
+                                                <!-- <aura:if isTrue="{!v.viewDetails}"> -->
+                                                <!-- CH05 : added hideJordanFinancialDetails -->
+                                                <aura:if
+                                                         isTrue="{!and(v.viewDetails, v.hideJordanFinancialDetails == false)}">
+                                                    <lightning:formattedNumber value="{!v.data.holdAmount}"
+                                                                               style="currency" currencyCode="{!v.data.accountCurrency}" />
+                                                    <aura:set attribute="else">
+                                                        <span style="padding-right: 150px;"></span>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #f3f3f3; color: Black; padding: 8px;">Created
+                                                Date</td>
+                                            <td style="padding: 8px;">
+                                                {!v.accountObjdata.startDate}
+                                            </td>
+                                            <!-- ============================================ {!v.data.account.startDate} toCheck-->
+                                            
+                                            <td style="background-color: #f3f3f3; color: black; padding: 8px;">Book
+                                                Balance</td>
+                                            <td style="padding: 8px;">
+                                                <!-- <aura:if isTrue="{!v.viewDetails}"> -->
+                                                <!-- CH05 : added hideJordanFinancialDetails -->
+                                                <aura:if
+                                                         isTrue="{!and(v.viewDetails, v.hideJordanFinancialDetails == false)}">
+                                                    <lightning:formattedNumber value="{!v.data.ledgerBalance}"
+                                                                               style="currency" currencyCode="{!v.data.accountCurrency}" />
+                                                    <aura:set attribute="else">
+                                                        <span style="padding-right: 150px;"></span>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </td>
+                                        </tr>
+                                        <aura:if isTrue="{! v.regionName != 'Jordan' }">
+                                            <tr>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">
+                                                    Transfer by Mobile</td>
+                                                <td style="padding: 8px;">{!v.accountObjdata.transferByMobile}</td>
+                                                <!-- ============================================ {!v.data.account.transferByMobile} toCheck -->
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">Last
+                                                    Withdraw Date</td>
+                                                <td style="padding: 8px;">
+                                                    <ui:outputDate value="{!v.data.lastWithdrawDate}"
+                                                                   format="DD MM YYYY hh:mm:ss" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">
+                                                    Actual Chances</td>
+                                                <td style="padding: 8px;">{!v.data.noOfChances}</td>
+                                                <!-- ============================================ {!v.data.account.transferByMobile} toCheck -->
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">Bonus
+                                                    Chances</td>
+                                                <td style="padding: 8px;">{!v.data.noOfLoyaltyChances}
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">
+                                                    Next Bonus Chances</td>
+                                                <td style="padding: 8px;">{!v.data.noOfUpcomingLoyaltyChances}</td>
+                                                <!-- ============================================ {!v.data.account.transferByMobile} toCheck -->
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">Next Bonus Chances Date</td>
+                                                <td style="padding: 8px;">
+                                                    <ui:outputDate value="{!v.data.DateOfUpcomingLoyaltyChances}"
+                                                                   format="DD MM YYYY hh:mm:ss" />
+                                                </td>
+                                            </tr>
+                                        </aura:if>
+                                        <aura:if isTrue="{! v.regionName == 'Jordan' }">
+                                            <tr>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">Last
+                                                    Withdraw Date</td>
+                                                <td style="padding: 8px;">
+                                                    <ui:outputDate value="{!v.data.lastWithdrawDate}"
+                                                                   format="DD MM YYYY hh:mm:ss" />
+                                                </td>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">
+                                                    Actual Chances</td>
+                                                <td style="padding: 8px;">{!v.data.account.noOfChances}</td>
+                                                <!-- ============================================ {!v.data.account.transferByMobile} toCheck -->
+                                            </tr>
+                                            <tr>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">Bonus
+                                                    Chances</td>
+                                                <td style="padding: 8px;">{!v.data.account.noOfLoyaltyChances}
+                                                    
+                                                </td>
+                                                <td style="background-color: #f3f3f3; color: black; padding: 8px;">
+                                                    Next Bonus Chances</td>
+                                                <td style="padding: 8px;">{!v.data.account.noOfUpcomingLoyaltyChances}</td>
+                                                <!-- ============================================ {!v.data.account.transferByMobile} toCheck -->
+                                                
+                                            </tr>
+                                            <tr >
+                                                <td colspan="1" style="background-color: #f3f3f3; color: black; padding: 8px;">Next Bonus Chances Date</td>
+                                                <td colspan="1" style="padding: 8px;">
+                                                    <ui:outputDate value="{!v.data.account.DateOfUpcomingLoyaltyChances}"
+                                                                   format="DD MM YYYY hh:mm:ss" />
+                                                </td>
+                                                
+                                            </tr>
+                                        </aura:if>
+                                        <tr>
+                                            <td style="background-color: #f3f3f3; color: Black; padding: 8px;">Annual Interest Rate</td>
+                                            <td style="padding: 8px;">{!v.data.interestRate}</td>
+                                        </tr>
+                                    </table>
+                                </lightning:card>
+                                <!-- CH04 End -->
+                            </aura:set>
+                        </lightning:card>
+                    </aura:set>
+                </aura:if>
+                <lightning:card title="Draws of Customer">
+                    <!-- 
+                        <aura:iteration items="{!v.drawsOnPage}" var="draw">
+                            <div class="tileTitle">
+                                <lightning:tile class="slds-p-horizontal_medium outputLookupLink" label="{!draw.code}">
+                                    <div class="slds-form" role="list" style="padding: 1rem;">
+                                        <div class="slds-form__row">
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_stacked slds-form-element_readonly">
+                                                    <span class="slds-form-element__label"
+                                                        for="tooltip-showing-form-element-help-01">Amount required to be deposited for the next chance</span>
+                                                    <div class="slds-form-element__control ">
+                                                        <div class="slds-form-element__static">
+                                                            <aura:if isTrue="{!empty(draw.nextChanceReqAmnt)}">
+                                                                <aura:set attribute="else">
+                                                                    <lightning:formattedNumber
+                                                                            value="{!draw.nextChanceReqAmnt}"
+                                                                            style="currency"
+                                                                            currencyCode="{!v.data.accountCurrency}"/>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                                    <span class="slds-form-element__label">Start Date</span>
+                                                    <div class="slds-form-element__control ">
+                                                        <div class="slds-form-element__static">
+                                                            <ui:outputDate value="{!draw.startDate}"
+                                                                        format="DD-MM-YYYY hh:mm:ss"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="slds-form__row">
+                                                <div class="slds-form__item" role="listitem">
+                                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                                        <span class="slds-form-element__label">Number of chances based off total balance per draw</span>
+                                                        <div class="slds-form-element__control ">
+                                                            <div class="slds-form-element__static">
+                                                                        {!draw.noOfChances}                                                       
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-form__item" role="listitem">
+                                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                                        <span class="slds-form-element__label">Cut Off Date</span>
+                                                        <div class="slds-form-element__control ">
+                                                            <div class="slds-form-element__static">
+                                                                <ui:outputDate value="{!draw.cutOffDate}"
+                                                                            format="DD-MM-YYYY hh:mm:ss"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="slds-form__row">
+                                                <div class="slds-form__item" role="listitem">
+                                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked">
+                                                        <span class="slds-form-element__label">Draw Date</span>
+                                                        <div class="slds-form-element__control ">
+                                                            <div class="slds-form-element__static">
+                                                                <ui:outputDate value="{!draw.drawDate}"
+                                                                            format="DD-MM-YYYY hh:mm:ss"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning:tile>
+                                </div>
+                            </aura:iteration>
+                            <div slot="footer" class="slds-clearfix">
+                                <div class="slds-float_left slds-p-horizontal_medium"> Showing {!v.startDraw} to {!v.endDraw}
+                                    of {!v.data.draws.length} draws
+                                </div>
+                                <div class="slds-float_right slds-p-horizontal_medium">
+                                    <lightning:button variant="base" label="Next" title="Next" onclick="{! c.nextPage }"
+                                                    disabled="{! v.disableNextPage}"/>
+                                </div>
+                                <div class="slds-float_right slds-p-horizontal_medium">
+                                    <lightning:button variant="base" label="Previous" title="Previous"
+                                                    onclick="{! c.previousPage }" disabled="{! v.disablePreviousPage}"/>
+                                </div>
+                            </div>
+                    -->
+                    <!-- CH04 Start -->
+                    <table border="1" style="width: 100%; border-collapse: collapse;">
+                        <!-- Table Header -->
+                        <thead>
+                            <tr style="background-color: #f3f3f3; color: Black;">
+                                <th style="padding: 8px; text-align: left;">Code</th>
+                                <th style="padding: 8px; text-align: left;">Retention Start Date</th>
+                                <th style="padding: 8px; text-align: left;">Retention End Date</th>
+                                <th style="padding: 8px; text-align: left;">Draw Date</th>
+                                
+                                
+                                <!-- <aura:if isTrue="{! v.regionName != 'Jordan' }">-->
+                                <th style="padding: 8px; text-align: left;">Closing Balance</th>
+                                <!-- </aura:if>-->
+                                <!-- CH05 : added hideJordanFinancialDetails -->
+                                <!-- <aura:if isTrue="{! v.hideJordanFinancialDetails == false }"> -->
+                                <th style="padding: 8px; text-align: left;">Withdraw Funds?</th>
+                                <th style="padding: 8px; text-align: left;">Actual Chances</th>
+                                <!-- </aura:if>                                     -->
+                                
+                                <!-- <aura:if isTrue="{! v.regionName != 'Jordan' }">-->
+                                <th style="padding: 8px; text-align: left;">Bonus Chances</th>
+                                <th style="padding: 8px; text-align: left;">Total Chances</th>
+                                <th style="padding: 8px; text-align: left;">Max No. of Bonus Chances</th>
+                                <!-- </aura:if>-->
+                            </tr>
+                        </thead>
+                        
+                        <!-- Table Body -->
+                        <tbody>
+                            <aura:iteration items="{!v.drawsOnPage}" var="draw">
+                                <tr>
+                                    <td style="padding: 8px;">{!draw.code}</td>
+                                    <td style="padding: 8px;">
+                                        {!draw.retentionDate}
+                                    </td>
+                                    <td style="padding: 8px;">
+                                        {!draw.retentionEndDate}
+                                    </td>
+                                    <td style="padding: 8px;">
+                                        {!draw.drawDate}
+                                    </td>
+                                    
+                                    <!--  <aura:if isTrue="{! v.regionName != 'Jordan' }">-->
+                                    
+                                    <td style="padding: 8px;">
+                                        <aura:if isTrue="{!v.viewDetails}">
+                                            <!-- ============================================ {!v.data.account.closingBalance} toCheck -->
+                                            <aura:if isTrue="{!empty(draw.closingBalance)}">
+                                                -
+                                                <aura:set attribute="else">
+                                                    <lightning:formattedNumber value="{!draw.closingBalance}"
+                                                                               style="currency" currencyCode="{!draw.currencyCode}" />
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:if>
+                                    </td>
+                                    <!--    </aura:if>-->
+                                    <!-- CH05 : added hideJordanFinancialDetails -->
+                                    
+                                    <td style="padding: 8px;">
+                                        <aura:if isTrue="{! v.hideJordanFinancialDetails == false }">
+                                            {!draw.withdrawFunds}
+                                        </aura:if>
+                                    </td>
+                                    <!-- ============================================ {!v.data.widthdrawFunds} toCheck -->
+                                    <td style="padding: 8px;">
+                                        <aura:if isTrue="{! v.hideJordanFinancialDetails == false }">
+                                            {!draw.noOfChances}
+                                        </aura:if>
+                                    </td>
+                                    
+                                    
+                                    <!--  <aura:if isTrue="{! v.regionName != 'Jordan' }">-->
+                                    <td style="padding: 8px;">{!draw.noOfLoyaltyChances}</td>
+                                    <!-- ============================================ {!v.data.noOfLoyaltyChances} toCheck -->
+                                    <td style="padding: 8px;">{!draw.noOfTotalChances}</td>
+                                    <td style="padding: 8px;">{!draw.maxNoOfLoyaltyChances}</td>
+                                    <!-- ============================================ {!v.data.noOfTotalChances} toCheck -->
+                                    <!--  </aura:if>-->
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                    <!-- CH04 End -->
+                    <br />
+                    <!-- CH05 : added hideJordanFinancialDetails -->
+                    <aura:if isTrue="{!and(v.viewDetails, v.hideJordanFinancialDetails == false)}">
+                        <!-- <aura:if isTrue="{!v.viewDetails}"> -->
+                        <div>
+                            <h1> <b>
+                                KANZ PAFD Transactions</b></h1>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="slds-float_left slds-p-horizontal_medium">
+                            <lightning:button variant="brand" label="Show Transactions" title="Show Transactions"
+                                              onclick="{!c.showTransactions }" />
+                        </div>
+                        <br />
+                        <br />
+                        <c:jqDataTable id="{!v.tbId}" rows="{!v.gridDataRows }" columns="{!v.gridDataColumns }"
+                                       columnDefs="{!v.gridDataColumnDefs }" keyField="id" orderBy="desc"
+                                       sortedBy="transactionDate" showCheckboxColumn="false" selectStyle="multi+shift" />
+                    </aura:if>
+                </lightning:card>
+                <aura:set attribute="else">
+                    <!-- CH03 start -->
+                    <aura:if isTrue="{!v.account.PLA_Eligibility__pc == 'No'}">
+                        Customer is ineligible as customer is {!v.account.PLA_Ineligibility_Reason__pc}
+                        <aura:set attribute="else">
+                            Customer is eligible but account not created.
+                        </aura:set>
+                    </aura:if>
+                    <!-- CH03 End -->
+                    
+                </aura:set>
+            </aura:if>
+            <!-- <aura:if isTrue="{!v.viewDetails}"> -->
+            <!-- CH05 : added hideJordanFinancialDetails -->
+            <aura:if isTrue="{!and(v.viewDetails, v.hideJordanFinancialDetails == false)}">
+                <!-- CH02 : Aniss Mbarki _Start -->
+                <c:LTNG23_PLaRecurringPayments customerId="{!v.customerId}" account="{!v.account}"
+                                               regionName="{!v.regionName}" />
+                <!-- CH02 : End -->
+            </aura:if>
+        </aura:set>
+    </aura:if>
+    
+    <c:apexService aura:id="apexService" />
+</aura:component>

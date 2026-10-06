@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Name_not_more_than_70_char</fullName>
+    <active>true</active>
+    <description>This validation restricts the customer name to be not greater than 70 characters</description>
+    <errorConditionFormula>IF(LEN( FirstName+&apos; &apos;+MiddleName+&apos; &apos;+LastName) &gt; 70, true, false)</errorConditionFormula>
+    <errorMessage>Customer Name must be less than 70 characters</errorMessage>
+</ValidationRule>

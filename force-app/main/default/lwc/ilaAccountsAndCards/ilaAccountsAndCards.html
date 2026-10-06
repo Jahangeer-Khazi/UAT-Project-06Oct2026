@@ -1,0 +1,429 @@
+<template>
+    <div class="ila-container">
+
+        <!-- Main Tabs Container -->
+        <div class="tabs-container">
+            <!-- Primary Tabs -->
+            <div class="primary-tabs">
+                <ul class="tabs-list">
+                    <li class="tab-item active" onclick={switchPrimaryTab} data-tab="bank-accounts">
+                        <lightning-icon icon-name="custom:custom62" size="small"></lightning-icon>
+                        Bank Accounts
+                        <span class="tab-count">3</span>
+                    </li>
+                    <li class="tab-item" onclick={switchPrimaryTab} data-tab="cards">
+                        <lightning-icon icon-name="utility:creditcard" size="small"></lightning-icon>
+                        Cards
+                        <span class="tab-count">3</span>
+                    </li>
+                    <li class="tab-item" onclick={switchPrimaryTab} data-tab="savings">
+                        <lightning-icon icon-name="utility:ribbon" size="small"></lightning-icon>
+                        Savings & Investments
+                        <span class="tab-count">5</span>
+                    </li>
+                    <li class="tab-item" onclick={switchPrimaryTab} data-tab="payroll">
+                        <lightning-icon icon-name="utility:moneybag" size="small"></lightning-icon>
+                        Payroll
+                        <span class="tab-count">1</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Savings & Investments Sub Tabs -->
+            <div class="secondary-tabs" if:true={showSavingsSubTabs}>
+                <ul class="sub-tabs-list">
+                    <li class="sub-tab-item" onclick={switchSubTab} data-subtab="hysa">
+                        HYSA
+                    </li>
+                    <li class="sub-tab-item" onclick={switchSubTab} data-subtab="saving-pots">
+                        Saving Pots
+                    </li>
+                    <li class="sub-tab-item" onclick={switchSubTab} data-subtab="bonds-sukuk">
+                        Bonds/Sukuk
+                    </li>
+                    <li class="sub-tab-item" onclick={switchSubTab} data-subtab="kanz">
+                        Kanz
+                    </li>
+                    <li class="sub-tab-item active" onclick={switchSubTab} data-subtab="gold">
+                        Gold
+                    </li>
+                    <li class="sub-tab-item" onclick={switchSubTab} data-subtab="silver">
+                        Silver
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-container">
+
+            <!-- Gold Account Content -->
+            <div if:true={showGoldContent}>
+                <template if:true={goldAccountExists}>
+                    <!-- Section 1: Account Details -->
+                    <div class="account-details-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:ribbon" size="small"></lightning-icon>
+                            <h2>Gold Account Details</h2>
+                        </div>
+
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Account Status</span>
+                                <span class="detail-value status-badge {goldAccount.statusClass}">{goldAccount.status}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Account Created Date</span>
+                                <span class="detail-value">{goldAccount.createdDate}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Account Closure Date</span>
+                                <span class="detail-value">{goldAccount.closureDate}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Available Balance</span>
+                                <span class="detail-value highlight">{goldAccount.availableBalance}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Hold Balance</span>
+                                <span class="detail-value">{goldAccount.holdBalance}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Book Balance</span>
+                                <span class="detail-value">{goldAccount.bookBalance}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Transactions -->
+                    <div class="transactions-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:list" size="small"></lightning-icon>
+                            <h2>Transactions</h2>
+                        </div>
+
+                        <!-- Search/Filter Section -->
+                        <div class="filter-section">
+                            <div class="filter-row">
+                                <lightning-input type="search" placeholder="Search transactions..."
+                                    onchange={handleTransactionSearch}></lightning-input>
+                            </div>
+                            <div class="filter-row advanced-filters">
+                                <div class="filter-group">
+                                    <label class="custom-label">Status</label>
+                                    <select class="slds-select" onchange={filterByStatus}>
+                                        <option value="all">All Status</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Failed">Failed</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label class="custom-label">Type</label>
+                                    <select class="slds-select" onchange={filterByType}>
+                                        <option value="all">All Types</option>
+                                        <option value="Credit">Credit</option>
+                                        <option value="Debit">Debit</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Amount From" type="number" placeholder="Min" onchange={filterAmountFrom}>
+                                    </lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Amount To" type="number" placeholder="Max" onchange={filterAmountTo}>
+                                    </lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Date From" type="date" onchange={filterDateFrom}></lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Date To" type="date" onchange={filterDateTo}></lightning-input>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transactions Table -->
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Debit Account</th>
+                                        <th>Transaction Date</th>
+                                        <th>Transaction Amount</th>
+                                        <th>Exchange Rate</th>
+                                        <th>Metal Amount</th>
+                                        <th>Reference</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={filteredTransactions} for:item="txn">
+                                        <tr key={txn.id}>
+                                            <td>{txn.description}</td>
+                                            <td>{txn.debitAccount}</td>
+                                            <td>{txn.transactionDate}</td>
+                                            <td class={txn.amountClass}>{txn.transactionAmount}</td>
+                                            <td>{txn.exchangeRate}</td>
+                                            <td>{txn.metalAmount}</td>
+                                            <td>{txn.reference}</td>
+                                            <td>
+                                                <span class="status-badge status-{txn.status.toLowerCase()}">
+                                                    {txn.status}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                    <template if:true={noTransactionsFound}>
+                                        <tr>
+                                            <td colspan="8" class="no-data">No transactions found</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Account Statements -->
+                    <div class="statements-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:file" size="small"></lightning-icon>
+                            <h2>Account Statements</h2>
+                            <lightning-button label="Get Statements" variant="brand" onclick={fetchStatements}
+                                class="statements-button"></lightning-button>
+                        </div>
+
+                        <!-- Statements Table -->
+                        <div if:true={showStatements} class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Statement Period</th>
+                                        <th>Opening Balance</th>
+                                        <th>Closing Balance</th>
+                                        <th>Total Credits</th>
+                                        <th>Total Debits</th>
+                                        <th>Generated Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={statements} for:item="stmt">
+                                        <tr key={stmt.id}>
+                                            <td>{stmt.period}</td>
+                                            <td>{stmt.openingBalance}</td>
+                                            <td>{stmt.closingBalance}</td>
+                                            <td class="credit">{stmt.totalCredits}</td>
+                                            <td class="debit">{stmt.totalDebits}</td>
+                                            <td>{stmt.generatedDate}</td>
+                                            <td>
+                                                <lightning-button-icon icon-name="utility:download"
+                                                    onclick={downloadStatement} data-id={stmt.id}
+                                                    title="Download Statement" variant="bare">
+                                                </lightning-button-icon>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- No Account Message -->
+                <template if:false={goldAccountExists}>
+                    <div class="no-account-message">
+                        <lightning-icon icon-name="utility:error" size="large"></lightning-icon>
+                        <h3>Gold Account does not exist.</h3>
+                        <p>No gold account has been opened for this customer.</p>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Silver Account Content -->
+            <div if:true={showSilverContent}>
+                <template if:true={silverAccountExists}>
+                    <!-- Section 1: Account Details -->
+                    <div class="account-details-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:ribbon" size="small"></lightning-icon>
+                            <h2>Silver Account Details</h2>
+                        </div>
+
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Account Status</span>
+                                <span class="detail-value status-badge {silverAccount.statusClass}">{silverAccount.status}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Account Created Date</span>
+                                <span class="detail-value">{silverAccount.createdDate}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Account Closure Date</span>
+                                <span class="detail-value">{silverAccount.closureDate}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Available Balance</span>
+                                <span class="detail-value highlight">{silverAccount.availableBalance}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Hold Balance</span>
+                                <span class="detail-value">{silverAccount.holdBalance}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Book Balance</span>
+                                <span class="detail-value">{silverAccount.bookBalance}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Transactions -->
+                    <div class="transactions-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:list" size="small"></lightning-icon>
+                            <h2>Transactions</h2>
+                        </div>
+
+                        <!-- Search/Filter Section -->
+                        <div class="filter-section">
+                            <div class="filter-row">
+                                <lightning-input type="search" placeholder="Search transactions..."
+                                    onchange={handleSilverTransactionSearch}></lightning-input>
+                            </div>
+                            <div class="filter-row advanced-filters">
+                                <div class="filter-group">
+                                    <label class="custom-label">Status</label>
+                                    <select class="slds-select" onchange={filterSilverByStatus}>
+                                        <option value="all">All Status</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Failed">Failed</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label class="custom-label">Type</label>
+                                    <select class="slds-select" onchange={filterSilverByType}>
+                                        <option value="all">All Types</option>
+                                        <option value="Credit">Credit</option>
+                                        <option value="Debit">Debit</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Amount From" type="number" placeholder="Min" onchange={filterSilverAmountFrom}>
+                                    </lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Amount To" type="number" placeholder="Max" onchange={filterSilverAmountTo}>
+                                    </lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Date From" type="date" onchange={filterSilverDateFrom}></lightning-input>
+                                </div>
+                                <div class="filter-group">
+                                    <lightning-input label="Date To" type="date" onchange={filterSilverDateTo}></lightning-input>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transactions Table -->
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Debit Account</th>
+                                        <th>Transaction Date</th>
+                                        <th>Transaction Amount</th>
+                                        <th>Exchange Rate</th>
+                                        <th>Metal Amount</th>
+                                        <th>Reference</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={filteredSilverTransactions} for:item="txn">
+                                        <tr key={txn.id}>
+                                            <td>{txn.description}</td>
+                                            <td>{txn.debitAccount}</td>
+                                            <td>{txn.transactionDate}</td>
+                                            <td class={txn.amountClass}>{txn.transactionAmount}</td>
+                                            <td>{txn.exchangeRate}</td>
+                                            <td>{txn.metalAmount}</td>
+                                            <td>{txn.reference}</td>
+                                            <td>
+                                                <span class="status-badge status-{txn.status.toLowerCase()}">
+                                                    {txn.status}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                    <template if:true={noSilverTransactionsFound}>
+                                        <tr>
+                                            <td colspan="8" class="no-data">No transactions found</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Account Statements -->
+                    <div class="statements-section">
+                        <div class="section-header">
+                            <lightning-icon icon-name="utility:file" size="small"></lightning-icon>
+                            <h2>Account Statements</h2>
+                            <lightning-button label="Get Statements" variant="brand" onclick={fetchSilverStatements}
+                                class="statements-button"></lightning-button>
+                        </div>
+
+                        <!-- Statements Table -->
+                        <div if:true={showSilverStatements} class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Statement Period</th>
+                                        <th>Opening Balance</th>
+                                        <th>Closing Balance</th>
+                                        <th>Total Credits</th>
+                                        <th>Total Debits</th>
+                                        <th>Generated Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={silverStatements} for:item="stmt">
+                                        <tr key={stmt.id}>
+                                            <td>{stmt.period}</td>
+                                            <td>{stmt.openingBalance}</td>
+                                            <td>{stmt.closingBalance}</td>
+                                            <td class="credit">{stmt.totalCredits}</td>
+                                            <td class="debit">{stmt.totalDebits}</td>
+                                            <td>{stmt.generatedDate}</td>
+                                            <td>
+                                                <lightning-button-icon icon-name="utility:download"
+                                                    onclick={downloadSilverStatement} data-id={stmt.id}
+                                                    title="Download Statement" variant="bare">
+                                                </lightning-button-icon>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- No Account Message -->
+                <template if:false={silverAccountExists}>
+                    <div class="no-account-message">
+                        <lightning-icon icon-name="utility:error" size="large"></lightning-icon>
+                        <h3>Silver Account does not exist.</h3>
+                        <p>No silver account has been opened for this customer.</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

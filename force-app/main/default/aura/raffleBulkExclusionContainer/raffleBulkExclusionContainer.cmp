@@ -1,0 +1,13 @@
+<aura:component implements="lightning:isUrlAddressable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" access="global" >
+<aura:attribute name="recordId" type="String"/>
+<aura:attribute name="currentDrawId" type="String" description="The ID of the current draw"/>
+<aura:attribute name="currentDrawName" type="String" description="The Name of the current draw"/>
+<aura:attribute name="currentPrizeType" type="String" description="The type of prize for the current draw"/>
+    <!-- <lightning:card title="Bulk Raffle Exclusion"> -->
+            <c:bulkDrawEntryReview 
+                currentDrawId="{!v.currentDrawId}"
+                currentPrizeType="{!v.currentPrizeType}"
+                currentDrawName="{!v.currentDrawName}"
+            />
+    <!-- </lightning:card> -->
+</aura:component>

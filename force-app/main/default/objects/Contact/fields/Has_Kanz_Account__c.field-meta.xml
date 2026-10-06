@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Kanz_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This checks wether the customer has a Kanz Account or not, to be updated by API</description>
+    <label>Has Kanz Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

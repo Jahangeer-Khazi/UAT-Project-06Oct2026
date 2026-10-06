@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>The account closure reminder triggers in case a user hasn`t resolved the failed checks for 2 days after requesting account closure.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ac_ACCT_HYSA_CLOSURE_REMINDER_ALBURAQ</name>
+    <style>none</style>
+    <subject>Reminder to complete account closure requirements.</subject>
+    <textOnly>Reminder to complete account closure requirements.
+
+Hi,
+
+Your request to close your alburaq account ending {!Case.ac_ibanLastFourDigits__c} has been received.
+
+This is a reminder to close all the pending items in order for us to close the {!Case.Other_Downgrade_Reason__c} account
+
+
+Our team is available 24/7 to help you on +973 17123456
+
+Open ila app
+
+Join the conversation
+
+
+
+ilabank.com/AlBuraq
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

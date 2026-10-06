@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Information_Type__c</fullName>
+    <description>Type of Information storing the transaction purpose or Source of Fund</description>
+    <label>Information Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Purpose of Transaction</fullName>
+                <default>false</default>
+                <label>Purpose of Transaction</label>
+            </value>
+            <value>
+                <fullName>Source of Fund</fullName>
+                <default>false</default>
+                <label>Source of Fund</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

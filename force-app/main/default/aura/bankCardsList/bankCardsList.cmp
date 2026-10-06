@@ -1,0 +1,82 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+					  #CH02# #Jahangeer Mohammed# #29-05-2023# commented the private access modifer for attribute data
+-->
+<aura:component controller="BankCardListController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <!-- ============================================ -->
+    
+    <!-- CH02 Start -->
+    <!-- <aura:attribute name="data" type="Object[]" access="private" default="[]"/> -->
+	<aura:attribute name="data" type="Object[]" default="[]"/>
+    <aura:attribute name="option" type="String" required="true"/>
+    <aura:attribute name="purgeData" type="Object[]" default="[]"/>
+    <aura:attribute name = "purgeSelected" type="boolean" default="false"/>
+    <!-- CH02 END-->
+    
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="selectedCardId" type="String" access="private"/>
+	
+    <!-- CH01 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+    <aura:handler event="c:PassAccountIdEvent" action="{!c.LoadAccountId}"/>
+
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+    <!-- CH02 Start -->
+    <aura:handler name="change" value="{!v.option}" action="{!c.onChangeOption}"/>
+    <!-- CH02 END -->
+    <aura:method name="reload" action="{!c.load}" />
+
+
+
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+    <aura:set attribute="else">
+        <lightning:datatable data="{! v.data}"
+            aura:id="cardsListTable"
+            columns="{! v.columns}"
+            keyField="id"
+            hideCheckboxColumn="false"
+            maxRowSelection="1"
+            onrowselection="{! c.handleRowSelection }"
+            onrowaction="{! c.handleRowAction }"/>
+		<!-- CH02: Start -->
+        <aura:if isTrue="{!AND(v.option != 'P',not(empty(v.selectedCardId)))}">
+            <br/>
+            <c:bankCardDetails customerId="{!v.customerId}"
+                accountId="{!v.accountId}"
+                cardId="{!v.selectedCardId}"
+                caseId="{!v.caseId}"
+                account="{!v.account}"
+                enableActions="{!v.enableActions}"
+                aura:id="bankCardDetails"
+                selectedCardId="{!v.selectedCardId}"
+                isAlburaqProduct="{!v.isAlburaqProduct}" />
+        </aura:if>
+        <aura:if isTrue="{!AND(v.option == 'P',not(empty(v.selectedCardId)))}">
+            <br/>
+            <c:bankCardPurgeDetails customerId="{!v.customerId}"
+                                    accountId="{!v.accountId}"
+                                    account="{!v.account}"
+                                    purgeDetailData="{!v.purgeData}"
+                                    purgeSel = "{!v.purgeSelected}"/>
+        </aura:if> 
+       <!-- CH02: END -->
+    </aura:set>
+    </aura:if>
+
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

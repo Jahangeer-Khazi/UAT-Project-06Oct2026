@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Account</masterLabel>
+        <translation><!-- Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Accounts</masterLabel>
+        <translation><!-- Accounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>App Login</masterLabel>
+        <translation><!-- App Login --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cards</masterLabel>
+        <translation><!-- Cards --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card</masterLabel>
+        <translation><!-- Credit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Call Verification</masterLabel>
+        <translation><!-- Customer Call Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit card</masterLabel>
+        <translation><!-- Debit card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Detokinization</masterLabel>
+        <translation><!-- Detokinization --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fees Reversal</masterLabel>
+        <translation><!-- Fees Reversal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud</masterLabel>
+        <translation><!-- Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Funds Transfer</masterLabel>
+        <translation><!-- Funds Transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interest Reversal</masterLabel>
+        <translation><!-- Interest Reversal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loans</masterLabel>
+        <translation><!-- Loans --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manager Cheque</masterLabel>
+        <translation><!-- Manager Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Official letter</masterLabel>
+        <translation><!-- Official letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Onboarding</masterLabel>
+        <translation><!-- Onboarding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Password</masterLabel>
+        <translation><!-- Password --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium</masterLabel>
+        <translation><!-- Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Profile Update</masterLabel>
+        <translation><!-- Profile Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Relationship Termination</masterLabel>
+        <translation><!-- Relationship Termination --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sukuk/bonds/Government security</masterLabel>
+        <translation><!-- Sukuk/bonds/Government security --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tokenization</masterLabel>
+        <translation><!-- Tokenization --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

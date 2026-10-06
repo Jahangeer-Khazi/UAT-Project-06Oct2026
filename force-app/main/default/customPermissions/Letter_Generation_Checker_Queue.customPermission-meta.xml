@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will allow the Checker to Edit the Checker Result and Not the Maker result on the &apos;Letter Generation Request&apos; cases</description>
+    <isLicensed>false</isLicensed>
+    <label>Letter Generation Checker Queue</label>
+</CustomPermission>

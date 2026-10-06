@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_Change_Date__c</fullName>
+    <defaultValue>NOW()</defaultValue>
+    <description>This captures the Date/Time whenever the Owner is changed(updated from Case Process  Builder)</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Owner Change Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>true</trackTrending>
+    <type>DateTime</type>
+</CustomField>

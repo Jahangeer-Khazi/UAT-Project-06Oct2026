@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Case_SendToChecker_FATCA_Validation</fullName>
+    <active>true</active>
+    <description>Ensures FATCA compliance before a Case is sent to Checker. When cc_Maker__c is changed to &quot;Send to Checker&quot;, the rule validates that the related Account has a valid 11-digit Tax Country ID and FATCA Declaration Form Type</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(cc_Maker__c , &quot;Send to Checker&quot;),
+    ISCHANGED(cc_Maker__c),
+    ISPICKVAL(Region_Flag__c , &quot;Jordan&quot;),
+    RecordType.DeveloperName = &quot;On_Boarding&quot;,
+    ISPICKVAL(Type , &quot;FATCA&quot;),
+    OR(
+        NOT(
+            OR(
+                ISPICKVAL(Account.FATCA_Declaration_Form_Type__pc , &quot;W-9&quot;),
+                ISPICKVAL(Account.FATCA_Declaration_Form_Type__pc , &quot;W-8 BEN&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Account.FATCA_Declaration_Form_Type__pc , &quot;W-9&quot;),
+            ISBLANK(Account.Tax_Country_1_ID__pc)
+        )
+    )
+)</errorConditionFormula>
+    <errorDisplayField>cc_Maker__c</errorDisplayField>
+    <errorMessage>Please fill the necessary details under the FATCA Details section to proceed.</errorMessage>
+</ValidationRule>

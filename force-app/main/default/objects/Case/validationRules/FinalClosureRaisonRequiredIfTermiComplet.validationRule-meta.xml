@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FinalClosureRaisonRequiredIfTermiComplet</fullName>
+    <active>true</active>
+    <description>Final Closure reason should be required while selecting &quot;back office results&quot; ==&quot;Termination completed&quot;</description>
+    <errorConditionFormula>ISCHANGED(Back_Office_Result__c) &amp;&amp; TEXT(Back_Office_Result__c) == &apos;Termination Completed&apos; &amp;&amp; TEXT(Final_Closure_Reason__c) == &apos;&apos;</errorConditionFormula>
+    <errorMessage>You should fill in this field before Proceeding : Final Closure reason</errorMessage>
+</ValidationRule>

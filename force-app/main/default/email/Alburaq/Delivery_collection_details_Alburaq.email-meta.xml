@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Delivery/collection details Alburaq</name>
+    <style>none</style>
+    <subject>Delivery/collection details</subject>
+    <textOnly>To update Delivery/Collection status of Case &quot;{!Case.Subject}&quot; click this link: https://sit-neobank.cs101.force.com/VisitResult?id={!Case.Uuid__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

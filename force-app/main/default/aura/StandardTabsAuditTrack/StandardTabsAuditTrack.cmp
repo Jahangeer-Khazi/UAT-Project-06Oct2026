@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="StandardTabsAuditTrackController" >
+	 
+    <aura:attribute name="tabName" type="String" access="global" />
+ 
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+
+</aura:component>

@@ -1,0 +1,64 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 27/09/2022
+ * 		Change History:
+ * 					#CH01 : Added #Jahangeer Mohammed# #14-05-2023# Region Flag
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller = "ConvertToCashCollateral" >
+    
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="accRecord" type="String"/>
+    <aura:attribute name="requestedCardType" type="String"/>
+    <aura:attribute name="requestedCreditLimit" type="Integer"/>
+    <aura:attribute name="balanceTransferCardProvider" type="String"/>
+    <aura:attribute name="balanceTransferCardNumber" type="String"/>
+    <aura:attribute name="balanceTransferAmount" type="Integer"/>
+    <aura:attribute name="nameOnTheCard" type="String"/>
+    <aura:attribute name="enableForm" type="boolean" default = "true"/>
+    <aura:attribute name="subStatus" type="String"/>
+    <aura:attribute name="caseSubStatus" type="String"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <aura:if isTrue="{!v.enableForm}">
+        <aura:if isTrue="{!or(v.caseSubStatus == 'Expired',v.caseSubStatus == 'Cancelled')}">
+            <div style="width:500px">
+                <lightning:recordEditForm aura:id="recordEditForm"
+                                          objectApiName="Case"
+                                          recordTypeId="{!$Label.c.CC_cashCollateralRegular_RecordTypeID}"
+                                          onsubmit="{!c.handleOnSubmit}"
+                                          onsuccess="{!c.handleOnSuccess}"
+                                          >
+                    <lightning:messages />
+                    <lightning:inputField aura:id="field" fieldName="cc_Requested_Credit_Limit__c" value = "{!v.requestedCreditLimit}" required = "true"/>
+                    <lightning:inputField aura:id="field" fieldName="ccol_Hold_Account__c" required = "true"/>
+                    <lightning:inputField aura:id="field" fieldName="ccol_Hold_Account_IBAN__c" required = "true"/>
+                    
+                    <div class="slds-hide">
+                        <lightning:inputField fieldName="Type"/>
+                        <lightning:inputField fieldName="Sub_Type__c"/>
+                        <lightning:inputField fieldName="cc_Requested_Card_Type__c" value = "{!v.requestedCardType}"/>
+                        <lightning:inputField fieldName="cc_Balance_Transfer_Card_Provider__c" value = "{!v.balanceTransferCardProvider}"/>
+                        <lightning:inputField fieldName="cc_Balance_Transfer_Card_Number__c" value = "{!v.balanceTransferCardNumber}"/>
+                        <lightning:inputField fieldName="cc_Balance_Transfer_Amount__c" value = "{!v.balanceTransferAmount}"/>
+                        <lightning.inputField fieldName="cc_Name_on_the_Card__c" value = "{!v.nameOnTheCard}"/>
+                        <lightning:inputField fieldName="AccountId" value = "{!v.accRecord}" disabled = "true"/>
+                    	<!-- CH01: Start -->
+                        <lightning.inputField fieldName="Region_Flag__c" value = "{!v.region}"/>
+                        <!-- CH01: END -->
+                    </div>
+                    
+                    <lightning:button class="slds-m-top_small" type="submit" label="Convert to Cash Collateral" variant = "brand"/>
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                    
+                </lightning:recordEditForm>
+            </div>
+           <aura:set attribute="else">
+               <p style="color:red;font-size:14px;"><b>Note: *To Converting into Cash Collateral Case, Credit Card Case Sub Status must be either Cancelled or Expired* </b></p>
+           </aura:set>
+        </aura:if>
+    </aura:if>
+    
+</aura:component>

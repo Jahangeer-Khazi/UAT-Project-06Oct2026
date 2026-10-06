@@ -1,0 +1,44 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="CreditCardUpgradeRequestController">
+	
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="enableButton" type="boolean" default="true" />
+    <aura:attribute name="embossingLine4" type="String" />
+    
+    <force:recordData aura:id="recordLoader"
+    				  layoutType="FULL"
+    				  recordId="{!v.recordId}"
+    				  fields="Id,AccountId,Status,Type,Sub_Status__c,cc_Requested_Card_Type__c,Has_Co_Brand_Membership_Number__c,cc_Embossing_Line_4__c,cc_Approved_Embossing_line_4__c,Relationship_Termination_Button_Checks__c"
+    				  targetFields="{!v.caseRecord}"
+    				  targetError="{!v.recordLoadError}"
+                      mode="EDIT"
+                      recordUpdated="{!c.handleRecordUpdated}"/>
+    
+     <div class="slds-p-bottom_large">
+         <aura:if isTrue="{!v.enableButton == true}">
+			<aura:if isTrue="{!and(v.caseRecord.cc_Requested_Card_Type__c == 'ILA_GULF_AIR_COBRAND_01', and(v.caseRecord.Has_Co_Brand_Membership_Number__c == false,and(and(v.caseRecord.Type =='Credit Card Upgrade',v.caseRecord.Relationship_Termination_Button_Checks__c == false),v.caseRecord.Status != 'Closed')))}">
+         		<lightning:button class="slds-float_right cursor-pointer" 
+                                  label="Operations Enroll to Gulfair" 
+                                  variant="brand"
+                    	   		  onclick="{!c.enrollMembershipId}"/>
+                                  
+                <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+            </aura:if>
+        </aura:if>
+    </div>
+    
+    <div class="slds-p-bottom_large">
+        <aura:if isTrue="{!v.enableButton == true}">
+			<aura:if isTrue="{!and(v.caseRecord.cc_Requested_Card_Type__c == 'ILA_GULF_AIR_COBRAND_01', and(v.caseRecord.Has_Co_Brand_Membership_Number__c == true,and(and(v.caseRecord.Type =='Credit Card Upgrade',v.caseRecord.Relationship_Termination_Button_Checks__c == false),v.caseRecord.Status != 'Closed')))}">
+         		<lightning:button class="slds-float_right cursor-pointer" 
+                                  label="Operations Manage to Gulfair" 
+                                  variant="brand"
+                    	   		  onclick="{!c.manageMembershipId}"/>
+                                  
+                <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+            </aura:if>
+        </aura:if>
+    </div>
+    
+   
+</aura:component>

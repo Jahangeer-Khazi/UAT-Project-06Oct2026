@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- ID Information --></label>
+            <section>ID Information</section>
+        </sections>
+        <sections>
+            <label><!-- Personal Details --></label>
+            <section>Personal Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Lead Unqualified</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Details --></label>
+            <section>Address Details</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- ID Information --></label>
+            <section>ID Information</section>
+        </sections>
+        <sections>
+            <label><!-- Personal Details --></label>
+            <section>Personal Details</section>
+        </sections>
+        <sections>
+            <label><!-- Request Detail Information --></label>
+            <section>Request Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Manual Onboarding onSave</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Personal Identification --></label>
+            <section>Personal Identification</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Non-Customer onSave</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Personal Identification --></label>
+            <section>Personal Identification</section>
+        </sections>
+        <sections>
+            <label><!-- Request Detail --></label>
+            <section>Request Detail</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>With Lead Checker</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- ID Information --></label>
+            <section>ID Information</section>
+        </sections>
+        <sections>
+            <label><!-- Personal Details --></label>
+            <section>Personal Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Assign to Self --></label>
+        <name>Assign_to_Self</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Confirm Details --></label>
+        <name>Confirm_Details</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Confirm Details1 --></label>
+        <name>Confirm_Details1</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Convert to Prospect --></label>
+        <name>Lead_Convert_to_Prospect</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Refer to Maker --></label>
+        <name>Refer_to_Maker</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Lead Detail Onboarding --></label>
+        <name>Lead_Detail_Onboarding</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Lead Unqualified --></label>
+        <name>Lead_Unqualified</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- This will be for pagelayout change when the Maker assign the lead to checker --></description>
+        <label><!-- Lead with Checker --></label>
+        <name>Lead_with_Checker</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Manual Onboarding --></label>
+        <name>Manual_Onboarding</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Non-Customer --></label>
+        <name>Non_Customer</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- For Bahrain - PLA - Leads who are Relatives of existing staff/customers --></description>
+        <label><!-- Relative --></label>
+        <name>Relative</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- This Record type is to capture the Leads from Social media --></description>
+        <label><!-- Social Media --></label>
+        <name>Social_Media</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please fill in the Address ID expiry Date field to proceed --></errorMessage>
+        <name>Address_ID_Expiry_Date_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the customer&apos;s Address ID Issuance Date to proceed --></errorMessage>
+        <name>Address_ID_Issuance_Date_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Customer&apos;s street address should be less than 35 characters --></errorMessage>
+        <name>Address_Street_less_than_35_characters</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the customer&apos;s Street address, City, Country and Postal code to proceed, --></errorMessage>
+        <name>Address_in_Mandaotry</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Customer Age should be 18 or more, in order to open the Account --></errorMessage>
+        <name>Customer_Age_should_be_greater_than_18yr</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Customer Name must be less than 70 characters --></errorMessage>
+        <name>Customer_Name_not_more_than_70_char</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Customer is Business Owner, then Business Name, Business Address and Business Industry is mandatory --></errorMessage>
+        <name>Employment_Status_BusinessOwner_Validate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Customer is Employed, then Employer Name is mandatory --></errorMessage>
+        <name>Employment_Status_Employed_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill all the mandatory details before converting the Lead to Prospect --></errorMessage>
+        <name>Fill_all_Detail_before_converting_Lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Either Proof of Address ID or Proof of Identity ID is expired. --></errorMessage>
+        <name>ID_Expiry_Date_Validations</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Customer Age should be 21 or more, in order to open the Account --></errorMessage>
+        <name>JESR_Customer_Age_should_be_greater_21yr</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lead will not be created for Nationality &apos;Other&apos; for JESR application Registration --></errorMessage>
+        <name>JESR_Nationality_Others_LeadNotCreate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot select more than 3 values for the &apos;Other Source of Funds&apos; --></errorMessage>
+        <name>JO_Only_3_values_OtherSourceFunds</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the customer&apos;s Jordan ID Number to proceed --></errorMessage>
+        <name>Jordan_ID_Number_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Restricted country code for mobile number. Please use different country code. --></errorMessage>
+        <name>Lead_Country_Code_Retsriction</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Restricted country code for mobile number. Please use different country code. --></errorMessage>
+        <name>Lead_Country_Code_Retsriction_JO</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lead can only be converted to prospect, once it has been reviewed and vlaidated by Checker --></errorMessage>
+        <name>Lead_convert_after_Checker_review</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the customer&apos;s mailing Postcode/Block to proceed --></errorMessage>
+        <name>Mailing_Postcode_Block_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Maker cannot modify the details once the lead is with Checker. --></errorMessage>
+        <name>Maker_Cannot_Edit_once_with_Checker</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Maker of the Lead cannot convert the Lead to Prospect. --></errorMessage>
+        <name>Maker_cannot_convert_the_Lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lead status cannot be changed for the Unqualified Lead, contact System Administrator --></errorMessage>
+        <name>No_Change_on_Unqualified_Lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Manual On-boarding process, you cannot change the ID Number/ Proof of Address ID Number, please contact System Admin. --></errorMessage>
+        <name>POA_POI_can_be_edited_for_Non_Customers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ID Numbers should be same, when ID Type is CPR Extract or Bahraini ID and Proof of Address Type is Bahraini Drivers Licence. --></errorMessage>
+        <name>POI_and_POA_mismatch</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the customer&apos;s Place of Birth to proceed --></errorMessage>
+        <name>Place_Birth_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the customer&apos;s Proof of address ID number to proceed --></errorMessage>
+        <name>Proof_of_Address_ID_Number_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Region Flag on the Lead record cannot be changed. Please contact your administrator. --></errorMessage>
+        <name>Region_Flag_Change_Prevention</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Region Flag on the Lead record is empty. Please contact your administrator. --></errorMessage>
+        <name>Region_Flag_not_Empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Employer City and Employer Address are required when Employment Status is &apos;Employed&apos;. --></errorMessage>
+        <name>Validate_Employer_Details</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Other Sources of Fund and Expected Amount Range are required when &apos;Other&apos; is selected in Source of Funds. --></errorMessage>
+        <name>Validate_OtherSources_and_ExpectedAmount</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Resubscribe --></label>
+        <name>et4ae5__ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Unsubscribe --></label>
+        <name>et4ae5__ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_SMS --></label>
+        <name>et4ae5__Send_ExactTarget_SMS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ExactTarget_Analytics --></label>
+        <name>et4ae5__View_ExactTarget_Analytics</name>
+    </webLinks>
+</CustomObjectTranslation>

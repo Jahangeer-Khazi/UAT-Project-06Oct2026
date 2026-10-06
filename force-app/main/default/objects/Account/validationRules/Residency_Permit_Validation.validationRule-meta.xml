@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Residency_Permit_Validation</fullName>
+    <active>false</active>
+    <description>Validation for Non Bahraini Nationality for Residency Permit</description>
+    <errorConditionFormula>AND(
+$User.LastName &lt;&gt; &apos;Integration&apos;,
+ISCHANGED(Nationality__pc),
+OR(
+Residency_Permit_Expiry__pc &lt; Today()+10,
+ISBLANK(Residency_Permit_Expiry__pc)
+),
+ Nationality__pc &lt;&gt;&apos;BH&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Residency_Permit_Expiry__pc</errorDisplayField>
+    <errorMessage>Residency Permit should be valid for at least 10 days.</errorMessage>
+</ValidationRule>

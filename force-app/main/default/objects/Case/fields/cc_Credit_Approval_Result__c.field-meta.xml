@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Credit_Approval_Result__c</fullName>
+    <label>Credit Approval Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Region_Flag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approve</fullName>
+                <default>false</default>
+                <label>Approve</label>
+            </value>
+            <value>
+                <fullName>Return to Verifier</fullName>
+                <default>false</default>
+                <label>Return to Verifier</label>
+            </value>
+            <value>
+                <fullName>Escalate to Business Team</fullName>
+                <default>false</default>
+                <label>Escalate to Business Team</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Refer to Service Center</fullName>
+                <default>false</default>
+                <label>Refer to Service Center</label>
+            </value>
+            <value>
+                <fullName>Escalate to CEO</fullName>
+                <default>false</default>
+                <label>Escalate to CEO</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Collect Documents</fullName>
+                <default>false</default>
+                <label>Collect Documents</label>
+            </value>
+            <value>
+                <fullName>Return to Pre-Screener</fullName>
+                <default>false</default>
+                <label>Return to Pre-Screener</label>
+            </value>
+            <value>
+                <fullName>Escalate to Business Team L2</fullName>
+                <default>false</default>
+                <label>Escalate to Business Team L2</label>
+            </value>
+            <value>
+                <fullName>Escalate to Business Team L3</fullName>
+                <default>false</default>
+                <label>Escalate to Business Team L3</label>
+            </value>
+            <value>
+                <fullName>Cancelled by ila</fullName>
+                <default>false</default>
+                <label>Cancelled by ila</label>
+            </value>
+            <value>
+                <fullName>Send to Contact Center</fullName>
+                <default>false</default>
+                <label>Send to Contact Center</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Send to Credit Card Operations</fullName>
+                <default>false</default>
+                <label>Send to Credit Card Operations</label>
+            </value>
+            <value>
+                <fullName>Return to Retention Queue</fullName>
+                <default>false</default>
+                <label>Return to Retention Queue</label>
+            </value>
+            <value>
+                <fullName>Return to Contact Center</fullName>
+                <default>false</default>
+                <label>Return to Contact Center</label>
+            </value>
+            <value>
+                <fullName>Send to Signature Verification</fullName>
+                <default>false</default>
+                <label>Send to Signature Verification</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Approve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Return to Verifier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Escalate to Business Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Refer to Service Center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Escalate to CEO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Cancelled by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Collect Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Return to Pre-Screener</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Send to Contact Center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Cancelled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Send to Credit Card Operations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Return to Retention Queue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Return to Contact Center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Send to Signature Verification</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Escalate to Business Team L2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Escalate to Business Team L3</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

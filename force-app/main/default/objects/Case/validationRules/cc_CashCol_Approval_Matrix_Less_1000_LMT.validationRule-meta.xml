@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CashCol_Approval_Matrix_Less_1000_LMT</fullName>
+    <active>true</active>
+    <description>Current User cannot change the Approval result until he/she is a member of the Credit Approval Queue for a Credit Limit less than 1000 and the Approval Matrix needs to match.</description>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) ==&apos;Bahrain&apos;,
+ISCHANGED(cc_Credit_Approval_Result__c),
+NOT(ISBLANK(TEXT(cc_Credit_Approval_Result__c))),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL( Type , &quot;Credit Card Cash Collateral Application&quot;),
+ISPICKVAL( Type , &quot;Cash Collateral Credit Limit Increase Application&quot;)
+),
+(cc_Approved_Credit_Limit__c &lt;= 1000),
+OR(
+NOT($Permission.Ability_to_Approve_Cash_Collateral_Cards),
+AND(
+cc_Credit_Pre_Screening_by__c = cc_Credit_Approved_by__c, $User.cc_Can_Approved_Cash_Collateral_Cards__c= false
+)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Credit_Approval_Result__c</errorDisplayField>
+    <errorMessage>You cannot change the Credit Approval result. Please contact the Administrator</errorMessage>
+</ValidationRule>

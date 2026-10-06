@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Support Staff</name>
+    <queueMembers>
+        <users>
+            <user>headofbusiness@bank-abc.com</user>
+            <user>azza.obeidat@bank-abc.com</user>
+            <user>elmustapha.elgarni@da-tech.ma</user>
+            <user>mahmood.faqeeh@bank-abc.com</user>
+            <user>operations@bank-abc.com</user>
+            <user>sara.alalawi@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>PLA_Flag_Enabled_Relatives</fullName>
+        <description>PLA Flag Enabled Relatives</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Field_Type_Relative_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/PLA_Flag_Enabled_Relatives</template>
+    </alerts>
+    <alerts>
+        <fullName>PLA_Flag_Enabled_Relatives_Alburaq</fullName>
+        <description>PLA Flag Enabled Relatives_Alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Field_Type_Relative_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/PLA_Flag_Enabled_Relatives</template>
+    </alerts>
+    <alerts>
+        <fullName>PLA_Flag_Enabled_Relatives_Jordan</fullName>
+        <description>PLA Flag Enabled Relatives_Jordan</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Field_Type_Relative_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@ilajordan.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/PLA_Flag_Enabled_Relatives_Jordan</template>
+    </alerts>
+    <alerts>
+        <fullName>PLA_Flag_Enabled_Relatives_to_Contact_Centre_agent_to_inform_VIP_Customer</fullName>
+        <ccEmails>roopikag@maveric-systmes.com</ccEmails>
+        <description>PLA Flag Enabled Relatives (to Contact Centre agent to inform VIP Customer)</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Contact_Center</recipient>
+            <type>role</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/PLA_Flag_Enabled_Relatives_to_Contact_Centre_agent_to_inform_VIP_Customer</template>
+    </alerts>
+    <alerts>
+        <fullName>PLA_Flag_Enabled_Relatives_to_Contact_Centre_agent_to_inform_VIP_Customer_JO</fullName>
+        <description>PLA Flag Enabled Relatives (to Contact Centre agent to inform VIP Customer)_JO</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Contact_Center</recipient>
+            <type>role</type>
+        </recipients>
+        <senderAddress>donotreply@ilajordan.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/PLA_Flag_Enabled_Relatives_to_Contact_Centre_agent_to_inform_VIP_Customer_JO</template>
+    </alerts>
+</Workflow>

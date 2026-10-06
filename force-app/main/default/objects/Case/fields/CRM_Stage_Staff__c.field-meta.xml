@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRM_Stage_Staff__c</fullName>
+    <description>This field is used to hide CRM stage value from staff segment users.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(
+Customer_Segment__c &lt;&gt; &quot;Staff&quot;,
+$Setup.Setting__c.View_Staff_Data__c)
+,
+TEXT(cc_CRM_Stage__c),
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CRM Stage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to be sent when the investment questionnaire is rejected, preventing the customer from creating a metal accounts.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Metal Questionnaire Rejected</name>
+    <style>none</style>
+    <subject>Investment Questionnaire Status</subject>
+    <textOnly>Dear Valued ila Customer,
+
+We regret to inform you that your investment questionnaire has not been approved. As a result, you will not be able to create a Gold (XAU) or Silver (XAG) account at this time.
+
+If you have any questions or require further assistance, please feel free to call us on +973 17123456 or email us on support@ilabank.com
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

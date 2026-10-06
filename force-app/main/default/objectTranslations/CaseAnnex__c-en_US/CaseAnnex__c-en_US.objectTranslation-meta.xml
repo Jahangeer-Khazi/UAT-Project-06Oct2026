@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Annex</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Annexs</value>
+    </caseValues>
+    <layouts>
+        <layout>Case Annex Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Loan / Finance Service Request --></label>
+        <name>LoanFinanceServiceRequest</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Loan Application --></label>
+        <name>Loan_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Request --></label>
+        <name>Request</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The field value must be greater than Minimum Interest; zero and negative values are not permitted. --></errorMessage>
+        <name>Loans_ApprovedInterest_ValueCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Field value shouldn’t exceed the approved loan amount --></errorMessage>
+        <name>Loans_Approved_Buyout_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Field value shouldn’t exceed 84 months --></errorMessage>
+        <name>Loans_Approved_Loan_Duration_ValueCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The case cannot be approved because the customer has some restrictions. Please check the warning issues at the top of the page. --></errorMessage>
+        <name>Loans_CantApprove_CustomerRestrictions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Approved Buyout Amount Calculation must be Completed ,please check the Liabilities Details tab --></errorMessage>
+        <name>Loans_CheckApprovedBuyoutAmount_Buyout</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final DBR cannot be greater than 100, Please check the Financial Details tab. --></errorMessage>
+        <name>Loans_CheckFinal_DBR_LMS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final DBR cannot be greater than 100, Please check the Financial Details tab. --></errorMessage>
+        <name>Loans_CheckFinal_DBR_Unsec</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in financial details tab before giving a result. --></errorMessage>
+        <name>Loans_CheckFinancialFields_SecBuyout</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in financial details tab before giving a result. --></errorMessage>
+        <name>Loans_CheckFinancialFields_SecNew</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in financial details tab and generate the schedule before giving a result. --></errorMessage>
+        <name>Loans_CheckFinancialFields_UnsecBuyOut</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in financial details tab and generate the schedule before giving a result. --></errorMessage>
+        <name>Loans_CheckFinancialFields_UnsecNew</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in loan service financial details tab before giving a result. --></errorMessage>
+        <name>Loans_SReq_CheckFinancialTab_PartialSett</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in loan service financial details tab before giving a result. --></errorMessage>
+        <name>Loans_SReq_CheckFinancialTab_Restructuri</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide all the required information in loan service financial details tab before giving a result. --></errorMessage>
+        <name>Loans_SReq_CheckFinancialTab_TopUp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Sub Status “Discrepancy in documents”, the Contact Center Result can only be “Documents Uploaded” or “Contact Failed”. Please update your selection. --></errorMessage>
+        <name>Loans_contactCenterCheckDiscrepaDoc</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Sub Status “Pending Callback”, the Contact Center Result can only be “Customer accepted to Proceed with application” or &quot;Follow-up completed&quot; or &quot;Contact Failed&quot; or &quot;Customer Declined Offer&quot;. Please update your selection. --></errorMessage>
+        <name>Loans_contactCenterCheckPendingCallback</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Sub Status “Pending Signature In-App”, the Contact Center Result can only be “Pending Signature Email”. Please update your selection. --></errorMessage>
+        <name>Loans_contactCenterCheckPendingSignApp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Sub Status “Pending Signature Email”, the Contact Center Result can only be “Pending Signature In-App”. Please update your selection. --></errorMessage>
+        <name>Loans_contactCenterCheckPendingSignEmail</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Field value shouldn’t exceed 84 months --></errorMessage>
+        <name>Loans_cx_ln_Requested_Duration_ValCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The current user cannot change the Approval result until they are a member of the Credit Approval Queue for an Approved Loan Amount of greater than 10,000, and the approval matrix needs to match. --></errorMessage>
+        <name>cc_LoanCollateralCard_App_Gret_10000_LMT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The current user cannot change the Approval result until they are a member of the Credit Approval Queue for an Approved Loan Amount of less than 10,000, and the approval matrix needs to match. --></errorMessage>
+        <name>cc_LoanCollateralCard_App_less_10000_LMT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The current user cannot change the Approval result until they are a member of the Credit Approval Queue for an Approved Loan Amount of greater than 5,000, and the approval matrix needs to match. --></errorMessage>
+        <name>cc_LoanCreditCard_App_Gret_5000_LMT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The current user cannot change the Approval result until they are a member of the Credit Approval Queue for an Approved Loan Amount of less than 5,000, and the approval matrix needs to match. --></errorMessage>
+        <name>cc_LoanCreditCard_App_Less_5000_LMT</name>
+    </validationRules>
+</CustomObjectTranslation>

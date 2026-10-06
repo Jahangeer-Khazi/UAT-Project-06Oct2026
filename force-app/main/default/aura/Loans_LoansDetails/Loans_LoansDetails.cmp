@@ -1,0 +1,377 @@
+<!--
+  @description       : 
+  @author            : Elmustapha ELGARNI
+  @group             : 
+  @last modified on  : 07-01-2024
+  @last modified by  : Elmustapha ELGARNI
+-->
+
+<aura:component controller="Loans_LoansListController">
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="loanId" type="String" />
+    <aura:attribute name="caseId" type="String" />
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="remainingInstallments" type="String" />
+    <!-- <aura:attribute name="account" type="Account" required="true"/> -->
+    <aura:attribute name="enableActions" type="Boolean" required="true" />
+    <!-- ============================================ -->
+    <aura:attribute name="responseLoanListdata" type="Object" />
+    <aura:attribute name="responseLoanEarlySettlementdata" type="Object" />
+    <!-- ============================================ -->
+    <aura:attribute name="data" type="Object" access="private" default="{}" />
+
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:attribute name="loanOrFinance" type="String" default="Loan" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="approvedCase" type="Case" access="private" />
+
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:handler name="change" value="{!v.loanId}" action="{!c.load}" />
+
+    <!-- ============================================ -->
+
+    <lightning:card title="{!'Details of '+ v.loanOrFinance + ': ' + v.loanId}">
+
+        <!-- <aura:if isTrue="{!v.enableActions}">
+           <aura:if isTrue="{! 'FCR' == v.caseRecordType}">
+        <div class="slds-float-right" style="margin-top: -38px;margin-right: 10px;">
+            <lightning:button label="Generate IBAN Letter" onclick="{!c.GenerateiBan}"/>
+            </div>
+       </aura:if>
+            </aura:if> -->
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Product Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.productName}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Loan Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+         
+
+
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Contract Number</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.arrangementId}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Secure or Unsecure Loan</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.productNature}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Borrower(s)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- {!v.data.loan.borrower} -->
+                                <lightning:formattedUrl value="{!'/' + v.account.Id}" label="{!v.customerId}"
+                                    target="_blank" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Loan Start Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.loan.loanStartDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Loan Maturity Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.loan.loanMaturityDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">First Installment Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.loan.firstInstallmentDate}" format="DD-MM-YYYY" />
+                                <!-- {!} -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Frequency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.frequency}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.totalInstallments}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Paid Installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.paidInstallments}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Remaining Installments</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.remainingInstallments}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Loan Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.principalLoanAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Interest</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.interestRate} %
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Default settlement account</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.defaultSettlementAccount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total number of deferrals (Postponements)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.totalNumberOfDeferrals}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            
+
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Outstanding Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.loan.loanOutstandingAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Payoff Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.responseLoanEarlySettlementdata.totalPayoffAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Approved CRM Case</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <aura:if isTrue="{!not(empty(v.approvedCase))}">
+                                    <lightning:formattedUrl value="{!'/' + v.approvedCase.Id}" label="{!v.approvedCase.CaseNumber}" target="_blank" />
+                                    <aura:set attribute="else">
+                                        None
+                                    </aura:set>
+                                </aura:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem"></div>
+            </div> <!-- end row -->
+
+            <!-- Omar start -->
+            <aura:if isTrue="{!v.data.loan.status == 'OVERDUE'}">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Overdue Status</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static" style="color: red; font-weight: bold;">
+                                {!v.data.loan.overDueStatus}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Overdue Installment</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static" style="color: red; font-weight: bold;">
+                                    {!v.data.loan.overdueInstallments}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Overdue Amount </span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static" style="color: red; font-weight: bold;">
+                                    {!v.data.loan.overdueAmount}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Outstanding Balance</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static" style="color: red; font-weight: bold;">
+                                    {!v.data.loan.loanOutstandingAmount}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> <!-- end row -->
+
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Overdue Days </span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static" style="color: red; font-weight: bold;">
+                                    {!v.data.loan.overdueDays}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Overdue Date</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static"  style="color: red; font-weight: bold;">
+                                    {!v.data.loan.overdueDate}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </aura:if>
+        </div>
+    </lightning:card>
+
+    <!-- <aura:if isTrue="{!true == v.enableActions}">
+       <c:bankAccountActions customerId="{!v.customerId}" accountDetails="{!v.data}" 
+                              caseId="{!v.caseId}" account="{!v.account}" caseRecordType="{!v.caseRecordType}" isAlburaqProduct = "{!v.isAlburaqProduct}"/>
+    </aura:if> -->
+
+    <c:apexService aura:id="apexService" />
+
+</aura:component>

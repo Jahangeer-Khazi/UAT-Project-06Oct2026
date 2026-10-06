@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PT_Acceptance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Product Terms Acceptance</description>
+    <inlineHelpText>Product Terms Acceptance</inlineHelpText>
+    <label>ILA Product Terms Acceptance</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

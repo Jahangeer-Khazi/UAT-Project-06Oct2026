@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ID_Type__c</fullName>
+    <description>Personal ID of the customer</description>
+    <label>ID Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Region_Flag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bahraini ID</fullName>
+                <default>false</default>
+                <label>Bahraini ID</label>
+            </value>
+            <value>
+                <fullName>Passport</fullName>
+                <default>false</default>
+                <label>Passport</label>
+            </value>
+            <value>
+                <fullName>GCC ID</fullName>
+                <default>false</default>
+                <label>GCC ID</label>
+            </value>
+            <value>
+                <fullName>CPR Extract</fullName>
+                <default>false</default>
+                <label>CPR Extract</label>
+            </value>
+            <value>
+                <fullName>Jordanian ID</fullName>
+                <default>false</default>
+                <label>Jordanian ID</label>
+            </value>
+            <value>
+                <fullName>Military ID</fullName>
+                <default>false</default>
+                <label>Military ID</label>
+            </value>
+            <value>
+                <fullName>Gaza ID</fullName>
+                <default>false</default>
+                <label>Gaza ID</label>
+            </value>
+            <value>
+                <fullName>Sons of Jordanian Women&apos;s ID</fullName>
+                <default>false</default>
+                <label>Sons of Jordanian Women&apos;s ID</label>
+            </value>
+            <value>
+                <fullName>CR</fullName>
+                <default>false</default>
+                <label>CR</label>
+            </value>
+            <value>
+                <fullName>Birth Certificate</fullName>
+                <default>false</default>
+                <label>Birth Certificate</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Bahraini ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Passport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>GCC ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>CPR Extract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Jordanian ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Military ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Gaza ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Sons of Jordanian Women&apos;s ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>CR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Birth Certificate</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

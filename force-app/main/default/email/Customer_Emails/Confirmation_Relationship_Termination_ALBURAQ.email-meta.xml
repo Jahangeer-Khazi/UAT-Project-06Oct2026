@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Confirmation Relationship Termination ALBURAQ</name>
+    <style>none</style>
+    <subject>Account Closure Completed</subject>
+    <textOnly>Dear {!Case.Current_First_Name__c},
+
+As per your kind request, we would like to confirm that your account has been closed.
+
+We’re sorry to see you go. Please help us understand the reasons why you closed your account by sharing your feedback on support.alburaq@ilabank.com
+
+Please contact our support team and will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support.alburaq@ilabank.com.
+
+Thanks for being part of the ila family.  Have a great day!
+
+
+Join the conversation
+
+ilabank.com/AlBuraq
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,44 @@
+<!-- 	
+    Organization : ABC Bank
+    * 	Created By: Aniss Mbarki
+    *	Created Date: 07-01-2022
+    * 	Change History: 
+-->
+<aura:component controller="LTNG006_StampedStatementsController" implements= "flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="viewAccStat" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    <aura:handler name="change" value="{!v.accountId}" action="{!c.init}"/>
+
+    <aura:if isTrue="{!v.showCmp}">
+        <div style="padding-top: 2rem;">
+            <lightning:card title="Account Statements">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="Get Statements" onclick="{!c.onLoadAccStatement}" />
+    
+                </div>
+                <div style="padding-top: 1rem;">
+                    <aura:If isTrue="{!v.viewAccStat}">
+                        <aura:if isTrue="{!empty(v.data)}">
+                        No statement is available for this Credit Card.
+                        <aura:set attribute="else">
+                        <lightning:datatable data="{!v.data}" aura:id="StatementTable" columns="{!v.columns}"
+                            keyField="id" hideCheckboxColumn="true" maxRowSelection="1"
+                            onrowselection="{!c.handleRowSelection }" onrowaction="{!c.handleRowAction }" />
+    
+                        </aura:set>
+                    </aura:if>
+                    </aura:If>
+                </div>
+    
+            </lightning:card>
+        </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proof_of_Address_ID_Number_Mandatory</fullName>
+    <active>false</active>
+    <description>Proof of address id number field is mandatory if Nationality equals Bahrain</description>
+    <errorConditionFormula>AND(
+				NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+				NOT(CONTAINS($User.Alias,&apos;guest&apos;)),
+				ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+				ISBLANK(Proof_of_Address_ID_Number__c),
+				OR(
+			
+								RecordTypeId=&apos;0121t000000IVAH&apos;,
+								RecordTypeId=&apos;0121t000000IVAF&apos;,
+								RecordTypeId=&apos;0121t000000IVAG&apos;
+				), 
+				 
+			 RecordTypeId != $Label.Relative_Lead_Record_Type
+					
+)</errorConditionFormula>
+    <errorMessage>Please fill the customer&apos;s Proof of address ID number to proceed</errorMessage>
+</ValidationRule>

@@ -1,0 +1,42 @@
+<aura:component controller="LTNG11_DrawDataCsvController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:attribute name="fileNamedata" type="List" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="dataType" type="String" default="original" />
+    <aura:attribute name="fileLabelType" type="String" default="Original" />
+    <aura:attribute name="isProcessing" type="Boolean" default="false" />
+    <aura:attribute name="showFiles" type="Boolean" default="false" />
+    <aura:attribute name="showCmp" type="Boolean" default="false" /><!-- #CH01 -->
+
+    <div class="slds-hidden" style="height: 2px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Draw__c" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="status" fieldName="Status__c" />
+            <lightning:inputField aura:id="firstApiCall" fieldName="TECH_FirstApiCall__c" />
+            <lightning:inputField aura:id="draw_type" fieldName="Draw_Type__c" /><!-- #CH01 -->
+            <lightning:inputField aura:id="RegionFlag" fieldName="RegionFlag__c" /><!-- #CH01 -->
+        </lightning:recordEditForm>
+    </div>
+
+    <aura:if isTrue="{!v.showCmp == true}"><!-- #CH01 -->
+        <lightning:card title="Get Draw Data">
+            <div class="slds-m-left_small">
+                <aura:if isTrue="{!v.showFiles == false}">
+                    <lightning:button variant="brand" label="View Files" onclick="{!c.showFilesAction}" />
+                </aura:if>
+                <aura:if isTrue="{!and( v.showFiles, not(empty(v.fileNamedata)) ) }">
+                    <lightning:select aura:id="AWSfiles" name="AWSfiles" label="">
+                        <aura:iteration items="{!v.fileNamedata}" var="item" indexVar="key">
+                            <option text="{!item.label}" value="{!item.key}" />
+                        </aura:iteration>
+                    </lightning:select>
+                    <br />
+                    <lightning:button variant="brand" label="Export Data" onclick="{!c.downloadAction}"
+                        disabled="{!v.isProcessing}" />
+                </aura:if>
+            </div>
+            <lightning:spinner class="{!((v.isProcessing)? '': 'slds-hide')}" />
+        </lightning:card>
+    </aura:if>
+
+</aura:component>

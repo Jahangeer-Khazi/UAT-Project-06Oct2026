@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Payroll_Ref_For_Maker_Action</fullName>
+    <active>true</active>
+    <description>Payroll Reference is required before updating maker action fields. Please select a Payroll and try again.</description>
+    <errorConditionFormula>AND(
+    OR(
+        ISCHANGED(Maker_Result__c),
+        ISCHANGED(Maker_Comments__c),
+        ISCHANGED(Maker_Result_Date_Time__c)
+    ),
+    ISBLANK(Payroll_Reference__c)
+)</errorConditionFormula>
+    <errorDisplayField>Maker_Result__c</errorDisplayField>
+    <errorMessage>Before performing any maker action, please select the Payroll Reference and confirm the action.</errorMessage>
+</ValidationRule>

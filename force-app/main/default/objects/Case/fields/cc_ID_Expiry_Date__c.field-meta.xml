@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_ID_Expiry_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(Account.ID_Expiry_Date__pc),
+&quot;&quot;,
+RIGHT(&quot;0&quot; &amp; TEXT(DAY(Account.ID_Expiry_Date__pc)), 2) &amp; &quot;/&quot; &amp;
+RIGHT(&quot;0&quot; &amp; TEXT(MONTH(Account.ID_Expiry_Date__pc)), 2) &amp; &quot;/&quot; &amp;
+TEXT(YEAR(Account.ID_Expiry_Date__pc))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ID Expiry Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

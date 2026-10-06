@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_Flag_not_Empty</fullName>
+    <active>true</active>
+    <description>Ensures the Region Flag is not empty, instead of marking the field as required on the object</description>
+    <errorConditionFormula>AND 
+(
+				  NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+				  ISBLANK(TEXT( Region_Flag__c )))</errorConditionFormula>
+    <errorMessage>Region Flag on the Content record is empty. Please contact your administrator.</errorMessage>
+</ValidationRule>

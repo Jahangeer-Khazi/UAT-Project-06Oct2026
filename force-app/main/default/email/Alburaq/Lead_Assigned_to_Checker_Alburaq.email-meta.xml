@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Lead Assigned to Checker Alburaq</name>
+    <style>none</style>
+    <subject>Lead has been assigned to Checker Queue</subject>
+    <textOnly>The Lead has been added to the queue for your review.
+
+Hi ,
+
+Please be advised that the lead has been submitted by the maker and is assigned to you for your action.
+
+Lead Name: {!Lead.Name}
+
+Open Lead</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

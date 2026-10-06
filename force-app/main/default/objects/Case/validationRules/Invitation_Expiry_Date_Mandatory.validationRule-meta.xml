@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invitation_Expiry_Date_Mandatory</fullName>
+    <active>true</active>
+    <description>Invitation expiry date is mandatory for Credit Card Invitation case.</description>
+    <errorConditionFormula>AND(
+				ISPICKVAL(Type, &apos;Credit Card Invitation&apos;),
+				ISBLANK(Invitation_Expiry_Date__c)
+				)</errorConditionFormula>
+    <errorDisplayField>Invitation_Expiry_Date__c</errorDisplayField>
+    <errorMessage>Invitation expiry date is mandatory for credit card invitation cases.</errorMessage>
+</ValidationRule>

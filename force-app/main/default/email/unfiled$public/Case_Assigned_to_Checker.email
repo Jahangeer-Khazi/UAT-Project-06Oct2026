@@ -1,0 +1,9 @@
+The Case has been added to the queue for your review.
+
+Hi ,
+
+Please be advised that the case has been submitted by the maker and is assigned to you for your action.
+
+Case Number: {!Case.CaseNumber}
+
+Open Case

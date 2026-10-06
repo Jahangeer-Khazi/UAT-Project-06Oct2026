@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <groupColumn>Contact.Risk_Rating__c</groupColumn>
+    <mappings>
+        <sourceField>JobName</sourceField>
+        <sourceType>snapshot</sourceType>
+        <targetField>High_Risk_Customer_Snapshot__c.Name</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>Contact.Risk_Rating__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>High_Risk_Customer_Snapshot__c.Group_Level__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>FORMULA1</sourceField>
+        <sourceType>summary</sourceType>
+        <targetField>High_Risk_Customer_Snapshot__c.High_risk_Percentage__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>RowCount</sourceField>
+        <sourceType>summary</sourceType>
+        <targetField>High_Risk_Customer_Snapshot__c.Number__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>FORMULA2</sourceField>
+        <sourceType>summary</sourceType>
+        <targetField>High_Risk_Customer_Snapshot__c.Number_of_High_Restricted__c</targetField>
+    </mappings>
+    <name>High/Restricted Risk Customer</name>
+    <runningUser>westbrook@bankabc.com</runningUser>
+    <sourceReport>Snapshots/High_Risk_Customers_Z4C</sourceReport>
+    <targetObject>High_Risk_Customer_Snapshot__c</targetObject>
+</AnalyticSnapshot>

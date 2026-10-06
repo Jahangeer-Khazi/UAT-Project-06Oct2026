@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustomerStatus__c</fullName>
+    <description>this new picklist used to define the customer Status and to change this value you need to open a case in CRM and validate the new value (Maker &amp; checker Process)</description>
+    <label>Relationship Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>CustomerStatusUpdate</valueSetName>
+    </valueSet>
+</CustomField>

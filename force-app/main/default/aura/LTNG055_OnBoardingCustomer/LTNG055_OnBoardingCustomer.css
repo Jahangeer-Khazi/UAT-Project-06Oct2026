@@ -1,0 +1,7 @@
+.THIS .slds-section__content {
+    display: block;
+}
+
+.THIS .slds-section__content.slds-hide {
+    display: none;
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BH_All_Draw_Access_Maker</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>This sharing rule will give access to the All Bahrain Raffle draw application to the Marketing Team as Raffle Makers</description>
+        <label>BH-All Draw Access - Maker</label>
+        <sharedTo>
+            <group>All_BH_Draws_Acces_Maker</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RegionFlag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>BH_CustomerDraw_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>This sharing is to open the visibility of the Customer Draws to the Specific checker/ Risk Team</description>
+        <label>BH-CustomerDraw Access</label>
+        <sharedTo>
+            <group>Customers_Draws_Acces_Risk_Checker</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RegionFlag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Bahrain Draw</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>BH_Staff_RelativeDraw_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>This sharing is to open the visibility of the Staff &amp; Relatives Draws to the Specific Operation Team members (having Staff Access)</description>
+        <label>BH-Staff-RelativeDraw Access</label>
+        <sharedTo>
+            <group>Staff_Relative_Draws_Acces_OPs</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RegionFlag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Bahrain Draw AlKanz Staff &amp; Relatives</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JO_Draw_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>This sharing rule will give access to the JORDAN Raffle draw application to the users in JordanTerritory Model</description>
+        <label>JO-Draw Access</label>
+        <sharedTo>
+            <territory>Region.Jordan</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>RegionFlag__c</field>
+            <operation>equals</operation>
+            <value>Jordan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Jordan Draw</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

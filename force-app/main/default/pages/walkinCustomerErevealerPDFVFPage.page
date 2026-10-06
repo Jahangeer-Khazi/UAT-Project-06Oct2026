@@ -1,0 +1,144 @@
+<apex:page controller="walkinCustomerErevealerController" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" contentType="text/html" action="{!GeneratePdf}" renderAs="pdf" docType="html-5.0">
+    <html>
+        <head>
+             <style class="main_style">
+                .layout-canvas-b { background-color: #FFFFFF; border: none; box-sizing: border-box; padding: 0px; width: 100%; }
+                .layout-canvas-b > .header, .layout-canvas-b > .section, .layout-canvas-b > .footer { position: relative; overflow: hidden; width: 100%; overflow-wrap: break-word; }
+                .layout-canvas-b > .section { margin: 10px 0px; }
+                .layout-canvas-b > .section > .columns { box-sizing: border-box; overflow-wrap: break-word; min-width: 320px; }
+                body { color: #000000; font-family: Arial; font-size: 12px; margin: 0px auto; }
+                @media only screen and (max-width: 480px) {
+                .mobile-hidden { display: none !important; }
+                .responsive-td { width: 100% !important; display: block !important; padding: 0px !important; }
+                }
+                @media (min-width: 480px) {
+                .layout-canvas-b > .section { display: table; table-layout: fixed; }
+                }
+                @media (min-width: 480px) {
+                .layout-canvas-b > .section > .columns { display: table-cell; padding: 0px 5px; vertical-align: top; width: 50%; }
+                .layout-canvas-b > .section > .columns:first-child { padding-left: 0px; }
+                .layout-canvas-b > .section > .columns:last-child { padding-right: 0px; }
+                .layout-canvas-b > .section > .columns.col1 { }
+                .layout-canvas-b > .section > .columns.col2 { }
+                }
+                @media (max-width: 480px) {
+                .layout-canvas-b > .section > .columns { width: 100%; margin-bottom: 10px; }
+                .layout-canvas-b > .section > .columns:last-child { margin-bottom: 0px; }
+                }
+                ul.list { list-style-type:circle;font-size:8px; padding-left:8px; }
+                .button { background-color: #7aee00; text-align: center; display: inline-block; font-size: 15px;
+                }
+            </style>
+            <style>
+                @page {
+                size: letter;
+                margin: 25mm;
+                @top-center {
+                content: "";
+                }
+                @bottom-center {
+                content: "Page " counter(page) " of " counter(pages);
+                }
+                }
+                .page-break {
+                display:block;
+                page-break-after:always;
+                }
+                body {
+                font-family: Arial Unicode MS;
+                }
+            </style>
+           <style type="text/css" media="print">
+#header {
+    height: 56px;
+    margin-right:10px;
+}
+</style>
+             <style type="text/css">
+                .myClass{
+                color:#ffffff!important;
+                background:#000E3C !important;
+                width: 20%;
+                max-width:476px;
+                height: 40px;
+                /* background: rgba(204,207,216,1); */
+                opacity: 1;
+                /*position: absolute;*/
+                top: 530px;
+                left: 70px;
+                border: none;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+                overflow: hidden;
+                float:left;
+                margin-right: 130px;
+                
+                //margin: 36px 22% 56px;
+                font-size:18px;
+                cursor: pointer;
+                font-family: 'Cairo', sans-serif!important;
+                }
+                .Previous{
+                margin-left:220px;
+                ui-shadow:none;
+                }
+                .Done{
+                margin-right:50px;
+                ui-shadow:none;
+                }
+            </style>
+              <meta name="ROBOTS" content="INDEX,FOLLOW"/>
+            <meta name="keywords" content=""/>
+            <meta name="description" content=""/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                  <apex:stylesheet value="https://fonts.googleapis.com/css?family=Neo+Sans+Arabic&display=swap" />
+            <apex:stylesheet value="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" />
+            <apex:stylesheet value="https://fonts.googleapis.com/css?family=Font+Awesome+5+Pro&display=swap" />
+            <apex:stylesheet value="{!$Resource.main_css_ConfirmationPage_walkinCustomerRegistration_1}" /> 
+             <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+             <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+        </head>
+        <apex:form >  
+        <body>
+        <div class="v7_243">
+           <div class="container">
+            <div class="jumbotron">
+            <div class="v7_305">
+         <div class="v7_30544">
+
+            <div id="header">
+               <apex:image value="{!URLFOR($Resource.ilalogobs)}" height="56" width="56" style="float:right;"/> 
+            </div>          
+            <apex:image url="{!URLFOR($Action.Attachment.Download,$CurrentPage.parameters.imgresult)}" height="550" width="550"/>
+            <br></br>
+        <div data-role="content">
+             <h4>Applicant Email:</h4>
+             <apex:outputText value="{!emailAddress}" id="email" label="Email Address"  style="margin-left:20px;font-size:initial;"/>
+             <br></br>
+            <div style="float:left;">
+                <b>Applicant Signature:</b> <br></br>
+                <apex:image url="{!URLFOR($Action.Attachment.Download,$CurrentPage.parameters.cresult)}"/>
+            </div><div style="float:right;margin-right:10px">
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For bank use only:</b><br></br>
+            <apex:image url="{!URLFOR($Action.Attachment.Download,$CurrentPage.parameters.bresult)}"/>
+            </div> 
+        </div> 
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+    <apex:outputText value="{0,date,dd/MM/yyyy HH:mm:ss}">
+          Document Reviewed On:&nbsp;&nbsp;&nbsp;<apex:param value="{!NOW()+offset}"/>
+</apex:outputText></div></div></div></div></div>
+
+    </body>
+</apex:form>  
+</html>
+</apex:page>

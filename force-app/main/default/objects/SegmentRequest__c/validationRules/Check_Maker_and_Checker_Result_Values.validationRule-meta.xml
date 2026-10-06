@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Maker_and_Checker_Result_Values</fullName>
+    <active>true</active>
+    <description>When Segment Request updates , Maker or checker result one value should not be empty</description>
+    <errorConditionFormula>!ISNEW() &amp;&amp;  ISBLANK(TEXT( Checker_Result__c )) &amp;&amp; ISBLANK(TEXT( Maker_Result__c ))</errorConditionFormula>
+    <errorMessage>Please select the value of Checker Result or Maker Result to update the record</errorMessage>
+</ValidationRule>

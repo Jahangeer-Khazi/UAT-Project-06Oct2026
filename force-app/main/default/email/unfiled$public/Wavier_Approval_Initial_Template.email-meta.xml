@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be used for Wavier Approval process when process initiated</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Wavier Approval Initial Template</name>
+    <style>none</style>
+    <subject>Request for approval - {!New_Wavier_Approval__c.OwnerFullName}</subject>
+    <textOnly>Dear {!New_Wavier_Approval__c.OwnerFullName},
+
+A fee waiver request for {!New_Wavier_Approval__c.Request_Type__c} has been submitted by {!New_Wavier_Approval__c.CreatedBy} for your review.
+Please find the customer details and request summary below:
+
+Customer Name: {!New_Wavier_Approval__c.Customer__c}
+CIF Number: {!New_Wavier_Approval__c.CIF_Number__c}
+Fee Amount: {!New_Wavier_Approval__c.Claim_Amount__c}
+Waiver Type –  {!New_Wavier_Approval__c.Type__c}
+Waiver Sub Type -  {!New_Wavier_Approval__c.Sub_Type__c}
+Waiver Request Type  – {!New_Wavier_Approval__c.Request_Type__c}
+Object Record Number - {!New_Wavier_Approval__c.Name}
+Description - {!New_Wavier_Approval__c.Description__c}
+
+
+
+Should you need any assistance, please feel free to call us on  +973 17123456 or email us on support@ilabank.com
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maker_cannot_close_the_case</fullName>
+    <active>true</active>
+    <description>THis validation is to check the Maker of the case cannot close the case</description>
+    <errorConditionFormula>( Address_Updated_By__c = $User.Id) &amp;&amp; TEXT(Status) == &apos;Closed&apos; &amp;&amp; TEXT(Type) = &apos;Address Change&apos;</errorConditionFormula>
+    <errorMessage>Maker of the case cannot close the case</errorMessage>
+</ValidationRule>

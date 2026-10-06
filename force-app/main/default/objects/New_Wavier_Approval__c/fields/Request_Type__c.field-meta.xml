@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Type__c</fullName>
+    <label>Request Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Premium Annual Subscription Fee</fullName>
+                <default>false</default>
+                <label>Premium Annual Subscription Fee</label>
+            </value>
+            <value>
+                <fullName>Dormant Account Fee</fullName>
+                <default>false</default>
+                <label>Dormant Account Fee</label>
+            </value>
+            <value>
+                <fullName>Account Statement via Service Centre</fullName>
+                <default>false</default>
+                <label>Account Statement via Service Centre</label>
+            </value>
+            <value>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+                <label>Replacement</label>
+            </value>
+            <value>
+                <fullName>Virtual Card - First Issue</fullName>
+                <default>false</default>
+                <label>Virtual Card - First Issue</label>
+            </value>
+            <value>
+                <fullName>Virtual Card - Replacement</fullName>
+                <default>false</default>
+                <label>Virtual Card - Replacement</label>
+            </value>
+            <value>
+                <fullName>ATM Balance Enquiry - GCC</fullName>
+                <default>false</default>
+                <label>ATM Balance Enquiry - GCC</label>
+            </value>
+            <value>
+                <fullName>ATM Balance Enquiry - International</fullName>
+                <default>false</default>
+                <label>ATM Balance Enquiry - International</label>
+            </value>
+            <value>
+                <fullName>ATM Cash Withdrawal - GCC</fullName>
+                <default>false</default>
+                <label>ATM Cash Withdrawal - GCC</label>
+            </value>
+            <value>
+                <fullName>ATM Cash Withdrawal - International</fullName>
+                <default>false</default>
+                <label>ATM Cash Withdrawal - International</label>
+            </value>
+            <value>
+                <fullName>ATM Cash Withdrawal - using payment wallets (Worldwide)</fullName>
+                <default>false</default>
+                <label>ATM Cash Withdrawal - using payment wallets (Worldwide)</label>
+            </value>
+            <value>
+                <fullName>ATM Balance Enquiry - using payment wallets (Worldwide)</fullName>
+                <default>false</default>
+                <label>ATM Balance Enquiry - using payment wallets (Worldwide)</label>
+            </value>
+            <value>
+                <fullName>Transfers between ila Accounts through BenefitPay App (for amounts over BHD 100)</fullName>
+                <default>false</default>
+                <label>Transfers between ila Accounts through BenefitPay App (for amounts over BHD 100)</label>
+            </value>
+            <value>
+                <fullName>Fawri + (for Amounts Over BHD 100)</fullName>
+                <default>false</default>
+                <label>Fawri + (for Amounts Over BHD 100)</label>
+            </value>
+            <value>
+                <fullName>Fawri</fullName>
+                <default>false</default>
+                <label>Fawri</label>
+            </value>
+            <value>
+                <fullName>RTGS Within Bahrain</fullName>
+                <default>false</default>
+                <label>RTGS Within Bahrain</label>
+            </value>
+            <value>
+                <fullName>International Payments - (Correspondent Bank Charges May Apply Separately)</fullName>
+                <default>false</default>
+                <label>International Payments - (Correspondent Bank Charges May Apply Separately)</label>
+            </value>
+            <value>
+                <fullName>Local Payments - SWIFT ( Correspondent Bank Charges May Apply Separately)</fullName>
+                <default>false</default>
+                <label>Local Payments - SWIFT ( Correspondent Bank Charges May Apply Separately)</label>
+            </value>
+            <value>
+                <fullName>Manager&apos;s Cheque - Issue</fullName>
+                <default>false</default>
+                <label>Manager&apos;s Cheque - Issue</label>
+            </value>
+            <value>
+                <fullName>Foreign Currency Cheque Collection</fullName>
+                <default>false</default>
+                <label>Foreign Currency Cheque Collection</label>
+            </value>
+            <value>
+                <fullName>Early Withdrawal Fee - For Deposits in Bahraini Dinars</fullName>
+                <default>false</default>
+                <label>Early Withdrawal Fee - For Deposits in Bahraini Dinars</label>
+            </value>
+            <value>
+                <fullName>Early Withdrawal Fee - For Deposits in US Dollars</fullName>
+                <default>false</default>
+                <label>Early Withdrawal Fee - For Deposits in US Dollars</label>
+            </value>
+            <value>
+                <fullName>Sale Fees - % of the sale Amount (applies on all types of government securities)</fullName>
+                <default>false</default>
+                <label>Sale Fees - % of the sale Amount (applies on all types of government securities)</label>
+            </value>
+            <value>
+                <fullName>(applies on all types of government securities)</fullName>
+                <default>false</default>
+                <label>(applies on all types of government securities)</label>
+            </value>
+            <value>
+                <fullName>Loan Late payment</fullName>
+                <default>false</default>
+                <label>Loan Late payment</label>
+            </value>
+            <value>
+                <fullName>Loan Admin fees</fullName>
+                <default>false</default>
+                <label>Loan Admin fees</label>
+            </value>
+            <value>
+                <fullName>Loan Early settlement</fullName>
+                <default>false</default>
+                <label>Loan Early settlement</label>
+            </value>
+            <value>
+                <fullName>Interest Reversal</fullName>
+                <default>false</default>
+                <label>Interest Reversal</label>
+            </value>
+            <value>
+                <fullName>Primary Card Annual Fee</fullName>
+                <default>false</default>
+                <label>Primary Card Annual Fee</label>
+            </value>
+            <value>
+                <fullName>Supplementary Card Annual Fee</fullName>
+                <default>false</default>
+                <label>Supplementary Card Annual Fee</label>
+            </value>
+            <value>
+                <fullName>Cash Advance</fullName>
+                <default>false</default>
+                <label>Cash Advance</label>
+            </value>
+            <value>
+                <fullName>Late Payment</fullName>
+                <default>false</default>
+                <label>Late Payment</label>
+            </value>
+            <value>
+                <fullName>Overlimit</fullName>
+                <default>false</default>
+                <label>Overlimit</label>
+            </value>
+            <value>
+                <fullName>Paper Statement reprint/ month</fullName>
+                <default>false</default>
+                <label>Paper Statement reprint/ month</label>
+            </value>
+            <value>
+                <fullName>Card Replacement</fullName>
+                <default>false</default>
+                <label>Card Replacement</label>
+            </value>
+            <value>
+                <fullName>FX Markup on the amount</fullName>
+                <default>false</default>
+                <label>FX Markup on the amount</label>
+            </value>
+            <value>
+                <fullName>Loan Min Amount Due Calculation</fullName>
+                <default>false</default>
+                <label>Loan Min Amount Due Calculation</label>
+            </value>
+            <value>
+                <fullName>Easy Payment Plan Processing Fee</fullName>
+                <default>false</default>
+                <label>Easy Payment Plan Processing Fee</label>
+            </value>
+            <value>
+                <fullName>Easy Payment Plan Early Settlement Fee</fullName>
+                <default>false</default>
+                <label>Easy Payment Plan Early Settlement Fee</label>
+            </value>
+            <value>
+                <fullName>Issuing Fees</fullName>
+                <default>false</default>
+                <label>Issuing Fees</label>
+            </value>
+            <value>
+                <fullName>(Cash withdrawal for ATM)</fullName>
+                <default>false</default>
+                <label>(Cash withdrawal for ATM)</label>
+            </value>
+            <value>
+                <fullName>Paper Statement Reprint per month</fullName>
+                <default>false</default>
+                <label>Paper Statement Reprint per month</label>
+            </value>
+            <value>
+                <fullName>Card Replacement (upon customer request)</fullName>
+                <default>false</default>
+                <label>Card Replacement (upon customer request)</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Cash Advance (Cash withdrawal for ATM)</fullName>
+                <default>false</default>
+                <label>Cash Advance (Cash withdrawal for ATM)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Prepaid Card</controllingFieldValue>
+            <valueName>Issuing Fees</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prepaid Card</controllingFieldValue>
+            <valueName>Paper Statement Reprint per month</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prepaid Card</controllingFieldValue>
+            <valueName>Card Replacement (upon customer request)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prepaid Card</controllingFieldValue>
+            <valueName>Cash Advance (Cash withdrawal for ATM)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transfers</controllingFieldValue>
+            <valueName>Transfers between ila Accounts through BenefitPay App (for amounts over BHD 100)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transfers</controllingFieldValue>
+            <valueName>Fawri + (for Amounts Over BHD 100)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transfers</controllingFieldValue>
+            <valueName>Fawri</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transfers</controllingFieldValue>
+            <valueName>RTGS Within Bahrain</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transfers</controllingFieldValue>
+            <valueName>International Payments - (Correspondent Bank Charges May Apply Separately)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transfers</controllingFieldValue>
+            <valueName>Local Payments - SWIFT ( Correspondent Bank Charges May Apply Separately)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card - Interest Reversal</controllingFieldValue>
+            <valueName>Interest Reversal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Primary Card Annual Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Supplementary Card Annual Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Cash Advance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Late Payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Overlimit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Paper Statement reprint/ month</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Card Replacement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Loan Min Amount Due Calculation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Easy Payment Plan Processing Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Fee &amp; Charges</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>Easy Payment Plan Early Settlement Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit card - Special FX rate</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <valueName>FX Markup on the amount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <valueName>Dormant Account Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <valueName>Account Statement via Service Centre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Balance Enquiry - GCC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Balance Enquiry - International</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Cash Withdrawal - GCC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Cash Withdrawal - International</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Cash Withdrawal - using payment wallets (Worldwide)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Balance Enquiry - using payment wallets (Worldwide)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cheque</controllingFieldValue>
+            <valueName>Manager&apos;s Cheque - Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cheque</controllingFieldValue>
+            <valueName>Foreign Currency Cheque Collection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Debit Card</controllingFieldValue>
+            <valueName>Replacement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Debit Card</controllingFieldValue>
+            <valueName>Virtual Card - First Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Debit Card</controllingFieldValue>
+            <valueName>Virtual Card - Replacement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fixed Deposit</controllingFieldValue>
+            <valueName>Early Withdrawal Fee - For Deposits in Bahraini Dinars</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fixed Deposit</controllingFieldValue>
+            <valueName>Early Withdrawal Fee - For Deposits in US Dollars</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Security</controllingFieldValue>
+            <valueName>Sale Fees - % of the sale Amount (applies on all types of government securities)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Loan</controllingFieldValue>
+            <valueName>Loan Late payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Loan</controllingFieldValue>
+            <valueName>Loan Admin fees</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Loan</controllingFieldValue>
+            <valueName>Loan Early settlement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Others</controllingFieldValue>
+            <valueName>Others</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <valueName>Premium Annual Subscription Fee</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

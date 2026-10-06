@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used to automatically be sent when an Identification case is created of type Wathiq</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Identification Request Documents Wathiq HTML Alburaq</name>
+    <style>none</style>
+    <subject>You’re almost there with your ila account!</subject>
+    <textOnly>You’re almost there with your ila account - Wathiq!
+
+Oops! We were unable to process your application with the documents you have submitted.
+
+Don’t worry, simply reply to this email and attach a copy of your CPR or valid Bahraini passport, and a copy of one of the documents below:
+
+• Valid driving license.
+
+• CPR extract issued within the last 3 months
+
+• Utility bill issued within the last 3 months
+
+• Latest bank statement
+
+
+We can’t wait for you to join our ila family.
+
+Call our team if you have any questions +973 17123456
+
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

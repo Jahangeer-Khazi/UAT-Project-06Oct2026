@@ -1,0 +1,4 @@
+<apex:page controller="loanPaymentPdfController" renderAs="pdf" applyBodyTag="false" applyHtmlTag="false" contentType="html" showHeader="false" title="Payments schedule" >
+
+    {!tmpResonse}
+</apex:page>

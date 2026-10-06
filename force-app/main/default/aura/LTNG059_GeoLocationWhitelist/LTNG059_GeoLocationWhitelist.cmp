@@ -1,0 +1,72 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date:
+ * 		Change History: 
+ *	    	
+-->
+<aura:component >
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="isChecked" type="Boolean" default="false"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+    <aura:attribute name="todayDateString" type="String" description="Today's date in YYYY-MM-DD format"/>
+    <aura:attribute name="selectedDate" type="Date" />
+    <aura:attribute name="selectedCountry" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account">
+            
+            <lightning:messages />
+            <label for="Geo">Bypass Geo-Location</label>
+            <div class="slds-form-element" style="width:400px">
+                <lightning:inputField fieldName="Bypass_Geo_Location_Check_Update__pc" aura:id="Geo" variant="label-hidden" onchange = "{!c.GeoLocationCheck}" />
+                
+            </div>  
+            <!--<label for="GeoDate">Bypass Geo-Location End Date</label>-->
+            <aura:if isTrue="{!v.isChecked}">
+            <label for="Geoloc">Bypass Geo-Location Country</label>
+             <div class="slds-form-element" style="width:400px">
+            <lightning:inputField fieldName="Bypass_Geo_Location_Country_Update__pc" aura:id="Geoloc" variant="label-hidden" value="{!v.selectedCountry}" onchange = "{!c.GeoLocationCountry}"  required="true"/>               
+            </div>
+            <div class="slds-form-element" style="width:400px">
+            <!--<lightning:inputField fieldName="Bypass_Geo_Location_End_Date_Update__pc" aura:id="GeoDate" variant="label-hidden" onchange = "{!c.GeoLocationDateCheck}" />-->
+                 <lightning:input type="date" label="Bypass Geo-Location End Date" name="futureDate" value="{!v.selectedDate}" min="{!v.todayDateString}" onchange = "{!c.GeoLocationDateCheck}" required="true"/>
+            </div>
+                 <aura:set attribute="else">
+                      <label for="Geoloc">Bypass Geo-Location Country</label>
+                      <lightning:inputField fieldName="Bypass_Geo_Location_Country_Update__pc" aura:id="Geoloc" variant="label-hidden" value="{!v.selectedCountry}" onchange = "{!c.GeoLocationCountry}"  disabled="true" />
+                      <lightning:input type="date" label="Bypass Geo-Location End Date" name="futureDate" value="{!v.selectedDate}" min="{!v.todayDateString}" onchange = "{!c.GeoLocationDateCheck}" disabled="true"/>
+                      </aura:set>
+                </aura:if>
+                <br/> 
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                                          recordId="{!v.account.Id}"
+                                          objectApiName="Account">             
+                    <div class="slds-box">
+                        <label for="min">Bypass Geo-Location</label> <br/>
+                        <lightning:outputField fieldName="Bypass_Geo_Location_Check_Update__pc" aura:id="min" variant="label-hidden"/>  <br/>
+                         
+                    </div>
+                    
+                    <div class="slds-box">
+                        <label for="minloc">Bypass Geo-Location Country</label> <br/>
+                        <lightning:outputField fieldName="Bypass_Geo_Location_Country_Update__pc" aura:id="minloc" variant="label-hidden"/>  <br/>
+                         
+                    </div>
+                      <div class="slds-box">
+                        <label for="minDate">Bypass Geo-Location End Date</label> <br/>
+                    <lightning:outputField fieldName="Bypass_Geo_Location_End_Date_Update__pc" aura:id="minDate" variant="label-hidden"/>  <br/>
+                    </div>
+                    </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

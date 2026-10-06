@@ -1,0 +1,12 @@
+.THIS .whitelist-button-container {
+    padding-top: 42px;
+}
+.THIS .whitelist-success-message {
+    background-color: #2e844a;
+    color: #ffffff;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 2px;
+}

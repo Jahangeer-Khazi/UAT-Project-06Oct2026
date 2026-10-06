@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Fantasy League Entry</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Fantasy League Entries</value>
+    </caseValues>
+    <layouts>
+        <layout>Fantasy League Entry Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Name should be only contains Alphabets. --></errorMessage>
+        <name>Name_Vaidation</name>
+    </validationRules>
+</CustomObjectTranslation>

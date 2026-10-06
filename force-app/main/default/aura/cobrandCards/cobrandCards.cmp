@@ -1,0 +1,136 @@
+<!--
+Change History :
+*         #CH01 :  Added by D&A technologies team 22-06-2022 add case model field
+          #CH02 :  Added by Elmustapha team 16-11-2023 add Is C2C Customer field
+*/
+-->
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="creditCardListController">
+    
+    
+    <aura:attribute name="cc_type" type="String" default="Credit Card Application"/> 
+    <aura:attribute name="cc_subType" type="String" default="New Credit Card"/>
+    <aura:attribute name="cc_cardType" type="Map"/>
+    <aura:attribute name="selectCard" type="String"/>
+    
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <!-- Start CH02 -->
+    <aura:attribute name="Segment" type="String" />
+    <!-- END CH02 -->
+    <aura:attribute name="isInit" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="hasCoBrandMembership" type="Boolean" default="false" />
+    <aura:attribute name="hasBalanceTransfer" type="Boolean" default="false" />
+    <aura:attribute name="embossingLine4" type="String" />
+    <aura:attribute name="responseMap" type="Map"/>
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+	<!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <!-- Start CH02 -->
+            <lightning:inputField aura:id="Customer_Segment" fieldName="Segment__pc" />
+            <!-- END CH02 -->
+        </lightning:recordEditForm>
+    </div>
+    <!--CH01 - End-->
+    
+    <lightning:card title="New Credit Card Application">
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!$Label.c.creditcardApplication}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+            <!--on load handle name on Card, handle Submit -->
+            <!--on load will handle the API Call for card Option and will display the Available cards. -->
+            <lightning:inputField fieldName="Subject" aura:id="subject"/>
+            <lightning:inputField fieldName="Description" aura:id="description"/>
+            <!--CH01 Start Added by D&A technologies team 22-06-2022 add case model field -->
+            <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/>
+             <!--CH01 END -->
+            <lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="namOnCard" required="true"/>
+            <lightning:inputField fieldName="Type" value="{!v.cc_type}" aura:id="type" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" value="{!v.cc_subType}" aura:id="subType" required="true" disabled="true"/>
+            <!-- Start Added by Swapna 20-02-2022 -->
+            <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+            <lightning:inputField fieldName="Case_Nature__c" aura:id="Case_Nature__c" value="RC"/>
+          
+            <!-- End Added by Swapna 20-02-2022 -->
+            <!--aura iteration for cc_cardType-->
+            <lightning:select aura:id="requestedCardType" value="{!v.selectCard}" name="Requested Card Type" label="Requested Card Type" required="true" >
+                <option value="">--None--</option>
+                <aura:iteration items="{!v.cc_cardType}" var="i" indexVar="key">
+                    	<option text="{!i.key}" value="{!i.value}" selected="{!i.selected}" />
+                </aura:iteration>
+                
+            </lightning:select>
+           
+            <div class="slds-hide">
+                <lightning:inputField fieldName="cc_Requested_Card_Type__c" value="{!v.selectCard}" aura:id="card"/>
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+            </div> 
+           
+           <!-- Start Added by Jahangeer Mohammed on 30-08-2021 -->
+            <div class = "{!if(v.selectCard == 'PLATINUM_BALANCE_TRANSFER_01','slds-show','slds-hide')}">
+            	<lightning:inputField fieldName="cc_Balance_Transfer_Type__c" required="false"/>
+            	<lightning:inputField fieldName="cc_Balance_Transfer_Card_Provider__c" required="false"/>
+            	<lightning:inputField fieldName="cc_Balance_Transfer_Card_Number__c" required="false"/>
+            	<lightning:inputField fieldName="cc_Balance_Transfer_Amount__c" required="false"/>
+           </div>
+            <div class = "{!if(v.selectCard == 'ILA_GULF_AIR_COBRAND_01','slds-show','slds-hide')}">
+            	<lightning:inputField fieldName="Consent_to_share_information__c" required="true"/>
+                <lightning:inputField fieldName="Has_Co_Brand_Membership_Number__c" required="true" onchange="{!c.handleCobrandChange}"/>
+            	<lightning:inputField fieldName="Is_Balance_Transfer__c" onchange="{!c.handleBalanceTransferChange}"/>
+
+                <aura:if isTrue="{!v.hasCoBrandMembership}">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                     	<div style="flex: 1;">
+            				<lightning:inputField fieldName="cc_Embossing_Line_4__c" value="{!v.embossingLine4}" onchange="{!c.handleEmbossChange}"/>
+                     	</div>
+                        <div class="button-container">
+                            <aura:if isTrue="{!v.embossingLine4}">
+                           		<lightning:button variant="brand" label="Validate Number" onclick="{!c.fetchMembershipId}"/>
+                            </aura:if>
+                        </div>
+                    </div>           
+        		</aura:if>
+                
+               <aura:if isTrue="{!v.hasBalanceTransfer}">
+                    <!--<lightning:inputField fieldName="cc_Balance_Transfer_Type__c" required="false"/> -->
+                    <lightning:select class="slds-size_1-of-1" name="cc_Balance_Transfer_Type__c" value="{!v.cc_Balance_Transfer_Type__c}" label="Balance Transfer Type" aura:id="balTansferType">
+                   		<option value="">Choose an option...</option>
+                        <option value="Balance Transfer	">Balance Transfer</option>
+                		<option value="Buy Out">Buy Out</option>
+                    </lightning:select>
+            		<lightning:inputField fieldName="cc_Balance_Transfer_Card_Provider__c" required="false"/>
+            		<lightning:inputField fieldName="cc_Balance_Transfer_Card_Number__c" required="false"/>
+            		<lightning:inputField fieldName="cc_Balance_Transfer_Amount__c" required="false"/>
+               </aura:if>
+            </div>
+           
+           <!-- END -->
+            <lightning:inputField fieldName="cc_Requested_Credit_Limit__c" aura:id="requestedCardLimit" required="true"/>
+            <!--Start added by Jayanth on 9/2/2023-->
+            <lightning:inputField fieldName="Sales_Agent__c" aura:id="Sales_Agent__c"/>
+            <!--End-->
+            <!-- START CH02 -->
+            <div class = "{!if(v.Segment == 'Regular','slds-show','slds-hide')}">
+                <lightning:inputField fieldName="Is_C2C_Customer__c" aura:id="c2cCustomer"/>
+            </div>
+            <!-- END CH02-->
+            <lightning:inputField fieldName="Customer_Email_Suppression_on_Creation__c" aura:id="suppressionCreation"/>
+            <lightning:inputField fieldName="Customer_Email_Suppression_on_Closure__c" aura:id="suppressionClosure"/>
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

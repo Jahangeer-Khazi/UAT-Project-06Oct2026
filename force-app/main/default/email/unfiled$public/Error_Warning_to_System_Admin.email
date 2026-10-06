@@ -1,0 +1,8 @@
+Dear {!Receiving_User.Name},
+
+The following error has occurred:
+Endpoint: {!System_Action__c.Endpoint__c}
+Request Body: {!System_Action__c.Request_Body__c}
+Response Body: {!System_Action__c.Response_Body__c}
+
+Thank you!

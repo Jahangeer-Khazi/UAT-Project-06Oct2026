@@ -1,0 +1,50 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *     					#CH01# #Jahangeer Mohammed# #06-10-2025# Added a aura id parameter for restricting mobile country codes(NBA-15878)
+-->
+<aura:component>
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <!-- ============================================ -->
+    <aura:attribute name="newEmail" type="String" access="private"/>
+    <aura:attribute name="newMobile" type="String" access="private"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+    <aura:attribute name="readOnlyFields" type="Map" default="{}"/>
+    <aura:attribute name="isOnbording" type="Boolean" default="false"/>
+
+    <aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  
+                                  objectApiName="Account">
+            <lightning:messages />
+            <lightning:inputField aura:id="personEmail" disabled="{!v.readOnlyFields.personemail}" fieldName="PersonEmail" required="{!v.isOnbording}" value="{!v.account.PersonEmail}" variant="label-inline"/>
+            <!-- CH01 Start -->
+            <lightning:inputField aura:id="countryISOCode" disabled="{!v.readOnlyFields.mobile_country_code__pc}" fieldName="Mobile_Country_Code__pc" required="{!v.isOnbording}" value="{!v.account.Mobile_Country_Code__pc}" variant="label-inline"/>
+            <!-- CH01 END -->
+            <lightning:inputField aura:id="personMobileNumber" disabled="{!v.readOnlyFields.personmobilephone}" fieldName="PersonMobilePhone" required="{!v.isOnbording}" value="{!v.account.PersonMobilePhone}" variant="label-inline"/>
+            
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    <div class="slds-box">
+                        <lightning:outputField fieldName="PersonEmail" />
+                        <lightning:outputField fieldName="Mobile_Country_Code__pc" />
+                        <lightning:outputField fieldName="PersonMobilePhone" />
+                    </div>
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

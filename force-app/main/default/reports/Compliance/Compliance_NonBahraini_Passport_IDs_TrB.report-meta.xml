@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>Contact.ID_Nationality__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Nationality__c</field>
+    </columns>
+    <columns>
+        <field>Contact.ID_Type__c</field>
+    </columns>
+    <columns>
+        <field>Contact.ID_Number__c</field>
+    </columns>
+    <description>shows a list of  non Bahraini Customers with Passport as ID type along with ID Document number</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Onboarding_Stage__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>ACCOUNT_ACTIVATED,ACCOUNT_FUNDED</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Nationality__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>BH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.ID_Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Passport</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Compliance - Non-Bahraini Passport IDs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

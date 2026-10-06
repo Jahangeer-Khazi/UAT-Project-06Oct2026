@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Logic_when_the_Status_becomes_Approved</name>
+        <label>Logic when the Status becomes Approved</label>
+        <locationX>1190</locationX>
+        <locationY>618</locationY>
+        <actionName>JordanCivilDepartmentController</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>caseId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logicLabel</name>
+            <value>
+                <stringValue>eKYC Approved</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>JordanCivilDepartmentController</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Logic_when_the_Status_becomes_Rejected</name>
+        <label>Logic when the Status becomes Rejected</label>
+        <locationX>906</locationX>
+        <locationY>828</locationY>
+        <actionName>JordanCivilDepartmentController</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>caseId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logicLabel</name>
+            <value>
+                <stringValue>eKYC Rejected</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>JordanCivilDepartmentController</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Logic_when_the_Status_becomes_Rejected_Identification</name>
+        <label>Logic when the Status becomes Rejected - Identification</label>
+        <locationX>397</locationX>
+        <locationY>839</locationY>
+        <actionName>JordanCivilDepartmentController</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>caseId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logicLabel</name>
+            <value>
+                <stringValue>Identification Rejected</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>JordanCivilDepartmentController</nameSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Determines if the current user by-passes Flow execution</description>
+        <name>By_pass</name>
+        <label>By-pass</label>
+        <locationX>610</locationX>
+        <locationY>414</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_by_pass</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Setting__c.Bypass_Flows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Case_Details</targetReference>
+            </connector>
+            <label>No by-pass</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks the Case Type and Origin to determine which logic is to be executed.</description>
+        <name>Check_Case_Details</name>
+        <label>Check Case Details</label>
+        <locationX>601</locationX>
+        <locationY>626</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Unhappy_Flow_No_Record_API_Error</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>eKYC</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Civil</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Case_Status</targetReference>
+            </connector>
+            <label>Unhappy Flow - No Record / API Error</label>
+        </rules>
+        <rules>
+            <name>Unhappy_Flow_Incomplete_Data_Blocking</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Identification</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Civil</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Case_Status_Identification</targetReference>
+            </connector>
+            <label>Unhappy Flow - Incomplete Data - Blocking</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Case_Status</name>
+        <label>Check Case Status</label>
+        <locationX>895</locationX>
+        <locationY>625</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_changed_to_Approved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Logic_when_the_Status_becomes_Approved</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status changed to Approved</label>
+        </rules>
+        <rules>
+            <name>Status_changed_to_Rejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Logic_when_the_Status_becomes_Rejected</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Status changed to Rejected</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Case_Status_Identification</name>
+        <label>Check Case Status Identification</label>
+        <locationX>392</locationX>
+        <locationY>641</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Status_Changed_to_Rejected_Idenfication</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Logic_when_the_Status_becomes_Rejected_Identification</targetReference>
+            </connector>
+            <label>Status Changed to Rejected - Idenfication</label>
+        </rules>
+    </decisions>
+    <description>Logic executed when the Case verifies certain criteria for JO.</description>
+    <environments>Default</environments>
+    <interviewLabel>Jordan Civil Department Logic {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Jordan Civil Department Logic</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>490</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>By_pass</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Region_Flag__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Jordan</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordType_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>On-Boarding</stringValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <businessHours>Default</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;SWIFT&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Afaaq (GCC)&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;SWIFT&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Buna (MENA)&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;)))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>264</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Premium&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Lounge Access&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>372</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;SWIFT&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Afaaq (GCC)&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;SWIFT&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Buna (MENA)&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;SWIFT&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;SWIFT (World Wide)&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>504</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Product&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Exit&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Process/journey&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>732</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;SWIFT&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;SWIFT (World Wide)&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Recall Amount&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;)))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>984</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Did not receive cash from ATM&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Partial Amount Dispensed&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction did not go through&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Duplicate payment&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Purchased goods not received&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction amount differs.&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Late posted transaction&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Refund not processed&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Service Not Provided&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Other (Specify in description)&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;)))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>1224</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Did not receive cash from ATM&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Partial Amount Dispensed&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction did not go through&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Duplicate payment&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Purchased goods not received&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction amount differs.&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Late posted transaction&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Refund not processed&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Service Not Provided&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Other (Specify in description)&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;MasterCard&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>1224</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (264 hours)</name>
+    <versionMaster>552QI00000CRkJC</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

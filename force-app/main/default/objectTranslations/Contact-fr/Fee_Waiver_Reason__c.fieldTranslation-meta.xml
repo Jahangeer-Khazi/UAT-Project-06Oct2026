@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Fee Waiver Reason --></label>
+    <name>Fee_Waiver_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Disabled customers</masterLabel>
+        <translation><!-- Disabled customers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Orphans</masterLabel>
+        <translation><!-- Orphans --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pensioners</masterLabel>
+        <translation><!-- Pensioners --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Receiving social subsidies</masterLabel>
+        <translation><!-- Receiving social subsidies --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Students</masterLabel>
+        <translation><!-- Students --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Widows</masterLabel>
+        <translation><!-- Widows --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>With a monthly salary below BD 250</masterLabel>
+        <translation><!-- With a monthly salary below BD 250 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

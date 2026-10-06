@@ -1,0 +1,302 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  last modified on  : 
+  last modified by  : 
+  Change History    :
+*         #CH01 :  Added by Imane Tsioucha 16-06-2023 Download Bahraini ID.
+*         #CH02 :  Added by Imane Tsioucha 01-12-2023 Add Collection and Legal Action LOGO.
+		  #CH03 :  Added by Elmustapha 26-02-2025 Add loan Collection and Legal Action LOGO.
+		  #CH03 :  Added by Shubham 30-07-2025 Add Ultimate With RM Logo NBA-13877.
+-->
+
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global"
+                controller="customerProductStatusCtrl">
+    <aura:attribute name="VIPFlag" type="String"  />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="Customer" type="Account" default="{'sobjectType':'Account', 'Segment__pc':'','Alburaq_Segment__pc':'','Subscription_Model__pc':''}"/>
+    <aura:attribute name="isAlubraq" type="Boolean" default='true'/>
+    <aura:attribute name="isila" type="Boolean" default='true' />
+    <aura:attribute name="subscriptionModel" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	
+    
+
+    <lightning:card>
+	<section style="margin-top:-14px;margin-bottom:10px;">
+			<!-- START CH01: Add ID Download Button for Bahraini ID -->
+        <div style="margin-left: 5%"> 
+		
+	   <!--  //// Commenting this pre RM-2964 release
+        <div class="slds-grid slds-gutters slds-wrap">
+		   <div style="margin-left:1%; margin-bottom:1%;  "  >
+			<button style="height:30px;width:175px;background-color:#002244;margin-top:-800px; color:white; font-size: 10px; margin-left:270px ;font-style:bold"
+			class="button"  label="" onclick="{!c.downloadFile}" ><i class="slds-button__icon fa fa-download" aria-hidden="true"></i>DOWNLOAD ID DOCUMENTS</button>
+		   </div>
+	     </div> -->
+        </div>
+            <!-- END CH01 -->
+    </section>
+        <p class="slds-p-horizontal_small">
+	
+	
+            <!--Account Id is {!v.recordId}
+             VVIP C Flag is {!v.Customer.VVIP__pc} -->
+            <div style="margin-left: 5%"> 
+				
+                <div class="slds-grid slds-gutters slds-wrap">  
+        
+                    <!-- == START ==== Display Segment image based on Segment__pc and Alburaq_Segment__pc -->
+					
+						<aura:if isTrue="{! v.Customer.Region_Flag__pc=='Bahrain' }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_Bahrain_Flag}" height="100" width="175"/> 
+						</aura:if>
+						<aura:if isTrue="{! v.Customer.Region_Flag__pc=='Jordan' }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_Jordan_Flag}" height="100" width="175"/> 
+						</aura:if>
+
+						
+						<aura:if isTrue="{!AND(v.Customer.Segment__pc =='Regular',v.Customer.Subscription_Model__pc=='ila')}"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_regular}" height="100" width="175"/> 
+						</aura:if> 
+					
+						<aura:if isTrue="{!AND( v.Customer.Segment__pc =='Staff', v.Customer.Subscription_Model__pc=='ila')}"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_staff}" height="100" width="175"/> 
+						</aura:if> 
+						<aura:if isTrue="{!AND( v.Customer.Segment__pc =='Premium', v.Customer.Subscription_Model__pc=='ila') }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_premium}" height="100" width="175"/> 
+						</aura:if> 
+					
+                    <!-- == START ==== Display Segment image based on Segment__pc and Alburaq_Segment__pc -->
+					
+						<aura:if isTrue="{!AND(v.Customer.Subscription_Model__pc=='alburaq', v.Customer.Segment__pc == 'Regular')}"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_regular_alburaq}" height="100" width="175"/> 
+						</aura:if> 
+						<aura:if isTrue="{!AND(v.Customer.Subscription_Model__pc=='alburaq', v.Customer.Segment__pc == 'Staff' )}"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_staff_alburaq}" height="100" width="175"/> 
+						</aura:if> 
+						<aura:if isTrue="{!AND(v.Customer.Subscription_Model__pc=='alburaq', v.Customer.Segment__pc =='Premium') }">
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_premium_alburaq}" height="100" width="175"/> 
+						</aura:if> 
+					
+                    <!-- == START ==== Display Segment image based on Segment__pc and Alburaq_Segment__pc -->
+					
+						<aura:if isTrue="{!AND(v.Customer.Segment__pc =='Regular', v.Customer.Subscription_Model__pc=='both')}"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_regular_ilaalburaq}" height="100" width="175"/> 
+						</aura:if>
+						<aura:if isTrue="{!AND( v.Customer.Segment__pc =='Staff',  v.Customer.Subscription_Model__pc=='both')}"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_staff_ilaalburaq}" height="100" width="175"/> 
+						</aura:if> 
+						<aura:if isTrue="{!AND( v.Customer.Segment__pc =='Premium', v.Customer.Subscription_Model__pc=='both') }">
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_premium_ilaalburaq}" height="100" width="175"/>
+						</aura:if> 
+                    
+                     
+						<!--<aura:if isTrue="{!AND( v.Customer.Segment__pc =='Premium', v.Customer.Alburaq_Segment__pc =='Regular') }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_premiumregular_ilaalburaq}" height="100" width="175"/> 
+						</aura:if> 
+						<aura:if isTrue="{!AND( v.Customer.Segment__pc =='Regular', v.Customer.Alburaq_Segment__pc =='Premium') }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.icon_customer_regularpremium_ilaalburaq}" height="100" width="175"/> 
+						</aura:if>--> 
+                    
+                     <!-- START CH02 -->
+					  <!-- START CH03 -->
+                     <aura:if isTrue="{!v.Customer.Collection_Case__c==TRUE }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.collection_flag}" height="100" width="175"/> 
+					</aura:if>  
+                    <aura:if isTrue="{!v.Customer.Legal_Action__c==TRUE }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.legal_flag}" height="100" width="175"/> 
+					</aura:if>   
+
+				<!--	<aura:if isTrue="{!v.Customer.Loan_Collection_Case__c==TRUE }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.Loan_Collection}" height="100" width="175"/> 
+					</aura:if>  
+                    <aura:if isTrue="{!v.Customer.Loan_Legal_Action__c==TRUE }"> 
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.Loan_Legal}" height="100" width="175"/> 
+					</aura:if> -->  
+					<!-- END CH03-->
+                    <!-- END CH02-->
+                     
+                    
+					
+					<!-- == START ==== Display RP Status image -->
+					<aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}">  
+						<aura:if isTrue="{!v.Customer.Nationality__pc!='BH'}"> 
+						
+							<aura:if isTrue="{!AND(v.Customer.Region_Flag__pc=='Bahrain', v.Customer.RP_Expired_Since__pc>0)}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.redStatus}" height="100" width="175"/> 
+							</aura:if> 
+							<aura:if isTrue="{!AND(v.Customer.Region_Flag__pc=='Bahrain',v.Customer.RP_Expired_Since__pc==0)}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.greenStatus}" height="100" width="175"/>
+							</aura:if>
+							<aura:if isTrue="{!AND(v.Customer.Region_Flag__pc=='Bahrain',v.Customer.RP_Expired_Since__pc==-1)}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.redStatus}" height="100" width="175"/>
+							</aura:if>
+						
+                        <!-- <aura:if isTrue="{!AND(v.Customer.Region_Flag__pc=='Bahrain',v.Customer.RP_Expired_Since__pc<0)}"> 
+                            <img style="margin: 8% 4%;" src="{!$Resource.redStatus}" height="75" width="75"/> RP Missing
+                        </aura:if> -->
+						</aura:if>
+					</aura:if> 
+                    
+					
+					<!-- == START ==== Display VVIP Customer image -->
+					
+						<aura:if isTrue="{!v.Customer.VVIP__pc==TRUE}"> 
+						
+							<aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.VVIPFlag}" height="100" width="175"/>
+							</aura:if>
+							<aura:if isTrue="{!v.Customer.Region_Flag__pc != 'Bahrain'}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.VVIPFlag}" height="100" width="175"/>
+							</aura:if>
+						
+						</aura:if>
+			<!--	</div>
+			</div>
+			
+            <div style="margin-left: 5%"> 
+                
+                <div class="slds-grid slds-gutters slds-wrap">   -->     
+					
+                     <!--   <img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.Icon_core_client_status_active}" height="100" width="175"/> -->
+                    
+                    <!-- == END ==== Display KANZ product status image -->
+					
+						<aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}"> 
+						
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'Yes' , AND (v.Customer.Has_Kanz_Account__pc == TRUE , v.Customer.Has_Kanz_Balance__pc == TRUE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Eligible_Active_Funded}" height="100" width="175"/>
+							</aura:if>                      
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'Yes' , AND (v.Customer.Has_Kanz_Account__pc == TRUE , v.Customer.Has_Kanz_Balance__pc == FALSE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Eligible_Active_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'Yes', AND (v.Customer.Has_Kanz_Account__pc == FALSE, v.Customer.Has_Kanz_Balance__pc == FALSE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Eligible_Inactive_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'No', AND (v.Customer.Has_Kanz_Account__pc == FALSE, v.Customer.Has_Kanz_Balance__pc == FALSE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Ineligible_Inactive_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'No', AND (v.Customer.Has_Kanz_Account__pc == TRUE, v.Customer.Has_Kanz_Balance__pc == FALSE))}">            
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Ineligible_Active_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! and(v.Customer.PLA_Eligibility__pc == 'No', AND (v.Customer.Has_Kanz_Account__pc == FALSE, v.Customer.Has_Kanz_Balance__pc == TRUE))}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Ineligible_Active_Funded}" height="100" width="175"/>
+							</aura:if> 						
+						</aura:if>
+                        
+                        
+                        <aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Jordan'}"> 
+						
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'Yes' , AND (v.Customer.Has_Kanz_Account__pc == TRUE , v.Customer.Has_Kanz_Balance__pc == TRUE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Eligible_Active_Funded}" height="100" width="175"/>
+							</aura:if>                      
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'Yes' , AND (v.Customer.Has_Kanz_Account__pc == TRUE , v.Customer.Has_Kanz_Balance__pc == FALSE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.Jordan_AlKanz_Eligible_Active_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'Yes', AND (v.Customer.Has_Kanz_Account__pc == FALSE, v.Customer.Has_Kanz_Balance__pc == FALSE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.Jordan_AlKanz_Eligible_Inactive_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'No', AND (v.Customer.Has_Kanz_Account__pc == FALSE, v.Customer.Has_Kanz_Balance__pc == FALSE))}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Ineligible_Inactive_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! AND(v.Customer.PLA_Eligibility__pc == 'No', AND (v.Customer.Has_Kanz_Account__pc == TRUE, v.Customer.Has_Kanz_Balance__pc == FALSE))}">            
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Ineligible_Active_NonFunded}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{! and(v.Customer.PLA_Eligibility__pc == 'No', AND (v.Customer.Has_Kanz_Account__pc == FALSE, v.Customer.Has_Kanz_Balance__pc == TRUE))}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.AlKanz_Ineligible_Active_Funded}" height="100" width="175"/>
+							</aura:if> 						
+						</aura:if>
+					
+					
+					
+						<aura:if isTrue="{!v.Customer.Blacklisted__c==TRUE}">
+								<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.Icon_Backlisted}" height="100" width="175"/>
+						</aura:if>
+                    
+                      <aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}"> 
+						
+							<aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'IDV_PENDING')}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.IDV_PENDING}" height="100" width="175"/>
+							</aura:if>                      
+							<aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'IDV_BLOCK')}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.IDV_BLOCK}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'IDV_BLOCK_REVIEW')}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.IDV_BLOCK_REVIEW}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c =='RP_PENDING')}">
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.RP_PENDING}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'RP_BLOCK')}">            
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.RP_BLOCK}" height="100" width="175"/>
+							</aura:if> 
+							<aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'RP_REVIEW')}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.RP_REVIEW}" height="100" width="175"/>
+							</aura:if> 
+                          <aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'RP_BLOCK_REVIEW')}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.RP_BLOCK_REVIEW}" height="100" width="175"/>
+							</aura:if>
+                          <aura:if isTrue="{!(v.Customer.Canceled_Work_Permit_Status__c == 'COMPLETED_FRAUD')}"> 
+									<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.COMPLETED_FRAUD}" height="100" width="175"/>
+							</aura:if>
+						</aura:if>
+                    
+                    <!--As part of NBA13877 MADE THIS CHANGE STARTS-->
+                    <aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Jordan'}">
+                        <aura:if isTrue="{!AND(v.Customer.Segment__pc =='Ultimate',v.Customer.RM_ID__pc!=null)}"> 
+                            <img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.UltimateSegment_withRM}" height="100" width="175"/> 
+                        </aura:if>
+                        <aura:if isTrue="{!AND(v.Customer.Segment__pc =='Ultimate',v.Customer.RM_ID__pc==null)}"> 
+                            <img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.UltimateSegment_withoutRM}" height="100" width="175"/> 
+                        </aura:if>
+                        <aura:if isTrue="{!v.Customer.Use_Preferential_FD_Rate__pc ==TRUE}"> 
+                            <img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.FDRate}" height="100" width="175"/> 
+                        </aura:if>
+                    </aura:if>
+                    <!--As part of NBA13877 MADE THIS CHANGE ENDS-->	
+
+					<!-- == START ==== Display Salary Transfer image -->
+					<aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}">  
+						<aura:if isTrue="{! AND ( v.Customer.Salary_Transfer_Status__pc == 'TRANSFERRING', v.Customer.Salary_Transfer_Transaction_Count__pc > 2 ) }"> 
+							<img style="margin-left:1%; margin-bottom:1%" src="{!$Resource.SALARY_TRANSFER_ILA}" height="100" width="175"/> 
+						</aura:if>
+					</aura:if> 
+
+                </div> 
+                
+                <!--<aura:if isTrue="{!v.Customer.VVIP__pc==TRUE}"> 
+                   <aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}">
+                    <img style="margin: 8% 4%;" src="{!$Resource.VVIPFlag}" height="100" width="175"/>
+                   </aura:if>
+                     <aura:if isTrue="{!v.Customer.Region_Flag__pc != 'Bahrain'}">
+                         <img style="margin: 8% 4%;" src="{!$Resource.VVIPFlag}" height="100" width="175"/>
+                    </aura:if>
+                </aura:if>-->            
+                
+                
+            </div>    
+            
+            <!-- <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Account">
+                   <lightning:outputField fieldName="Name"/> 
+                  <lightning:outputField fieldName="USP_Message__pc" /> 
+            </lightning:recordViewForm> -->
+            <aura:if isTrue="{!v.Customer.Region_Flag__pc == 'Bahrain'}">  
+            <aura:if isTrue="{!v.Customer.Nationality__pc!='BH'}">
+                <div style="margin-left:5%"> 
+                    <aura:if isTrue="{!AND(v.Customer.Region_Flag__pc=='Bahrain', v.Customer.RP_Expired_Since__pc>0)}">
+                        <lightning:icon iconName="action:info" size="x-small" alternativeText="" />&nbsp; &nbsp; <b>RP Expired since {!v.Customer.RP_Expired_Since__pc} days</b><br></br>
+                    </aura:if>
+                    <aura:if isTrue="{!AND(v.Customer.Region_Flag__pc=='Bahrain',v.Customer.RP_Expired_Since__pc==-1)}"> 
+                        <lightning:icon iconName="action:info" size="x-small" alternativeText="" />&nbsp; &nbsp; <b>RP Details Missing</b><br></br>
+                    </aura:if>
+                </div>
+            </aura:if>
+            </aura:if>
+            <div style="color: green;font-size: 12pt;position: relative;"><center>{!v.Customer.USP_Message__pc} </center>
+            </div>    
+        </p>
+    </lightning:card>
+    
+</aura:component>

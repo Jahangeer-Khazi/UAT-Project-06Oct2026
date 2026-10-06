@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_ReviewStatus__c</fullName>
+    <inlineHelpText>Scheduled → Periodic Review is scheduled. &lt;br&gt;
+In-Progress → Periodic Review case is in progress.
+Overdue Stage 1 → Additional information is required. \n
+Overdue Stage 2 → Additional information is required. ATM cash withdrawals blocked. \n
+Overdue Stage 3 → Additional information is required. ATM cash withdrawals, and all debit cards blocked.&lt;br&gt;&lt;/br&gt;
+Overdue Stage 4 → Additional information is required. ATM cash withdrawals, all debit cards, all credit cards, and all accounts blocked.</inlineHelpText>
+    <label>Review Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In-Progress</fullName>
+                <default>false</default>
+                <label>In-Progress</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 1</fullName>
+                <default>false</default>
+                <label>Overdue Stage 1</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 2</fullName>
+                <default>false</default>
+                <label>Overdue Stage 2</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 3</fullName>
+                <default>false</default>
+                <label>Overdue Stage 3</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 4</fullName>
+                <default>false</default>
+                <label>Overdue Stage 4</label>
+            </value>
+            <value>
+                <fullName>Overdue Stage 5</fullName>
+                <default>false</default>
+                <label>Overdue Stage 5</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+                <label>Overdue</label>
+            </value>
+            <value>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Scheduled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_checkStepsApproval</fullName>
+    <active>true</active>
+    <description>Prevents users from updating a loan result out of sequence for Loan Application cases.
+Ensures that each credit step (Pre-Screening, Evaluation, Verification, and Approval) is completed and approved in the correct order, based on the loan product type</description>
+    <errorConditionFormula>AND(
+    !ISPICKVAL(cc_Control_Type__c, &apos;STP&apos;),
+    RecordType_DeveloperName__c = &apos;Loan_Application&apos;,
+    OR(
+        AND(ISCHANGED(cc_Credit_Evaluation_Result__c),!ISPICKVAL(CaseAnnex__r.cx_ln_Credit_Pre_Screening_Result__c, &apos;Accept&apos;)),
+        AND(ISCHANGED(cc_Credit_Verification_Result__c),!ISPICKVAL(cc_Credit_Evaluation_Result__c, &apos;Accept&apos;)),
+        AND(ISCHANGED(cc_Credit_Approval_Result__c),ISPICKVAL(CaseAnnex__r.cx_ln_Product__c, &apos;Unsecured&apos;),!ISPICKVAL(cc_Credit_Verification_Result__c, &apos;Approve&apos;)),
+								AND(ISCHANGED(cc_Credit_Approval_Result__c),ISPICKVAL(CaseAnnex__r.cx_ln_Product__c, &apos;Secured&apos;),!ISPICKVAL(CaseAnnex__r.cx_ln_Credit_Pre_Screening_Result__c, &apos;Accept&apos;))
+    )
+)</errorConditionFormula>
+    <errorMessage>You cannot update this Result until the previous step has been approved.</errorMessage>
+</ValidationRule>

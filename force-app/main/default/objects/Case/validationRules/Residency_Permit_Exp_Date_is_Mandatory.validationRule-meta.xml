@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Residency_Permit_Exp_Date_is_Mandatory</fullName>
+    <active>true</active>
+    <description>Residency Permit Expiry Date is Mandatory for periodic Review Case if Residency permit photo required is checked.</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Periodic Review&quot;),
+ISCHANGED(cc_Residence_Permit_Expiry_Date__c),
+OR(
+ISBLANK(cc_Residence_Permit_Expiry_Date__c),
+cc_Residence_Permit_Expiry_Date__c &lt; TODAY()
+),
+pr_ResidencyPermitPhotoRequired__c = true
+)</errorConditionFormula>
+    <errorDisplayField>cc_Residence_Permit_Expiry_Date__c</errorDisplayField>
+    <errorMessage>Please fill the Resident Expiry date field and it should be greater then today&apos;s date.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Termination__c</fullName>
+    <label>Unit Termination</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ila</fullName>
+                <default>false</default>
+                <label>ila</label>
+            </value>
+            <value>
+                <fullName>alburaq</fullName>
+                <default>false</default>
+                <label>alburaq</label>
+            </value>
+            <value>
+                <fullName>both</fullName>
+                <default>false</default>
+                <label>both</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

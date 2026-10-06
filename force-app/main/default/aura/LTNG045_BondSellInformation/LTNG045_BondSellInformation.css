@@ -1,0 +1,11 @@
+.THIS .slds-button_neutral {
+    justify-content:left!Important;
+}
+
+.THIS .slds-button--neutral{
+    justify-content:left!Important;
+}
+
+ .THIS .slds-form-element__icon{
+    display: none !important;
+}

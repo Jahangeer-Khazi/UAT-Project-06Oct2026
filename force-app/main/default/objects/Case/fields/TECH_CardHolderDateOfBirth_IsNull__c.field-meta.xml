@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TECH_CardHolderDateOfBirth_IsNull__c</fullName>
+    <formula>ISNULL(sc_Card_Holder_Date_of_Birth__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>TECH_CardHolderDateOfBirth_IsNull</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

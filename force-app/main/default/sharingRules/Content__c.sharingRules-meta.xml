@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Credit_Card_Documents</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>This sharing rule enables the sharing for the documents Retail Credit team fro &quot;Credit Card related application&quot;</description>
+        <label>Credit Card Documents</label>
+        <sharedTo>
+            <group>Credit_Retail_Team</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Scan_Type__c</field>
+            <operation>equals</operation>
+            <value>Credit Card Application,Credit Card Supplementary Application</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Credit_Card_Documents_JORDAN</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>This sharing rule enables the sharing for the documents Retail Credit team fro &quot;Credit Card related application&quot; - for JORDAN</description>
+        <label>Credit Card Documents -JORDAN</label>
+        <sharedTo>
+            <group>Credit_Retail_Team_Jordan</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Jordan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Scan_Type__c</field>
+            <operation>equals</operation>
+            <value>Credit Card Application,Credit Card Supplementary Application</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Non_CreditCard_Documents_Bahrain</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares all the Non Credit Card related documents to all the users in Bahrain.</description>
+        <label>Non CreditCard Documents Bahrain</label>
+        <sharedTo>
+            <territory>Region.Bahrain</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Scan_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Credit Card Application,Credit Card Supplementary Application</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Document_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Video Verification</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Non_CreditCard_Documents_Jordan</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares all the Non Credit Card related documents to all the users in Jordan.</description>
+        <label>Non CreditCard Documents Jordan</label>
+        <sharedTo>
+            <territory>Region.Jordan</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Jordan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Scan_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Credit Card Application,Credit Card Supplementary Application</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Document_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Video Verification</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Restricted_Read_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Restricted Read Sharing Rule</label>
+        <sharedTo>
+            <role>Restricted_Case_Viewer</role>
+        </sharedTo>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <criteriaItems>
+            <field>Document_Type__c</field>
+            <operation>equals</operation>
+            <value>Video Verification</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Image_Type__c</field>
+            <operation>equals</operation>
+            <value>Front</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Image_Type__c</field>
+            <operation>equals</operation>
+            <value>Back</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Image_Type__c</field>
+            <operation>equals</operation>
+            <value>Selfie</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Video_Verification_File_Sharing_BH</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Video Verification File Sharing BH</label>
+        <sharedTo>
+            <group>Video_Verification_Doc_Access_BH</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Document_Type__c</field>
+            <operation>equals</operation>
+            <value>Video Verification</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Video_Verification_File_Sharing_JO</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Video Verification File Sharing JO</label>
+        <sharedTo>
+            <group>Video_Verification_Doc_Access_JO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Document_Type__c</field>
+            <operation>equals</operation>
+            <value>Video Verification</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Jordan</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>WalkinCustomerErevealer</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>WalkinCustomerErevealer</label>
+        <sharedTo>
+            <guestUser>WalkinErevealer</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Document_Type__c</field>
+            <operation>equals</operation>
+            <value>CPR Extract</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Service_Center_Extract__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

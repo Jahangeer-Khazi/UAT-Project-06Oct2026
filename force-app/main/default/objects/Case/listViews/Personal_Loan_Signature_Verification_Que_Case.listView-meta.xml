@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Personal_Loan_Signature_Verification_Que_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Personal Loan Signature Verification Que</label>
+    <queue>Personal_Loan_Signature_Verification_Que</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

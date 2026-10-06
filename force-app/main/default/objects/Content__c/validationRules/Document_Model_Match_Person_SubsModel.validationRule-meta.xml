@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Model_Match_Person_SubsModel</fullName>
+    <active>true</active>
+    <description>Ensures that the value of the Document Model is correct based on the customer subscription model</description>
+    <errorConditionFormula>AND(				  
+    NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+    OR(
+       TEXT(Person__r.Subscription_Model__pc) = &apos;ila&apos;,
+       TEXT(Person__r.Subscription_Model__pc) = &apos;alburaq&apos;
+    ),
+				TEXT(Document_Model__c) != TEXT(Person__r.Subscription_Model__pc)
+)</errorConditionFormula>
+    <errorMessage>Invalid value of the Document Model on the Content record. Please contact your administrator.</errorMessage>
+</ValidationRule>

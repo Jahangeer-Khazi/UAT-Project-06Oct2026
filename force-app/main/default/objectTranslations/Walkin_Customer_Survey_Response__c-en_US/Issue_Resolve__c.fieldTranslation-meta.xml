@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Issue Resolve? --></label>
+    <name>Issue_Resolve__c</name>
+</CustomFieldTranslation>

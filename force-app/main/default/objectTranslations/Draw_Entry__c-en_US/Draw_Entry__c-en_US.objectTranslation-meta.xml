@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Eligible Customer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Eligible Customers</value>
+    </caseValues>
+    <layouts>
+        <layout>Draw Entry Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Customer is not eligible for Raffle Draw --></errorMessage>
+        <name>Ineligible_Customers_cannot_enter_Draw</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide justification to the modification(s) --></errorMessage>
+        <name>Justification_needed_if_checkbox_changed</name>
+    </validationRules>
+</CustomObjectTranslation>

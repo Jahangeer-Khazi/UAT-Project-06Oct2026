@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Issuing_card_for_a_spouse__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used for the Credit Card Spouse feature for Staff Customers (NBA-15728)</description>
+    <label>Issuing card for a spouse?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

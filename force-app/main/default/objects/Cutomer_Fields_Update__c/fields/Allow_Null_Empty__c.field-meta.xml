@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_Null_Empty__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allow empty string or null value as update</description>
+    <label>Allow Null/Empty</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

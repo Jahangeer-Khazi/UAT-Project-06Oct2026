@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RHA_NotTheCorrectAccountType</fullName>
+    <active>false</active>
+    <description>For release hold transactions , The account type can only  be CUSTOMER_ACCOUNT or KANZ</description>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;db_AccountHold&quot;  &amp;&amp; !(RHA_AccountType__c = &quot;CUSTOMER_ACCOUNT&quot; || RHA_AccountType__c =&quot;KANZ&quot;)</errorConditionFormula>
+    <errorMessage>The account type can only  be CUSTOMER_ACCOUNT or KANZ</errorMessage>
+</ValidationRule>

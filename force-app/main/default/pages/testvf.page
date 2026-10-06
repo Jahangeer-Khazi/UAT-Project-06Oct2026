@@ -1,0 +1,6 @@
+<apex:page >
+    <script>
+    	console.log("navigator ", navigator.online);
+    console.log("navigator ", navigator.onLine);
+    </script>
+</apex:page>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will create a Credit Collection Letter Case</description>
+    <height>550</height>
+    <icon>Ila</icon>
+    <label>New Letter Generation Request</label>
+    <lightningComponent>CreditCollectionLetters</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

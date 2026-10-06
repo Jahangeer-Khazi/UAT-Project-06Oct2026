@@ -1,0 +1,56 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global"  controller="creditCardListController">
+	 <aura:attribute name="customerId" type="String" />
+     <aura:attribute name="accountId" type="String" />
+     <aura:attribute name="pcICardId" type="String"/>
+     <aura:attribute name="account" type="Account"/>
+   <!-- ======================================================== -->
+    
+     <aura:attribute name="selectedEPPRow" type="List" default="[]"/>
+     <aura:attribute name="eppTargetData" type="Object[]" default="[]"/>
+     <aura:attribute name="eppData" type="Object"/>
+     <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+     <aura:attribute name="columns" type="List" access="private"/>
+     <aura:attribute name = "eppSelected" type="boolean"/>
+     <aura:attribute name="defaultRows" type="List" default="[]" description="reset selected rows" />
+     <aura:attribute name="customerSegment" type="String"/>
+     <aura:attribute name="regionName" type="String"/>
+     <aura:attribute name="selectedRowIds" type="List" default="[]"/>
+       <aura:attribute name="SelectedPlan" type="String"/>
+    
+     <!-- #CH01 : add customerAlburaqSegment variable-->
+     <aura:attribute name="customerAlburaqSegment" type="String"/>
+    
+     <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+     <!--<aura:handler name="change" value="{!v.pcICardId}" action="{!c.init}"/> -->
+    <aura:handler name="change" value="{!v.pcICardId}" action="{!c.onChangepciCardId}"/>
+     
+     
+    <lightning:card title="{! 'Registered EPP' }">
+     	<aura:if isTrue="{!empty(v.data)}">
+        	No EPP Data is available for this Credit Card.
+    	<aura:set attribute="else">
+        	<lightning:datatable data="{!v.data}" 
+            	aura:id="EPPListTable"
+           	 	columns="{!v.columns}" 
+            	keyField="planNumber"
+            	hideCheckboxColumn="false"
+            	maxRowSelection="1"
+                onrowselection="{!c.handleRowSelection }"
+            	onrowaction="{!c.handleRowAction }"
+                selectedRows="{!v.selectedRowIds}"/>
+            
+           <aura:if isTrue="{!not(empty(v.selectedEPPRow))}">
+               <!-- #CH01 : add alburaqSegment param -->
+                 <c:creditCardEPPDetail customerId="{!v.customerId}" 
+                                        accountId="{!v.accountId}" 
+                                        eppDetailData ="{!v.eppTargetData}"
+                                        eppSel="{!v.eppSelected}"
+                                        alburaqSegment="{!v.customerAlburaqSegment}"
+                                        />
+            </aura:if> 
+     	</aura:set>
+    	</aura:if>
+        
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

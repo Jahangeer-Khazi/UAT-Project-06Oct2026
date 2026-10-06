@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This is a reminder to action granted discount for Premium Retention case</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Premium_Retention_Pending_Customer_Reminder Alburaq</name>
+    <style>none</style>
+    <subject>Pending Premium Discount</subject>
+    <textOnly>Pending Premium Discount - Reminder
+
+Hi,
+
+We have granted you a discount of BHD {!Case.Discount_Amount__c}  for your next ila premium annual fee.
+
+Please confirm using the ila app
+
+For any questions, call us on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,33 @@
+<apex:page renderAs="PDF">
+    <head>
+        <style type="text/css">
+        	
+        </style>
+    </head>
+    <body>
+        
+        <!-- Start div contains ila image and header title -->
+        <div class="headerTitle">
+            <div style="text-align:right;">
+                <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" />
+            </div>
+            <div style="margin-top:-48px;">
+             <div style="margin-bottom:-25px;font-size:12px;">
+                <b> <h1>Repayment Schedule</h1> </b>
+                <br />
+             </div>
+            </div>
+            <hr />
+        </div>
+        <!-- END div contains ila image and header title -->
+    
+        <!-- Start div contains footer -->
+        <div class="footer">
+            <div >
+                <hr />
+                © ila Bank - Retail Credit Department 
+            </div>
+        </div>
+        <!-- END div contains footer -->
+    </body>
+</apex:page>

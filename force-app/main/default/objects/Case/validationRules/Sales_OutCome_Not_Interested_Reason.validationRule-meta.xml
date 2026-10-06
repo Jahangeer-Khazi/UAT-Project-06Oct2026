@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_OutCome_Not_Interested_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>If(ISPICKVAL(Sales_Out_Come__c,&apos;Not interested&apos;) &amp;&amp; ISBLANK(Rejected_Reason__c),true,false)</errorConditionFormula>
+    <errorDisplayField>Rejected_Reason__c</errorDisplayField>
+    <errorMessage>Please Fill in the Customer Feed Back</errorMessage>
+</ValidationRule>

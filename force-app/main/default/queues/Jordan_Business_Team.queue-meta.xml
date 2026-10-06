@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Jordan Business Team</name>
+    <queueMembers>
+        <users>
+            <user>allensj.cc.jordan@bank-abc.com</user>
+            <user>allensj.compliance.jordan@bank-abc.com</user>
+            <user>allensj.hr.jordan@bank-abc.com</user>
+            <user>allensj.ilarisk.jordan@bank-abc.com</user>
+            <user>allensj.operations.jordan@bank-abc.com</user>
+            <user>allensj.rmt.jordan@bank-abc.com</user>
+            <user>allensj.thirdlinesupport.jordan@bank-abc.com</user>
+            <user>njoud.cc.jordan@bank-abc.com</user>
+            <user>njoud.compliance.jordan@bank-abc.com</user>
+            <user>njoud.hr.jordan@bank-abc.com</user>
+            <user>njoud.ilarisk.jordan@bank-abc.com</user>
+            <user>njoud.operations.jordan@bank-abc.com</user>
+            <user>njoud.rmt.jordan@bank-abc.com</user>
+            <user>praveen.cc.jordan@bank-abc.com</user>
+            <user>praveen.compliance.jordan@bank-abc.com</user>
+            <user>praveen.ilarisk.jordan@bank-abc.com</user>
+            <user>praveen.operations.jordan@bank-abc.com</user>
+            <user>praveen.rmt.jordan@bank-abc.com</user>
+            <user>praveenkumark.jordan.business@maveric-systems.com</user>
+            <user>rmtjo@bank-abc.com</user>
+            <user>santhoshiniv.ilarisk.jordan@bank-abc.com</user>
+            <user>santhoshiniv.operations.jordan@bank-abc.com</user>
+            <user>santhoshiniv.tmu.jordan@bank-abc.com</user>
+            <user>sibivk.cc.jordan@bank-abc.com</user>
+            <user>sibivk.compliance.jordan@bank-abc.com</user>
+            <user>sibivk.ilarisk.jordan@bank-abc.com</user>
+            <user>sibivk.operations.jordan@bank-abc.com</user>
+            <user>sibivk.rmt.jordan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

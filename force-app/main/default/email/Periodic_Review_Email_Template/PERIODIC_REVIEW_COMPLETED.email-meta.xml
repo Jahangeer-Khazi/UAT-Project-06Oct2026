@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When customer periodic review case has been closed and no products have been blocked.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PERIODIC_REVIEW_COMPLETED</name>
+    <style>none</style>
+    <subject>Periodic Review Completed</subject>
+    <textOnly>Periodic Review Completed
+
+Dear {!Contact.FirstName} {!Contact.LastName},
+
+This is to confirm that we have completed the periodic review of your account and have updated your status.
+
+Your accounts, debit and credit cards are now active.
+
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on  +973 17123456 or you can send us an email to support@ilabank.com
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

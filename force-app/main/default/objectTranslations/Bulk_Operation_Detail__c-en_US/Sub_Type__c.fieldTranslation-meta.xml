@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sub Type --></label>
+    <name>Sub_Type__c</name>
+    <picklistValues>
+        <masterLabel>Block for both</masterLabel>
+        <translation><!-- Block for both --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block for credit</masterLabel>
+        <translation><!-- Block for credit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block for debit</masterLabel>
+        <translation><!-- Block for debit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock for both</masterLabel>
+        <translation><!-- Unblock for both --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock for credit</masterLabel>
+        <translation><!-- Unblock for credit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock for debit</masterLabel>
+        <translation><!-- Unblock for debit --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

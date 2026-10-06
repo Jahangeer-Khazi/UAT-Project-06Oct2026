@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Email-to-case</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.ContactEmail</field>
+                <operation>equals</operation>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>Contact Centre</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>donotreply@ilabank.com</senderEmail>
+            <senderName>ila Bank</senderName>
+            <template>unfiled$public/Service_Request_Acknowledgement_Global_HTML</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.ContactEmail</field>
+                <operation>equals</operation>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>Jordan Contact Centre</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>donotreply@ilajordan.com</senderEmail>
+            <senderName>ila Jordan</senderName>
+            <template>unfiled$public/Service_Request_Acknowledgement_Global_Jordan_HTML</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

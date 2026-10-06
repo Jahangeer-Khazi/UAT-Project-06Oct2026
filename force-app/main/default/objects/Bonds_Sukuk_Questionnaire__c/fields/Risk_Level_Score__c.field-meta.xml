@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Risk_Level_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Risk_Level__c,
+&quot;Very Risky&quot;, 1,
+&quot;Somewhat Risky&quot;, 2,
+&quot;Neutral&quot;, 3,
+&quot;Somewhat Safe&quot;, 4,
+&quot;Very Safe&quot;, 5,
+0
+)</formula>
+    <inlineHelpText>Very Risky (1), Somewhat Risky (2), Neutral (3), Somewhat Safe (4), Very Safe (5)</inlineHelpText>
+    <label>Risk Level Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

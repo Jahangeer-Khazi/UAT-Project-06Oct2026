@@ -1,0 +1,127 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="LTNG25_NewPrepaidCardController" >
+  
+    <aura:attribute name="prepaidCardRecordTypeId" type="String"/>
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="cardDesign" type="String" />
+    <aura:attribute name="cardType" type="String" />
+    <aura:attribute name="cardOption" type="Object" />
+    <aura:attribute name="showCardOption" type="Boolean" default="false" />
+    <aura:attribute name="relationshipVal" type="String" />
+    <aura:attribute name="prepaidFees" type="Object" />
+    <aura:attribute name="accountDetails" type="Object" />
+   
+    <aura:attribute name="showOtpMobile" type="Boolean" default="false"/>
+    <aura:attribute name="showOtpEmail" type="Boolean" default="false"/>
+    <aura:attribute name="showCardholderMobile" type="Boolean" default="false"/>
+    <aura:attribute name="showCardholderEmail" type="Boolean" default="false"/>
+    
+    <aura:attribute name="showTransactionFields" type="Boolean" default="true" />
+    
+    <aura:handler name="change" value="{!v.cardDesign}" action="{!c.cardDesignIsChanged}" />
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Prepaid Credit Card Request</h4>
+            </span>
+        </h2>
+    </header>
+    
+    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+  
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+
+    <lightning:card>
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!v.prepaidCardRecordTypeId}"
+                                  objectApiName="Case"
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+            <lightning:inputField fieldName="Subject" aura:id="subject"/>
+            <lightning:inputField fieldName="Description" aura:id="description"/>
+            <lightning:inputField fieldName="Type" value="Credit Card Prepaid Application" aura:id="type" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" value="New Prepaid Application" aura:id="subType" required="true"/>
+            <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+            <lightning:inputField fieldName="Reason" aura:id="reason" required="true"/>
+            <lightning:select aura:id="RequestedCardType" label="Requested Card Type" required="true" onchange="{!c.requestCardTypeChange}">
+                <option text="--None--" value="" />
+                <aura:if isTrue="{! v.cardOption != null }">
+                    <option text="{!v.cardOption.cardDisplayName}" value="{!v.cardOption.cardDisplayName}" />
+                </aura:if>
+            </lightning:select>
+            <lightning:inputField fieldName="sc_Relationship__c" aura:id="relationShip" required="true" value="{! v.relationshipVal }"/>
+            <lightning:inputField fieldName="ppc_CardDesign__c" aura:id="cardDesign" required="true" value="{! v.cardDesign }" />
+            <lightning:inputField fieldName="Card_Type__c" value="{!v.cardType }" aura:id="cardTypeInput" disabled="true" required="true" />
+            <aura:if isTrue="{! v.showCardOption }">
+                <lightning:inputField fieldName="ppc_Adult_Issuance_Fee__c" value="{!v.prepaidFees.adultIssuanceFee}" disabled="true" required="true" />
+                <lightning:inputField fieldName="ppc_Adult_Issuance_VAT__c" value="{!v.prepaidFees.adultIssuanceVat}" disabled="true" required="true" />
+                <lightning:inputField fieldName="ppc_Minor_Issuance_Fee__c" value="{!v.prepaidFees.minorIssuanceFee}" disabled="true" required="true" />
+                <lightning:inputField fieldName="ppc_Minor_Issuance_VAT__c" value="{!v.prepaidFees.minorIssuanceVat}" disabled="true" required="true" />
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="Card_Product_Configuration_Id__c" value="{!v.cardOption.cardProductConfigurationId}" disabled="true" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{! v.relationshipVal == 'Myself' }">
+                <lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="namOnCard" value="{!v.cardOption.defaultCardName}" required="true"/>
+                <aura:set attribute="else">
+                    <lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="namOnCard" required="true"/>
+                </aura:set>
+            </aura:if>
+          
+            <lightning:inputField fieldName="ppc_ParticipantName__c" aura:id="ppc_ParticipantName"/>
+            <aura:if isTrue="{! v.relationshipVal == 'Myself' }">
+                <aura:set attribute="else">
+                    <lightning:inputField fieldName="sc_Card_Holder_Date_of_Birth__c" aura:id="cardHolderDate"/>
+                    <lightning:inputField fieldName="sc_Card_Holder_ID_Number__c" aura:id="cardHolderIdNum" required="true"/>
+                    <lightning:inputField fieldName="sc_Card_Holder_ID_Expiry_Date__c" aura:id="cardHolderExpiryDate" required="true"/>
+                </aura:set>
+            </aura:if>
+          
+            <div class="slds-hide">
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+            </div>
+            <!-- OTP Notification picklist -->
+            <lightning:inputField fieldName="Send_OTP_Notifications_To__c" aura:id="sendOtpNotification" onchange="{!c.handleOtpNotificationChange}" required="true"/>
+          
+            <!-- Transaction Notification picklist -->
+            <lightning:inputField fieldName="Send_Transaction_Notifications_To__c" aura:id="sendTransactionNotification" onchange="{!c.handleTransactionNotificationChange}" required="true"/>
+           
+            <!-- Primary Mobile -->
+            <aura:if isTrue="{!v.showOtpMobile}">
+                <lightning:inputField fieldName="ppc_OTP_MobileNo__c" aura:id="cardHolderMobile" disabled="true"/>
+            </aura:if>
+            
+            <!-- Primary Email -->
+            <aura:if isTrue="{!v.showOtpEmail}">
+                <lightning:inputField fieldName="ppc_OTP_EmailAddress__c" aura:id="cardHolderEmail" disabled="true"/>
+            </aura:if>
+           
+            <!-- Card Holder Mobile -->
+            <aura:if isTrue="{!v.showCardholderMobile}">
+                <lightning:inputField fieldName="sc_Card_Holder_Mobile_No__c" aura:id="cardHolderMobileNo" onchange="{!c.validateCardHolderNotMatchingPrimary}" onblur="{!c.validateCardHolderNotMatchingPrimary}" onpaste="{!c.validateCardHolderNotMatchingPrimary}"/>
+            </aura:if>
+            
+            <!-- Card Holder Email -->
+            <aura:if isTrue="{!v.showCardholderEmail}">
+                <lightning:inputField fieldName="sc_Card_Holder_Email_Address__c" aura:id="cardHolderEmailAddress" onchange="{!c.validateCardHolderNotMatchingPrimary}" onblur="{!c.validateCardHolderNotMatchingPrimary}" onpaste="{!c.validateCardHolderNotMatchingPrimary}"/>
+            </aura:if>
+           
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+    </lightning:card>
+</aura:component>

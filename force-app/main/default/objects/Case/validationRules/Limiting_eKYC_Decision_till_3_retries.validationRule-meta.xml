@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Limiting_eKYC_Decision_till_3_retries</fullName>
+    <active>false</active>
+    <description>Validation to limit the selection of the &quot;eKYC Decision&quot; before all the 3 automatic retries</description>
+    <errorConditionFormula>TEXT(Type)=&apos;eKYC&apos; &amp;&amp;  eKYC_Retry_Counter__c&lt;4  &amp;&amp; ISCHANGED(eKYC_Decision__c) &amp;&amp; $User.LastName &lt;&gt; &quot;Integration&quot;</errorConditionFormula>
+    <errorMessage>&quot;eKYC Decision&quot; field will be aplicable for selection, once all the 3 attempt of automatic retries are completed.</errorMessage>
+</ValidationRule>

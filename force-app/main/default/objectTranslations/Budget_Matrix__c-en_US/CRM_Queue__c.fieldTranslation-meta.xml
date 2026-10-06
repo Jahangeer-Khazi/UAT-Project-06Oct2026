@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- CRM Queue --></label>
+    <name>CRM_Queue__c</name>
+    <picklistValues>
+        <masterLabel>CEO FAQ</masterLabel>
+        <translation><!-- CEO FAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head Of Contact Center FAQ</masterLabel>
+        <translation><!-- Head Of Contact Center FAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head of Business FAQ</masterLabel>
+        <translation><!-- Head of Business FAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Head of Propositions FAQ</masterLabel>
+        <translation><!-- Head of Propositions FAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Product Managers FAQ</masterLabel>
+        <translation><!-- Product Managers FAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Team Leaders FAQ</masterLabel>
+        <translation><!-- Team Leaders FAQ --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

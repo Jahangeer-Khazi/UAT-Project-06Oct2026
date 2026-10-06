@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sector Code (to be Updated) --></label>
+    <name>Temp_Sector_Code__c</name>
+    <picklistValues>
+        <masterLabel>AL</masterLabel>
+        <translation><!-- AL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AP</masterLabel>
+        <translation><!-- AP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BF</masterLabel>
+        <translation><!-- BF --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CO</masterLabel>
+        <translation><!-- CO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EI</masterLabel>
+        <translation><!-- EI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ET</masterLabel>
+        <translation><!-- ET --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FI</masterLabel>
+        <translation><!-- FI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GO</masterLabel>
+        <translation><!-- GO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HO</masterLabel>
+        <translation><!-- HO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HT</masterLabel>
+        <translation><!-- HT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IF</masterLabel>
+        <translation><!-- IF --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LC</masterLabel>
+        <translation><!-- LC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OT</masterLabel>
+        <translation><!-- OT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PC</masterLabel>
+        <translation><!-- PC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RE</masterLabel>
+        <translation><!-- RE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TC</masterLabel>
+        <translation><!-- TC --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

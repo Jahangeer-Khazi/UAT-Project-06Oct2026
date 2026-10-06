@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maker_Cannot_Upd_Checker_Res_Prof_Update</fullName>
+    <active>true</active>
+    <description>This validation will fire if Maker is updating the checker result for Profile Update Project</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Type , &quot;Personal Info Update&quot;),
+OR(
+ISPICKVAL(Sub_Type__c, &quot;Mobile update&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Email update&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Expired ID Update&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Name Fix / Update&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Address update&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Additional Information&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Guardian Info&quot;)
+),
+ISCHANGED(cc_Checker_Result__c),
+NOT(ISPICKVAL(cc_Checker_Result__c, &quot;&quot;)),
+(Address_Updated_By__c = $User.Id),
+($User.LastName &lt;&gt; &quot;Integration&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Checker_Result__c</errorDisplayField>
+    <errorMessage>Maker cannot able to select Checker Result.</errorMessage>
+</ValidationRule>

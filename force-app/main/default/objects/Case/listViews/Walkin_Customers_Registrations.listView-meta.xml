@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Walkin_Customers_Registrations</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>VVIP__c</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>Sub_Type__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Case_Nature__c</columns>
+    <columns>CASES.ORIGIN</columns>
+    <columns>CASES.RECORDTYPE</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>Token_Counter__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RecordType_DeveloperName__c</field>
+        <operation>contains</operation>
+        <value>Walkin</value>
+    </filters>
+    <label>Walkin Customers Registrations</label>
+</ListView>

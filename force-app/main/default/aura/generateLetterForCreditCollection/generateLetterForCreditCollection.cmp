@@ -1,0 +1,32 @@
+<aura:component controller="CreditCollectionLettersController" implements="force:hasRecordId,flexipage:availableForRecordHome">
+	<aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="isDownloadSubmited" type="Boolean" access="private" default="false" />
+    <aura:attribute name="isEmailSubmited" type="Boolean" access="private" default="false" />
+
+    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand"
+                    size="large" class="slds-hide" />
+                    
+    <force:recordData aura:id="recordLoader"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    fields="Id,Delivery_Preference__c,cc_Checker_Result__c,Case_Nature__c,Sub_Type__c,Status"
+    targetFields="{!v.caseRecord}"
+    targetError="{!v.recordLoadError}"
+    />
+     <lightning:messages/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}" />-->
+    <div class="slds-p-bottom_large"> 
+        <aura:if isTrue="{!and(or(v.caseRecord.cc_Checker_Result__c=='Download Letter',v.caseRecord.Case_Nature__c=='FCR'),and(v.caseRecord.Delivery_Preference__c!='Email',v.caseRecord.Status!='Closed') )}">
+           <lightning:button class="slds-float_right" label="Download letter" 
+                    onclick="{!c.handleClick}" disabled="{!v.isDownloadSubmited}" />
+        </aura:if>
+        
+       <aura:if isTrue="{!and(OR(v.caseRecord.cc_Checker_Result__c=='Send Email',v.caseRecord.Case_Nature__c=='FCR'),and(v.caseRecord.Delivery_Preference__c=='Email',v.caseRecord.Status!='Closed') )}">
+         <lightning:button class="slds-float_right" label="Send Email" 
+                    onclick="{!c.handleSendEmail}" disabled="{!v.isEmailSubmited}"/>
+        </aura:if>
+            
+       
+    </div>
+</aura:component>

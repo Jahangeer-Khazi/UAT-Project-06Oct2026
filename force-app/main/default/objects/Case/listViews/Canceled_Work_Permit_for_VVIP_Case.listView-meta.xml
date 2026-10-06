@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canceled_Work_Permit_for_VVIP_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Canceled Work Permit for VVIP</label>
+    <queue>Canceled_Work_Permit_for_VVIP</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

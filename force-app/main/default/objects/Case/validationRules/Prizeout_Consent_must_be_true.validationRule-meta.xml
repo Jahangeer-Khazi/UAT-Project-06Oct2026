@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prizeout_Consent_must_be_true</fullName>
+    <active>true</active>
+    <description>When Revoke Consent is selected as Sub-Type, If Prizeout Consent field is set to false in Customer Profile then show error message</description>
+    <errorConditionFormula>AND(Account.PersonContact.Prizeout_Consent__c  = false ,  TEXT(Sub_Type__c )=&apos;Revoke Consent&apos; , RecordType_DeveloperName__c =&apos;Prizeout&apos;,TEXT(Type)=&apos;Prizeout&apos;)</errorConditionFormula>
+    <errorMessage>Prizeout Consent is set to false in Customer Profile</errorMessage>
+</ValidationRule>

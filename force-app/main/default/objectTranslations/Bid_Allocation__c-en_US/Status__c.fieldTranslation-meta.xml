@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Closed</masterLabel>
+        <translation><!-- Closed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Bid Allocation Announcement</masterLabel>
+        <translation><!-- Pending Bid Allocation Announcement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Bid Allocation Distribution</masterLabel>
+        <translation><!-- Pending Bid Allocation Distribution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending CBB Report</masterLabel>
+        <translation><!-- Pending CBB Report --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

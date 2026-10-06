@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>
+        <!-- Results of the Name Screening in Siron:
+No Match – no action required
+Potential Match – account cannot be opened until alert is managed. -->
+    </help>
+    <label><!-- Name Screening Result --></label>
+    <name>Name_Screening_Result__c</name>
+    <picklistValues>
+        <masterLabel>No Match</masterLabel>
+        <translation><!-- No Match --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Potential Match - PEP</masterLabel>
+        <translation><!-- Potential Match - PEP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Potential Match - Watchlist</masterLabel>
+        <translation><!-- Potential Match - Watchlist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Potential Match-Both</masterLabel>
+        <translation><!-- Potential Match-Both --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>True Match-PEP</masterLabel>
+        <translation><!-- True Match-PEP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>True Match-WatchList</masterLabel>
+        <translation><!-- True Match-WatchList --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

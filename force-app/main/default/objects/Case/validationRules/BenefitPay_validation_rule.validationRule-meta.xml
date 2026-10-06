@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BenefitPay_validation_rule</fullName>
+    <active>false</active>
+    <description>checker of the case cannot update maker section for BenefitPay case</description>
+    <errorConditionFormula>((OwnerId =  $Label.Service_Centre_Queue &amp;&amp; 
+TEXT(Type) = &apos;Personal Info Update&apos; &amp;&amp; 
+TEXT(Sub_Type__c) = &apos;Guardian Info&apos;) ||(OwnerId =  $Label.Customer_Status_Update_Checker&amp;&amp; 
+TEXT(Type) = &apos;Customer Status Update&apos;)) &amp;&amp;
+(ISCHANGED( cc_Maker__c ) ||  
+ISCHANGED( cc_Maker_Comments__c )||
+ISCHANGED( Minor_flag__c ) ||
+ISCHANGED(Guardian_CIF__c)) &amp;&amp; NOT(ISBLANK(TEXT(cc_Maker__c)))</errorConditionFormula>
+    <errorMessage>Checker of the case cannot update Maker section</errorMessage>
+</ValidationRule>

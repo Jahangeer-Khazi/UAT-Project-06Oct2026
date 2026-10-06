@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Overdue Handling --></label>
+    <name>Overdue_Handling__c</name>
+    <picklistValues>
+        <masterLabel>Level 1 - App (Nudges)</masterLabel>
+        <translation><!-- Level 1 - App (Nudges) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Level 2 - App (Nudges) &amp; Notifications</masterLabel>
+        <translation><!-- Level 2 - App (Nudges) &amp; Notifications --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Level 3 - App (Nudges &amp; Splash), Notifications &amp; Restrictions</masterLabel>
+        <translation><!-- Level 3 - App (Nudges &amp; Splash), Notifications &amp; Restrictions --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

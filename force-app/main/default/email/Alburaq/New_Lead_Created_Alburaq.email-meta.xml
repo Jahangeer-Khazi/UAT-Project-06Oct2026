@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>New Lead Created Alburaq</name>
+    <style>none</style>
+    <subject>New Lead has been created</subject>
+    <textOnly>A new Lead has been created and assigned to you.
+
+Hi {!Lead.Owner},
+
+Please be advised that a new Lead has been created and assigned to you for your action.
+
+Lead Name: {!Lead.Name}
+
+Open Lead</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

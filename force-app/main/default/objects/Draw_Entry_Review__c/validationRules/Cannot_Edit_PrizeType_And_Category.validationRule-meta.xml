@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Edit_PrizeType_And_Category</fullName>
+    <active>true</active>
+    <description>Users with the ila Marketing Platform profile cannot edit Prize Type or Category after record creation.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Category__c) || ISCHANGED(Prize_Type__c),  
+    NOT(ISNEW()),
+    $Profile.Name = &apos;ila Marketing - Platform&apos;
+)</errorConditionFormula>
+    <errorMessage>Users with the ila Marketing Platform profile cannot edit Prize Type or Category after record creation.</errorMessage>
+</ValidationRule>

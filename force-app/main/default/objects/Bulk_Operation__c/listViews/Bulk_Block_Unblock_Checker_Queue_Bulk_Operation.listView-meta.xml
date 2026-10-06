@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bulk_Block_Unblock_Checker_Queue_Bulk_Operation</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Bulk Block/Unblock Checker Queue</label>
+    <queue>Bulk_Block_Unblock_Checker_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

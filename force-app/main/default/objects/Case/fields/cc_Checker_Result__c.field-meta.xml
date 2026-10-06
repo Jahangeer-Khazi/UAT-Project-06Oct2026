@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Checker_Result__c</fullName>
+    <description>to be updated by checker in credit card Service request</description>
+    <label>Checker Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accept</fullName>
+                <default>false</default>
+                <label>Accept</label>
+            </value>
+            <value>
+                <fullName>Approve</fullName>
+                <default>false</default>
+                <label>Approve</label>
+            </value>
+            <value>
+                <fullName>Block account</fullName>
+                <default>false</default>
+                <label>Block account</label>
+            </value>
+            <value>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+                <label>Cancel</label>
+            </value>
+            <value>
+                <fullName>Cancelled By Customer</fullName>
+                <default>false</default>
+                <label>Cancelled By Customer</label>
+            </value>
+            <value>
+                <fullName>Closed Rejected</fullName>
+                <default>false</default>
+                <label>Closed Rejected</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Download Letter</fullName>
+                <default>false</default>
+                <label>Download Letter</label>
+            </value>
+            <value>
+                <fullName>Generate Consent Form</fullName>
+                <default>false</default>
+                <label>Generate Consent Form</label>
+            </value>
+            <value>
+                <fullName>Proceed with Closing</fullName>
+                <default>false</default>
+                <label>Proceed with Closing</label>
+            </value>
+            <value>
+                <fullName>Process Sell</fullName>
+                <default>false</default>
+                <label>Process Sell</label>
+            </value>
+            <value>
+                <fullName>Reject</fullName>
+                <default>false</default>
+                <label>Reject</label>
+            </value>
+            <value>
+                <fullName>Release Hold</fullName>
+                <default>false</default>
+                <label>Release Hold</label>
+            </value>
+            <value>
+                <fullName>Request to Pay Outstanding Balance</fullName>
+                <default>false</default>
+                <label>Request to Pay Outstanding Balance</label>
+            </value>
+            <value>
+                <fullName>Returned</fullName>
+                <default>false</default>
+                <label>Returned</label>
+            </value>
+            <value>
+                <fullName>Return to Investment Questionnaire Maker</fullName>
+                <default>false</default>
+                <label>Return to Investment Questionnaire Maker</label>
+            </value>
+            <value>
+                <fullName>Return to Maker</fullName>
+                <default>false</default>
+                <label>Return to Maker</label>
+            </value>
+            <value>
+                <fullName>Return to Prospect Archive Maker</fullName>
+                <default>false</default>
+                <label>Return to Prospect Archive Maker</label>
+            </value>
+            <value>
+                <fullName>Send Email</fullName>
+                <default>false</default>
+                <label>Send Email</label>
+            </value>
+            <value>
+                <fullName>Send To Ops</fullName>
+                <default>false</default>
+                <label>Send To Ops</label>
+            </value>
+            <value>
+                <fullName>Send to RMT</fullName>
+                <default>false</default>
+                <label>Send to RMT</label>
+            </value>
+            <value>
+                <fullName>True Hit</fullName>
+                <default>false</default>
+                <label>True Hit</label>
+            </value>
+            <value>
+                <fullName>Unblock Account</fullName>
+                <default>false</default>
+                <label>Unblock Account</label>
+            </value>
+            <value>
+                <fullName>Wrong Declaration</fullName>
+                <default>false</default>
+                <label>Wrong Declaration</label>
+            </value>
+            <value>
+                <fullName>Cancel Balance Transfer Plan</fullName>
+                <default>false</default>
+                <label>Cancel Balance Transfer Plan</label>
+            </value>
+            <value>
+                <fullName>Balance Transfer Plan Cancelled (Manually)</fullName>
+                <default>false</default>
+                <label>Balance Transfer Plan Cancelled (Manually)</label>
+            </value>
+            <value>
+                <fullName>Place Hold</fullName>
+                <default>false</default>
+                <label>Place Hold</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Profile Update</controllingFieldValue>
+            <controllingFieldValue>App Login</controllingFieldValue>
+            <controllingFieldValue>Update Preferential FD Rate Flag</controllingFieldValue>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>CRS</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Cards</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer - Fawri</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>New Investment Questionnaire Review</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <valueName>Approve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Profile Update</controllingFieldValue>
+            <controllingFieldValue>Update Preferential FD Rate Flag</controllingFieldValue>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <valueName>Cancelled By Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Profile Update</controllingFieldValue>
+            <controllingFieldValue>Update Preferential FD Rate Flag</controllingFieldValue>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Sukuk/bonds/Government security</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>General Inquiries</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Cancel Balance Transfer Plan</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Place Hold</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Sell Request</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Profile Update</controllingFieldValue>
+            <controllingFieldValue>App Login</controllingFieldValue>
+            <controllingFieldValue>Update Preferential FD Rate Flag</controllingFieldValue>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Sukuk/bonds/Government security</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Cards</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Update Business Light Flag</controllingFieldValue>
+            <controllingFieldValue>Update ABCI Flag</controllingFieldValue>
+            <controllingFieldValue>Update Delinquency Reason</controllingFieldValue>
+            <controllingFieldValue>Cancel Balance Transfer Plan</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer - Fawri</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>New Investment Questionnaire Review</controllingFieldValue>
+            <controllingFieldValue>Place Hold</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Sell Request</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <valueName>Return to Maker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>App Login</controllingFieldValue>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Cards</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Update Business Light Flag</controllingFieldValue>
+            <controllingFieldValue>Update ABCI Flag</controllingFieldValue>
+            <controllingFieldValue>Update Delinquency Reason</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer - Fawri</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>New Investment Questionnaire Review</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <valueName>Reject</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Sukuk/bonds/Government security</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>General Inquiries</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Update Business Light Flag</controllingFieldValue>
+            <controllingFieldValue>Update ABCI Flag</controllingFieldValue>
+            <controllingFieldValue>Update Delinquency Reason</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Sell Request</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <valueName>Accept</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <valueName>Return to Prospect Archive Maker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <valueName>Block account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <valueName>Send To Ops</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <valueName>Send to RMT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <valueName>Unblock Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Proceed with Closing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Request to Pay Outstanding Balance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <valueName>Cancel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <valueName>Generate Consent Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <valueName>Send Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <valueName>Closed Rejected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <valueName>True Hit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <valueName>Wrong Declaration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <valueName>Returned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <valueName>Download Letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <valueName>Release Hold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel Balance Transfer Plan</controllingFieldValue>
+            <valueName>Cancel Balance Transfer Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel Balance Transfer Plan</controllingFieldValue>
+            <valueName>Balance Transfer Plan Cancelled (Manually)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Place Hold</controllingFieldValue>
+            <valueName>Place Hold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <valueName>Return to Investment Questionnaire Maker</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

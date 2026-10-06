@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investment_Sell_Request_Maker_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Investment Sell Request Maker</label>
+    <queue>Investment_Sell_Request_Maker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

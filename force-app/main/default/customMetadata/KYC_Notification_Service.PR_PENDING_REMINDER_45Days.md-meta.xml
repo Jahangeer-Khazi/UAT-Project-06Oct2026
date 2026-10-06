@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>PR_PENDING_REMINDER_45Days</label>
+    <protected>false</protected>
+    <values>
+        <field>CRM_Stage__c</field>
+        <value xsi:type="xsd:string">PR_PENDING_IDV;PR_PENDING_FORM;PR_PENDING_TAX;PR_PENDING_UPLOAD;PR_IN_PROGRESS</value>
+    </values>
+    <values>
+        <field>Email_Notification__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Email_Template_Code__c</field>
+        <value xsi:type="xsd:string">PR_PENDING_REMINDER_EMAIL</value>
+    </values>
+    <values>
+        <field>Notification_Days__c</field>
+        <value xsi:type="xsd:string">45</value>
+    </values>
+    <values>
+        <field>Overdue_Handling__c</field>
+        <value xsi:type="xsd:string">Level 2 - App (Nudges) &amp; Notifications</value>
+    </values>
+    <values>
+        <field>Overdue_Stage__c</field>
+        <value xsi:type="xsd:string">Stage 1 – No Restrictions</value>
+    </values>
+    <values>
+        <field>PushNotification__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Push_Template_Code__c</field>
+        <value xsi:type="xsd:string">PR_PENDING_REMINDER_PUSH</value>
+    </values>
+    <values>
+        <field>SMS_Notification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>SMS_Template_Code__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

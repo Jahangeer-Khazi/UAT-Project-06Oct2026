@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Monthly Salary --></label>
+    <name>Monthly_Salary__c</name>
+    <picklistValues>
+        <masterLabel>Above 10,000</masterLabel>
+        <translation><!-- Above 10,000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 0 - BHD 499</masterLabel>
+        <translation><!-- BHD 0 - BHD 499 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 1,000 - BHD 1,999</masterLabel>
+        <translation><!-- BHD 1,000 - BHD 1,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 2,000 - BHD 2,999</masterLabel>
+        <translation><!-- BHD 2,000 - BHD 2,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 3,000 - BHD 4,999</masterLabel>
+        <translation><!-- BHD 3,000 - BHD 4,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 5,000 - BHD 6,999</masterLabel>
+        <translation><!-- BHD 5,000 - BHD 6,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 500 - BHD 999</masterLabel>
+        <translation><!-- BHD 500 - BHD 999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BHD 7,000 - BHD 9,999</masterLabel>
+        <translation><!-- BHD 7,000 - BHD 9,999 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

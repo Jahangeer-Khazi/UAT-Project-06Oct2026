@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="SavingPot Event Template">
+	<aura:attribute name="earnInterest" type="String"/>
+    <aura:attribute name="goalAmount" type="String"/>
+    <aura:attribute name="monthlyDepositAmount" type="String"/>
+</aura:event>

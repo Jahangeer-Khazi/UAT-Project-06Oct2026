@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Ratings --></label>
+    <name>Ratings__c</name>
+    <picklistValues>
+        <masterLabel>Helpful</masterLabel>
+        <translation><!-- Helpful --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neutral</masterLabel>
+        <translation><!-- Neutral --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Helpful</masterLabel>
+        <translation><!-- Not Helpful --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Slightly Helpful</masterLabel>
+        <translation><!-- Slightly Helpful --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Very Helpful</masterLabel>
+        <translation><!-- Very Helpful --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When customer has an open periodic review case and additional documents are required to close the case.  Periodic review case status is going to be “Overdue Stage 3”.  Inform customer that following products are going to blocked →   All Credit Cards.  All Accounts (Incoming/Outgoing) Transactions.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PERIODIC_REVIEW_OVERDUE_STAGE_3_3</name>
+    <style>none</style>
+    <subject>Periodic Review Long Overdue</subject>
+    <textOnly>Periodic Review Long Overdue
+
+Dear {!Contact.FirstName} {!Contact.LastName},
+
+Thank you for being part of the ila family,
+
+The periodic review of your account is now long overdue.
+
+As we informed you on {!Case.Periodic_Review_Sent_Date__c}, your ila debit card is now blocked for cash withdrawals and purchases because documentation required to complete the review of your account have not been submitted yet. Since we do not have your consent or have received the required documents from you, we will have to block access to all your ila accounts, debit and credit cards effective {!Case.Periodic_Review_Date_On_Email_Template__c}. You will not be able to fund your account or make payments from your account.
+
+You can continue using our services as soon as we complete the review based on your consent or the documents submitted by you.
+
+IMPORTANT: We can update your information using the services offered by the Benefit Company	 if you give your consent to us to access your information with iGA. You can use our app to provide your consent.
+
+You can instead visit our Service Center at Diplomatic Area during office hours to submit the following documents so that we can update your profile.
+
+{!IF(Case.pr_WathiqConsentAcceptanceRequired__c= true, &quot;Bahraini CPR Copy
+&quot;, null)} {!IF(Case.pr_WathiqConsentFormRequired__c= true, &quot;Bahraini CPR Copy
+&quot;, null)} {!IF(Case.pr_PassportPhotoRequired__c  = true, &quot;Passport Copy Required
+&quot;, null)} {!IF(Case.pr_ResidencyPermitPhotoRequired__c  = true, &quot;Residency Permit (RP) Copy Required
+&quot;, null)} {!IF(Case.pr_OtherDocumentsRequired__c = true, Case.Other_Documents_Required_Description__c, null)}
+
+Please arrange to provide your consent as soon as possible to continue using our services without any disruptions.
+
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456 or you can send us an email to support@ilabank.com
+
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

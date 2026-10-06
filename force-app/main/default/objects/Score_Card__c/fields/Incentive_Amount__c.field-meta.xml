@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incentive_Amount__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Scored__c &gt;=Score_Card_Metrics__r.target_level_3__c,Score_Card_Metrics__r.Bonus_Level_3__c+Score_Card_Metrics__r.Bonus_Level_2__c+Score_Card_Metrics__r.Bonus_Level_1__c+(Score_Card_Metrics__r.Incentive_Level_1__c * Score_Card_Metrics__r.target_level_1__c)+(( Score_Card_Metrics__r.target_level_2__c - Score_Card_Metrics__r.target_level_1__c )* Score_Card_Metrics__r.Incentive_Level_2__c)
++(( Scored__c - (Score_Card_Metrics__r.target_level_2__c + Score_Card_Metrics__r.target_level_1__c ))* Score_Card_Metrics__r.Incentive_Level_3__c )+ Supplementary_Inc__c ,
+IF(Scored__c &gt;= Score_Card_Metrics__r.target_level_2__c,Score_Card_Metrics__r.Bonus_Level_2__c +Score_Card_Metrics__r.Bonus_Level_1__c+(Score_Card_Metrics__r.Incentive_Level_1__c * Score_Card_Metrics__r.target_level_1__c)
++(( Score_Card_Metrics__r.target_level_2__c - Score_Card_Metrics__r.target_level_1__c )* Score_Card_Metrics__r.Incentive_Level_2__c)+ Supplementary_Inc__c +
+((Scored__c - Score_Card_Metrics__r.target_level_2__c)* Score_Card_Metrics__r.Incentive_Level_3__c),
+IF(Scored__c &gt;=  Score_Card_Metrics__r.target_level_1__c,(Score_Card_Metrics__r.Incentive_Level_1__c * Score_Card_Metrics__r.target_level_1__c)+ Supplementary_Inc__c +
+ ((Scored__c - Score_Card_Metrics__r.target_level_1__c)* Score_Card_Metrics__r.Incentive_Level_2__c) ,0)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Incentive Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

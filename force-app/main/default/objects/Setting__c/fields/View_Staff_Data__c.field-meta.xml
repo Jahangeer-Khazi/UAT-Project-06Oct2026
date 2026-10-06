@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Staff_Data__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allows a user to view staff customer profile data and bank details</description>
+    <inlineHelpText>Allows a user to view staff customer profile data and bank details</inlineHelpText>
+    <label>View Staff Data</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WPS_Payroll_Compact_Layout</fullName>
+    <fields>Subject__c</fields>
+    <fields>Name</fields>
+    <fields>Status__c</fields>
+    <fields>Sub_Status__c</fields>
+    <fields>Type__c</fields>
+    <fields>OwnerId</fields>
+    <fields>Last_Api_Call__c</fields>
+    <label>WPS Payroll Compact Layout</label>
+</CompactLayout>

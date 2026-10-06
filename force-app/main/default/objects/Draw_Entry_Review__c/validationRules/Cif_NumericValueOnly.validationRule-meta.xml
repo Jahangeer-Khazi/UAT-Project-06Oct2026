@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cif_NumericValueOnly</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISNUMBER(CIF__c)</errorConditionFormula>
+    <errorDisplayField>CIF__c</errorDisplayField>
+    <errorMessage>CIF only accepts numeric values</errorMessage>
+</ValidationRule>

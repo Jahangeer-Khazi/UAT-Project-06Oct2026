@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>csu_Customer_status_update_to_close</fullName>
+    <active>true</active>
+    <description>the customer status update case should not be updated to close</description>
+    <errorConditionFormula>AND(TEXT(Type)=&apos;Customer Status Update&apos;, 
+	 TEXT(CustomerStatusUpdate__c)=&apos;Closed&apos;)</errorConditionFormula>
+    <errorDisplayField>CustomerStatusUpdate__c</errorDisplayField>
+    <errorMessage>To update customer’s status to “Closed“, team should use the Relationship Termination Case</errorMessage>
+</ValidationRule>

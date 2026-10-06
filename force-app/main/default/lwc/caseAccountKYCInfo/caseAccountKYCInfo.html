@@ -1,0 +1,27 @@
+<template>
+    <lightning-card>
+        <lightning-accordion allow-multiple-sections-open active-section-name="customerProfile" >
+            <lightning-accordion-section name="customerProfile" label="To be provided by eKYC iGA (Read Only)">
+                <template if:true={accountId}>
+                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                        <div class="slds-grid slds-wrap" style="width: 100%;">
+                            <div class="slds-col slds-size_1-of-2" style="width: 49%;">
+                                <lightning-output-field class="lightning-output-field" field-name="iGA_Employer_Name__pc"></lightning-output-field>
+                                <lightning-output-field class="lightning-output-field" field-name="iGA_Employment_Status__pc"></lightning-output-field>
+                                <lightning-output-field class="lightning-output-field" field-name="iGA_Occupation__pc"></lightning-output-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2" style="width: 49%; margin-left: 2%;">
+                                <lightning-output-field class="lightning-output-field" field-name="iGA_Place_of_Birth__pc"></lightning-output-field>
+                                <lightning-output-field class="lightning-output-field" field-name="iGA_Passport_Number__pc"></lightning-output-field>
+                                <lightning-output-field class="lightning-output-field" field-name="iGA_Passport_Expiry_Date__pc"></lightning-output-field>
+                            </div>
+                        </div>
+                    </lightning-record-view-form>
+                </template>
+                <template if:false={accountId}>
+                    <p class="slds-p-around_medium">No related Account found.</p>
+                </template>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </lightning-card>
+</template>

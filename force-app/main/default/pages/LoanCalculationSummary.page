@@ -1,0 +1,215 @@
+<apex:page standardController="Case" renderAs="PDF" applyBodyTag="false" contentType="html" showHeader="false" extensions="LoanCalculationSummaryController">
+    <head>
+        <style>
+               @page {
+                    size: A4 landscape;
+                    margin-top: 1cm;
+                    margin-bottom: 2cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                    font-family: 'Helvatica';
+                    @top-center {
+                        content: element(headerTitle);
+                    }
+                    div.headerTitle {
+                        position: running(headerTitle);
+                    } @bottom-left {
+                                content: element(footer);
+                            }
+                }
+                div.footer {
+                            display: block;
+                            position: running(footer);
+                        }
+        
+                td, th {
+                    border: 1px solid;
+                    text-align: center;
+                }
+        
+                table {
+                    border-collapse: collapse;
+                }
+        
+                .Draw_Page_Break {
+                    page-break-after: always;
+                }
+                ul.list { list-style-type:circle;font-size:12px; padding-left:5px; }
+              *{font-family:  Helvetica, sans-serif;}
+        </style>
+    </head>
+    
+    <body>
+        <div class="headerTitle">
+            <div style="text-align:right;">
+                <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" />
+            </div>
+            <div style="margin-top:-48px;">
+            	<div style="margin-bottom:-25px;font-size:12px;">
+                    <b> <h1>ila Loan/Finance Calculation Summary</h1> </b>
+	                <br />
+    	        </div>
+            </div>
+            <hr />
+            <div>
+                <h4><u>Customer Information: </u></h4>
+                <div style="font-size:12px; margin-top:-10px;width:100%;overflow:hidden;height:auto; ">
+                    <div style="width:34%;float:left;line-height:20px;">
+                        <span> Customer Name:  </span>  <apex:outputField value="{!Case.Contact_Name__c}"/><br/>
+                        <span> ID/CPR Number:  </span> <apex:outputField value="{!Case.cc_ID_Number__c}"/><br/>
+                    </div>
+                    <div style="width:28%;float:left;line-height:20px;">
+                        <span>CIF:</span> <apex:outputField value="{!Case.Customer_CIF__c}"/><br/>
+                        <span>Mobile Number:</span> <apex:outputField value="{!Case.cc_Mobile_Number__c}"/><br/>
+                    </div>
+                    <div style="width:38%;float:left;line-height:20px;">
+                        <span>Application Date:</span> <apex:outputField value="{!Case.CreatedDate}"/><br/>
+                        <span>Email:</span> <apex:outputField value="{!Case.cc_Email_Address__c}"/>
+                    </div> 
+                </div>
+            </div>
+            <hr />
+            <div>
+                <h4><u>Case Details: </u></h4>
+                <div style="margin-top:-10px">
+                    <div style="font-size:12px;width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                        <div style="width:50%;float:left;">
+                            <span> Case Reference:  </span> <apex:outputField value="{!Case.CaseNumber}"/><br/>
+                        </div>
+                        <div style="width:50%;float:left;">
+                            <span>Type:</span> <apex:outputField value="{!Case.Type}"/><br/>
+                        </div>
+                    </div>
+                    <div style="font-size:12px; width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                        <div style="width:50%;float:left;">
+                            <span> Requested Loan/Finance Type:  </span> <!--<apex:outputField value="{!Case.cc_Approved_Requested_Card_Type__c}"/>-->
+                        </div>
+                        <div style="width:50%;float:left;">
+                            <span> Requested Loan/Finance Amount:  </span> <!--<apex:outputField value="{!Case.cc_Approved_Requested_Card_Type__c}"/>-->
+                        </div>
+                    </div>
+                    <div style="font-size:12px; width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                        <div style="width:50%;float:left;">
+                            <span> Unit:  </span> <apex:outputField value="{!Case.Case_Model__c}"/>
+                        </div>
+                        <div style="width:50%;float:left;">
+                            <span>Business Nature:</span> <!--<apex:outputField value="{!Case.Sub_Type__c}"/>-->
+                        </div>
+                    </div>
+            	</div>
+            </div>
+            <hr />
+        </div>
+        
+        <apex:outputPanel rendered="{!Case.AIR_HaveCreditCard__c && caseAnnexObj.cx_ln_Product__c == 'Unsecured' }">
+        	<c:UnsecuredCrossSellLoanComponent caseRecord="{!Case}" caseAnnexRecord="{!caseAnnexObj}"/>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!!Case.AIR_HaveCreditCard__c && caseAnnexObj.cx_ln_Product__c == 'Unsecured' }">
+        	<c:UnsecuredLoanComponent caseRecord="{!Case}" caseAnnexRecord="{!caseAnnexObj}"/>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!Case.AIR_HaveCreditCard__c && caseAnnexObj.cx_ln_Product__c == 'Secured' }">
+        	<c:SecuredCrossSellLoanComponent caseRecord="{!Case}" caseAnnexRecord="{!caseAnnexObj}"/>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!!Case.AIR_HaveCreditCard__c && caseAnnexObj.cx_ln_Product__c == 'Secured' }">
+        	<c:SecuredNewLoanComponent caseRecord="{!Case}" caseAnnexRecord="{!caseAnnexObj}"/>
+        </apex:outputPanel>
+        
+        <div style="page-break-before:always">
+            <h4 style="border:1px solid #eee"><u>Case Contents</u></h4>
+            <apex:outputPanel rendered="{!docList.size > 0}">
+            <table  width="100%" style="font-size:12px">
+                <thead>
+                	<tr>
+                        <td>No.</td>
+                        <td>Reference</td>
+                        <td>Document Type</td>
+                        <td>Created Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                	<apex:repeat value="{!docList}" var="doc">
+                    	<tr>
+                        	<td>{!doc.sno}</td>
+                            <td>
+                                <a href="{!doc.documentURL}" target="_blank">
+                                	{!doc.contentName}
+                                </a>
+                            </td>
+                            <td>{!doc.documentType}</td>
+                            <td>
+                                <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                	<apex:param value="{!doc.createdDate}" />
+                                </apex:outputText>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+                </apex:outputPanel>
+            <apex:outputPanel rendered="{!docList.size = 0}">
+                <div>
+                    There is no content available.
+                </div>
+            </apex:outputPanel>
+        </div>
+        
+        <div style="page-break-before:always">
+            <h4 style="border:1px solid #eee"><u>DocuSign Documents</u></h4>
+            <apex:outputPanel rendered="{!docuSignList.size > 0}">
+            <table width="100%" style="font-size:12px">
+                <thead>
+                	<tr>
+                        <td>No.</td>
+                        <td>Title</td>
+                        <td>Document Name</td>
+                        <td>Signer Name (CIF)</td>
+                        <td>Signed Date</td>
+                        <td>Status</td>
+                        <td>Last Modified Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                	<apex:repeat value="{!docuSignList}" var="doc">
+                    	<tr>
+                        	<td>{!doc.sno}</td>
+                            <td>
+                                <a href="{!doc.documentURL}" target="_blank">
+                                	{!doc.fileTitle}
+                                </a>
+                            </td>
+                            <td>{!doc.contentName}</td>
+                            <td>{!doc.signerName}</td>
+                            <td>
+                            	<apex:outputText value="{0,date,dd/MM/yyyy}">
+                                	<apex:param value="{!doc.createdDate}" />
+                                </apex:outputText>
+                            </td>
+                            <td>Completed</td>
+                            <td>
+                            	<apex:outputText value="{0,date,dd/MM/yyyy}">
+                                	<apex:param value="{!doc.lastModifiedDate}" />
+                                </apex:outputText>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+                </apex:outputPanel>
+            <apex:outputPanel rendered="{!docuSignList.size = 0}">
+                <div>
+                    There is no DocuSign Document available.
+                </div>
+            </apex:outputPanel>
+        </div>
+        
+        <div class="footer">
+            <div >
+                <hr/>
+                © ila Bank - Retail Credit Department 
+            </div>
+        </div>
+    </body>
+</apex:page>

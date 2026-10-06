@@ -1,0 +1,54 @@
+<aura:component 
+    implements="forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId"
+    access="global" controller="LTNG029_CalculationSummaryReport">
+	<aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:100%;
+        }
+        .slds-modal__container {
+        transform: none !important;
+        width : 80% !important;
+        max-width : 80% !important;
+        }
+    </aura:html>
+    
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+    	<div class="slds-modal__container">
+        	<!--Modal Header-->
+            <header class="slds-modal__header">
+            	<lightning:buttonIcon aura:id="exit" size="large" iconName="utility:close" variant="bare"
+                    onclick="{!c.close}" alternativeText="Close window."
+                    class="slds-modal__close slds-button_icon-inverse" />
+                
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                    <span>
+                        <h4 class="title slds-text-heading--medium">Generate Calculation Summary</h4>
+                    </span>
+                </h2>
+            </header>
+            
+            <!--Modal Body-->
+            <div class="slds-modal__content slds-p-around_medium slds-p-top_x-small" id="modal-content-id-1">
+                <iframe src="{!'/apex/LoanCalculationSummary?id='+v.recordId}" width="100%" height="100%"
+                    frameBorder="0" />
+            </div>
+            
+        	<!-- MODAL FOOTER -->
+            <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+                <div class="forceChangeRecordTypeFooter">
+                    <lightning:button aura:id="Footer-id" label="Cancel" class="slds-button slds-button_neutral"
+                        onclick="{!c.close}" />
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</aura:component>

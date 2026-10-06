@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ac_EligibleToClose__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is checked or not by the api response , it shows if the account is eligible to close or not</description>
+    <label>Eligible to Close</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

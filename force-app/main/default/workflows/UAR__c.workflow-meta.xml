@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>COMPLIANCE_CASE_MLRO_REMINDER1_UAR</fullName>
+        <description>COMPLIANCE_CASE_MLRO_REMINDER1_UAR</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jayanth.manickam@bank-abc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/COMPLIANCE_CASE_MLRO_REMINDER_1_UAR</template>
+    </alerts>
+    <alerts>
+        <fullName>COMPLIANCE_CASE_MLRO_REMINDER2_UAR</fullName>
+        <description>COMPLIANCE_CASE_MLRO_REMINDER2_UAR</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jayanth.manickam@bank-abc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/COMPLIANCE_UAR_MLRO_REMINDER_2</template>
+    </alerts>
+    <alerts>
+        <fullName>UAR_Approval_Assignment_1</fullName>
+        <description>UAR_Approval_Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>UAR/Unusual_Transaction_Reports</template>
+    </alerts>
+    <alerts>
+        <fullName>UAR_Approval_Assignment_Alburaq</fullName>
+        <description>UAR_Approval_Assignment Alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>UAR/Unusual_Transaction_Reports_Alburaq</template>
+    </alerts>
+    <alerts>
+        <fullName>UAR_Approval_Assignment_To_Checker</fullName>
+        <description>UAR_Approval_Assignment To Checker</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>UAR/Unusual_Transaction_Reports_To_Checker</template>
+    </alerts>
+    <alerts>
+        <fullName>UAR_Approval_Assignment_To_Checker_Alburaq</fullName>
+        <description>UAR_Approval_Assignment To Checker Alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>UAR/Unusual_Transaction_Reports_To_Checker_Alburaq</template>
+    </alerts>
+    <alerts>
+        <fullName>UAR_Approval_Assignment_To_Maker</fullName>
+        <description>UAR_Approval_Assignment To Maker</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>UAR/Unusual_Transaction_Reports_To_Maker</template>
+    </alerts>
+    <alerts>
+        <fullName>UAR_Approval_Assignment_To_Maker_Alburaq</fullName>
+        <description>UAR_Approval_Assignment To Maker Alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>UAR/Unusual_Transaction_Reports_To_Maker_Alburaq</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Assign_Back_to_Checker</fullName>
+        <field>Compliance_Result__c</field>
+        <literalValue>Return to Checker</literalValue>
+        <name>Assign Back to Checker</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_the_UAR</fullName>
+        <field>Status__c</field>
+        <literalValue>Closed</literalValue>
+        <name>Close the UAR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_the_UAR_1</fullName>
+        <field>Status__c</field>
+        <literalValue>Closed</literalValue>
+        <name>Close the UAR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_the_UAR_Sub_Status</fullName>
+        <field>Sub_Status__c</field>
+        <literalValue>Closed</literalValue>
+        <name>Close the UAR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reset_Escalation</fullName>
+        <field>Escalated__c</field>
+        <literalValue>0</literalValue>
+        <name>Reset Escalation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reset_First_Reminder</fullName>
+        <field>First_Reminder_Sent__c</field>
+        <literalValue>0</literalValue>
+        <name>Reset First Reminder</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reset_Second_Reminder</fullName>
+        <field>Second_Reminder_Sent__c</field>
+        <literalValue>0</literalValue>
+        <name>Reset Second Reminder</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Compliance_Result_to_Approved</fullName>
+        <field>Compliance_Result__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Update Compliance Result to Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Compliance_Result_to_Declined</fullName>
+        <field>Compliance_Result__c</field>
+        <literalValue>Decline</literalValue>
+        <name>Update Compliance Result to Declined</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Compliance_Result_to_In_Approval</fullName>
+        <field>Compliance_Result__c</field>
+        <literalValue>In Approval</literalValue>
+        <name>Update Compliance Result to In Approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

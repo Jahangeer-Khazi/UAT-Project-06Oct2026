@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relationship_Termination_Button_Checks__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used this filed for button check for relationship termination by back office team.</description>
+    <inlineHelpText>Jira Id NBA-4456: Relationship Termination</inlineHelpText>
+    <label>Relationship Termination Button Checks</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

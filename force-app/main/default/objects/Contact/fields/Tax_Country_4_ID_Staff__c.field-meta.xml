@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Country_4_ID_Staff__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(
+TEXT(Segment__c) &lt;&gt; &quot;Staff&quot;,
+AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c),
+AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c),
+				$User.Staff_Access__c
+),
+Tax_Country_4_ID__c,
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Tax Country 4 ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Status_Update__c</fullName>
+    <label>Employment Status Update</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Employed</fullName>
+                <default>false</default>
+                <label>Employed</label>
+            </value>
+            <value>
+                <fullName>Self Employed</fullName>
+                <default>false</default>
+                <label>Self Employed</label>
+            </value>
+            <value>
+                <fullName>Student</fullName>
+                <default>false</default>
+                <label>Student</label>
+            </value>
+            <value>
+                <fullName>Retired</fullName>
+                <default>false</default>
+                <label>Retired</label>
+            </value>
+            <value>
+                <fullName>Unemployed</fullName>
+                <default>false</default>
+                <label>Unemployed</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Business Owner</fullName>
+                <default>false</default>
+                <label>Business Owner</label>
+            </value>
+            <value>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+                <label>Housewife</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

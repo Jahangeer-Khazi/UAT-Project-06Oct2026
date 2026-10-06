@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Summary_Validation__c</fullName>
+    <description>Success: If total number of tickets is equivalent to total amount of eligible amount balances.
+Failed: If total number of tickets is not equivalent to total amount of eligible amount balances.</description>
+    <externalId>false</externalId>
+    <formula>IF(  Summary_Denomination__c = Draw_Denomination__c, &apos;Validation Success ✅&apos; , &apos;Validation Failed 🔴&apos; )</formula>
+    <inlineHelpText>For successful Validation, the Draw Denomination should be equal to the ROUND(Total Eligible Balances devided by the Total Number Of Chances).</inlineHelpText>
+    <label>Validation | Eligible Amount over Chance</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

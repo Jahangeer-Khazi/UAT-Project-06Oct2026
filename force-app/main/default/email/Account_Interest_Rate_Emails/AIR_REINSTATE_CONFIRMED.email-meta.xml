@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When interest rate of customer’s account is updated successfully</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>AIR_REINSTATE_CONFIRMED</name>
+    <style>none</style>
+    <subject>The interest rate on your account will be reinstated</subject>
+    <textOnly>Your request for account closure has been cancelled
+
+Hi,
+
+Your request to close your ila {!Case.ac_Currency__c} account ending {!Case.ac_ibanLastFourDigits__c} has been cancelled.
+
+Our team is available 24/7 to help you on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

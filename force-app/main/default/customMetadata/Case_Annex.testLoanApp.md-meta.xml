@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>testLoanApp</label>
+    <protected>false</protected>
+    <values>
+        <field>JSON_Value__c</field>
+        <value xsi:type="xsd:string">[
+    {
+        &quot;sectionName&quot;: &quot;Case Information&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Contact_Name__c&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CC_Application_Source__c&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;CaseNumber&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Customer_Segment__c&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Case_Model__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;AccountId&quot;,
+                &quot;readOnly&quot;: false
+            }
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;Additional Information&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Status&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Type&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Sub_Status__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+           
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Sub_Type__c&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Case_Nature__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+           {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;Restructure__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+           {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;ReasonForTheLoanFinanceRestructur__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;To be populated and provided by Pre-Screener&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CPR_Expiry_Date__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Passport_Number__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Passport_Expiry_Date__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Residence_Permit_No__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Residence_Permit_Expiry_Date__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+           {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Existing_ila_Credit_Card_Deduction__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Same_Residence_Address__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Employment_Status__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Employer_Name__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_House_Flat_Number__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Building__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Street_Road_No__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Block_No__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_City__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Country__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Occupation__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Length_Of_Service__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CR_License_Number__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CR_Expiry_Date__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Business_Operations_Starting_Date__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Business_Sector__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Business_Nature_Type__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Internal_Loans__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Consumer_Loans__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Mortgage_Loans__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Credit_Cards__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Government_Loans__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Other_Deductions__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Current_Obligations__c&quot;,
+                &quot;readOnly&quot;: true
+            }, 
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Total_Obligations__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Total_Credit_Exposure__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Bureau_Score__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Bureau_Risk_Rating__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Basic_Salary__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Fixed_Allowances__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Variable_Allowances__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Business_Income__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Approved_Salary__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Final_Total_Obligations__c&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Final_DBR__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Salary_is_Transferred_to_ila_jo__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Blacklisted__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;Top_Up_Fees__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Pre_screener_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Pre_screener_Other_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screener_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screening_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screening_Result_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screening_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;To be provided by Credit Evaluator&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;ApprovedLoanTopUpAmount__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;ApprovedLoanTopUpDuration__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;ApprovedLoanTopUpMonthlyInstalment__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+                &quot;fieldAPIName&quot;: &quot;ApprovedLoanTopUpMaturityDate__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Deviation_1_type__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Other_Deviation_1_type__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Deviation_2_type__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Other_Deviation_2_type__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Evaluator_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Evaluator_Other_reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Exceptions__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluator_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluation_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluation_Result_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluation_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+           
+        ]
+    },
+
+    {
+        &quot;sectionName&quot;: &quot;To be provided by Credit Verifier&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Customer_Contacted__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Customer_s_Friend_Contacted_Flag__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Customer_s_Employer_Contacted_Flag__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Verifier_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Verifier_Other_reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Verifier_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Verification_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Verification_Result_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Verified_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+           
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;To be provided by Creditor Approver&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Approver_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Approver_Other_reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Approver_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Approval_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Approval_Result_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Approved_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+           
+           
+        ]
+    },
+
+    {
+        &quot;sectionName&quot;: &quot;To be provided by Credit Business Team&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Business_team_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Business_team_Decline_Other_reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Business_Team_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Business_Team_L2_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Business_TeamL2ResultDateTime__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Credit_Business_Team_L2_By__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+            
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;To be provided by CEO&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CEO_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Other_CEO_Decline_Reason__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CEO_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CEO_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CEO_Result_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_CEO_Result_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+            
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;To be provided by Signature Verifier&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Signature_Verification_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Signature_Verifier_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Signature_Verification_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;cc_Signature_Verifier_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+             
+            
+        ]
+    },
+    {
+        &quot;sectionName&quot;: &quot;To be provided by Retention Team&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Retention_Comments__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Credit_Retention_Result__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Retention_Result_Date_Time__c&quot;,
+                &quot;readOnly&quot;: false
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Retention_Result_Updated_by__c&quot;,
+                &quot;readOnly&quot;: false
+            }
+             
+            
+        ]
+    },
+ {
+        &quot;sectionName&quot;: &quot;System Information&quot;,
+        &quot;fields&quot;: [
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;CreatedById&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;LastModifiedById&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;SuppliedEmail&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Origin&quot;,
+                &quot;readOnly&quot;: true
+            },
+            {
+                &quot;objectName&quot;: &quot;Case&quot;,
+                &quot;fieldAPIName&quot;: &quot;Priority&quot;,
+                &quot;readOnly&quot;: true
+            }
+             
+            
+        ]
+    }
+    
+        
+        
+]</value>
+    </values>
+    <values>
+        <field>RecordType_DeveloperName__c</field>
+        <value xsi:type="xsd:string">Loan_Application</value>
+    </values>
+    <values>
+        <field>SubTypeValue__c</field>
+        <value xsi:type="xsd:string">test</value>
+    </values>
+    <values>
+        <field>TypeValue__c</field>
+        <value xsi:type="xsd:string">test</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Today&apos;s Applied against Al-Kanz (Approve --></label>
+    <name>Today_s_Applied_against_Al_Kanz_Approve__c</name>
+</CustomFieldTranslation>

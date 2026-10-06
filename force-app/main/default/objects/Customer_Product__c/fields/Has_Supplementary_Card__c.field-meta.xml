@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Supplementary_Card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>if customer Has Supplementary Card then this checkbox would set to true</description>
+    <label>Has Supplementary Card</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

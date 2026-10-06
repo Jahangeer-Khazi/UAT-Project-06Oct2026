@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reminder for Salaried Bahraini</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_REMIND_DOCS</name>
+    <style>none</style>
+    <subject>Document Request for your Credit Card Application</subject>
+    <textOnly>Document Request for your Credit Card Application
+
+Hi,
+
+Thank you for applying for ${creditCardProduct} Credit Card.
+
+To proceed with your request, please open ila application and upload required documents.
+
+
+
+For any questions, call us on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

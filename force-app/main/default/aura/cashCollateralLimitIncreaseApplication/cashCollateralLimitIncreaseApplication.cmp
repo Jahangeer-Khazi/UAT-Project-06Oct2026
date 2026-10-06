@@ -1,0 +1,190 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 07-09-2022
+ * 		Change History: 
+ *          CH01 : Aniss Mbarki 28/09/2024  Fixed deposit requirment
+ *			CH02 : #Jahangeer Mohammed# #02-10-2024# Added Existing IBAN Logic & Requested Credit Limit Validation for Cash Collateral Limit Increase Application(NBA-12324)
+			CH03 #Jahangeer Mohammed# #05-08-2026 Added Logic for automated Credit Card Upgrade Cases(NBA-17560)
+			#CH04# #Jahangeer Mohammed# #08-09-2026 Added Logic for Reapply Restriction Period (NBA-16360)
+
+ *	    	   
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="creditCardListController" >
+	 <aura:attribute name="cc_type" type="String" default="Cash Collateral Credit Limit Increase Application"/> 
+    <aura:attribute name="cc_subType" type="String" default="Cash Collateral Credit Limit Increase"/>
+    <aura:attribute name="cc_cardPCINumber" type="Map"/>
+    <aura:attribute name="selectedPCINumber" type="String"/>
+    <aura:attribute name="requestedCardType" type="String"/>
+    <aura:attribute name="holdAccount" type="String"/>
+    <!-- CH02: Start -->
+    <aura:attribute name="existingAccount" type="String"/>
+    <aura:attribute name="sumOfFixedDeposits" type="Decimal"/>
+    <aura:attribute name="reqCreditLimit" type = "Decimal"/>
+    <aura:attribute name="existingCreditLimit" type = "Decimal"/>
+    <aura:attribute name="regionName" type = "String"/>
+    <!-- CH02: END -->
+    <aura:attribute name="existingHoldAmount" type="Decimal"/>
+    <aura:attribute name="holdReferenceNumber" type="String"/>
+    <aura:attribute name="cardProductionConfigurationId" type="String"/>
+
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <aura:attribute name="isInit" type="Boolean" default="false" access="private"/><!--CH01-->
+    <aura:attribute name="holdAccType" type="String"/><!--CH01-->
+    <aura:handler name="change" value="{!v.holdAccType}" action="{!c.holdAccTypeIsChanged}"/><!--CH01-->
+    <aura:attribute name="accIbans" type="String" /><!--CH01-->
+    <aura:attribute name="holdAccTypesList" type="List" /><!--CH01-->
+    <aura:attribute name="HoldAccountTypeList" type="List" default="[]"/><!--CH01-->
+    <aura:attribute name="selectedHoldAccountTypeList" type="List" default="[]"/><!--CH01-->
+    
+    <!-- CH03 Start -->
+    <aura:attribute name="checkUpgradeCard" type="Boolean" default="false"/>
+    <aura:attribute name="isInitiateUpgradeCard" type="Boolean" default="false"/>
+    <aura:attribute name="cardUpgradeOptions" type="Map"/>
+    <aura:attribute name="upgradeCardType" type="String"/>
+    <aura:attribute name="selectedCard" type="String"/>
+    <aura:attribute name="suppCardList" type="List" default="[]"/>
+    <aura:attribute name="selectedsuppCardList" type="List" default="[]"/>
+    <aura:attribute name="suppPCINames" type="String" />
+    <aura:attribute name="unselsuppPCINames" type="String" />
+    <aura:attribute name="isHavingSuppCards" type="Boolean" default="false"/> 
+    <aura:attribute name="cardOptions" type="Map"/>
+    <aura:attribute name="newCardMinCreditLimit" type="Decimal"/>
+    <aura:attribute name="requestedCardLimit" type="Decimal"/>
+    <aura:attribute name="currentCreditLimit" type="Decimal" />
+    <!-- CH03 END -->
+    <!-- CH04: Start -->
+    <aura:attribute name="restrictionAppliedOnCard" type="Boolean"/>
+    <!-- CH04: END -->
+    
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <!--CH04: Start -->
+            <lightning:inputField aura:id="restrictionApplied" fieldName="CC_Reapplying_Restriction_Applied__pc" />
+            <!--CH04: END -->
+        </lightning:recordEditForm>
+    </div>
+    <!--CH01 - End-->
+
+    <lightning:card title="New Cash Collateral Limit Increase Application">
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!$Label.c.CashCollateralLimitIncrease}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+            <!--on load handle name on Card, handle Submit -->
+            <!--on load will handle the API Call for card Option and will display the Available cards. -->
+            <lightning:inputField fieldName="Subject" aura:id="subject"/>
+            <lightning:inputField fieldName="Description" aura:id="description"/>
+            <lightning:inputField fieldName="cc_Name_on_the_Card__c" aura:id="namOnCard" required="true"/>
+            <lightning:inputField fieldName="Type" value="{!v.cc_type}" aura:id="type" required="true"/>
+            <lightning:inputField fieldName="Sub_Type__c" value="{!v.cc_subType}" aura:id="subType" required="true"/>
+            
+           
+            <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+            <lightning:inputField fieldName="Case_Nature__c" aura:id="Case_Nature__c" value="Password"/>
+            
+            <!--aura iteration for cc_cardType-->
+
+           
+            <lightning:select aura:id="requestedPCINumber" value="{!v.selectedPCINumber}" name="Masked Card Number" label="Masked Card Number" required="true" onchange="{!c.requestPCINumberChange}" >
+                <option value="">--None--</option>
+                <aura:iteration items="{!v.cc_cardPCINumber}" var="i" indexVar="key">
+                    	<option text="{!i.cardObj.maskedCardNumber}" value="{!i.cardId}" selected="{!i.selected}" />
+                </aura:iteration>
+            </lightning:select>
+           
+
+           
+            <lightning:inputField fieldName="cc_Requested_Card_Type__c" value="{!v.requestedCardType}" disabled="true" />
+            <lightning:inputField fieldName="cc_Approved_Requested_Card_Type__c" value="{!v.requestedCardType}" disabled="true" />
+           <!-- CH03: Start -->
+           <lightning:inputField fieldName="cc_Current_Credit_Limit__c" aura:id="cc_Current_Credit_Limit" disabled="true" value="{! v.currentCreditLimit}"/>
+            <!-- CH03: END -->
+
+            <div class="slds-hide">
+                <lightning:inputField fieldName="cc_Credit_Card_PCI_Number__c" value="{!v.selectedPCINumber}" aura:id="card"/>
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                <lightning:inputField fieldName="PrimaryCardProductConfigurationId__c" value="{!v.cardProductionConfigurationId}" aura:id="configId"/>
+                <!-- CH03 Start -->
+                <lightning:inputField fieldName="Target_Upgrade_Credit_Card_Type__c" value="{!v.selectedCard}" aura:id="targetCard"/>
+				<!-- CH03 END -->
+            </div> 
+           
+            <!-- CH02: Start Added value = reqCreditLimit -->
+            <lightning:inputField fieldName="cc_Requested_Credit_Limit__c" aura:id="requestedCardLimit" value="{!v.reqCreditLimit}" required="true" onchange="{!c.handleRequestedLimit}"/>
+            <!-- CH02: END -->
+            <lightning:inputField fieldName="ccol_Existing_Hold_Amount__c" aura:id="existingholdAmount" value = "{!v.existingHoldAmount}" disabled="true"/>
+			<!--<lightning:inputField fieldName="ccol_Hold_Account__c" aura:id="holdAccount" required="true"/> -->
+
+            <!--CH01 Start -->
+            <lightning:inputField fieldName="ccol_Hold_Account__c" aura:id="holdAccount" required="true" value="{!v.holdAccType}"/> <!--CH01 -->
+            <aura:if isTrue="{!v.holdAccType != 'FIXED_DEPOSIT'}">      
+                <lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" aura:id="holdAccountIBAN" value = "{!v.holdAccount}" disabled="true"/>
+            </aura:if>
+            <aura:if isTrue="{!and(v.holdAccType == 'FIXED_DEPOSIT', v.regionName == 'Jordan')}">
+                <!-- CH02: Start -->
+                <lightning:inputField fieldName="ac_Iban__c" aura:id="existingholdAccountIBAN" value = "{!v.existingAccount}" disabled="true"/>
+				<!-- CH02: END -->
+                <lightning:dualListbox aura:id="selectHoldAccountType"
+                    name="HoldAccountType"
+                    label="Hold Account Type"
+                    sourceLabel="Available Hold Account Types"
+                    selectedLabel="Selected Hold Account Types"
+                    options="{!v.HoldAccountTypeList }"
+                    value="{!v.selectedHoldAccountTypeList}"
+                    onchange="{!c.handleHoldAccountTypeChange}" required="true"/>
+
+                <lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" aura:id="ccol_Hold_Account_IBAN" disabled="true" value="{! v.accIbans}"/>
+                
+            </aura:if>
+            <!--CH01 End -->
+
+            <lightning:inputField fieldName="ccol_Hold_Reference_Number__c" aura:id="holdRefNumber" value = "{!v.holdReferenceNumber}" disabled="true"/>
+			<!-- CH03 Start -->
+            <lightning:inputField fieldName="Is_Initiated_from_Upgrade_Case__c" aura:id="isInitiateUpgradeCase" value="{!v.isInitiateUpgradeCard}" onchange="{!c.handleUpgradeCards}"/>
+            <aura:if isTrue="{!v.isInitiateUpgradeCard}">
+                <lightning:select aura:id="upgradeCardTo" value="{!v.selectedCard}" name = "Target Upgrade Credit Card Type" label = "Target Upgrade Credit Card Type" required="true" onchange="{!c.requestUpgradeCardChange}">
+                	<option value="">--None--</option>
+                	<aura:iteration items="{!v.cardUpgradeOptions}" var="i" indexVar="key">
+                    	<option text="{!i.key}" value="{!i.value}" selected="{!i.selected}" />
+                	</aura:iteration>
+            	</lightning:select>
+                <lightning:inputField fieldName="sc_Spending_Limit_Amount__c" aura:id="newCardMinLimit" disabled="true" value="{!v.newCardMinCreditLimit}"/>
+
+                
+                <aura:if isTrue="{!v.isHavingSuppCards == true}">      
+                	<lightning:dualListbox  aura:id="selectedSupp"
+                    				    name="Supplementarycards"
+                    					label="Supplementary Cards"
+                    					sourceLabel="Available Supplementary Cards"
+                    					selectedLabel="Selected Supplementary Cards"
+                    					options="{!v.suppCardList }"
+                                        value="{!v.selectedsuppCardList}"
+                                        onchange="{!c.handlesuppCardChange}"/>
+                
+               		<lightning:inputField fieldName="Selected_Supplementary_Cards__c" aura:id="Selected_Supplementary_Cards" disabled="true" value="{! v.suppPCINames}"/>
+               		<lightning:inputField fieldName="Un_Selected_Supplementary_Cards__c" aura:id="UnSelected_Supplementary_Cards" disabled="true" value="{! v.unselsuppPCINames}"/>
+				</aura:if>
+            </aura:if>
+           <!-- CH03 END --> 
+            <lightning:inputField fieldName="Customer_Email_Suppression_on_Creation__c" aura:id="suppressionCreation"/>
+            <lightning:inputField fieldName="Customer_Email_Suppression_on_Closure__c" aura:id="suppressionClosure"/>
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

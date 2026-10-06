@@ -1,0 +1,148 @@
+<apex:page applyHtmlTag="false" showHeader="false" controller="OutstandingBalanceLetterController" renderAs="advanced_pdf">
+    <head>
+        <style type="text/css">
+            
+            @page {
+                margin: 10px .5in 1in .5in;
+                margin-bottom:50px;
+                @bottom-center {
+                    content: element(footer)
+                }
+            }
+            body {
+                font-family: sans-serif;
+            }
+            
+           
+            
+            table, td, th {
+              border: 1px solid #cccccc;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            .topmargin20 {
+                margin-top:15px;
+            }
+            div.footer {
+                    display: block;
+                    position: running(footer);
+                    width:100%;
+                }
+            
+            .repeatTableHeader{-fs-table-paginate: paginate;}
+        </style>
+    </head>
+    <body style="font-family: sans-serif;">
+        
+        <div>
+            <table width="100%">
+                <tr>
+                    <td align="left" style="border:0px;">
+                        <apex:image url="{!$Resource.ila_logo_pdf}" width="60"/>
+                    </td>
+                    <td align="right" style="border:0px;">
+                        <apex:outputPanel rendered="{!isAlburaqModel}">
+                            <apex:image url="{!$Resource.alburaq_logo_pdf}" width="170"/>
+                        </apex:outputPanel>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="font-size:14px;margin-top:25px">
+            <div>Date: <apex:outputText value="{0, date,  dd/MM/yyyy}"><apex:param value="{!caseDate}" /></apex:outputText>
+            </div>
+            <div style="margin-top:10px;">Ref: {!caseObj.CaseNumber}</div>
+        </div>
+        
+        <div style="font-weight:bold;margin-top:25px;font-size:16px;">
+            To Whom it May Concern
+        </div>
+        <div style="font-weight:bold;margin-top:10px;font-size:15px;background-color:#00153e;color:#79ED00;padding:10px;">
+            Certificate of Outstanding Balance
+        </div>
+        <div>
+            <p style="font-size:14px;">
+                Customer Name: {!accountObj.Name}<br/>
+                ID/CPR: {!accountObj.ID_Number__pc}<br/>
+            </p>
+            <p style="font-size:14px;margin-bottom:0px">
+                This letter confirms your outstanding balance(s) as of <apex:outputText value="{0, date,  dd/MM/yyyy}"><apex:param value="{!caseDate}" /></apex:outputText><br/>
+                Please see the breakdown below:
+            </p>
+        </div>
+        
+        <apex:outputPanel rendered="{!isLoansFinanceOnly}">
+            <c:OB_Ila_Loan_Component cardWrapperObj="{!obWrapper}" />
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!isAlburaq}">
+            <c:OB_Alburaq_Component cardWrapperObj="{!obWrapper}" loanOutstandingBalance="{!formattedLoanTotalOutstanding}"/>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!isCreditCardOnly}">
+            <c:OB_Ila_Card_Component cardWrapperObj="{!obWrapper}" ccOutstandingBalance="{!formattedCCTotalOutstanding}" />
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!isLoansAndCardOnly}">
+            <c:OB_Ila_Loan_Cards_Component cardWrapperObj="{!obWrapper}" 
+                                       ccOutstandingBalance="{!formattedCCTotalOutstanding}" 
+                                       loanOutstandingBalance="{!formattedLoanTotalOutstanding}" />
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!caseObj.Total_Legal_Fee__c > 0}">
+            <div  style="margin-top:15px;font-size:14px;width:100%">
+                <table width="100%">
+                    <tr>
+                        <td style="width:100px;border:0px;background-color:#00153e;color:#79ED00;padding:10px;height:30px">Legal Fee</td>
+                        <td style="border:0px;background-color:#eee;text-align:center;padding-right:10px">BHD {!formattedLegalFee}</td>
+                    </tr>
+                </table>
+            </div>
+        </apex:outputPanel>
+        
+        <div  style="margin-top:15px;font-size:14px;width:100%">
+            <table  width="100%">
+                <tr >
+                    <td style="width:100px;border:0px;background-color:#00153e;color:#79ED00;padding:10px;height:30px">Grand Total</td>
+                    <td style="border:0px;background-color:#eee;text-align:center;padding-right:10px">BHD {!formattedGrandTotalOutstanding}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="margin-top:10px;font-size:14px">
+            <p>
+                This certificate has been issued upon the customer's request and without any obligation on our part.
+            </p>
+            <p style="text-align:justify">
+                This certificate is valid for thirty (30) days from the date of issuance or until the facility's due date, depending on the
+applicable product terms. The outstanding amounts stated herein are subject to change at any time based on the customer's
+transactions or account activity
+            </p>
+        </div>
+        <div style="text-align:center;margin-top:40px;">
+            
+            <apex:outputPanel rendered="{!!isAlburaq}">
+                <apex:image url="{!$Resource.ilaLogo}" width="100"/>
+            </apex:outputPanel>
+            
+            <apex:outputPanel rendered="{!isAlburaq}">
+                <apex:image url="{!$Resource.alburaq_border_pdf_logo}" width="140"/>
+            </apex:outputPanel>
+        </div>
+        <div class="footer" style="page-break-after:always;width:720px;border-top:2px solid #bbb"><!--position:fixed;bottom:0px;width:100%;-->
+            <table style="font-size:8px;width:100%;color:#bbb;">
+                <tr>
+                    <td width="62%" style="border:0px">
+                        <p>Customer Contact Centre<br/>T +973 17 123 456<br/>www.ilabank.com</p>
+                    </td>
+                    <td width="38%" style="border:0px">
+                        <p>
+                            Licensed as a Conventional Retail Bank - Branch by the Central<br/>
+                            Bank of Bahrain. Powered by Bank ABC (Arab Banking Corporation B.S.C.)
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</apex:page>

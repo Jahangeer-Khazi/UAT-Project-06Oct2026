@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Your request to waive the minimum balance fee is pending</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MIN_FEE_WAIVER_PENDNG_REMINDER_ALBURAQ</name>
+    <style>none</style>
+    <subject>Your request to waive the minimum balance fee is pending</subject>
+    <textOnly>Your request to waive the minimum balance fee is pending
+
+Hi,
+
+Your request to waive minimum balance fee on your account ending {!Case.ac_ibanLastFourDigits__c} is pending.
+
+Please share with us one of the following documents:
+
+[document 1]
+[document 2]
+[document 3]
+
+Please use the request ID ${caseNumber} to follow up.
+
+For any questions, call us on +973 17123456
+
+
+Open ila app
+
+Join the conversation
+
+
+
+ilabank.com/AlBuraq
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

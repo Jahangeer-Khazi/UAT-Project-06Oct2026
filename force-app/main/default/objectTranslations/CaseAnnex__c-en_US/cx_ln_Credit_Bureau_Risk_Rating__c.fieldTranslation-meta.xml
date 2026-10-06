@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Credit Bureau Risk Rating --></label>
+    <name>cx_ln_Credit_Bureau_Risk_Rating__c</name>
+    <picklistValues>
+        <masterLabel>High Risk 300-450</masterLabel>
+        <translation><!-- High Risk 300-450 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Low Risk 750-850</masterLabel>
+        <translation><!-- Low Risk 750-850 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Medium Risk 550-650</masterLabel>
+        <translation><!-- Medium Risk 550-650 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Medium to High Risk 450-550</masterLabel>
+        <translation><!-- Medium to High Risk 450-550 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Medium to Low Risk 650-750</masterLabel>
+        <translation><!-- Medium to Low Risk 650-750 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zero Score - 1st Facility</masterLabel>
+        <translation><!-- Zero Score - 1st Facility --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

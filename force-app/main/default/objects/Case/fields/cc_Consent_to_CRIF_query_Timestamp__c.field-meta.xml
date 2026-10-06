@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Consent_to_CRIF_query_Timestamp__c</fullName>
+    <description>CRIF Consent Timestamp - JO</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Consent to CRIF query Timestamp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

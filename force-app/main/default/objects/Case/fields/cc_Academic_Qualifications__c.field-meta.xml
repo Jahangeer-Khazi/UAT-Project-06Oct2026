@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Academic_Qualifications__c</fullName>
+    <description>This field is for Credit card case</description>
+    <label>Academic Qualifications</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Diploma</fullName>
+                <default>false</default>
+                <label>Diploma</label>
+            </value>
+            <value>
+                <fullName>Less than Secondary</fullName>
+                <default>false</default>
+                <label>Less than Secondary</label>
+            </value>
+            <value>
+                <fullName>Post Graduate</fullName>
+                <default>false</default>
+                <label>Post Graduate</label>
+            </value>
+            <value>
+                <fullName>Secondary School</fullName>
+                <default>false</default>
+                <label>Secondary School</label>
+            </value>
+            <value>
+                <fullName>University Degree</fullName>
+                <default>false</default>
+                <label>University Degree</label>
+            </value>
+            <value>
+                <fullName>Below Secondary School</fullName>
+                <default>false</default>
+                <label>Below Secondary School</label>
+            </value>
+            <value>
+                <fullName>Secondary School and Below</fullName>
+                <default>false</default>
+                <label>Secondary School and Below</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

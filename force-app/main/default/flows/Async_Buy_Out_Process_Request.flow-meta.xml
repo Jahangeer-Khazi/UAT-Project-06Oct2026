@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Process_Stage_1</name>
+        <label>Process - Stage 1</label>
+        <locationX>440</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Buy_Out_Request_Stage_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Last_Api_Call_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed-Stage1</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Buy Out Request - Stage 1</label>
+        </rules>
+        <rules>
+            <name>Buy_Out_Request_Stage_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Last_Api_Call_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed-Stage2</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Buy Out Request - Stage 2</label>
+        </rules>
+        <rules>
+            <name>Buy_Out_Request_Stage_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Last_Api_Call_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed-Stage3</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Buy Out Request - Stage 3</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Async - Buy Out Process Request {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Async - Buy Out Process Request</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Last_Api_Call_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Completed-Stage1</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Last_Api_Call_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Completed-Stage2</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Last_Api_Call_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Completed-Stage3</stringValue>
+            </value>
+        </filters>
+        <object>Bid_Allocation__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Process_Stage_1</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+</Flow>

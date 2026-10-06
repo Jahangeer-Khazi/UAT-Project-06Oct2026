@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CashCol_Signature_Verifier_Accept_STP</fullName>
+    <active>true</active>
+    <description>When the Cash Collateral Card is STP and the Approver Transfer Type field is blank, then CRM will fire this validation</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(cc_Control_Type__c, &apos;STP&apos;),
+ISCHANGED(cc_Signature_Verifier_Result__c),
+ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;Accept&apos;),
+Is_Balance_Transfer__c = true,
+ISBLANK(Text(cc_Approved_Transfer_Type__c)),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Transfer_Type__c</errorDisplayField>
+    <errorMessage>Please fill in the Approver Transfer Type field for Ila Gulf Air cards.</errorMessage>
+</ValidationRule>

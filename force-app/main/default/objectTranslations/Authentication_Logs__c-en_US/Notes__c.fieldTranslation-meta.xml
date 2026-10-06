@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Notes --></label>
+    <name>Notes__c</name>
+    <picklistValues>
+        <masterLabel>Customer did not Remember</masterLabel>
+        <translation><!-- Customer did not Remember --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Does Not Apply</masterLabel>
+        <translation><!-- Does Not Apply --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

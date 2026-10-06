@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Approver_Decline_Reason__c</fullName>
+    <label>Approver Decline Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Above Maximum Age</fullName>
+                <default>false</default>
+                <label>Above Maximum Age</label>
+            </value>
+            <value>
+                <fullName>Below Minimum Age</fullName>
+                <default>false</default>
+                <label>Below Minimum Age</label>
+            </value>
+            <value>
+                <fullName>Below Minimum Card Limit</fullName>
+                <default>false</default>
+                <label>Below Minimum Card Limit</label>
+            </value>
+            <value>
+                <fullName>Below Minimum CRB Score</fullName>
+                <default>false</default>
+                <label>Below Minimum CRB Score</label>
+            </value>
+            <value>
+                <fullName>Below Minimum Income</fullName>
+                <default>false</default>
+                <label>Below Minimum Income</label>
+            </value>
+            <value>
+                <fullName>Below Minimum Months in business</fullName>
+                <default>false</default>
+                <label>Below Minimum Months in business</label>
+            </value>
+            <value>
+                <fullName>Below Minimum Months in Service</fullName>
+                <default>false</default>
+                <label>Below Minimum Months in Service</label>
+            </value>
+            <value>
+                <fullName>Below Minimum Score</fullName>
+                <default>false</default>
+                <label>Below Minimum Score</label>
+            </value>
+            <value>
+                <fullName>Blacklisted Customer</fullName>
+                <default>false</default>
+                <label>Blacklisted Customer</label>
+            </value>
+            <value>
+                <fullName>Cancelled upon customer request</fullName>
+                <default>false</default>
+                <label>Cancelled upon customer request</label>
+            </value>
+            <value>
+                <fullName>Canceled upon Call Center request</fullName>
+                <default>false</default>
+                <label>Canceled upon Call Center request</label>
+            </value>
+            <value>
+                <fullName>Employer not approved</fullName>
+                <default>false</default>
+                <label>Employer not approved</label>
+            </value>
+            <value>
+                <fullName>Exceeds Debt Burden</fullName>
+                <default>false</default>
+                <label>Exceeds Debt Burden</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Unacceptable Document / Bank Statement</fullName>
+                <default>false</default>
+                <label>Unacceptable Document / Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Unacceptable Document / Payslip</fullName>
+                <default>false</default>
+                <label>Unacceptable Document / Payslip</label>
+            </value>
+            <value>
+                <fullName>Unacceptable Document / Salary Letter</fullName>
+                <default>false</default>
+                <label>Unacceptable Document / Salary Letter</label>
+            </value>
+            <value>
+                <fullName>Insufficient Information</fullName>
+                <default>false</default>
+                <label>Insufficient Information</label>
+            </value>
+            <value>
+                <fullName>Legal Action</fullName>
+                <default>false</default>
+                <label>Legal Action</label>
+            </value>
+            <value>
+                <fullName>Mandatory documents not received</fullName>
+                <default>false</default>
+                <label>Mandatory documents not received</label>
+            </value>
+            <value>
+                <fullName>Mandatory documents not verified</fullName>
+                <default>false</default>
+                <label>Mandatory documents not verified</label>
+            </value>
+            <value>
+                <fullName>Mandatory Information not available</fullName>
+                <default>false</default>
+                <label>Mandatory Information not available</label>
+            </value>
+            <value>
+                <fullName>Need land line - Need home address</fullName>
+                <default>false</default>
+                <label>Need land line - Need home address</label>
+            </value>
+            <value>
+                <fullName>Negative  / Unsuccessful CPV</fullName>
+                <default>false</default>
+                <label>Negative  / Unsuccessful CPV</label>
+            </value>
+            <value>
+                <fullName>Negative  / Unsuccessful Employer CPV</fullName>
+                <default>false</default>
+                <label>Negative  / Unsuccessful Employer CPV</label>
+            </value>
+            <value>
+                <fullName>Negative Collection Recommendation</fullName>
+                <default>false</default>
+                <label>Negative Collection Recommendation</label>
+            </value>
+            <value>
+                <fullName>Negative CRB Checking \ Criteria</fullName>
+                <default>false</default>
+                <label>Negative CRB Checking \ Criteria</label>
+            </value>
+            <value>
+                <fullName>Negative CRB \ write off records</fullName>
+                <default>false</default>
+                <label>Negative CRB \ write off records</label>
+            </value>
+            <value>
+                <fullName>Negative CRB \ currently delinquent</fullName>
+                <default>false</default>
+                <label>Negative CRB \ currently delinquent</label>
+            </value>
+            <value>
+                <fullName>Negative CRB Checking \ Not once in B03</fullName>
+                <default>false</default>
+                <label>Negative CRB Checking \ Not once in B03</label>
+            </value>
+            <value>
+                <fullName>Negative CRB \ Was classified as NPL</fullName>
+                <default>false</default>
+                <label>Negative CRB \ Was classified as NPL</label>
+            </value>
+            <value>
+                <fullName>Negative CRB Checking/Bad Credit History</fullName>
+                <default>false</default>
+                <label>Negative CRB Checking/Bad Credit History</label>
+            </value>
+            <value>
+                <fullName>No Credit History in CRB / Less than 3 M</fullName>
+                <default>false</default>
+                <label>No Credit History in CRB / Less than 3 M</label>
+            </value>
+            <value>
+                <fullName>Not Meeting Eligibility Criteria</fullName>
+                <default>false</default>
+                <label>Not Meeting Eligibility Criteria</label>
+            </value>
+            <value>
+                <fullName>Restricted employment Contract</fullName>
+                <default>false</default>
+                <label>Restricted employment Contract</label>
+            </value>
+            <value>
+                <fullName>Restricted profession</fullName>
+                <default>false</default>
+                <label>Restricted profession</label>
+            </value>
+            <value>
+                <fullName>Suspended Employer</fullName>
+                <default>false</default>
+                <label>Suspended Employer</label>
+            </value>
+            <value>
+                <fullName>Unacceptable Credit History</fullName>
+                <default>false</default>
+                <label>Unacceptable Credit History</label>
+            </value>
+            <value>
+                <fullName>Unreachable client</fullName>
+                <default>false</default>
+                <label>Unreachable client</label>
+            </value>
+            <value>
+                <fullName>Unsatisfactory Internal Verification</fullName>
+                <default>false</default>
+                <label>Unsatisfactory Internal Verification</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Negative CRB\ Bkt2 in last 6 M</fullName>
+                <default>false</default>
+                <label>Negative CRB\ Bkt2 in last 6 M</label>
+            </value>
+            <value>
+                <fullName>Negative Business Run</fullName>
+                <default>false</default>
+                <label>Negative Business Run</label>
+            </value>
+            <value>
+                <fullName>Negative CRB \ Bkt2 in the last 12 M</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Negative CRB \ Bkt2 in the last 12 M</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

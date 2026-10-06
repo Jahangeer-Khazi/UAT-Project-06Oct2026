@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Overdue Stage --></label>
+    <name>Overdue_Stage__c</name>
+    <picklistValues>
+        <masterLabel>Stage 1 – No Restrictions</masterLabel>
+        <translation><!-- Stage 1 – No Restrictions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stage 2 – Block Debit Cards</masterLabel>
+        <translation><!-- Stage 2 – Block Debit Cards --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stage 3 – Block Debit Cards, Credit Cards &amp; Account Debits</masterLabel>
+        <translation><!-- Stage 3 – Block Debit Cards, Credit Cards &amp; Account Debits --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stage 4 – App Access</masterLabel>
+        <translation><!-- Stage 4 – App Access --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

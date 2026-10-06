@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- FATCA Declaration - Form Type --></label>
+    <name>FATCA_Declaration_Form_Type__c</name>
+    <picklistValues>
+        <masterLabel>W-8 BEN</masterLabel>
+        <translation><!-- W-8 BEN --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>W-9</masterLabel>
+        <translation><!-- W-9 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

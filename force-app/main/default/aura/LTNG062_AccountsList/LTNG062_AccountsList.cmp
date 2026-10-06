@@ -1,0 +1,42 @@
+<aura:component controller="LTNG019_ReleaseHoldAmountController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="accToBlockUnblockList" type="List" />
+    <aura:attribute name="allAccList" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="accDetails" type="String" />
+    <aura:attribute name="accIbans" type="String" />
+    
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+
+    <!--Declare Attributes-->
+    <aura:attribute name="AccList" type="List" default="[]"/>
+    <aura:attribute name="selectedAccList" type="List" default="[]"/>
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <!-- <lightning:select aura:id="accToBlockUnblock" label="Account " required="true" onchange="{!c.accToBlockUnblockChange}">
+        <option text="None" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.accToBlockUnblockList}" var="accToBlockUnblockData">
+                <option text="{!accToBlockUnblockData.ac_label}" value="{!accToBlockUnblockData.iban}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select> -->
+
+    <lightning:dualListbox aura:id="selectAccounts"
+                               name="Accounts"
+                               label="Accounts"
+                               sourceLabel="Available Accounts"
+                               selectedLabel="Selected Accounts"
+                               options="{!v.AccList }"
+                               value="{!v.selectedAccList}"
+                               onchange="{!c.handleAccChange}"/>
+
+</aura:component>

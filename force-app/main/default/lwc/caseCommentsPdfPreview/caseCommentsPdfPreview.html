@@ -1,0 +1,305 @@
+<template>
+    <div class="print-container">
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+            <div style="height: 200px; position:relative;">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <!-- Content -->
+        <template if:true={data}>
+            <div class="report-header">
+                <h1>Case Comments &amp; Replies Report</h1>
+                <div class="meta">
+                    Generated: {data.generatedOn} | Case: {data.caseRecord.CaseNumber}
+                </div>
+            </div>
+
+            <!-- Case Information -->
+            <div class="section-title">Case Information</div>
+            <table class="info-table">
+                <tr>
+                    <td>
+                        <span class="label">Case Number:</span>
+                        <span class="value">{data.caseRecord.CaseNumber}</span>
+                    </td>
+                    <td>
+                        <span class="label">Status:</span>
+                        <span class="value">{data.caseRecord.Status}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="label">Subject:</span>
+                        <span class="value">{data.caseRecord.Subject}</span>
+                    </td>
+                    <td>
+                        <span class="label">Priority:</span>
+                        <span class="value">{data.caseRecord.Priority}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="label">Account:</span>
+                        <span class="value">{accountName}</span>
+                    </td>
+                    <td>
+                        <span class="label">Owner:</span>
+                        <span class="value">{ownerName}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="label">Created Date:</span>
+                        <span class="value">
+                            <lightning-formatted-date-time value={data.caseRecord.CreatedDate} year="numeric"
+                                month="2-digit" day="2-digit" hour="2-digit"
+                                minute="2-digit"></lightning-formatted-date-time>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="label">Total Comments:</span>
+                        <span class="value">{data.threads.length}</span>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Comments Section -->
+            <div class="section-title">Comments &amp; Replies Timeline</div>
+            <template if:false={data.hasData}>
+                <div class="no-data">No comments found for this case.</div>
+            </template>
+            <template if:true={data.hasData}>
+                <table class="comments-table">
+                    <thead>
+                        <tr>
+                            <th class="col-num">#</th>
+                            <th class="col-visibility">Type</th>
+                            <th class="col-author">Author</th>
+                            <th class="col-date">Date</th>
+                            <th>Comment / Replies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data.threads} for:item="thread">
+                            <tr key={thread.threadKey}>
+                                <td class="col-num">{thread.index}</td>
+                                <td class="col-visibility">
+                                    <template if:true={thread.isPublic}><span
+                                            class="badge badge-public">Public</span></template>
+                                    <template if:true={thread.isInternal}><span
+                                            class="badge badge-internal">Internal</span></template>
+                                    <template if:true={thread.isHistory}><span
+                                            class="badge badge-history">History</span></template>
+                                    <template if:true={thread.isContent}><span
+                                            class="badge badge-content">Content</span></template>
+                                </td>
+                                <td class="col-author">
+                                    {thread.createdByName}
+                                    <template if:true={thread.hasAttachment}>
+                                        <template for:each={thread.attachments} for:item="att">
+                                            <div key={att.key} class="badge badge-attachment">{att.attachmentName}</div>
+                                        </template>
+                                    </template>
+                                </td>
+                                <td class="col-date nowrap">
+                                    <lightning-formatted-date-time value={thread.createdDate} year="numeric"
+                                        month="2-digit" day="2-digit" hour="2-digit"
+                                        minute="2-digit"></lightning-formatted-date-time>
+                                </td>
+                                <td class="comment-body">
+                                    <lightning-formatted-rich-text
+                                        value={thread.commentBody}></lightning-formatted-rich-text>
+
+                                    <template if:true={thread.hasReplies}>
+                                        <table class="replies-table">
+                                            <template for:each={thread.replies} for:item="reply">
+                                                <tr key={reply.createdDate}>
+                                                    <td>
+                                                        <div class="reply-meta">
+                                                            <strong>{reply.createdBy}</strong>
+                                                            <template if:true={reply.hasAttachment}>
+                                                                <template for:each={reply.attachments} for:item="att">
+                                                                    <span key={att.key} class="badge badge-attachment">{att.attachmentName}</span>
+                                                                </template>
+                                                            </template>
+                                                            &mdash;
+                                                            <lightning-formatted-date-time value={reply.createdDate}
+                                                                year="numeric" month="2-digit" day="2-digit"
+                                                                hour="2-digit"
+                                                                minute="2-digit"></lightning-formatted-date-time>
+                                                        </div>
+                                                        <div>
+                                                            <lightning-formatted-rich-text
+                                                                value={reply.body}></lightning-formatted-rich-text>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </table>
+                                    </template>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+
+            <!-- Call Logs Section -->
+            <div class="section-title">Call Log</div>
+            <template if:false={data.hasCallLogs}>
+                <div class="no-data">No call logs found for this case.</div>
+            </template>
+            <template if:true={data.hasCallLogs}>
+                <table class="comments-table">
+                    <thead>
+                        <tr>
+                            <th class="col-num">#</th>
+                            <th class="col-visibility">Type</th>
+                            <th class="col-author">By</th>
+                            <th class="col-date">Date</th>
+                            <th style="width:70px;">Duration</th>
+                            <th>Subject / Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data.callLogs} for:item="call">
+                            <tr key={call.id}>
+                                <td class="col-num">{call.index}</td>
+                                <td class="col-visibility">{call.callType}</td>
+                                <td class="col-author">{call.createdByName}</td>
+                                <td class="col-date nowrap">
+                                    <lightning-formatted-date-time value={call.createdDate} year="numeric"
+                                        month="2-digit" day="2-digit" hour="2-digit"
+                                        minute="2-digit"></lightning-formatted-date-time>
+                                </td>
+                                <td class="nowrap">{call.callDurationDisplay}</td>
+                                <td class="comment-body">
+                                    <strong>{call.subject}</strong>
+                                    <template if:true={call.callDisposition}>
+                                        <div class="reply-meta">Disposition: {call.callDisposition}</div>
+                                    </template>
+                                    <template if:true={call.description}>
+                                        <div><lightning-formatted-rich-text
+                                                value={call.description}></lightning-formatted-rich-text></div>
+                                    </template>
+                                    <template if:true={call.hasReplies}>
+                                        <table class="replies-table">
+                                            <template for:each={call.replies} for:item="reply">
+                                                <tr key={reply.createdDate}>
+                                                    <td>
+                                                        <div class="reply-meta">
+                                                            <strong>{reply.createdBy}</strong>
+                                                            <template if:true={reply.hasAttachment}>
+                                                                <template for:each={reply.attachments} for:item="att">
+                                                                    <span key={att.key} class="badge badge-attachment">{att.attachmentName}</span>
+                                                                </template>
+                                                            </template>
+                                                            &mdash;
+                                                            <lightning-formatted-date-time value={reply.createdDate}
+                                                                year="numeric" month="2-digit" day="2-digit"
+                                                                hour="2-digit"
+                                                                minute="2-digit"></lightning-formatted-date-time>
+                                                        </div>
+                                                        <div>
+                                                            <lightning-formatted-rich-text
+                                                                value={reply.body}></lightning-formatted-rich-text>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </table>
+                                    </template>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+
+            <!-- Emails Section -->
+            <div class="section-title">Emails Triggered</div>
+            <template if:false={data.hasEmails}>
+                <div class="no-data">No emails found for this case.</div>
+            </template>
+            <template if:true={data.hasEmails}>
+                <table class="comments-table">
+                    <thead>
+                        <tr>
+                            <th class="col-num">#</th>
+                            <th class="col-visibility">Dir.</th>
+                            <th class="col-author">From</th>
+                            <th class="col-date nowrap">Date</th>
+                            <th>Subject / Recipients</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data.emails} for:item="email">
+                            <tr key={email.messageDate}>
+                                <td class="col-num">{email.index}</td>
+                                <td class="col-visibility">
+                                    <template if:true={email.isIncoming}><span
+                                            class="badge badge-public">Inbound</span></template>
+                                    <template if:false={email.isIncoming}><span
+                                            class="badge badge-internal">Outbound</span></template>
+                                </td>
+                                <td class="col-author">
+                                    {email.fromName}
+                                    <template if:true={email.fromAddress}>
+                                        <div class="reply-meta">{email.fromAddress}</div>
+                                    </template>
+                                    <template if:true={email.hasAttachment}>
+                                        <template for:each={email.attachments} for:item="att">
+                                            <div key={att.key} class="badge badge-attachment">{att.attachmentName}</div>
+                                        </template>
+                                    </template>
+                                </td>
+                                <td class="col-date nowrap">
+                                    <lightning-formatted-date-time value={email.messageDate} year="numeric"
+                                        month="2-digit" day="2-digit" hour="2-digit"
+                                        minute="2-digit"></lightning-formatted-date-time>
+                                </td>
+                                <td class="comment-body">
+                                    <strong>{email.subject}</strong>
+                                    <template if:true={email.toAddress}>
+                                        <div class="reply-meta">To: {email.toAddress}</div>
+                                    </template>
+                                    <template if:true={email.ccAddress}>
+                                        <div class="reply-meta">CC: {email.ccAddress}</div>
+                                    </template>
+                                    <template if:true={email.hasReplies}>
+                                        <table class="replies-table">
+                                            <template for:each={email.replies} for:item="reply">
+                                                <tr key={reply.createdDate}>
+                                                    <td>
+                                                        <div class="reply-meta">
+                                                            <strong>{reply.createdBy}</strong>
+                                                            <template if:true={reply.hasAttachment}>
+                                                                <template for:each={reply.attachments} for:item="att">
+                                                                    <span key={att.key} class="badge badge-attachment">{att.attachmentName}</span>
+                                                                </template>
+                                                            </template>
+                                                            &mdash;
+                                                            <lightning-formatted-date-time value={reply.createdDate}
+                                                                year="numeric" month="2-digit" day="2-digit"
+                                                                hour="2-digit"
+                                                                minute="2-digit"></lightning-formatted-date-time>
+                                                        </div>
+                                                        <div>
+                                                            <lightning-formatted-rich-text
+                                                                value={reply.body}></lightning-formatted-rich-text>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </table>
+                                    </template>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+        </template>
+    </div>
+</template>

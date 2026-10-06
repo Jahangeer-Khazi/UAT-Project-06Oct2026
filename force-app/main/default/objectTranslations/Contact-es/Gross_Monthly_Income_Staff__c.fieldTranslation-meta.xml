@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Including Salary/Pension --></help>
+    <label><!-- Gross Monthly Income --></label>
+    <name>Gross_Monthly_Income_Staff__c</name>
+</CustomFieldTranslation>

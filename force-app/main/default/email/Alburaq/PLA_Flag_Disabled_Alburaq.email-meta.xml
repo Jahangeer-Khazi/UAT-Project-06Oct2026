@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Flag disabled on CRM for the customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Disabled Alburaq</name>
+    <style>none</style>
+    <subject>Participation in Al Kanz Prize Draws</subject>
+    <textOnly>Hi,
+
+Congratulations!
+
+You are now eligible to participate in our Kanz prize draws.
+
+Fund your count now to improve your chances of winning.
+
+If you wish to know more or if you think this is an error, please call our Contact Center on +973 17123456
+
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

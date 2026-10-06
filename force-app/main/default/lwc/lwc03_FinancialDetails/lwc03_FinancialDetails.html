@@ -1,0 +1,365 @@
+<template>
+    <template if:true={loadingSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    
+    <div style="position: relative; height: 55px; display: flex; justify-content: flex-end; align-items: flex-start; gap: 5px;">
+        <template lwc:if={isBCRBResponseExist}>
+            <lightning-button 
+                class="slds-var-m-top_small" 
+                variant="brand" 
+                onclick={reviewBcrbDetailsButton} 
+                label="Review BCRB Details">
+            </lightning-button>
+        </template>
+        <template lwc:else>
+            <lightning-button 
+                class="slds-var-m-top_small" 
+                variant="brand" 
+                onclick={fetchBcrbDetailsButton} 
+                label="Fetch BCRB Details">
+            </lightning-button>
+        </template>
+    </div>
+    
+    <!-- Iterte over the custom metadata's Json value  -->
+    <template if:true={showSectionValeurs}>
+        <lightning-record-view-form record-id={recordAnnexId} object-api-name="CaseAnnex__c">
+            <template for:each={configJson} for:item="section">
+                <!-- <template if:true={section.isVisible}> -->
+                    <div key={section.sectionName} class="slds-section slds-is-open">
+                        <template if:true={section.hasParentTitle}>
+                            <div style="margin-bottom: 8px;">
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <button aria-controls="expando-unique-id" aria-expanded="true"
+                                        class="slds-button slds-section__title-action" data-section-name={section.titleSection}
+                                        data-icon-name="utility:chevrondown">
+                                        &nbsp;&nbsp;
+                
+                                        <span class="slds-truncate" title={section.titleSection}
+                                            data-section-name={section.titleSection}>{section.titleSection}</span>
+                                    </button>
+                                </h3>
+                            </div>
+                        </template>
+                        <div class={section.subSectionClass}>
+                            <div onclick={handleToggleSection}>
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <button aria-controls="expando-unique-id" aria-expanded="true"
+                                        class="slds-button slds-section__title-action" data-section-name={section.sectionName}
+                                        data-icon-name={section.iconName}>
+                                        <lightning-icon icon-name={section.iconName} size="x-small" title={section.sectionName}
+                                            data-section-name={section.sectionName}></lightning-icon>
+                                        &nbsp;&nbsp;
+                
+                                        <span class="slds-truncate" title={section.sectionName}
+                                            data-section-name={section.sectionName}>{section.sectionName}</span>
+                                    </button>
+                                </h3>
+                            </div>
+                            <!-- Display the sections with the fields in json value-->
+                            <template if:true={section.show}>
+                                <template if:true={section.isDbSheet}>
+                                    <div style="position: relative; height: 55px; display: flex; justify-content: flex-end; align-items: flex-start; gap: 5px;">
+                                        <lightning-button 
+                                            class="slds-var-m-top_small" 
+                                            variant="neutral" 
+                                            onclick={handleChangeFormValeurs}
+                                            label="Edit Approved Information">
+                                        </lightning-button>
+                                    </div>
+                                </template>
+                                <div class="slds-grid slds-wrap">
+                                    <template for:each={section.fields} for:item="field">
+                                        <template lwc:if={field.isCaseAnnex}>
+                                            <template if:true={field.isVisible}>
+                                                <div key={field.lwcId} data-key={field.lwcId} class={dynamicClass}>
+                                                    <div class="slds-form__item" role="listitem">
+                                                        <div
+                                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-form-element__static">
+                                                                    <template lwc:if={field.isHighlighted}>
+                                                                        <div style="background-color: #ef3d3d80;">
+                                                                            <lightning-output-field key={field.key}
+                                                                            name={field.fieldAPIName}
+                                                                            variant="label-stacked"
+                                                                            field-name={field.fieldAPIName}></lightning-output-field>
+                                                                        </div>
+                                                                    </template>
+                                                                    <template lwc:else>
+                                                                        <lightning-output-field key={field.key}
+                                                                        name={field.fieldAPIName}
+                                                                        variant="label-stacked"
+                                                                        field-name={field.fieldAPIName}></lightning-output-field>
+                                                                    </template>
+                                                                </div>
+                                                                <template if:false={field.readOnly}>
+                                                                    <button class="slds-button slds-button_icon"
+                                                                        onclick={handleChangeFormValeurs}>
+                                                                        <svg class="slds-button__icon slds-button__icon_hint"
+                                                                            aria-hidden="true">
+                                                                            <use
+                                                                                xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit">
+                                                                            </use>
+                                                                        </svg>
+                                                                    </button>
+                                                                </template>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </template>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                <!-- </template> -->
+                
+            </template>
+        </lightning-record-view-form>
+    </template>
+
+    <template if:true={editSectionValeurs}>
+        <lightning-record-edit-form object-api-name="CaseAnnex__c"
+                                                        record-id={recordAnnexId} density="auto" name="caseAnnexForm"
+                                                        data-id="CaseAnnex__c" onsubmit={handleSubmitCase}
+                                                        onsuccess={handleSuccessValeurs}>
+            <template for:each={configJson} for:item="section">
+                <!-- <template if:true={section.isVisible}> -->
+                    <div key={section.sectionName} class="slds-section slds-is-open">
+                        <template if:true={section.hasParentTitle}>
+                            <div style="margin-bottom: 8px;">
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <button aria-controls="expando-unique-id" aria-expanded="true"
+                                        class="slds-button slds-section__title-action" data-section-name={section.titleSection}
+                                        data-icon-name="utility:chevrondown">
+                                        &nbsp;&nbsp;
+                
+                                        <span class="slds-truncate" title={section.titleSection}
+                                            data-section-name={section.titleSection}>{section.titleSection}</span>
+                                    </button>
+                                </h3>
+                            </div>
+                        </template>
+                        <div onclick={handleToggleSection}>
+                            <h3 class="slds-section__title slds-theme_shade">
+            
+                                <button aria-controls="expando-unique-id" aria-expanded="true"
+                                    class="slds-button slds-section__title-action" data-section-name={section.sectionName}
+                                    data-icon-name={section.iconName}>
+                                    <lightning-icon icon-name={section.iconName} size="x-small" title={section.sectionName}
+                                        data-section-name={section.sectionName}></lightning-icon>
+                                    &nbsp;&nbsp;
+            
+                                    <span class="slds-truncate" title={section.sectionName}
+                                        data-section-name={section.sectionName}>{section.sectionName}</span>
+                                </button>
+            
+                            </h3>
+                        </div>
+                        <!-- Display the sections with the fields in json value-->
+                        <div class={section.subSectionClass}>
+                            <template if:true={section.show}>
+                                <template if:true={section.isDbSheet}>
+                                    <div style="position: relative; height: 55px; display: flex; justify-content: flex-end; align-items: flex-start; gap: 5px;">
+                                        <lightning-button 
+                                            class="slds-var-m-top_small" 
+                                            variant="brand" 
+                                            onclick={generateRepaymentScheduleButton} 
+                                            disabled={disableGenerateScheduleButton}
+                                            label={buttonGenerateScheduleLabel}>
+                                        </lightning-button>
+                                    </div>
+                                </template>
+                                <!-- display the fields in edit form  after the edit icon is clicked -->
+                                <div class="slds-grid slds-wrap">
+                                    <template for:each={section.fields} for:item="field">
+                                        <template lwc:if={field.isCaseAnnex}>
+                                            <template if:true={field.isVisible}>
+                                                <div key={field.lwcId} data-key={field.lwcId}
+                                                    class={responsiveClass}>
+                                                    <div class={field.errorDesign}>
+                                                        <!-- Start display field ############### -->
+                                                        <div class="slds-form slds-wrap">
+                                                            <lightning-input-field field-name={field.fieldAPIName}
+                                                                id={field.fieldAPIName}
+                                                                class={field.inputErrorDesign}
+                                                                data-field-name={field.fieldAPIName}
+                                                                data-object-name={field.objectName}
+                                                                onfocusout={handleInputFocusOut}
+                                                                variant="label-stacked"
+                                                                required={field.isRequired}
+                                                                disabled={field.readOnly}></lightning-input-field>
+        
+                                                            <div class="errorText" if:true={field.errorMessage}>
+                                                                {field.errorMessage}</div>
+                                                        </div>
+                                                        <!-- Start display field ############### -->
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </template>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                <!-- </template> -->
+                
+            </template>
+        </lightning-record-edit-form>
+        
+        <!-- footer logic for updating the fields and displaying errors if needed -->
+        <div class="wrapper">
+            <div class="inlineFooter" data-aura-rendered-by="4328:0">
+                <div class="slds-var-m-top_large slds-grid slds-grid_align-center">
+                    <div class={layoutClass}>
+                        <!-- Error Icon start-->
+                        <template if:true={showValidationError}>
+                            <div role="dialog" aria-labelledby="error-title" aria-describedby="error-content"
+                                tabindex="-1" class="slds-popover slds-popover_error">
+                                <header class="pageErrorHeader slds-popover__header">
+                                    <div class="slds-grid slds-grid_align-spread">
+                                        <h2 id="error-title" class="slds-truncate slds-text-heading_medium">
+                                            <lightning-icon icon-name="utility:error" alternative-text="Error"
+                                                size="small"
+                                                class="slds-icon-text-error"></lightning-icon>&nbsp;&nbsp;&nbsp;We hit a
+                                            snag.
+                                        </h2>
+                                        <div>
+                                            <lightning-icon icon-name="utility:close" alternative-text="Close"
+                                                size="small" onclick={handleCloseError}
+                                                class="slds-icon-text-default"></lightning-icon>
+                                        </div>
+                                    </div>
+                                </header>
+    
+                                <div id="error-content" class="panel-content scrollable">
+                                    <div class="slds-popover__body">
+                                        <div class="pageLevelErrors">
+                                            <div class="genericNotification">
+                                                <strong
+                                                    aria-label="We hit a snag. Review the errors on this page.">Review
+                                                    the errors
+                                                    on this page.</strong>
+                                            </div>
+                                            <ul class="errorsList slds-list_dotted slds-m-left_medium">
+                                                <!-- <template for:each={errorMessages} for:item="error"> -->
+                                                <template if:true={flowError}>
+                                                    <li> {validationErrorMessage}
+                                                    </li>
+                                                </template>
+                                                <template if:true={validationError}>
+                                                    <li> <a class="error-link"
+                                                            onclick={handleCloseError}>{validationErrorMessage}</a>
+                                                    </li>
+                                                </template>
+                                                <!-- </template> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Error Icon end-->
+                        </template>
+                    </div>
+                </div>
+                <div class="centered-container">
+                    <template if:true={showValidationErrorIcon}>
+                        <div class="slds-var-m-top_small slds-var-p-right_large">
+                            <a onclick={handleCloseError}>
+                                <svg class="slds-icon slds-icon-text-error slds-icon_small" focusable="false"
+                                    data-key="error" aria-hidden="true" viewBox="0 0 520 520" part="icon">
+                                    <g>
+                                        <path
+                                            d="M260 20C128 20 20 128 20 260s108 240 240 240 240-108 240-240S392 20 260 20zM80 260a180 180 0 01284-147L113 364a176 176 0 01-33-104zm180 180c-39 0-75-12-104-33l251-251a180 180 0 01-147 284z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </template>
+                    <lightning-button class="slds-var-m-top_small slds-var-p-right_large" type="cancel" label="Cancel" onclick={handleCancel}></lightning-button>
+                    <lightning-button class="slds-var-m-top_small" variant="brand" type="submit" onclick={handleSave} label="Save"></lightning-button>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <br />
+    <b>CRB Review Details : </b>
+    <template lwc:if={isBCRBResponseExist}>
+        <!-- Iterte over the custom metadata's Json value for bcrb review sections  -->
+        <div style="margin-left: 10px;">
+            <template for:each={configReviewBCRBJson} for:item="section">
+                <div key={section.sectionName} class="slds-section slds-is-open">
+                    <div onclick={handleToggleSection1}>
+                        <h3 class="slds-section__title slds-theme_shade">
+                            <button aria-controls="expando-unique-id" aria-expanded="true"
+                                class="slds-button slds-section__title-action" data-section-name={section.sectionName}
+                                data-icon-name={section.iconName}>
+                                <lightning-icon icon-name={section.iconName} size="x-small" title={section.sectionName}
+                                    data-section-name={section.sectionName}></lightning-icon>
+                                &nbsp;&nbsp;
+        
+                                <span class="slds-truncate" title={section.sectionName}
+                                    data-section-name={section.sectionName}>{section.sectionName}</span>
+                            </button>
+                        </h3>
+                    </div>
+                    <!-- Display the sections with the fields in json value-->
+                    <template if:true={section.show}>
+                        <lightning-record-edit-form object-api-name="CaseAnnex__c" name="reviewForm">
+                            <div class="slds-grid slds-wrap">
+                                <template for:each={section.fields} for:item="field">
+                                    <div key={field.fieldAPIName} class={dynamicClass}>
+                                        <div class="slds-form__item" role="listitem">
+                                            <div
+                                                class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-form-element__static">
+                                                        <template lwc:if={field.isHighlighted}>
+                                                            <div style="background-color: #ef3d3d80;">
+                                                                <lightning-input-field field-name={field.fieldAPIName}
+                                                                        variant="label-stacked"
+                                                                        value={field.fieldValue}
+                                                                        disabled="true">
+                                                                </lightning-input-field>
+                                                            </div>
+                                                        </template>
+                                                        <template lwc:else>
+                                                            <lightning-input-field field-name={field.fieldAPIName}
+                                                                        variant="label-stacked"
+                                                                        value={field.fieldValue}
+                                                                        disabled="true">
+                                                            </lightning-input-field>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-record-edit-form>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </template>
+    <template lwc:else>
+        <div style="margin: auto;">
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                <!-- Using lightning-icon in LWC -->
+                <lightning-icon icon-name="utility:warning" alternative-text="Attention" size="small"></lightning-icon>
+                <h2 style="margin-left: 40px;">
+                    Please click on the "Fetch" button to see the CRB Review Details
+                </h2>
+            </div>
+        </div>
+    </template>
+    
+</template>

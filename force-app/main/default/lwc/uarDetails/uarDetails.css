@@ -1,0 +1,35 @@
+.slds-p-around_medium {
+	padding: 1rem;
+}
+
+.iframe-container {
+	height: 60vh;
+	/* Fixed height for the container */
+	overflow: hidden;
+	/* Hide overflow to prevent scrollbars */
+	position: relative;
+	/* Ensure the iframe is positioned correctly */
+}
+
+.iframe-content {
+	border: none;
+	/* Remove iframe border */
+	height: 100%;
+	/* Ensure iframe takes full height of the container */
+	width: 100%;
+	/* Ensure iframe takes full width of the container */
+}
+
+@media (max-width: 768px) {
+	.iframe-container {
+		height: 50vh;
+		/* Adjust height for smaller screens */
+	}
+}
+
+@media (min-width: 1200px) {
+	.iframe-container {
+		height: 70vh;
+		/* Adjust height for larger screens */
+	}
+}

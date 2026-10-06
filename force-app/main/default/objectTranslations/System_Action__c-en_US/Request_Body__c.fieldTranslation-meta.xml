@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Description of the full JSON object response sent from origin service. --></help>
+    <label><!-- Request Body --></label>
+    <name>Request_Body__c</name>
+</CustomFieldTranslation>

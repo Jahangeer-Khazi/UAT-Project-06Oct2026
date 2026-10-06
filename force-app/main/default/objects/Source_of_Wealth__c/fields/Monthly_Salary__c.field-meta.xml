@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Salary__c</fullName>
+    <label>Monthly Salary</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0-499</fullName>
+                <default>false</default>
+                <label>BHD 0 - BHD 499</label>
+            </value>
+            <value>
+                <fullName>500-999</fullName>
+                <default>false</default>
+                <label>BHD 500 - BHD 999</label>
+            </value>
+            <value>
+                <fullName>1000-1999</fullName>
+                <default>false</default>
+                <label>BHD 1,000 - BHD 1,999</label>
+            </value>
+            <value>
+                <fullName>2000-2999</fullName>
+                <default>false</default>
+                <label>BHD 2,000 - BHD 2,999</label>
+            </value>
+            <value>
+                <fullName>3000-4999</fullName>
+                <default>false</default>
+                <label>BHD 3,000 - BHD 4,999</label>
+            </value>
+            <value>
+                <fullName>5000-6999</fullName>
+                <default>false</default>
+                <label>BHD 5,000 - BHD 6,999</label>
+            </value>
+            <value>
+                <fullName>7000-9999</fullName>
+                <default>false</default>
+                <label>BHD 7,000 - BHD 9,999</label>
+            </value>
+            <value>
+                <fullName>10000Above</fullName>
+                <default>false</default>
+                <label>Above 10,000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Last Liveness Reject Reason Details --></label>
+    <name>Last_Liveness_Reject_Reason_Details__c</name>
+    <picklistValues>
+        <masterLabel>100 MANIPULATED_DOCUMENT</masterLabel>
+        <translation><!-- 100 MANIPULATED_DOCUMENT  --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1001	PHOTO</masterLabel>
+        <translation><!-- 1001	PHOTO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>10011 PLACE_OF_BIRTH</masterLabel>
+        <translation><!-- 10011 PLACE_OF_BIRTH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1002	DOCUMENT_NUMBER</masterLabel>
+        <translation><!-- 1002	DOCUMENT_NUMBER --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1003	EXPIRY</masterLabel>
+        <translation><!-- 1003	EXPIRY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1004	DOB</masterLabel>
+        <translation><!-- 1004	DOB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1005	NAME</masterLabel>
+        <translation><!-- 1005	NAME --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1006	ADDRESS</masterLabel>
+        <translation><!-- 1006	ADDRESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1007	SECURITY_CHECKS</masterLabel>
+        <translation><!-- 1007	SECURITY_CHECKS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1008	SIGNATURE</masterLabel>
+        <translation><!-- 1008	SIGNATURE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1009	PERSONAL_NUMBER</masterLabel>
+        <translation><!-- 1009	PERSONAL_NUMBER --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>200 NOT_READABLE_DOCUMENT</masterLabel>
+        <translation><!-- 200 NOT_READABLE_DOCUMENT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2001	BLURRED</masterLabel>
+        <translation><!-- 2001	BLURRED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2002	BAD_QUALITY</masterLabel>
+        <translation><!-- 2002	BAD_QUALITY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2003	MISSING_PART_DOCUMENT</masterLabel>
+        <translation><!-- 2003	MISSING_PART_DOCUMENT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2004	HIDDEN_PART_DOCUMENT</masterLabel>
+        <translation><!-- 2004	HIDDEN_PART_DOCUMENT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2005	DAMAGED_DOCUMENT</masterLabel>
+        <translation><!-- 2005	DAMAGED_DOCUMENT --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

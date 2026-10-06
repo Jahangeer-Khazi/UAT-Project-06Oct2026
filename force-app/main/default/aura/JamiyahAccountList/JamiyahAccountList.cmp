@@ -1,0 +1,106 @@
+<aura:component controller="JamiyahAccountController" implements="force:hasRecordId">
+
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <!-- <aura:attribute name="caseId" type="String"/>
+    <aura:attribute name="account" type="Account" /> -->
+    <!-- <aura:attribute name="enableActions" type="Boolean"/> -->
+    <!-- ============================================ -->
+    <aura:attribute name="caseId" type="String"/>
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="newCase" type="Case" />
+    <aura:attribute name="newCase1" type="Case" />
+    <aura:attribute name="recordTypId" type="String" />
+	<aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="jameyaId" type="String" access="private"/>
+    <aura:attribute name="stopJamiyah" type="String" access="private" default=""/>
+    <aura:attribute name="displayJameyaDetails" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="loadingStopJamiyah" type="Boolean" default="false"/>
+    <aura:attribute name="newCaseId" type="String" />
+
+    <!-- ================================== -->
+    <aura:attribute name="sortedBy" type="String" default="id"/>
+    <aura:attribute name="sortedDirection" type="String" default="asc"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+
+        <aura:set attribute="else">
+            <lightning:datatable
+                aura:id="jamiyahAccListTable"
+                data="{! v.data}"
+                columns="{! v.columns}"
+                keyField="id"
+                onsort="{!c.updateColumnSorting}"
+                sortedBy="{!v.sortedBy}"
+                sortedDirection="{!v.sortedDirection}"
+                hideCheckboxColumn="false"
+                maxRowSelection="1"
+                onrowselection="{! c.handleRowSelection }"
+                onrowaction="{! c.handleRowAction }"/>
+
+
+            <!-- Jamiyah Account Detail -->
+            <aura:if isTrue="{!and(not(empty(v.jameyaId)),  true == v.displayJameyaDetails)}">
+                <br/>
+                <c:JamiyahAccountDetail customerId="{!v.customerId}"  account="{!v.account}"
+                                    jameyaId="{!v.jameyaId}" />
+            </aura:if>
+        </aura:set>
+    </aura:if>
+
+
+    <c:modal aura:id="stop-jamiyah-popup">
+
+        <aura:set attribute="header">
+            Stop Jamiyah Account: {!v.stopJamiyah.id}
+        </aura:set>
+        <aura:set attribute="body">
+            <lightning:recordEditForm objectApiName="Case" recordTypeId="{!v.recordTypId}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onload="{!c.handleOnload}"
+                                      onsuccess="{!c.handleOnSuccess}">
+                <lightning:messages />
+                <lightning:inputField fieldName="Jamiyah_Id__c" aura:id="jamiyahId" disabled="true"/>
+
+                <lightning:inputField fieldName="Is_Organizer__c"  aura:id="isOrganiser" disabled="true"/>
+                <lightning:inputField fieldName="Requested_by_Admin_new__c"  aura:id="requestedByAdmin" disabled="false"/>
+                <!--<lightning:inputField fieldName="Closure_Reason__c"  aura:id="closureReason" disabled="false"/>-->
+                <lightning:inputField fieldName="Origin" aura:id="origin"/>
+
+                <aura:if isTrue="false">
+                    <lightning:outputField fieldName="AccountId" aura:id="accId"/>
+                    <lightning:outputField fieldName="RecordTypeID" aura:id="recId"/>
+                </aura:if>
+
+                <lightning:button variant="brand" label="Stop Jamiyah" type="submit" />
+            </lightning:recordEditForm>
+
+       </aura:set>
+        <aura:set attribute="footer">
+
+            <aura:if isTrue="{!v.loadingStopJamiyah}">
+                <lightning:button variant="brand" disabled="true" class="btn-loading">&nbsp;
+                    <lightning:spinner alternativeText="Loading" size="small" variant="brand"/>
+                </lightning:button>
+                <!--
+                <aura:set attribute="else">
+      				<lightning:button label="Stop Jamiyah" variant="brand" onclick="{!c.stopJamiyah}"/>
+    			</aura:set>
+				-->
+            </aura:if>
+
+            <!--
+            <lightning:button label="Cancel" variant="neutral" onclick="{!c.closeStopJamiyahPopup}"/>
+			-->
+        </aura:set>
+
+    </c:modal>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Advance Payment --></label>
+    <name>AdvancePayment__c</name>
+    <picklistValues>
+        <masterLabel>Advance Payment</masterLabel>
+        <translation><!-- Advance Payment --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

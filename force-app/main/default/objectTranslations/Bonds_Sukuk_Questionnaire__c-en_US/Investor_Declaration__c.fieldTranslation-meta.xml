@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- What type of investor are you? --></help>
+    <label><!-- Investor Declaration --></label>
+    <name>Investor_Declaration__c</name>
+    <picklistValues>
+        <masterLabel>Accredited Investor</masterLabel>
+        <translation><!-- Accredited Investor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retail Investor</masterLabel>
+        <translation><!-- Retail Investor --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Amount recovery notification about debit</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Amount recovery notification about debit</name>
+    <style>none</style>
+    <subject>Notification of  Account Debit and Adjustment</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activate_Deactivate_CRM_user_License__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This flag, if TRUE, will give the user ability to Activate or Deactivate the CRM users from the License Rotation Manage user Page</description>
+    <label>Activate/ Deactivate CRM user License</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

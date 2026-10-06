@@ -1,0 +1,283 @@
+html{
+  height: 100%;
+}
+body{
+  background-image:url("./images/bg.png");
+		  background-repeat: no-repeat;
+		  background-size: cover; 
+  animation: mymove 5s infinite;
+  margin: 0;
+}
+
+@keyframes mymove {
+  from {background-color: #121C39;}
+  to {background-color: red;}
+}
+
+html, body, #canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+#canvas{
+    height: 100%;
+    width: 100%;
+}
+
+#controls{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}  
+
+.main{
+  border-radius: 10px;
+}
+
+.main .logo{
+  text-align: center;
+  height: 120px;
+  position: relative;
+}
+
+img.ila-logo{
+  max-width: 62px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.prize{
+  height: 20vh;
+  position: relative;
+}
+
+
+.prize-child{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.prize-amount{
+  display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+width: 239px;
+height: 60px;
+left: 0px;
+top: 48px;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 10px 0px;
+}
+
+.prize-num{
+  text-align: center;
+  position: static;
+width: 227px;
+height: 38px;
+left: calc(50% - 227px/2);
+top: 0px;
+
+font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 38px;
+
+/* Primary#01 / Lightest */
+
+color: #CCCFD8;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 10px 0px;
+}
+
+.decimal{
+  position: static;
+width: 44px;
+height: 34px;
+left: calc(50% - 44px/2 + 71.5px);
+top: calc(50% - 34px/2 - 13px);
+
+font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 34px;
+/* identical to box height, or 142% */
+
+
+/* Shades / White */
+
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 0px;
+}
+
+.currency{
+  position: static;
+left: 0%;
+right: 81.59%;
+top: 0%;
+bottom: 53.33%;
+
+font-family: SF Pro Text;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 28px;
+/* identical to box height, or 140% */
+
+
+/* Shades / White */
+
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+}
+
+span.amount{
+  position: static;
+left: 0%;
+right: 23.53%;
+top: 0%;
+bottom: 0%;
+
+font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 50px;
+/* identical to box height */
+
+
+/* Shades / White */
+
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+}
+
+.winner{
+  text-align: center;
+  padding: 20px 0;
+  font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 32px;
+/* identical to box height, or 100% */
+color: #FFFFFF;
+  
+}
+
+.winner div{
+  
+font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 32px;
+/* identical to box height, or 100% */
+color: #FFFFFF;
+}
+
+.finish-btn{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 22px 63.5px;
+  
+  background: rgba(0, 14, 60, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+  border-radius: 114px;
+}
+
+.winner-cif{
+ position: relative;
+ height: 25vh;
+ font-family: Neo Sans Arabic;
+ font-style: normal;
+ font-weight: normal;
+ font-size: 70px;
+ line-height: 84px;
+ text-align: center;
+ color: #FFFFFF;
+ padding: 20px 0px;
+}
+
+.winner-cif div{
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 70px;
+  line-height: 84px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 20px 0px;
+}
+
+.finish-btn {
+font-family: SF Pro Text;
+font-style: normal;
+font-weight: 600;
+font-size: 22px;
+line-height: 20px;
+
+
+color: #FFFFFF;
+
+}
+
+.finish-btn-parent{
+  position: relative;
+  height: 90px;
+}

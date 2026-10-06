@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Vaidation</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT(REGEX(Full_Name__c, &quot;[a-zA-Z]&quot;))</errorConditionFormula>
+    <errorMessage>Name should be only contains Alphabets.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nationality_Mustbe_NonBahrain</fullName>
+    <active>false</active>
+    <description>Nationality should be Non-Bahrain</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Periodic Review&quot;),
+ISCHANGED(pcNationality__c),
+OR(
+pcNationality__c = &quot;BH&quot;,
+pcNationality__c = &quot;BAHRAIN&quot;,
+pcNationality__c = &quot;Bahrain&quot;,
+pcNationality__c = &quot;Bh&quot;,
+pcNationality__c = &quot;bh&quot;,
+pcNationality__c = &quot;bahrain&quot;
+)
+)</errorConditionFormula>
+    <errorDisplayField>pcNationality__c</errorDisplayField>
+    <errorMessage>Nationality must be Non-Bahraini</errorMessage>
+</ValidationRule>

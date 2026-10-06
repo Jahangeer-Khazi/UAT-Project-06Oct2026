@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cbb_PreventUpdateAmountBlockFields</fullName>
+    <active>false</active>
+    <description>If the Sub Type choosen is &quot;CBB Amount unblock&quot; , the cbb amount blocked fields cannot be updated</description>
+    <errorConditionFormula>IF(ISPICKVAL(Sub_Type__c, &apos;CBB Amount unblock&apos;) &amp;&amp; 
+			(ISCHANGED(BlockAmountBHDB__c) || ISCHANGED(CaseExecutionNumberB__c) || ISCHANGED(LetterReferenceNumberB__c) ) , 
+			true, false)</errorConditionFormula>
+    <errorMessage>You cannot update fields for the cbb amount block section</errorMessage>
+</ValidationRule>

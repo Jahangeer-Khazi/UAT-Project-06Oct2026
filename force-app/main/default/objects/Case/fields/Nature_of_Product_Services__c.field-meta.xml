@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nature_of_Product_Services__c</fullName>
+    <description>Complaints - Nature of Product/Services</description>
+    <inlineHelpText>Complaints - Nature of Product/Services</inlineHelpText>
+    <label>Nature of Product/Services</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Root__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Call Deposits</fullName>
+                <default>false</default>
+                <label>Call Deposits</label>
+            </value>
+            <value>
+                <fullName>Clean Payments (international)</fullName>
+                <default>false</default>
+                <label>Clean Payments (international)</label>
+            </value>
+            <value>
+                <fullName>Trade Finance</fullName>
+                <default>false</default>
+                <label>Trade Finance</label>
+            </value>
+            <value>
+                <fullName>Treasury</fullName>
+                <default>false</default>
+                <label>Treasury</label>
+            </value>
+            <value>
+                <fullName>E-Banking</fullName>
+                <default>false</default>
+                <label>E-Banking</label>
+            </value>
+            <value>
+                <fullName>Local transfers</fullName>
+                <default>false</default>
+                <label>Local transfers</label>
+            </value>
+            <value>
+                <fullName>Cheques</fullName>
+                <default>false</default>
+                <label>Cheques</label>
+            </value>
+            <value>
+                <fullName>Cash</fullName>
+                <default>false</default>
+                <label>Cash</label>
+            </value>
+            <value>
+                <fullName>Brokerage</fullName>
+                <default>false</default>
+                <label>Brokerage</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Product/Service Not received</fullName>
+                <default>false</default>
+                <label>Product/Service Not received</label>
+            </value>
+            <value>
+                <fullName>Increase/decrease limit</fullName>
+                <default>false</default>
+                <label>Increase/decrease limit</label>
+            </value>
+            <value>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+                <label>Technical issues</label>
+            </value>
+            <value>
+                <fullName>High Exchange rate</fullName>
+                <default>false</default>
+                <label>High Exchange rate</label>
+            </value>
+            <value>
+                <fullName>Account closure</fullName>
+                <default>false</default>
+                <label>Account closure</label>
+            </value>
+            <value>
+                <fullName>Credit card Closure</fullName>
+                <default>false</default>
+                <label>Credit card Closure</label>
+            </value>
+            <value>
+                <fullName>Product is not working</fullName>
+                <default>false</default>
+                <label>Product is not working</label>
+            </value>
+            <value>
+                <fullName>Wrong exchange rate</fullName>
+                <default>false</default>
+                <label>Wrong exchange rate</label>
+            </value>
+            <value>
+                <fullName>Linking currencies</fullName>
+                <default>false</default>
+                <label>Linking currencies</label>
+            </value>
+            <value>
+                <fullName>Delay in Application process</fullName>
+                <default>false</default>
+                <label>Delay in Application process</label>
+            </value>
+            <value>
+                <fullName>Update info</fullName>
+                <default>false</default>
+                <label>Update info</label>
+            </value>
+            <value>
+                <fullName>High charges/Mark up fee</fullName>
+                <default>false</default>
+                <label>High charges/Mark up fee</label>
+            </value>
+            <value>
+                <fullName>Card ordering</fullName>
+                <default>false</default>
+                <label>Card ordering</label>
+            </value>
+            <value>
+                <fullName>On boarding related</fullName>
+                <default>false</default>
+                <label>On boarding related</label>
+            </value>
+            <value>
+                <fullName>Process enhancement request</fullName>
+                <default>false</default>
+                <label>Process enhancement request</label>
+            </value>
+            <value>
+                <fullName>Unable to access</fullName>
+                <default>false</default>
+                <label>Unable to access</label>
+            </value>
+            <value>
+                <fullName>Application rejected</fullName>
+                <default>false</default>
+                <label>Application rejected</label>
+            </value>
+            <value>
+                <fullName>Long turnaround time</fullName>
+                <default>false</default>
+                <label>Long turnaround time</label>
+            </value>
+            <value>
+                <fullName>Onboarding Issue</fullName>
+                <default>false</default>
+                <label>Onboarding Issue</label>
+            </value>
+            <value>
+                <fullName>Long waiting time in queue</fullName>
+                <default>false</default>
+                <label>Long waiting time in queue</label>
+            </value>
+            <value>
+                <fullName>Staff behavior</fullName>
+                <default>false</default>
+                <label>Staff behavior</label>
+            </value>
+            <value>
+                <fullName>Delay in Card delivery</fullName>
+                <default>false</default>
+                <label>Delay in Card delivery</label>
+            </value>
+            <value>
+                <fullName>Bank Statement</fullName>
+                <default>false</default>
+                <label>Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Exit Reason</fullName>
+                <default>false</default>
+                <label>Exit Reason</label>
+            </value>
+            <value>
+                <fullName>Amount was not received</fullName>
+                <default>false</default>
+                <label>Amount was not received</label>
+            </value>
+            <value>
+                <fullName>Amount debited &amp; Service not received</fullName>
+                <default>false</default>
+                <label>Amount debited &amp; Service not received</label>
+            </value>
+            <value>
+                <fullName>Minus Sign</fullName>
+                <default>false</default>
+                <label>Minus Sign</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Amount deducted twice</fullName>
+                <default>false</default>
+                <label>Amount deducted twice</label>
+            </value>
+            <value>
+                <fullName>Issue</fullName>
+                <default>false</default>
+                <label>Issue</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Product/Service Not received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Increase/decrease limit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Technical issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>High Exchange rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Account closure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Credit card Closure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Product is not working</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Wrong exchange rate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Linking currencies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Delay in Application process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Update info</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>High charges/Mark up fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Card ordering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>On boarding related</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Process enhancement request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Unable to access</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Application rejected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Cheques</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Long turnaround time</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Onboarding Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Long waiting time in queue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Staff behavior</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Delay in Card delivery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Bank Statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Exit Reason</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Amount was not received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Amount debited &amp; Service not received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Minus Sign</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Amount deducted twice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Issue</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

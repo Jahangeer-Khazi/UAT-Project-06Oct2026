@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minor_flag__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>will indicate of the customer is minor or not,Updated using CRM case for customers with age less than 18 years old</description>
+    <label>Minor flag</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

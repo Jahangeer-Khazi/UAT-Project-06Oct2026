@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_LoanCreditCard_App_Gret_5000_LMT</fullName>
+    <active>true</active>
+    <description>The current user cannot change the Approval result until they are a member of the Credit Approval Queue for an Approved Loan Amount of greater than 5,000, and the approval matrix needs to match.</description>
+    <errorConditionFormula>AND(
+!ISPICKVAL(Case__r.cc_Control_Type__c, &apos;STP&apos;),
+TEXT(Case__r.Region_Flag__c) ==&apos;Bahrain&apos;,
+ISCHANGED(cx_ln_Credit_Approval_Result__c),
+NOT(ISBLANK(TEXT(cx_ln_Credit_Approval_Result__c))),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL( Case__r.Type , &quot;New Loan / Finance Application&quot;),
+ISPICKVAL( cx_ln_Product__c , &quot;Unsecured&quot;),
+(cx_ln_Approved_Loan_Amount__c &gt; 5000),
+OR(
+NOT($Permission.Ability_to_Approve_Unsecure_Loan),
+($User.Can_Approve_Loan_Credit_Card_Request__c = false)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cx_ln_Credit_Approval_Result__c</errorDisplayField>
+    <errorMessage>The current user cannot change the Approval result until they are a member of the Credit Approval Queue for an Approved Loan Amount of greater than 5,000, and the approval matrix needs to match.</errorMessage>
+</ValidationRule>

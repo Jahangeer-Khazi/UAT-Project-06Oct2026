@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requested_Product__c</fullName>
+    <label>Requested Product</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SECURED</fullName>
+                <default>false</default>
+                <label>Secured</label>
+            </value>
+            <value>
+                <fullName>UNSECURED</fullName>
+                <default>false</default>
+                <label>Unsecured</label>
+            </value>
+            <value>
+                <fullName>AUTO</fullName>
+                <default>false</default>
+                <label>Auto</label>
+            </value>
+            <value>
+                <fullName>HOUSING</fullName>
+                <default>false</default>
+                <label>Housing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

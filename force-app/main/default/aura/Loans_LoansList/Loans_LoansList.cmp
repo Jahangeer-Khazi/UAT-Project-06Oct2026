@@ -1,0 +1,142 @@
+<!--
+  @description       : 
+  @author            : Elmustapha ELGARNI
+  @group             : 
+  @last modified on  : 04-23-2024
+  @last modified by  : Elmustapha ELGARNI
+-->
+<aura:component controller="Loans_LoansListController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="caseId" type="String" required="true" />
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <aura:attribute name="enableActions" type="Boolean" required="true" />
+    <aura:attribute name="loanStatus" type="String" default="All" />
+    <!-- ============================================ -->
+    <aura:attribute name="responseLoanListdata" type="Object" access="private" />
+ 
+    <aura:attribute name="selectedLoanStatus" type="String" default="Default" />
+    <aura:attribute name="selectedRows" type="Object[]" default="[]" />
+    <!-- ============================================ -->
+    <aura:attribute name="data" type="Object[]" access="private" default="[]" />
+    <aura:attribute name="columns" type="List" access="private" />
+    <aura:attribute name="loanId" type="String" access="private" />
+    <aura:attribute name="displayLoanDetails" type="Boolean" access="private" default="false" />
+    <aura:attribute name="displayLoanTransactions" type="Boolean" access="private" default="false" />
+    <aura:attribute name="recordTypeName" type="String" />
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="caseType" type="String" />
+    <aura:attribute name="earlySettlmentPayAmount" type="String" />
+    <aura:attribute name="loanOrFinance" type="String" default="Loan"/>
+    <aura:attribute name="submittedLoanId" type="String" />
+    <aura:attribute name="isSubmitted" type="Boolean" />
+    <aura:attribute name="isHandOffVisible" type="Boolean" default="true" />
+    <aura:attribute name="caseSubType" type="String" />
+  <!-- To handle alburaq Product  -->
+    <aura:attribute name="isLoanExist" type="Boolean" default="true" />
+
+    <!-- To handle alburaq Product  -->
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+
+    <aura:attribute name="loanPaidNumber" type="Integer" />
+    <aura:attribute name="loanEarlySettlementNumber" type="Integer" default="0" />
+    <aura:attribute name="loanPartialSettlementNumber" type="Integer" default="0" />
+    <aura:attribute name="loanAdvancePaymentSettlementNumber" type="Integer" default="0" />
+    <aura:attribute name="loanFeesReversalSettlementNumber" type="Integer" default="0" />
+    <aura:attribute name="loanTopUpSettlementNumber" type="Integer" default="1" />
+    <aura:attribute name="loanRestructuringSettlementNumber" type="Integer" default="1" />
+    <aura:attribute name="selectedPayOffAmount" type="String" /> <!-- #CH02-->
+
+
+
+    <aura:method name="reload" action="{!c.load}" />
+
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent" />
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}" />
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}" />
+    <aura:handler name="change" value="{!v.loanStatus}" action="{!reload}" />
+
+    <!-- Event is required to pass the Loan Id to non-related loan list and loan-details component -->
+    <aura:registerEvent name="onSelectionPassId" type="c:PassAccountIdEvent" />
+  
+   <!--    <lightning:card title="{! 'Loan !!!: ' +  v.loanId }"></lightning:card> -->
+      <lightning:inputField fieldName="Card_Product_Configuration_Id__c" aura:id="LoanApp" />
+    
+    <!-- <aura:if isTrue="{!v.recordTypeName != 'Loan / Finance Service Request'}"> -->
+    <lightning:select aura:id="selectLoanSTatus" name="select" label="{! 'Select ' + v.loanOrFinance + ' Status'}" onchange="{!c.load}"
+        value="{!v.selectedLoanStatus}">
+        <option value="All">All</option>
+        <option value="Default">Default</option>
+        <option value="Active">Active</option>
+        <option value="Overdue">Overdue</option>
+        <option value="Closed">Closed</option>
+        <option value="Written">Written-off</option>
+    </lightning:select>
+         <!-- </aura:if> -->
+    <br />
+
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+        <aura:set attribute="else">
+              <!-- omar start (Id) -->
+                 <lightning:datatable aura:id="loanListTable" data="{! v.data}" columns="{! v.columns }" keyField="id"
+                hideCheckboxColumn="false" maxRowSelection="1" selectedRows="{! v.selectedRows }"
+                onrowselection="{! c.handleRowSelection }" onrowaction="{! c.handleRowAction }" />
+                <!-- omar end  -->
+
+
+            <!-- Loan Details Component -->
+            <aura:if isTrue="{!and(not(empty(v.loanId)),  true == v.displayLoanDetails)}">
+                <br />
+                <c:Loans_LoansDetails customerId="{!v.customerId}" loanId="{!v.loanId}" caseId="{!v.caseId}"
+                     enableActions="{!v.enableActions}" caseRecordType="{!v.caseRecordType}"
+                    responseLoanListdata="{!v.responseLoanListdata}" isAlburaqProduct="{!v.isAlburaqProduct}" account="{!v.account}"   />
+            </aura:if>
+
+            
+            <!-- Loan Hand-Off Process Component -->
+            <aura:if isTrue="{!and(v.recordTypeName == 'Loan / Finance Service Request', or(v.isSubmitted , and(not(empty(v.loanId)), v.isLoanExist == true))) }">
+                <br />
+                <br />
+                <aura:if isTrue="{!and( v.caseType == 'New Loan / Finance Service Request',  true == v.isHandOffVisible)}">
+                    <!-- #CH02 : add selectedPayOffAmount="{!v.selectedPayOffAmount}"-->
+                    <c:Loans_LoansHandOffProcess caseId="{!v.caseId}" customerId="{!v.customerId}" loanNumber="{!v.submittedLoanId}" caseModel="{!v.caseModel}" responseLoanListdata="{!v.responseLoanListdata}" isSubmittedToParent="{!v.isSubmitted}" selectedPayOffAmount="{!v.selectedPayOffAmount}" />
+                </aura:if>
+                <aura:if isTrue="{!and( v.caseType == 'New Loan / Finance Service Request',  false == v.isHandOffVisible)}">
+                    <p aura:id="errorSection" style="text-align: center;position: relative;bottom: 1em;font-size: 1.4em;" class="slds-text-color_error slds-m-top_x-small custom_error" role="alert">
+  						Please select a loan that has more than {!v.loanPaidNumber} paid installments.
+					</p>
+                </aura:if>
+          
+            </aura:if>
+            
+            <!-- Loan Transactions Component -->
+            <aura:if isTrue="{!and(not(empty(v.loanId)),  true == v.displayLoanDetails)}">
+                <br />
+                <br />
+                <c:Loans_LoanTransactions customerId="{!v.customerId}" account="{!v.account}" loanId="{!v.loanId}"
+                    isAlburaqProduct="{!v.isAlburaqProduct}" />
+            </aura:if>
+
+            <!-- Loan Repayment Schedule Component -->
+            <aura:if isTrue="{!and(not(empty(v.loanId)),  true == v.displayLoanDetails)}">
+                <br />
+                <c:Loans_PaymentsSchedule customerId="{!v.customerId}"
+                                        page="customer"
+                                        account="{!v.account}"
+                                        responseLoanListdata="{!v.responseLoanListdata}" 
+                                        loanId="{!v.loanId}"
+                                        scheduleType="Schedule" 
+                                        isAlburaqProduct="{!v.isAlburaqProduct}"/>
+            </aura:if>
+            
+
+
+        </aura:set>
+    </aura:if>
+
+    <c:apexService aura:id="apexService" />
+</aura:component>

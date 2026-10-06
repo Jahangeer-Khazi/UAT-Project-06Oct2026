@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent when the &quot;Gulf Air Co-Brand&quot; is set to TRUE on the customer profile - for pre Order</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_COBRANDED_GulfAir_PreOrder_Notification</name>
+    <style>none</style>
+    <subject>You have been added to the Gulf Air Co-Branded Credit Card Waitlist</subject>
+    <textOnly>You have been added to
+ila Gulf Air Credit Card Waitlist
+
+Dear Customer,
+
+Thank you for registering your interest in our exciting new ila Gulf Air Credit Card. We are thrilled to have you onboard and can&apos;t wait to share more details with you.
+
+Stay tuned for the latest news and updates about the card, including its features, benefits, and launch date.
+
+If you have any questions, please don&apos;t hesitate to reach out to our customer service team on +973 17123456 or email us on support@ilabank.com
+
+
+
+Open ila App
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

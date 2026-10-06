@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>HR Team</name>
+    <queueMembers>
+        <users>
+            <user>ashish.pandey@bank-abc.com</user>
+            <user>hrapprover@bank-abc.com</user>
+            <user>khazi.jahangeer@ilabank.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

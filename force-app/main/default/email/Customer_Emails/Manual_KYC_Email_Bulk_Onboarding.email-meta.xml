@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>KYC emails for the Customer - Bulk- OnboardingRequest</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Manual KYC Email - Bulk Onboarding</name>
+    <style>none</style>
+    <subject>Support Onboarding Request</subject>
+    <textOnly>KYC Documents Requested
+
+Dear Valued Customer,
+
+Greetings form ila, we trust that you are doing great.
+
+Thank you for choosing ila. We look forward to welcoming you onboard! We just need your support to provide us with the following documents in order for us to continue with your account opening process with us:
+
+• Valid Passport.
+• Valid Residency Permit (up to one month validity).
+
+
+Please reply back on this email with the above documents.
+
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Have a great day!
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>L2_Access__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This when checked will give user to action the L2 agents cases</description>
+    <label>L2 Access</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event fired when guardian CIF updates">
+    <aura:attribute name="guardianCIF" type="String" />
+    <aura:attribute name="guardianIdNumber" type="String"/>
+</aura:event>

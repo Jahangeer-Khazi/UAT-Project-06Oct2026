@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- None (1), Very Little (2), Some (3), Modest (4), Extensive (5) --></help>
+    <label><!-- Experience Level Score --></label>
+    <name>Experience_Level_Score__c</name>
+</CustomFieldTranslation>

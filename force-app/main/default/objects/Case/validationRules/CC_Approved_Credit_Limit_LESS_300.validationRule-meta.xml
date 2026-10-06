@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CC_Approved_Credit_Limit_LESS_300</fullName>
+    <active>true</active>
+    <description>This validation rule is added for both Credit Card Application and  Cash Collateral Cases</description>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) ==&apos;Bahrain&apos;,
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL(cc_Credit_Evaluation_Result__c , &quot;Accept&quot;),ISPICKVAL( cc_HR_Result__c , &quot;Approved&quot;)
+),
+(cc_Approved_Credit_Limit__c &lt; 300),
+OR(
+AND(
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &apos;New Credit Card&apos;)
+),
+ISPICKVAL( Type , &quot;Credit Card Cash Collateral Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Credit_Limit__c</errorDisplayField>
+    <errorMessage>Below Minimum Approved Credit Limit</errorMessage>
+</ValidationRule>

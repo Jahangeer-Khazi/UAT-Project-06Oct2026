@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>bdghaidi@mobiquityinc.com</contactEmail>
+    <label>Orchestration Layer JWT Flow</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/success</callbackUrl>
+        <certificate>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</certificate>
+        <consumerKey>3MVG9Lu3LaaTCEgJ1gvddPIi1T6X_W4BO8Rth1dEiZuFUYdwYkuRcbciFTdSR5SM6yjhyrFHRdkxNjDKvqGHk</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isNamedUserJwtEnabled>false</isNamedUserJwtEnabled>
+        <isPkceRequired>false</isPkceRequired>
+        <isRefreshTokenRotationEnabled>false</isRefreshTokenRotationEnabled>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <isSecretRequiredForTokenExchange>false</isSecretRequiredForTokenExchange>
+        <isTokenExchangeEnabled>false</isTokenExchangeEnabled>
+        <scopes>Api</scopes>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <isTokenExchangeFlowEnabled>false</isTokenExchangeFlowEnabled>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

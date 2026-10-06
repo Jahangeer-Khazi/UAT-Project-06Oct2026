@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jordan_Loans_Credit_Operations_Jordan_Loan</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Jordan Loans Credit Operations</label>
+    <queue>Jordan_Loans_Credit_Operations</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

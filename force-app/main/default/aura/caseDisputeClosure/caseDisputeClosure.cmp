@@ -1,0 +1,57 @@
+<!-- 
+    Organization : ABC Bank
+    Created By   : Ranjith Raja
+    Created Date : 2024-09-22
+    Change History: 
+        2021-11-27 - #CH01# - Added the Logic for Case Dispute Closure
+-->
+
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="CaseProcessingHandler">
+    <!-- Attributes -->
+	<aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="ClosureType" type="String" access="private"/>
+    <aura:attribute name="recordTypeId" type="Id" access="private"/>
+    <aura:attribute name="caseNumber" type="String" access="private"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private"/>
+
+    <!-- Event Handlers -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <!-- Navigation Service -->
+    <lightning:navigation aura:id="navService"/>
+
+    <!-- Record Edit Form -->
+    <div >
+        <lightning:recordEditForm aura:id="caseDispute"
+                                  recordId="{!v.recordId}"
+                                  recordTypeId="{!v.recordTypeId}"
+                                  objectApiName="Case"
+                                  onsubmit="{!c.onSubmitClick}"
+                                  onsuccess="{!c.handleSuccess}"
+                                  onerror="{!c.handleError}">
+            <lightning:messages /> 
+
+            <lightning:inputField fieldName="Final_Recommendation_for_Closing_Case__c" variant="label-stacked"/>
+            <lightning:inputField fieldName="Closure_Type__c" value="{!v.ClosureType}" variant="label-stacked" required="true"/>
+            <lightning:inputField fieldName="Case_Outcome__c" variant="label-stacked"/>
+            
+            <aura:if isTrue="{!'Others' == v.ClosureType}">
+                <lightning:inputField fieldName="Comments" variant="label-stacked"/>
+            </aura:if>
+
+            <!-- Save Button -->
+            <div class="slds-clearfix">
+                <div class="slds-float_right">
+                    <lightning:button aura:id="submit" type="submit" label="Save" />
+                </div>
+            </div>
+        </lightning:recordEditForm>
+    </div>
+	
+	<c:apexService aura:id="apexService"/>
+	
+    <!-- Spinner for Loading -->
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner variant="brand" size="large" alternativeText="Please wait..."/>
+    </aura:if>
+</aura:component>

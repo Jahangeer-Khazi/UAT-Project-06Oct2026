@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investor_Declaration_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Investor_Declaration__c,
+&quot;Retail Investor&quot;, 1,
+&quot;Accredited Investor&quot;, 5,
+0
+)</formula>
+    <inlineHelpText>Retail Investor(1), Accredited Investor(5)</inlineHelpText>
+    <label>Investor Declaration Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

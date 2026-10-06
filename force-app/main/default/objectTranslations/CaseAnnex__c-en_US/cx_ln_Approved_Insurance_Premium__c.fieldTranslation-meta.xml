@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Approved Insurance Premium --></label>
+    <name>cx_ln_Approved_Insurance_Premium__c</name>
+    <picklistValues>
+        <masterLabel>Monthly installment</masterLabel>
+        <translation><!-- Monthly installment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Upfront</masterLabel>
+        <translation><!-- Upfront --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

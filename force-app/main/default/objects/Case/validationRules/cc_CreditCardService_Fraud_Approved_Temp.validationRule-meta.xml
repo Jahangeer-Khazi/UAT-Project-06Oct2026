@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Fraud_Approved_Temp</fullName>
+    <active>true</active>
+    <description>If Approved Temporarily = true then the agent has to fill in Approved Temporary Limit and Credit Fraud Team Result</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(cc_Request_Type__c, &quot;permanent&quot;),
+cc_Approved_Temporarily__c == true,
+OR(
+ISBLANK(cc_Approved_Temporary_Limit__c),
+ISPICKVAL(Fraud_Results__c, &quot;&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Please fill in the Approved Temporary Limit, and Credit Fraud Team Result manually.</errorMessage>
+</ValidationRule>

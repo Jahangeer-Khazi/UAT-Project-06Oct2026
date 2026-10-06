@@ -1,0 +1,65 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller = "CreditCardDeclineCasesController">
+	<aura:attribute name="recordId" type="Id"/>
+ 	<aura:attribute name="caseData" type="List"/>
+ 	<aura:attribute name="columns" type="List"/>
+ 	<aura:attribute name="allCases" type="List"/>
+    <aura:attribute name="recordCount" type="Integer" default="0" description="Total number of related cases"/>
+
+     <lightning:navigation aura:id="navService"/>
+
+ <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  <aura:if isTrue="{!v.allCases.length > 0}">  
+    <article class = "slds-card slds-card_boundary slds-card_related-list-fix slds-theme_shade">
+        <header class="slds-card__header slds-grid">
+            <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class = "slds-col slds-has-flexi-truncate firstHeaderRow">
+                    <div class="slds-media slds-no-space slds-grow">
+                        <lightning:icon iconName="action:close" size="x-small" class="slds-m-right_small"/>
+                        <div class = "slds-media__body slds-align-middle">
+                    		<h2 class = "slds-card__header-title"><p>Previous Declined Credit Card Cases ({!v.recordCount})</p></h2>
+                		</div>
+                    </div>
+                </div>
+            </div>
+       </header>
+        <div class="slds-card__body slds-p-horizontal_small slds-p-vertical_small" style="border-top: 1px solid #dddbda;">
+            <lightning:datatable keyField="Id"
+                                 data="{!v.caseData}"
+                                 columns="{!v.columns}"
+                                 hideCheckboxColumn="true"
+                                 showRowNumberColumn="true"/>
+        </div>
+        
+        <div class="slds-p-top_x-small  slds-text-align_center" style="padding-bottom: 10px;">
+            <a href="{!'/lightning/cmp/c__DeclineAllCreditCardCases?c__recordId=' + v.recordId}" onclick="{!c.navigateToRelatedList}" class="slds-text-body_regular" style="margin: 0;">
+                View All
+            </a>
+        </div>
+        
+       
+    </article>
+      <aura:set attribute="else">
+          <article class = "slds-card slds-card_boundary slds-card_related-list-fix slds-theme_shade">
+              <header class="slds-card__header slds-grid">
+                  <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                      <div class = "slds-col slds-has-flexi-truncate firstHeaderRow">
+                          <div class="slds-media slds-no-space slds-grow">
+                              <lightning:icon iconName="action:close" size="x-small" class="slds-m-right_small"/>
+                              <div class = "slds-media__body slds-align-middle">
+                                  <h2 class = "slds-card__header-title"><p>Previous Declined Credit Card Cases (0)</p></h2>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </header>
+              <hr class="slds-m-top_medium slds-m-bottom_small"/>
+          	  <header class="slds-card__header slds-grid">
+                <div class= "slds-m-left_xxx-small">
+    				<h2 style="font-size: larger;font-weight: 700;color:red;">No Previous Declined Credit Card Cases</h2>
+			  	</div>
+              </header>
+              <hr class="slds-m-top_medium slds-m-bottom_small"/>
+          </article>
+      </aura:set>
+    </aura:if>
+</aura:component>

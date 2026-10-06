@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Update Waiver Approval Limit Checker</name>
+    <queueMembers>
+        <users>
+            <user>maksud.ali@bank-abc.com</user>
+            <user>contactcenter@bank-abc.com</user>
+            <user>mavericrmt@bank-abc.com</user>
+            <user>ranjith.mathiyalagan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Wavier_Approval_Limit__c</sobjectType>
+    </queueSobject>
+</Queue>

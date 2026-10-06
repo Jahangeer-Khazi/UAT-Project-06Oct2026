@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>FATCA Scenario HTML</name>
+    <style>none</style>
+    <subject>Almost there with your ila account!</subject>
+    <textOnly>Almost there with your ila account!
+
+Hi, we cannot wait for you to start using our app, but we need a bit more information first.
+
+It looks like you have a connection to the United States of America, so we need to know whether you are subject to US tax in line with our obligations under the Foreign Account Tax Compliance Act (FATCA).
+
+We would really appreciate if you could please fill out one of the two below forms and reply to this email attaching the completed documents.
+
+• W9 form if you are subject to US tax (and have a US TIN or Social Security Number)
+
+or
+
+• W8 BEN along with the following relevant supporting documents if you are not subject to US tax:
+
+1. If your place of birth is the United Stated of America, kindly provide us with a copy of a non-US passport and renunciation of US citizenship certificate
+
+2. If your resident address is in the United Stated of America, kindly provide us with a copy of evidence of residential address outside of the US.
+
+3. If have a USA telephone number, kindly provide us with a copy of evidence of residential address outside of the US.
+
+
+Happy to help you with any enquiries, the number to call is +973 17123456
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

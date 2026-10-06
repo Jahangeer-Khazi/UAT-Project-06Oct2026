@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Update_Waiting_for_Customer_Feedback</name>
+        <label>Update Waiting for Customer Feedback</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>RecordId.Awaiting_Customer_Feedback__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Waiting_for_Customer_Feedback_0</name>
+        <label>Update Waiting for Customer Feedback</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>RecordId.Awaiting_Customer_Feedback__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_0</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Case_Type</name>
+        <label>Case Type</label>
+        <locationX>578</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Service_Request_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RecordId.RecordType_DeveloperName__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Service_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Maker_Result_Or_Checker_Result</targetReference>
+            </connector>
+            <label>Service Request Case</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Maker_Result_Or_Checker_Result</name>
+        <label>Maker Result Or Checker Result</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Maker_Result</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RecordId.cc_Maker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send to Checker</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Waiting_for_Customer_Feedback</targetReference>
+            </connector>
+            <label>Maker Result -Send To Checker</label>
+        </rules>
+        <rules>
+            <name>Checker_Result_Return_to_Maker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RecordId.cc_Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Maker</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>RecordId.Awaiting_Customer_Feedback__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Waiting_for_Customer_Feedback_0</targetReference>
+            </connector>
+            <label>Checker Result -Return to Maker</label>
+        </rules>
+    </decisions>
+    <description>This flow is used to update the Waiting for Customer feedback checkbox</description>
+    <environments>Default</environments>
+    <interviewLabel>Update Service Request Case {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Waiting for Customer feedback</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <inputReference>RecordId</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_0</name>
+        <label>Update Case</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <inputReference>RecordId</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Case_Type</targetReference>
+        </connector>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>RecordId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

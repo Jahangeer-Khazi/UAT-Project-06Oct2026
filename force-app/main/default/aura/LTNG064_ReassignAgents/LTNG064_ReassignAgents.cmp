@@ -1,0 +1,231 @@
+<aura:component controller="LTNG064_ReassignAgent" implements="force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="salesagent" type="String"/>
+    <aura:attribute name="RequestType" type="String" default='None'/>
+    <aura:attribute name="CCApplication" type="List"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="true"/>
+    <aura:attribute name="isAssignTo" type="boolean" default="false"/>
+    <aura:attribute name="allData" type="List" />
+    <aura:attribute name="filteredData" type="List" />
+    <aura:attribute name="tableData" type="List" />
+    <aura:attribute name="columns" type="Object[]" />
+    <aura:attribute name="pageSize" type="Integer" default="15" />
+    <aura:attribute name="pageSizeOptions" type="Integer[]" default="10,15,20,25,50,100" />
+    <aura:attribute name="currentPageNumber" type="Integer" default="1" />
+    <aura:attribute name="totalPages" type="Integer" default="1" />
+    <aura:attribute name="searchPhrase" type="String" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="pending" type="Boolean" default="false"/>
+    <aura:attribute name="searchKey" type="String" default=""/>
+    <aura:attribute name="results" type="User[]"/>
+    <aura:attribute name="selectedUser" type="User"/>
+    <aura:attribute name="value" type="Id" description="Selected User Id for parent"/>
+        <aura:attribute name="optionsList" type="List" />
+    <aura:attribute name="RequestTypeList" type="String[]" default="['None','Credit Card Application','Credit Card Supplementary Application','Credit Card Cash Collateral Application','Credit Card Prepaid Application']"/> 
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div class="slds-m-around_xx-large">
+        <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+        <aura:if isTrue="{!v.isModalOpen}">
+            
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Reassign Agent Cases</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-p-around--large">
+                            
+                            <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionOne}">
+                                <section class="slds-clearfix">
+                                    <div class="slds-float--left ">
+                                        <lightning:icon class="slds-show" aura:id="articleOne" iconName="utility:add" size="x-small" alternativeText="Indicates add"/>
+                                        <lightning:icon class="slds-hide" aura:id="articleOne" iconName="utility:dash" size="x-small" alternativeText="Indicates dash"/>
+                                    </div>
+                                    <div class="slds-m-left--large">Search Criteria</div>
+                                </section>
+                            </div>
+                            
+                            <div  aura:id="articleOne">
+                                <aura:if isTrue="{! v.isLoading }">
+                                    <lightning:spinner alternativeText="Loading" />
+                                </aura:if>
+                                <lightning:card>
+                                    <lightning:layout>
+                                        <lightning:layoutItem size="8" padding="around-small">
+                                            <!--<div class="slds-p-around_small slds-grid slds-grid_align-spread slds-grid_horizontal-align-start">-->
+                                            <div>
+                                                
+                                                <!-- <div class="slds-modal__content slds-m-around_large" id="modal-content-id-1">-->
+                                                
+                                                <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Case">
+                                                    <div class="inline-container">
+                                                        <fieldset class="slds-form--compound">
+                                                            <div class="form-element__group">
+                                                                    <div class="slds-form-element__row">
+                                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                                        <div class="slds-form-element">
+                                                                            <!--<label class="slds-form-element__label">Select Agent</label>-->
+                                                                            <div class="slds-form-element__control">
+                                                                                <lightning:input name="userSearch"
+                                                                                                 placeholder="Search users..."
+                                                                                                 value="{!v.searchKey}"
+                                                                                                 onchange="{!c.onChange}"
+                                                                                                 onkeyup="{!c.onKeyUp}"
+                                                                                                 label="Select Agent" 
+                                                                                                 />
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <!-- Selected user pill -->
+                                                                        <aura:if isTrue="{!not(empty(v.selectedUser))}">
+                                                                            <div class="slds-m-bottom_small">
+                                                                                <lightning:pill label="{!v.selectedUser.Name}"
+                                                                                                onremove="{!c.clearSelection}">
+                                                                                    <lightning:icon iconName="standard:user" alternativeText="User" />
+                                                                                </lightning:pill>
+                                                                            </div>
+                                                                        </aura:if>
+                                                                        
+                                                                        <!-- Results dropdown -->
+                                                                        <aura:if isTrue="{!and(not(empty(v.results)), empty(v.selectedUser))}">
+                                                                            <div class="slds-box slds-m-top_xx-small" style="max-height: 220px; overflow:auto;">
+                                                                                <aura:iteration items="{!v.results}" var="u">
+                                                                                    <!--<div class="slds-media slds-media_center slds-p-vertical_x-small slds-listbox__item"
+                                                                                         style="cursor:pointer"
+                                                                                         onclick="{!c.select}">
+                                                                                        <div class="slds-media__figure slds-m-right_small">
+                                                                                            <lightning:avatar src="{!u.SmallPhotoUrl}" fallbackIconName="standard:user" />
+                                                                                        </div>
+                                                                                        <div class="slds-media__body">
+                                                                                            <div class="slds-text-title_bold">{!u.Name}</div>
+                                                                                        </div>
+                                                                                        <ui:outputText class="hiddenId" value="{!u.Id}" aura:id="userId"/>
+                                                                                    </div>-->
+                                                                                    <div class="slds-p-vertical_x-small slds-listbox__item" data-id="{!u.Id}"
+                     onclick="{!c.select}">
+                    <div class="slds-text-title_bold">{!u.Name}</div>
+                                                                                        <div class="slds-text-body_small slds-text-color_weak">{!u.Email}</div></div>
+                                                                                </aura:iteration>
+                                                                            </div>
+                                                                        </aura:if>
+                                                                    </div>
+                                                                    <div class="slds-form-element slds-size--1-of-2 searchholder">
+                                                                <lightning:button
+                                                                                  label="Search"
+                                                                                  variant="neutral"
+                                                                                  onclick="{! c.handleSearch }" />
+                                                                        
+                                                            </div>
+                                                                </div>
+                                                                        <div class="slds-form-element__row">
+                                                                     <div class="slds-form-element slds-size--1-of-2"> 
+                                                                        <lightning:select name="Select Queue" label="Select a Queue" aura:id="queuelist">
+        <option value="">-- None --</option>
+        <aura:iteration items="{!v.optionsList}" var="opt">
+            <option value="{!opt.Id}" text="{!opt.Name}" />
+        </aura:iteration>
+    </lightning:select>
+                                                                    </div>
+                                                                         
+                                                                                                                                        <div class="slds-form-element slds-size--1-of-2">                                           
+                                                                        <lightning:button variant="brand"
+                                                                                          label="Reassign to Queue"
+                                                                                          title="Reassign to Queue"
+                                                                                          onclick="{!c.ReassigntoQueue}" class="sales"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <lightning:messages />
+                                                </lightning:recordEditForm>
+                                            </div>
+                                        </lightning:layoutItem>
+                                    </lightning:layout>
+                                    <lightning:layout>
+
+                                    </lightning:layout>
+                                </lightning:card>
+                                <lightning:card>
+                                    <div class="slds-p-around_small slds-grid slds-grid_align-spread slds-grid_vertical-align-start">
+                                        <div>
+                                            <lightning:select
+                                                              label="Number of records on page:"
+                                                              value="{! v.pageSize }"
+                                                              onchange="{! c.onPageSizeChange }">
+                                                <aura:iteration items="{! v.pageSizeOptions }" var="opt">
+                                                    <option text="{! opt }"></option>
+                                                </aura:iteration>
+                                            </lightning:select>
+                                        </div>
+                                        <div>
+                                            <lightning:button
+                                                              label="First"
+                                                              iconName="utility:left"
+                                                              iconPosition="left"
+                                                              onclick="{! c.onFirst }"
+                                                              disabled="{! v.currentPageNumber == 1 }" />
+                                            <lightning:button
+                                                              label="Previous"
+                                                              iconName="utility:chevronleft"
+                                                              iconPosition="left"
+                                                              onclick="{! c.onPrev }"
+                                                              disabled="{! v.currentPageNumber == 1 }" />
+                                            <span class="slds-var-p-horizontal_x-small">
+                                                Page {! (v.currentPageNumber) } of {! (v.totalPages) }
+                                            </span>
+                                            <span class="slds-var-p-horizontal_x-small">
+                                                Number of records: {! (v.filteredData.length) }
+                                            </span>
+                                            <lightning:button
+                                                              label="Next"
+                                                              iconName="utility:chevronright"
+                                                              iconPosition="right"
+                                                              onclick="{! c.onNext }"
+                                                              disabled="{! v.currentPageNumber == v.totalPages }" />
+                                            <lightning:button
+                                                              label="Last"
+                                                              iconName="utility:right"
+                                                              iconPosition="right"
+                                                              onclick="{! c.onLast }"        
+                                                              disabled="{! v.currentPageNumber == v.totalPages }" />
+                                        </div>
+                                    </div>
+                                    <lightning:datatable
+                                                         aura:id="caseTable"
+                                                         columns="{! v.columns }"
+                                                         data="{! v.tableData  }"
+                                                         keyField="Id" />
+                                </lightning:card>
+                                <!-- <lightning:datatable data="{! v.mydata }" 
+                                             columns="{! v.mycolumns }" keyField="id" aura:id="caseTable"/>-->
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Close"
+                                          title="Close"
+                                          onclick="{! c.closeModel }"/>
+                        <!--<lightning:button variant="brand"
+                                          label="Select"
+                                          title="Select"
+                                          onclick="{!c.getSelectedId}"/>-->
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+    <!-- onrowselection="{! c.getSelectedId }"/>-->
+    
+</aura:component>

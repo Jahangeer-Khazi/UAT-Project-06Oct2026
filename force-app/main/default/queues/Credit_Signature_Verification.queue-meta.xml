@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Credit Signature Verification</name>
+    <queueMembers>
+        <users>
+            <user>headofbusiness@bank-abc.com</user>
+            <user>ahmed.alajmi@ilabank.com</user>
+            <user>hasan.ebrahim@ilabank.com</user>
+            <user>khazi.jahangeer@ilabank.com</user>
+            <user>mlro@bank-abc.com</user>
+            <user>mohamed.abdulhusain@ilabank.com</user>
+            <user>shaima.alsaati@ilabank.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

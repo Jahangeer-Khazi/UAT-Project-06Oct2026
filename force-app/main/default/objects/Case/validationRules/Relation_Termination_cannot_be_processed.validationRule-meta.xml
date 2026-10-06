@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relation_Termination_cannot_be_processed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(Back_Office_Result__c),
+Eligible_for_Termination__c ==false,
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Back_Office_Result__c, &quot;Termination Completed&quot;)
+)</errorConditionFormula>
+    <errorMessage>Relationship Termination cannot be processed as Customer is NOT Eligible for Termination.</errorMessage>
+</ValidationRule>

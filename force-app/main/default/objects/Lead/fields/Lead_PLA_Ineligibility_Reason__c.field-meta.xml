@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_PLA_Ineligibility_Reason__c</fullName>
+    <description>Bahrain - Indicates whether a Lead is eligible (checked box) or not (unchecked box)
+https://bank-abc.atlassian.net/wiki/spaces/RTS/pages/2542272536/PLA+-+CRM+Requirements+-+Processes</description>
+    <label>PLA Ineligibility Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Staff</fullName>
+                <default>false</default>
+                <label>Staff</label>
+            </value>
+            <value>
+                <fullName>Contractors</fullName>
+                <default>false</default>
+                <label>Contractors</label>
+            </value>
+            <value>
+                <fullName>Relatives</fullName>
+                <default>false</default>
+                <label>Relatives</label>
+            </value>
+            <value>
+                <fullName>Third-party Contractors/Companies</fullName>
+                <default>false</default>
+                <label>Third-party Contractors/Companies</label>
+            </value>
+            <value>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+                <label>Deceased</label>
+            </value>
+            <value>
+                <fullName>CBB Restricted</fullName>
+                <default>false</default>
+                <label>CBB Restricted</label>
+            </value>
+            <value>
+                <fullName>Not Interested Relative</fullName>
+                <default>false</default>
+                <label>Not Interested Relative</label>
+            </value>
+            <value>
+                <fullName>Probationary Staff</fullName>
+                <default>false</default>
+                <label>Probationary Staff</label>
+            </value>
+            <value>
+                <fullName>Probationary Relatives</fullName>
+                <default>false</default>
+                <label>Probationary Relatives</label>
+            </value>
+            <value>
+                <fullName>Resigned Staff</fullName>
+                <default>false</default>
+                <label>Resigned Staff</label>
+            </value>
+            <value>
+                <fullName>Resigned Relatives</fullName>
+                <default>false</default>
+                <label>Resigned Relatives</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

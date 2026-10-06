@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Fraud_Team_Other</fullName>
+    <active>true</active>
+    <description>If Credit Fraud Team Decline Reason = Other then the agent has to fill Other Credit Fraud Team Decline Reason manually.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Fraud_Team_Decline_Reason__c),
+INCLUDES(cc_Credit_Fraud_Team_Decline_Reason__c, &quot;Other&quot;), ISBLANK(cc_Other_Credit_Fraud_Team_Declin_Reason__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(cc_Request_Type__c, &quot;permanent&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Other_Credit_Fraud_Team_Declin_Reason__c</errorDisplayField>
+    <errorMessage>Please fill the Other Credit Fraud Team Decline Reason manually.</errorMessage>
+</ValidationRule>

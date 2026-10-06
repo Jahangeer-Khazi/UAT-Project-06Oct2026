@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jordan_Credit_Collection_Maker_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Jordan Credit Collection Maker</label>
+    <queue>Jordan_Credit_Collection_Maker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

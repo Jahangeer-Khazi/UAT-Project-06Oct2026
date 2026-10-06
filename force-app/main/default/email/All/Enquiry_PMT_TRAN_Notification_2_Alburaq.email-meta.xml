@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Enquiry PMT&amp;TRAN Notification 2 Alburaq</name>
+    <style>none</style>
+    <subject>Escalation number 2 for case {!Case.CaseNumber}</subject>
+    <textOnly>Hello,  This is the second escalation for case {!Case.CaseNumber}.  Thanks!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

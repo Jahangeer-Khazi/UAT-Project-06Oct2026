@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skip_ID_Validation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This is for the skipping the ID number validation</description>
+    <label>Skip ID Validation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

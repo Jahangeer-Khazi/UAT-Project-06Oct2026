@@ -1,0 +1,396 @@
+<!--
+  @description       :
+  @author            :
+  @group             :
+  @last modified on  : 02-01-2024
+  @last modified by  : Elmustapha ELGARNI
+  @change history : CH04:Added condition for by pass profile and update segment for complience exist process
+    #CH05# Added #16-02-2022# Add Region Flag criteria for the Credit Card tab to only be displayed for Bahrain - YZ.
+    #CH06# Added condition for by pass BankAccount,saving Pots,Jamiya,Kanz,Gifting for Customer Profile Update recordtype
+ #CH07# Added #25-08-2022# CRM22-144(NBA-4107) Notifications View (Credit Card Notifications)
+ #CH08# #Jahangeer Mohammed# Added #20-03-2023# Navigate to Bank Accounts when we click on ila Accounts & Cards(CRM23-191)
+ #CH09# #Jahangeer Mohammed# #28-05-2023# Added a Purged Option in the Selected List(NBA-7010)
+ #CH10# #Imane Tsioucha # #18-12-2023# Add Internal Case Record Type
+ #CH11# #Jahangeer Mohammed# #26-12-2023# Added Credit Card Filter Option Value
+ #CH012# #Elmustapha ELGARNI# #28-11-2023# Add loans List Component
+ #CH13# #Jahangeer Mohammed# #12-05-2024# Add Logic for Audit History Enhancements
+ #CH14# #Maksud Ali# #08-12-2025# add new methods for HYSA.
+ #CH15# #Aniss Mbarki# #25-07-2026# change 10 NBA-17380.
+ #CH16# #Jahangeer Mohammed# #20-09-2026# Add Logic for Credit Card Payment Restriction (NBA-16942)
+
+-->
+<aura:component
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global"
+                controller="BankInformationController">
+    
+    <aura:attribute name="customerId" type="String"/>
+    <aura:attribute name="account" type="Account"/>
+    <aura:attribute name="Type" type="String"/>
+    <!-- ======================================================= -->
+    <aura:attribute name="tabsConfig" type="Object" access="private"/>
+    <aura:attribute name="enableActions" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="caseRecordType" type="String" access="private" default=""/>
+    <aura:attribute name="caseType" type="String"/>
+    <!-- CH01 Added by Jahangeer Mohammed 29-08-2021 For No Due Functionality -->
+    <aura:attribute name="dataInformation" type="Object[]" default="[]"/>
+    <!-- CH01 END -->
+    <aura:attribute name="selectedStatus" type="String"/>
+    <aura:attribute name="regionName" type="String" />
+    <!-- CH09 Start -->
+    <aura:attribute name="selectedDebitCardStatus" type="String"/>
+    <aura:attribute name="selectedDebitCardData" type="Object[]" default="[]"/>
+    <aura:attribute name="filterOptionValue" type="String" default="B"/>
+    <!-- CH09 END -->
+    
+     <!-- CH13 Start -->
+    <aura:attribute name="enableAuditComp" type="String" default="{!$Label.c.ENABLE_AUDIT_COMPONENT}" />
+	<aura:attribute name="creditCardSubTab" type="String" default = "Credit Card"/>
+    <aura:attribute name="fixedDepositSubTab" type="String" default = "Fixed Deposits"/>
+    <aura:attribute name="debitCardSubTab" type="String" default = "Debit Cards"/>
+    <aura:attribute name="savingPotSubTab" type="String" default = "Saving Pots"/>
+    <aura:attribute name="jamiyahSubTab" type="String" default = "Jamiyah Accounts"/>
+
+    <!-- CH13 END -->
+    
+    <!-- CH11 Start -->
+    <aura:attribute name="filterOptionCreditValue" type="String" default="B"/>
+    <!-- CH11 END -->
+    <!-- CH16: Start -->
+    <aura:attribute name="hasCreditCards" type="Boolean" default="false"/>
+    <aura:handler name="creditCardListEvent" event="c:creditCardListEvent" action="{!c.handleCreditCardStatus}"/>
+    <!-- CH16: END -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    
+    <lightning:tabset variant="scoped" selectedTabId="acctsList"> <!-- CH08 Start Added selectedTabId -->
+        
+        <aura:if isTrue="{! and(true == v.tabsConfig.Credit_Cards__c, or(v.account.Region_Flag__c == 'Bahrain',v.account.Region_Flag__c == 'Jordan') )}">
+            <!-- #CH15 start :  add "|| ('Loan_Application' == v.caseRecordType)"  -->
+            <aura:if isTrue="{! or( or('Credit_Card' == v.caseRecordType,'Credit_Card_FCR' == v.caseRecordType), or('Credit_Card_Staff_Application' == v.caseRecordType,'Credit_Card_Services' == v.caseRecordType) || ('Internal_Case' == v.caseRecordType) || ('Loan_Application' == v.caseRecordType) )}"> <!-- CH10  -->
+                <lightning:tab label="Credit Card" id="creditCard">
+                    
+                    <c:creditCardList aura:id="creditCardList"
+                                      customerId="{!v.customerId}"
+                                      caseId="{!v.recordId}"
+                                      enableActions="{! 'Case' == v.sObjectName }"
+                                      account="{!v.account}"/>
+                </lightning:tab>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.sObjectName =='Account'}">
+                        <lightning:tab label="Credit Card" id="creditCard">
+                            <!-- Nested Credit Card Tabs -->
+                             <!--CH16: Start-->
+                			<lightning:tabset variant="scoped" selectedTabId="creditCardListTab">
+                                <!-- Credit Card List -->
+                    			<lightning:tab label="Credit Card List" id="creditCardListTab">
+
+                            
+                            		<lightning:select aura:id="select" name="select" label="Select Card Status" onchange="{!c.onStatusChange}" value="{!v.selectedStatus}">
+                                		<option value="B">Exclude Blocked</option>
+                                		<option value="A">All</option>
+                                		<option value="C">Exclude Expired</option>
+                                		<option value="D">Exclude Blocked/ Expired</option>
+                                		<!--CH09 Start-->
+                                		<aura:if isTrue="{!v.account.Region_Flag__c == 'Bahrain'}">
+                                    		<option value="P">Purged</option>
+                                		</aura:if>
+                						<!--CH09 END-->
+                            		</lightning:select>
+                            <br/>
+                            <!-- CH01 Start Added Extra Parameter to send data based on filter condition to Credit Card List Component -->
+                            <!-- CH11 Start Added a new parameter option for Purged Cards -->
+                            <c:creditCardList aura:id="creditCardList"
+                                              customerId="{!v.customerId}"
+                                              caseId="{!v.recordId}"
+                                              enableActions="{! 'Case' == v.sObjectName }"
+                                              account="{!v.account}"
+                                              data = "{!v.dataInformation}"
+                                              option="{!v.filterOptionCreditValue}"/>
+                            <!-- CH11 END -->
+                            <!-- CH01 END -->
+                            <!-- CH13 Start -->
+                            <aura:if isTrue="{!v.enableAuditComp == 'true'}">
+                            	<c:IlaSubTabsAuditTrack aura:id="creditCardList"
+                                              			accId="{!v.recordId}"
+                                              			subTabName="{!v.creditCardSubTab}"/>
+                            </aura:if>
+                            <!-- CH13 END -->
+                        </lightning:tab>
+                         
+                                <aura:if isTrue="{!v.hasCreditCards}">
+                                    <lightning:tab label="Daily Payment Limit" id="dailyPaymentLimitTab">
+                                        <lightning:tabset variant="scoped" selectedTabId="dailyLimit">
+                                            
+                                            <lightning:tab label="Daily Limit" id="dailyLimit">
+                                                <c:dailyPaymentLimit aura:id="dailyPayLimit"
+                                                                     customerId="{!v.customerId}"
+                                                                     caseId="{!v.recordId}"
+                                                                     enableActions="{! 'Case' == v.sObjectName }"
+                                                                     account="{!v.account}"
+                                                                     caseRecordType="{!v.caseRecordType}"
+                                                                     sObjectName="{!v.sObjectName}"/>
+                                            </lightning:tab>
+                                            
+                                            <lightning:tab label="History Logs" id="historyLogs">
+                                                <c:historyLogs aura:id="hisLogs"
+                                                               customerId="{!v.customerId}"
+                                                               caseId="{!v.recordId}"
+                                                               enableActions="{! 'Case' == v.sObjectName }"
+                                                               account="{!v.account}"
+                                                               caseRecordType="{!v.caseRecordType}"
+                                                               sObjectName="{!v.sObjectName}"/>
+                                            </lightning:tab>
+                                            <lightning:tab label="CIF Level Override (Whitelist)" id="cifOverride">
+                                                <c:cifOverride aura:id="cifLevelOverride"
+                                                               customerId="{!v.customerId}"
+                                                               caseId="{!v.recordId}"
+                                                               enableActions="{! 'Case' == v.sObjectName }"
+                                                               account="{!v.account}"
+                                                               caseRecordType="{!v.caseRecordType}"
+                                                               sObjectName="{!v.sObjectName}"/>
+                                            </lightning:tab>
+                                        </lightning:tabset>
+                                    </lightning:tab>
+                                </aura:if>       
+                        </lightning:tabset>
+                        <!--CH16: END-->
+                        </lightning:tab>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </aura:if>
+        <!-- CH06 Start By pass Bank Accounts for Customer_Profile_Update -->
+        <aura:if isTrue="{! 'Customer_Profile_Update' != v.caseRecordType}">
+            <aura:if isTrue="{!true == v.tabsConfig.Bank_Accounts__c}">
+                <lightning:tab label="Bank Accounts" id = "acctsList"> <!-- CH08 Start Added Id -->
+                    <c:bankAccountsList aura:id="bankAccountsList"
+                                        customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                        enableActions="{! 'Case' == v.sObjectName }" caseRecordType="{!v.caseRecordType}" />
+                </lightning:tab>
+            </aura:if>
+        </aura:if> 
+        <!-- CH06 END -->
+        <!--CH02: Start : Added by #Jahangeer Mohammed# #05-12-2021# for Term Deposit Functionality -->
+        <aura:if isTrue="{! and(true == v.tabsConfig.Term_Deposits__c)}">
+            <!-- CH06 Start By pass Bank Cards for Customer_Profile_Update -->
+            <aura:if isTrue="{! 'Customer_Profile_Update' != v.caseRecordType}">
+                <lightning:tab label="Fixed Deposits">
+                    <c:termDepositList aura:id="termDepositList"
+                                       customerId="{!v.customerId}"
+                                       caseId="{!v.recordId}"
+                                       enableActions="{! 'Case' == v.sObjectName }"
+                                       account="{!v.account}"
+                                       caseRecordType="{!v.caseRecordType}"
+                                       sObjectName="{!v.sObjectName}"/>
+                <!-- CH13 Start -->
+                 <aura:if isTrue="{!v.enableAuditComp == 'true'}">
+                  		<c:IlaSubTabsAuditTrack aura:id="termDepositList"
+                                          		accId="{!v.recordId}"
+                                          		subTabName="{!v.fixedDepositSubTab}"/>
+                 </aura:if>
+                <!-- CH13 END -->                   
+                </lightning:tab>
+            </aura:if> 
+            <!-- CH06 END -->
+        </aura:if>
+        <!--CH02 END -->
+        
+        <aura:if isTrue="{! 'FCR' != v.caseRecordType }">
+            <aura:if isTrue="{! 'Credit_Card' != v.caseRecordType}">
+                <!-- CH06 Start By pass Bank Cards for Customer_Profile_Update -->
+                <aura:if isTrue="{! 'Customer_Profile_Update' != v.caseRecordType}">
+                    <!-- #CH15 start :  not showing these subtabs : "Debit Cards","Saving Pots","Profile","Unlock App","Jamiyah Accounts" for Loan_Application  -->
+                    <aura:if isTrue="{! 'Loan_Application' != v.caseRecordType}"> 
+                        <!-- CH03 Added by Aniss Mbarki to hide this tab for cbbBlock/UnblockAmmount -->
+                        <aura:if isTrue="{! and(true == v.tabsConfig.Bank_Cards__c,v.caseRecordType != 'AmountBlockingUnblockingDirective')}">
+                            <lightning:tab label="Debit Cards">
+                            <!--CH09 Start -->
+                            <lightning:select aura:id="select" name="select" label="Select Debit Card Status" onchange="{!c.onDebitCardStatusChange}" value="{!v.selectedDebitCardStatus}">
+                                    <option value="B">Active / Inactive</option>
+                                    <option value="A">Blocked / Cancelled</option>
+                                    <option value="P">Purged</option>
+                             </lightning:select>
+                            <br/>
+                            <!--CH09 END -->
+                             <!-- CH09 Start: Added two extra Parameters -->  
+                                    <c:bankCardsList aura:id="bankCardsList"
+                                                     customerId="{!v.customerId}" 
+                                                     caseId="{!v.recordId}" 
+                                                     enableActions="{! 'Case' == v.sObjectName }" 
+                                                     account="{!v.account}"
+                                                     data="{!v.selectedDebitCardData}"
+                                                     option="{!v.filterOptionValue}"/>
+                             <!-- CH09 END -->
+                            <!-- CH13 Start -->
+                            <aura:if isTrue="{!v.enableAuditComp == 'true'}">
+                                  <c:IlaSubTabsAuditTrack aura:id="bankCardsList"
+                                                          accId="{!v.recordId}"
+                                                          subTabName="{!v.debitCardSubTab}"/>
+                            </aura:if>
+                            <!-- CH13 END -->
+                            </lightning:tab>
+                        </aura:if>
+                        <aura:if isTrue="{!true == v.tabsConfig.Saving_Pots__c}">
+                            <lightning:tab label="Saving Pots">
+                                <c:bankSavingPot aura:id="SavingPotsList"
+                                                 customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                                 enableActions="{! 'Case' == v.sObjectName }"/>
+                            <!-- CH13 Start -->
+                            <aura:if isTrue="{!v.enableAuditComp == 'true'}">
+                                  <c:IlaSubTabsAuditTrack aura:id="SavingPotsList"
+                                                          accId="{!v.recordId}"
+                                                          subTabName="{!v.savingPotSubTab}"/>
+                            </aura:if>
+                            <!-- CH13 END -->
+                            </lightning:tab>
+                        </aura:if>
+                        <!-- CH03 Added by Aniss Mbarki to hide this tab for cbbBlock/UnblockAmmount -->
+                        <aura:if isTrue="{! and(true == v.tabsConfig.Personal__c , v.caseRecordType != 'AmountBlockingUnblockingDirective') }">
+                            <lightning:tab label="Profile" >
+                                <c:Profile aura:id="profile" customerId="{!v.customerId}" caseId="{!v.recordId}" enableActions="{! 'Case' == v.sObjectName }"
+                                           account="{!v.account}" caseRecordType="{!v.caseRecordType}"/>
+                            </lightning:tab>
+                        </aura:if>
+                        <aura:if isTrue="{!and(true == v.tabsConfig.Unlock_App__c, 'Service_Request' == v.caseRecordType)}">
+                            <lightning:tab label="Unlock App" >
+                                <!--  <c:unlockApp customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"/> -->
+                                <c:RequestAppUnlock recordId="{!v.recordId}"/>
+                            </lightning:tab>
+                        </aura:if>
+                        <!-- CH09 Added by Aniss Mbarki to hide this tab for customer record -->
+                        <aura:if isTrue="{!'Case' == v.sObjectName}">
+                            <aura:if isTrue="{!and(true == v.tabsConfig.Upgrade_Downgrade__c , v.caseRecordType != 'AmountBlockingUnblockingDirective')}">
+                                <lightning:tab label="Update Segment" >
+                                    <c:UpdateSegmentTab customerId="{!v.customerId}" account="{!v.account}" caseId="{!v.recordId}"/>
+                                </lightning:tab>
+                            </aura:if>
+                        </aura:if>
+                        <!-- CH03 Added by Aniss Mbarki to hide this tab for cbbBlock/UnblockAmmount -->
+                        <aura:if isTrue="{! AND(v.account.Region_Flag__c == 'Bahrain' ,and(true == v.tabsConfig.Jamiyah_accounts__c,v.caseRecordType != 'AmountBlockingUnblockingDirective')) }">
+                            
+                            <lightning:tab label="Jamiyah Accounts" >
+                                <c:JamiyahAccountList customerId="{!v.customerId}"  account="{!v.account}" />
+                            <!-- CH13 Start -->
+                            <aura:if isTrue="{!v.enableAuditComp == 'true'}">
+                                  <c:IlaSubTabsAuditTrack aura:id="jamiyahList"
+                                                          accId="{!v.recordId}"
+                                                          subTabName="{!v.jamiyahSubTab}"/>
+                            </aura:if>
+                            <!-- CH13 END -->
+                            </lightning:tab>
+                        </aura:if>
+                    </aura:if>
+                    
+                    <!--<aura:if isTrue="{!true == v.tabsConfig.Kanz__c}">-->
+                        <lightning:tab label="Kanz" >
+                            <c:kanzDetail customerId="{!v.customerId}" account="{!v.account}" caseId="{!v.recordId}" regionName="{!v.account.Region_Flag__c}"/>
+                        </lightning:tab>
+                   <!-- </aura:if>-->
+                </aura:if> 
+                <!--CH06 End -->
+                <!--CH06 Start Added Update Profile Tab -->
+                <aura:if isTrue="{! 'Customer_Profile_Update' == v.caseRecordType}">
+                    <lightning:tab label="Update Profile" >
+                        <c:profileUpdate aura:id="profile" customerId="{!v.customerId}" caseId="{!v.recordId}" enableActions="{! 'Case' == v.sObjectName }"
+                                         account="{!v.account}" caseRecordType="{!v.caseRecordType}"/>
+                    </lightning:tab>
+                </aura:if>
+                <!--CH06 End -->
+                
+                <!--<aura:if isTrue="{! and(true == v.tabsConfig.Gifting__c, v.account.Region_Flag__c == 'Bahrain')}">
+                    <lightning:tab label="Gifting" >
+                        <c:giftDetail  customerId="{!v.customerId}"/>
+                    </lightning:tab>
+                </aura:if>-->
+                <!--#CH07#Start-->
+                    <aura:if isTrue="{!v.sObjectName =='Account'}">
+                        <aura:if isTrue="{!!empty(v.customerId)}">
+                            <lightning:tab label="Notifications View" >
+                                <c:creditCardNotificationView customerId="{!v.customerId}" account="{!v.account}"/>
+                            </lightning:tab>
+                        </aura:if> 
+                    </aura:if>
+               <!--#CH07#End-->
+               <aura:if isTrue="{!and(v.sObjectName =='Account', v.account.Region_Flag__c == 'Bahrain')}">
+                    <aura:if isTrue="{!!empty(v.customerId)}">
+                        <lightning:tab label="Bonds/Sukuk" >  
+                            <c:LTNG042_BOND_SUKUK_LIST aura:id="Bond_SukukList"
+                                    customerId="{!v.customerId}" account="{!v.account}" regionName="{!v.account.Region_Flag__c}" isAlburaqProduct='false' />
+                        </lightning:tab>
+                    </aura:if> 
+                </aura:if>
+               <!--#CH012#Start-->
+               <aura:if isTrue="{! and(v.sObjectName =='Account', v.account.Region_Flag__c == 'Bahrain') }">
+                <aura:if isTrue="{!!empty(v.customerId)}">
+                    <lightning:tab label="Loans" >  
+                        <c:Loans_LoansList aura:id="Loans_LoansList"
+                                customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                enableActions="{! 'Case' == v.sObjectName }" caseRecordType="{!v.caseRecordType}"/>
+                    </lightning:tab>
+                </aura:if> 
+                </aura:if>
+                <!--#CH012#End-->
+                
+                <!-- #CH15 start :  add "Loans" subTab for Loan_Application recordType -->
+                <aura:if isTrue="{! 'Case' == v.sObjectName }">
+                    <lightning:tab  label="Loans">
+                        <c:Loans_LoansList aura:id="Loans_LoansList" customerId="{!v.customerId}" caseId="{!v.recordId}"
+                        account="{!v.account}" enableActions="{! 'Case' == v.sObjectName }"
+                        caseRecordType="{!v.caseRecordType}" isAlburaqProduct='false' />
+                    </lightning:tab>
+                </aura:if>
+                <!-- #CH15 end -->
+				
+                <aura:if isTrue="{! v.tabsConfig.Investments__c == true }">
+                    <lightning:tab label="Investments">
+                        <lightning:tabset>
+                            <lightning:tab label="Gold">
+                                <c:goldAccountDetails recordId="{!v.recordId}" />
+                            </lightning:tab>
+                            
+                            <lightning:tab label="Silver">
+                                <c:silverAccountDetails recordId="{!v.recordId}" />
+                            </lightning:tab>
+                        </lightning:tabset>
+                    </lightning:tab>
+                </aura:if>
+
+            </aura:if>
+        </aura:if>
+        <aura:if isTrue="{!'Account' == v.sObjectName}">
+            <aura:if isTrue="{! and(v.tabsConfig.Payrolls__c == true, v.account.Region_Flag__c == 'Bahrain') }">
+                <lightning:tab label="Payrolls" id = "payrolls">
+                    <c:payrolls aura:id="lWCChild" recordId="{!v.recordId}" isAlburaqProduct='false'></c:payrolls>
+                </lightning:tab>
+            </aura:if>
+        </aura:if>
+        
+        <aura:if isTrue="{!'Account' == v.sObjectName}">
+            <aura:if isTrue="{! v.tabsConfig.Collateral_Holds__c == true }">
+                <lightning:tab label="Collaterals/Holds" id = "collaterals">
+                    <c:collateralsHolds aura:id="lWCChild" recordId="{!v.recordId}" isAlburaqProduct='false'></c:collateralsHolds>
+                </lightning:tab>
+            </aura:if>
+        </aura:if>
+        
+        <!-- #CH15 start :  add "|| ('Loan_Application' == v.caseRecordType)"  -->
+        <aura:if isTrue="{! 'Loan_Application' != v.caseRecordType}">
+            <!--CH14 Start -->
+            <aura:if isTrue="{! and(v.tabsConfig.Hysa__c == true, v.account.Region_Flag__c == 'Bahrain') }">
+            <!-- <aura:if isTrue="{!true == v.tabsConfig.Hysa__c}"> -->
+                <lightning:tab label="HYSA" id = "hysa">
+                    <c:hysaAccountList aura:id="hysaAccountList"
+                                        customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                        enableActions="{! 'Case' == v.sObjectName }" caseRecordType="{!v.caseRecordType}" />
+                </lightning:tab>
+            </aura:if>
+            <!--CH14 End -->
+        </aura:if>
+        <!-- #CH15 End  -->
+        
+        
+    </lightning:tabset>
+    
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

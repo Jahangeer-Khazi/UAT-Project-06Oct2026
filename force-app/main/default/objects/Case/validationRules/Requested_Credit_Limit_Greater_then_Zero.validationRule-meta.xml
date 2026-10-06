@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requested_Credit_Limit_Greater_then_Zero</fullName>
+    <active>false</active>
+    <description>The requested Credit Limit must be a number which should be greater then 0</description>
+    <errorConditionFormula>AND(
+$User.LastName &lt;&gt; &quot;Integration&quot;,
+RecordType.DeveloperName = &quot;Credit_Card_FCR&quot;,
+ISPICKVAL(Sub_Type__c, &quot;Credit Limit Decrease&quot;),
+cc_Requested_Credit_Limit__c &lt; 1 
+)</errorConditionFormula>
+    <errorDisplayField>cc_Requested_Credit_Limit__c</errorDisplayField>
+    <errorMessage>Requested Credit Limit must be greater than 0</errorMessage>
+</ValidationRule>

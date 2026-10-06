@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investment_Questionnaire_Consent_Mandat</fullName>
+    <active>true</active>
+    <description>Investment Questionnaire Consent is mandatory</description>
+    <errorConditionFormula>AND(
+$User.LastName &lt;&gt; &apos;Integration&apos;,
+RecordType.DeveloperName = &apos;Sukuk_Bond_Request&apos;,
+ISPICKVAL(Type , &quot;Investment Questionnaire&quot;),
+ISPICKVAL(Sub_Type__c , &quot;New Investment Questionnaire&quot;),
+Bo_Consent__c == false
+)</errorConditionFormula>
+    <errorDisplayField>Bo_Consent__c</errorDisplayField>
+    <errorMessage>Consent checkbox must be checked to create an Investment Questionnaire Case.</errorMessage>
+</ValidationRule>

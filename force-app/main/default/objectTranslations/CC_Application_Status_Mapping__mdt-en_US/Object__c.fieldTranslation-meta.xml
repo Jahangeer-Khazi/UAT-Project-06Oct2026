@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Object --></label>
+    <name>Object__c</name>
+    <picklistValues>
+        <masterLabel>Case</masterLabel>
+        <translation><!-- Case --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CaseAnnex__c</masterLabel>
+        <translation><!-- CaseAnnex__c --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

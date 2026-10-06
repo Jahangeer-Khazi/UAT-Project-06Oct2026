@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Restriction Reason --></label>
+    <name>Restriction_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Account sensitivity</masterLabel>
+        <translation><!-- Account sensitivity --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Investigation</masterLabel>
+        <translation><!-- Investigation --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

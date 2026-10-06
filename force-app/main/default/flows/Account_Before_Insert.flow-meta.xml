@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Updates inserted Person Account records with the Region Flag from the current User record.</description>
+        <name>Assign_Region_Flag_From_User</name>
+        <label>Assign Region Flag From User</label>
+        <locationX>175</locationX>
+        <locationY>770</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__pc</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Region_Flag__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Region_Flag__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Default_To_Bahrain</name>
+        <label>Default To Bahrain</label>
+        <locationX>373</locationX>
+        <locationY>770</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__pc</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Bahrain</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Bahrain</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_Object_Region_Flag</name>
+        <label>Check Object Region Flag</label>
+        <locationX>168</locationX>
+        <locationY>302</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Contact_Region_Flag_Empty</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Region_Flag__pc</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_User_Region_Flag</targetReference>
+            </connector>
+            <label>Account or Contact Region Flag Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_User_Region_Flag</name>
+        <label>Check User Region Flag</label>
+        <locationX>167</locationX>
+        <locationY>514</locationY>
+        <defaultConnector>
+            <targetReference>Default_To_Bahrain</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>User_Region_Flag_Not_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region_Flag_From_User</targetReference>
+            </connector>
+            <label>User Region Flag Not Empty</label>
+        </rules>
+    </decisions>
+    <description>Updates inserted Person Account records with the Region Flag from the current account record.</description>
+    <interviewLabel>Account Before Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Before Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Check_Object_Region_Flag</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

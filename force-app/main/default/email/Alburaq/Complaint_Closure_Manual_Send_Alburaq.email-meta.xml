@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Complaint Closure Manual Send Alburaq</name>
+    <style>none</style>
+    <subject>Your complaint {!Case.CaseNumber}</subject>
+    <textOnly>Please note that your complaint has been close with the following outcome:  
+
+{!Case.Final_Recommendation_for_Closing_Case__c}  
+
+{!Case.Child_Case_Closure_Recommendation__c}  
+
+If you are not satisfied with the Banks final decision, you have the right to refer the case to the Central Bank of Bahrain (CBB) within 30 Calendar days from the date of receiving the Banks final decision. You can submit the case through the ‘complaint form’ on the CBB website www.cbb.gov.bh</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

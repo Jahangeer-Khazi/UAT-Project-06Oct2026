@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cx_ln_RestructureOption__c</fullName>
+    <label>Restructure option</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Change loan term</fullName>
+                <default>false</default>
+                <label>Change loan term</label>
+            </value>
+            <value>
+                <fullName>Change interest rate</fullName>
+                <default>false</default>
+                <label>Change interest rate</label>
+            </value>
+            <value>
+                <fullName>Change term and rate</fullName>
+                <default>false</default>
+                <label>Change term and rate</label>
+            </value>
+            <value>
+                <fullName>Change term without interest increase</fullName>
+                <default>false</default>
+                <label>Change term without interest increase</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

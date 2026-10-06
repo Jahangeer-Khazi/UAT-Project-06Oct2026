@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Flag enabled on CRM for the customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Enabled</name>
+    <style>none</style>
+    <subject>Al Kanz - Capture of Immediate Relatives Information.</subject>
+    <textOnly>Al Kanz - Capture of Immediate Relatives Information
+
+Hi,
+
+Due to regulatory restrictions, we are unable to offer a product like Al Kanz (or any other raffle related prizes) to our employees or to their immediate relatives who have valid residency permits (including those with valid residency permits but not in Bahrain).
+
+Please provide the details of your Immediate Relatives in the form below.
+
+You can access to page to amend any entry you have made or to add a new relative or to delete an entry.
+
+“Immediate Relatives” are defined as:
+
+Spouse
+Daughter
+Son
+Granddaughter
+Grandson
+Parents
+
+We request that if your immediate relative already maintains an account with ila, please provide the same ID reference used for opening ila account. If your relative has an account with ila, we will inform them of flagging them as ineligible based on your inputs.
+
+Please inform your immediate relatives that you have shared their information with ila Bank for the purpose of excluding them from Al Kanz draws due to regulatory restrictions, their personal data will be managed as per our Privacy Notice.  Immediate relatives below 18 need not be added to the list. However, you are required to update the list when an immediate relative reaches 18.
+
+Link to Update the information: Click Here
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

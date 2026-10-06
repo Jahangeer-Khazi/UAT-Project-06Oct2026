@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Next Sub Status --></label>
+    <name>Next_Sub_Status__c</name>
+    <picklistValues>
+        <masterLabel>Canceled</masterLabel>
+        <translation><!-- Canceled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Completed</masterLabel>
+        <translation><!-- Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Failed</masterLabel>
+        <translation><!-- Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In-Progress</masterLabel>
+        <translation><!-- In-Progress --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending ID&amp;V</masterLabel>
+        <translation><!-- Pending ID&amp;V --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending KYC - Full Form</masterLabel>
+        <translation><!-- Pending KYC - Full Form --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending KYC - Tax Only</masterLabel>
+        <translation><!-- Pending KYC - Tax Only --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Upload Documents</masterLabel>
+        <translation><!-- Pending Upload Documents --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Wathiq Consent</masterLabel>
+        <translation><!-- Pending Wathiq Consent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending eKYC</masterLabel>
+        <translation><!-- Pending eKYC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Referred by Fraud</masterLabel>
+        <translation><!-- Referred by Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Referred by QA</masterLabel>
+        <translation><!-- Referred by QA --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

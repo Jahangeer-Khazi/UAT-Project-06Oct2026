@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Length of Service --></label>
+    <name>cc_Length_Of_Service__c</name>
+    <picklistValues>
+        <masterLabel>1 to 3 years</masterLabel>
+        <translation><!-- 1 to 3 years --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3 to 5 years</masterLabel>
+        <translation><!-- 3 to 5 years --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>5 years &amp; above</masterLabel>
+        <translation><!-- 5 years &amp; above --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Less than 1 year</masterLabel>
+        <translation><!-- Less than 1 year --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

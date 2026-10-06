@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Name__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>NBA-13877 Lookup to Customer(Account)</description>
+    <label>Contact Name</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>RM Segment Request</relationshipLabel>
+    <relationshipName>Segment_Request</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

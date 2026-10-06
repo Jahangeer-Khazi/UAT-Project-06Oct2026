@@ -1,0 +1,448 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: ABC Support
+ *		Created Date: 07-10-2019
+ * 		Change History: 
+ *					#CH01# #Jahangeer Mohammed #25-05-2022# Added new fields related to Change Interest Rates(NBA-3817)
+                    #CH02 04/09/2023 by Imane TSIOUCHA add Saving Pots Alburaq logic
+                    #CH03#: #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705)
+ *	    	  
+-->
+<aura:component controller="SavingPotController">
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="potId" type="String" />
+    <aura:attribute name="enableActions" type="Boolean" required="false" />
+    <aura:attribute name="account" type="Account" />
+    <!-- ============================================ -->
+    <aura:attribute name="data" type="Object" access="private" default="{}" />
+    <!-- CH02 : Added by Imane Tsioucha *** to handle alburaq Product  -->
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <!-- CH03 start   -->
+    <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false" />
+    <!-- CH03 end -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:handler name="change" value="{!v.potId}" action="{!c.load}" />
+
+    <!-- ============================================ -->
+
+    <lightning:card title="{!'Details of pot: ' + v.data.potId}">
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.name}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Description</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.description}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.type}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Pot Account Id</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.potAccountId}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Linked Account Id</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.linkedAccountId}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">{!v.isAlburaqProduct?'Earn Profit':'Earn Interest'}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.earnInterest}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Start Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.startDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Saving Duration</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.savingDuration}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Goal Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <lightning:formattedNumber value="{!v.data.goalAmount}" />
+                                </aura:if>
+                                <!-- CH03 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Pot Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.account.currency.code}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">End Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.endDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Monthly Deposit Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <lightning:formattedNumber value="{!v.data.monthlyDepositAmount}" />
+                                </aura:if>
+                                <!-- CH03 end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Collection Day</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.collectionDay}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Remaining Saving Duration</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.remainingSavingDuration}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Remaining Saving Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <lightning:formattedNumber value="{!v.data.remainingSavingAmount}" />
+                                </aura:if>
+                                <!-- CH03 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Installments Remaining</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.standingOrder.installmentsRemaining}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Number of Installment Processed</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber
+                                    value="{!v.data.standingOrder.lastInstallmentNumberProcessed}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Next Payment Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start   -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <lightning:formattedNumber value="{!v.data.standingOrder.nextPaymentAmount}" />
+                                </aura:if>
+                                <!-- CH03 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Next Payment Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!--<ui:outputDate value="{!v.data.standingOrder.nextPaymentDate}" format="DD-MM-YYYY"/> -->
+                                <!-- <lightning:formattedNumber value="{!v.data.standingOrder.nextPaymentDate}" format="DD-MM-YYYY"/> -->
+                                <ui:outputDate value="{!v.data.standingOrder.nextPaymentDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Available Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <lightning:formattedNumber value="{!v.data.account.availableBalance}" />
+                                </aura:if>
+                                <!-- CH03 end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label"><b>Book Balance</b></span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <b>
+                                        <lightning:formattedNumber value="{!v.data.account.ledgerBalance}" />
+                                    </b>
+                                </aura:if>
+                                <!-- CH03 end   -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Start Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.account.startDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account End Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.account.endDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.account.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">{!v.isAlburaqProduct?'Account Credit Profit Frequency':'Account Credit Interest Frequency'}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.account.creditInterestFrequency}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Hold Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH03 start   -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    <lightning:formattedNumber value="{!v.data.account.holdAmount}" />
+                                </aura:if>
+                                <!-- CH03 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--CH01 Start -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">{!v.isAlburaqProduct?'Changed Earn Profit':'Changed Earn Interest'}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.account.changedEarnInterest}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">{!v.isAlburaqProduct?'Changed Earn Profit Status':'Changed Earn Interest Status'}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.account.changedEarnInterestStatus}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">{!v.isAlburaqProduct?'Changed Earn Profit Effective Date':'Changed Earn Interest Effective Date'}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.account.effectiveDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end row -->
+            <!-- CH01 END -->
+
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem" style="max-width: 50%;">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <aura:if isTrue="{!v.isAlburaqProduct == true}">
+                            <span class="slds-form-element__label">Annual Profit Rate</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.data.account.annualProfitRate}
+                                </div>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isAlburaqProduct == false}">
+                            <span class="slds-form-element__label">Annual Interest Rate</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.data.account.annualInterestRate}
+                                </div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </lightning:card>
+
+
+    <c:apexService aura:id="apexService" />
+
+</aura:component>

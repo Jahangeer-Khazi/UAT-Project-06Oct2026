@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Residence_Occupancy_Status__c</fullName>
+    <description>This field is for Credit card case</description>
+    <label>Residence Occupancy Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Owned</fullName>
+                <default>false</default>
+                <label>Owned</label>
+            </value>
+            <value>
+                <fullName>Rented</fullName>
+                <default>false</default>
+                <label>Rented</label>
+            </value>
+            <value>
+                <fullName>Provided by Employer</fullName>
+                <default>false</default>
+                <label>Provided by Employer</label>
+            </value>
+            <value>
+                <fullName>Shared</fullName>
+                <default>false</default>
+                <label>Shared</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

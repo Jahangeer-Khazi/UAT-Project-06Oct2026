@@ -1,0 +1,38 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes">
+  <aura:attribute name="isOpen" type="Boolean" default="true" />
+  <aura:attribute name="fieldList" type="List" default="[
+      {'label': 'Caller First Name', 'fieldName': 'pr_First_Name__c'},
+      {'label': 'Caller Last Name', 'fieldName': 'pr_Last_Name__c'},
+      {'label': 'Caller Mobile Number', 'fieldName': 'SuppliedPhone'},                                                 
+      {'label': 'Caller Email address', 'fieldName': 'SuppliedEmail'},
+      {'label': 'Caller Relationship', 'fieldName': 'sc_Relationship__c'}
+    
+  ]" />
+
+  <div class="{!'section-layout-container slds-section ' + (v.isOpen ? 'slds-is-open' : '')}" aura:id="section">
+    <h3 class="label slds-section__title slds-truncate slds-p-around_xx-small slds-theme_shade">
+      <button class="slds-button slds-section__title-action" aria-expanded="{!v.isOpen}" onclick="{!c.toggleSection}">
+        <lightning:icon iconName="{!v.isOpen ? 'utility:chevrondown' : 'utility:chevronright'}" alternativeText="Toggle" size="x-small" />
+        <span class="slds-truncate" title="Caller/Relative Information">&nbsp;Caller/Relative Information</span>
+      </button>
+    </h3>
+    <div class="{!'slds-grid slds-wrap slds-section__content ' + (!v.isOpen ? 'slds-hide' : '')}" aura:id="sectionContent">
+      <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Case">
+        <div class="slds-grid slds-wrap">
+          <aura:iteration items="{!v.fieldList}" var="field" indexVar="index">
+            <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+              <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                <div class="slds-form-element__control">
+                  <div class="slds-form-element__static">
+                    <span class="slds-form-element__label"> {!field.label} </span>
+                    <lightning:outputField fieldName="{!field.fieldName}" variant="label-hidden" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aura:iteration>
+        </div>
+      </lightning:recordViewForm>
+    </div>
+  </div>
+</aura:component>

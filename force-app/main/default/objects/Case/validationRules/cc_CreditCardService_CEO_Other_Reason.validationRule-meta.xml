@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_CEO_Other_Reason</fullName>
+    <active>true</active>
+    <description>If CEO Decline Reason = Other then the CEO has to fill Other CEO Decline reason manually.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_CEO_Decline_Reason__c),
+INCLUDES(cc_CEO_Decline_Reason__c, &quot;Other&quot;), ISBLANK(cc_Other_CEO_Decline_Reason__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type, &quot;Credit Card Cash Collateral Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Other_CEO_Decline_Reason__c</errorDisplayField>
+    <errorMessage>Please fill the Other CEO Decline Reason field manually.</errorMessage>
+</ValidationRule>

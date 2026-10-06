@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Address_Extraction_Reject_Reason_St__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ((ISPICKVAL (Segment__c, &quot;Staff&quot;) &amp;&amp; $Setup.Setting__c.View_Staff_Data__c),  (  Last_Address_Extraction_Reject_Reason__c ), 
+IF (TEXT(Segment__c) &lt;&gt; &quot;Staff&quot;,  (Last_Address_Extraction_Reject_Reason__c ), 
+&quot;&quot; 
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Proof of Address Reject Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

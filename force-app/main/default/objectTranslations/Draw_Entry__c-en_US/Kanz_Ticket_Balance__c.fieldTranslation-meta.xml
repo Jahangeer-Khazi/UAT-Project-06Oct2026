@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Mapped from S3 uplodate file --></help>
+    <label><!-- Total Eligible Balance --></label>
+    <name>Kanz_Ticket_Balance__c</name>
+</CustomFieldTranslation>

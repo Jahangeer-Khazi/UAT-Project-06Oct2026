@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Closed_Cases__c</fullName>
+    <label>Total Closed Cases</label>
+    <summaryFilterItems>
+        <field>Returned_Cards__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Returned_Cards__c.Returned_Card_Bulk_Operation__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

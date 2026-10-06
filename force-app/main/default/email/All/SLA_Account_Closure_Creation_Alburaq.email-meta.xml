@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be sent from entitlement process</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SLA Account Closure Creation Alburaq</name>
+    <style>none</style>
+    <subject>Case {!Case.CaseNumber} needs your review</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

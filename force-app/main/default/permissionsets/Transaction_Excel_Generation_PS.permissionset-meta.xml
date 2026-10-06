@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>ExcelGenerationController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Hasala, Savingpot and Credit card Transaction apex and vf page access</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Transaction Excel Generation PS</label>
+    <pageAccesses>
+        <apexPage>AccountTransactionExcel</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CreditCardTransactionExcel</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SavingPotTransactionExcel</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+</PermissionSet>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Process_Builder__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked this ensures that Process Builder flows referencing this field are bypassed for the entire organisation or just the user/profile performing the update.</description>
+    <inlineHelpText>When checked this ensures that Process Builder flows referencing this field are bypassed for the entire organisation or just the user/profile performing the update.</inlineHelpText>
+    <label>Bypass Process Builder</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

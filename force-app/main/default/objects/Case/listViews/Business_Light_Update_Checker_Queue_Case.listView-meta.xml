@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Light_Update_Checker_Queue_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Business Light Update Checker Queue</label>
+    <queue>Business_Light_Update_Checker_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

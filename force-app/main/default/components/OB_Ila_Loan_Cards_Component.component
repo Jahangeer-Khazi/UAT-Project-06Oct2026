@@ -1,0 +1,61 @@
+<apex:component controller="OutstandingBalanceCmpController" >
+    <apex:attribute name="cardWrapperObj" assignTo="{!wrapperObject}" type="Object" description="Cards / Loans details" required="true" />
+    <apex:attribute name="ccOutstandingBalance" assignTo="{!formattedTotalCreditCardBalance}" type="String" description="Outstanding Balance of Credit Cards" required="true" />
+    <apex:attribute name="loanOutstandingBalance" assignTo="{!formattedTotalLoanBalance}" type="String" description="Outstanding Balance of Loans" required="true" />
+    <div  style="margin-top:15px;font-size:14px;width:100%">
+            <table width="100%">
+                <tr style="background-color:#00153e;color:#79ED00;padding:10px;">
+                	<td style="text-align:center;height:40px">Loan/Finance Type(s)</td>
+                    <td style="text-align:center">Loan/Finance Account(s)</td>
+                    <td style="text-align:center">Outstanding Balance(s)</td>
+                </tr>
+                <apex:repeat var="loanWrapper" value="{!obWrapper.ilaLoanWrapperList}">
+                    <tr style="background-color:#eee">
+                        <td style="height:30px;padding-left:10px;text-align:center;text-transform: capitalize">{!loanWrapper.financeType}</td>
+                        <td style="padding-left:10px;text-align:center">{!loanWrapper.financeAccount}</td>
+                        <td style="padding-left:10px;text-align:center">BHD {!loanWrapper.formattedOutstandingBalance}</td>
+                    </tr>
+                </apex:repeat>
+                <apex:repeat var="loanWrapper" value="{!obWrapper.alburaqLoanWrapperList}">
+                    <tr style="background-color:#eee">
+                        <td style="height:30px;padding-left:10px;text-align:center;text-transform: capitalize">{!loanWrapper.financeType}</td>
+                        <td style="padding-left:10px;text-align:center">{!loanWrapper.financeAccount}</td>
+                        <td style="padding-left:10px;text-align:center">BHD {!loanWrapper.formattedOutstandingBalance}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+        <div style="margin-top:10px;font-size:14px">
+            <p>
+                The total loan/finances(s) outstanding balance including Fees and Charges: BHD {!totalLoanBalance}
+            </p>
+        </div>
+        <div  style="margin-top:15px;font-size:14px;width:100%">
+            <table width="100%">
+                <tr style="background-color:#00153e;color:#79ED00;padding:10px;">
+                	<td style="text-align:center;height:40px">Credit Card Type</td>
+                    <td style="text-align:center">Credit Limit</td>
+                    <td style="text-align:center">Outstanding Balance</td>
+                    <td style="text-align:center">Credit Card Number</td>
+                </tr>
+                <apex:repeat var="cardWrapper" value="{!obWrapper.cardWrapperList}">
+                	<tr style="background-color:#eee">
+                        <td style="height:30px;padding-left:10px;text-align:center">{!cardWrapper.cardType}</td>
+                        <td style="padding-left:10px;text-align:center">BHD {!cardWrapper.formattedCreditLimit}</td>
+                        <td style="padding-left:10px;text-align:center">BHD {!cardWrapper.formattedOutstandingBalance}</td>
+                        <td style="padding-left:10px;text-align:center">{!cardWrapper.cardNumber}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+        <div style="margin-top:10px;font-size:14px">
+            <p>
+                The total Credit Card(s) outstanding balance: BHD {!totalCreditCardBalance}
+            </p>
+            <p style="text-align:justify">
+                Since the credit card outstanding balance is a net residual of daily transactions processed to the Card(s), the net
+balance shown above does not necessarily reflect the actual outstanding balance any date after the date of this
+letter.
+            </p>
+        </div>
+</apex:component>

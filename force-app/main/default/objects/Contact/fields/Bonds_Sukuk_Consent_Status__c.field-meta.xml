@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bonds_Sukuk_Consent_Status__c</fullName>
+    <label>Bonds/Sukuk - Consent Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VALID</fullName>
+                <default>false</default>
+                <label>VALID</label>
+            </value>
+            <value>
+                <fullName>EXPIRED</fullName>
+                <default>false</default>
+                <label>EXPIRED</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

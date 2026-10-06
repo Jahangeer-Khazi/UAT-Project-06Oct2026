@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Template__c</fullName>
+    <description>Template used for CSAT email notification, Provide the main template name only, Albuarq, English or Arablc template would be taken care, below would be sample for template naming convention.  as per below example name should be &quot;Walkin_Customer_Survey&quot; only rest will be added on the fly
+
+Walkin_Customer_Survey_Bh_En
+Walkin_Customer_Survey_Bh_Ar
+Walkin_Customer_Survey_AlBuraq_AR
+Walkin_Customer_Survey_AlBuraq_En</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Email Template</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

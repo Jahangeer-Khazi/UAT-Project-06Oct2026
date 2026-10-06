@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Complaint {!Case.CaseNumber} has been logged</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Complaint Acknowledgement HTML - Jordan</name>
+    <style>none</style>
+    <subject>Your complaint is received and will be processed soon</subject>
+    <textOnly>We heard you, our team is working on solving your case!
+
+Hi {!Case.Current_First_Name__c}, we really appreciate your feedback. Our ila team is working hard to resolve your case, and you will be hearing from us shortly.
+
+If you are not satisfied with the outcome or did not hear back from us within 10 working days, you can submit your complaint to the Central Bank of Jordan (CBJ) within 30 calendar days from the date of receiving our final response. You can raise your complaint on www.cbj.gov.jo or call +962 64630301.
+
+Customers are at the heart of everything that we do at ila. We are constantly striving to enhance your banking experience. Thank you for being part of the ila family.
+
+Should you need any assistance, please feel free to call us on +962 65100001 or email us on support@ilajordan.com
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilajordan.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

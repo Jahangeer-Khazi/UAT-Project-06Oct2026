@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be sent when a profile update is moved to being in progress</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Update Profile Acknowledgement HTML</name>
+    <style>none</style>
+    <subject>Your profile update request has been received by ila.</subject>
+    <textOnly>Thanks for contacting us, we are working on your request
+
+Hi {!Case.Current_First_Name__c}
+
+We are pleased to let you know that our team is working on your profile update request. Your case reference number is {!Case.CaseNumber}.
+
+We&apos;ll keep you posted.
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Have a great day!
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

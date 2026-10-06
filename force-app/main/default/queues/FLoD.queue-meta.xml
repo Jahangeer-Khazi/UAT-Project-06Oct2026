@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>FLoD</name>
+    <queueMembers>
+        <users>
+            <user>abbas.alhalwachi@ilabank.com</user>
+            <user>ahmed.alaradi@ilabank.com</user>
+            <user>amjad.hasan@ilabank.com</user>
+            <user>husain.haji@bank-abc.com</user>
+            <user>jayanth.manickam@bank-abc.com</user>
+            <user>mavericrmt@bank-abc.com</user>
+            <user>mohamed.alshaer@bank-abc.com</user>
+            <user>saeed.mahdi@ilabank.com</user>
+            <user>saeed.mahroos@afs.com.bh</user>
+            <user>salman.habib@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>cases_Routing_config_CC</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

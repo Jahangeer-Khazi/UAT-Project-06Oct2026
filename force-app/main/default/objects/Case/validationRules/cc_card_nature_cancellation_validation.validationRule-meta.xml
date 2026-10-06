@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_card_nature_cancellation_validation</fullName>
+    <active>true</active>
+    <description>This validation would trigger when card nature picklist value and cancellation reason picklist does not match.</description>
+    <errorConditionFormula>AND($User.LastName &lt;&gt; &quot;Integration&quot;,
+ISPICKVAL(Type,&apos;Credit Card Account Closing&apos;),
+ISPICKVAL(Sub_Type__c,&apos;Credit Card Account Closing&apos;),
+OR(
+AND(
+            ISPICKVAL(Card_Nature__c,&apos;secured&apos;),
+            ISPICKVAL(Closure_Reason__c, &apos;Want to apply for a loan/finance&apos;),
+            NOT(ISPICKVAL(Closure_Reason__c, &apos;&apos;))
+        ),
+AND(
+            ISPICKVAL(Card_Nature__c,&apos;unsecured&apos;),
+            ISPICKVAL(Closure_Reason__c, &apos;Need liquidity&apos;),
+            NOT(ISPICKVAL(Closure_Reason__c, &apos;&apos;))
+        )
+))</errorConditionFormula>
+    <errorMessage>The credit card cancellation reason you have selected is not valid for this credit card type. Kindly select another reason from the list.</errorMessage>
+</ValidationRule>

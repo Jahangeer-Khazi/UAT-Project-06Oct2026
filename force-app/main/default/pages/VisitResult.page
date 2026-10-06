@@ -1,0 +1,38 @@
+<apex:page controller="VisitResultController" lightningStyleSheets="true">
+    <apex:slds />
+    <apex:pageMessages />
+    
+    <div class="slds-scope">
+        <apex:outputPanel layout="none" rendered="{! NOT(isSaveComplete)}">
+            <apex:outputPanel layout="block" rendered="{! CaseData.hasData && 'Cash Delivery' == CaseData.caseType}" style="text-align: center">
+                <h1>{!CaseData.caseType} - Case: {!CaseData.Subject}</h1> <br/>
+                Was delivery successful? <br/>
+                <apex:form >
+                    <apex:commandButton action="{!onYesClick}" value="Yes" styleClass="slds-button slds-button_success"/>
+                    &nbsp;
+                    <apex:commandButton action="{!onNoClick}" value="No" styleClass="slds-button slds-button_destructive"/>
+                </apex:form>
+
+
+            </apex:outputPanel>
+            <apex:outputPanel layout="block" rendered="{! CaseData.hasData && 'Cash Collection' == CaseData.caseType}" style="text-align: center">
+                <h1>{!CaseData.caseType} - Case: {!CaseData.Subject}</h1> <br/>
+                Was collection successful? <br/>
+                <apex:form >
+                    <apex:commandButton action="{!onYesClick}" value="Yes" styleClass="slds-button slds-button_success"/>
+                    &nbsp;
+                    <apex:commandButton action="{!onNoClick}" value="No" styleClass="slds-button slds-button_destructive"/>
+                </apex:form>
+
+
+            </apex:outputPanel>
+            <apex:outputPanel layout="block" rendered="{! NOT(CaseData.hasData) }">
+                Case with id: '<b>{!CaseUuid}</b>' not found or response is already recorded.
+            </apex:outputPanel>
+            
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{! isSaveComplete }">
+            Thank you. You can close this page.
+        </apex:outputPanel>
+    </div>
+</apex:page>

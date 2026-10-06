@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>when the customer request to waive minimum balance fee is approved and completed</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MIN_FEE_WAIVER_COMPLETED</name>
+    <style>none</style>
+    <subject>Your request to waive the minimum balance fee is completed</subject>
+    <textOnly>Your request to waive the minimum balance fee is completed
+
+Hi,
+
+Your request to waive minimum balance fee on your account ending {!Case.ac_ibanLastFourDigits__c} has been completed successfully.
+
+
+For any questions, call us +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

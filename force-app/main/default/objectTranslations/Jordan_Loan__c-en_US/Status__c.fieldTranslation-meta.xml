@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Closed</masterLabel>
+        <translation><!-- Closed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Cancelled</masterLabel>
+        <translation><!-- Customer Cancelled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Rejected</masterLabel>
+        <translation><!-- Customer Rejected --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents Required</masterLabel>
+        <translation><!-- Documents Required --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LOS Approved</masterLabel>
+        <translation><!-- LOS Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LOS Rejected</masterLabel>
+        <translation><!-- LOS Rejected --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LOS Study</masterLabel>
+        <translation><!-- LOS Study --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Process Loan Contract</masterLabel>
+        <translation><!-- Process Loan Contract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready to Disburse</masterLabel>
+        <translation><!-- Ready to Disburse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Submitted</masterLabel>
+        <translation><!-- Submitted --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Perform_API_Callout</name>
+        <label>Perform API Callout</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>SM06_GenericAPICallout</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>caseId</name>
+            <value>
+                <elementReference>varR_caseRecord.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>json_ActionsOnFailure</name>
+            <value>
+                <elementReference>varT_Json_ActionsOnFailure</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>json_ActionsOnSuccess</name>
+            <value>
+                <elementReference>varT_Json_ActionsOnSuccess</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>json_body</name>
+            <value>
+                <elementReference>varT_JsonBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>json_header</name>
+            <value>
+                <elementReference>varT_JsonHeaders</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>method</name>
+            <value>
+                <elementReference>varT_Method</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Path</name>
+            <value>
+                <elementReference>varT_Path</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SM06_GenericAPICallout</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>API callout Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>API callout Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Perform_API_Callout</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varR_caseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <description>[
+{
+&quot;fieldName&quot;: &quot;&quot;,
+&quot;data_source&quot;: &quot;&quot;,  // Can be &quot;value&quot; or &quot;dataPath&quot;
+&quot;value&quot;: &quot;&quot;,        // Value of the field, to reset a field keep it empty (if data_source is &quot;value&quot;)
+&quot;dataPath&quot;: &quot;&quot;      // Data path following object notation (if data_source is &quot;dataPath&quot;)
+},
+{
+&quot;fieldName&quot;: &quot;&quot;,
+&quot;data_source&quot;: &quot;&quot;,  // Can be &quot;value&quot; or &quot;dataPath&quot;
+&quot;value&quot;: &quot;&quot;,       // Value of the field, to reset a field keep it empty (if data_source is &quot;value&quot;)
+&quot;dataPath&quot;: &quot;&quot;      // Data path following object notation (if data_source is &quot;dataPath&quot;)
+}
+]</description>
+        <name>varT_Json_ActionsOnFailure</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>[
+{
+&quot;fieldName&quot;: &quot;&quot;,
+&quot;data_source&quot;: &quot;&quot;,  // Can be &quot;value&quot; or &quot;dataPath&quot;
+&quot;value&quot;: &quot;&quot;,        // Value of the field, to reset a field keep it empty (if data_source is &quot;value&quot;)
+&quot;dataPath&quot;: &quot;&quot;      // Data path following object notation (if data_source is &quot;dataPath&quot;)
+},
+{
+&quot;fieldName&quot;: &quot;&quot;,
+&quot;data_source&quot;: &quot;&quot;,  // Can be &quot;value&quot; or &quot;dataPath&quot;
+&quot;value&quot;: &quot;&quot;,       // Value of the field, to reset a field keep it empty (if data_source is &quot;value&quot;)
+&quot;dataPath&quot;: &quot;&quot;      // Data path following object notation (if data_source is &quot;dataPath&quot;)
+}
+]</description>
+        <name>varT_Json_ActionsOnSuccess</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_JsonBody</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_JsonHeaders</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_Method</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_Path</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

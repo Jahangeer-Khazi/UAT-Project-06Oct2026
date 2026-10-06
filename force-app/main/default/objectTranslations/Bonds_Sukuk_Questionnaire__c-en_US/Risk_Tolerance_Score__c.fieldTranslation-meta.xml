@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Very Low (1), Low (2), Moderate (3), High (4), Very High (5) --></help>
+    <label><!-- Risk Tolerance Score --></label>
+    <name>Risk_Tolerance_Score__c</name>
+</CustomFieldTranslation>

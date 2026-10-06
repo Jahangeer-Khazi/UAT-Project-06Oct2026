@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>FRAUD_BLOCK_DC_CC</label>
+    <protected>false</protected>
+    <values>
+        <field>API_Status__c</field>
+        <value xsi:type="xsd:string">FRAUD_BLOCK_DC_CC</value>
+    </values>
+    <values>
+        <field>Block_Account_Debits__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Block_App_Access__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Block_Credit_Cards__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Block_Debit_Cards__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>CRM_Stage__c</field>
+        <value xsi:type="xsd:string">FRAUD_BLOCK</value>
+    </values>
+    <values>
+        <field>ID_V_Required__c</field>
+        <value xsi:type="xsd:string">Yes</value>
+    </values>
+    <values>
+        <field>Sub_Status__c</field>
+        <value xsi:type="xsd:string">Pending ID&amp;V</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">KYC_PERIODIC_REVIEW</value>
+    </values>
+</CustomMetadata>

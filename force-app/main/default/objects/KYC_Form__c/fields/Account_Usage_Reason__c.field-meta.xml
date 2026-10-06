@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Usage_Reason__c</fullName>
+    <label>Account Usage Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Saving</fullName>
+                <default>false</default>
+                <label>Saving</label>
+            </value>
+            <value>
+                <fullName>Daily expenses</fullName>
+                <default>false</default>
+                <label>Daily expenses</label>
+            </value>
+            <value>
+                <fullName>Travel expenses</fullName>
+                <default>false</default>
+                <label>Travel expenses</label>
+            </value>
+            <value>
+                <fullName>Islamic Banking Products</fullName>
+                <default>false</default>
+                <label>Islamic Banking Products</label>
+            </value>
+            <value>
+                <fullName>Foreign currency transactions</fullName>
+                <default>false</default>
+                <label>Foreign currency transactions</label>
+            </value>
+            <value>
+                <fullName>Salary transfer</fullName>
+                <default>false</default>
+                <label>Salary transfer</label>
+            </value>
+            <value>
+                <fullName>Obtaining credit facility</fullName>
+                <default>false</default>
+                <label>Obtaining credit facility</label>
+            </value>
+            <value>
+                <fullName>Remittances</fullName>
+                <default>false</default>
+                <label>Remittances</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposits</fullName>
+                <default>false</default>
+                <label>Fixed Deposits</label>
+            </value>
+            <value>
+                <fullName>Current account</fullName>
+                <default>false</default>
+                <label>Current account</label>
+            </value>
+            <value>
+                <fullName>Hassala (Saving)</fullName>
+                <default>false</default>
+                <label>Hassala (Saving)</label>
+            </value>
+            <value>
+                <fullName>Jamiyah</fullName>
+                <default>false</default>
+                <label>Jamiyah</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

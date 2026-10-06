@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ccol_Hold_Amount__c</fullName>
+    <description>This is for Cash Collateral Credit Cards. Automatically calculated : requested credit limit * 1.2</description>
+    <externalId>false</externalId>
+    <label>Hold Amount</label>
+    <precision>13</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

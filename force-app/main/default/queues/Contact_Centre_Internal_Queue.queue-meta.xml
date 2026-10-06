@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>shubhammittalm602@gmail.com</email>
+    <name>Contact Centre Internal Queue</name>
+    <queueMembers>
+        <users>
+            <user>maksud.ali@bank-abc.com</user>
+            <user>contactcenter@bank-abc.com</user>
+            <user>mavericrmt@bank-abc.com</user>
+            <user>omar.aito-gram@ilabank.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>New_Wavier_Approval__c</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- ID Type --></label>
+    <name>ID_Type__c</name>
+    <picklistValues>
+        <masterLabel>Bahraini ID</masterLabel>
+        <translation><!-- Bahraini ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GCC ID</masterLabel>
+        <translation><!-- GCC ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gaza ID</masterLabel>
+        <translation><!-- Gaza ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID for son’s of Jordanian</masterLabel>
+        <translation><!-- ID for son’s of Jordanian --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jordanian ID</masterLabel>
+        <translation><!-- Jordanian ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Military ID</masterLabel>
+        <translation><!-- Military ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Passport</masterLabel>
+        <translation><!-- Passport --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sons of Jordanian Women&apos;s ID</masterLabel>
+        <translation><!-- Sons of Jordanian Women&apos;s ID --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

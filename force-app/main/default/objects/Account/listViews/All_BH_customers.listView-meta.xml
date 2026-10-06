@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_BH_customers</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Subscription_Model__pc</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>Segment__pc</columns>
+    <columns>Onboarding_Stage__pc</columns>
+    <columns>CustomerStatus__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CustomerStatus__c</field>
+        <operation>equals</operation>
+        <value>Dormant</value>
+    </filters>
+    <filters>
+        <field>Region_Flag__c</field>
+        <operation>equals</operation>
+        <value>Bahrain</value>
+    </filters>
+    <label>All BH customers</label>
+</ListView>

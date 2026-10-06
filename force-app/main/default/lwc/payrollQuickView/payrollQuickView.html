@@ -1,0 +1,228 @@
+<template>
+    <div class="payroll-record-component">
+        <!-- Error Message -->
+        <template if:true={showError}>
+            <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                <span class="slds-assistive-text">Error</span>
+                <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Error">
+                    <lightning-icon icon-name="utility:error" size="small"></lightning-icon>
+                </span>
+                <h2>{errorMessage}</h2>
+            </div>
+        </template>
+
+        <!-- Main Card -->
+        <template if:false={showError}>
+            <div class="slds-card">
+                <!-- Header with Confirm/Edit Buttons -->
+                <div class="slds-card__header slds-grid slds-grid_align-spread">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <span class="slds-text-heading_small">Payroll Information</span>
+                            </h2>
+                        </div>
+                    </header>
+
+                    <!-- Buttons -->
+                    <div>
+                        <template if:true={showConfirmButton}>
+                            <lightning-button variant="brand" label="Confirm" onclick={handleConfirm}>
+                            </lightning-button>
+                        </template>
+
+                        <template if:true={showEditButton}>
+                            <lightning-button variant="neutral" label="Edit" onclick={handleEdit}></lightning-button>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="slds-card__body slds-card__body_inner">
+                    <div class="slds-form-element slds-m-top_small">
+                        <lightning-combobox label="Payroll Reference" name="payrollReference" value={selectedPayRollRef}
+                            options={payrollOptions} onchange={handlePayrollSelection} disabled={isPicklistDisabled}
+                            required>
+                        </lightning-combobox>
+                    </div>
+
+                    <!-- Select Action Combobox - ONLY SHOWS WHEN PAYROLL IS SELECTED -->
+                    <template if:true={showActionCombobox}>
+                        <div class="slds-form-element slds-m-top_small">
+                            <lightning-combobox label="Select Action" name="selectedAction" value={actionValue}
+                                options={allowedActions} onchange={handleActionChange}
+                                disabled={isActionComboboxDisabled} required>
+                            </lightning-combobox>
+                        </div>
+                    </template>
+
+                    <!-- Reject Reason Field - ONLY SHOWS WHEN ACTION IS "REJECT" OR "CANCEL" -->
+                    <template if:true={showRejectReasonField}>
+                        <div class="slds-form-element slds-m-top_small">
+                            <lightning-combobox label="Select Reason" name="selectedReason" value={rejectReason}
+                                options={filteredDependencyList} onchange={handleRejectReasonChange}
+                                disabled={isActionComboboxDisabled} required>
+                            </lightning-combobox>
+                        </div>
+                    </template>
+
+                    <!-- Loading Spinner -->
+                    <template if:true={isLoading}>
+                        <div class="slds-spinner_container">
+                            <div role="status" class="slds-spinner slds-spinner_medium">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Payroll Details Table - Non-Actioned (from 2 APIs) -->
+                    <template if:true={isShowDetailWhenNotActioned}>
+                        <div class="payroll-details-table">
+                            <h3 class="slds-text-heading_small slds-m-top_medium">Payroll Details</h3>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                <tbody>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Status</td>
+                                        <td><span class={statusClass}>{payrollDetail.status}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Reference</td>
+                                        <td><span class={statusClass}>{selectedPayRollRef}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Debit Account (IBAN)</td>
+                                        <td>{payrollDetail.debitAccount}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Salary Month</td>
+                                        <td>{selectedPayroll.salaryMonth}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Creation Date</td>
+                                        <td>{payrollDetail.creationDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Payment Date</td>
+                                        <td>{selectedPayroll.paymentDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Employer Name</td>
+                                        <td>{selectedPayroll.employerName}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll No. of Salaries</td>
+                                        <td>{selectedPayroll.employeeCount}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Currency</td>
+                                        <td>{payrollDetail.currencyValue}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Amount</td>
+                                        <td>{formattedPayrollAmountNotActioned}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Transaction Fees</td>
+                                        <td>{payrollDetail.transactionFees}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll VAT</td>
+                                        <td>{payrollDetail.vat}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Total Debit Amount</td>
+                                        <td>{formattedPayrollDebitAmountNotActioned}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Action</td>
+                                        <td>{actionValue}</td>
+                                    </tr>
+                                    <tr if:true={showRejectReasonField}>
+                                        <td class="slds-text-title_caps">Payroll Reason</td>
+                                        <td>{rejectReason}</td>
+                                    </tr>
+                                    <tr if:false={showRejectReasonField}>
+                                        <td class="slds-text-title_caps">Payroll Reason</td>
+                                        <td>{payrollDetail.reason}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+
+                    <!-- Payroll Details Table - Actioned (from selectedPayroll object) -->
+                    <template if:true={isShowDetailWhenActioned}>
+                        <div class="payroll-details-table">
+                            <h3 class="slds-text-heading_small slds-m-top_medium">Payroll Details</h3>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                <tbody>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Status</td>
+                                        <td><span class={statusClass}>{actionedPayrollData.status}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Reference</td>
+                                        <td><span class={statusClass}>{selectedPayRollRef}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Debit Account (IBAN)</td>
+                                        <td>{actionedPayrollData.debitAccount}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Salary Month</td>
+                                        <td>{actionedPayrollData.salaryMonth}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Creation Date</td>
+                                        <td>{actionedPayrollData.creationDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Payment Date</td>
+                                        <td>{actionedPayrollData.paymentDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Employer Name</td>
+                                        <td>{actionedPayrollData.employerName}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll No. of Salaries</td>
+                                        <td>{actionedPayrollData.employeeCount}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Currency</td>
+                                        <td>{actionedPayrollData.currencyValue}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Amount</td>
+                                        <td>{formattedPayrollAmount}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Transaction Fees</td>
+                                        <td>{actionedPayrollData.transactionFees}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll VAT</td>
+                                        <td>{actionedPayrollData.vat}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Total Debit Amount</td>
+                                        <td>{formattedPayrollDebitAmount}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Action</td>
+                                        <td>{actionedPayrollData.action}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="slds-text-title_caps">Payroll Reason</td>
+                                        <td>{actionedPayrollData.reason}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

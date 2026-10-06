@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <description>For:
+Adhoc Accounting Entries/BUSSINES/CC
+Customer Cheque Status Queries
+Stop Cheque PAYMENT
+Stop Managerial Cheque
+Customer Transaction &amp; Payment Disputes- Benfit
+Customer Transaction &amp; Payment Disputes- Mastercard
+Case Sub Types</description>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Region_Flag__c</field>
+        <operation>equals</operation>
+        <value>Bahrain</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/CC</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>72 Hours Come to Service Centre</milestoneName>
+        <minutesToComplete>4320</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Come_to_branch_reminder</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-36</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Come_to_branch_breach</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Confirm_Customer_Authorised__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/CC</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 2 hours RMT</milestoneName>
+        <minutesToComplete>120</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Customer Cheque Status Queries, Stop Cheque Payment, Stop Managerial Cheque</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 2 hours RMT</milestoneName>
+        <minutesToComplete>120</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Stop Managerial Cheque</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 48 Hours</milestoneName>
+        <minutesToComplete>2880</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Reminder_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Breach_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Adhoc Accounting Entries/CC</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue 1 22 hours OPS</milestoneName>
+        <minutesToComplete>1320</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Reminder_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-12</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Breach_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Customer Cheque Status Queries</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Ops escalation 2</milestoneName>
+        <minutesToComplete>1260</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Breach_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>3</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Reminder_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-9</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Stop Cheque Payment</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Ops escalation 2</milestoneName>
+        <minutesToComplete>120</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Customer Transaction &amp; Payment Disputes- Benfit, Customer Transaction &amp; Payment Disputes- Mastercard</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Dispute 10 Days</milestoneName>
+        <minutesToComplete>14400</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.Disputes_SLA_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.Disputes_SLA_Breach</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.L2_Decision__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Stop Cheque Payment</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Ops escalation 2</milestoneName>
+        <minutesToComplete>120</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Breach_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.SLA_Reminder_OPS</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>Issue 2</name>
+    <versionMaster>5521l000000CbAH</versionMaster>
+    <versionNumber>2</versionNumber>
+</EntitlementProcess>

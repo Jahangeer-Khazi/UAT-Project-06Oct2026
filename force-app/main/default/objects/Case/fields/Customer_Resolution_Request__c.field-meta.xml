@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Resolution_Request__c</fullName>
+    <description>Complaint - Customer Resolution Request</description>
+    <encryptionScheme>None</encryptionScheme>
+    <inlineHelpText>Complaint - Customer Resolution Request</inlineHelpText>
+    <label>Customer Resolution Request</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

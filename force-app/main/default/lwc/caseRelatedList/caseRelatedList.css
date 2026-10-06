@@ -1,0 +1,9 @@
+.custom-container{
+	color : black;
+}
+
+.custom-spinner {
+    position: relative !important;
+    display: flex;
+    height: 60px;
+}

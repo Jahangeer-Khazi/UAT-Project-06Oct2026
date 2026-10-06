@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Signature_Verifier_Counter__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>backend field to capture the no of timed document sent to get e-signature</description>
+    <externalId>false</externalId>
+    <label>Signature Resend Counter</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

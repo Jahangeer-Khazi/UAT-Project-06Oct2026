@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Email_Suppression_on_Creation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This checkbox controls the email notification to the customer on the case creation, if this is checked to TRUE, then no email will be triggered to customer on Case creation</description>
+    <inlineHelpText>This checkbox controls the email notification to the customer on the case creation, if this is checked to TRUE, then no email will be triggered to customer on Case creation</inlineHelpText>
+    <label>Customer Email Suppression on Creation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

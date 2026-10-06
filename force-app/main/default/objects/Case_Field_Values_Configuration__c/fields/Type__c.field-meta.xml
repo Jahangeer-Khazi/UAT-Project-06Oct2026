@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Password</fullName>
+                <default>false</default>
+                <label>Password</label>
+            </value>
+            <value>
+                <fullName>Account</fullName>
+                <default>false</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>Relationship Termination</fullName>
+                <default>false</default>
+                <label>Relationship Termination</label>
+            </value>
+            <value>
+                <fullName>Debit card</fullName>
+                <default>false</default>
+                <label>Debit card</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Tokenization</fullName>
+                <default>false</default>
+                <label>Tokenization</label>
+            </value>
+            <value>
+                <fullName>Detokinization</fullName>
+                <default>false</default>
+                <label>Detokinization</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Official letter</fullName>
+                <default>false</default>
+                <label>Official letter</label>
+            </value>
+            <value>
+                <fullName>Fees Reversal</fullName>
+                <default>false</default>
+                <label>Fees Reversal</label>
+            </value>
+            <value>
+                <fullName>Interest Reversal</fullName>
+                <default>false</default>
+                <label>Interest Reversal</label>
+            </value>
+            <value>
+                <fullName>Loans</fullName>
+                <default>false</default>
+                <label>Loans</label>
+            </value>
+            <value>
+                <fullName>Sukuk/bonds/Government security</fullName>
+                <default>false</default>
+                <label>Sukuk/bonds/Government security</label>
+            </value>
+            <value>
+                <fullName>Customer Call Verification</fullName>
+                <default>false</default>
+                <label>Customer Call Verification</label>
+            </value>
+            <value>
+                <fullName>App Login</fullName>
+                <default>false</default>
+                <label>App Login</label>
+            </value>
+            <value>
+                <fullName>Funds Transfer</fullName>
+                <default>false</default>
+                <label>Funds Transfer</label>
+            </value>
+            <value>
+                <fullName>Manager Cheque</fullName>
+                <default>false</default>
+                <label>Manager Cheque</label>
+            </value>
+            <value>
+                <fullName>Accounts</fullName>
+                <default>false</default>
+                <label>Accounts</label>
+            </value>
+            <value>
+                <fullName>Cards</fullName>
+                <default>false</default>
+                <label>Cards</label>
+            </value>
+            <value>
+                <fullName>Profile Update</fullName>
+                <default>false</default>
+                <label>Profile Update</label>
+            </value>
+            <value>
+                <fullName>Funds Transfer - Fawri</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Funds Transfer - Fawri</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

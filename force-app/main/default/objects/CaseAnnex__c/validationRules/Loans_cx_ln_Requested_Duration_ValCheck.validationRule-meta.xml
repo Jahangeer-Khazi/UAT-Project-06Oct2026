@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_cx_ln_Requested_Duration_ValCheck</fullName>
+    <active>true</active>
+    <description>Requested Loan duration shouldn’t exceed 84 months</description>
+    <errorConditionFormula>!ISNEW () &amp;&amp; ISCHANGED(cx_ln_Requested_Duration_Months__c) &amp;&amp; cx_ln_Requested_Duration_Months__c&gt;84</errorConditionFormula>
+    <errorDisplayField>cx_ln_Requested_Duration_Months__c</errorDisplayField>
+    <errorMessage>Field value shouldn’t exceed 84 months</errorMessage>
+</ValidationRule>

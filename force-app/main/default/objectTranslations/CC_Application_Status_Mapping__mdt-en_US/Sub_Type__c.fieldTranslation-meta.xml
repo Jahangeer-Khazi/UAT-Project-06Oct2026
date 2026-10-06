@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sub Type --></label>
+    <name>Sub_Type__c</name>
+    <picklistValues>
+        <masterLabel>Advance Payment</masterLabel>
+        <translation><!-- Advance Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Early Settlement</masterLabel>
+        <translation><!-- Early Settlement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fees Reversal / Waivers</masterLabel>
+        <translation><!-- Fees Reversal / Waivers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Instalment Deferment / Postponement</masterLabel>
+        <translation><!-- Instalment Deferment / Postponement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partial Settlement</masterLabel>
+        <translation><!-- Partial Settlement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Restructuring</masterLabel>
+        <translation><!-- Restructuring --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Top-up</masterLabel>
+        <translation><!-- Top-up --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

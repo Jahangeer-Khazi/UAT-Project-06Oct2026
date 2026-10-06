@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marquee_Direction__c</fullName>
+    <inlineHelpText>This will set the Message moving direction</inlineHelpText>
+    <label>Marquee Direction</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Left</fullName>
+                <default>false</default>
+                <label>Left</label>
+            </value>
+            <value>
+                <fullName>Right</fullName>
+                <default>false</default>
+                <label>Right</label>
+            </value>
+            <value>
+                <fullName>Up</fullName>
+                <default>false</default>
+                <label>Up</label>
+            </value>
+            <value>
+                <fullName>Down</fullName>
+                <default>false</default>
+                <label>Down</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

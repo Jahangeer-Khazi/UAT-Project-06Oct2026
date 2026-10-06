@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assetIcon>/analytics/wave/web/proto/images/app/icons/1.png</assetIcon>
+    <folder>Event_Monitoring_in_UAT_24_05_2022</folder>
+    <masterLabel>Event Monitoring in UAT 24-05-2022</masterLabel>
+    <shares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>khazi.jahangeer@ilabank.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </shares>
+    <templateOrigin>sfdc_internal__AdminAnalytics</templateOrigin>
+    <templateVersion>55.0</templateVersion>
+</WaveApplication>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Co_Brand_Membership_Number__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used for identifying Co-Brand Credit Cards</description>
+    <label>Has Co-Brand Membership Number</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Populated if the PEP Match is confirmed --></help>
+    <label><!-- PEP Flag --></label>
+    <name>PEP_Flag__c</name>
+</CustomFieldTranslation>

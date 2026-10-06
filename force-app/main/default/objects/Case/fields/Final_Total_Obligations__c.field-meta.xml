@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Total_Obligations__c</fullName>
+    <description>https://bank-abc.atlassian.net/browse/NBA-6705</description>
+    <externalId>false</externalId>
+    <formula>(cc_Approved_Credit_Limit__c *  IF(IsPickVal(Region_Flag__c,&apos;Bahrain&apos;),0.05,0.03)) +  Total_Current_Obligations__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is calculated as &quot;(Approved Credit Limit * 0.05) + Total Current Obligations&quot;</inlineHelpText>
+    <label>Final Total Obligations</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

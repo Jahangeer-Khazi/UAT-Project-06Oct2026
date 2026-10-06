@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Cash_Collateral__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To differentiate if the Limit Increase application is against Cash Collateral or against Normal Credit Card</description>
+    <label>Is Cash Collateral</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

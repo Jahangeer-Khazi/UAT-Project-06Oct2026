@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to be sent to Contact Center team to inform VIP customer that their Al Kanz account has been flagged as ineligible.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Enabled Relatives (to Contact Centre agent to inform VIP Customer)</name>
+    <style>none</style>
+    <subject>Al Kanz | VIP Customer Flagged as Ineligible for Al Kanz Account</subject>
+    <textOnly>Al Kanz | VIP Customer Flagged as Ineligible for Al Kanz Account
+
+VIP customer flagged as ineligible for Al Kanz draws.
+
+VIP Customer CIF: {!Linked_Account__c.VIP_Customer_CIF__c}
+
+Staff ID: {!Linked_Account__c.Staff_ID__c}
+
+Staff Name: {!Linked_Account__c.Staff_Name__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>A_Member_or_Admin_of_Active_Jamiyah_s__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Jira Id NBA-4456: Relationship Termination</description>
+    <label>A Member or Admin of Active Jamiyah(s)</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

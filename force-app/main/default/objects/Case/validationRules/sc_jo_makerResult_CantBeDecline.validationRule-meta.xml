@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_jo_makerResult_CantBeDecline</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType_DeveloperName__c == &apos;Credit_Card_Supplementary&apos; &amp;&amp; TEXT(Region_Flag__c) == &apos;Jordan&apos; &amp;&amp; TEXT(cc_Maker__c) == &apos;Decline&apos; &amp;&amp;  TEXT(PRIORVALUE(cc_Maker__c)) != &apos;Decline&apos;</errorConditionFormula>
+    <errorDisplayField>cc_Maker__c</errorDisplayField>
+    <errorMessage>This case does not accept Decline value</errorMessage>
+</ValidationRule>

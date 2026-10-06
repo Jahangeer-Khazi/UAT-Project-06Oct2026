@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardServ_BalTrsfCard_Mandatory</fullName>
+    <active>true</active>
+    <description>If Requested Card Type is ila switch then Balance Transfer Card field is mandatory</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(cc_Requested_Card_Type__c, &quot;PLATINUM_BALANCE_TRANSFER_01&quot;),
+ISBLANK(cc_Balance_Transfer_Card_Provider__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Balance_Transfer_Card_Provider__c</errorDisplayField>
+    <errorMessage>Please fill the Balance Transfer Card Provider field</errorMessage>
+</ValidationRule>

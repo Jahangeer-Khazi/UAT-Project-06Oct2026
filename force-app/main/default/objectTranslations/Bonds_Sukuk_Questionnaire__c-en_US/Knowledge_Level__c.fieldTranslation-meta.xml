@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- How knowledgeable are you about financial and investment concepts? --></help>
+    <label><!-- Knowledge Level --></label>
+    <name>Knowledge_Level__c</name>
+    <picklistValues>
+        <masterLabel>Competent</masterLabel>
+        <translation><!-- Competent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Minimally Knowledgeable</masterLabel>
+        <translation><!-- Minimally Knowledgeable --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Moderately Knowledgeable</masterLabel>
+        <translation><!-- Moderately Knowledgeable --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not At All Knowledgeable</masterLabel>
+        <translation><!-- Not At All Knowledgeable --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Very Knowledgeable</masterLabel>
+        <translation><!-- Very Knowledgeable --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

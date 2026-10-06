@@ -1,0 +1,44 @@
+<!-- 	
+    Organization : ABC Bank
+    * 	Created By: Jayanth Kumar
+    *	Created Date: 24-09-2024
+    * 	Change History: 
+-->
+<aura:component controller="LTNG054_BondSukukStatementsController" implements= "flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="true" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="viewAccStat" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    <aura:handler name="change" value="{!v.accountId}" action="{!c.init}"/>
+
+   <aura:if isTrue="{!v.showCmp}">
+        <div style="padding-top: 2rem;">
+            <lightning:card title="Statements">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="Get Statements" onclick="{!c.onLoadAccStatement}" />
+    
+                </div>
+                <div style="padding-top: 1rem;">
+                    <aura:If isTrue="{!v.viewAccStat}">
+                       <aura:If isTrue="{!empty(v.data)}">
+                        No Statements Available.
+                        <aura:set attribute="else">
+                        <lightning:datatable data="{!v.data}" aura:id="StatementTable" columns="{!v.columns}"
+                            keyField="id" hideCheckboxColumn="true" maxRowSelection="1"
+                            onrowselection="{!c.handleRowSelection }" onrowaction="{!c.handleRowAction }" />
+    
+                        </aura:set>
+                    </aura:If>
+                    </aura:If>
+                </div>
+    
+            </lightning:card>
+        </div>
+   </aura:if>
+</aura:component>

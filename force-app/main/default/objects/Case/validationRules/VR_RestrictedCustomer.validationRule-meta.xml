@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_RestrictedCustomer</fullName>
+    <active>false</active>
+    <description>Validation Rule used on Sensitive/Restricted Customer Requirement</description>
+    <errorConditionFormula>(Address_Updated_By__c = $User.Id)&amp;&amp; 
+ISCHANGED(cc_Checker_Result__c)&amp;&amp; 
+RecordType_DeveloperName__c=&apos;Internal_Case&apos;</errorConditionFormula>
+    <errorMessage>Maker of the case cannot update checker results</errorMessage>
+</ValidationRule>

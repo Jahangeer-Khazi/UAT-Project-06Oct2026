@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Control_Type__c</fullName>
+    <description>to be update for card control settings</description>
+    <label>Control Type / STP Decisioning Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Currency Restriction</fullName>
+                <default>false</default>
+                <label>Currency Restriction</label>
+            </value>
+            <value>
+                <fullName>Country Restriction</fullName>
+                <default>false</default>
+                <label>Country Restriction</label>
+            </value>
+            <value>
+                <fullName>Channel Restriction</fullName>
+                <default>false</default>
+                <label>Channel Restriction</label>
+            </value>
+            <value>
+                <fullName>Merchant Restriction</fullName>
+                <default>false</default>
+                <label>Merchant Restriction</label>
+            </value>
+            <value>
+                <fullName>Manual</fullName>
+                <default>false</default>
+                <label>Manual</label>
+            </value>
+            <value>
+                <fullName>STP</fullName>
+                <default>false</default>
+                <label>STP</label>
+            </value>
+            <value>
+                <fullName>Manual No Record</fullName>
+                <default>false</default>
+                <label>Manual No Record</label>
+            </value>
+            <value>
+                <fullName>Manual Nationality</fullName>
+                <default>false</default>
+                <label>Manual Nationality</label>
+            </value>
+            <value>
+                <fullName>Manual Technical Error</fullName>
+                <default>false</default>
+                <label>Manual Technical Error</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

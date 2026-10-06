@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- KYC Verification Result --></label>
+    <name>KYC_Verification_Result__c</name>
+    <picklistValues>
+        <masterLabel>Documents Completed</masterLabel>
+        <translation><!-- Documents Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents Pending</masterLabel>
+        <translation><!-- Documents Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents Returned</masterLabel>
+        <translation><!-- Documents Returned --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents Review</masterLabel>
+        <translation><!-- Documents Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents Skipped</masterLabel>
+        <translation><!-- Documents Skipped --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Completed</masterLabel>
+        <translation><!-- ID&amp;V Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Failed</masterLabel>
+        <translation><!-- ID&amp;V Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V InProgress</masterLabel>
+        <translation><!-- ID&amp;V InProgress --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Pending</masterLabel>
+        <translation><!-- ID&amp;V Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Skipped</masterLabel>
+        <translation><!-- ID&amp;V Skipped --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KYC Form Completed</masterLabel>
+        <translation><!-- KYC Form Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KYC Form Pending</masterLabel>
+        <translation><!-- KYC Form Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KYC Form Skipped</masterLabel>
+        <translation><!-- KYC Form Skipped --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

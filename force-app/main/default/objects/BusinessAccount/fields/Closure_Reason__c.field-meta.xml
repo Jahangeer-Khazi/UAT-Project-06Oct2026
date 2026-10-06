@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closure_Reason__c</fullName>
+    <label>Closure Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Request</fullName>
+                <default>false</default>
+                <label>Customer Request</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Fraud</fullName>
+                <default>false</default>
+                <label>Bank Request - Fraud</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Compliance</fullName>
+                <default>false</default>
+                <label>Bank Request - Compliance</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Credit Card Collection</fullName>
+                <default>false</default>
+                <label>Bank Request - Credit Card Collection</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Other</fullName>
+                <default>false</default>
+                <label>Bank Request - Other</label>
+            </value>
+            <value>
+                <fullName>By Bank - Dormancy</fullName>
+                <default>false</default>
+                <label>By Bank - Dormancy</label>
+            </value>
+            <value>
+                <fullName>Death Confirmed</fullName>
+                <default>false</default>
+                <label>Death Confirmed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

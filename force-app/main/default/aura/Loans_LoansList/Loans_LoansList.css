@@ -1,0 +1,14 @@
+/* omar start */
+.THIS .selected-row  {
+    background-color: #ff0000 !important;
+}
+
+.THIS table tbody tr:has(td.overdue-hover):hover > *:nth-child(2),
+.THIS table tbody tr:has(td.overdue-hover):hover > *:nth-child(3),
+.THIS table tbody tr:has(td.overdue-hover):hover > *:nth-child(4),
+.THIS table tbody tr:has(td.overdue-hover):hover > *:nth-child(5),
+.THIS table tbody tr:has(td.overdue-hover):hover > *:nth-child(6) {
+    background-color: #ff6666 !important;
+    cursor: pointer;
+}
+/* omar end */

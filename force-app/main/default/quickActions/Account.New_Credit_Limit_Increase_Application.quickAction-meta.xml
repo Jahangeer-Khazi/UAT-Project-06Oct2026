@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>to create the new Credit Limit Increase Application</description>
+    <height>1000</height>
+    <label>New Credit Limit Increase Application</label>
+    <lightningComponent>creditCardLimitApplication</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

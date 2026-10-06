@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Opening_Reason__c</fullName>
+    <description>This field capture the Account Opening Reason - CRM : SC-50</description>
+    <label>Account Opening Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Region_Flag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Saving</fullName>
+                <default>false</default>
+                <label>Saving</label>
+            </value>
+            <value>
+                <fullName>Daily expenses</fullName>
+                <default>false</default>
+                <label>Daily expenses</label>
+            </value>
+            <value>
+                <fullName>Travel expenses</fullName>
+                <default>false</default>
+                <label>Travel expenses</label>
+            </value>
+            <value>
+                <fullName>Foreign currency transactions</fullName>
+                <default>false</default>
+                <label>Foreign currency transactions</label>
+            </value>
+            <value>
+                <fullName>Salary transfer</fullName>
+                <default>false</default>
+                <label>Salary transfer</label>
+            </value>
+            <value>
+                <fullName>Obtaining credit facility</fullName>
+                <default>false</default>
+                <label>Obtaining credit facility</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposits</fullName>
+                <default>false</default>
+                <label>Fixed Deposits</label>
+            </value>
+            <value>
+                <fullName>Remittances</fullName>
+                <default>false</default>
+                <label>Remittances</label>
+            </value>
+            <value>
+                <fullName>Islamic Banking Products</fullName>
+                <default>false</default>
+                <label>Islamic Banking Products</label>
+            </value>
+            <value>
+                <fullName>Credit Cards</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Credit Cards</label>
+            </value>
+            <value>
+                <fullName>Current account</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Current account</label>
+            </value>
+            <value>
+                <fullName>Hassala (Saving)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hassala (Saving)</label>
+            </value>
+            <value>
+                <fullName>Jamiyah</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Jamiyah</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Saving</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Daily expenses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Travel expenses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Foreign currency transactions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Salary transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Obtaining credit facility</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Fixed Deposits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Remittances</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

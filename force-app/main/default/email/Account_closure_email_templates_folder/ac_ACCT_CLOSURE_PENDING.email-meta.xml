@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>The email triggers in case of unsuccesseful account closure</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ac_ACCT_CLOSURE_PENDING</name>
+    <style>none</style>
+    <subject>Your request for account closure is pending.</subject>
+    <textOnly>Your request for account closure is pending.
+
+Hi,
+
+Your request to close your {!Case.ac_Currency__c} ila account ending {!Case.ac_ibanLastFourDigits__c} is pending due to the following reasons
+
+{!Case.ac_IneligibilityReasons__c}
+
+Our team is available 24/7 to help you on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

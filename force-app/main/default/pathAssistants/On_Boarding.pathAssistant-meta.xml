@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Account</entityName>
+    <fieldName>Onboarding_Group__pc</fieldName>
+    <masterLabel>On-Boarding</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;table class=&quot;ql-table-blob&quot; border=&quot;0&quot; style=&quot;width: 343pt;&quot; width=&quot;457&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 130pt;&quot; width=&quot;173&quot;&gt;&lt;/col&gt;&lt;col style=&quot;width: 213pt;&quot; width=&quot;284&quot;&gt;&lt;/col&gt;&lt;/colgroup&gt;&lt;tbody&gt;&lt;tr style=&quot;height: 14.4pt;&quot; height=&quot;19&quot;&gt;&lt;td colspan=&quot;1&quot; rowspan=&quot;1&quot; class=&quot;xl65&quot; style=&quot;height: 14.4pt; width: 130pt;&quot; width=&quot;173&quot; height=&quot;19&quot;&gt;15-Active-Acc&lt;/td&gt;&lt;td colspan=&quot;1&quot; rowspan=&quot;1&quot; class=&quot;xl65&quot; style=&quot;width: 213pt;&quot; width=&quot;284&quot;&gt;Base account
+  created on CB&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;height: 14.4pt;&quot; height=&quot;19&quot;&gt;&lt;td colspan=&quot;1&quot; rowspan=&quot;1&quot; class=&quot;xl65&quot; style=&quot;height: 14.4pt; width: 130pt;&quot; width=&quot;173&quot; height=&quot;19&quot;&gt;17-Account-funded&lt;/td&gt;&lt;td colspan=&quot;1&quot; rowspan=&quot;1&quot; class=&quot;xl65&quot; style=&quot;width: 213pt;&quot; width=&quot;284&quot;&gt;Account
+  funded &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Account Created</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Address_Extraction_Status__pc</fieldNames>
+        <fieldNames>ID_Validation_Status__pc</fieldNames>
+        <fieldNames>ID_Handling_Category__pc</fieldNames>
+        <fieldNames>Last_Address_Handling_Category__pc</fieldNames>
+        <fieldNames>Liveness_Check_Status__pc</fieldNames>
+        <info>&lt;p&gt;&lt;img src=&quot;/img/rte_broken_image.png&quot; alt=&quot;This image is not available because: You don’t have the privileges to see it, or it has been removed from the system&quot;&gt;&lt;/img&gt;&lt;/p&gt;&lt;p&gt;07-Residency-Set: User successfully answered pre ekyc questionnaire (within Jumio SDK)&lt;/p&gt;&lt;p&gt;08-Liveness-completed: User successfully scanned ID document and completed liveness check (within Jumio SDK)&lt;/p&gt;&lt;p&gt;09-Address-doc-comp: User successfully scanned PoA document (within Jumio SDK)&lt;/p&gt;&lt;p&gt;10-Risk-Data-set: Risk Data captured successfully&lt;/p&gt;&lt;p&gt;11-ID-Data-Extracted: ID Data extract and liveness check status received from Jumio&lt;/p&gt;&lt;p&gt;12-Address-data-extracted: PoA extract received from Jumio &lt;/p&gt;</info>
+        <picklistValueName>ID Verification</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PersonEmail</fieldNames>
+        <fieldNames>PersonMobilePhone</fieldNames>
+        <fieldNames>CIF__pc</fieldNames>
+        <info>&lt;p&gt;&lt;img src=&quot;/img/rte_broken_image.png&quot; alt=&quot;This image is not available because: You don’t have the privileges to see it, or it has been removed from the system&quot;&gt;&lt;/img&gt;&lt;/p&gt;&lt;p&gt;01-Email-unverified: Verification email is sent to registered email and account password was set, awaiting user to click verification magic link&lt;/p&gt;&lt;p&gt;02-Email-verified: User verified the email through the magic link&lt;/p&gt;&lt;p&gt;03-Num-unverified: OTP is sent registered mobile and awaiting user input OTP number&lt;/p&gt;&lt;p&gt;04-Num-verified: User verified mobile number by inputting OTP number&lt;/p&gt;&lt;p&gt;05-Pin-Set: User successfully setup quick access app pin &lt;/p&gt;&lt;p&gt;06-Bio-Set: User successfully setup bio-metric access on supported devices &lt;/p&gt;</info>
+        <picklistValueName>Registration</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>FATCA_Documents_uploaded__pc</fieldNames>
+        <fieldNames>Source_of_FundsOLD_DO_NOT_USE__pc</fieldNames>
+        <fieldNames>PersonLastCURequestDate</fieldNames>
+        <fieldNames>Applicable_Residency_Tax__pc</fieldNames>
+        <info>&lt;p&gt;&lt;img src=&quot;/img/rte_broken_image.png&quot; alt=&quot;This image is not available because: You don’t have the privileges to see it, or it has been removed from the system&quot;&gt;&lt;/img&gt;&lt;/p&gt;&lt;p&gt;SCREENING_IN_PROGRESS: Name Screening &amp;amp; Risk Rating sent to Siron no status returned&lt;/p&gt;&lt;p&gt;SCREENING_SUCCESS: Siron check completed with queue status (New, no alert, match, no match)  &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;EXCEPTIONS:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;REFERRED_EDD: User fails risk rating (is classified as EDD) and must go into the branch to proceed&lt;/p&gt;&lt;p&gt;REJECTED_EDD: User is rejected as a result of a risk rating failure (is classified as EDD) and is prohibited from opening an account&lt;/p&gt;</info>
+        <picklistValueName>Siron checks</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Prospect</recordTypeName>
+</PathAssistant>

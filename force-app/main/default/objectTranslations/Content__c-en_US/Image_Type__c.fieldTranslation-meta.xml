@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Attachment Type --></label>
+    <name>Image_Type__c</name>
+    <picklistValues>
+        <masterLabel>Back</masterLabel>
+        <translation><!-- Back --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Face</masterLabel>
+        <translation><!-- Face --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FaceMap</masterLabel>
+        <translation><!-- FaceMap --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Front</masterLabel>
+        <translation><!-- Front --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Selfie</masterLabel>
+        <translation><!-- Selfie --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Selfies</masterLabel>
+        <translation><!-- Selfies --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Video</masterLabel>
+        <translation><!-- Video --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

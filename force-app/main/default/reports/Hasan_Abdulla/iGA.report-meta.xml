@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>Contact.iGA_Nationality__c</field>
+    </columns>
+    <columns>
+        <field>Contact.iGA_Place_of_Birth__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.CIF__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1001568,1143884,1008772,1113332,1132181,1005495,1137156,1004045,1012799,1002131,1002373,1005710,1003776,1014211,1108451,1061213,1003984,1001830,1005219,1003782,1005556,1003457,1158669,5260342,5260668,5260676,5260927,5260899,5260918,5260919,5260991,5261054,5261036,5260915,5260930,5260954,5261252,5261313,5261324,5261302,5261384,5261570,5261573,5261602</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>iGA</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

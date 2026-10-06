@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Type__c</fullName>
+    <label>Sub Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account</fullName>
+                <default>false</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>ATM</fullName>
+                <default>false</default>
+                <label>ATM</label>
+            </value>
+            <value>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+                <label>Cheque</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Credit card - Fee &amp; Charges</fullName>
+                <default>false</default>
+                <label>Credit card - Fee &amp; Charges</label>
+            </value>
+            <value>
+                <fullName>Credit Card - Interest Reversal</fullName>
+                <default>false</default>
+                <label>Credit Card - Interest Reversal</label>
+            </value>
+            <value>
+                <fullName>Debit Card</fullName>
+                <default>false</default>
+                <label>Debit Card</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit</fullName>
+                <default>false</default>
+                <label>Fixed Deposit</label>
+            </value>
+            <value>
+                <fullName>Government Security</fullName>
+                <default>false</default>
+                <label>Government Security</label>
+            </value>
+            <value>
+                <fullName>Loan</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card</fullName>
+                <default>false</default>
+                <label>Prepaid Card</label>
+            </value>
+            <value>
+                <fullName>Transfers</fullName>
+                <default>false</default>
+                <label>Transfers</label>
+            </value>
+            <value>
+                <fullName>Credit card - Special FX rate</fullName>
+                <default>false</default>
+                <label>Credit card - Special FX rate</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>ATM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Cheque</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Credit card - Fee &amp; Charges</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Debit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Fixed Deposit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Government Security</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Loan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Others</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Prepaid Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee &amp; Charges</controllingFieldValue>
+            <valueName>Transfers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interest Reversal</controllingFieldValue>
+            <valueName>Credit Card - Interest Reversal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Special FX rate</controllingFieldValue>
+            <valueName>Credit card - Special FX rate</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

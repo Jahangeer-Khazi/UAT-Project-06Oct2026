@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finance Checker</masterLabel>
+        <translation><!-- Finance Checker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finance Checker Failed</masterLabel>
+        <translation><!-- Finance Checker Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maker Validation Failed</masterLabel>
+        <translation><!-- Maker Validation Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operations Checker</masterLabel>
+        <translation><!-- Operations Checker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operations Checker Failed</masterLabel>
+        <translation><!-- Operations Checker Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Checker Validation</masterLabel>
+        <translation><!-- Pending Checker Validation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Finance Dept Validation</masterLabel>
+        <translation><!-- Pending Finance Dept Validation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Maker Validation</masterLabel>
+        <translation><!-- Pending Maker Validation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Operations Dept Validation</masterLabel>
+        <translation><!-- Pending Operations Dept Validation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Validation</masterLabel>
+        <translation><!-- Pending Validation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Raffle Completed</masterLabel>
+        <translation><!-- Raffle Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready</masterLabel>
+        <translation><!-- Ready --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready for Scattering</masterLabel>
+        <translation><!-- Ready for Scattering --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected</masterLabel>
+        <translation><!-- Rejected --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rework</masterLabel>
+        <translation><!-- Rework --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,107 @@
+<template>
+    <lightning-card>
+        <h1 class="slds-text-heading_medium slds-text-align_center">Create UAR</h1>
+
+        <lightning-spinner if:true={isLoading} alternative-text="Loading"></lightning-spinner>
+
+        <div class="slds-p-around_small">
+            <lightning-record-edit-form 
+                object-api-name="UAR__c" 
+                onsuccess={handleSuccess} 
+                onerror={handleError}>
+                
+                <lightning-messages></lightning-messages>
+                
+                <!-- Required Fields -->
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Case_Model__c" 
+                                         value={caseModel}
+                                         required>
+                    </lightning-input-field>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Subject__c"
+                                         required>
+                    </lightning-input-field>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Description__c" 
+                                         required>
+                    </lightning-input-field>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Type__c"
+                                         required>
+                    </lightning-input-field>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Sub_Type__c" 
+                                         onchange={handleSubTypeChange}
+                                         required>
+                    </lightning-input-field>
+                </div>
+
+                <template if:true={showOtherField}>
+                    <div class="slds-m-bottom_small">
+                        <lightning-input-field field-name="Other__c"></lightning-input-field>
+                    </div>
+                </template>
+
+                <!-- Transactions Section -->
+                <div class="slds-m-bottom_medium">
+                    <div class="slds-text-heading_small slds-m-bottom_small">Transactions</div>
+                    <template for:each={transactions} for:item="transaction" for:index="index">
+                        <div key={transaction.id} class="slds-grid slds-gutters slds-m-bottom_small">
+                            <div class="slds-col">
+                                <lightning-input type="number" label="Amount" 
+                                    value={transaction.amount}
+                                    onchange={handleTransactionChange}
+                                    data-index={index}
+                                    data-field="amount"
+                                    required>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-input type="date" label="Date" 
+                                    value={transaction.date}
+                                    onchange={handleTransactionChange}
+                                    data-index={index}
+                                    data-field="date"
+                                    max={today}
+                                    required>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col slds-align_absolute-center" style="margin-top: 22px;">
+                                <lightning-button-icon 
+                                    icon-name="utility:delete" 
+                                    alternative-text="Delete" 
+                                    title="Delete"
+                                    onclick={handleDeleteTransaction}
+                                    data-index={index}>
+                                </lightning-button-icon>
+                            </div>
+                        </div>
+                    </template>
+                    <div class="slds-m-top_small">
+                        <lightning-button label="Add Transaction" variant="neutral" 
+                            onclick={handleAddTransaction} disabled={isTransactionLimitReached}>
+                        </lightning-button>
+                    </div>
+                </div>
+
+                <div class="slds-card__footer slds-text-align_right">
+                    <lightning-button variant="neutral" label="Cancel" 
+                        onclick={handleCancel}>
+                    </lightning-button> &nbsp;
+                    <lightning-button variant="brand" label="Save" 
+                        onclick={handleSave}>
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

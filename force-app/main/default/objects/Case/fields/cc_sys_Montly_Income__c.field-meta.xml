@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_sys_Montly_Income__c</fullName>
+    <description>this field will capture the Salary range from the Salary Range defined on the &quot;Gross Monthly Income field on Customer profile</description>
+    <label>cc_sys_Montly_Income</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>500</fullName>
+                <default>false</default>
+                <label>Below BD 500</label>
+            </value>
+            <value>
+                <fullName>750</fullName>
+                <default>false</default>
+                <label>BD 500 - BD 999</label>
+            </value>
+            <value>
+                <fullName>1500</fullName>
+                <default>false</default>
+                <label>BD 1,000 - BD 1,999</label>
+            </value>
+            <value>
+                <fullName>2500</fullName>
+                <default>false</default>
+                <label>BD 2,000 – BD 2,999</label>
+            </value>
+            <value>
+                <fullName>4000</fullName>
+                <default>false</default>
+                <label>BD 3,000 – BD 5,000</label>
+            </value>
+            <value>
+                <fullName>5000</fullName>
+                <default>false</default>
+                <label>Above BD 5,000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

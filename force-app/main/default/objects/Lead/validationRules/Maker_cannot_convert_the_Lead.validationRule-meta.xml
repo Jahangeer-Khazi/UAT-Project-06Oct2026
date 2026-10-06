@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maker_cannot_convert_the_Lead</fullName>
+    <active>true</active>
+    <description>Maker of the Lead cannot convert the lead to prospect</description>
+    <errorConditionFormula>Convert_Lead_to_Prospect__c = TRUE &amp;&amp;  Lead_Maker__c = $User.Id</errorConditionFormula>
+    <errorMessage>Maker of the Lead cannot convert the Lead to Prospect.</errorMessage>
+</ValidationRule>

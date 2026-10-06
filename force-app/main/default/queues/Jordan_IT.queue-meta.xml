@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Jordan IT</name>
+    <queueMembers>
+        <users>
+            <user>ashish.pandey@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Jordan_Cases_Routing_config_CC</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

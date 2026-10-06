@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCard_PreScr_Approve</fullName>
+    <active>true</active>
+    <description>Whenever Pre-screener Approves then CPR Number &amp; CPR Expiry are Mandatory fields and it is applicable to Credit Card, Credit Limit Increase ,Cash Collateral Application Limit Increase</description>
+    <errorConditionFormula>AND(
+	TEXT(Region_Flag__c) == &apos;Bahrain&apos;,
+	ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+	ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &quot;Accept&quot;),
+	ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+	($User.LastName &lt;&gt; &quot;Integration&quot;),
+	OR(
+		ISNULL(cc_CPR_Expiry_Date__c),
+		ISBLANK(cc_CPR_Number__c)
+	),
+	OR(
+		AND(
+		ISPICKVAL(Type , &quot;Credit Card Application&quot;),
+		ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+		),
+		ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+                ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;),
+
+		AND(
+			ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;),
+			TEXT(cc_Control_Type__c) != &quot;STP&quot;
+			),
+		ISPICKVAL(Type , &quot;Cash Collateral Credit Limit Increase Application&quot;)
+
+	)
+)</errorConditionFormula>
+    <errorMessage>Please fill in the CPR Number and CPR Expiry Date fields.</errorMessage>
+</ValidationRule>

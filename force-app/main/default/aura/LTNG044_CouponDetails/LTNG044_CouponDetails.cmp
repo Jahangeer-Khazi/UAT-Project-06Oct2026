@@ -1,0 +1,35 @@
+<aura:component controller="BondSukukInfoController" implements= "flexipage:availableForAllPageTypes" access="global">   
+    <aura:attribute name="InstrumentData" type="Object" default="{}"/> 
+    <aura:attribute name="InvestmentData" type="Object" default="{}"/> 
+    <aura:attribute name="viewCouponDetails" type="Boolean" default="false"/>
+     <aura:attribute name="viewNoCouponDetailsMsg" type="Boolean"/>
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="regionName" type="String" />
+    <aura:attribute name="data" type="Object[]"  default="[]"/>
+        <aura:attribute name="columns" type="List" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    <aura:handler name="change" value="{!v.InvestmentData}" action="{!c.load}"/>
+	  <div style="padding-top: 2rem;">
+            <lightning:card title="Coupon Details">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="View Coupon Details" onclick="{!c.onLoadCouponDetails}" />         
+                </div>
+                <div id="histTable" style="padding-top: 1rem;">
+                    <aura:If isTrue="{!v.viewNoCouponDetailsMsg}">
+                        <ui:message severity="warning" closable="true">
+							No Coupon Payments Found
+						</ui:message>
+                    </aura:If>
+                    <aura:If isTrue="{!v.viewCouponDetails}">
+                         <lightning:datatable
+                                 aura:id="CoupounListTable"
+                                 data="{!v.data}"
+                                 columns="{!v.columns}"
+                                 keyField="id"
+                                 hideCheckboxColumn="true"/>
+                    </aura:If>
+                </div>
+            </lightning:card>
+        </div>
+     <c:apexService aura:id="apexService"/>
+</aura:component>

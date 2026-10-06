@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRM_Queue__c</fullName>
+    <label>CRM Queue</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Team Leaders FAQ</fullName>
+                <default>false</default>
+                <label>Team Leaders FAQ</label>
+            </value>
+            <value>
+                <fullName>Head Of Contact Center FAQ</fullName>
+                <default>false</default>
+                <label>Head Of Contact Center FAQ</label>
+            </value>
+            <value>
+                <fullName>Product Managers FAQ</fullName>
+                <default>false</default>
+                <label>Product Managers FAQ</label>
+            </value>
+            <value>
+                <fullName>Head of Propositions FAQ</fullName>
+                <default>false</default>
+                <label>Head of Propositions FAQ</label>
+            </value>
+            <value>
+                <fullName>Head of Business FAQ</fullName>
+                <default>false</default>
+                <label>Head of Business FAQ</label>
+            </value>
+            <value>
+                <fullName>CEO FAQ</fullName>
+                <default>false</default>
+                <label>CEO FAQ</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

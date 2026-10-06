@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Draw System Action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Draw System Actions</value>
+    </caseValues>
+    <layouts>
+        <layout>Bonds_Sukuk System Logs</layout>
+        <sections>
+            <label><!-- CRM Log --></label>
+            <section>CRM Log</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Log --></label>
+            <section>Integration Log</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Draw System Action Layout</layout>
+        <sections>
+            <label><!-- CRM Log --></label>
+            <section>CRM Log</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Log --></label>
+            <section>Integration Log</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Bonds_Sukuk --></label>
+        <name>Bonds_Sukuk</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

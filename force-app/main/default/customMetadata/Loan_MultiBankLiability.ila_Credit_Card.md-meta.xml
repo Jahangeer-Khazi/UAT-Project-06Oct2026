@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ila Credit Card</label>
+    <protected>false</protected>
+    <values>
+        <field>BeneficiaryAddress__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>BeneficiaryBankIBAN__c</field>
+        <value xsi:type="xsd:string">BHD1403800010091</value>
+    </values>
+    <values>
+        <field>EntityBankName__c</field>
+        <value xsi:type="xsd:string">ila Credit Card</value>
+    </values>
+    <values>
+        <field>IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>PaymentType__c</field>
+        <value xsi:type="xsd:string">Internal</value>
+    </values>
+    <values>
+        <field>SwiftCode__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

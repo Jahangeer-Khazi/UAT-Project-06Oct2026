@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirm_Customer_Authorised__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To confirm a customer has authorised a service request before it can be fulfilled.</description>
+    <inlineHelpText>To confirm a customer has authorised a service request before it can be fulfilled.</inlineHelpText>
+    <label>Confirm Customer Authorised</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

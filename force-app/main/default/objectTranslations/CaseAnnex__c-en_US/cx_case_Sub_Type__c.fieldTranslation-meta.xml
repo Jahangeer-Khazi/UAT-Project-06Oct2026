@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Case Sub Type --></label>
+    <name>cx_case_Sub_Type__c</name>
+    <picklistValues>
+        <masterLabel>AFAQ</masterLabel>
+        <translation><!-- AFAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AML</masterLabel>
+        <translation><!-- AML --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>APP</masterLabel>
+        <translation><!-- APP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>APP Support</masterLabel>
+        <translation><!-- APP Support --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM</masterLabel>
+        <translation><!-- ATM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Block</masterLabel>
+        <translation><!-- Account Block --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Block/Unblock</masterLabel>
+        <translation><!-- Account Block/Unblock --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Closure</masterLabel>
+        <translation><!-- Account Closure --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Closure - API</masterLabel>
+        <translation><!-- Account Closure - API --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Control - Account</masterLabel>
+        <translation><!-- Account Control - Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Control - Transfers/Payment</masterLabel>
+        <translation><!-- Account Control - Transfers/Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Funding</masterLabel>
+        <translation><!-- Account Funding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Interest Rate Re-instate</masterLabel>
+        <translation><!-- Account Interest Rate Re-instate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Interest Rate Update</masterLabel>
+        <translation><!-- Account Interest Rate Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Opening</masterLabel>
+        <translation><!-- Account Opening --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Statements</masterLabel>
+        <translation><!-- Account Statements --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Status</masterLabel>
+        <translation><!-- Account Status --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Unblock</masterLabel>
+        <translation><!-- Account Unblock --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add to DND List</masterLabel>
+        <translation><!-- Add to DND List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Adding Funds</masterLabel>
+        <translation><!-- Adding Funds --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Additional Information</masterLabel>
+        <translation><!-- Additional Information --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Address update</masterLabel>
+        <translation><!-- Address update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Adhoc Accounting Entries</masterLabel>
+        <translation><!-- Adhoc Accounting Entries --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Adhoc Accounting Entries/BUSINESS</masterLabel>
+        <translation><!-- Adhoc Accounting Entries/BUSINESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Adhoc Accounting Entries/CC</masterLabel>
+        <translation><!-- Adhoc Accounting Entries/CC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Advance Payment</masterLabel>
+        <translation><!-- Advance Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Al Burraq (Islamic)</masterLabel>
+        <translation><!-- Al Burraq (Islamic) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AlKanz</masterLabel>
+        <translation><!-- AlKanz --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AlKanz Gift Card</masterLabel>
+        <translation><!-- AlKanz Gift Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Alburaq Segment Change</masterLabel>
+        <translation><!-- Alburaq Segment Change --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Android</masterLabel>
+        <translation><!-- Android --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>App Failure</masterLabel>
+        <translation><!-- App Failure --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>App issue</masterLabel>
+        <translation><!-- App issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Apple Pay / Samsung Pay</masterLabel>
+        <translation><!-- Apple Pay / Samsung Pay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ApplePay</masterLabel>
+        <translation><!-- ApplePay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Application Reset</masterLabel>
+        <translation><!-- Application Reset --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Application not working</masterLabel>
+        <translation><!-- Application not working --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Apply Flag</masterLabel>
+        <translation><!-- Apply Flag --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Apply Restriction</masterLabel>
+        <translation><!-- Apply Restriction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Archival</masterLabel>
+        <translation><!-- Archival --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Balance Transfer</masterLabel>
+        <translation><!-- Balance Transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Balance requires investigation</masterLabel>
+        <translation><!-- Balance requires investigation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Compliance</masterLabel>
+        <translation><!-- Bank Request - Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Credit Card Collection</masterLabel>
+        <translation><!-- Bank Request - Credit Card Collection --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Fraud</masterLabel>
+        <translation><!-- Bank Request - Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Other</masterLabel>
+        <translation><!-- Bank Request - Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank statement</masterLabel>
+        <translation><!-- Bank statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Benefit</masterLabel>
+        <translation><!-- Benefit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bill Payments</masterLabel>
+        <translation><!-- Bill Payments --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block amount</masterLabel>
+        <translation><!-- Block amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block for both</masterLabel>
+        <translation><!-- Block for both --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block for credit</masterLabel>
+        <translation><!-- Block for credit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block for debit</masterLabel>
+        <translation><!-- Block for debit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block/ Unblock Card</masterLabel>
+        <translation><!-- Block/ Unblock Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bonds/Sukuk</masterLabel>
+        <translation><!-- Bonds/Sukuk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Buna (MENA)</masterLabel>
+        <translation><!-- Buna (MENA) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CBB Amount block</masterLabel>
+        <translation><!-- CBB Amount block --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CBB Amount unblock</masterLabel>
+        <translation><!-- CBB Amount unblock --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CC type</masterLabel>
+        <translation><!-- CC type --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Call From Unregistered Number</masterLabel>
+        <translation><!-- Call From Unregistered Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Callback Request</masterLabel>
+        <translation><!-- Callback Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancel EPP Plan</masterLabel>
+        <translation><!-- Cancel EPP Plan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancellation</masterLabel>
+        <translation><!-- Cancellation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancelled</masterLabel>
+        <translation><!-- Cancelled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Control - ApplePay/SamsungPay</masterLabel>
+        <translation><!-- Card Control - ApplePay/SamsungPay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Control - CC</masterLabel>
+        <translation><!-- Card Control - CC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Control - DC</masterLabel>
+        <translation><!-- Card Control - DC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Control Settings</masterLabel>
+        <translation><!-- Card Control Settings --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Issue</masterLabel>
+        <translation><!-- Card Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Lien</masterLabel>
+        <translation><!-- Card Lien --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Limits Control</masterLabel>
+        <translation><!-- Card Limits Control --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Replacement fees</masterLabel>
+        <translation><!-- Card Replacement fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Request</masterLabel>
+        <translation><!-- Card Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Service</masterLabel>
+        <translation><!-- Card Service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Type</masterLabel>
+        <translation><!-- Card Type --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Upgrade/Downgrade</masterLabel>
+        <translation><!-- Card Upgrade/Downgrade --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cards</masterLabel>
+        <translation><!-- Cards --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cash Collateral Credit Limit Increase</masterLabel>
+        <translation><!-- Cash Collateral Credit Limit Increase --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change Credit Limit</masterLabel>
+        <translation><!-- Change Credit Limit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change Interest Rate</masterLabel>
+        <translation><!-- Change Interest Rate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change Mobile Number</masterLabel>
+        <translation><!-- Change Mobile Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change Per Day Trans Limit</masterLabel>
+        <translation><!-- Change Per Day Trans Limit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change email/ Mobile number</masterLabel>
+        <translation><!-- Change email/ Mobile number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Charges Error</masterLabel>
+        <translation><!-- Charges Error --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cheque issuance</masterLabel>
+        <translation><!-- Cheque issuance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Classic Fees</masterLabel>
+        <translation><!-- Classic Fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Close Credit Card</masterLabel>
+        <translation><!-- Close Credit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closing account</masterLabel>
+        <translation><!-- Closing account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Compliance Query</masterLabel>
+        <translation><!-- Compliance Query --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Create Account</masterLabel>
+        <translation><!-- Create Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Account Closing</masterLabel>
+        <translation><!-- Credit Card Account Closing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Activation</masterLabel>
+        <translation><!-- Credit Card Activation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Section</masterLabel>
+        <translation><!-- Credit Card Section --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Upgrade - No Limit Increase</masterLabel>
+        <translation><!-- Credit Card Upgrade - No Limit Increase --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Limit Decrease</masterLabel>
+        <translation><!-- Credit Limit Decrease --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Limit Increase</masterLabel>
+        <translation><!-- Credit Limit Increase --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit card</masterLabel>
+        <translation><!-- Credit card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Currency account creation</masterLabel>
+        <translation><!-- Currency account creation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Cheque Status Queries</masterLabel>
+        <translation><!-- Customer Cheque Status Queries --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Request</masterLabel>
+        <translation><!-- Customer Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Trans &amp; Pmt Disputes</masterLabel>
+        <translation><!-- Customer Trans &amp; Pmt Disputes --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Transaction &amp; Payment Disputes- Benefit</masterLabel>
+        <translation><!-- Customer Transaction &amp; Payment Disputes- Benefit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Transaction &amp; Payment Disputes- Credit Card</masterLabel>
+        <translation><!-- Customer Transaction &amp; Payment Disputes- Credit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Transaction and Payment Disputes- Mastercard</masterLabel>
+        <translation><!-- Customer Transaction and Payment Disputes- Mastercard --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cyber Security Threat</masterLabel>
+        <translation><!-- Cyber Security Threat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DB Archiving</masterLabel>
+        <translation><!-- DB Archiving --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Damaged Card</masterLabel>
+        <translation><!-- Damaged Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Authority letter</masterLabel>
+        <translation><!-- Debit Authority letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Card Activation</masterLabel>
+        <translation><!-- Debit Card Activation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Card Section</masterLabel>
+        <translation><!-- Debit Card Section --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit card</masterLabel>
+        <translation><!-- Debit card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Declined by Customer</masterLabel>
+        <translation><!-- Declined by Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Delivery</masterLabel>
+        <translation><!-- Delivery --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Delivery Follow up</masterLabel>
+        <translation><!-- Delivery Follow up --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct Debit Settings</masterLabel>
+        <translation><!-- Direct Debit Settings --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dispute</masterLabel>
+        <translation><!-- Dispute --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents completion</masterLabel>
+        <translation><!-- Documents completion --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Domestic</masterLabel>
+        <translation><!-- Domestic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Domestic - PSP</masterLabel>
+        <translation><!-- Domestic - PSP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dormant</masterLabel>
+        <translation><!-- Dormant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dormant Account Reactivation</masterLabel>
+        <translation><!-- Dormant Account Reactivation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Downgraded</masterLabel>
+        <translation><!-- Downgraded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Downtime</masterLabel>
+        <translation><!-- Downtime --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Downtime/Outage</masterLabel>
+        <translation><!-- Downtime/Outage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EFTS</masterLabel>
+        <translation><!-- EFTS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EFTS &amp; Cards</masterLabel>
+        <translation><!-- EFTS &amp; Cards --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EPP Early Closure</masterLabel>
+        <translation><!-- EPP Early Closure --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EPP Technical Error</masterLabel>
+        <translation><!-- EPP Technical Error --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EPP activation fees</masterLabel>
+        <translation><!-- EPP activation fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EPP ealry withdrawal</masterLabel>
+        <translation><!-- EPP ealry withdrawal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Early Clousure</masterLabel>
+        <translation><!-- Early Clousure --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Early Settlement</masterLabel>
+        <translation><!-- Early Settlement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eligibility/Fees - FD</masterLabel>
+        <translation><!-- Eligibility/Fees - FD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eligibility/Fees - Wakala</masterLabel>
+        <translation><!-- Eligibility/Fees - Wakala --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Email update</masterLabel>
+        <translation><!-- Email update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Embassy referance letter</masterLabel>
+        <translation><!-- Embassy referance letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Enrollment</masterLabel>
+        <translation><!-- Enrollment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Expired</masterLabel>
+        <translation><!-- Expired --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Expired ID Update</masterLabel>
+        <translation><!-- Expired ID Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FT Status - PSP</masterLabel>
+        <translation><!-- FT Status - PSP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FT status</masterLabel>
+        <translation><!-- FT status --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FX accounts</masterLabel>
+        <translation><!-- FX accounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Failed Auto Renewal</masterLabel>
+        <translation><!-- Failed Auto Renewal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Failed CRB Check</masterLabel>
+        <translation><!-- Failed CRB Check --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawateer</masterLabel>
+        <translation><!-- Fawateer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawri</masterLabel>
+        <translation><!-- Fawri --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawri+</masterLabel>
+        <translation><!-- Fawri+ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fees Reversal / Waivers</masterLabel>
+        <translation><!-- Fees Reversal / Waivers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fees Reversal Request</masterLabel>
+        <translation><!-- Fees Reversal Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposit</masterLabel>
+        <translation><!-- Fixed Deposit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposit /Wakala</masterLabel>
+        <translation><!-- Fixed Deposit /Wakala --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposit early withdrawal</masterLabel>
+        <translation><!-- Fixed Deposit early withdrawal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraudulent/Unauthorized</masterLabel>
+        <translation><!-- Fraudulent/Unauthorized --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Freeze / Unfreeze Card</masterLabel>
+        <translation><!-- Freeze / Unfreeze Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Freeze/Unfreeze Card</masterLabel>
+        <translation><!-- Freeze/Unfreeze Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gaurdianship form</masterLabel>
+        <translation><!-- Gaurdianship form --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General</masterLabel>
+        <translation><!-- General --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - FD</masterLabel>
+        <translation><!-- General FAQ - FD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Hassala</masterLabel>
+        <translation><!-- General FAQ - Hassala --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Jamiyah</masterLabel>
+        <translation><!-- General FAQ - Jamiyah --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Kanz</masterLabel>
+        <translation><!-- General FAQ - Kanz --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Loans</masterLabel>
+        <translation><!-- General FAQ - Loans --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Premium</masterLabel>
+        <translation><!-- General FAQ - Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Sukuk/Bonds/Gov security</masterLabel>
+        <translation><!-- General FAQ - Sukuk/Bonds/Gov security --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General FAQ - Wakala</masterLabel>
+        <translation><!-- General FAQ - Wakala --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Generate Cash Collateral Letter</masterLabel>
+        <translation><!-- Generate Cash Collateral Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Guardian Info</masterLabel>
+        <translation><!-- Guardian Info --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hassala</masterLabel>
+        <translation><!-- Hassala --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hold Release</masterLabel>
+        <translation><!-- Hold Release --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IBAN Certificate</masterLabel>
+        <translation><!-- IBAN Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IBAN Copy</masterLabel>
+        <translation><!-- IBAN Copy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IBAN Error</masterLabel>
+        <translation><!-- IBAN Error --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IBAN letter</masterLabel>
+        <translation><!-- IBAN letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IOS</masterLabel>
+        <translation><!-- IOS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ila (conventional)</masterLabel>
+        <translation><!-- Ila (conventional) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incident Management</masterLabel>
+        <translation><!-- Incident Management --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incorrect Account Balance</masterLabel>
+        <translation><!-- Incorrect Account Balance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Instalment Deferment</masterLabel>
+        <translation><!-- Instalment Deferment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Instalment Deferment / Postponement</masterLabel>
+        <translation><!-- Instalment Deferment / Postponement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Insufficient DBR Score</masterLabel>
+        <translation><!-- Insufficient DBR Score --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interest  fees</masterLabel>
+        <translation><!-- Interest  fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interest - FD</masterLabel>
+        <translation><!-- Interest - FD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interest - Transfers/Payment</masterLabel>
+        <translation><!-- Interest - Transfers/Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Internal</masterLabel>
+        <translation><!-- Internal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Internal Transfer</masterLabel>
+        <translation><!-- Internal Transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>International</masterLabel>
+        <translation><!-- International --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invitation</masterLabel>
+        <translation><!-- Invitation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Issue certifcate (term deposit)</masterLabel>
+        <translation><!-- Issue certifcate (term deposit) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jamiya</masterLabel>
+        <translation><!-- Jamiya --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jamiyah</masterLabel>
+        <translation><!-- Jamiyah --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KYC</masterLabel>
+        <translation><!-- KYC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Late Payment Fees</masterLabel>
+        <translation><!-- Late Payment Fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Link/ Delink Card</masterLabel>
+        <translation><!-- Link/ Delink Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Outstanding Balance Certifcate</masterLabel>
+        <translation><!-- Loan Outstanding Balance Certifcate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loans</masterLabel>
+        <translation><!-- Loans --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Login Error</masterLabel>
+        <translation><!-- Login Error --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Login from Unbound Device</masterLabel>
+        <translation><!-- Login from Unbound Device --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lost/Stolen Card</masterLabel>
+        <translation><!-- Lost/Stolen Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Magic link</masterLabel>
+        <translation><!-- Magic link --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual</masterLabel>
+        <translation><!-- Manual --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual Credit Limit Decrease</masterLabel>
+        <translation><!-- Manual Credit Limit Decrease --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual Credit Limit Increase</masterLabel>
+        <translation><!-- Manual Credit Limit Increase --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual EPP</masterLabel>
+        <translation><!-- Manual EPP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual ID case</masterLabel>
+        <translation><!-- Manual ID case --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual Onboarding</masterLabel>
+        <translation><!-- Manual Onboarding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual Review</masterLabel>
+        <translation><!-- Manual Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual transfer</masterLabel>
+        <translation><!-- Manual transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Marketing Offers</masterLabel>
+        <translation><!-- Marketing Offers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mobile update</masterLabel>
+        <translation><!-- Mobile update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Monitering account</masterLabel>
+        <translation><!-- Monitering account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Name Fix / Update</masterLabel>
+        <translation><!-- Name Fix / Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Navigation</masterLabel>
+        <translation><!-- Navigation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Bond/Sukuk Buy Request</masterLabel>
+        <translation><!-- New Bond/Sukuk Buy Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Bond/Sukuk Sell Request</masterLabel>
+        <translation><!-- New Bond/Sukuk Sell Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Cash Collateral</masterLabel>
+        <translation><!-- New Cash Collateral --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Credit Card</masterLabel>
+        <translation><!-- New Credit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Credit Card - Cross Selling</masterLabel>
+        <translation><!-- New Credit Card - Cross Selling --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Investment Questionnaire</masterLabel>
+        <translation><!-- New Investment Questionnaire --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Loan / Finance Application Request</masterLabel>
+        <translation><!-- New Loan / Finance Application Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Prepaid Application</masterLabel>
+        <translation><!-- New Prepaid Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Supplementary Card</masterLabel>
+        <translation><!-- New Supplementary Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No Liability Letter</masterLabel>
+        <translation><!-- No Liability Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No due certificate</masterLabel>
+        <translation><!-- No due certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No objection letter</masterLabel>
+        <translation><!-- No objection letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No-due Certificate</masterLabel>
+        <translation><!-- No-due Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Onboarding</masterLabel>
+        <translation><!-- Onboarding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Onboarding related</masterLabel>
+        <translation><!-- Onboarding related --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Opening/Closing Issue</masterLabel>
+        <translation><!-- Opening/Closing Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other Support</masterLabel>
+        <translation><!-- Other Support --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outage</masterLabel>
+        <translation><!-- Outage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outstanding balance Letter</masterLabel>
+        <translation><!-- Outstanding balance Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outstanding letter</masterLabel>
+        <translation><!-- Outstanding letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Overdraft</masterLabel>
+        <translation><!-- Overdraft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Overdrawn</masterLabel>
+        <translation><!-- Overdrawn --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Overlimit fees</masterLabel>
+        <translation><!-- Overlimit fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PLA Staff’s relatives eligibility</masterLabel>
+        <translation><!-- PLA Staff’s relatives eligibility --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>POS / E-Commerce</masterLabel>
+        <translation><!-- POS / E-Commerce --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partial Early Settlement</masterLabel>
+        <translation><!-- Partial Early Settlement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partial Settlement</masterLabel>
+        <translation><!-- Partial Settlement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pay Card Bill</masterLabel>
+        <translation><!-- Pay Card Bill --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Customer</masterLabel>
+        <translation><!-- Pending Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Exit Interview</masterLabel>
+        <translation><!-- Pending Exit Interview --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Periodic Review - By Bank</masterLabel>
+        <translation><!-- Periodic Review - By Bank --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Periodic Review - Scheduled Review Date</masterLabel>
+        <translation><!-- Periodic Review - Scheduled Review Date --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Permenant Debit card limit</masterLabel>
+        <translation><!-- Permenant Debit card limit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Post Transaction on Dormant Account</masterLabel>
+        <translation><!-- Post Transaction on Dormant Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium</masterLabel>
+        <translation><!-- Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium Fees</masterLabel>
+        <translation><!-- Premium Fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid CC</masterLabel>
+        <translation><!-- Prepaid CC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid Card</masterLabel>
+        <translation><!-- Prepaid Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid Card Activation</masterLabel>
+        <translation><!-- Prepaid Card Activation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Process</masterLabel>
+        <translation><!-- Process --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Product</masterLabel>
+        <translation><!-- Product --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Profile Update</masterLabel>
+        <translation><!-- Profile Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Profit</masterLabel>
+        <translation><!-- Profit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prospect Archive - Automatically</masterLabel>
+        <translation><!-- Prospect Archive - Automatically --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prospect Archive - Manually</masterLabel>
+        <translation><!-- Prospect Archive - Manually --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Provisioning</masterLabel>
+        <translation><!-- Provisioning --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reactivate Dormant Relationship</masterLabel>
+        <translation><!-- Reactivate Dormant Relationship --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Receive Card or Cheque</masterLabel>
+        <translation><!-- Receive Card or Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recovery Code</masterLabel>
+        <translation><!-- Recovery Code --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recovery code reset</masterLabel>
+        <translation><!-- Recovery code reset --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Referance Letter</masterLabel>
+        <translation><!-- Referance Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Register Interest in ila GulfAir Card</masterLabel>
+        <translation><!-- Register Interest in ila GulfAir Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Relationship Termination - By Bank</masterLabel>
+        <translation><!-- Relationship Termination - By Bank --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Relationship Termination - By Customer</masterLabel>
+        <translation><!-- Relationship Termination - By Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release Debit Card Transaction</masterLabel>
+        <translation><!-- Release Debit Card Transaction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release Fawri Transfer</masterLabel>
+        <translation><!-- Release Fawri Transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release International Transfer</masterLabel>
+        <translation><!-- Release International Transfer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Remove Flag</masterLabel>
+        <translation><!-- Remove Flag --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Remove Restriction</masterLabel>
+        <translation><!-- Remove Restriction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Remove from DND List</masterLabel>
+        <translation><!-- Remove from DND List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Replace Card</masterLabel>
+        <translation><!-- Replace Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Report Fraudulent Transactions</masterLabel>
+        <translation><!-- Report Fraudulent Transactions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request</masterLabel>
+        <translation><!-- Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request Account Bank Statement</masterLabel>
+        <translation><!-- Request Account Bank Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request Adhoc Statement/Letter</masterLabel>
+        <translation><!-- Request Adhoc Statement/Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request Credit Card Bank Statement</masterLabel>
+        <translation><!-- Request Credit Card Bank Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request Prepaid Card Bank Statement</masterLabel>
+        <translation><!-- Request Prepaid Card Bank Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request to sell</masterLabel>
+        <translation><!-- Request to sell --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Requested By Bank</masterLabel>
+        <translation><!-- Requested By Bank --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Requested By Customer</masterLabel>
+        <translation><!-- Requested By Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Requirements</masterLabel>
+        <translation><!-- Requirements --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reschedule / Deferment</masterLabel>
+        <translation><!-- Reschedule / Deferment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Restructuring</masterLabel>
+        <translation><!-- Restructuring --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retained With Discount</masterLabel>
+        <translation><!-- Retained With Discount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retained Without Discount</masterLabel>
+        <translation><!-- Retained Without Discount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retention</masterLabel>
+        <translation><!-- Retention --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return Cheque</masterLabel>
+        <translation><!-- Return Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reversal/Waiver of Fees and Charges</masterLabel>
+        <translation><!-- Reversal/Waiver of Fees and Charges --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Revoke Consent</masterLabel>
+        <translation><!-- Revoke Consent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rewards program</masterLabel>
+        <translation><!-- Rewards program --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rewards type change</masterLabel>
+        <translation><!-- Rewards type change --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Roadshow</masterLabel>
+        <translation><!-- Roadshow --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rude Behaviour</masterLabel>
+        <translation><!-- Rude Behaviour --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rude Behaviour Contact Centre</masterLabel>
+        <translation><!-- Rude Behaviour Contact Centre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rude Behaviour Service Centre</masterLabel>
+        <translation><!-- Rude Behaviour Service Centre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SAFEWATCH</masterLabel>
+        <translation><!-- SAFEWATCH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SMS</masterLabel>
+        <translation><!-- SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SMS Issue</masterLabel>
+        <translation><!-- SMS Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SWIFT (World Wide)</masterLabel>
+        <translation><!-- SWIFT (World Wide) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SamsungPay</masterLabel>
+        <translation><!-- SamsungPay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Segment</masterLabel>
+        <translation><!-- Segment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Setup Payment Options</masterLabel>
+        <translation><!-- Setup Payment Options --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Siron KYC</masterLabel>
+        <translation><!-- Siron KYC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Spending Limit Settings</masterLabel>
+        <translation><!-- Spending Limit Settings --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Staff Behaviour</masterLabel>
+        <translation><!-- Staff Behaviour --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Staff one time referral codes</masterLabel>
+        <translation><!-- Staff one time referral codes --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Statement</masterLabel>
+        <translation><!-- Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Statement Request</masterLabel>
+        <translation><!-- Statement Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Status</masterLabel>
+        <translation><!-- Status --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Status of Debit Card Delivery</masterLabel>
+        <translation><!-- Status of Debit Card Delivery --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stolen/Sold Device</masterLabel>
+        <translation><!-- Stolen/Sold Device --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stop Cheque</masterLabel>
+        <translation><!-- Stop Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stop Cheque Payment</masterLabel>
+        <translation><!-- Stop Cheque Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stop Managerial Cheque</masterLabel>
+        <translation><!-- Stop Managerial Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Submit Dispute</masterLabel>
+        <translation><!-- Submit Dispute --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Suggested Closing Reasons</masterLabel>
+        <translation><!-- Suggested Closing Reasons --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sukuk/Bonds</masterLabel>
+        <translation><!-- Sukuk/Bonds --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support Failed Payment Queries</masterLabel>
+        <translation><!-- Support Failed Payment Queries --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Swift Fees</masterLabel>
+        <translation><!-- Swift Fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Switching between programs</masterLabel>
+        <translation><!-- Switching between programs --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>System Outage</masterLabel>
+        <translation><!-- System Outage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TD Deposit Certificate</masterLabel>
+        <translation><!-- TD Deposit Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Technical Issue</masterLabel>
+        <translation><!-- Technical Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Technical Resolution</masterLabel>
+        <translation><!-- Technical Resolution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telex transfer copy</masterLabel>
+        <translation><!-- Telex transfer copy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temp. Credit</masterLabel>
+        <translation><!-- Temp. Credit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary card limit increase</masterLabel>
+        <translation><!-- Temporary card limit increase --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary credit declaration</masterLabel>
+        <translation><!-- Temporary credit declaration --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Terminate alburaq model</masterLabel>
+        <translation><!-- Terminate alburaq model --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Terminate ila model</masterLabel>
+        <translation><!-- Terminate ila model --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Top up request</masterLabel>
+        <translation><!-- Top up request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Top-up</masterLabel>
+        <translation><!-- Top-up --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tranacation amount</masterLabel>
+        <translation><!-- Tranacation amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transacation amount</masterLabel>
+        <translation><!-- Transacation amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfer between accounts</masterLabel>
+        <translation><!-- Transfer between accounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfers/Payment</masterLabel>
+        <translation><!-- Transfers/Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Type 1</masterLabel>
+        <translation><!-- Type 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Type 2</masterLabel>
+        <translation><!-- Type 2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Type 3</masterLabel>
+        <translation><!-- Type 3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Type 4</masterLabel>
+        <translation><!-- Type 4 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Type 5</masterLabel>
+        <translation><!-- Type 5 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unable to update Mobile</masterLabel>
+        <translation><!-- Unable to update Mobile --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unauthorized Transaction</masterLabel>
+        <translation><!-- Unauthorized Transaction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock amount</masterLabel>
+        <translation><!-- Unblock amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock for both</masterLabel>
+        <translation><!-- Unblock for both --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock for credit</masterLabel>
+        <translation><!-- Unblock for credit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unblock for debit</masterLabel>
+        <translation><!-- Unblock for debit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>University letter</masterLabel>
+        <translation><!-- University letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update PLA Eligibility Status</masterLabel>
+        <translation><!-- Update PLA Eligibility Status --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Upgrade/Downgrade Card</masterLabel>
+        <translation><!-- Upgrade/Downgrade Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Uploading Document</masterLabel>
+        <translation><!-- Uploading Document --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Virtual Fees</masterLabel>
+        <translation><!-- Virtual Fees --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Whitelisting</masterLabel>
+        <translation><!-- Whitelisting --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Withdraw to BHD</masterLabel>
+        <translation><!-- Withdraw to BHD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>World Elite Invitation</masterLabel>
+        <translation><!-- World Elite Invitation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>World Invitation</masterLabel>
+        <translation><!-- World Invitation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Blue</masterLabel>
+        <translation><!-- ila Blue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Switch</masterLabel>
+        <translation><!-- ila Switch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila prepaid</masterLabel>
+        <translation><!-- ila prepaid --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

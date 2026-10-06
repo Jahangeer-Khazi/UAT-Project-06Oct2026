@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Jordanian Resident HTML (High Risk Industries)</name>
+    <style>none</style>
+    <subject>Jordan Resident Request Documents</subject>
+    <textOnly>You’re almost there! Dear{!Case.Contact_First_Name__c}
+
+Thank you for your interest in opening an account with ila.
+
+If you have mentioned yourself as self-employed OR business owner and in order for us to complete your on boarding process and open your account, we require you to please submit the following additional documents by replying to this email.
+
+• A copy of valid commercial registration certificate
+
+• A copy of latest 3 months personal bank statements
+
+
+In some cases, you may be required to participate in a video call or we may request you to visit our service center  Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan to complete the onboarding process.
+
+Should you require any additional information please call us at +96265100001
+
+We are available 24/7
+
+We eagerly await to welcome you to the ila family!
+
+{! Receiving_User.Name}، ة/السيد
+
+.&quot;إلى&quot; معحساببفتحاهتمامكعلىلكشكرًا
+
+لكي نتمكّن من إستكمال فتح حسابك، نطلب منك إرسال المستندات التالية من خلال الرد على هذا البريد الإلكتروني.
+
+• نسخة من شهادة السجل التجاري سارية المفعول
+
+• . نسخة من آخر كشف حساب بنكي لمدة 3 أشهر
+
+
+قد نطلب منك زيارة مركز الخدمة (يتم تحديده لاحقًا)
+
+إذا احتجت إلى أي معلومات إضافية، يرجى الاتصال بنا على (سيتم تحديده لاحقًا) +96265100001
+
+حن متواجدون 24/7
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+العبدلي مول، شارع الاسواق 8، العبدلي،عمان، الأردن
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan - Arab Banking Corporation- Jordan
+
+تابع لبنك ABC في الأردن (بنك المؤسسة العربية المصرفية- الأردن)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

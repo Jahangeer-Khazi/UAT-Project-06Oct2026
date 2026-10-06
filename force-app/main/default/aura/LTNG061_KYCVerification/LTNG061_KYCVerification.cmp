@@ -1,0 +1,149 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="LTNG061_KYCVerificationRequest">
+    <aura:attribute name="recordTypeId" type="String" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="isPeriodic" type="Boolean" default="false"  />
+    <aura:attribute name="isDocumentReq" type="Boolean" default="false"  />
+    <aura:attribute name="isRestriction" type="Boolean" default="false"  />
+    <aura:attribute name="isRPReq" type="Boolean" default="false"  />
+    <aura:attribute name="isFraud" type="Boolean" default="false"  />
+    <aura:attribute name="isCustom" type="Boolean" default="false"  />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="caseNature" type="String" /> <!--CH02-->
+    <aura:attribute name="regionFlag" type="String" />
+    <aura:attribute name="isvalidPeriodic" type="Boolean" default="false" />
+    <aura:attribute name="isallowed" type="Boolean" default="true" />
+    <aura:attribute name="isallowedRP" type="Boolean" default="true" />
+     <aura:attribute name="isallowedEkey" type="Boolean" default="true" />
+    <aura:attribute name="isallowedIDV" type="Boolean" default="true" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:notificationsLibrary aura:id="notifLibrary"/>
+    
+    <!-- <aura:html tag="style">
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        }     
+    </aura:html>-->
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">KYC Verification</h4>
+            </span>
+        </h2>
+    </header>
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <lightning:inputField aura:id="segment" fieldName="Segment__pc" />
+            <lightning:inputField aura:id="nationality" fieldName="Nationality__pc" />
+            <lightning:inputField aura:id="regionFlag" fieldName="Region_Flag__pc" />
+            <lightning:inputField aura:id="DocumentStatus" fieldName="Documents_Status__pc" />            
+        </lightning:recordEditForm>
+    </div>
+     
+    <lightning:card>
+        <lightning:recordEditForm aura:id="form"
+                                  recordTypeId="{!v.recordTypeId}"
+                                  objectApiName="KYC_Verification__c"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+            <!--on load handle name on Card, handle Submit -->
+            <lightning:inputField fieldName="Subject__c" aura:id="subject" value="KYC Verification" />
+            <lightning:inputField fieldName="Description__c" aura:id="description" value="KYC Verification" />
+            <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value="{!v.caseModel}"/>
+            <lightning:inputField fieldName="Type__c" aura:id="type" required="true" onchange="{!c.loadSubType}"/>
+            <aura:if isTrue="{!v.isvalidPeriodic}">
+            <aura:if isTrue="{!v.isPeriodic}">
+                <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" required="true" onchange="{!c.loadConfiguration}"/>
+            </aura:if>
+            <lightning:inputField fieldName="Trigger_Type__c" aura:id="TriggerType" required="true" disabled="true" value="Manually"/>
+            <lightning:inputField fieldName="Case_Origin__c" aura:id="origin" required="true" disabled="true" value="CRM"/>
+            <lightning:inputField fieldName="Case_Nature__c" aura:id="CaseNature" required="true" />
+
+                <lightning:accordion aura:id="accordion" activeSectionName="Custom Configuration" allowMultipleSectionsOpen="true">
+                <aura:if isTrue="{!and(v.isPeriodic,v.isCustom)}">
+				 <div class="slds-col">
+				<lightning:accordionSection name="Custom Configuration" class="slds-form-element_compound" label="Custom Configuration">
+<br/><br/>
+                    <lightning:layout>
+                        <lightning:layoutItem size="6" flexibility="auto">
+                       <lightning:inputField class="slds-col" fieldName="ID_V_Required__c" aura:id="IDVRequired" required="true" onchange="{!c.validateIDVDocStatus}"/>
+                               <lightning:inputField class="slds-col" fieldName="Update_eKYC_iGA_Data__c" aura:id="eKYC_iGA_Data" disabled="true" onchange="{!c.validateeKYCDocStatus}"/>
+                           </lightning:layoutItem>
+                   <lightning:layoutItem size="6" flexibility="auto">
+                            <lightning:inputField class="slds-col" fieldName="Review_Personal_Information_Required__c" aura:id="Review_Personal_Information" required="true" />
+                           <lightning:inputField class="slds-col" fieldName="Upload_Documents_Required__c" aura:id="Upload_Documents_Required" required="true" onchange="{!c.OnDocumentRequired}" />
+                        </lightning:layoutItem>
+                        </lightning:layout>
+ 
+                    </lightning:accordionSection>
+                    </div>
+				   <aura:if isTrue="{!v.isDocumentReq}"> 
+				   <lightning:accordionSection name="Upload Documents Required" class="slds-form-element_compound" label="Upload Documents Required">
+<br/><br/>
+                       <lightning:layout>
+                           <!--<lightning:layoutItem size="6" flexibility="auto">-->
+                          <lightning:inputField fieldName="Document_List__c" aura:id="Document_List"/>
+                    <!--   <lightning:inputField fieldName="Document_Passport__c" aura:id="Document_Passport"/>
+                       <lightning:inputField fieldName="Document_Proof_of_Address__c" aura:id="Document_Proof_of_Address"/>-->
+                          <!-- </lightning:layoutItem>--><!--<lightning:layoutItem size="6" flexibility="auto">
+                           <lightning:inputField fieldName="Document_Residence_Permit__c" aura:id="Document_Residence_Permit" onchange="{!c.validateRPDocStatus}" />
+<lightning:inputField fieldName="Document_FATCA_Declaration__c" aura:id="Document_FATCA_Declaration"/>
+                           </lightning:layoutItem>-->
+                      </lightning:layout>
+                           </lightning:accordionSection>
+                    </aura:if>
+					 <lightning:accordionSection name="OverDue Setting" class="slds-form-element_compound" label="OverDue Setting">
+<br/><br/>
+                          <lightning:layout>
+                              <lightning:layoutItem size="6" flexibility="auto">
+                         <lightning:inputField fieldName="Overdue_Handling__c" class="slds-col" aura:id="Overdue_Handling" required="true" onchange="{!c.OnOverdueHandling}"/>
+                       <aura:if isTrue="{!v.isRestriction}">
+                          
+                            <lightning:inputField fieldName="Overdue_Stage__c" class="slds-col" aura:id="Overdue_Stage" required="true" />
+
+                                  </aura:if>
+                              </lightning:layoutItem>
+                         </lightning:layout>
+                    </lightning:accordionSection>
+                </aura:if>
+                
+                <aura:if isTrue="{!v.isFraud}">
+						<lightning:accordionSection name="Restriction Setting" label="Restriction Setting"><br/><br/>
+                            <lightning:layout>
+                                <lightning:layoutItem size="6" flexibility="auto">
+                        <lightning:inputField fieldName="Block_Account_Debits__c" aura:id="Block_Account_Debits" />
+                                   <lightning:inputField fieldName="Block_App_Access__c" aura:id="Block_App_Access" /></lightning:layoutItem>
+                                <lightning:layoutItem size="6" flexibility="auto">
+                       <lightning:inputField fieldName="Block_Credit_Cards__c" aura:id="Block_Credit_Cards" />
+                                   <lightning:inputField fieldName="Block_Debit_Cards__c" aura:id="Block_Debit_Cards" /></lightning:layoutItem></lightning:layout>
+                    </lightning:accordionSection></aura:if></lightning:accordion><br/><br/>
+            <div class="slds-hide">
+                <lightning:inputField fieldName="Account_Name__c" value="{!v.recordId}" aura:id="accId"/>
+            </div>
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                </div>
+            </footer>
+           
+            <aura:set attribute="else">
+                <lightning:notificationsLibrary aura:id="notifyId"/>
+                
+            </aura:set>
+         </aura:if>
+        </lightning:recordEditForm>     
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+    </lightning:card>
+    <!--CH01 - End-->
+</aura:component>

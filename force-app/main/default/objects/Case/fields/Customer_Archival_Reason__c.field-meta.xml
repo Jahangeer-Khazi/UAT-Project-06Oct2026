@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Archival_Reason__c</fullName>
+    <description>Used for Manual Customer Archival cases</description>
+    <label>Customer Archival Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Duplicate CIF</fullName>
+                <default>false</default>
+                <label>Duplicate CIF</label>
+            </value>
+            <value>
+                <fullName>Underage</fullName>
+                <default>false</default>
+                <label>Underage</label>
+            </value>
+            <value>
+                <fullName>Non GCC Resident</fullName>
+                <default>false</default>
+                <label>Non GCC Resident</label>
+            </value>
+            <value>
+                <fullName>No longer interested</fullName>
+                <default>false</default>
+                <label>No longer interested</label>
+            </value>
+            <value>
+                <fullName>DB Archiving only</fullName>
+                <default>false</default>
+                <label>DB Archiving only</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Application Reset</fullName>
+                <default>false</default>
+                <label>Application Reset</label>
+            </value>
+            <value>
+                <fullName>Missing/Expired eKYC Data</fullName>
+                <default>false</default>
+                <label>Missing/Expired eKYC Data</label>
+            </value>
+            <value>
+                <fullName>Unauthorized Country</fullName>
+                <default>false</default>
+                <label>Unauthorized Country</label>
+            </value>
+            <value>
+                <fullName>Failed Due to Technical Issue</fullName>
+                <default>false</default>
+                <label>Failed Due to Technical Issue</label>
+            </value>
+            <value>
+                <fullName>Missing Mobile Number</fullName>
+                <default>false</default>
+                <label>Missing Mobile Number</label>
+            </value>
+            <value>
+                <fullName>Pulled Mobile Number</fullName>
+                <default>false</default>
+                <label>Pulled Mobile Number</label>
+            </value>
+            <value>
+                <fullName>Active Customer Onboarding</fullName>
+                <default>false</default>
+                <label>Active Customer Onboarding</label>
+            </value>
+            <value>
+                <fullName>Exceeded EDD SLA</fullName>
+                <default>false</default>
+                <label>Exceeded EDD SLA</label>
+            </value>
+            <value>
+                <fullName>Exceeded FATCA SLA</fullName>
+                <default>false</default>
+                <label>Exceeded FATCA SLA</label>
+            </value>
+            <value>
+                <fullName>Exceeded Dual Control SLA</fullName>
+                <default>false</default>
+                <label>Exceeded Dual Control SLA</label>
+            </value>
+            <value>
+                <fullName>Existing Blacklisted Account</fullName>
+                <default>false</default>
+                <label>Existing Blacklisted Account</label>
+            </value>
+            <value>
+                <fullName>Existing Prospect Attempt</fullName>
+                <default>false</default>
+                <label>Existing Prospect Attempt</label>
+            </value>
+            <value>
+                <fullName>Rejected Screening</fullName>
+                <default>false</default>
+                <label>Rejected Screening</label>
+            </value>
+            <value>
+                <fullName>Non Jordanian ID</fullName>
+                <default>false</default>
+                <label>Non Jordanian ID</label>
+            </value>
+            <value>
+                <fullName>Rejected Dual Control</fullName>
+                <default>false</default>
+                <label>Rejected Dual Control</label>
+            </value>
+            <value>
+                <fullName>Duplicate Record</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Duplicate Record</label>
+            </value>
+            <value>
+                <fullName>Incomplete Application</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Incomplete Application</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

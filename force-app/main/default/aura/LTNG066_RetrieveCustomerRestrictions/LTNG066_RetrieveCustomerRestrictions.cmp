@@ -1,0 +1,20 @@
+<aura:component controller="LTNG066_CustomerRestrictionController" implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <!-- configurabale param to be used in the lightning pages en general to know on the code on which lighting page we are currently : 
+    for now I will use 2 values : "CREDIT_CARD" and "LOAN" -->    
+    <aura:attribute name="pageType" type="string" default="LOAN" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="errorMsg" type="string" />
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <aura:if isTrue="{!!empty(v.errorMsg)}">
+        <div style="margin: auto;">
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                <lightning:icon iconName="utility:warning" alternativeText="Attention" size="small">
+                </lightning:icon>
+                <h2 style="margin-left: 40px;">
+                    {! v.errorMsg }
+                </h2>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

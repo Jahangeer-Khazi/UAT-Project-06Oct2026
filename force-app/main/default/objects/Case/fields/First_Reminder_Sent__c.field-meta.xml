@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Reminder_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>It is automatically updated to false everytime the case sub-status is changed to PENDING or DISCREPANCIES</description>
+    <label>First Reminder Sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

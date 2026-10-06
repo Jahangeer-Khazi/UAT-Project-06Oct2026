@@ -1,0 +1,234 @@
+<template>
+    <div class="slds-card slds-p-around_small">
+        <template if:true={loadingSpinner}>
+            <lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+        </template>
+
+        <div class={sectionClass}>
+            <div onclick={toggleSection}>
+                <h3 class="slds-section__title slds-theme_shade">
+                    <button type="button" class="slds-button slds-section__title-action">
+                        <lightning-icon icon-name={iconName} size="x-small"
+                            class="slds-section__title-action-icon slds-m-right_x-small"></lightning-icon>
+                        <span class="slds-truncate" title="FATCA Details">FATCA Details</span>
+                    </button>
+                </h3>
+            </div>
+
+            <div class="slds-section__content">
+                <!-- View Mode -->
+                <template if:false={isEditMode}>
+                    <div class="slds-p-horizontal_small slds-m-top_medium">
+                        <div class="slds-grid slds-wrap">
+                            <!-- Field 1: Case -->
+                            <div
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small slds-m-bottom_medium">
+                                <lightning-record-view-form record-id={recordId} object-api-name="Case">
+                                    <div
+                                        class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                        <div class="slds-form-element__control custom-control">
+                                            <div class="slds-form-element__static">
+                                                <lightning-output-field field-name="FATCA_Document_Expiry_Date__c"
+                                                    variant="label-stacked"></lightning-output-field>
+                                            </div>
+                                            <button class="slds-button slds-button_icon edit-button-visible"
+                                                onclick={handleChangeFormValeurs}>
+                                                <lightning-icon icon-name="utility:edit" size="xx-small"
+                                                    class="slds-button__icon"></lightning-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </lightning-record-view-form>
+                            </div>
+
+                            <!-- Account Fields -->
+                            <template if:true={accountId}>
+                                <!-- Field 3: Account Declaration Type -->
+                                <div
+                                    class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small slds-m-bottom_medium">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field field-name="FATCA_Declaration_Form_Type__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                                <button class="slds-button slds-button_icon edit-button-visible"
+                                                    onclick={handleChangeFormValeurs}>
+                                                    <lightning-icon icon-name="utility:edit" size="xx-small"
+                                                        class="slds-button__icon"></lightning-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+
+                                <!-- Field 4: Account Tax Country -->
+                                <div
+                                    class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small slds-m-bottom_medium">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field field-name="Tax_Country_1_ID__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                                <button class="slds-button slds-button_icon edit-button-visible"
+                                                    onclick={handleChangeFormValeurs}>
+                                                    <lightning-icon icon-name="utility:edit" size="xx-small"
+                                                        class="slds-button__icon"></lightning-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+
+                                <!-- Field 5: Account FATCA Declaration Last Update -->
+                                <div
+                                    class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small slds-m-bottom_medium">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field
+                                                        field-name="FATCA_Declaration_Last_Update__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                                <button class="slds-button slds-button_icon edit-button-visible"
+                                                    onclick={handleChangeFormValeurs}>
+                                                    <lightning-icon icon-name="utility:edit" size="xx-small"
+                                                        class="slds-button__icon"></lightning-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+
+                                <!-- Field: FATCA_Customer__pc (Read Only) - Last Row -->
+                                <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small slds-m-bottom_medium">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field field-name="FATCA_Customer__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+
+                                <!-- Field: US_Indicia__pc (Read Only) - Last Row -->
+                                <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small slds-m-bottom_medium">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field field-name="US_Indicia__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Edit Mode -->
+                <template if:true={isEditMode}>
+                    <div class="slds-p-horizontal_small slds-m-top_medium">
+                        <div class="slds-grid slds-wrap">
+                            <!-- Field 1: Case -->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small">
+                                <lightning-record-edit-form record-id={recordId} object-api-name="Case"
+                                    onsuccess={handleSuccess} onerror={handleError}>
+                                    <lightning-messages></lightning-messages>
+                                    <lightning-input-field field-name="FATCA_Document_Expiry_Date__c"
+                                        variant="label-stacked"></lightning-input-field>
+                                </lightning-record-edit-form>
+                            </div>
+
+                            <template if:true={accountId}>
+                                <!-- Field 3: Account Declaration Type -->
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small">
+                                    <lightning-record-edit-form record-id={accountId} object-api-name="Account"
+                                        onload={handleAccountFormLoad} onsuccess={handleSuccess} onerror={handleError}>
+                                        <lightning-messages></lightning-messages>
+                                        <lightning-input-field field-name="FATCA_Declaration_Form_Type__pc"
+                                            variant="label-stacked" required
+                                            onchange={handleFormTypeChange}></lightning-input-field>
+                                    </lightning-record-edit-form>
+                                </div>
+
+                                <!-- Field 4: Account Tax Country -->
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small">
+                                    <lightning-record-edit-form record-id={accountId} object-api-name="Account"
+                                        onsuccess={handleSuccess} onerror={handleError}>
+                                        <lightning-messages></lightning-messages>
+                                        <lightning-input-field field-name="Tax_Country_1_ID__pc" variant="label-stacked"
+                                            required={isTaxCountryRequired}></lightning-input-field>
+                                    </lightning-record-edit-form>
+                                </div>
+
+                                <!-- Field 5: Account FATCA Declaration Last Update -->
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-horizontal_small">
+                                    <lightning-record-edit-form record-id={accountId} object-api-name="Account"
+                                        onsuccess={handleSuccess} onerror={handleError}>
+                                        <lightning-messages></lightning-messages>
+                                        <lightning-input-field field-name="FATCA_Declaration_Last_Update__pc"
+                                            variant="label-stacked" required></lightning-input-field>
+                                    </lightning-record-edit-form>
+                                </div>
+
+                                <!-- Field: FATCA_Customer__pc (Read Only) - Last Row -->
+                                <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field field-name="FATCA_Customer__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+
+                                <!-- Field: US_Indicia__pc (Read Only) - Last Row -->
+                                <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+                                    <lightning-record-view-form record-id={accountId} object-api-name="Account">
+                                        <div
+                                            class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <div class="slds-form-element__control custom-control">
+                                                <div class="slds-form-element__static">
+                                                    <lightning-output-field field-name="US_Indicia__pc"
+                                                        variant="label-stacked"></lightning-output-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </div>
+                            </template>
+                        </div>
+
+                        <!-- Component-Level Footer -->
+                        <div class="slds-m-top_medium slds-text-align_center footer-container">
+                            <button type="button" class="slds-button slds-button_neutral"
+                                onclick={handleCancel}>Cancel</button>
+                            <button type="button" class="slds-button slds-button_brand slds-m-left_x-small"
+                                onclick={handleSave}>Save</button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

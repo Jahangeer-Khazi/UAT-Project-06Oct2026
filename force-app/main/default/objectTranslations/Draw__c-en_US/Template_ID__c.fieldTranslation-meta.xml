@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>
+        <!-- Template ID is for selecting the specific UI for the Raffle Draw.
+The default value is: RaffleComponent -->
+    </help>
+    <label><!-- Template ID --></label>
+    <name>Template_ID__c</name>
+    <picklistValues>
+        <masterLabel>RaffleComponent</masterLabel>
+        <translation><!-- RaffleComponent --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

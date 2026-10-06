@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Customer Authorisation - Update</name>
+    <style>none</style>
+    <subject>Authorisation needed</subject>
+    <textOnly>Thank you for your recent request.  Please review the content below and confirm your approval by replying to this mail.  If you do not reply to this mail, we will not action the request and it will be cancelled 10 days after we opened the request.
+
+{!Case.Description}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

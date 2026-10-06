@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Send_Support_Request_alburaq</fullName>
+        <description>Send Support Request alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <field>et4ae5__Support_Ticket_Recipient__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>et4ae5__ExactTarget/SupportRequest_Alburaq</template>
+    </alerts>
+</Workflow>

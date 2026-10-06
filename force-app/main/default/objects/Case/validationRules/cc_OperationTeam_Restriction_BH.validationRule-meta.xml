@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_OperationTeam_Restriction_BH</fullName>
+    <active>true</active>
+    <description>Operations Team Cannot Select Refer to Service Center for Bahrain Region</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Operations_Result__c),
+ISPICKVAL(cc_Operations_Result__c, &apos;Refer to service center&apos;),
+ISPICKVAL(Region_Flag__c, &apos;Bahrain&apos;),  
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)  
+)</errorConditionFormula>
+    <errorDisplayField>cc_Operations_Result__c</errorDisplayField>
+    <errorMessage>The Operations Team cannot select &apos;Refer to Service Center&apos; for the Bahrain Region.</errorMessage>
+</ValidationRule>

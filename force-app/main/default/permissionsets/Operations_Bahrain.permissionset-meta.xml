@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>DM000_sObjectDescriber</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DM002_Case</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LTNG003_BlockUnblockProcessController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PAD</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SM002_CbbAmountHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Extends the &quot;Operations&quot; Profile for users in Bahrain.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Apple_Pay_Closure_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Operations (Bahrain)</label>
+    <recordTypeVisibilities>
+        <recordType>Case.Apple_Pay_Query</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+</PermissionSet>

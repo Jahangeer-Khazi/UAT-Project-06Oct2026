@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fill_all_Detail_before_converting_Lead</fullName>
+    <active>true</active>
+    <errorConditionFormula>Convert_Lead_to_Prospect__c = TRUE &amp;&amp; ISBLANK(ID_Expiry_Date__c )</errorConditionFormula>
+    <errorMessage>Please fill all the mandatory details before converting the Lead to Prospect</errorMessage>
+</ValidationRule>

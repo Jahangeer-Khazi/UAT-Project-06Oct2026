@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="flag" type="boolean" default="true"/>
+    
+    <aura:if isTrue="{!v.flag}"> 
+    	<lightning:recordEditForm aura:id="recordViewForm" recordId="{!v.recordId}" 
+                              onsuccess ="{!c.onSuccessAction}"
+                              objectApiName="Case">	
+			<lightning:inputField aura:id="RPNumber" fieldName="cc_Residence_Permit_No__c"  variant="label-inline" value="{!v.Case.cc_Residence_Permit_No__c}" required="true"/>
+            <lightning:inputField aura:id="RExpDate" fieldName="cc_Residence_Permit_Expiry_Date__c"  variant="label-inline" value="{!v.Case.cc_Residence_Permit_Expiry_Date__c}" required="true"/>
+            
+        <lightning:button variant="brand" type="submit" label="Save" />
+
+ 	</lightning:recordEditForm> 
+    </aura:if>
+    </aura:component>

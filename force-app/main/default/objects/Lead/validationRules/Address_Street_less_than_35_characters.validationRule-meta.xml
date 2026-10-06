@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_Street_less_than_35_characters</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(LEN(Street) &gt; 35, true, false)</errorConditionFormula>
+    <errorMessage>Customer&apos;s street address should be less than 35 characters</errorMessage>
+</ValidationRule>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reminder Sent to queue members when a case is the ownership for 3 days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Internal_Email_Alert-Reminder1</name>
+    <style>none</style>
+    <subject>Case Review Needed - Reminder</subject>
+    <textOnly>Case has been in your ownership for more than 2 days..
+
+Hi,  Please be advised that this is a reminder email for the case with case number {!Case.CaseNumber} which has been in your ownership for more than 2 days.
+
+Case Type : {!Case.Type}
+Case Subtype :  {!Case.Sub_Type__c}
+Case description: {!Case.Description}
+
+Open CRM case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

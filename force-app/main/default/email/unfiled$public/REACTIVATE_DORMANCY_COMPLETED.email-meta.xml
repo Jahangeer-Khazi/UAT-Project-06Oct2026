@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>email triggered when dormant relationship is activated</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>REACTIVATE_DORMANCY_COMPLETED</name>
+    <style>none</style>
+    <subject>Completed</subject>
+    <textOnly>COMPLETED</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

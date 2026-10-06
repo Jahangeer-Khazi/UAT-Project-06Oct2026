@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>19 Days</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Model__c</field>
+        <value xsi:type="xsd:string">ila</value>
+    </values>
+    <values>
+        <field>Days_Elapsed__c</field>
+        <value xsi:type="xsd:double">19.0</value>
+    </values>
+    <values>
+        <field>Email_Template__c</field>
+        <value xsi:type="xsd:string">UAR Case Breached SLA 19 Days</value>
+    </values>
+    <values>
+        <field>Minutes_Elapsed__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>User_Name__c</field>
+        <value xsi:type="xsd:string">Hesham Mohamed</value>
+    </values>
+</CustomMetadata>

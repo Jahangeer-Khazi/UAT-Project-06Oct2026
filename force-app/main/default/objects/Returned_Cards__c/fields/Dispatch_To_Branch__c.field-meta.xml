@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispatch_To_Branch__c</fullName>
+    <label>Dispatch To Branch</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Abdali Mall Branch</fullName>
+                <default>false</default>
+                <label>Abdali Mall Branch</label>
+            </value>
+            <value>
+                <fullName>Abdoun Branch</fullName>
+                <default>false</default>
+                <label>Abdoun Branch</label>
+            </value>
+            <value>
+                <fullName>Al Karak Branch</fullName>
+                <default>false</default>
+                <label>Al Karak Branch</label>
+            </value>
+            <value>
+                <fullName>Al Mafraq Branch</fullName>
+                <default>false</default>
+                <label>Al Mafraq Branch</label>
+            </value>
+            <value>
+                <fullName>Al Muqabalayn Branch</fullName>
+                <default>false</default>
+                <label>Al Muqabalayn Branch</label>
+            </value>
+            <value>
+                <fullName>Al Salt Branch</fullName>
+                <default>false</default>
+                <label>Al Salt Branch</label>
+            </value>
+            <value>
+                <fullName>Al Sweifiyah Branch</fullName>
+                <default>false</default>
+                <label>Al Sweifiyah Branch</label>
+            </value>
+            <value>
+                <fullName>Aqaba Branch</fullName>
+                <default>false</default>
+                <label>Aqaba Branch</label>
+            </value>
+            <value>
+                <fullName>Bayader Wadi Al Seer Branch</fullName>
+                <default>false</default>
+                <label>Bayader Wadi Al Seer Branch</label>
+            </value>
+            <value>
+                <fullName>City Mall Branch</fullName>
+                <default>false</default>
+                <label>City Mall Branch</label>
+            </value>
+            <value>
+                <fullName>Head Office &amp; Main Branch</fullName>
+                <default>false</default>
+                <label>Head Office &amp; Main Branch</label>
+            </value>
+            <value>
+                <fullName>Irbid Branch</fullName>
+                <default>false</default>
+                <label>Irbid Branch</label>
+            </value>
+            <value>
+                <fullName>Jabal Amman Branch</fullName>
+                <default>false</default>
+                <label>Jabal Amman Branch</label>
+            </value>
+            <value>
+                <fullName>Jerash Branch</fullName>
+                <default>false</default>
+                <label>Jerash Branch</label>
+            </value>
+            <value>
+                <fullName>Madaba Branch</fullName>
+                <default>false</default>
+                <label>Madaba Branch</label>
+            </value>
+            <value>
+                <fullName>Marj Al Hamam Branch</fullName>
+                <default>false</default>
+                <label>Marj Al Hamam Branch</label>
+            </value>
+            <value>
+                <fullName>Tlaa Al Ali / Al Gardens Branch</fullName>
+                <default>false</default>
+                <label>Tlaa Al Ali / Al Gardens Branch</label>
+            </value>
+            <value>
+                <fullName>Zarqa Branch</fullName>
+                <default>false</default>
+                <label>Zarqa Branch</label>
+            </value>
+            <value>
+                <fullName>Al Hurriyah Street Branch</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Al Hurriyah Street Branch</label>
+            </value>
+            <value>
+                <fullName>Tabarbour Branch</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tabarbour Branch</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

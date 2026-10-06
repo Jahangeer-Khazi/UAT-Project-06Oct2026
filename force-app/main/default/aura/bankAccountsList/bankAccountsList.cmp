@@ -1,0 +1,163 @@
+<!-- 	
+    Organization : ABC Bank
+    * 	Created By: 
+    *	Created Date: 
+    * 	Change History: 
+					#CH04# #Jahangeer Mohammed# #07-08-2023# Added CAS Component Visibility(NBA-7983)
+                    #CH05# #Tsioucha Imane# #13-09-2023 Adding currency and Account Number to bankAccountDetails
+ 	*             #CH06# Added #11-11-2025# Maksud Ali Transaction Excel Generation - passing account number and product name to bankAccountTransaction.
+                   #CH07# #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705) 
+-->
+<aura:component controller="BankAccountController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="true"/>
+    <aura:attribute name="caseRecordType" type="String"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    <aura:attribute name="region" type="String" required="true"/>
+     <aura:attribute name="segment" type="String" required="true"/>
+
+    <!-- CH05 Start -->
+    <aura:attribute name="curency" type="String"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    <!-- CH05 END -->
+
+    <!-- ============================================ -->
+	<aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="accountId" type="String" access="private"/>
+    <aura:attribute name="displayAccountDetails" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="displayAccountTransactions" type="Boolean" access="private" default="false"/>
+    
+    <!-- CH04 Start -->
+    <aura:attribute name="checkCASStatus" type="Boolean" access="private" default="false"/>
+    <!-- CH04 END -->
+    
+    <!-- CH02 : Added by Hamza Chaoui *** to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <!-- #CH07# start -->
+    <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false"/>
+    <!-- #CH07#  end -->
+
+    <!-- CH06 Start -->
+    <aura:attribute name="bankProductName" type="string"/>
+    <!-- CH06 End -->
+    
+    <aura:method name="reload" action="{!c.load}" />
+
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+
+    <!-- Event is required to pass the accountID to non-related CardList and Card-details component -->
+    <aura:registerEvent name="onSelectionPassId" type="c:PassAccountIdEvent"/>
+
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+    <aura:set attribute="else">
+        <lightning:datatable
+            aura:id="accountListTable"
+            data="{! v.data}"
+            columns="{! v.columns}"
+            keyField="id"
+            hideCheckboxColumn="false"
+            maxRowSelection="1"
+            onrowselection="{! c.handleRowSelection }"
+            onrowaction="{! c.handleRowAction }"/>
+
+        <aura:if isTrue="{!and(not(empty(v.accountId)),  true == v.displayAccountDetails)}">
+            <br/>
+            <!-- #CH07#  added  hideJordanFinancialDetails -->
+            <c:bankAccountDetails customerId="{!v.customerId}"
+                                  accountId="{!v.accountId}"
+                                  caseId="{!v.caseId}"
+                                  account="{!v.account}"
+                                  enableActions="{!v.enableActions}"
+                                  caseRecordType = "{!v.caseRecordType}"
+                                  isAlburaqProduct = "{!v.isAlburaqProduct}"
+                                  curency="{!v.curency}"
+                                  accountNumber="{!v.accountNumber}"
+                                  hideJordanFinancialDetails="{!v.hideJordanFinancialDetails}"
+                                  />
+           <aura:if isTrue="{!not('Staff'== v.segment)}">
+            <br/>
+           <!-- #CH07# start  -->
+            <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+              <c:bankAccountLastTransaction customerId="{!v.customerId}"
+                accountId="{!v.accountId}"
+                caseId="{!v.caseId}"
+                account="{!v.account}"
+                enableActions="{!v.enableActions}"
+                isAlburaqProduct="{!v.isAlburaqProduct}"
+                aura:id="bankLastTransaction" />
+            </aura:if>
+            <!-- #CH07# end -->
+
+            </aura:if>
+        </aura:if>
+        
+       <!-- Code Commented by Imane Tsioucha(Minimum Balance Project on Hold) -->
+
+                <!-- CH03 : add LTNG028_ShowUncollectedFees component -->
+        <!-- <aura:if isTrue="{!and(not(empty(v.accountId)), and(not(empty(v.customerId)) , v.isAlburaqProduct == false) )}"> -->
+        <!-- <aura:if isTrue="{!and( not(empty(v.accountId)), not(empty(v.customerId)) )}">
+           <c:LTNG028_ShowUncollectedFees   aura:id="LTNG028_ShowUncollectedFees-popup" 
+                                            account="{!v.account}" 
+                                            customerId="{!v.customerId}" 
+                                            accountId="{!v.accountId}" 
+                                            isAlburaqProduct = "{!v.isAlburaqProduct}"/>
+        </aura:if> -->
+        <!-- CH03 : END -->
+        
+        <aura:if isTrue="{! 'FCR' != v.caseRecordType}">
+        <aura:if isTrue="{!and(not(empty(v.accountId)),  true == v.displayAccountTransactions)}">
+            <br/>
+               <!-- #CH07# start   -->
+            <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+            <!-- #CH06 - Added bankProductName and bankAccountNo props -->
+           <c:bankAccountTransactions customerId="{!v.customerId}" 
+                                      account="{!v.account}"  
+                                      accountId="{!v.accountId}"
+                                      bankProductName = "{!v.bankProductName}"
+                                      bankAccountNo = "{!v.accountNumber}"
+                                      isAlburaqProduct = "{!v.isAlburaqProduct}" />
+            </aura:if>
+            <!-- #CH07# end -->
+        </aura:if>
+         </aura:if>
+        <aura:if isTrue="{!and( and( not(empty(v.accountId)),  true == v.enableActions) , and( not(empty(v.caseId)), v.isAlburaqProduct == false) )}">
+           <c:requestCashCollectionOrDelivery aura:id="cashCollectionOrDelivery-popup" account="{!v.account}" customerId="{!v.customerId}" caseId="{!v.caseId}" />
+        </aura:if>
+
+
+        <!-- CH01 : add Stamped Statment component -->
+        <aura:if isTrue="{!and(not(empty(v.accountId)), and(not(empty(v.customerId)), v.isAlburaqProduct == false) )}">
+        <!--<aura:if isTrue="{!and(not(empty(v.accountId)),  and(true == v.displayAccountTransactions, v.isAlburaqProduct == false))}">-->
+             <!-- #CH07# start  -->
+            <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+               <c:LTNG006_StampedStatements aura:id="LTNG006_StampedStatements-popup" account="{!v.account}" customerId="{!v.customerId}" accountId="{!v.accountId}" />
+             </aura:if>
+            <!-- #CH07# end  -->
+        </aura:if>
+        <!-- CH01 : END -->
+     
+        <!-- CH04 : Start -->
+        <aura:if isTrue="{!and(not(empty(v.accountId)),  true == v.checkCASStatus)}">
+            <!-- Add new lightning component CAS Logic in this block -->
+            <c:bankAccountCASDetails account="{!v.account}"
+                                     customerId="{!v.customerId}"
+                                     accountId="{!v.accountId}"/>
+                                     
+                                     
+        </aura:if>
+        <!-- CH04 : END -->
+        
+
+    </aura:set>
+    </aura:if>
+
+    <c:apexService aura:id="apexService"/>
+</aura:component>

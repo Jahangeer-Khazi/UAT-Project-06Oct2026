@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Invitation</masterLabel>
+        <translation><!-- Invitation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invitation Rollback</masterLabel>
+        <translation><!-- Invitation Rollback --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retention</masterLabel>
+        <translation><!-- Retention --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retention Rollback</masterLabel>
+        <translation><!-- Retention Rollback --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

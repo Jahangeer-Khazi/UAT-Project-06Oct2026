@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification to RCD Signature Verification Queue, when Customer has signed the DocuSign Documents and the Sub Status is changed to &quot;Pending Signature Verification&quot;</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loans Customer Signed DOCUSIGN</name>
+    <style>none</style>
+    <subject>Customer Signed the DocuSign Document and is Received - {!Case.CaseNumber}</subject>
+    <textOnly>Customer Signed the DocuSign Documents - {!Case.CaseNumber}
+
+Hi,
+
+Please be advised that customer has completed the DocuSign documents, which has been recieved on the case, Please proceed to validated and approve it as Signature Verification. Below are the case details:
+
+Case Number: {!Case.CaseNumber}
+Case Stage: {!Case.Sub_Status__c	}
+Case Type: Loan Application - {!Case.Type}
+Case Sub Type: {!Case.Loan_Product_Type__c} - {!Case.Case_Nature__c}
+
+You may now proceed to verify the submitted documents. Click the link below to review and respond:
+
+Open CRM case
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

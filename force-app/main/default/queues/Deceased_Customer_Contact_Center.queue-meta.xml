@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Deceased Customer Contact Center</name>
+    <queueMembers>
+        <users>
+            <user>abbas.alhalwachi@ilabank.com</user>
+            <user>adhitya.ramakrishnan@bank-abc.com</user>
+            <user>aniss.mbarki@da-tech.ma</user>
+            <user>cbs_contactcentre@ilabank.com</user>
+            <user>kavitha.philip@bank-abc.com</user>
+            <user>contactcenter@bank-abc.com</user>
+            <user>mavericrmt@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

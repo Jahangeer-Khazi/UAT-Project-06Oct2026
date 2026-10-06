@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Head_Of_Contact_Center_FAQ_New_Wavier_Approval</fullName>
+    <columns>NAME</columns>
+    <columns>Type__c</columns>
+    <columns>Sub_Type__c</columns>
+    <columns>Request_Type__c</columns>
+    <columns>Subject__c</columns>
+    <columns>Case_Model__c</columns>
+    <columns>Case_Origin__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <label>Head Of Contact Center FAQ</label>
+    <queue>Head_Of_Contact_Center_FAQ</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

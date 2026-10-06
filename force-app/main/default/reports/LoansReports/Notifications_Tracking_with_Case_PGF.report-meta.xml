@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>NotificationsTracking__c.CIF__c</field>
+    </columns>
+    <columns>
+        <field>NotificationsTracking__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>NotificationsTracking__c.Sub_Status__c</field>
+    </columns>
+    <columns>
+        <field>NotificationsTracking__c.SentOn__c</field>
+    </columns>
+    <columns>
+        <field>NotificationsTracking__c.Description__c</field>
+    </columns>
+    <columns>
+        <field>NotificationsTracking__c.Channel__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Notifications Tracking with Case</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$NotificationsTracking__c@NotificationsTracking__c.Case__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>NotificationsTracking__c.SentOn__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>NotificationsTracking__c.SentOn__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fraud_Results__c</fullName>
+    <label>Fraud Results</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approve</fullName>
+                <default>false</default>
+                <label>Approve</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Return to Compliance</fullName>
+                <default>false</default>
+                <label>Return to Compliance</label>
+            </value>
+            <value>
+                <fullName>Accept</fullName>
+                <default>false</default>
+                <label>Accept</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Confirm Fraud</fullName>
+                <default>false</default>
+                <label>Confirm Fraud</label>
+            </value>
+            <value>
+                <fullName>Cancel Request</fullName>
+                <default>false</default>
+                <label>Allow Retry</label>
+            </value>
+            <value>
+                <fullName>Send to Contact Center</fullName>
+                <default>false</default>
+                <label>Send to Contact Center</label>
+            </value>
+            <value>
+                <fullName>Skip ID&amp;V Next Login</fullName>
+                <default>false</default>
+                <label>Skip ID&amp;V Next Login</label>
+            </value>
+            <value>
+                <fullName>Genuine Request – Expired CPR</fullName>
+                <default>false</default>
+                <label>Genuine Request – Expired CPR</label>
+            </value>
+            <value>
+                <fullName>Not Fraud</fullName>
+                <default>false</default>
+                <label>Not Fraud</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Account Block/Unblock</controllingFieldValue>
+            <controllingFieldValue>Account Closure</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Application Reset</controllingFieldValue>
+            <controllingFieldValue>Change Per Day Trans Limit</controllingFieldValue>
+            <controllingFieldValue>Customer Cheque Status Queries</controllingFieldValue>
+            <controllingFieldValue>Customer Trans &amp; Pmt Disputes</controllingFieldValue>
+            <controllingFieldValue>Cyber Security Threat</controllingFieldValue>
+            <controllingFieldValue>Damaged Card</controllingFieldValue>
+            <controllingFieldValue>Dormant Account Reactivation</controllingFieldValue>
+            <controllingFieldValue>Freeze/Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Incident Management</controllingFieldValue>
+            <controllingFieldValue>Link/ Delink Card</controllingFieldValue>
+            <controllingFieldValue>Lost/Stolen Card</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Report Fraudulent Transactions</controllingFieldValue>
+            <controllingFieldValue>Request Adhoc Statement/Letter</controllingFieldValue>
+            <controllingFieldValue>Staff one time referral codes</controllingFieldValue>
+            <controllingFieldValue>Status of Debit Card Delivery</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque Payment</controllingFieldValue>
+            <controllingFieldValue>Support Failed Payment Queries</controllingFieldValue>
+            <controllingFieldValue>Upgrade/Downgrade Card</controllingFieldValue>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <controllingFieldValue>International</controllingFieldValue>
+            <controllingFieldValue>Domestic</controllingFieldValue>
+            <controllingFieldValue>Telex transfer copy</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Process</controllingFieldValue>
+            <controllingFieldValue>Return Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Managerial Cheque</controllingFieldValue>
+            <controllingFieldValue>IOS</controllingFieldValue>
+            <controllingFieldValue>Android</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/BUSINESS</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/CC</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Type 1</controllingFieldValue>
+            <controllingFieldValue>Type 2</controllingFieldValue>
+            <controllingFieldValue>Type 3</controllingFieldValue>
+            <controllingFieldValue>Type 4</controllingFieldValue>
+            <controllingFieldValue>Type 5</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Contact Centre</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Service Centre</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Onboarding related</controllingFieldValue>
+            <controllingFieldValue>Downtime</controllingFieldValue>
+            <controllingFieldValue>System Outage</controllingFieldValue>
+            <controllingFieldValue>Documents completion</controllingFieldValue>
+            <controllingFieldValue>Whitelisting</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Account_Block</controllingFieldValue>
+            <controllingFieldValue>Account_Unblock</controllingFieldValue>
+            <controllingFieldValue>Recovery_Code</controllingFieldValue>
+            <controllingFieldValue>DB_Archiving</controllingFieldValue>
+            <controllingFieldValue>New Credit Card</controllingFieldValue>
+            <controllingFieldValue>Balance Transfer</controllingFieldValue>
+            <controllingFieldValue>Card Limits Control</controllingFieldValue>
+            <controllingFieldValue>Change Credit Limit</controllingFieldValue>
+            <controllingFieldValue>Close Credit Card</controllingFieldValue>
+            <controllingFieldValue>No-due Certificate</controllingFieldValue>
+            <controllingFieldValue>Pay Card Bill</controllingFieldValue>
+            <controllingFieldValue>Reversal/Waiver of Fees and Charges</controllingFieldValue>
+            <controllingFieldValue>Setup Payment Options</controllingFieldValue>
+            <controllingFieldValue>Statement</controllingFieldValue>
+            <controllingFieldValue>Submit Dispute</controllingFieldValue>
+            <controllingFieldValue>Freeze / Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Block/ Unblock Card</controllingFieldValue>
+            <controllingFieldValue>Replace Card</controllingFieldValue>
+            <controllingFieldValue>EPP Early Closure</controllingFieldValue>
+            <controllingFieldValue>EPP Technical Error</controllingFieldValue>
+            <controllingFieldValue>Direct Debit Settings</controllingFieldValue>
+            <controllingFieldValue>Card Control Settings</controllingFieldValue>
+            <controllingFieldValue>Spending Limit Settings</controllingFieldValue>
+            <controllingFieldValue>Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees Reversal Request</controllingFieldValue>
+            <controllingFieldValue>Create Account</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Card Lien</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block</controllingFieldValue>
+            <controllingFieldValue>CBB Amount unblock</controllingFieldValue>
+            <controllingFieldValue>No due certificate</controllingFieldValue>
+            <controllingFieldValue>Change Interest Rate</controllingFieldValue>
+            <controllingFieldValue>PLA Staff’s relatives eligibility</controllingFieldValue>
+            <controllingFieldValue>New Supplementary Card</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Approve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Block/Unblock</controllingFieldValue>
+            <controllingFieldValue>Account Closure</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Application Reset</controllingFieldValue>
+            <controllingFieldValue>Change Per Day Trans Limit</controllingFieldValue>
+            <controllingFieldValue>Customer Cheque Status Queries</controllingFieldValue>
+            <controllingFieldValue>Customer Trans &amp; Pmt Disputes</controllingFieldValue>
+            <controllingFieldValue>Cyber Security Threat</controllingFieldValue>
+            <controllingFieldValue>Damaged Card</controllingFieldValue>
+            <controllingFieldValue>Dormant Account Reactivation</controllingFieldValue>
+            <controllingFieldValue>Freeze/Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Incident Management</controllingFieldValue>
+            <controllingFieldValue>Link/ Delink Card</controllingFieldValue>
+            <controllingFieldValue>Lost/Stolen Card</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Report Fraudulent Transactions</controllingFieldValue>
+            <controllingFieldValue>Request Adhoc Statement/Letter</controllingFieldValue>
+            <controllingFieldValue>Staff one time referral codes</controllingFieldValue>
+            <controllingFieldValue>Status of Debit Card Delivery</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque Payment</controllingFieldValue>
+            <controllingFieldValue>Support Failed Payment Queries</controllingFieldValue>
+            <controllingFieldValue>Upgrade/Downgrade Card</controllingFieldValue>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <controllingFieldValue>International</controllingFieldValue>
+            <controllingFieldValue>Domestic</controllingFieldValue>
+            <controllingFieldValue>Telex transfer copy</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Process</controllingFieldValue>
+            <controllingFieldValue>Return Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Managerial Cheque</controllingFieldValue>
+            <controllingFieldValue>IOS</controllingFieldValue>
+            <controllingFieldValue>Android</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/BUSINESS</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/CC</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Type 1</controllingFieldValue>
+            <controllingFieldValue>Type 2</controllingFieldValue>
+            <controllingFieldValue>Type 3</controllingFieldValue>
+            <controllingFieldValue>Type 4</controllingFieldValue>
+            <controllingFieldValue>Type 5</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Contact Centre</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Service Centre</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Onboarding related</controllingFieldValue>
+            <controllingFieldValue>Downtime</controllingFieldValue>
+            <controllingFieldValue>System Outage</controllingFieldValue>
+            <controllingFieldValue>Documents completion</controllingFieldValue>
+            <controllingFieldValue>Whitelisting</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Account_Block</controllingFieldValue>
+            <controllingFieldValue>Account_Unblock</controllingFieldValue>
+            <controllingFieldValue>Recovery_Code</controllingFieldValue>
+            <controllingFieldValue>DB_Archiving</controllingFieldValue>
+            <controllingFieldValue>New Credit Card</controllingFieldValue>
+            <controllingFieldValue>Balance Transfer</controllingFieldValue>
+            <controllingFieldValue>Card Limits Control</controllingFieldValue>
+            <controllingFieldValue>Change Credit Limit</controllingFieldValue>
+            <controllingFieldValue>Close Credit Card</controllingFieldValue>
+            <controllingFieldValue>No-due Certificate</controllingFieldValue>
+            <controllingFieldValue>Pay Card Bill</controllingFieldValue>
+            <controllingFieldValue>Reversal/Waiver of Fees and Charges</controllingFieldValue>
+            <controllingFieldValue>Setup Payment Options</controllingFieldValue>
+            <controllingFieldValue>Statement</controllingFieldValue>
+            <controllingFieldValue>Submit Dispute</controllingFieldValue>
+            <controllingFieldValue>Freeze / Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Block/ Unblock Card</controllingFieldValue>
+            <controllingFieldValue>Replace Card</controllingFieldValue>
+            <controllingFieldValue>EPP Early Closure</controllingFieldValue>
+            <controllingFieldValue>EPP Technical Error</controllingFieldValue>
+            <controllingFieldValue>Direct Debit Settings</controllingFieldValue>
+            <controllingFieldValue>Card Control Settings</controllingFieldValue>
+            <controllingFieldValue>Spending Limit Settings</controllingFieldValue>
+            <controllingFieldValue>Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees Reversal Request</controllingFieldValue>
+            <controllingFieldValue>Create Account</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Card Lien</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block</controllingFieldValue>
+            <controllingFieldValue>CBB Amount unblock</controllingFieldValue>
+            <controllingFieldValue>No due certificate</controllingFieldValue>
+            <controllingFieldValue>Change Interest Rate</controllingFieldValue>
+            <controllingFieldValue>PLA Staff’s relatives eligibility</controllingFieldValue>
+            <controllingFieldValue>New Supplementary Card</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Block/Unblock</controllingFieldValue>
+            <controllingFieldValue>Account Closure</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Application Reset</controllingFieldValue>
+            <controllingFieldValue>Change Per Day Trans Limit</controllingFieldValue>
+            <controllingFieldValue>Customer Cheque Status Queries</controllingFieldValue>
+            <controllingFieldValue>Customer Trans &amp; Pmt Disputes</controllingFieldValue>
+            <controllingFieldValue>Cyber Security Threat</controllingFieldValue>
+            <controllingFieldValue>Damaged Card</controllingFieldValue>
+            <controllingFieldValue>Dormant Account Reactivation</controllingFieldValue>
+            <controllingFieldValue>Freeze/Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Incident Management</controllingFieldValue>
+            <controllingFieldValue>Link/ Delink Card</controllingFieldValue>
+            <controllingFieldValue>Lost/Stolen Card</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Report Fraudulent Transactions</controllingFieldValue>
+            <controllingFieldValue>Request Adhoc Statement/Letter</controllingFieldValue>
+            <controllingFieldValue>Staff one time referral codes</controllingFieldValue>
+            <controllingFieldValue>Status of Debit Card Delivery</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque Payment</controllingFieldValue>
+            <controllingFieldValue>Support Failed Payment Queries</controllingFieldValue>
+            <controllingFieldValue>Upgrade/Downgrade Card</controllingFieldValue>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <controllingFieldValue>International</controllingFieldValue>
+            <controllingFieldValue>Domestic</controllingFieldValue>
+            <controllingFieldValue>Telex transfer copy</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Process</controllingFieldValue>
+            <controllingFieldValue>Return Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Managerial Cheque</controllingFieldValue>
+            <controllingFieldValue>IOS</controllingFieldValue>
+            <controllingFieldValue>Android</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/BUSINESS</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/CC</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Type 1</controllingFieldValue>
+            <controllingFieldValue>Type 2</controllingFieldValue>
+            <controllingFieldValue>Type 3</controllingFieldValue>
+            <controllingFieldValue>Type 4</controllingFieldValue>
+            <controllingFieldValue>Type 5</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Contact Centre</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Service Centre</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Onboarding related</controllingFieldValue>
+            <controllingFieldValue>Downtime</controllingFieldValue>
+            <controllingFieldValue>System Outage</controllingFieldValue>
+            <controllingFieldValue>Documents completion</controllingFieldValue>
+            <controllingFieldValue>Whitelisting</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Account_Block</controllingFieldValue>
+            <controllingFieldValue>Account_Unblock</controllingFieldValue>
+            <controllingFieldValue>Recovery_Code</controllingFieldValue>
+            <controllingFieldValue>DB_Archiving</controllingFieldValue>
+            <controllingFieldValue>New Credit Card</controllingFieldValue>
+            <controllingFieldValue>Balance Transfer</controllingFieldValue>
+            <controllingFieldValue>Card Limits Control</controllingFieldValue>
+            <controllingFieldValue>Change Credit Limit</controllingFieldValue>
+            <controllingFieldValue>Close Credit Card</controllingFieldValue>
+            <controllingFieldValue>No-due Certificate</controllingFieldValue>
+            <controllingFieldValue>Pay Card Bill</controllingFieldValue>
+            <controllingFieldValue>Reversal/Waiver of Fees and Charges</controllingFieldValue>
+            <controllingFieldValue>Setup Payment Options</controllingFieldValue>
+            <controllingFieldValue>Statement</controllingFieldValue>
+            <controllingFieldValue>Submit Dispute</controllingFieldValue>
+            <controllingFieldValue>Freeze / Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Block/ Unblock Card</controllingFieldValue>
+            <controllingFieldValue>Replace Card</controllingFieldValue>
+            <controllingFieldValue>EPP Early Closure</controllingFieldValue>
+            <controllingFieldValue>EPP Technical Error</controllingFieldValue>
+            <controllingFieldValue>Direct Debit Settings</controllingFieldValue>
+            <controllingFieldValue>Card Control Settings</controllingFieldValue>
+            <controllingFieldValue>Spending Limit Settings</controllingFieldValue>
+            <controllingFieldValue>Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees Reversal Request</controllingFieldValue>
+            <controllingFieldValue>Create Account</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Card Lien</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block</controllingFieldValue>
+            <controllingFieldValue>CBB Amount unblock</controllingFieldValue>
+            <controllingFieldValue>No due certificate</controllingFieldValue>
+            <controllingFieldValue>Change Interest Rate</controllingFieldValue>
+            <controllingFieldValue>PLA Staff’s relatives eligibility</controllingFieldValue>
+            <controllingFieldValue>New Supplementary Card</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Return to Compliance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Block/Unblock</controllingFieldValue>
+            <controllingFieldValue>Account Closure</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Application Reset</controllingFieldValue>
+            <controllingFieldValue>Change Per Day Trans Limit</controllingFieldValue>
+            <controllingFieldValue>Customer Cheque Status Queries</controllingFieldValue>
+            <controllingFieldValue>Customer Trans &amp; Pmt Disputes</controllingFieldValue>
+            <controllingFieldValue>Cyber Security Threat</controllingFieldValue>
+            <controllingFieldValue>Damaged Card</controllingFieldValue>
+            <controllingFieldValue>Dormant Account Reactivation</controllingFieldValue>
+            <controllingFieldValue>Freeze/Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Incident Management</controllingFieldValue>
+            <controllingFieldValue>Link/ Delink Card</controllingFieldValue>
+            <controllingFieldValue>Lost/Stolen Card</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Report Fraudulent Transactions</controllingFieldValue>
+            <controllingFieldValue>Request Adhoc Statement/Letter</controllingFieldValue>
+            <controllingFieldValue>Staff one time referral codes</controllingFieldValue>
+            <controllingFieldValue>Status of Debit Card Delivery</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque Payment</controllingFieldValue>
+            <controllingFieldValue>Support Failed Payment Queries</controllingFieldValue>
+            <controllingFieldValue>Upgrade/Downgrade Card</controllingFieldValue>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <controllingFieldValue>International</controllingFieldValue>
+            <controllingFieldValue>Domestic</controllingFieldValue>
+            <controllingFieldValue>Telex transfer copy</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Process</controllingFieldValue>
+            <controllingFieldValue>Return Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Managerial Cheque</controllingFieldValue>
+            <controllingFieldValue>IOS</controllingFieldValue>
+            <controllingFieldValue>Android</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/BUSINESS</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/CC</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Contact Centre</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Service Centre</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Onboarding related</controllingFieldValue>
+            <controllingFieldValue>Downtime</controllingFieldValue>
+            <controllingFieldValue>System Outage</controllingFieldValue>
+            <controllingFieldValue>Documents completion</controllingFieldValue>
+            <controllingFieldValue>Whitelisting</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Account_Block</controllingFieldValue>
+            <controllingFieldValue>Account_Unblock</controllingFieldValue>
+            <controllingFieldValue>Recovery_Code</controllingFieldValue>
+            <controllingFieldValue>DB_Archiving</controllingFieldValue>
+            <controllingFieldValue>New Credit Card</controllingFieldValue>
+            <controllingFieldValue>Balance Transfer</controllingFieldValue>
+            <controllingFieldValue>Card Limits Control</controllingFieldValue>
+            <controllingFieldValue>Change Credit Limit</controllingFieldValue>
+            <controllingFieldValue>Close Credit Card</controllingFieldValue>
+            <controllingFieldValue>No-due Certificate</controllingFieldValue>
+            <controllingFieldValue>Pay Card Bill</controllingFieldValue>
+            <controllingFieldValue>Reversal/Waiver of Fees and Charges</controllingFieldValue>
+            <controllingFieldValue>Setup Payment Options</controllingFieldValue>
+            <controllingFieldValue>Statement</controllingFieldValue>
+            <controllingFieldValue>Submit Dispute</controllingFieldValue>
+            <controllingFieldValue>Freeze / Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Block/ Unblock Card</controllingFieldValue>
+            <controllingFieldValue>Replace Card</controllingFieldValue>
+            <controllingFieldValue>EPP Early Closure</controllingFieldValue>
+            <controllingFieldValue>EPP Technical Error</controllingFieldValue>
+            <controllingFieldValue>Direct Debit Settings</controllingFieldValue>
+            <controllingFieldValue>Card Control Settings</controllingFieldValue>
+            <controllingFieldValue>Spending Limit Settings</controllingFieldValue>
+            <controllingFieldValue>Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees Reversal Request</controllingFieldValue>
+            <controllingFieldValue>Create Account</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Card Lien</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block</controllingFieldValue>
+            <controllingFieldValue>CBB Amount unblock</controllingFieldValue>
+            <controllingFieldValue>No due certificate</controllingFieldValue>
+            <controllingFieldValue>Change Interest Rate</controllingFieldValue>
+            <controllingFieldValue>PLA Staff’s relatives eligibility</controllingFieldValue>
+            <controllingFieldValue>New Supplementary Card</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Accept</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account Block/Unblock</controllingFieldValue>
+            <controllingFieldValue>Account Closure</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Application Reset</controllingFieldValue>
+            <controllingFieldValue>Change Per Day Trans Limit</controllingFieldValue>
+            <controllingFieldValue>Customer Cheque Status Queries</controllingFieldValue>
+            <controllingFieldValue>Customer Trans &amp; Pmt Disputes</controllingFieldValue>
+            <controllingFieldValue>Cyber Security Threat</controllingFieldValue>
+            <controllingFieldValue>Damaged Card</controllingFieldValue>
+            <controllingFieldValue>Dormant Account Reactivation</controllingFieldValue>
+            <controllingFieldValue>Freeze/Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Incident Management</controllingFieldValue>
+            <controllingFieldValue>Link/ Delink Card</controllingFieldValue>
+            <controllingFieldValue>Lost/Stolen Card</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Report Fraudulent Transactions</controllingFieldValue>
+            <controllingFieldValue>Request Adhoc Statement/Letter</controllingFieldValue>
+            <controllingFieldValue>Staff one time referral codes</controllingFieldValue>
+            <controllingFieldValue>Status of Debit Card Delivery</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque Payment</controllingFieldValue>
+            <controllingFieldValue>Support Failed Payment Queries</controllingFieldValue>
+            <controllingFieldValue>Upgrade/Downgrade Card</controllingFieldValue>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <controllingFieldValue>International</controllingFieldValue>
+            <controllingFieldValue>Domestic</controllingFieldValue>
+            <controllingFieldValue>Telex transfer copy</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Process</controllingFieldValue>
+            <controllingFieldValue>Return Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Cheque</controllingFieldValue>
+            <controllingFieldValue>Stop Managerial Cheque</controllingFieldValue>
+            <controllingFieldValue>IOS</controllingFieldValue>
+            <controllingFieldValue>Android</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/BUSINESS</controllingFieldValue>
+            <controllingFieldValue>Adhoc Accounting Entries/CC</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Contact Centre</controllingFieldValue>
+            <controllingFieldValue>Rude Behaviour Service Centre</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Onboarding related</controllingFieldValue>
+            <controllingFieldValue>Downtime</controllingFieldValue>
+            <controllingFieldValue>System Outage</controllingFieldValue>
+            <controllingFieldValue>Documents completion</controllingFieldValue>
+            <controllingFieldValue>Whitelisting</controllingFieldValue>
+            <controllingFieldValue>Provisioning</controllingFieldValue>
+            <controllingFieldValue>Stolen/Sold Device</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <controllingFieldValue>Account_Block</controllingFieldValue>
+            <controllingFieldValue>Account_Unblock</controllingFieldValue>
+            <controllingFieldValue>Recovery_Code</controllingFieldValue>
+            <controllingFieldValue>DB_Archiving</controllingFieldValue>
+            <controllingFieldValue>New Credit Card</controllingFieldValue>
+            <controllingFieldValue>Balance Transfer</controllingFieldValue>
+            <controllingFieldValue>Card Limits Control</controllingFieldValue>
+            <controllingFieldValue>Change Credit Limit</controllingFieldValue>
+            <controllingFieldValue>Close Credit Card</controllingFieldValue>
+            <controllingFieldValue>No-due Certificate</controllingFieldValue>
+            <controllingFieldValue>Pay Card Bill</controllingFieldValue>
+            <controllingFieldValue>Reversal/Waiver of Fees and Charges</controllingFieldValue>
+            <controllingFieldValue>Setup Payment Options</controllingFieldValue>
+            <controllingFieldValue>Statement</controllingFieldValue>
+            <controllingFieldValue>Submit Dispute</controllingFieldValue>
+            <controllingFieldValue>Freeze / Unfreeze Card</controllingFieldValue>
+            <controllingFieldValue>Block/ Unblock Card</controllingFieldValue>
+            <controllingFieldValue>Replace Card</controllingFieldValue>
+            <controllingFieldValue>EPP Early Closure</controllingFieldValue>
+            <controllingFieldValue>EPP Technical Error</controllingFieldValue>
+            <controllingFieldValue>Direct Debit Settings</controllingFieldValue>
+            <controllingFieldValue>Card Control Settings</controllingFieldValue>
+            <controllingFieldValue>Spending Limit Settings</controllingFieldValue>
+            <controllingFieldValue>Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees Reversal Request</controllingFieldValue>
+            <controllingFieldValue>Create Account</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Card Lien</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block</controllingFieldValue>
+            <controllingFieldValue>CBB Amount unblock</controllingFieldValue>
+            <controllingFieldValue>No due certificate</controllingFieldValue>
+            <controllingFieldValue>Change Interest Rate</controllingFieldValue>
+            <controllingFieldValue>PLA Staff’s relatives eligibility</controllingFieldValue>
+            <controllingFieldValue>New Supplementary Card</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Decrease</controllingFieldValue>
+            <controllingFieldValue>Manual Credit Limit Increase</controllingFieldValue>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Cancelled by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Onboarding - ila Bahrain (CDO)</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Activation</controllingFieldValue>
+            <controllingFieldValue>Personal Loan / Finance</controllingFieldValue>
+            <controllingFieldValue>Change Mobile Number</controllingFieldValue>
+            <controllingFieldValue>Login from Unbound Device</controllingFieldValue>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Periodic Review</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Suspected Identity Fraud</controllingFieldValue>
+            <controllingFieldValue>Supplementary Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Debit Card Activation</controllingFieldValue>
+            <controllingFieldValue>Credit Card Activation</controllingFieldValue>
+            <controllingFieldValue>Change Interest Rate</controllingFieldValue>
+            <valueName>Confirm Fraud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Onboarding - ila Bahrain (CDO)</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Activation</controllingFieldValue>
+            <controllingFieldValue>Personal Loan / Finance</controllingFieldValue>
+            <controllingFieldValue>Change Mobile Number</controllingFieldValue>
+            <controllingFieldValue>Login from Unbound Device</controllingFieldValue>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Periodic Review</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Suspected Identity Fraud</controllingFieldValue>
+            <controllingFieldValue>Supplementary Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Debit Card Activation</controllingFieldValue>
+            <controllingFieldValue>Credit Card Activation</controllingFieldValue>
+            <valueName>Cancel Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Onboarding - ila Bahrain (CDO)</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Activation</controllingFieldValue>
+            <controllingFieldValue>Personal Loan / Finance</controllingFieldValue>
+            <controllingFieldValue>Change Mobile Number</controllingFieldValue>
+            <controllingFieldValue>Login from Unbound Device</controllingFieldValue>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Periodic Review</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Suspected Identity Fraud</controllingFieldValue>
+            <controllingFieldValue>Supplementary Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Debit Card Activation</controllingFieldValue>
+            <controllingFieldValue>Credit Card Activation</controllingFieldValue>
+            <valueName>Send to Contact Center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Onboarding - ila Bahrain (CDO)</controllingFieldValue>
+            <controllingFieldValue>Personal Loan / Finance</controllingFieldValue>
+            <controllingFieldValue>Change Mobile Number</controllingFieldValue>
+            <controllingFieldValue>Login from Unbound Device</controllingFieldValue>
+            <valueName>Genuine Request – Expired CPR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prepaid Card Activation</controllingFieldValue>
+            <controllingFieldValue>Personal Loan / Finance</controllingFieldValue>
+            <controllingFieldValue>Login from Unbound Device</controllingFieldValue>
+            <controllingFieldValue>Canceled Work Permit</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Periodic Review</controllingFieldValue>
+            <controllingFieldValue>KYC Verification - Suspected Identity Fraud</controllingFieldValue>
+            <controllingFieldValue>Supplementary Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Prepaid Card Notification Settings Update</controllingFieldValue>
+            <controllingFieldValue>Debit Card Activation</controllingFieldValue>
+            <controllingFieldValue>Credit Card Activation</controllingFieldValue>
+            <valueName>Skip ID&amp;V Next Login</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

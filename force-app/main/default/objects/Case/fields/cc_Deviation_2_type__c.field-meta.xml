@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Deviation_2_type__c</fullName>
+    <label>Deviation 2 type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Documentation - Salary / Employment Letter does not fully meet the minimum requirements</fullName>
+                <default>false</default>
+                <label>Documentation - Salary / Employment Letter does not fully meet the minimum requirements</label>
+            </value>
+            <value>
+                <fullName>Documentation - Salary / Employment Letter docs exceeding 1 month</fullName>
+                <default>false</default>
+                <label>Documentation - Salary / Employment Letter docs exceeding 1 month</label>
+            </value>
+            <value>
+                <fullName>Documentation - Pay slip - not most recent</fullName>
+                <default>false</default>
+                <label>Documentation - Pay slip - not most recent</label>
+            </value>
+            <value>
+                <fullName>Documentation - Accepting most recent two-month bank statement instead of 3 months</fullName>
+                <default>false</default>
+                <label>Documentation - Accepting most recent two-month bank statement instead of 3 months</label>
+            </value>
+            <value>
+                <fullName>Documentation - Utility Bill exceeds 2 months (max 3 months)</fullName>
+                <default>false</default>
+                <label>Documentation - Utility Bill exceeds 2 months (max 3 months)</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Minimum Salary/ Income: 5% Lower than minimum product stipulation</fullName>
+                <default>false</default>
+                <label>Eligibility - Minimum Salary/ Income: 5% Lower than minimum product stipulation</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Length of employment – Provided confirmed</fullName>
+                <default>false</default>
+                <label>Eligibility - Length of employment – Provided confirmed</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Up to 2 month – Bahrainis</fullName>
+                <default>false</default>
+                <label>Eligibility - Up to 2 month – Bahrainis</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Up to 1 month Expat</fullName>
+                <default>false</default>
+                <label>Eligibility - Up to 1 month Expat</label>
+            </value>
+            <value>
+                <fullName>Eligibility - LOB – SE &amp; Prof: Less by 3 months</fullName>
+                <default>false</default>
+                <label>Eligibility - LOB – SE &amp; Prof: Less by 3 months</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Exceeding max age</fullName>
+                <default>false</default>
+                <label>Eligibility - Exceeding max age</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Non – Whitelist Employer</fullName>
+                <default>false</default>
+                <label>Eligibility - Non – Whitelist Employer</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Restricted segment</fullName>
+                <default>false</default>
+                <label>Eligibility - Restricted segment</label>
+            </value>
+            <value>
+                <fullName>Eligibility - Restricted Profession</fullName>
+                <default>false</default>
+                <label>Eligibility - Restricted Profession</label>
+            </value>
+            <value>
+                <fullName>Credit - Below Minimum Card Limit</fullName>
+                <default>false</default>
+                <label>Credit - Below Minimum Card Limit</label>
+            </value>
+            <value>
+                <fullName>Credit - Below Minimum CRB Score</fullName>
+                <default>false</default>
+                <label>Credit - Below Minimum CRB Score</label>
+            </value>
+            <value>
+                <fullName>Credit - Exceeds Debt Burden with mortgage loan</fullName>
+                <default>false</default>
+                <label>Credit - Exceeds Debt Burden with mortgage loan</label>
+            </value>
+            <value>
+                <fullName>Credit - Deviation on Acceptable Credit / Account History (not write off) / CRB rating</fullName>
+                <default>false</default>
+                <label>Credit - Deviation on Acceptable Credit / Account History (not write off) / CRB rating</label>
+            </value>
+            <value>
+                <fullName>Credit - Maximum Card limit - Exceed the max multiples per criteria</fullName>
+                <default>false</default>
+                <label>Credit - Maximum Card limit - Exceed the max multiples per criteria</label>
+            </value>
+            <value>
+                <fullName>Credit - Waiving CPV</fullName>
+                <default>false</default>
+                <label>Credit - Waiving CPV</label>
+            </value>
+            <value>
+                <fullName>Credit - Other</fullName>
+                <default>false</default>
+                <label>Credit - Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

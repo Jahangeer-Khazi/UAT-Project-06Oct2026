@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Button to Validate the Subscription Model termination</description>
+    <height>250</height>
+    <label>Execute Subscription Model Termination Checks</label>
+    <lightningComponent>LTNG0024_ValidateAccountTermination</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Potential_Disability__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This will store the flag for Detecting &amp; Handling Disability - NBA-9346</description>
+    <label>Potential Disability</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

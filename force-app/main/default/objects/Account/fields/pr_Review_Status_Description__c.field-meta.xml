@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_Review_Status_Description__c</fullName>
+    <description>This gives a short descripton of all the Review Status values</description>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(pr_ReviewStatus__c)=&apos;Completed&apos; , &apos;Periodic Review is scheduled&apos;,  IF(TEXT(pr_ReviewStatus__c)=&apos;In-Progress&apos;, &apos;Periodic Review case is in progress&apos;,  IF(TEXT(pr_ReviewStatus__c)=&apos;Overdue Stage 1&apos;, &apos;Additional information is required.&apos;,  IF(TEXT(pr_ReviewStatus__c)=&apos;Overdue Stage 2&apos;, &apos;Additional information is required. ATM cash withdrawals blocked.&apos;,  IF(TEXT(pr_ReviewStatus__c)=&apos;Overdue Stage 3&apos;, &apos;Additional information is required. ATM cash withdrawals, and all debit cards blocked.&apos;,  IF(TEXT(pr_ReviewStatus__c)=&apos;Overdue Stage 4&apos;, &apos;Additional information is required. ATM cash withdrawals, all debit cards, all credit cards, and all accounts blocked.&apos;,  IF(TEXT(pr_ReviewStatus__c)=&apos;Overdue Stage 5&apos;, &apos;Additional information is required. ATM cash withdrawals, all debit cards, all credit cards, all accounts and app access is blocked.&apos;,&apos;&apos;) ) ) ) ) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Review Status Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Whitelisted_Employer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is for Credit card case</description>
+    <label>Whitelisted Employer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,48 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date:
+ * 		Change History: 
+ *	    	
+-->
+<aura:component >
+	<aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+   
+	<aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account">
+                                  
+            <lightning:messages />
+            
+            <label for="ID_Type">ID Type</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="ID_Type_Update__pc" aura:id="ID_Type" value="{!v.account.ID_Type_Update__pc}" variant="label-hidden"/>
+            </div>
+            <br/>
+            <label for="ID_Expiry_Date">ID Expiry Date</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="ID_Expiry_Date_Update__pc" aura:id="ID_Expiry_Date" value="{!v.account.ID_Expiry_Date_Update__pc}" variant="label-hidden"/>
+            </div>
+            
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    	<div class="slds-box">
+                     		<label for="ID_Type">ID Type</label> <br/>
+                        		<lightning:outputField fieldName="ID_Type_Update__pc" aura:id="ID_Type" variant="label-hidden"/>  <br/>
+                        	<label for="ID_Expiry_Date">ID Expiry Date</label>  <br/>
+                        		<lightning:outputField fieldName="ID_Expiry_Date_Update__pc" aura:id="ID_Expiry_Date" variant="label-hidden"/>  <br/>
+                    	</div> 
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

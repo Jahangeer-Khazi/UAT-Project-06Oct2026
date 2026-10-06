@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_AppSalary_Mandatory</fullName>
+    <active>false</active>
+    <description>if Employment status = self employed then Approve Salary is Mandatory</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Evaluation_Result__c),
+ISPICKVAL(cc_Credit_Evaluation_Result__c, &quot;Accept&quot;),
+ISPICKVAL(cc_Employment_Status__c, &quot;Self Employed&quot;),
+ISBLANK(cc_Approved_Salary__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Application&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Salary__c</errorDisplayField>
+    <errorMessage>Please fill the Approve Salary field, if Employment status is Self Employed.</errorMessage>
+</ValidationRule>

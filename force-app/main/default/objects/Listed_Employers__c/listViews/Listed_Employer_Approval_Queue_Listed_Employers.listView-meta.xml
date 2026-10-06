@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Listed_Employer_Approval_Queue_Listed_Employers</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Listed Employer Approval Queue</label>
+    <queue>Listed_Employer_Approval_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

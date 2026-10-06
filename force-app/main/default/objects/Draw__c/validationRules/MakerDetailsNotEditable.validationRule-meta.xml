@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MakerDetailsNotEditable</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+			!ISPICKVAL(Status__c, &apos;New&apos;),
+   !ISPICKVAL(Status__c, &apos;Rework&apos;),
+   OR(
+     ISCHANGED(Draw_Date__c),
+     ISCHANGED(Total_Prize_Fund__c),
+     ISCHANGED(Grand_Prize__c),
+     ISCHANGED(Draw_Denomination__c),
+     ISCHANGED(Draw_Name__c)
+   )
+)</errorConditionFormula>
+    <errorMessage>You cannot make changes to the &quot;Raffle Draw Maker&quot; section at this stage</errorMessage>
+</ValidationRule>

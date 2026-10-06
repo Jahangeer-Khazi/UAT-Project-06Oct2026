@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification email sent when a customer uploads new documents to their case</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Loans Customer Document Submission</name>
+    <style>none</style>
+    <subject>Case Document Received - {!Case.CaseNumber}</subject>
+    <textOnly>The case has been assigned to you.
+
+Hi,
+Please be advised that a Case with case number {!Case.CaseNumber} has been assigned to you.
+Case description: {!Case.Description}
+Case Type: {!Case.Type}
+Case Sub Type: {!Case.Sub_Type__c}
+
+Open CRM case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

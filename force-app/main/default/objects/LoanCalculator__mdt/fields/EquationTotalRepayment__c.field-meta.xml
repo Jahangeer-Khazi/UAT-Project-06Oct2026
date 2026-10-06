@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EquationTotalRepayment__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Equation total Repayment</label>
+    <length>80000</length>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

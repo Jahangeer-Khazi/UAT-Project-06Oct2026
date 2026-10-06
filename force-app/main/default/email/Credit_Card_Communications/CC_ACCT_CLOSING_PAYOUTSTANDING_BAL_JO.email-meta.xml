@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_ACCT_CLOSING_PAYOUTSTANDING_BAL_JO</name>
+    <style>none</style>
+    <subject>Your request to cancel your credit card is incomplete</subject>
+    <textOnly>Hi,
+
+We were unable to process your request  to close your {!Case.cc_Requested_Card_Type__c} credit card account, please pay the outstanding balance to proceed with account closure.
+Please use the request ID {!Case.CaseNumber} to follow up.
+
+
+For any questions, call us on +962 65100001
+
+Open ila app
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files 								transmitted with it are confidential and 								intended solely for the use of the individual or 								entity to whom they are addressed. If you have 								received this email in error, please notify the 								system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

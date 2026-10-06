@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE_BY</field>
+    </columns>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>CLOSED</field>
+    </columns>
+    <columns>
+        <field>CASE_ID</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>CLOSED</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account Services,ATM,Cards,Cards-AFS,Cheques,Complaint Team,Compliance Team,Contact Centre,Debit Card,Disputes,FLoD,Frauds,ICU - Checker,InfoSec,Internal Control Unit,IT,Manual Onboarding - Checker Queue,Manual Onboarding - Maker Queue,MLRO,Operations Team,Payments &amp; Transfers,Product &amp; Marketing,Q1,Risk,RMT,Senior Manager,Service Centre,Service Centre Exceptions,Service Centre On Boarding,Support Staff,Transfers</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Closed Case owned by Queue</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

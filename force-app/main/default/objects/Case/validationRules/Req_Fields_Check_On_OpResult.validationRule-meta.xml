@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Req_Fields_Check_On_OpResult</fullName>
+    <active>true</active>
+    <description>Validates that all required approval fields are populated before allowing changes to Operation Result field.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(cc_Card_Operations_Result__c),
+				ISPICKVAL(Region_Flag__c,&quot;Jordan&quot;),
+				NOT(ISNEW()),
+    OR(
+        /* Credit Card Record Type */
+        AND(
+            RecordType.DeveloperName = &quot;Credit_Card&quot;,
+            OR(
+                ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Evaluation_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Verification_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Approval_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Admin_Result__c, &apos;&apos;)
+            )
+        ),
+        /* Credit Card Cash Collateral - Regular */
+        AND(
+            RecordType.DeveloperName = &quot;Credit_Card_Cash_Collateral_Regular&quot;,
+            OR(
+                ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Approval_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Admin_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;&apos;)
+            )
+        ),
+        /* Credit Limit Increase */
+        AND(
+            RecordType.DeveloperName = &quot;Credit_Limit_Increase&quot;,
+            OR(
+                ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Evaluation_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Verification_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Admin_Result__c, &apos;&apos;)
+            )
+        ),
+        /* Cash Collateral Credit Limit Increase */
+        AND(
+            RecordType.DeveloperName = &quot;Cash_Collateral_Credit_Limit_Increase&quot;,
+            OR(
+                ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Approval_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Credit_Admin_Result__c, &apos;&apos;),
+                ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;&apos;)
+            )
+        )
+    )
+)</errorConditionFormula>
+    <errorDisplayField>cc_Card_Operations_Result__c</errorDisplayField>
+    <errorMessage>Please make sure all results are submitted by the previous queues.</errorMessage>
+</ValidationRule>

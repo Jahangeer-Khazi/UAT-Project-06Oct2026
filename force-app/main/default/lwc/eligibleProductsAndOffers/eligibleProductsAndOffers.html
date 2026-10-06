@@ -1,0 +1,247 @@
+<template>
+    <template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container modal-container">
+                <!-- Header -->
+                <header class="slds-modal__header modal-header">
+                    <button class="slds-button slds-button_icon slds-modal__close"
+                            title="Close"
+                            onclick={hideModalBox}
+                            disabled={isProcessing}>
+                        <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                size="small">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h1 id="modal-heading" class="slds-modal__title slds-hyphenate">
+                        Eligible Products &amp; Offers
+                    </h1>
+                </header>
+
+                <!-- Content -->
+                <div class="slds-modal__content modal-content" id="modal-content">
+                    <!-- Loading Overlay -->
+                    <template if:true={isLoading}>
+                        <div class="loading-overlay">
+                            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                            <p class="loading-text">{loadingMessage}</p>
+                        </div>
+                    </template>
+
+                    <!-- Main Content -->
+                    <template if:false={isLoading}>
+
+                        <!-- ✅ Inline Error Banner — always visible inside the modal -->
+                        <template if:true={hasInlineError}>
+                            <div class="slds-box slds-theme_error slds-m-around_small" role="alert">
+                                <lightning-icon icon-name="utility:error" size="x-small"></lightning-icon>
+                                <span style="margin-left: 0.5rem;">{inlineError}</span>
+                            </div>
+                        </template>
+
+                        <!-- Eligible Products Section -->
+                        <div class="section-container">
+                            <div class="section-header">
+                                <lightning-icon icon-name="custom:custom68" class="section-icon" size="x-small">
+                                </lightning-icon>
+                                <h2 class="section-title">Eligible Products</h2>
+                                <span class="item-count">{productCountDisplay}</span>
+                            </div>
+
+                            <div class="items-list">
+                                <!-- No Products Available -->
+                                <template if:true={hasNoProducts}>
+                                    <div class="empty-state">
+                                        <lightning-icon icon-name="utility:info" size="small" class="empty-icon">
+                                        </lightning-icon>
+                                        <span class="empty-text">No Eligible Products</span>
+                                    </div>
+                                </template>
+
+                                <!-- Products List -->
+                                <template if:false={hasNoProducts}>
+                                    <template for:each={activeProducts} for:item="product">
+                                        <div key={product.id} class="item-row" data-id={product.id}>
+                                            <div class="item-info">
+                                                <span class="item-name">{product.name}</span>
+                                                <template if:true={product.isActioned}>
+                                                    <span class="actioned-badge">
+                                                        <lightning-icon icon-name="utility:check" size="x-small"></lightning-icon>
+                                                        Actioned
+                                                    </span>
+                                                </template>
+                                            </div>
+                                            <div class="selection-container">
+                                                <span class="interest-label">Interested?</span>
+                                                <div class="selection-group">
+                                                    <div class="selection-option">
+                                                        <input type="radio"
+                                                               id={product.yesId}
+                                                               name={product.radioName}
+                                                               value="yes"
+                                                               data-id={product.id}
+                                                               data-type="product"
+                                                               onchange={handleRadioChange}
+                                                               class="selection-input"
+                                                               disabled={product.isActioned} />
+                                                        <label for={product.yesId} class="selection-label selection-yes">
+                                                            Yes
+                                                        </label>
+                                                    </div>
+                                                    <div class="selection-option">
+                                                        <input type="radio"
+                                                               id={product.noId}
+                                                               name={product.radioName}
+                                                               value="no"
+                                                               data-id={product.id}
+                                                               data-type="product"
+                                                               onchange={handleRadioChange}
+                                                               class="selection-input"
+                                                               disabled={product.isActioned} />
+                                                        <label for={product.noId} class="selection-label selection-no">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Eligible Offers Section -->
+                        <div class="section-container">
+                            <div class="section-header">
+                                <lightning-icon icon-name="custom:custom21" class="section-icon" size="x-small">
+                                </lightning-icon>
+                                <h2 class="section-title">Eligible Offers</h2>
+                                <span class="item-count">{offerCountDisplay}</span>
+                            </div>
+
+                            <div class="items-list">
+                                <!-- No Offers Available -->
+                                <template if:true={hasNoOffers}>
+                                    <div class="empty-state">
+                                        <lightning-icon icon-name="utility:info" size="small" class="empty-icon">
+                                        </lightning-icon>
+                                        <span class="empty-text">No Eligible Offers</span>
+                                    </div>
+                                </template>
+
+                                <!-- Offers List -->
+                                <template if:false={hasNoOffers}>
+                                    <template for:each={activeOffers} for:item="offer">
+                                        <div key={offer.id} class="item-row" data-id={offer.id}>
+                                            <div class="item-info">
+                                                <span class="item-name">{offer.name}</span>
+                                                <template if:true={offer.isActioned}>
+                                                    <span class="actioned-badge">
+                                                        <lightning-icon icon-name="utility:check" size="x-small"></lightning-icon>
+                                                        Actioned
+                                                    </span>
+                                                </template>
+                                            </div>
+                                            <div class="selection-container">
+                                                <span class="interest-label">Interested?</span>
+                                                <div class="selection-group">
+                                                    <div class="selection-option">
+                                                        <input type="radio"
+                                                               id={offer.yesId}
+                                                               name={offer.radioName}
+                                                               value="yes"
+                                                               data-id={offer.id}
+                                                               data-type="offer"
+                                                               onchange={handleRadioChange}
+                                                               class="selection-input"
+                                                               disabled={offer.isActioned} />
+                                                        <label for={offer.yesId} class="selection-label selection-yes">
+                                                            Yes
+                                                        </label>
+                                                    </div>
+                                                    <div class="selection-option">
+                                                        <input type="radio"
+                                                               id={offer.noId}
+                                                               name={offer.radioName}
+                                                               value="no"
+                                                               data-id={offer.id}
+                                                               data-type="offer"
+                                                               onchange={handleRadioChange}
+                                                               class="selection-input"
+                                                               disabled={offer.isActioned} />
+                                                        <label for={offer.noId} class="selection-label selection-no">
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Summary Section -->
+                        <template if:true={showSummary}>
+                            <div class="summary-container">
+                                <div class="summary-header">
+                                    <lightning-icon icon-name="utility:summary" size="x-small"></lightning-icon>
+                                    <span class="summary-title">Summary</span>
+                                </div>
+                                <div class="summary-content">
+                                    <template if:true={hasYesSelections}>
+                                        <div class="summary-item summary-yes">
+                                            <lightning-icon icon-name="utility:check" size="x-small"></lightning-icon>
+                                            <span>Interested: {yesCount} items</span>
+                                        </div>
+                                    </template>
+                                    <template if:true={hasNoSelections}>
+                                        <div class="summary-item summary-no">
+                                            <lightning-icon icon-name="utility:close" size="x-small"></lightning-icon>
+                                            <span>Not Interested: {noCount} items</span>
+                                        </div>
+                                    </template>
+                                    <template if:false={hasAnySelections}>
+                                        <div class="summary-item summary-empty">
+                                            <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                                            <span>No selections made yet</span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+
+                <!-- Footer -->
+                <footer class="slds-modal__footer modal-footer">
+                    <div class="footer-left">
+                        <template if:true={isProcessing}>
+                            <lightning-spinner alternative-text="Processing" size="small"></lightning-spinner>
+                            <span class="processing-text">Processing your selections...</span>
+                        </template>
+                    </div>
+                    <div class="footer-right">
+                        <button class="slds-button slds-button_neutral"
+                                onclick={hideModalBox}
+                                disabled={isProcessing}>
+                            Cancel
+                        </button>
+                        <button class="slds-button slds-button_brand"
+                                onclick={handleApply}
+                                disabled={isApplyDisabled}>
+                            <template if:true={isProcessing}>
+                                <lightning-spinner alternative-text="Processing" size="x-small"></lightning-spinner>
+                            </template>
+                            <template if:false={isProcessing}>
+                                Apply
+                            </template>
+                        </button>
+                    </div>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

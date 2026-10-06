@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Model_MatchWith_Account_Subcription</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(
+TEXT(Account_Name__r.PersonContact.Subscription_Model__c) = &apos;ila&apos;,
+TEXT(Account_Name__r.PersonContact.Subscription_Model__c) = &apos;alburaq&apos;
+),
+TEXT(Case_Model__c)!= TEXT(Account_Name__r.PersonContact.Subscription_Model__c)
+)</errorConditionFormula>
+    <errorDisplayField>Case_Model__c</errorDisplayField>
+    <errorMessage>Case Model has to be Matched with Customer Subscription Model</errorMessage>
+</ValidationRule>

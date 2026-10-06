@@ -1,0 +1,333 @@
+<!--  
+ *  @author: AITOGRAM Omar
+ *  @date: 22/04/2026
+ *
+ *  Change History:
+ *                #CH01# #AITOGRAM OMAR# #22-04-2026# Added Cancel Fawri transfer logic (NBA-15906) 
+ -->
+
+<template>
+    <div style={containerStyle}>
+        <lightning-card>
+            <template if:true={isLoading} class="slds-is-relative">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+            </template>
+            <header class="slds-p-horizontal_medium slds-text-align_center">
+                <h2 class="slds-text-heading_medium">New Request</h2>
+            </header>
+            <div class="slds-divider_bottom slds-m-bottom_medium"></div>
+            <div class="slds-p-around_medium box-border box-height">
+
+                <template if:true={interactionId}>
+                    <div class="slds-m-top_medium">
+                        <p class="slds-text-body_regular pad-st">
+                            <strong>CIF:</strong> {caseCIF}
+                        </p>
+                        <p class="slds-text-body_regular pad-st">
+                            <strong>Customer Name:</strong> {caseCustomerName}
+                        </p>
+                    </div>
+                </template>
+
+                <lightning-combobox label="Case Model" name="caseModel" onchange={handleChange}
+                    options={caseModelOptions} required value={caseModel}></lightning-combobox>
+                <lightning-combobox label="Type" name="caseType" options={typeOptions} onchange={handleTypeChange}
+                    required>
+                </lightning-combobox>
+                <!-- CH01 added : value caseSubType -->
+                <lightning-combobox label="Sub Type" name="caseSubType" options={subTypeOptions}
+                    onchange={handleSubTypeChange} disabled={isSubTypeDisabled} value={caseSubType}>
+                </lightning-combobox>
+
+                <template if:false={isFawriCancellation}>
+                    <lightning-combobox label="Request Type" name="caseRequestType" options={requestTypeOptions}
+                        onchange={handleRequestTypeChange} disabled={isRequestTypeDisabled} value={caseRequestType}>
+                    </lightning-combobox>
+                </template>
+
+                <template if:true={isShowCardNumbers}>
+                    <lightning-input type="text" label="Enter Card Number" name="cardNumber" onchange={handleChange}
+                        required>
+                    </lightning-input>
+                </template>
+
+                <template if:true={isShowBondSukukOptions}>
+                    <lightning-combobox label="Investment No" name="investmentNo" options={bondOptions}
+                        onchange={handleBondChange}>
+                    </lightning-combobox>
+                </template>
+
+                <template if:true={hasData}>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                            <lightning-input label="ISIN Type" value={currentBond.bs_ISIN_Type} disabled>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                            <lightning-input label="ISIN Code" value={currentBond.bs_ISIN_Code} disabled>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                            <lightning-input label="Maturity Date" value={currentBond.bs_Maturity_Date} disabled>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                            <lightning-input label="Bid Allocation Amount" value={currentBond.bs_bidAllocationAmount}
+                                disabled>
+                            </lightning-input>
+                        </div>
+                    </div>
+                </template>
+                <template if:true={isShowPremiumRetentionFields}>
+                    <lightning-combobox label="Requested By" name="requestedBy" value={requestedBy}
+                        onchange={handleRequestedByChange} options={requestedByOptions} required>
+                    </lightning-combobox>
+
+                    <template if:true={isCustomer}>
+                        <lightning-input label="Name on the Card" name="customerName" value={customerName}
+                            onchange={handleChange} required></lightning-input>
+                        <lightning-input type="number" label="Total Fees" name="totalFees" onchange={handleChange}
+                            required>
+                        </lightning-input>
+                    </template>
+
+                    <!-- Conditional rendering for Bank / CBB -->
+                    <template if:true={isBank}>
+                        <lightning-input type="number" label="Discount Amount" name="discountAmount"
+                            onchange={handleChange} required></lightning-input>
+                        <lightning-input type="number" label="Expiry Days" name="expiryDays" onchange={handleChange}
+                            required></lightning-input>
+                    </template>
+
+                </template>
+                <template if:true={isShowCreditCardOptions}>
+                    <lightning-combobox label="Credit Card" name="creditCard" options={creditCardOptions}>
+                    </lightning-combobox>
+                </template>
+                <template if:true={isShowTenor}>
+                    <lightning-input type="text" label="Tenor" name="tenor" onchange={handleChange} required>
+                    </lightning-input>
+                </template>
+                <template if:true={isShowAccounts}>
+                    <lightning-dual-listbox name="accounts" label="Select Accounts" source-label="Available Accounts"
+                        selected-label="Selected Accounts" field-level-help="Select accounts to block or unblock"
+                        options={accList} onchange={handleListBoxChange}>
+                    </lightning-dual-listbox>
+                    <lightning-textarea label="Selected Accounts" name="description" disabled value={selected} required>
+                    </lightning-textarea>
+                </template>
+
+                <template if:true={isShowBeneficiaryName}>
+                    <lightning-input type="text" label="Beneficiary Name" name="beneficiaryName" onchange={handleChange}
+                        required>
+                    </lightning-input>
+                    <lightning-input type="number" label="Amount" name="amount" onchange={handleChange} required>
+                    </lightning-input>
+                </template>
+
+                <template if:true={isShowIBANLetters}>
+                    <lightning-combobox name="ibanLetters" label="Select Account" options={allCustomerAccounts}
+                        value={selectedIBANLetter} onchange={handleSelectionChange} required>
+                    </lightning-combobox>
+                </template>
+                <template if:true={isShowCurrencies}>
+                    <lightning-combobox label="Currency" name="caseCurrency" onchange={handleChange}
+                        options={currencyOptions}></lightning-combobox>
+                </template>
+                <template if:true={isShowAccountAliasAndCurrencies}>
+                    <lightning-input type="text" label="Account Alias" name="accountAlias" onchange={handleChange}
+                        required>
+                    </lightning-input>
+                    <lightning-combobox label="Currency" name="caseCurrency" onchange={handleChange}
+                        options={currencyOptions} required></lightning-combobox>
+                </template>
+                <template if:true={isShowOverdrawnAccount}>
+                    <lightning-combobox label="Overdrawn Account (OD)" name="overdrawnAccount" onchange={handleChange}
+                        options={overdrawnAccounts}></lightning-combobox>
+                </template>
+                <template if:true={isShowMaskedNumber}>
+                    <lightning-combobox name="MaskedCardNumber" label="Masked Card Number" value={selectedPCINumber}
+                        placeholder="--None--" options={cc_cardPCINumber} onchange={handlePCINumberChange} required>
+                    </lightning-combobox>
+                    <lightning-input type="number" label="Enter Credit Limit" name="creditLimit" onchange={handleChange}
+                        required>
+                    </lightning-input>
+                </template>
+                <template if:true={isShowDates}>
+                    <div class="dual-field-container">
+                        <lightning-input type="datetime" label="Period From" value={startDateTime}
+                            onchange={handleStartDateTimeChange}>
+                        </lightning-input>
+                        <lightning-input type="datetime" label="Period To" value={endDateTime}
+                            onchange={handleEndDateTimeChange}>
+                        </lightning-input>
+                    </div>
+                </template>
+
+                <template if:true={isShowGenerateRandomPassword}>
+                    <div class="slds-form-element checkbox-margin" style="margin-bottom: 2%;">
+                        <label class="slds-form-element__label" for="checkbox-unique-id-82">Generate Random Password</label>
+                        <div class="slds-form-element__control">
+                            <span class="slds-checkbox slds-checkbox_standalone">
+          <input type="checkbox" id="checkbox-unique-id-85" name="generateRandomPassword" onchange={handleChange}/>
+          <span class="slds-checkbox_faux"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <lightning-combobox label="Revoke Device Access" name="deviceId" value={selectedDeviceId}
+                        options={deviceOptions} onchange={handleDeviceChange}>
+                    </lightning-combobox>
+
+                    <!-- Hidden fields for storing values -->
+                    <div class="slds-hide">
+                        <lightning-input-field field-name="SEID__c" value={selectedDeviceName}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="Hold_ID__c" value={selectedDeviceId}>
+                        </lightning-input-field>
+                    </div>
+
+                </template>
+                <div>
+                    <lightning-combobox label="Case Nature" name="caseNature" onchange={handleChange}
+                        options={caseNatureOptions} required value={caseNature}></lightning-combobox>
+                    <lightning-combobox label="Case Origin" name="caseOrigin" onchange={handleChange}
+                        options={caseOriginOptions} required></lightning-combobox>
+                </div>
+
+
+                <!-- CH01 start -->
+                <template if:true={isFawriCancellation}>
+                    <template if:true={noTransactionsFound}>
+                        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-m-top_small"
+                            role="alert">
+                            <span class="slds-assistive-text">warning</span>
+                            <h2>There are no Pending Fawri/Fawateer payments on this account
+
+                                *Doublecheck the Case model</h2>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={isShowFawriTransaction}>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                            <lightning-combobox label="Select Account" name="fawriAccount" value={selectedFawriAccount}
+                                onchange={handleFawriAccountChange} options={fawriAccountOptions} required>
+                            </lightning-combobox>
+                        </div>
+                        <template if:true={selectedFawriAccount}>
+                            <template if:true={isTransactionRequired}>
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    <lightning-combobox label="Transaction ID" name="fawriTransactionId"
+                                        value={caseFawriTransfer} onchange={handleCaseFawriChange}
+                                        options={selectedAccountTransactions} required>
+                                    </lightning-combobox>
+                                </div>
+                            </template>
+                            <template if:false={isTransactionRequired}>
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-m-top_small"
+                                        role="alert">
+                                        <span class="slds-assistive-text">warning</span>
+                                        <h2>There are no Pending Fawri/Fawateer payments on this account
+
+                                            *Doublecheck the Case model</h2>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                    </div>
+
+                    <template if:true={showTransactionDetails}>
+                        <div class="slds-grid slds-wrap slds-m-top_small">
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <lightning-input label="Amount" value={fawriTransactionAmount} read-only>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <lightning-input label="Transaction Date Time" value={fawriTransactionDateTime}
+                                    read-only>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <lightning-input label="Beneficiary IBAN" value={fawriBeneficiaryIban} read-only>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <lightning-input label="Batch ID" value={fawriBatchId} read-only>
+                                </lightning-input>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+
+                <!-- CH01 end  -->
+
+
+                <lightning-input type="text" label="Subject" name="subject" onchange={handleChange} value={subjectValue}
+                    required>
+                </lightning-input>
+                <lightning-textarea label="Description" name="description" onchange={handleChange}
+                    value={descriptionValue} required>
+                </lightning-textarea>
+
+                <template if:true={isShowEmailSuppressionSection}>
+                    <div class="slds-form-element checkbox-margin">
+                        <label class="slds-form-element__label" for="checkbox-unique-id-81">Customer Email Suppression on Creation</label>
+                        <lightning-helptext
+                            content="This checkbox controls the email notification to the customer on the case creation, if this is checked to TRUE, then no email will be triggered to customer on Case creation">
+                        </lightning-helptext>
+                        <div class="slds-form-element__control">
+                            <span class="slds-checkbox slds-checkbox_standalone">
+          <input type="checkbox" id="checkbox-unique-id-81" name="customerEmailSuppressionOnCreation" onchange={handleChange}/>
+          <span class="slds-checkbox_faux"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="slds-form-element checkbox-margin" style="margin-bottom: 2%;">
+                        <label class="slds-form-element__label" for="checkbox-unique-id-82">Customer Email Suppression on Closure</label>
+                        <lightning-helptext
+                            content="This checkbox controls the email notification to the customer on the case closure, if this is checked to TRUE, then no email will be triggered to customer on Case closure">
+                        </lightning-helptext>
+                        <div class="slds-form-element__control">
+                            <span class="slds-checkbox slds-checkbox_standalone">
+          <input type="checkbox" id="checkbox-unique-id-82" name="customerEmailSuppressionOnClosure" onchange={handleChange}/>
+          <span class="slds-checkbox_faux"></span>
+                            </span>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Display Interaction ID and Wrap‑up Code if present -->
+                <template if:true={interactionId}>
+                    <div class="slds-m-top_medium">
+                        <p class="slds-text-body_regular pad-st">
+                            <strong>Genesys Interaction ID:</strong> {interactionId}
+                        </p>
+                        <template if:true={wrapupCode}>
+                            <p class="slds-text-body_regular pad-st">
+                                <strong>Wrap‑up Code:</strong> {wrapupLabel}
+                            </p>
+                        </template>
+                    </div>
+                </template>
+                <!-- If only wrapupCode exists (without interactionId) -->
+                <template if:false={interactionId}>
+                    <template if:true={wrapupCode}>
+                        <div class="slds-m-top_medium">
+                            <p class="slds-text-body_regular pad-st">
+                                <strong>Wrap‑up Code:</strong> {wrapupLabel}
+                            </p>
+                        </div>
+                    </template>
+                </template>
+            </div>
+            <footer class="slds-grid slds-grid_align-center slds-p-vertical_medium">
+                <lightning-button label="Cancel" onclick={handleCancel} variant="neutral" class="slds-m-right_small">
+                </lightning-button>
+                <lightning-button label="Save" onclick={handleSave} variant="brand"></lightning-button>
+            </footer>
+        </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRM_Stage__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>CRM Stage</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FRAUD_BLOCK</fullName>
+                <default>true</default>
+                <label>FRAUD_BLOCK</label>
+            </value>
+            <value>
+                <fullName>FRAUD_IN_PROGRESS</fullName>
+                <default>false</default>
+                <label>FRAUD_IN_PROGRESS</label>
+            </value>
+            <value>
+                <fullName>FRAUD_COMPLETED</fullName>
+                <default>false</default>
+                <label>FRAUD_COMPLETED</label>
+            </value>
+            <value>
+                <fullName>FRAUD_CANCELED</fullName>
+                <default>false</default>
+                <label>FRAUD_CANCELED</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

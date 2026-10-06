@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>A Service Request has been closed</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Service Request Closure</name>
+    <style>freeForm</style>
+    <subject>Your Request has been closed</subject>
+    <textOnly>Your request is closed</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

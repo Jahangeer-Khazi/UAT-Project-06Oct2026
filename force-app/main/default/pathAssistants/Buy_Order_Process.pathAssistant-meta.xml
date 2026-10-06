@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Bid_Allocation__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Buy Order Process</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Bid_Allocation_per__c</fieldNames>
+        <fieldNames>Issue_Price__c</fieldNames>
+        <fieldNames>Yield_Rate__c</fieldNames>
+        <fieldNames>Maker_Result__c</fieldNames>
+        <fieldNames>Checker_Result__c</fieldNames>
+        <info>&lt;p&gt;&lt;strong&gt;WON CBB BID&lt;/strong&gt;&lt;/p&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

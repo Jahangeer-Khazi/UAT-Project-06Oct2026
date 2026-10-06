@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_contactCenterCheckPendingCallback</fullName>
+    <active>true</active>
+    <errorConditionFormula>Case__r.RecordType_DeveloperName__c == &apos;Loan_Application&apos; &amp;&amp; ISPICKVAL(Case__r.Sub_Status__c, &apos;Pending Callback&apos;) &amp;&amp; 
+(
+				 ( ISCHANGED(cx_ln_Contact_Center_Result__c) &amp;&amp; !ISBLANK(TEXT(cx_ln_Contact_Center_Result__c)) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result__c, &apos;Customer accepted to Proceed with application&apos;) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result__c, &apos;Follow Up Completed&apos;) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result__c, &apos;Contact Failed&apos;) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result__c, &apos;Customer Declined Offer&apos;) )
+				 ||
+				 ( ISCHANGED(cx_ln_Contact_Center_Result_sec__c) &amp;&amp; !ISBLANK(TEXT(cx_ln_Contact_Center_Result_sec__c)) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result_sec__c, &apos;Customer accepted to Proceed with application&apos;) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result_sec__c, &apos;Follow Up Completed&apos;) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result_sec__c, &apos;Contact Failed&apos;) &amp;&amp; !ISPICKVAL(cx_ln_Contact_Center_Result_sec__c, &apos;Customer Declined Offer&apos;) )
+)</errorConditionFormula>
+    <errorMessage>For Sub Status “Pending Callback”, the Contact Center Result can only be “Customer accepted to Proceed with application” or &quot;Follow-up completed&quot; or &quot;Contact Failed&quot; or &quot;Customer Declined Offer&quot;. Please update your selection.</errorMessage>
+</ValidationRule>

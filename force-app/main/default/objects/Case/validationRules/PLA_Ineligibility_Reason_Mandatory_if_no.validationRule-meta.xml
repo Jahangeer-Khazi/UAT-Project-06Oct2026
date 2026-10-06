@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PLA_Ineligibility_Reason_Mandatory_if_no</fullName>
+    <active>true</active>
+    <description>This rule ensures that users provide a PLA Ineligibility Reason if the PLA Eligibility field is No.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(PLA_Eligibility__c, &apos;No&apos;),  
+    ISBLANK(TEXT((PLA_Ineligibility_Reason__c)))
+)</errorConditionFormula>
+    <errorDisplayField>PLA_Ineligibility_Reason__c</errorDisplayField>
+    <errorMessage>Please provide a PLA Ineligibility Reason</errorMessage>
+</ValidationRule>

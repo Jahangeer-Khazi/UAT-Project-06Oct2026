@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome">
+    <div style="background-color: #ffffff;width:60%;margin: 0 auto;padding: 10px;">
+        <br />
+        <c:LTNG056_LoansCalculator />
+        <br />
+    </div>
+</aura:component>

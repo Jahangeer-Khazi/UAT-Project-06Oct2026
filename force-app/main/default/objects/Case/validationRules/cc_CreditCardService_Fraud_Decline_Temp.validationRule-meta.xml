@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Fraud_Decline_Temp</fullName>
+    <active>true</active>
+    <description>If Approved Temporarily = true and Fraud Result = Decline then Fraud Decline Reason is Mandatory</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(cc_Request_Type__c, &quot;permanent&quot;),
+cc_Approved_Temporarily__c == true,
+ISCHANGED(Fraud_Results__c),
+ISPICKVAL(Fraud_Results__c, &quot;Decline&quot;),
+ISBLANK(cc_Credit_Fraud_Team_Decline_Reason__c)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Credit_Fraud_Team_Decline_Reason__c</errorDisplayField>
+    <errorMessage>Please fill in the Credit Fraud Decline Reason Field.</errorMessage>
+</ValidationRule>

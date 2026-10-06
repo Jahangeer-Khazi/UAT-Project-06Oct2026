@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Passport_No_When_IDType_Passport</fullName>
+    <active>true</active>
+    <description>Ensures that when the ID Type is set to &apos;Passport&apos;, the Passport Number field is not left blank.</description>
+    <errorConditionFormula>AND(
+      ISPICKVAL(Region_Flag__pc, &apos;Jordan&apos;),
+      ISPICKVAL( ID_Type__pc , &apos;Passport&apos;),
+      ISBLANK( Passport_Number__pc ) 
+)</errorConditionFormula>
+    <errorDisplayField>Passport_Number__pc</errorDisplayField>
+    <errorMessage>Please enter the Passport Number When ID Type is Passport</errorMessage>
+</ValidationRule>

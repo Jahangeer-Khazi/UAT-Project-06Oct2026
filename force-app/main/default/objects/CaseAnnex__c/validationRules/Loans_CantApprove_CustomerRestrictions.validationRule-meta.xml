@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_CantApprove_CustomerRestrictions</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				OR (
+        Case__r.RecordType_DeveloperName__c = &apos;Loan_Application&apos; ,
+        AND ( Case__r.RecordType_DeveloperName__c = &apos;LoanFinanceServiceRequest&apos;, TEXT(cx_case_Sub_Type__c) = &apos;Top-up&apos; )
+      ),
+     !ISPICKVAL(Case__r.cc_Control_Type__c, &apos;STP&apos;),	
+	    Case__r.RecordType_DeveloperName__c = &apos;Loan_Application&apos;,
+				 $User.Loan_CustomerRestrictionsByPassFlag__c = false,
+     Case__r.ccol_Has_Legal_Cases__c = true,
+	    OR(
+			      AND(ISCHANGED(cx_ln_Credit_Pre_Screening_Result__c),ISPICKVAL(cx_ln_Credit_Pre_Screening_Result__c, &apos;Accept&apos;)),
+							  AND(ISCHANGED(cx_ln_Cross_Selling_PreScreening_Result__c),ISPICKVAL(cx_ln_Cross_Selling_PreScreening_Result__c, &apos;Approve&apos;)),
+							  AND(ISCHANGED(cx_ln_Cross_Selling_Evaluator_Result__c),ISPICKVAL(cx_ln_Cross_Selling_Evaluator_Result__c, &apos;Approve&apos;)),
+									AND(ISCHANGED(cx_ln_Cross_Selling_Verifier_Result__c),ISPICKVAL(cx_ln_Cross_Selling_Verifier_Result__c, &apos;Approve&apos;)),
+									AND(ISCHANGED(cx_ln_Cross_Selling_Approver_Result__c),ISPICKVAL(cx_ln_Cross_Selling_Approver_Result__c, &apos;Approve&apos;)),
+									AND(ISCHANGED(cx_ln_Document_Verifier_OBL_Result__c),ISPICKVAL(cx_ln_Document_Verifier_OBL_Result__c, &apos;Accept&apos;)),
+									AND(ISCHANGED(cx_ln_Document_Verifier_Result__c),ISPICKVAL(cx_ln_Document_Verifier_Result__c, &apos;Accept&apos;)),
+									AND(ISCHANGED(cx_ln_DocumentVerifierNDLResult__c),ISPICKVAL(cx_ln_DocumentVerifierNDLResult__c, &apos;Accept&apos;)),
+									AND(ISCHANGED(cx_ln_Operations_Processing_Result__c),ISPICKVAL(cx_ln_Operations_Processing_Result__c, &apos;Accept&apos;)),
+			      AND(ISCHANGED(cx_ln_Credit_Approval_Result__c),ISPICKVAL(cx_ln_Credit_Approval_Result__c, &apos;Approve&apos;))
+	    )
+)</errorConditionFormula>
+    <errorMessage>The case cannot be approved because the customer has some restrictions. Please check the warning issues at the top of the page.</errorMessage>
+</ValidationRule>

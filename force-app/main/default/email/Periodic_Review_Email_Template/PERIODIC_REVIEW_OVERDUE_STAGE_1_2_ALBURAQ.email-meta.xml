@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When customer has an open periodic review case and additional documents are required to close the case.  Periodic review case status is going to be “Overdue Stage 1”.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PERIODIC_REVIEW_OVERDUE_STAGE_1_2_ALBURAQ</name>
+    <style>none</style>
+    <subject>Periodic Review Is Now Due</subject>
+    <textOnly>Periodic Review Is Now Due
+
+Hi,
+
+Dear {!Contact.FirstName} {!Contact.LastName},
+
+Thank you for being part of the ila family,
+
+To further enhance your banking experience with us and as per instructions from the Central Bank of Bahrain, we are required to complete a review of the information we have on our customers periodically.
+
+As we informed you via email on TODAY(), your account is due for review today. This could be because the last review of your account was completed  years ago or because one or more of your documents expired today.
+
+IMPORTANT: We can update your information using the services offered by the Benefit Company if you give your consent to us to access your information with iGA. You can use our app to provide your consent - .
+
+You can instead visit our Service Center at Diplomatic Area during office hours to submit the following documents so that we can update your profile.
+
+Required Documents: (all documents required OR list of expired documents).
+
+Doc 1
+
+Doc 2, etc.
+
+To ease the process and make this effortless for you, please arrange to provide your consent before  days from the date of this email.
+
+Doc 1
+
+Doc 2, etc.
+
+Please arrange to provide your consent as soon as possible as this make the process very easy and effortless for you.
+
+
+If you require more information or assistance, please call us on+973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

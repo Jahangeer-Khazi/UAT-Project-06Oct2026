@@ -1,0 +1,71 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History: 
+ *	    	 
+ *			   #CH01# Added #29-04-2025# #Jahangeer Mohammed# Commented Passport Number, Passport Expiry Date field (NBA-13626)	   
+-->
+<aura:component >
+	<aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="string" default="view"/>
+    <aura:attribute name="caseRecordType" type="String" access="public" default=""/>
+    <aura:attribute name="readOnlyFields" type="Map" default="{}"/>
+    <aura:attribute name="isOnbording" type="Boolean" default="false"/>
+    <aura:attribute name="accountFLS" type="Map" default="{}"/>
+	
+    <aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                         recordId="{!v.account.Id}"
+                                  		 recordTypeId="{!v.account.RecordTypeId}"
+                                         objectApiName="Account">
+            <!-- CH01 Start -->
+            <!--<lightning:inputField fieldName="Passport_Expiry_Date__pc" value="{!v.account.Passport_Expiry_Date__pc}" disabled="{!v.readOnlyFields.Passport_Expiry_Date__pc}" variant="label-inline"/>
+            <lightning:inputField fieldName="Passport_Number__pc" value="{!v.account.Passport_Number__pc}" disabled="{!v.readOnlyFields.Passport_Number__pc}" variant="label-inline"/> -->
+            <!-- CH01 END -->
+            <lightning:inputField fieldName="Marital_Status__pc" value="{!v.account.Marital_Status__pc}" disabled="{!v.readOnlyFields.Marital_Status__pc}" variant="label-inline"/>	
+            <lightning:inputField fieldName="Occupation__pc" value="{!v.account.Occupation__pc}" disabled="{!v.readOnlyFields.Occupation__pc}" variant="label-inline"/>	
+            <lightning:inputField fieldName="Place_of_Birth__pc" value="{!v.account.Place_of_Birth__pc}" disabled="{!v.readOnlyFields.Place_of_Birth__pc}" variant="label-inline"/>	
+			<lightning:inputField fieldName="Place_of_birth_government__pc" value="{!v.account.Place_of_birth_government__pc}" disabled="{!v.readOnlyFields.Place_of_birth_government__pc}" variant="label-inline" required="true"/>				
+        </lightning:recordEditForm>
+        
+        <!-- CH01 : CRM22-10 : CRM - eKYC Case Description Modification -->
+        <lightning:recordEditForm aura:id="caseViewForm"
+                                         recordId="{!v.caseId}"
+                                         objectApiName="Case">	
+			<lightning:inputField aura:id="IdentificationCaseReason" fieldName="IdentificationCaseReason__c" variant="label-inline" required="true"/>				
+		</lightning:recordEditForm> 
+        <!-- CH01 : END -->
+		
+    <aura:set attribute="else">
+             <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    <div class="slds-box">
+                         <!-- CH01 Start -->
+                        <!--<lightning:outputField fieldName="Passport_Expiry_Date__pc" />
+                        <lightning:outputField fieldName="Passport_Number__pc" />-->
+                         <!-- CH01 END -->
+                        <lightning:outputField fieldName="Marital_Status__pc" />
+                        <lightning:outputField fieldName="Occupation__pc" />
+                        <lightning:outputField fieldName="Place_of_Birth__pc" />
+                        <lightning:outputField fieldName="Place_of_birth_government__pc" />
+
+                    </div>
+                </lightning:recordViewForm>
+
+                <!-- CH01 : CRM22-10 : CRM - eKYC Case Description Modification -->
+                <lightning:recordViewForm
+                        recordId="{!v.caseId}"
+                        objectApiName="Case">
+                    <div class="slds-box">
+                        <lightning:outputField fieldName="IdentificationCaseReason__c" />
+                    </div>
+                </lightning:recordViewForm>
+                <!-- CH01 : END -->
+            </div>	
+	</aura:set>
+    </aura:if>
+</aura:component>

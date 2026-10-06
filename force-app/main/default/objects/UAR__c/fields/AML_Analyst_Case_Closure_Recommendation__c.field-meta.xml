@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AML_Analyst_Case_Closure_Recommendation__c</fullName>
+    <label>AML Analyst Case Closure Recommendation</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Recommends an STR to be raised</fullName>
+                <default>false</default>
+                <label>Recommends an STR to be raised</label>
+            </value>
+            <value>
+                <fullName>Does not recommend an STR to be raised</fullName>
+                <default>false</default>
+                <label>Does not recommend an STR to be raised</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resend_DocuSign__c</fullName>
+    <description>This field was created in the context of Loans project, it ‘s used to resend DocuSign.
+
+ https://bank-abc.atlassian.net/wiki/spaces/Documentat/pages/3701112833/Loans+-+CRM+New+Loan+Loan+Application+Case+Details</description>
+    <label>Sign Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In-App</fullName>
+                <default>false</default>
+                <label>In-App</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

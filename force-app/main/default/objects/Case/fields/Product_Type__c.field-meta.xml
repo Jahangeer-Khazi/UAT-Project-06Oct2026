@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Type__c</fullName>
+    <label>Product Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Root__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ila Blue Credit 4Card</fullName>
+                <default>false</default>
+                <label>ila Blue Credit 4Card</label>
+            </value>
+            <value>
+                <fullName>ila Switch Credit Card</fullName>
+                <default>false</default>
+                <label>ila Switch Credit Card</label>
+            </value>
+            <value>
+                <fullName>ila World</fullName>
+                <default>false</default>
+                <label>ila World</label>
+            </value>
+            <value>
+                <fullName>ila Debit Card</fullName>
+                <default>false</default>
+                <label>ila Debit Card</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card</fullName>
+                <default>false</default>
+                <label>Prepaid Card</label>
+            </value>
+            <value>
+                <fullName>Alkanz</fullName>
+                <default>false</default>
+                <label>Alkanz</label>
+            </value>
+            <value>
+                <fullName>Jamiyah</fullName>
+                <default>false</default>
+                <label>Jamiyah</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit</fullName>
+                <default>false</default>
+                <label>Fixed Deposit</label>
+            </value>
+            <value>
+                <fullName>Alburaq</fullName>
+                <default>false</default>
+                <label>Alburaq</label>
+            </value>
+            <value>
+                <fullName>Apple Pay</fullName>
+                <default>false</default>
+                <label>Apple Pay</label>
+            </value>
+            <value>
+                <fullName>ila Application</fullName>
+                <default>false</default>
+                <label>ila Application</label>
+            </value>
+            <value>
+                <fullName>Recovery Code</fullName>
+                <default>false</default>
+                <label>Recovery Code</label>
+            </value>
+            <value>
+                <fullName>ATM</fullName>
+                <default>false</default>
+                <label>ATM</label>
+            </value>
+            <value>
+                <fullName>Hasala</fullName>
+                <default>false</default>
+                <label>Hasala</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Offers</fullName>
+                <default>false</default>
+                <label>Offers</label>
+            </value>
+            <value>
+                <fullName>Rewards</fullName>
+                <default>false</default>
+                <label>Rewards</label>
+            </value>
+            <value>
+                <fullName>Wakala</fullName>
+                <default>false</default>
+                <label>Wakala</label>
+            </value>
+            <value>
+                <fullName>Prizeout</fullName>
+                <default>false</default>
+                <label>Prizeout</label>
+            </value>
+            <value>
+                <fullName>ila Alburaq Debit Card</fullName>
+                <default>false</default>
+                <label>ila Alburaq Debit Card</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Account</fullName>
+                <default>false</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>Cheques</fullName>
+                <default>false</default>
+                <label>Cheques</label>
+            </value>
+            <value>
+                <fullName>Service center</fullName>
+                <default>false</default>
+                <label>Service center</label>
+            </value>
+            <value>
+                <fullName>Delivery Company</fullName>
+                <default>false</default>
+                <label>Delivery Company</label>
+            </value>
+            <value>
+                <fullName>Overall Experience</fullName>
+                <default>false</default>
+                <label>Overall Experience</label>
+            </value>
+            <value>
+                <fullName>Exit</fullName>
+                <default>false</default>
+                <label>Exit</label>
+            </value>
+            <value>
+                <fullName>Contact center</fullName>
+                <default>false</default>
+                <label>Contact center</label>
+            </value>
+            <value>
+                <fullName>Outage</fullName>
+                <default>false</default>
+                <label>Outage</label>
+            </value>
+            <value>
+                <fullName>Internal Transfer</fullName>
+                <default>false</default>
+                <label>Internal Transfer</label>
+            </value>
+            <value>
+                <fullName>International Transfer</fullName>
+                <default>false</default>
+                <label>International Transfer</label>
+            </value>
+            <value>
+                <fullName>Overdraft</fullName>
+                <default>false</default>
+                <label>Overdraft</label>
+            </value>
+            <value>
+                <fullName>EFTS</fullName>
+                <default>false</default>
+                <label>EFTS</label>
+            </value>
+            <value>
+                <fullName>Dispute</fullName>
+                <default>false</default>
+                <label>Dispute</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ila Blue Credit 4Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ila Switch Credit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ila World</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ila Debit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Prepaid Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Alkanz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Jamiyah</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Fixed Deposit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Alburaq</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Apple Pay</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ila Application</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Recovery Code</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ATM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Hasala</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Marketing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Offers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Rewards</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Wakala</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Prizeout</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>ila Alburaq Debit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Onboarding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Cheques</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Service center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Delivery Company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Overall Experience</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Exit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Contact center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Outage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Internal Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>International Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Overdraft</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>EFTS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transaction/ Transfer related</controllingFieldValue>
+            <valueName>Dispute</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

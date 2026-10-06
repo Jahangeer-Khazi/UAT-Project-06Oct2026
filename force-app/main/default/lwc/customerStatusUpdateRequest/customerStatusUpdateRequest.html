@@ -1,0 +1,65 @@
+<template>
+    <lightning-card>
+        <lightning-quick-action-panel header="Customer Status Update Request">
+            <div class="form-container">
+                <template if:true={isLoading}>
+                    <div class="spinner-overlay">
+                        <lightning-spinner alternative-text="Saving..." size="medium" variant="brand"></lightning-spinner>
+                    </div>
+                </template>
+                <lightning-record-edit-form
+                    object-api-name="Case"
+                    record-type-id={recordTypeId}
+                    onsubmit={handleSubmit}
+                    onsuccess={handleSuccess}
+                    onerror={handleError}>
+
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Subject" value={caseSubject} variant="label-stacked" required></lightning-input-field>
+                    <lightning-input-field field-name="Description" value={caseDescription} variant="label-stacked" required></lightning-input-field>
+                    <lightning-input-field field-name="Type" value="Customer Status Update" variant="label-stacked" onchange={handleTypeChange} required></lightning-input-field>
+                    
+                    <!--<template if:true={showSubType}>
+                        <lightning-input-field field-name="Sub_Type__c" required></lightning-input-field>
+                    </template>-->
+
+                    <template if:true={showSubType}>
+                        <lightning-combobox
+                            name="customPicklist"
+                            label="Sub Type"
+                            style="padding-left:4px;padding-right:4px"
+                            value={selectedSubTypeValue}
+                            options={subTypeOptions}
+                            onchange={handleSubTypeChange}
+                            required>
+                        </lightning-combobox>
+                    </template>
+
+                    <template if:true={showDelinquencyReason}>
+                        <lightning-input-field field-name="BUA_Reason__c" variant="label-stacked"  onchange={handleDelinqReasonChange} required></lightning-input-field>
+                    </template>
+
+                    <template if:true={showDelinquencyOtherReason}>
+                        <div style="padding-left:4px;padding-right:4px">
+                            <label class="slds-form-element__label">
+                                <abbr class="slds-required" title="required">*</abbr>
+                                Other Reason
+                            </label>
+                            <lightning-input-field field-name="Other_Downgrade_Reason__c" required variant="label-hidden"></lightning-input-field>
+                        </div>
+                    </template>
+                    
+                    <lightning-input-field field-name="Origin" variant="label-stacked"  value="CRM" required></lightning-input-field>
+                    <lightning-input-field field-name="Case_Nature__c" variant="label-stacked"  value="Account Maintenance" required></lightning-input-field>
+                    <template if:true={showCustomerStatusUpdate}>
+                    <lightning-input-field field-name="CustomerStatusUpdate__c" value={customerStatusUpdate} variant="label-stacked" required></lightning-input-field>
+                    </template>
+                    <footer>
+                        <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>&nbsp;&nbsp;
+                        <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+                    </footer>
+                </lightning-record-edit-form>
+            </div>
+        </lightning-quick-action-panel>
+    </lightning-card>
+</template>

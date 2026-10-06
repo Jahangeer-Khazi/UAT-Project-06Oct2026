@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+}
+
+td[data-label='Location'],
+th:nth-child(3) {
+    min-width: 8rem;
+    white-space: normal;
+}

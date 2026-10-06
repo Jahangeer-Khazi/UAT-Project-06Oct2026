@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Wavier_Email_Alert_Request_Approved</fullName>
+        <description>Wavier Email Alert Request Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Customer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Wavier_Approval_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Wavier_Email_Alert_Request_Initiated</fullName>
+        <description>Wavier Email Alert Request Initiated</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Wavier_Approval_Initial_Template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Approval_Status_Rejected</fullName>
+        <field>Approval_Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Approval Status Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Status_Update</fullName>
+        <field>Approval_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Approval Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Closed</fullName>
+        <field>Status__c</field>
+        <literalValue>Closed</literalValue>
+        <name>Case Closed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Decision_By</fullName>
+        <field>Decision_by__c</field>
+        <formula>IF(ISBLANK($User.FirstName), $User.LastName, $User.FirstName + &apos; &apos; + $User.LastName)</formula>
+        <name>Update Decision By</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Decision_DateTime</fullName>
+        <field>Decision_Date_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Update Decision DateTime</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Queue_Name</fullName>
+        <field>Queue_Name__c</field>
+        <formula>Owner:Queue.QueueName</formula>
+        <name>Update Queue Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Reviewer_User_Id</fullName>
+        <field>Request_Approver_User_ID__c</field>
+        <formula>$User.Id</formula>
+        <name>Update Reviewer User Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Wavier_Level_2_Update</fullName>
+        <field>Wavier_Level__c</field>
+        <literalValue>Ops</literalValue>
+        <name>Wavier Level 2 Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Wavier_Level_3_Update</fullName>
+        <field>Wavier_Level__c</field>
+        <literalValue>Ops</literalValue>
+        <name>Wavier Level 3 Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Wavier_Level_4_Update</fullName>
+        <field>Wavier_Level__c</field>
+        <literalValue>Ops</literalValue>
+        <name>Wavier Level 4 Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Wavier_Level_5_Update</fullName>
+        <field>Wavier_Level__c</field>
+        <literalValue>Ops</literalValue>
+        <name>Wavier Level 5 Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Wavier_Level_Contact_Center</fullName>
+        <field>Wavier_Level__c</field>
+        <literalValue>Contact Center</literalValue>
+        <name>Wavier Level Contact Center</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Wavier_Level_Ops</fullName>
+        <field>Wavier_Level__c</field>
+        <literalValue>Ops</literalValue>
+        <name>Wavier Level Ops</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Core Client Status --></label>
+    <name>Core_Client_Status__c</name>
+    <picklistValues>
+        <masterLabel>Active</masterLabel>
+        <translation><!-- Active --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dormant</masterLabel>
+        <translation><!-- Dormant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Locked</masterLabel>
+        <translation><!-- Locked --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Restricted</masterLabel>
+        <translation><!-- Restricted --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

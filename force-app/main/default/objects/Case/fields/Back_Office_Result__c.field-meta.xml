@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Back_Office_Result__c</fullName>
+    <description>Back Office Result</description>
+    <label>Back Office Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Send to ICU</fullName>
+                <default>false</default>
+                <label>Send to ICU</label>
+            </value>
+            <value>
+                <fullName>Send to Ops</fullName>
+                <default>false</default>
+                <label>Send to Ops</label>
+            </value>
+            <value>
+                <fullName>Send to GPH</fullName>
+                <default>false</default>
+                <label>Send to GPH</label>
+            </value>
+            <value>
+                <fullName>Cancelled By Customer</fullName>
+                <default>false</default>
+                <label>Cancelled By Customer</label>
+            </value>
+            <value>
+                <fullName>Termination Completed</fullName>
+                <default>false</default>
+                <label>Termination Completed</label>
+            </value>
+            <value>
+                <fullName>Closure Completed</fullName>
+                <default>false</default>
+                <label>Closure Completed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

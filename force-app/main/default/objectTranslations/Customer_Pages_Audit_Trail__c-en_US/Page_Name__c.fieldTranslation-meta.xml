@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Page Name --></label>
+    <name>Page_Name__c</name>
+    <picklistValues>
+        <masterLabel>Alburaq Bank Accounts List</masterLabel>
+        <translation><!-- Alburaq Bank Accounts List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Account Detail</masterLabel>
+        <translation><!-- Bank Account Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cases List</masterLabel>
+        <translation><!-- Cases List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Detail</masterLabel>
+        <translation><!-- Credit Card Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card List</masterLabel>
+        <translation><!-- Credit Card List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Activities List</masterLabel>
+        <translation><!-- Customer Activities List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Detail</masterLabel>
+        <translation><!-- Customer Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer History List</masterLabel>
+        <translation><!-- Customer History List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Card Detail</masterLabel>
+        <translation><!-- Debit Card Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Cards List</masterLabel>
+        <translation><!-- Debit Cards List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Document Detail</masterLabel>
+        <translation><!-- Document Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents List</masterLabel>
+        <translation><!-- Documents List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposit Detail</masterLabel>
+        <translation><!-- Fixed Deposit Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposits List</masterLabel>
+        <translation><!-- Fixed Deposits List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ila Bank Accounts List</masterLabel>
+        <translation><!-- Ila Bank Accounts List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jamiyah Accounts List</masterLabel>
+        <translation><!-- Jamiyah Accounts List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jamiyah Detail</masterLabel>
+        <translation><!-- Jamiyah Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kanz Detail</masterLabel>
+        <translation><!-- Kanz Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Saving Pot Detail</masterLabel>
+        <translation><!-- Saving Pot Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Saving Pots List</masterLabel>
+        <translation><!-- Saving Pots List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Specific Case Detail</masterLabel>
+        <translation><!-- Specific Case Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Specific Document Detail</masterLabel>
+        <translation><!-- Specific Document Detail --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wakala Detail</masterLabel>
+        <translation><!-- Wakala Detail --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

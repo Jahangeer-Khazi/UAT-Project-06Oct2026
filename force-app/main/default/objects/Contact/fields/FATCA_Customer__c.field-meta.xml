@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FATCA_Customer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>FATCA Customer from Siron</description>
+    <inlineHelpText>FATCA Customer (indicator from Siron)</inlineHelpText>
+    <label>FATCA Customer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

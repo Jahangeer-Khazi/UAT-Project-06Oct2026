@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Risk_Preference_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Risk_Preference__c,
+&quot;Maximize Safety&quot;, 1,
+&quot;Mostly Safety&quot;, 2,
+&quot;Mix of Safety and Return&quot;, 3,
+&quot;Mostly Return&quot;, 4,
+&quot;Maximize Return&quot;, 5,
+0
+)</formula>
+    <inlineHelpText>Maximize Safety (1), Mostly Safety (2), Mix of Safety and Return (3), Mostly Return (4), Maximize Return (5)</inlineHelpText>
+    <label>Risk Preference Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

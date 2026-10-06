@@ -1,0 +1,344 @@
+.payroll-container {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    padding: 20px;
+    background-color: #f3f3f3;
+    //min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    margin: 0;
+    color: #16325c;
+    font-size: 24px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.entries-selector, .employee-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.entries-dropdown, .search-input {
+    padding: 8px 12px;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-input {
+    width: 200px;
+}
+
+.loading-state, .no-data {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 16px;
+    color: #54698d;
+}
+
+.payroll-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.payroll-table th {
+    background-color: #f4f6f9;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #16325c;
+    border-bottom: 1px solid #d8dde6;
+}
+
+.payroll-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #d8dde6;
+}
+
+.payroll-table tr:last-child td {
+    border-bottom: none;
+}
+
+.payroll-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.payroll-table tr.selected {
+    background-color: #e1f0ff;
+}
+
+.radio-input {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.status-pending {
+    color: #ff9a00;
+    font-weight: 600;
+}
+
+.status-authorized {
+    color: #0070d2;
+    font-weight: 600;
+}
+
+.status-completed {
+    color: #04844b;
+    font-weight: 600;
+}
+
+.status-rejected, .status-failed, .status-canceled, .status-expired {
+    color: #c23934;
+    font-weight: 600;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-btn, .page-btn {
+    padding: 8px 12px;
+    border: 1px solid #d8dde6;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.pagination-btn:hover:not(:disabled), .page-btn:hover {
+    background: #f4f6f9;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-btn.active {
+    background: #0070d2;
+    color: white;
+    border-color: #0070d2;
+}
+
+.detail-panel {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f4f6f9;
+    border-bottom: 1px solid #d8dde6;
+}
+
+.panel-header h2 {
+    margin: 0;
+    color: #16325c;
+}
+
+.download-btn {
+    padding: 8px 16px;
+    background: #0070d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.download-btn:hover {
+    background: #005fb2;
+}
+
+.panel-content {
+    padding: 20px;
+}
+
+.panel-section {
+    margin-bottom: 30px;
+}
+
+.panel-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.panel-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.panel-field label {
+    font-weight: 600;
+    color: #54698d;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.panel-field span {
+    font-size: 16px;
+}
+
+.employee-section {
+    border-top: 1px solid #d8dde6;
+    padding-top: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    margin: 0;
+    color: #16325c;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f8f9fa;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.employee-table th {
+    background-color: #eef1f6;
+    padding: 10px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #16325c;
+    border-bottom: 1px solid #d8dde6;
+    font-size: 14px;
+}
+
+.employee-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #d8dde6;
+    font-size: 14px;
+}
+
+.employee-table tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .panel-row {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    
+    .panel-field {
+        margin-bottom: 15px;
+        padding-right: 0;
+    }
+    
+    .pagination {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .employee-controls {
+        flex-wrap: wrap;
+    }
+}
+
+/* Add these styles to your existing CSS */
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.payroll-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payroll-filter span {
+    font-size: 14px;
+    color: #666;
+}
+
+.filter-dropdown {
+    padding: 6px 12px;
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    color: #080707;
+    cursor: pointer;
+    min-width: 180px;
+}
+
+.filter-dropdown:hover {
+    border-color: #1589ee;
+}
+
+.filter-dropdown:focus {
+    outline: none;
+    border-color: #1589ee;
+    box-shadow: 0 0 3px #0070d2;
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Screenshot Request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Screenshot Request</name>
+    <style>none</style>
+    <subject>Your Case {!Case.CaseNumber}</subject>
+    <textOnly>Hi {!Case.Contact_First_Name__c},
+
+To address your issue, simply reply to this email with a screenshot from our ila app along with the device type used.
+Should you need any assistance, please feel free to call us on +962 65100001 or email us on support@ilajordan.com
+
+Your ila Team
+
+Follow us on social media
+
+
+
+
+
+
+
+ilajordan.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

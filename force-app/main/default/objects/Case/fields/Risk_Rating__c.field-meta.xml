@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Risk_Rating__c</fullName>
+    <label>Risk Rating</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Prohibited</fullName>
+                <default>false</default>
+                <label>Prohibited</label>
+            </value>
+            <value>
+                <fullName>Restricted</fullName>
+                <default>false</default>
+                <label>Restricted</label>
+            </value>
+            <value>
+                <fullName>High</fullName>
+                <default>false</default>
+                <label>High</label>
+            </value>
+            <value>
+                <fullName>Low</fullName>
+                <default>false</default>
+                <label>Low</label>
+            </value>
+            <value>
+                <fullName>Extreme</fullName>
+                <default>false</default>
+                <label>Extreme</label>
+            </value>
+            <value>
+                <fullName>Medium</fullName>
+                <default>false</default>
+                <label>Medium</label>
+            </value>
+            <value>
+                <fullName>Auto High</fullName>
+                <default>false</default>
+                <label>Auto High</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

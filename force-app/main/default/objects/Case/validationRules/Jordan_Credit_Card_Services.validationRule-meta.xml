@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jordan_Credit_Card_Services</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPickVal(Type,&apos;Credit Card Services&apos;) &amp;&amp; ISPickVal( Region_Flag__c ,&apos;Jordan&apos;) &amp;&amp; OR(ISPickVal(Sub_Type__c,&apos;card control settings&apos;)))</errorConditionFormula>
+    <errorMessage>Selected Credit Card Service is not available for Jordan</errorMessage>
+</ValidationRule>

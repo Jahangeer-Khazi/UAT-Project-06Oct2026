@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId"
+    access="global">
+    <c:LTNG14_CallDrawApis recordId="{!v.recordId}" drawApiName="APPROVED_DRAW" cmpTitle="Approve Draw"
+        message="Are you sure ?" />
+</aura:component>

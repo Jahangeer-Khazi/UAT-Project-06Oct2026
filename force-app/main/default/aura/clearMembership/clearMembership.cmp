@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="CreateWorldEliteEntitCase">
+	<aura:attribute name="record" type="Object"/>
+    
+    <force:recordData aura:id="recordLoader"
+                  	  recordId="{!v.recordId}"
+                      targetFields="{!v.record}"
+                      fields = "Id,AccountId,Case_Model__c,Status,cc_Requested_Card_Type__c,Account.World_Elite_Benefit_Membership_No__pc"
+                      mode="VIEW"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-p-bottom_large">
+         <aura:if isTrue="{!OR(v.record.cc_Requested_Card_Type__c == 'WORLD_CASHBACK_AND_REWARDS_01',OR(v.record.cc_Requested_Card_Type__c == 'WORLD_ELITE_CASHBACK_AND_REWARDS_01',v.record.cc_Requested_Card_Type__c == 'WORLD_ELITE_CASHBACK_AND_REWARDS_02'))}">
+             <aura:if isTrue = "{!v.record.Account.World_Elite_Benefit_Membership_No__pc == true}">
+                 <lightning:button class="slds-float_right cursor-pointer" 
+                                   label="Clear Membership No Field" 
+                                   variant="brand"
+                                   onclick="{!c.clearMembership}"/>
+                 <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+
+             </aura:if>                
+        </aura:if>
+    </div>
+</aura:component>

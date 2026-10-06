@@ -1,0 +1,21 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" controller="DeviceDetailsController">
+    
+	<!-- ATTRIBUTES -->
+    <aura:attribute name="customerId" type="String" access="global"/>
+    <aura:attribute name="deviceData" type="List"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="deviceSummary" type="String" access="global"/>
+
+    <!-- INIT HANDLER -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:card title="Device Details">
+        
+        <lightning:datatable
+                keyField="id"
+                data="{!v.deviceData}"
+                columns="{!v.columns}"
+                hideCheckboxColumn="true"/>
+                
+    </lightning:card>
+</aura:component>

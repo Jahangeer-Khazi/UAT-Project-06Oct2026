@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Jordan_Credit_Evaluation</label>
+    <protected>false</protected>
+    <values>
+        <field>Queue_ID__c</field>
+        <value xsi:type="xsd:string">00G3N000006dx0yUAA</value>
+    </values>
+    <values>
+        <field>Queue_Name__c</field>
+        <value xsi:type="xsd:string">Jordan_Credit_Evaluation</value>
+    </values>
+    <values>
+        <field>Region__c</field>
+        <value xsi:type="xsd:string">Jordan</value>
+    </values>
+</CustomMetadata>

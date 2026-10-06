@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Complaint Acknowledgment HTML Alburaq</name>
+    <style>none</style>
+    <subject>Complaint {!Case.CaseNumber} has been logged</subject>
+    <textOnly>Dear {!Case.Account},
+
+Thank you for submitting your complaint to us.
+
+Case #{!Case.CaseNumber}: &quot;{!Case.Subject}&quot; has been created with the following details:
+
+{!Case.Description}
+
+We will respond to you within 20 days.
+
+Thank you,
+
+ila Bank
+
+
+Join the conversation
+
+ilabank.com/AlBuraq
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

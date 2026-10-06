@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProfileUpdatePropagaton_CaseClosure</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (RecordType_DeveloperName__c ==&apos;Customer_Profile_Update&apos;,isPickval( Type,&apos;Personal Info Update&apos;),isPickval(Region_Flag__c,&apos;Bahrain&apos;),isPickval(Status,&apos;Closed&apos;),AND(NOT($Profile.Name==&quot;System Administrator&quot;),NOT($Profile.Name==&apos;Restricted System Admin&apos;),NOT($Profile.Name==&apos;Integration Gateway&apos;)),OR(NOT($User.Customer_Profile_Propagation_Approvers__c),ISBLANK(Text(cc_Checker_Result__c)),AND(  BEGINS(OwnerId, $Label.MakerQueue) , NOT(ISPICKVAL( cc_Maker__c ,&apos;Cancelled by Customer&apos;)))))</errorConditionFormula>
+    <errorMessage>Only the designated Approver can Close the Profile info Update Case</errorMessage>
+</ValidationRule>

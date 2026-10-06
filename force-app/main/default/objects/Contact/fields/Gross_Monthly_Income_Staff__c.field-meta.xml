@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gross_Monthly_Income_Staff__c</fullName>
+    <description>Gross Monthly Income, for Siron</description>
+    <externalId>false</externalId>
+    <formula>IF(
+				OR(
+								TEXT(Segment__c) &lt;&gt; &quot;Staff&quot; &amp;&amp; ISBLANK(Staff_ID__c),
+								AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c), 
+								AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c),
+	       $User.Staff_Access__c
+				),
+				IF(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), 
+				CASE(TEXT(Gross_Monthly_Income__c),
+									&quot;500&quot;, &quot;Below BD 500&quot;, 
+									&quot;750&quot;, &quot;BD 500 – BD 999&quot;, 
+									&quot;1500&quot;, &quot;BD 1,000 – BD 1,999&quot;, 
+									&quot;2500&quot;, &quot;BD 2,000 – BD 2,999&quot;, 
+									&quot;4000&quot;, &quot;BD 3,000 – BD 5,000&quot;, 
+									&quot;5000&quot;, &quot;Above BD 5,000&quot;,
+									TEXT(Gross_Monthly_Income__c)),
+							 IF(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;),
+															CASE(TEXT(Gross_Monthly_Income__c), 
+									&quot;500&quot;, &quot;Below JOD 500&quot;, 
+									&quot;750&quot;, &quot;JOD 500 – JOD 999&quot;, 
+									&quot;1500&quot;, &quot;JOD 1,000 – JOD 1,999&quot;, 
+									&quot;2500&quot;, &quot;JOD 2,000 – JOD 2,999&quot;, 
+									&quot;4000&quot;, &quot;JOD 3.000 – JOD 5,000&quot;, 
+									&quot;5000&quot;, &quot;Above JOD 5.000&quot;,
+									TEXT(Gross_Monthly_Income__c))
+											, TEXT(Gross_Monthly_Income__c)) 
+							), 
+				&quot;&quot; 
+)</formula>
+    <inlineHelpText>Including Salary/Pension</inlineHelpText>
+    <label>Gross Monthly Income</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

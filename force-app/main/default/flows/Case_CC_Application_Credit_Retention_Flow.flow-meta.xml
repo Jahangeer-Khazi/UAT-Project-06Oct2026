@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>ActionBasedonCreditRetainResult</name>
+        <label>ActionBasedonCreditRetainResult</label>
+        <locationX>472</locationX>
+        <locationY>222</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CC_Retention_Result</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.Credit_Retention_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiting for Documents</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CreditRetention_Waiting_For_Docs</targetReference>
+            </connector>
+            <label>CC-Retention Result-Waiting Docs</label>
+        </rules>
+        <rules>
+            <name>CC_Retention_result_Other_then_Waiting_Docs</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.Credit_Retention_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Cannot be Reached</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetCaseRecord.Credit_Retention_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Declined Offer</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetCaseRecord.Credit_Retention_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Accepted to Convert Application to Cash Collateral</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetCaseRecord.Credit_Retention_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Accepted to Proceed with Application</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Credit_Retention_Result_Other_then_Waiting_Docs</targetReference>
+            </connector>
+            <label>CC-Retention result Other then Waiting Docs</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>currentDateTime</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>Case-CC Application-Credit Retention Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case-CC Application-Credit Retention Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>This will bring the current Case</description>
+        <name>GetCaseRecord</name>
+        <label>GetCaseRecord</label>
+        <locationX>479</locationX>
+        <locationY>73</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>ActionBasedonCreditRetainResult</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7 OR 8)</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Credit Card Application</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Application_Stages__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Credit Card Retention</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Credit_Retention_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer Cannot be Reached</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Credit_Retention_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer Declined Offer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Credit_Retention_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer Accepted to Convert Application to Cash Collateral</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Credit_Retention_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer Accepted to Proceed with Application</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Credit_Retention_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Waiting for Documents</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Credit_Retention_Result_Other_then_Waiting_Docs</name>
+        <label>Credit Retention Result Other then Waiting Docs</label>
+        <locationX>725</locationX>
+        <locationY>297</locationY>
+        <connector>
+            <targetReference>SubFlow_CaseAging</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Label.Credit_Card_Pre_Screener_Queue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Retention_Result_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>Follow Up</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Pre-Screening</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>FOLLOW UP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Credit_Pre_Screening_Result__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CreditRetention_Waiting_For_Docs</name>
+        <label>CreditRetention-Waiting For Docs</label>
+        <locationX>225</locationX>
+        <locationY>308</locationY>
+        <connector>
+            <targetReference>SubFlow_CaseAging</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Awaiting_Customer_Feedback__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Label.Credit_Card_Temp</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Retention_Result_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>Follow Up</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Pre-Screening</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>FOLLOW UP</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>GetCaseRecord</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>SubFlow_CaseAging</name>
+        <label>SubFlow CaseAging</label>
+        <locationX>487</locationX>
+        <locationY>401</locationY>
+        <flowName>CaseAgingFlow</flowName>
+        <inputAssignments>
+            <name>varCase</name>
+            <value>
+                <elementReference>GetCaseRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <variables>
+        <description>This will fetch teh case record Id which will be passed from the process Buiolder</description>
+        <name>caseRecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

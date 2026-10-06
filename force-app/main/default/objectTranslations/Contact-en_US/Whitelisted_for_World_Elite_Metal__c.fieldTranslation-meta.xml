@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Whitelisted for World Elite Metal? --></label>
+    <name>Whitelisted_for_World_Elite_Metal__c</name>
+</CustomFieldTranslation>

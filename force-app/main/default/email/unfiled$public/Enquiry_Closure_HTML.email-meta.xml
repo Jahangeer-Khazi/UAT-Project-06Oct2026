@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When the Enquiry is closed and completed</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Enquiry Closure HTML</name>
+    <style>none</style>
+    <subject>Your request has been completed by ila.</subject>
+    <textOnly>Your ila request was completed and closed
+
+Hi {!Case.Current_First_Name__c}
+
+We are pleased to let you know that your case reference number {!Case.CaseNumber} {!Case.Closed_Child_Upon_parent_closure__c} completed and closed 👍.
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Have a great day!
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

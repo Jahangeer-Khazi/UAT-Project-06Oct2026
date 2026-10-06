@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Relationship --></label>
+    <name>Relationship__c</name>
+    <picklistValues>
+        <masterLabel>Daughter</masterLabel>
+        <translation><!-- Daughter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Father</masterLabel>
+        <translation><!-- Father --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Grandchildren</masterLabel>
+        <translation><!-- Grandchildren --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Husband</masterLabel>
+        <translation><!-- Husband --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mother</masterLabel>
+        <translation><!-- Mother --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Parents</masterLabel>
+        <translation><!-- Parents --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Son</masterLabel>
+        <translation><!-- Son --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Spouse(s)</masterLabel>
+        <translation><!-- Spouse(s) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wife</masterLabel>
+        <translation><!-- Wife --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

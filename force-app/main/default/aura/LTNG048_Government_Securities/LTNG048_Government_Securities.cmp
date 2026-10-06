@@ -1,0 +1,155 @@
+<aura:component implements="force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" controller="LTNG048_GovtSecuritiesCntrl">
+
+    <!-- ============================================ -->
+    <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent"/>
+    <aura:handler event="c:jqDataTableEvent" action="{!c.handleJqDataTableEvent}"/>
+	<aura:attribute name="customerId" type="String" default=""/>
+    <aura:attribute name="unit" type="String" default="Bahrain"/>
+    <aura:attribute name="customerDetails" type="Object[]"/>
+    <aura:attribute name="selectedLookUpRecord" type="sObject" default="{}"/>
+    <!-- Internal attributes -->
+    <aura:attribute name="gridDataRows" type="Object[]"/>
+    <aura:attribute name="gridDataColumns" type="Object[]"/>
+    <aura:attribute name="gridDataColumnDefs" type="Object[]"/>
+     <aura:attribute name="rowsWithChildData" type="Object[]"/>
+    <aura:attribute name="tbId" type="string"/>
+     
+    <!-- internal events -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <lightning:card title="Government Securities">
+        <!-- CH01 Start-->
+        <div style="margin-left:0px;margin-top:20px;width:700px;">
+        	<ui:message title="Information:" severity="confirm" closable="false">
+                <b>* User will only be able to view valid Bonds/Sukuks by default.</b><br/>
+                <b>* Please enter the Customer CIF to know about the Processing Fee Related Details</b><br/>
+                <b>* Please select the Unit to know about Relavant Government Securities</b><br/>
+                <b>* Click on the specific ISIN CODE to know more about the specific Bond/Sukuk</b><br/><br/>
+                
+            </ui:message>
+        </div>
+        <!-- CH01 END-->
+        <div style="padding: 1rem;">
+                            <h3 class="slds-col slds-size_2-of-2 slds-section__title slds-theme_shade">
+                            <button aria-controls="InstSection" class="slds-button slds-section__title-action">
+                                
+                                <span onclick="{!c.toggleSection}" data-auraId="InstSection">
+                                    
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon_left" alternativeText="button icon"/>
+                                    
+                                </span>
+                                <span title="Instrument Information">Search Information</span></button>
+                        </h3>
+            <br/><br/>
+            <fieldset class="slds-form-element slds-form-element_compound">
+                <div class="slds-form-element__control">
+                    <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-6">                      
+                            <div class="slds-form-element">
+                                <c:customLookup objectAPIName="account" IconName="standard:contact" selectedRecord="{!v.selectedLookUpRecord}" label="Customer CIF"/>
+                                <!--<lightning:input value="{!v.customerId}" label="Customer CIF" type="text" />-->
+                            </div>
+                        </div>
+                        <div class="slds-size_1-of-6">		
+                            <div class="slds-form-element">		
+                                <lightning:select label="Unit" required="false" value="{!v.unit}"> 		
+                                    <option value="Bahrain">Ila</option>		
+                                    <option value="Bahrain_alburaq">Alburaq</option>		
+                                </lightning:select>		
+                            </div>		
+                        </div>
+                    </div>
+                </div>
+                <br/><br/>
+                 <h3 class="slds-col slds-size_2-of-2 slds-section__title slds-theme_shade">
+                            <button aria-controls="InstSection" class="slds-button slds-section__title-action">
+                                
+                                <span onclick="{!c.toggleSection}" data-auraId="InstSection">
+                                    
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon_left" alternativeText="button icon"/>
+                                    
+                                </span>
+                                <span title="Instrument Information">Customer Detail</span></button>
+                        </h3><br/><br/>
+                           <div class="slds-form" role="list" style="padding: 1rem;">
+                                <div class="slds-form__row">
+                   <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Customer ID</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.selectedLookUpRecord.CIF__pc}
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Customer Name</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.selectedLookUpRecord.Name}
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                      <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Subscription Model</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.selectedLookUpRecord.Subscription_Model__pc}
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                     <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Subscription Model</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.selectedLookUpRecord.Segment__pc}
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                    <div class="slds-form__item" role="listitem">
+                       <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                           <span class="slds-form-element__label">Mobile Phone</span>
+                           <div class="slds-form-element__control">
+                               <div class="slds-form-element__static">
+                                   {!v.selectedLookUpRecord.personMobilephone}
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div> 
+                   </div>
+               <div class="slds-form-element__control slds-align_absolute-center">
+                    <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-1">
+                            <div class="slds-form-element">
+                                <lightning:button variant="neutral" label="Search" onclick="{! c.onSearchClick }" />
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            
+              
+            <c:jqDataTable id="{!v.tbId}"
+                           rows="{! v.gridDataRows }" 
+                           columns="{! v.gridDataColumns }" 
+                           columnDefs="{! v.gridDataColumnDefs }" 
+                           keyField="id"
+                           orderBy="desc"              
+                           sortedBy="bidDueDate"                 
+                           showCheckboxColumn="false"
+                           selectStyle="multi+shift"
+                           />
+        </div>
+        
+    </lightning:card>	
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

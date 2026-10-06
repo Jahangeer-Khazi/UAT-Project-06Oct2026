@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Proof of Address Id --></help>
+    <label><!-- Proof of Address Id --></label>
+    <name>Proof_of_Address_Id__c</name>
+</CustomFieldTranslation>

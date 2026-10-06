@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employer_Mandatory_for_Employment</fullName>
+    <active>false</active>
+    <description>Listed Employer field is mandatory for Employment PIcklist item of &quot;Employed&quot;</description>
+    <errorConditionFormula>ISPICKVAL( cc_Employment_Status__c , &quot;Employed&quot;) &amp;&amp;   ISBLANK(Listed_Employer_Name__c)</errorConditionFormula>
+    <errorDisplayField>Listed_Employer_Name__c</errorDisplayField>
+    <errorMessage>Employer name is required when Employment Status is Employed</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>smt_case_model_is_dependent_to_subtype</fullName>
+    <active>true</active>
+    <description>Validation rule added to test if the information entered in termination model is depending on the case Model.</description>
+    <errorConditionFormula>OR( AND( TEXT( Sub_Type__c) =&apos;Terminate ila model&apos;,
+         TEXT( Case_Model__c ) =&apos;alburaq&apos;) 
+   , AND(TEXT( Sub_Type__c) =&apos;Terminate alburaq model&apos;,
+         TEXT( Case_Model__c) =&apos;ila&apos;) )</errorConditionFormula>
+    <errorMessage>The informtion entered are not valid; please enter sub Type proper to the model Case.</errorMessage>
+</ValidationRule>

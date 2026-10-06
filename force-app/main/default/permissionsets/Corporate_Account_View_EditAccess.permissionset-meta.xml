@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set assigned to user to whom the corporate access should be visible</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Corporate_Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Corporate Account View/EditAccess</label>
+    <license>Salesforce</license>
+</PermissionSet>

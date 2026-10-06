@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <style type="text/css">
+         .ExternalClass {width: 100%;}
+      </style>
+   </head>
+   <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e; font-family:Helvetica; color:#ffffff;">
+         <tr>
+            <td align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e;">
+               <table border="0" cellpadding="0" cellspacing="0" style="max-width:480px;" align="center">
+                  <tbody>
+                     <tr>
+                        <td align="center">
+                           <br>
+                           <br>
+                           <a href="https://www.ilabank.com/alburaq" target="_blank" tabindex="-1">
+                           <img src="https://images.ctfassets.net/2c8e80nprabl/1Us2L0VnElhpE6VHi5AakS/f24736241fd9ef3ad5ccda277c26f424/AlBuraq_x_ila__logo___2_.png" width="300" style="max-width:300px;">
+                           </a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <a href="https://www.ilabank.com/alburaq" target="_blank"><img align="center" src="https://images.ctfassets.net/2c8e80nprabl/6zkh49EQnrOCM42IswE38I/08b5e1e20549ff2665a4c0aba3dd3a80/email.png" width="300" style="max-width:300px;"></a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <span style="text-align: center; font-size:30px; max-width:440px; text-decoration: none; color:#79ED00;">Case has been in your ownership for more than 3 days..</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="left" style="padding: 0px 18px 9px;">
+                           <p style="text-align: center; font-size:18px; color:#ffffff;text-decoration: none;">
+                              Hi, Please be advised that this is second reminder email for the case with case number {!Case.CaseNumber} which has been in your ownership for more than 3 days.<br><br>
+                              Case Type : {!Case.Type}<br>
+                              Case Subtype : {!Case.Sub_Type__c}<br>
+                              Case description: {!Case.Description}
+                           </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="padding-top:10px; padding-right:18px; padding-bottom:10px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
+                           <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 30px;background-color: #79ED00;">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 25px; padding: 12px 36px;">
+                                       <a class="mcnButton " title="Open CRM case" href="https://ilabank.lightning.force.com/lightning/r/Case/{!Case.Id}/view" target="_blank" style="font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #00153e;">Open CRM case</a>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+         </tr>
+         </td>
+      </table>
+   </body>
+</html>

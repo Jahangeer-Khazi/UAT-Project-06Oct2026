@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Flag enabled on CRM for the customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Enabled - REMINDER Alburaq</name>
+    <style>none</style>
+    <subject>Al Kanz - Capture of Immediate Relatives Information.</subject>
+    <textOnly>Al Kanz - Capture of Immediate Relatives Information
+
+REMINDER!
+
+Hi,
+
+As you are aware, we have launched Al Kanz product for our customers. Because of regulatory restrictions, our employees and their immediate relatives who have valid residency permits (including those with valid residency permits but not in Bahrain) are not eligible to participate in these prize draws.
+
+“Immediate Relatives” are defined as:
+
+Spouse
+Daughter
+Son
+Granddaughter
+Grandson
+Parents
+
+Please arrange to update the information on your close relatives using the link below. Please note that the information you provide will be handled and managed as per our Privacy Policy.
+
+If you require any additional information, please contact us on 17 123456 or by email on support@ilabank.com.
+
+Link to Update the information: Click Here
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

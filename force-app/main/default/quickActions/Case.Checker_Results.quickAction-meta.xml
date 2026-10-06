@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>in account Closure Record type we use this quick action to replace Checker section behavior</description>
+    <height>350</height>
+    <label>Checker Results</label>
+    <lightningComponent>LTNG008_CheckerResultAccClosure</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

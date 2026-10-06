@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This field used to give access to action the letter generation case as Checker / NBA-13537 --></help>
+    <label><!-- Letter Checker --></label>
+    <name>Letter_Checker__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>ila Booth Participation - Travel Fair 2025</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Gulf Air Travel Fair Event Notification</name>
+    <style>none</style>
+    <subject>ila Booth Participation - Travel Fair 2025</subject>
+    <textOnly>ila Booth Participation - Travel Fair 2025
+
+Hi {!Case.Contact_First_Name__c},
+
+Thanks for visiting the ila Booth at the Gulf Air Travel Fair on {!Case.CreatedDate}!
+
+You’ve entered the draw using your {!Case.Card_Type__c} card with a receipt of BHD {!Case.Transaction_Amount__c}.
+
+You now have 1 entry in the draw to be one of our lucky winners:
+
+5 winners will win An upgrade to Business Class
+5 winners will win Cashback up to BHD 1,000 on their Travel Fair spends submitted
+
+
+The draw will take place on [Date] – stay tuned!
+
+The ila Bank team
+Terms &amp; Conditions
+
+Campaign is valid only on 27th September 2025, from 9:00 AM to 10:00 PM at the Gulf Air Travel Fair venue.
+Campaign applies exclusively to ila Mastercard Credit Cardholders including:
+Minimum spend to be eligible to enter the draw is BHD 100 using the eligible Credit Card
+Customers will receive one entry into the raffle draw, regardless of the number or value of transactions, if it meets the required minimum spend.
+10 winners will be selected randomly to win one of the following prizes
+Gulf Air standard ticketing Terms &amp; Conditions apply to the upgrade voucher that will be won by customers
+Maximum reimbursement of BHD 1,000 per winner, based on total eligible spend claimed at the booth.
+In order to enter the draw, customers must visit the ila Bank booth at the Travel Fair and present the following
+Only receipts stamped on the day of the event will be considered valid. Any attempt to submit fraudulent or duplicate receipts will result in disqualification.
+To ensure that the draw is conducted in an unencumbered manner, the draw will be conducted in the attendance of a representative of the Ministry of Industry and Commerce (MOIC), senior bank representatives and internal auditors.
+The winners will be required to take part in announcements related to the campaign including having his/her picture taken and their names disclosed.
+Board Members and Staff of Bank ABC or ila Bank and their immediate family members are not eligible to participate in the draw.
+By participating in the campaign, customers agree to:
+
+
+ila Bank reserves the right to amend, suspend, or terminate the campaign at its sole discretion, at any time, even prior to the stated end date, without prior notice, after obtaining the approval from MOIC.
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

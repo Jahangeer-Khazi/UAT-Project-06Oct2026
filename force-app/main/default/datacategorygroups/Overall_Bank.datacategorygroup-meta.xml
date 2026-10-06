@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Compliance</label>
+            <name>Compliance</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Products</label>
+            <name>Products</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Operations</label>
+            <name>Operations</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Service Center</label>
+            <name>Service_Center</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Contact Center</label>
+            <name>Contact_Center</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>To describe the overall Bank and its department as child categories</description>
+    <label>Overall Bank</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

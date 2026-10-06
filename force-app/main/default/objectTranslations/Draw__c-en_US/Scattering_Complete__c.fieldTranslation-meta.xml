@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This checkbox will be set by the Flow Shuffle Draw. Once a Shuffle Draw is done, this field will be set. --></help>
+    <label><!-- Scattering Complete --></label>
+    <name>Scattering_Complete__c</name>
+</CustomFieldTranslation>

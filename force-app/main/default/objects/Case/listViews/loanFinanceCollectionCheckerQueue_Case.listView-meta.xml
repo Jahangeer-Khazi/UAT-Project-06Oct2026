@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>loanFinanceCollectionCheckerQueue_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Loan Collection Checker Queue</label>
+    <queue>Loan_Collection_Checker_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

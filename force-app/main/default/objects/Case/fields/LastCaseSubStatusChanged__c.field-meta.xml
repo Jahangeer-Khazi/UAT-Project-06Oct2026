@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastCaseSubStatusChanged__c</fullName>
+    <description>It&apos;s updated automatically by the current date/time once case sub-status is updated</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Last Case Sub Status Changed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

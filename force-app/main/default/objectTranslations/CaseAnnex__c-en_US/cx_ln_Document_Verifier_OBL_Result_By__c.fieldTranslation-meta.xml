@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Document Verifier OBL Result Updated By --></label>
+    <name>cx_ln_Document_Verifier_OBL_Result_By__c</name>
+    <relationshipLabel><!-- Case Annexs (Document Verifier OBL Result Updated By) --></relationshipLabel>
+</CustomFieldTranslation>

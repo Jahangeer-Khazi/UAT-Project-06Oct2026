@@ -1,0 +1,88 @@
+<!--
+Change History :
+*         #CH01 :  Added by D&A technologies team 22-06-2022 add case model field
+*/
+-->
+<aura:component controller="PremiumRetentionController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    
+    <aura:attribute name="cc_type" type="String" default="Premium Retention Application"/> 
+    <aura:attribute name="recordTypeId" type="String" default="" />
+    <aura:attribute name="queueId" type="String" default="" />
+    <aura:attribute name="Sub_Status" type="String" />
+    <aura:attribute name="RequestedBy" type="String"/>
+    <aura:attribute name="cardName" type="String"/>
+    <!--<aura:attribute name="Account" type="Account" />-->
+    <aura:attribute name="customerName" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">Premium Retention Application</h4>
+            </span>
+        </h2>
+    </header>
+    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+    
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+    <!--CH01 - End-->
+    
+    <lightning:card>
+        <aura:if isTrue="{! v.recordTypeId != '' }">
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"
+                                      onload="{!c.handleOnload}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                <!--on load handle name on Card, handle Submit -->
+                <lightning:inputField fieldName="Subject" aura:id="subject" value="Premium Retention Application"/>
+                <lightning:inputField fieldName="Description" aura:id="description" value="New Premium Retention Application"/>
+                <!--CH01 Start Added by D&A technologies team 22-06-2022 add case model field -->
+                <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/>
+                 <!--CH01 END -->
+                <lightning:inputField fieldName="Origin" aura:id="origin" required="true" value="App"/>
+                <lightning:inputField fieldName="Case_Nature__c" aura:id="Case_Nature" required="true" value="RC"/>
+                <lightning:inputField fieldName="Reason" aura:id="Case_Reason" value="Service"/>
+                <lightning:inputField fieldName="Type" value="{!v.cc_type}" aura:id="type" required="true"/>
+                <lightning:inputField fieldName="ac_RequestedBy__c" value="{!v.RequestedBy}" aura:id="RequestedBy" required="true"/>
+                
+                <aura:if isTrue="{!v.RequestedBy=='Customer'}">
+                    <lightning:inputField fieldName="cc_Name_on_the_Card__c" value="{!v.customerName}" aura:id="cardname" required="true"/>
+                    <lightning:inputField fieldName="Total_Fees__c" aura:id="fees" required="true"/>
+                    <div class="slds-hide">
+                        <lightning:inputField fieldName="Expiry_Days__c" aura:id="expiryDays" value="365"/>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.RequestedBy=='Bank / CBB'}">
+                    <lightning:inputField fieldName="Discount_Amount__c" aura:id="discount" required="true"/>
+                    <lightning:inputField fieldName="Expiry_Days__c" aura:id="expiryDays" required="true"/>
+                </aura:if>
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                    <lightning:inputField fieldName="status" value="New" aura:id="statusId"/>
+                </div>
+                
+                
+                <footer>
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" label="Save" type="submit" />
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    </div>
+                </footer>
+            </lightning:recordEditForm>
+        </aura:if>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

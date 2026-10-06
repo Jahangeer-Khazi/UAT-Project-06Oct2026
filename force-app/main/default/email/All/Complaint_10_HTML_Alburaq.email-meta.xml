@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Complaint 10 HTML Alburaq</name>
+    <style>none</style>
+    <subject>ila Customer Complaint</subject>
+    <textOnly>ila customer request.
+
+Dear {!Receiving_User.Name}, please take the time to check ila customer {!Account.Name} complaint {!Case.Type} {!Case.Sub_Type__c} case number {!Case.CaseNumber} as it has been 10 days since the initial notification.
+
+Please provide your input or decision based on the below information:
+
+{!Case.Description}.
+
+Open ila
+
+© 2019 ila, all rights reserved.
+Bahrain
+Contact Us |  FAQs |  Terms &amp; Conditions |  Privacy Policy</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

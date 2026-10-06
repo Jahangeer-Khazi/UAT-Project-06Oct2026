@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Self Declaration for PEP flag by customer while On-boarding --></help>
+    <label><!-- PEP Self-Declaration --></label>
+    <name>PEP_Self_Declaration__c</name>
+</CustomFieldTranslation>

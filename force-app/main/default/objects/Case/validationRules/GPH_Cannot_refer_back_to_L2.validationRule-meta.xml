@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GPH_Cannot_refer_back_to_L2</fullName>
+    <active>false</active>
+    <errorConditionFormula>Back_to_L2__c = TRUE &amp;&amp;
+ $UserRole.Name = &apos;GPH&apos;</errorConditionFormula>
+    <errorMessage>GPH Users please refer the case manually back to IT by editing the &quot;Owner&quot; field.</errorMessage>
+</ValidationRule>

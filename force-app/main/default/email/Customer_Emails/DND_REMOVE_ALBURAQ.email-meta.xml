@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Customer will receive this notification when DND (sub_type=remove) case created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>DND_REMOVE_ALBURAQ</name>
+    <style>none</style>
+    <subject>Promotional Notifications Subscribed</subject>
+    <textOnly>Dear valued customer,
+
+We hope this email finds you well and that you&apos;ve been enjoying the benefits of our services. We are pleased to inform you that you have been successfully subscribed to receive promotional SMS and email notifications from us.
+
+By subscribing, you will now start receiving exciting promotional offers, exclusive updates, and valuable information via SMS and email.
+
+If at any time you wish to update your preferences or unsubscribe, you can easily do so by clicking on the unsubscribe link provided at the bottom of our emails.
+
+Should you require any further assistance, please call us on +973 17123456 or email us on support@ilabank.com
+
+Have a great day!
+
+Join the conversation
+
+ilabank.com/alburaq
+
+Powered by Bank ABC
+
+alburaq Sharia compliant services are managed strictly in accordance with Islamic principles and supervised by a recognized Sharia Supervisory Board.
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- CRM News Ribbon --></label>
+    <name>CRM_News_Ribbon__c</name>
+    <relationshipLabel><!-- CRM News Ribbon History --></relationshipLabel>
+</CustomFieldTranslation>

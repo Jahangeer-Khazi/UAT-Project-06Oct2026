@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Random_Recovery_Code__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>by default unchecked. If the customer requested a new recover code, CC or RMT can check it</description>
+    <label>Generate Random Password</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

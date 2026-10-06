@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Alburaq Product Terms Accepted Timestamp --></help>
+    <label><!-- Alburaq Product Terms Accepted Timestamp --></label>
+    <name>Alburaq_Product_Terms_Accepted_Timestamp__c</name>
+</CustomFieldTranslation>

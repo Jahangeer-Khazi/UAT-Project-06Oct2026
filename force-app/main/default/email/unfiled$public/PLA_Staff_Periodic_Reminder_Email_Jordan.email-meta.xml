@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Updates staff relatives’ email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA_Staff Periodic Reminder Email_Jordan</name>
+    <style>none</style>
+    <subject>Al Kanz | Update Relatives Information</subject>
+    <textOnly>Al Kanz | Update Relatives Information
+
+Attn: All Staff
+
+As you are aware, staff and their immediate relatives are not eligible to participate in any ila Jordan prize draws such as Al Kanz draws, or any other raffles with prizes targeting customers.
+
+However, you and your immediate relatives can participate in the Al Kanz Staff Draws. To participate, staff members must ensure that their immediate relatives&apos; information is up to date.
+
+This is a kind reminder to review and update the list of your &quot;immediate relatives”. If you have already submitted this information, please take a moment to review the information provided previously to ensure it is still valid (if the information is outdated, we would appreciate if you could kindly update it).
+
+If you have no relatives to report, kindly select this option on the form. Please use this link to complete or update the information.
+
+Kindly note that “immediate relatives” are classified as Father, Mother, Son, Daughter, Wife and Husband.
+
+It is worth noting that you will be required to provide:
+
+The mobile number your relatives used when opening ila Jordan Accounts
+The ID number of the relative (Jordanian ID / Passport number)
+The nature of your relationship
+
+Immediate relatives below the age of 18 do not need to be added to the list. However, you are kindly requested to update the list when they turn 18.
+
+Please note that the information you provide will be managed strictly in accordance with the Privacy Policy
+
+If you have any questions, please do not hesitate to contact the support team at +962 65100001 or email us on support@ilajordan.com
+
+Best regards,
+ila Team
+
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

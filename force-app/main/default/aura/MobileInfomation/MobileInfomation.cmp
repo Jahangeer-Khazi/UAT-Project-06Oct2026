@@ -1,0 +1,48 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 
+ * 		Change History:  
+ *	    	  
+-->
+<aura:component>
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+   
+	<aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account">
+            <lightning:messages />
+            
+            <label for="countryid">Country Code</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="Mobile_Country_Code_Update__pc" aura:id="countryid" value="{!v.account.Mobile_Country_Code_Update__pc}" variant="label-hidden"/>
+            </div>
+            <br/>
+            <label for="mobile">Mobile Number</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="Mobile_Update__pc" aura:id="mobile" value="{!v.account.Mobile_Update__pc}" variant="label-hidden"/>
+            </div>
+            
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    	<div class="slds-box">
+                     		<label for="Mobile_Country_Code">Country Code</label> <br/>
+                        		<lightning:outputField fieldName="Mobile_Country_Code_Update__pc" aura:id="Mobile_Country_Code" variant="label-hidden"/>  <br/>
+                        	<label for="Mobile">Mobile No</label>  <br/>
+                        		<lightning:outputField fieldName="Mobile_Update__pc" aura:id="Mobile" variant="label-hidden"/>  <br/>
+                    	</div> 
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+
+</aura:component>

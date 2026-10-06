@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- For successful Validation, the Draw Denomination should be equal to the ROUND(Total Eligible Balances devided by the Total Number Of Chances). --></help>
+    <label><!-- Validation | Eligible Amount over Chance --></label>
+    <name>Record_Summary_Validation__c</name>
+</CustomFieldTranslation>

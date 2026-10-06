@@ -1,0 +1,160 @@
+<apex:component controller="DocuSignLoanCmpController">
+    
+    <apex:attribute name="caseRecord" assignTo="{!caseObject}" type="Case" description="Case record" required="true"/>
+    <apex:attribute name="caseAnnexRecord" assignTo="{!caseAnnexObject}" type="CaseAnnex__c" description="Case Annex record" required="true"/>
+    
+    
+    <div>
+        <h4><u>Financial Details: </u></h4>
+        <div style="margin-top:-10px">
+            <div style="font-size:12px;width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                <div style="width:50%;float:left;">
+                    <span> Approved Loan/Finance Amount:  </span> <apex:outputField value="{!caseAnnexObj.cx_ln_Approved_Loan_Amount__c}"/><br/>
+                </div>
+                <div style="width:50%;float:left;">
+                    <span>Hold Amount:</span> <apex:outputField value="{!caseRecord.ccol_Approved_Hold_Amount__c}"/><br/>
+                </div>
+            </div>
+            <div style="font-size:12px; width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                <div style="width:50%;float:left;">
+                    <span> Coverage Ratio%:  </span> {!CoverageRatio}
+                </div>
+                <div style="width:50%;float:left;">
+                    <span> Approved Credit Limit:  </span> <apex:outputField value="{!caseRecord.cc_Approved_Credit_Limit__c}"/>
+                </div>
+            </div>
+            <div style="font-size:12px; width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                <div style="width:50%;float:left;">
+                    <span> Approved Card Type:  </span> <!--<apex:outputField value="{!Case.cc_Approved_Requested_Card_Type__c}"/>-->
+                </div>
+                <div style="width:50%;float:left;">
+                    <span>Approved Hold Account IBAN:</span> <apex:outputField value="{!caseRecord.ccol_Approved_Hold_Account_IBAN__c}"/>
+                </div>
+            </div>
+            <div style="font-size:12px; width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                <div style="width:100%;float:left;">
+                    <span> Hold Amount in Words:  </span> <apex:outputField value="{!caseRecord.Approved_Hold_Amount_in_words__c}"/>
+                </div>
+            </div>
+            <div style="font-size:12px; width:100%;overflow:hidden;height:auto;margin-top:5px;">
+                <div style="width:50%;float:left;">
+                    <span> Hold Account Type:  </span> <apex:outputField value="{!caseRecord.ccol_Approved_Hold_Account__c}"/>
+                </div>
+                <div style="width:50%;float:left;">
+                    <span>Hold Reference No.:</span> <apex:outputField value="{!caseRecord.ccol_Hold_Reference_Number__c}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <br/>
+    <br/>
+    <div>
+        <h4><u>Remarks:</u></h4>
+        <table width="100%;" style="text-align:left;margin-top:-10px;font-size:12px;">
+            <tr>
+                <td width="30%" style="border:0px;text-align:left">Deviation 1 type</td>
+                <td style="border:0px;text-align:left">{!caseRecord.cc_Deviation_1_type__c}</td>
+            </tr>
+            <tr>
+                <td width="30%" style="border:0px;text-align:left">Other Deviation 1 type</td>
+                <td  style="border:0px;text-align:left">{!caseRecord.cc_Other_Deviation_1_type__c}</td>
+            </tr>
+            <tr>
+                <td width="30%" style="border:0px;text-align:left">Deviation 2 type</td>
+                <td style="border:0px;text-align:left">{!caseRecord.cc_Deviation_2_type__c }</td>
+            </tr>
+            <tr>
+                <td width="30%" style="border:0px;text-align:left">Other Deviation 2 type</td>
+                <td style="border:0px;text-align:left">{!caseRecord.cc_Other_Deviation_2_type__c}</td>
+            </tr>
+        </table>
+    </div>
+    <hr/>
+    <table width="100%;" style="text-align:left;font-size:12px;">
+        <tr>
+            <td width="30%" style="border:0px;text-align:left">Credit Pre-Screening Result</td>
+            <td width="20%" style="border:0px;text-align:left">{!caseRecord.cc_Credit_Pre_Screening_Result__c}</td>
+            <td width="25%" style="border:0px;text-align:left">Credit Pre-Screening by</td>
+            <td width="25%" style="border:0px;text-align:left"><apex:outputField value="{!caseRecord.cc_Credit_Pre_Screening_by__c}"/></td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="2" style="border:0px;text-align:left">Credit Pre-Screening Result Date Time</td>
+            <td width="25%" style="border:0px;text-align:left">{!caseRecord.cc_Credit_Pre_Screening_Result_Date_Time__c}</td>
+            <td width="25%" style="border:0px;text-align:left"></td>
+        </tr>
+    </table>
+    <hr/>
+    <table width="100%;" style="text-align:left;font-size:12px;">
+        <tr>
+            <td width="30%" style="border:0px;text-align:left">Credit Evaluation Result</td>
+            <td width="20%" style="border:0px;text-align:left">{!caseRecord.cc_Credit_Evaluation_Result__c}</td>
+            <td width="25%" style="border:0px;text-align:left">Credit Evaluation by</td>
+            <td width="25%" style="border:0px;text-align:left"><apex:outputField value="{!caseRecord.cc_Credit_Evaluation_by__c}"/></td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="2" style="border:0px;text-align:left">Credit Evaluation Result Date Time</td>
+            <td width="25%" style="border:0px;text-align:left">{!caseRecord.cc_Credit_Evaluation_Result_Date_Time__c}</td>
+            <td width="25%" style="border:0px;text-align:left"></td>
+        </tr>
+    </table>
+    <hr/>
+    <table width="100%;" style="text-align:left;font-size:12px;">
+        <tr>
+            <td width="30%" style="border:0px;text-align:left">Credit Approval Result</td>
+            <td width="20%" style="border:0px;text-align:left">{!caseRecord.cc_Credit_Approval_Result__c}</td>
+            <td width="25%" style="border:0px;text-align:left">Credit Approved by</td>
+            <td width="25%" style="border:0px;text-align:left"><apex:outputField value="{!caseRecord.cc_Credit_Approved_by__c}"/></td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="2" style="border:0px;text-align:left">Credit Approval Result Date Time</td>
+            <td width="25%" style="border:0px;text-align:left">{!caseRecord.cc_Credit_Approval_Result_Date_Time__c}</td>
+            <td width="25%" style="border:0px;text-align:left"></td>
+        </tr>
+    </table>
+    <hr/>
+    
+    <table width="100%;" style="text-align:left;font-size:12px;">
+        <tr>
+            <td width="30%" style="border:0px;text-align:left">Signature Verification OBL Result</td>
+            <td width="20%" style="border:0px;text-align:left">{!caseAnnexRecord.cx_ln_Document_Verifier_OBL_Result__c}</td>
+            <td width="25%" style="border:0px;text-align:left">Signature Verification OBL By</td>
+            <td width="25%" style="border:0px;text-align:left"><apex:outputField value="{!caseAnnexRecord.cx_ln_Document_Verifier_OBL_Result_By__c}"/></td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="2" style="border:0px;text-align:left">Signature Verification OBL Result Date Time</td>
+            <td width="25%" style="border:0px;text-align:left">{!caseAnnexRecord.cx_ln_DocumentVerifierOBLResult_DateTime__c}</td>
+            <td width="25%" style="border:0px;text-align:left"></td>
+        </tr>
+    </table>
+    <hr/>
+    
+    <table width="100%;" style="text-align:left;font-size:12px;">
+        <tr>
+            <td width="30%" style="border:0px;text-align:left">Signature Verification STL Result</td>
+            <td width="20%" style="border:0px;text-align:left">{!caseAnnexRecord.cx_ln_Document_Verifier_Result__c}</td>
+            <td width="25%" style="border:0px;text-align:left">Signature Verification STL by</td>
+            <td width="25%" style="border:0px;text-align:left"><apex:outputField value="{!caseAnnexRecord.cx_ln_Document_Verifier_Result_By__c}"/></td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="2" style="border:0px;text-align:left">Signature Verification STL Result Date Time</td>
+            <td width="25%" style="border:0px;text-align:left">{!caseAnnexRecord.cx_ln_Document_Verifier_Result_Date_Time__c}</td>
+            <td width="25%" style="border:0px;text-align:left"></td>
+        </tr>
+    </table>
+    <hr/>
+    <table width="100%;" style="text-align:left;font-size:12px;">
+        <tr>
+            <td width="30%" style="border:0px;text-align:left">Signature Verification NDL Result</td>
+            <td width="20%" style="border:0px;text-align:left">{!caseAnnexRecord.cx_ln_DocumentVerifierNDLResult__c}</td>
+            <td width="25%" style="border:0px;text-align:left">Signature Verification NDL by</td>
+            <td width="25%" style="border:0px;text-align:left"><apex:outputField value="{!caseAnnexRecord.cx_ln_Document_Verifier_NDL_Result_By__c}"/></td>
+        </tr>
+        <tr>
+            <td width="50%" colspan="2" style="border:0px;text-align:left">Signature Verification NDL Result Date Time</td>
+            <td width="25%" style="border:0px;text-align:left">{!caseAnnexRecord.cx_ln_DocumentVerifierNDLResult_DateTime__c}</td>
+            <td width="25%" style="border:0px;text-align:left"></td>
+        </tr>
+    </table>
+    <hr/>
+</apex:component>

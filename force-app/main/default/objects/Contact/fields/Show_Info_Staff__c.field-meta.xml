@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Show_Info_Staff__c</fullName>
+    <formula>OR(
+				TEXT(Segment__c) &lt;&gt; &quot;Staff&quot; &amp;&amp; ISBLANK(Staff_ID__c),
+				AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c), 
+				AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Show Info Staff</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

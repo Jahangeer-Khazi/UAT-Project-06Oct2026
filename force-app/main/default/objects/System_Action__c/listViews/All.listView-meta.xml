@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Action__c</columns>
+    <columns>Account_Number__c</columns>
+    <columns>Type__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Endpoint__c</columns>
+    <columns>HTTP_Response_Code__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>Service Request</value>
+    </filters>
+    <filters>
+        <field>Method__c</field>
+        <operation>equals</operation>
+        <value>POST,PUT</value>
+    </filters>
+    <label>All</label>
+</ListView>

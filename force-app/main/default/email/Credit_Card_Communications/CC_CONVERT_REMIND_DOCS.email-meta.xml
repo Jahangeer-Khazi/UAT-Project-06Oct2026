@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>this is a reminder that will be sent to the customer when discrepancies have been identified by credit evaluator and customer did not reply for the last 2 days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_CONVERT_REMIND_DOCS</name>
+    <style>none</style>
+    <subject>Document Request for your Credit Card Type Change Application</subject>
+    <textOnly>Document Request for your Credit Card Type Change Application
+
+Hi,
+
+Thank you for applying for the {!Case.cc_Requested_Card_Type__c} Credit Card type change
+
+To proceed with your request, please send the required documents.
+
+For any questions, call us on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

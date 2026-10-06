@@ -1,0 +1,81 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes">
+     <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+     <aura:attribute name="openmodel" type="boolean"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+      <div class="section-layout-container slds-section slds-is-open" aura:id="collapsibleSectionContainer">
+        <h3 class="label slds-section__title slds-truncate slds-theme_shade">
+        <lightning:buttonStateful labelWhenOff="Selling Price Details" labelWhenOn="Selling Price Details" iconNameWhenOff="utility:chevrondown"
+                                      iconNameWhenOn="utility:chevronright"
+                                      onclick="{!c.handleSectionHeaderClick }"
+                                      class="slds-button slds-button_stateful slds-not-selected slds-button slds-button_stateful slds-not-selected slds-button slds-section__title-action" />
+        </h3>
+	       <lightning:recordEditForm aura:id="form"
+                                      recordId="{!v.recordId}"
+                                      objectApiName="Case">
+
+            <!-- button state defaults to false so state 
+                 represents "is collapsed"
+            -->
+
+        <div class="slds-section__content" >
+               <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_2-of-5"><lightning:inputField fieldName="bs_Investment_ID__c" aura:id="invstID" disabled="true"/></div>
+                    <div class="slds-col slds-size_2-of-5"><lightning:inputField fieldName="bs_ISIN_Type__c" aura:id="isintype" disabled="true"/></div>
+                    <div class="slds-col slds-size_2-of-5"><lightning:inputField fieldName="bs_ISIN_Code__c" aura:id="isinCode" disabled="true"/></div>           
+                    <div class="slds-col slds-size_2-of-5"><lightning:inputField fieldName="bs_Maturity_Date__c" aura:id="Mdate" disabled="true" /></div>
+                    <div class="slds-col slds-size_2-of-5"><label for="totalBidAmount">Bid Allocation Amount</label><lightning:inputField fieldName="bs_Total_Bid_Amount__c" aura:id="totalBidAmount" disabled="true" variant="label-hidden"/></div>&nbsp;&nbsp;
+                    <div class="slds-col slds-size_2-of-5"><label for="sPrice">Selling Price</label><lightning:inputField fieldName="Claim_Amount__c" aura:id="sPrice" disabled="true" variant="label-hidden"/></div><br></br>
+                    <div class="slds-col slds-size_2-of-5"><label for="sAmount">Selling Amount</label><lightning:inputField fieldName="Transaction_Amount__c" aura:id="sAmount" disabled="true" variant="label-hidden"/></div>&nbsp;&nbsp;
+                    <div class="slds-col slds-size_2-of-5"><label for="sDate">Selling Date</label><lightning:inputField fieldName="Transaction_Date__c" aura:id="sDate" disabled="true" variant="label-hidden"/></div><br></br>
+                    <div class="slds-col slds-size_2-of-5"><label for="pDate">Proceed Credited On</label><lightning:inputField fieldName="To_Date__c" aura:id="pDate" disabled="true" variant="label-hidden"/></div>&nbsp;&nbsp;
+                    <div class="slds-col slds-size_2-of-5"><label for="pIbn">Proceed Credit To</label><lightning:inputField fieldName="ac_Iban__c" aura:id="ac_Iban" disabled="true" variant="label-hidden"/></div>
+                   
+                 </div>
+               </div><br><br><br></br></br></br>
+                <lightning:button label="Edit Selling Quote" variant="brand" onclick="{!c.PerformAction}" />
+    
+
+               </lightning:recordEditForm>
+               </div>
+     
+       <aura:If isTrue="{!v.openmodel}">
+        <div aura:id="editDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal_small slds-backdrop ">
+            <div class="slds-modal__container ">
+                <div class="slds-modal__header">
+                    <h2 class="slds-text-heading--medium">Selling Quote</h2>
+                    <button class="slds-button slds-modal__close slds-button--icon" title="Close" onclick="{!c.closeModal}">
+                        <lightning:icon iconName="utility:close" size="medium" />
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium slds-grid slds-wrap " style="height:400px;" >
+                     <lightning:recordEditForm aura:id="sell"
+                                      recordId="{!v.recordId}"
+                                      objectApiName="Case"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}">
+                    <!--  Write Your Content here  -->
+                     <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_2-of-5"><label for="sPrice">Selling Price</label><lightning:inputField fieldName="Claim_Amount__c" aura:id="sPrice"  variant="label-hidden"/></div>&nbsp;&nbsp;
+                    <div class="slds-col slds-size_2-of-5"><label for="sAmount">Selling Amount</label><lightning:inputField fieldName="Transaction_Amount__c" aura:id="sAmount"  variant="label-hidden"/></div>
+                    <div class="slds-col slds-size_2-of-5"><label for="sDate">Selling Date</label><lightning:inputField fieldName="Transaction_Date__c" aura:id="sDate"  variant="label-hidden"/></div>&nbsp;&nbsp;
+                    <div class="slds-col slds-size_2-of-5"><label for="pDate">Proceed Credited On</label><lightning:inputField fieldName="To_Date__c" aura:id="pDate"  variant="label-hidden"/></div>
+                    <div class="slds-col slds-size_2-of-5"><label for="pIbn">Proceed Credit To</label><lightning:inputField fieldName="ac_Iban__c" aura:id="ac_Iban"  variant="label-hidden"/></div>
+                     <div class="slds-hide">
+                   <lightning:inputField fieldName="Currency__c" aura:id="currency" value="BHD"/>
+                    </div>
+                    </div>
+                    <br><br><br></br></br></br>
+                    <footer>
+                    <div class="slds-align_absolute-center">
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                        <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                    </div>
+                </footer>
+                    </lightning:recordEditForm>
+                </div>
+            </div>
+        </div>
+    </aura:If>
+</aura:component>

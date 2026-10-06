@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sponsor_Prize__c</fullName>
+    <label>Sponsor Prize</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>&apos;Address Beach Resort - One Night Stay&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Address Beach Resort - One Night Stay&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Alo Restaurant - BHD 20 voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Alo Restaurant - BHD 20 voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Angelina - Free Coffee voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Angelina - Free Coffee voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Animalia by Yara - Free Consultation&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Animalia by Yara - Free Consultation&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Baharat Restaurant - Free Brunch for 2 &apos;</fullName>
+                <default>false</default>
+                <label>&apos;Baharat Restaurant - Free Brunch for 2 &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Barberia Bahrain - Free Service Voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Barberia Bahrain - Free Service Voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Beauty Blends - Perfume Set&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Beauty Blends - Perfume Set&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;CAF Café - Buy one cake get free Black Coffee&apos;</fullName>
+                <default>false</default>
+                <label>&apos;CAF Café - Buy one cake get free Black Coffee&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Calo - 1 Week Free Business Lunch Plan&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Calo - 1 Week Free Business Lunch Plan&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Caloria - Buy one get one free&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Caloria - Buy one get one free&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Curious Diner - Free Milkshake&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Curious Diner - Free Milkshake&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;D11 - Free 5 Hours playing time&apos;</fullName>
+                <default>false</default>
+                <label>&apos;D11 - Free 5 Hours playing time&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Dona&apos;s Wonders - Free Dessert &apos;</fullName>
+                <default>false</default>
+                <label>&apos;Dona&apos;s Wonders - Free Dessert &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Enaya - Free 1 Year Car Wash&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Enaya - Free 1 Year Car Wash&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Epix Cinemas - Free two Cinema tickets &apos;</fullName>
+                <default>false</default>
+                <label>&apos;Epix Cinemas - Free two Cinema tickets &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Five Degrees Ice Cream - Free Single scoop&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Five Degrees Ice Cream - Free Single scoop&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Heavenly Spa - Free Spa Treatment for 2&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Heavenly Spa - Free Spa Treatment for 2&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Hospitalia by Yara - Free Consultation&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Hospitalia by Yara - Free Consultation&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Hospitalia by Yara - Free Full face laser or beard lining&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Hospitalia by Yara - Free Full face laser or beard lining&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Illy Café - Buy one get one (on drinks only)&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Illy Café - Buy one get one (on drinks only)&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Jaw Resort - Dinner for two&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Jaw Resort - Dinner for two&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Jaw Resort - Family beach day pass &apos;</fullName>
+                <default>false</default>
+                <label>&apos;Jaw Resort - Family beach day pass &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Lemon Café - Buy one get one &apos;</fullName>
+                <default>false</default>
+                <label>&apos;Lemon Café - Buy one get one &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Maison Pereja - Perfume Set&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Maison Pereja - Perfume Set&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Mjs Bowling lounge - Free bowling game for one person&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Mjs Bowling lounge - Free bowling game for one person&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Natural Blends - Perfume Set&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Natural Blends - Perfume Set&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Novotel - BBQ Dinner Buffet at Zytoun Restaurant&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Novotel - BBQ Dinner Buffet at Zytoun Restaurant&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Novotel - Free Pool &amp; Day pass voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Novotel - Free Pool &amp; Day pass voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Perfumista Al Oud - Perfume Set&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Perfumista Al Oud - Perfume Set&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Reviive Café - Free Coffee &apos;</fullName>
+                <default>false</default>
+                <label>&apos;Reviive Café - Free Coffee &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Salero - Free Dinner for 2&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Salero - Free Dinner for 2&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Swiss-bel residences Juffair - Swiss Bistro Breakfast Buffet for 2&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Swiss-bel residences Juffair - Swiss Bistro Breakfast Buffet for 2&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Swiss-bel residences Juffair - Thursdays BBQ Night Dinner for 2&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Swiss-bel residences Juffair - Thursdays BBQ Night Dinner for 2&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Domain Bahrain - 1 night stay for 2 adults &apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Domain Bahrain - 1 night stay for 2 adults &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Domain Bahrain - Buffet breakfast, for 2 people &apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Domain Bahrain - Buffet breakfast, for 2 people &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Domain Bahrain – Spa One hour massage &apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Domain Bahrain – Spa One hour massage &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Egg Stop - BHD 10 voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Egg Stop - BHD 10 voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Good Wolf – Free Beverage&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Good Wolf – Free Beverage&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Good Wolf – Acai Bowl&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Good Wolf – Acai Bowl&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Good Wolf – Free Smoothie&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Good Wolf – Free Smoothie&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Good Wolf – Free Juice&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Good Wolf – Free Juice&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Good Wolf – Buy 1 Get 1&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Good Wolf – Buy 1 Get 1&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Makeup Manual - Free Massage gift voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Makeup Manual - Free Massage gift voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;The Makeup Manual - Hair Treatment voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;The Makeup Manual - Hair Treatment voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;V60 Coffee - Free Coffee &apos;</fullName>
+                <default>false</default>
+                <label>&apos;V60 Coffee - Free Coffee &apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Vida Beach Resort - One Night Stay&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Vida Beach Resort - One Night Stay&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Wheelys Café - Free Cake voucher&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Wheelys Café - Free Cake voucher&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Wheelys Café - Free Coffee with Breakfast&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Wheelys Café - Free Coffee with Breakfast&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Wheelys Café - Free coffee with brownie&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Wheelys Café - Free coffee with brownie&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Vida Beach Resort – Dinner for 2 at Origins&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Vida Beach Resort – Dinner for 2 at Origins&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Y.k AlMoayyed - 15% off on all item&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Y.k AlMoayyed - 15% off on all item&apos;</label>
+            </value>
+            <value>
+                <fullName>&apos;Y.k AlMoayyed - Free Air Purifier&apos;</fullName>
+                <default>false</default>
+                <label>&apos;Y.k AlMoayyed - Free Air Purifier&apos;</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

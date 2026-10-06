@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Resident_Confirmed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will capture the Residency of the customer manually, it will be editable from the back end or through the Name and Risk Screening Case that compliance can raise.</description>
+    <label>Non-Resident Confirmed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

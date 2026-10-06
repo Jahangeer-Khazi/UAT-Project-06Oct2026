@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Back_to_L2__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in case process builder to reassign the case to the L2 queue</description>
+    <label>Confirm you want to reassign to L2</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

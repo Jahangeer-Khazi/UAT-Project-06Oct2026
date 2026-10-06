@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewRMID__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>NBA-13877 it will show the new rm id populated if checker approves it will populate on account</description>
+    <label>New RM Name</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>RelationshipManagersRMs__c.RMStatus__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>RelationshipManagersRMs__c</referenceTo>
+    <relationshipLabel>RM Segment Request</relationshipLabel>
+    <relationshipName>SegmentRequest</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

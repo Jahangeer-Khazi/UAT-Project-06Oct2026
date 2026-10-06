@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>EDD Rejected HTML</name>
+    <style>none</style>
+    <subject>Sorry, your application with ila has been rejected.</subject>
+    <textOnly>We are sorry; we could not complete your onboarding steps
+
+Hi, appreciate your interest in ila. Unfortunately, we are not able to proceed with your application.
+
+Happy to help you with any enquiries, the number to call us is (TBD)
+
+
+
+                                                                                        عذرًا، لم نتمكن من إكمال خطوات فتح الحساب الخاصة بك
+
+                                                                                مرحبًا، نقدر اهتمامك بـ &quot;إلى&quot;. نعتذر عن عدم إمكانية متابعة طلبك.
+                                                             يسعدنا مساعدتك والرد على أي استفسارات، للتواصل معنا يمكنك الاتصال على الرقم  
+
+
+${openilaLink}
+
+© 2019 ila, all rights reserved.
+Bahrain
+Contact Us |  FAQs |  Terms &amp; Conditions |  Privacy Policy</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

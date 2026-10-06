@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- MLRO decision --></label>
+    <name>MLRO_decision__c</name>
+    <picklistValues>
+        <masterLabel>Add to local Watchlist</masterLabel>
+        <translation><!-- Add to local Watchlist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Do not submit an STR</masterLabel>
+        <translation><!-- Do not submit an STR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Exit Recommendation</masterLabel>
+        <translation><!-- Exit Recommendation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Payment (in-flight Screening)</masterLabel>
+        <translation><!-- Payment (in-flight Screening) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Submit an STR</masterLabel>
+        <translation><!-- Submit an STR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Private Blacklist</masterLabel>
+        <translation><!-- ila Private Blacklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Private EDD Caution List</masterLabel>
+        <translation><!-- ila Private EDD Caution List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Private Watchlist</masterLabel>
+        <translation><!-- ila Private Watchlist --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Above Maximum Age</fullName>
+        <default>false</default>
+        <label>Above Maximum Age</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum Age</fullName>
+        <default>false</default>
+        <label>Below Minimum Age</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum Card Limit</fullName>
+        <default>false</default>
+        <label>Below Minimum Card Limit</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum CRIF Score</fullName>
+        <default>false</default>
+        <label>Below Minimum CRIF Score</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum Income</fullName>
+        <default>false</default>
+        <label>Below Minimum Income</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum Months in business</fullName>
+        <default>false</default>
+        <label>Below Minimum Months in business</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum Months in Service</fullName>
+        <default>false</default>
+        <label>Below Minimum Months in Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Below Minimum Score</fullName>
+        <default>false</default>
+        <label>Below Minimum Score</label>
+    </customValue>
+    <customValue>
+        <fullName>Blacklisted Customer</fullName>
+        <default>false</default>
+        <label>Blacklisted Customer</label>
+    </customValue>
+    <customValue>
+        <fullName>Cancelled upon customer request</fullName>
+        <default>false</default>
+        <label>Cancelled upon customer request</label>
+    </customValue>
+    <customValue>
+        <fullName>Cancelled upon Call center / Service center request</fullName>
+        <default>false</default>
+        <label>Cancelled upon Call center / Service center request</label>
+    </customValue>
+    <customValue>
+        <fullName>Employer not approved</fullName>
+        <default>false</default>
+        <label>Employer not approved</label>
+    </customValue>
+    <customValue>
+        <fullName>Exceeds Debt Burden</fullName>
+        <default>false</default>
+        <label>Exceeds Debt Burden</label>
+    </customValue>
+    <customValue>
+        <fullName>Fraud</fullName>
+        <default>false</default>
+        <label>Fraud</label>
+    </customValue>
+    <customValue>
+        <fullName>Insufficient or Unacceptable Document / Bank Statement</fullName>
+        <default>false</default>
+        <label>Insufficient or Unacceptable Document / Bank Statement</label>
+    </customValue>
+    <customValue>
+        <fullName>Insufficient or Unacceptable Document / Pay slip</fullName>
+        <default>false</default>
+        <label>Insufficient or Unacceptable Document / Pay slip</label>
+    </customValue>
+    <customValue>
+        <fullName>Insufficient or Unacceptable Document / Salary Letter</fullName>
+        <default>false</default>
+        <label>Insufficient or Unacceptable Document / Salary Letter</label>
+    </customValue>
+    <customValue>
+        <fullName>Insufficient Information</fullName>
+        <default>false</default>
+        <label>Insufficient Information</label>
+    </customValue>
+    <customValue>
+        <fullName>Legal Action</fullName>
+        <default>false</default>
+        <label>Legal Action</label>
+    </customValue>
+    <customValue>
+        <fullName>Mandatory documents not received</fullName>
+        <default>false</default>
+        <label>Mandatory documents not received</label>
+    </customValue>
+    <customValue>
+        <fullName>Mandatory documents not verified</fullName>
+        <default>false</default>
+        <label>Mandatory documents not verified</label>
+    </customValue>
+    <customValue>
+        <fullName>Mandatory Information not available</fullName>
+        <default>false</default>
+        <label>Mandatory Information not available</label>
+    </customValue>
+    <customValue>
+        <fullName>Need land line - Need another home address</fullName>
+        <default>false</default>
+        <label>Need land line - Need another home address</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative / Unsuccessful CPV</fullName>
+        <default>false</default>
+        <label>Negative / Unsuccessful CPV</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative / Unsuccessful Employer CPV</fullName>
+        <default>false</default>
+        <label>Negative / Unsuccessful Employer CPV</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative Collection Recommendation</fullName>
+        <default>false</default>
+        <label>Negative Collection Recommendation</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking \ Criteria</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking \ Criteria</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking \ Criteria - write off records</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking \ Criteria - write off records</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking \ Criteria Bkt2 in the last 12 months</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking \ Criteria Bkt2 in the last 12 months</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking \ currently delinquent</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking \ currently delinquent</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking \ Not once in B03</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking \ Not once in B03</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking \ Was classified as NPL</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking \ Was classified as NPL</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative CRIF Checking/Bad Credit History</fullName>
+        <default>false</default>
+        <label>Negative CRIF Checking/Bad Credit History</label>
+    </customValue>
+    <customValue>
+        <fullName>No Credit History in CRIF / Less than 3 months Credit history</fullName>
+        <default>false</default>
+        <label>No Credit History in CRIF / Less than 3 months Credit history</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Meeting Eligibility Criteria</fullName>
+        <default>false</default>
+        <label>Not Meeting Eligibility Criteria</label>
+    </customValue>
+    <customValue>
+        <fullName>Restricted employment Contract</fullName>
+        <default>false</default>
+        <label>Restricted employment Contract</label>
+    </customValue>
+    <customValue>
+        <fullName>Restricted profession</fullName>
+        <default>false</default>
+        <label>Restricted profession</label>
+    </customValue>
+    <customValue>
+        <fullName>Suspended Employer</fullName>
+        <default>false</default>
+        <label>Suspended Employer</label>
+    </customValue>
+    <customValue>
+        <fullName>Unacceptable Credit History</fullName>
+        <default>false</default>
+        <label>Unacceptable Credit History</label>
+    </customValue>
+    <customValue>
+        <fullName>Unreachable client</fullName>
+        <default>false</default>
+        <label>Unreachable client</label>
+    </customValue>
+    <customValue>
+        <fullName>Unsatisfactory Internal Verification</fullName>
+        <default>false</default>
+        <label>Unsatisfactory Internal Verification</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <description>this picklist contains the decline reason values used for Jordan</description>
+    <masterLabel>Decline Reason Values</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_Compliance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To automatically reroute the case to the compliance queue to be used in RFI</description>
+    <label>To Compliance</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

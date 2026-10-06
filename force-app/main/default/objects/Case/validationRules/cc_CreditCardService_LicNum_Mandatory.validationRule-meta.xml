@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_LicNum_Mandatory</fullName>
+    <active>true</active>
+    <description>If Employment Status is Self Employed then License number field is mandatory</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Employment_Status__c),
+ISPICKVAL(cc_Employment_Status__c, &quot;Self Employed&quot;),
+ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+ISBLANK(cc_CR_License_Number__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type, &quot;Convert Credit Card Nature Application&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>cc_CR_License_Number__c</errorDisplayField>
+    <errorMessage>If Employment Status is Self Employed then CR License Number field is mandatory</errorMessage>
+</ValidationRule>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Contact Centre</name>
+    <queueMembers>
+        <roles>
+            <role>Contact_Center</role>
+            <role>Contact_Center_Team_Leader</role>
+        </roles>
+        <users>
+            <user>abbas.alhalwachi@ilabank.com</user>
+            <user>ahmed.alaradi@ilabank.com</user>
+            <user>ali.alsafar@afs.com.bh</user>
+            <user>ali.alaraibi@afs.com.bh</user>
+            <user>ali.alhussaini@afs.com.bh</user>
+            <user>ayman.hasan@afs.com.bh</user>
+            <user>deena.arahman@ilabank.com</user>
+            <user>dina.haddad@bank-abc.com</user>
+            <user>fuad.mohamed@afs.com.bh</user>
+            <user>hasan.alhasan@ilabank.com</user>
+            <user>husain.qasim@afs.com.bh</user>
+            <user>hussain.hadi@afs.com.bh</user>
+            <user>hussain.salman@afs.com.bh</user>
+            <user>jannat.alsalat@ilabank.com</user>
+            <user>jayanth.manickam@bank-abc.com</user>
+            <user>rmttest@bank-abc.com</user>
+            <user>mahmood.lafi@bank-abc.com</user>
+            <user>contactcenter@bank-abc.com</user>
+            <user>mohammed.hammad@afs.com.bh</user>
+            <user>ranjith.mathiyalagan@bank-abc.com</user>
+            <user>saeed.mahdi@ilabank.com</user>
+            <user>saeed.mahroos@afs.com.bh</user>
+            <user>sayed.ahmed@afs.com.bh</user>
+            <user>shubham.m@rpint.com</user>
+            <user>shubham.mittal@bank-abc.com</user>
+            <user>zainab.albanna@afs.com.bh</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

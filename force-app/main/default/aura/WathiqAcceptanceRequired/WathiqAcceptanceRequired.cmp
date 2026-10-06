@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<div style="margin-left:100px;margin-top:20px;width:500px;">
+        	<p style="color:red;font-size:20px;">Wathiq Acceptance Required from Mobile App</p>
+        </div>
+</aura:component>

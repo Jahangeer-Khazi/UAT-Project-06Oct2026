@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Cancel/Reject Reason --></label>
+    <name>Payroll_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Account does not exist</masterLabel>
+        <translation><!-- Account does not exist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account is Blocked</masterLabel>
+        <translation><!-- Account is Blocked --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account is Dormant</masterLabel>
+        <translation><!-- Account is Dormant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account is closed</masterLabel>
+        <translation><!-- Account is closed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account is partially blocked</masterLabel>
+        <translation><!-- Account is partially blocked --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Adding one or more credit accounts</masterLabel>
+        <translation><!-- Adding one or more credit accounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in debit account</masterLabel>
+        <translation><!-- Change in debit account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in one or more credit account status</masterLabel>
+        <translation><!-- Change in one or more credit account status --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in one or more credit accounts</masterLabel>
+        <translation><!-- Change in one or more credit accounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in one or more credit amounts</masterLabel>
+        <translation><!-- Change in one or more credit amounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in the debit account status</masterLabel>
+        <translation><!-- Change in the debit account status --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in total debit amount</masterLabel>
+        <translation><!-- Change in total debit amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change in value date</masterLabel>
+        <translation><!-- Change in value date --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Insufficient balance in the debit account</masterLabel>
+        <translation><!-- Insufficient balance in the debit account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid Creditor Account Number</masterLabel>
+        <translation><!-- Invalid Creditor Account Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid Currency</masterLabel>
+        <translation><!-- Invalid Currency --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid Debtor Account Number</masterLabel>
+        <translation><!-- Invalid Debtor Account Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid account number</masterLabel>
+        <translation><!-- Invalid account number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid account type</masterLabel>
+        <translation><!-- Invalid account type --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid identification code</masterLabel>
+        <translation><!-- Invalid identification code --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

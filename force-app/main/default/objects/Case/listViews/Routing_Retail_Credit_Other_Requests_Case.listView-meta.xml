@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Routing_Retail_Credit_Other_Requests_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Routing - Retail Credit - Other Requests</label>
+    <queue>Routing_Retail_Credit_Other_Requests</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

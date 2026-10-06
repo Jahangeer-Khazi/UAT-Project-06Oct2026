@@ -1,0 +1,468 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" controller="walkinCustomerErevealerController" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" action="{!customerSignature}" contentType="text/html">
+    
+    <html style="width:100%; height:100%;">
+        <head>
+            <title>ila Digital Bank - Bahrain</title>
+            <meta name="ROBOTS" content="INDEX,FOLLOW"/>
+            <meta name="keywords" content=""/>
+            <meta name="description" content=""/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com"/>
+            <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+            <!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" ></link>-->
+            <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+            <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+            <script>var $ = jQuery.noConflict();</script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+            <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+            <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+            
+            <style class="main_style">
+                .layout-canvas-b { background-color: #FFFFFF; border: none; box-sizing: border-box; padding: 0px; width: 100%; }
+                .layout-canvas-b > .header, .layout-canvas-b > .section, .layout-canvas-b > .footer { position: relative; overflow: hidden; width: 100%; overflow-wrap: break-word; }
+                .layout-canvas-b > .section { margin: 10px 0px; }
+                .layout-canvas-b > .section > .columns { box-sizing: border-box; overflow-wrap: break-word; min-width: 320px; }
+                body { color: #000000; font-family: Arial; font-size: 12px; margin: 0px auto; }
+                @media only screen and (max-width: 480px) {
+                .mobile-hidden { display: none !important; }
+                .responsive-td { width: 100% !important; display: block !important; padding: 0px !important; }
+                }
+                @media (min-width: 480px) {
+                .layout-canvas-b > .section { display: table; table-layout: fixed; }
+                }
+                @media (min-width: 480px) {
+                .layout-canvas-b > .section > .columns { display: table-cell; padding: 0px 5px; vertical-align: top; width: 50%; }
+                .layout-canvas-b > .section > .columns:first-child { padding-left: 0px; }
+                .layout-canvas-b > .section > .columns:last-child { padding-right: 0px; }
+                .layout-canvas-b > .section > .columns.col1 { }
+                .layout-canvas-b > .section > .columns.col2 { }
+                }
+                @media (max-width: 480px) {
+                .layout-canvas-b > .section > .columns { width: 100%; margin-bottom: 10px; }
+                .layout-canvas-b > .section > .columns:last-child { margin-bottom: 0px; }
+                }
+                ul.list { list-style-type:circle;font-size:8px; padding-left:8px; }
+                .button { background-color: #7aee00; text-align: center; display: inline-block; font-size: 15px;
+                }
+            </style>
+            <style type="text/css">
+                #myCanvas{
+                border: 2px solid #000;
+                width: 10%
+                height: 300px;
+                touch-action: none;}
+                .myClass{
+                color:#ffffff!important;
+                background:#000E3C !important;
+                width: 20%;
+                max-width:476px;
+                height: 40px;
+                /* background: rgba(204,207,216,1); */
+                opacity: 1;
+                /*position: absolute;*/
+                top: 530px;
+                left: 70px;
+                border: none;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+                overflow: hidden;
+                float:left;
+                margin-right: 130px;
+                
+                //margin: 36px 22% 56px;
+                font-size:18px;
+                cursor: pointer;
+                font-family: 'Cairo', sans-serif!important;
+                }
+                .Previous{
+                margin-left:220px;
+                ui-shadow:none;
+                }
+                .Done{
+                margin-right:50px;
+                ui-shadow:none;
+                }
+                @media (min--moz-device-pixel-ratio: 1.5),
+       (-o-min-device-pixel-ratio: 3/2),
+       (-webkit-min-device-pixel-ratio: 1.5),
+       (min-device-pixel-ratio: 1.5),
+       (min-resolution: 144dpi),
+       (min-resolution: 1.5dppx) and 
+       (min-width: 1500px) and (max-width : 2000px) and
+       @-ms-viewport {
+color:#ffffff!important;
+                background:#000E3C !important;
+                width: 20%;
+                max-width:476px;
+                height: 40px;
+                /* background: rgba(204,207,216,1); */
+                opacity: 1;
+                /*position: absolute;*/
+                top: 530px;
+                left: 70px;
+                border: none;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+                overflow: hidden;
+                float:left;
+                margin-right: 130px;
+                justify-content: space-between;
+                //margin: 36px 22% 56px;
+                font-size:18px;
+                cursor: pointer;
+                font-family: 'Cairo', sans-serif!important;
+                }
+                .Previous{
+                margin-left:220px;
+                ui-shadow:none;
+                }
+                .Done{
+                margin-right:50px;
+                ui-shadow:none;
+                }
+            </style>
+            <link rel="stylesheet" href="https://cloud.e.ilabank.com/ilabank.css"/>
+            <link rel="shortcut icon" href="https://image.e.ilabank.com/lib/fe3411717564047d7d1c75/m/1/37bedc9a-61cd-41ed-ad06-05e2a02b5bca.png"/>        
+            <apex:stylesheet value="https://fonts.googleapis.com/css?family=Neo+Sans+Arabic&display=swap" />
+            <apex:stylesheet value="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" />
+            <apex:stylesheet value="https://fonts.googleapis.com/css?family=Font+Awesome+5+Pro&display=swap" />
+            <apex:stylesheet value="{!$Resource.main_css_ConfirmationPage_walkinCustomerRegistration_1}" />
+            
+        </head>
+        
+        <apex:form style="width:100%; height:100%;">
+            
+            <div class="v7_243">
+                
+                <div class="header">
+                    
+                    <div class="v45_1675">
+                        
+                        <img src="/resource/1647959401000/ilaLogoWithBankABC" class = 'v43_12332' width="220" style="top:20px; left:295px;"/>
+                        
+                    </div>
+                </div>
+                
+                <div class="v46_2756">
+                    <div class="v46_2758">يرجى التحقق من التفاصيل الخاصة بك
+                        <br/>Acknowledge Your Detail</div>
+                </div>
+                <div class="container">
+                    <div class="jumbotron">
+                        
+                        <div class="v7_305">
+                            <div class="v7_323">:نسخة من بطاقة الهوية الخاصة بك
+                                <br/>Your CPR COPY:</div>
+                            <div class="v7_30544">  
+                                <body onload="myFunction()">
+                                    <div id ="hi">
+                                        <!-- <iframe src="data:application/pdf;base64,{!pdfAsString}" ></iframe>-->
+                                        <apex:outputText id="cprattachment" value="{!pdfAsString}" escape="false"/></div>
+                                    <div id="img-out"></div>
+                                    
+                                    <div data-role="content">
+                                        <h4>Applicant Email:</h4>
+                                    <apex:input value="{!emailAddress}" id="email" type="email" label="Email Address" size="50" styleClass="slds-input" style="font-size:initial;"/>
+                                        <div style="float:left;margin-left:20px">      
+                                            <h4 id="recordSigId">Applicant Signature:</h4>
+                                              <div id="signature-pad" class="signature-pad" >
+                                                   <div id="canvas-wrapper" class="signature-pad--body">
+                                                       <canvas id="myCanvas" width="200" height="75" style="border:2px solid black;"></canvas> </div><br/></div>
+                                            <button onclick="javascript:clearArea();return false;" style="margin-bottom:10px;">Clear Area</button>
+                                        </div>
+                                        <div  style="float:right;margin-right:20px">
+                                            <h4 id="recordSigbk">For bank use only:</h4>
+                                            <canvas id="myCanvasBank" width="200" height="75" style="border:2px solid black;"></canvas><br/>
+                                            <button onclick="javascript:clearAreabk();return false;" style="margin-bottom:10px;">Clear Area</button>  </div>
+                                        <br /><br />
+                                        <br /><br />
+                                        <br /><br />
+                                        <br /><br />
+                                        <!--</div>-->
+                                    </div>
+                                    <script>
+                                    function myFunction(){ 
+                                        
+                                        html2canvas(document.querySelector("#hi")).then(canvas => {
+                                            let undoData = [];
+                                          
+
+                                            document.body.appendChild(canvas);
+                                            var image = document.createElement("img"); // create an image object
+                                            image.src = canvas.toDataURL(); // get canvas content as data URI
+                                            //  document.getElementById('img-out').appendChild(image)
+                                            window.imgData=canvas.toDataURL();
+                                            var query="canvas[height='595'][width='600']";
+                                            // find the canvas
+                                            var canvas=document.querySelector(query);
+                                            console.log('canvas'+canvas);
+                                            // hide the canvas
+                                            if(canvas){
+                                               canvas.style.display="none";
+                                            }
+                                             var query="canvas[height='1190'][width='1200']";
+                                            // find the canvas
+                                            var canvas=document.querySelector(query);
+                                            // hide the canvas
+                                            console.log('canvas'+JSON.stringify(canvas));
+                                            if(canvas){
+                                            canvas.style.display="none";
+                                            }
+                                            var query="canvas[height='1222'][width='996']";
+                                            // find the canvas
+                                            var canvas=document.querySelector(query);
+                                            // hide the canvas
+                                            console.log('canvas'+JSON.stringify(canvas));
+                                            if(canvas){
+                                            canvas.style.display="none";
+                                            }
+                                        });
+                                            
+                                            
+                                        }
+                                            </script>
+                                    
+                                </body>
+                            </div>
+                        </div>
+                        <script>
+                        
+                        var mousePressed = false;
+                        var isDrawing =false;
+                        var lastX, lastY;
+                        var canvas;
+                        var ctx;
+                        var ctxb;
+                        var canSave = false;
+                        
+                      
+                        $(document).ready(function() {
+                            canvas = document.getElementById('myCanvas');
+                            ctx = canvas.getContext("2d");
+                            canvas = document.getElementById('myCanvasBank');
+                            ctxb = canvas.getContext("2d");
+ 
+                            /*    $('#myCanvas').on('touchstart',function (e) {
+                                mousePressed = true;
+                                Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+                                  e.preventDefault();
+                            });*/
+                               //bind touch events
+			 $('#myCanvas').on('touchstart', function (e) {
+				mousePressed = true;
+                 /*ctx.fillStyle = "#000";
+				var t = e.originalEvent.touches[0];
+				var x = t.pageX - $(e.target).offset().left;
+				var y = t.pageY - $(e.target).offset().top;
+				ctx.moveTo(x, y);
+
+				e.preventDefault();
+				return false;*/
+                  Draw(e.originalEvent.touches[0].pageX - $(this).offset().left, e.originalEvent.touches[0].pageY - $(this).offset().top, false);
+			 });
+
+			 $('#myCanvas').on('touchmove', function (e) {
+                 if (mousePressed) {
+                  var canSave = true;
+                  Draw(e.originalEvent.touches[0].pageX -  $(this).offset().left, e.originalEvent.touches[0].pageY - $(this).offset().top, true);
+                 /*ctx.fillStyle = "#000";
+				var t = e.originalEvent.touches[0];
+				var x = t.pageX - $(e.target).offset().left;
+				var y = t.pageY - $(e.target).offset().top;
+				ctx.lineTo(x,y);
+				ctx.stroke();
+
+				e.preventDefault();
+				return false;*/
+                     }
+			 });
+
+			 $('#myCanvas').on('touchend', function (e) {
+					mousePressed = false;
+                    //isSign = true;
+			 });
+              $('#myCanvasBank').on('touchstart', function (e) {
+				mousePressed = true;
+                  /*ctxb.fillStyle = "#000";
+				var t = e.originalEvent.touches[0];
+				var x = t.pageX - $(e.target).offset().left;
+				var y = t.pageY - $(e.target).offset().top;
+				ctxb.moveTo(x, y);
+
+				e.preventDefault();
+				return false;*/
+                  Drawbk(e.originalEvent.touches[0].pageX - $(this).offset().left, e.originalEvent.touches[0].pageY - $(this).offset().top, false);
+			 });
+
+			 $('#myCanvasBank').on('touchmove', function (e) {
+                  if (mousePressed) {
+                  var canSave = true;
+                  Drawbk(e.originalEvent.touches[0].pageX -  $(this).offset().left, e.originalEvent.touches[0].pageY - $(this).offset().top, true);
+                 /*ctxb.fillStyle = "#000";
+				var t = e.originalEvent.touches[0];
+				var x = t.pageX - $(e.target).offset().left;
+				var y = t.pageY - $(e.target).offset().top;
+				ctxb.lineTo(x,y);
+				ctxb.stroke();
+				e.preventDefault();
+				return false;*/
+                }
+			 });
+
+			 $('#myCanvasBank').on('touchend', function (e) {
+				if(mousePressed) {
+					mousePressed = false;
+                    canSave = true;
+				}
+
+			 });
+                            /* $('#myCanvas').on('touchmove',function (e) {
+                               if (mousePressed) {
+                                    var canSave = true;
+                                    Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+                                    e.preventDefault();
+                                }
+                            });
+                           $('#myCanvas').on('touchend',function (e) {
+                               mousePressed = false;
+                                e.preventDefault();
+                            });*/
+                            $('#myCanvas').mousedown(function (e) {
+                                mousePressed = true;
+                                Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+                            });
+                            
+                            $('#myCanvas').mousemove(function (e) {
+                                if (mousePressed) {
+                                    var canSave = true;
+                                    Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+                                }
+                            });
+                            
+                            $('#myCanvas').mouseup(function (e) {
+                                mousePressed = false;
+                            });
+                            $('#myCanvas').mouseleave(function (e) {
+                                mousePressed = false;
+                            });
+                            $('#myCanvasBank').mousedown(function (e) {
+                                mousePressed = true;
+                                Drawbk(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+                            });
+                            
+                            $('#myCanvasBank').mousemove(function (e) {
+                                if (mousePressed) {
+                                    var canSave = true;
+                                    Drawbk(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+                                }
+                            });
+                            
+                            $('#myCanvasBank').mouseup(function (e) {
+                                mousePressed = false;
+                            });
+                            $('#myCanvasBank').mouseleave(function (e) {
+                                mousePressed = false;
+                            });
+                           
+                        })
+                        
+                        function Draw(x, y, isDown) {
+                            if (isDown) {
+                                ctx.beginPath();
+                                ctx.strokeStyle = $('#selColor').val();
+                                ctx.lineWidth = $('#selWidth').val();
+                                ctx.lineJoin = "round";
+                                ctx.moveTo(lastX, lastY);
+                                ctx.lineTo(x, y);
+                                ctx.closePath();
+                                ctx.stroke();
+                            }
+                            lastX = x; lastY = y;
+                        }
+                        
+                        function clearArea() {
+                            // Use the identity matrix while clearing the canvas
+                            ctx.setTransform(1, 0, 0, 1, 0, 0);
+                            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                        }
+                        function Drawbk(x, y, isDown) {
+                            if (isDown) {
+                                ctxb.beginPath();
+                                ctxb.strokeStyle = $('#selColor').val();
+                                ctxb.lineWidth = $('#selWidth').val();
+                                ctxb.lineJoin = "round";
+                                ctxb.moveTo(lastX, lastY);
+                                ctxb.lineTo(x, y);
+                                ctxb.closePath();
+                                ctxb.stroke();
+                            }
+                            lastX = x; lastY = y;
+                        }
+                        
+                        function clearAreabk() {
+                            // Use the identity matrix while clearing the canvas
+                            ctxb.setTransform(1, 0, 0, 1, 0, 0);
+                            ctxb.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                        }
+                        </script>
+                        
+                        <script type="text/javascript">
+                        function generatePDF() {               
+                            var dataUrl=document.getElementById('myCanvas').toDataURL();
+                            var OffdataUrl =document.getElementById('myCanvasBank').toDataURL();
+                            var caseId=document.getElementById('caseId').value; 
+                            var email = document.getElementById('j_id0:j_id7:email').value;
+                            Visualforce.remoting.Manager.invokeAction(
+                                
+                                '{!$RemoteAction.walkinCustomerErevealerController.GenerateImage}',dataUrl,OffdataUrl,caseId,imgData,
+                                
+                                function(result, event) {
+                                    
+                                    if (event.status) {
+                                        // Redirect to the attachment and open attachment as image.
+                                        window.open('https://ilabank--uatx.sandbox.my.salesforce-sites.com/walkinCustomerErevealerVFPage/walkinCustomerErevealerPDFVFPage?cresult='+result.split(';')[0]+'&bresult='+result.split(';')[1]+'&imgresult='+result.split(';')[2]+'&caseId='+caseId+'&emailAddress='+email+'&Norerun=0');
+                                        window.location.replace('https://ilabank--uatx.sandbox.my.salesforce-sites.com/walkinCustomerErevealerVFPage');
+                                    }
+                                });
+                        }  
+                        
+                        function previousVF(){
+                            window.location ='https://ilabank--uatx.sandbox.my.salesforce-sites.com/walkinCustomerErevealerVFPage';
+                         }
+                        </script>
+                        <div id="foot">   
+                            <button Class="myClass Previous text-uppercase fw-bold background:#ff0000" onclick="previousVF(); return false;">
+                            Previous | سابق   </button>
+                            <button Class="myClass Done text-uppercase fw-bold background:#ff0000" onclick="generatePDF(); return false;">
+                            Done | تـمّ" </button></div>
+                    </div>                
+                    
+                    <div class="d-grid">
+                        <input type="hidden" name="ContentId" value="{!cntId}" id="contentId"/>
+                        <input type="hidden" name="CaseId" value="{!caseID}" id="caseId"/>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="v4_5427">
+                    <div class="v4_6199" style="color:#7aee00;">&copy; ila bank 2023. All Rights Reserved. Licensed as a Conventional Retail Bank &ndash; Branch by the Central Bank of Bahrain.</div>
+                </div>      
+            </div>
+        </apex:form>     
+    </html>
+    
+</apex:page>

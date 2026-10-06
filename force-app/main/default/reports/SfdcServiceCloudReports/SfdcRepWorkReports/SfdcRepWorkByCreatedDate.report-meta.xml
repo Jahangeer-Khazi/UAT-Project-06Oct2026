@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>AgentWork$WorkItem</field>
+    </columns>
+    <columns>
+        <field>AgentWork$CloseDateTime</field>
+    </columns>
+    <columns>
+        <field>AgentWork$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>AgentWork$RequestDateTime</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AgentWork$CapacityWeight</field>
+    </columns>
+    <columns>
+        <field>AgentWork$DeclineDateTime</field>
+    </columns>
+    <columns>
+        <field>AgentWork$DeclineReason</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AgentWork$AgentCapacityWhenDeclined</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AgentWork$HandleTime</field>
+    </columns>
+    <description>This report provides details about work items assigned to reps, grouped by Created Date. Details include the rep’s name, requested date, capacity requirement, handle time, and, if applicable, closed date and decline reason.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <field>AgentWork$CreatedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Rep Work by Created Date</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SfdcRepWorkReportType__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>AgentWork$AcceptDateTime</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

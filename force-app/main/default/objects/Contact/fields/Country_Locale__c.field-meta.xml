@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Locale__c</fullName>
+    <description>This gives the locale from the CCustomer&apos;s Country code. Used in Marketing Cloud SMS list creation</description>
+    <externalId>false</externalId>
+    <formula>CASE( Mobile_Country_Code__c , 
+&apos;+1&apos;,&apos;US&apos;,
+&apos;+7&apos;,&apos;KZ&apos;,
+&apos;+20&apos;,&apos;EG&apos;,
+&apos;+30&apos;,&apos;GR&apos;,
+&apos;+32&apos;,&apos;BE&apos;,
+&apos;+33&apos;,&apos;FR&apos;,
+&apos;+34&apos;,&apos;ES&apos;,
+&apos;+39&apos;,&apos;IT&apos;,
+&apos;+41&apos;,&apos;CH&apos;,
+&apos;+43&apos;,&apos;AT&apos;,
+&apos;+44&apos;,&apos;GB&apos;,
+&apos;+46&apos;,&apos;SE&apos;,
+&apos;+49&apos;,&apos;DE&apos;,
+&apos;+52&apos;,&apos;MX&apos;,
+&apos;+60&apos;,&apos;MY&apos;,
+&apos;+61&apos;,&apos;AU&apos;,
+&apos;+62&apos;,&apos;ID&apos;,
+&apos;+63&apos;,&apos;PH&apos;,
+&apos;+65&apos;,&apos;SG&apos;,
+&apos;+90&apos;,&apos;TR&apos;,
+&apos;+91&apos;,&apos;IN&apos;,
+&apos;+213&apos;,&apos;DZ&apos;,
+&apos;+216&apos;,&apos;TN&apos;,
+&apos;+218&apos;,&apos;LY&apos;,
+&apos;+221&apos;,&apos;SN&apos;,
+&apos;+233&apos;,&apos;ML&apos;,
+&apos;+256&apos;,&apos;UG&apos;,
+&apos;+353&apos;,&apos;IE&apos;,
+&apos;+357&apos;,&apos;CY&apos;,
+&apos;+370&apos;,&apos;LT&apos;,
+&apos;+381&apos;,&apos;RS&apos;,
+&apos;+386&apos;,&apos;SI&apos;,
+&apos;+852&apos;,&apos;HK&apos;,
+&apos;+961&apos;,&apos;LB&apos;,
+&apos;+962&apos;,&apos;JO&apos;,
+&apos;+964&apos;,&apos;IQ&apos;,
+&apos;+965&apos;,&apos;KW&apos;,
+&apos;+966&apos;,&apos;SA&apos;,
+&apos;+968&apos;,&apos;OM&apos;,
+&apos;+971&apos;,&apos;AE&apos;,
+&apos;+973&apos;,&apos;BH&apos;,
+&apos;+974&apos;,&apos;QA&apos;,
+&apos;+995&apos;,&apos;GE&apos;
+
+,&apos;BH&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Country Locale</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

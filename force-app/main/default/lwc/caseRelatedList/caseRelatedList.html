@@ -1,0 +1,35 @@
+<template>
+    
+    <div style="border:1px solid rgb(211 209 209);border-bottom:0px">
+        <div class="slds-page-header slds-page-header_joined slds-page-header_bleed slds-shrink-none test-headerRegion slds-is-relative slds-page-header-no-border">
+            <div class="slds-grid slds-media slds-media--center slds-has-flexi-truncate">
+                <div style="display:flex">
+                    <div>
+                        <span class="record-avatar-container slds-avatar slds-avatar_small icon slds-m-right_small" style="background-color: #FF538A">
+                            <img src="/img/icon/t4v35/standard/case_120.png" title="Cases"/>
+                        </span>
+                    </div>
+                    <div class="slds-media__body slds-align-middle">
+                        <h2 class="slds-card__header-title">{relatedListTitle} {numberOfcases}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="border-top:1px solid #999;">
+            <template if:true={showSpinner}>
+                <lightning-spinner variant="brand" alternative-text="Loading" size="small" class="custom-spinner" ></lightning-spinner>
+            </template>
+            <template if:false={showSpinner}>
+                <div style="max-height:140px;overflow-y:auto;">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={tableData}
+                        columns={dataColumn}
+                        hide-checkbox-column="true">
+                    </lightning-datatable>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

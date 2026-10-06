@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This will set the Message moving direction --></help>
+    <label><!-- Marquee Direction --></label>
+    <name>Marquee_Direction__c</name>
+    <picklistValues>
+        <masterLabel>Down</masterLabel>
+        <translation><!-- Down --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Left</masterLabel>
+        <translation><!-- Left --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Right</masterLabel>
+        <translation><!-- Right --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Up</masterLabel>
+        <translation><!-- Up --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

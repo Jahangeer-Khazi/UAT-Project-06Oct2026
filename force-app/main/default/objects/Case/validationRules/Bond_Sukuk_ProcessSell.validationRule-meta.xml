@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bond_Sukuk_ProcessSell</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND( ISPICKVAL(Type,&apos;New Bond/Sukuk Sell Request&apos;),  ISPICKVAL(Operation_Result__c,&apos;Process Sell&apos;)),OR(ISBLANK(Claim_Amount__c),ISBLANK(Transaction_Amount__c), ISBLANK(Transaction_Date__c),ISBLANK(To_Date__c),ISBLANK(ac_Iban__c)),false)</errorConditionFormula>
+    <errorMessage>Please Fill in the Selling Details - In Order to Process Sell</errorMessage>
+</ValidationRule>

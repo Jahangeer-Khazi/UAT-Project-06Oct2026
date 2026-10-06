@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Complaint Closure HTML</name>
+    <style>none</style>
+    <subject>Your Complaint has been closed by ila.</subject>
+    <textOnly>Your complaint was investigated and closed
+
+Hi {!Case.Current_First_Name__c}
+
+Please note your complaint {!Case.Subject} with the case reference number {!Case.CaseNumber} {!Case.Closed_Child_Upon_parent_closure__c} completed and closed with the following outcome:
+
+{!Case.Child_Case_Closure_Recommendation__c}
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Have a great day!
+
+If you are not satisfied with the outcome or if you do not receive a reply from the Bank within 4 weeks, you have the right to refer the case to the Central Bank of Bahrain (CBB) within 30 calendar days from the date of receiving the Bank’s letter. You can submit the case through the ‘Complaint Form’ on the CBB’s website www.cbb.gov.bh
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

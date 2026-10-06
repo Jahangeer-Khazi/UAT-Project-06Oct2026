@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>EDD Rejected HTML ALBURAQ</name>
+    <style>none</style>
+    <subject>Sorry, your application with alburaq has been rejected</subject>
+    <textOnly>We&apos;re sorry, we couldn&apos;t complete your onboarding steps
+
+Hi, appreciate your interest in alburaq. Unfortunately, we are not able to proceed with your application.
+
+Happy to help you with any enquiries, the number to call is +973 17123456
+
+Join the conversation
+
+ilabank.com/AlBuraq
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

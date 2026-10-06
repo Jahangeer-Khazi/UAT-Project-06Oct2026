@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Customer Authorisation HTML - Jordan</name>
+    <style>none</style>
+    <subject>Your request with ila needs approval.</subject>
+    <textOnly>Hi, confirmation needed! Please get back to us.
+
+Hi {!Case.Contact_First_Name__c}, thank you for your recent request {!Case.Type} {!Case.Sub_Type__c}  case number {!Case.CaseNumber}.
+
+In order for us to proceed, please confirm the content below by replying to this email.
+
+{!Case.Description}.
+
+If we do not hear back from you within 10 working days, the request will automatically be cancelled.
+
+Thank you for being part of the ila family.
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+{!Case.Thread_Id}
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

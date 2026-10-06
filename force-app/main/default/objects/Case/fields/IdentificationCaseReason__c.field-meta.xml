@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IdentificationCaseReason__c</fullName>
+    <label>Identification Case Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Invalid Customer Name</fullName>
+                <default>false</default>
+                <label>Invalid Customer Name</label>
+            </value>
+            <value>
+                <fullName>Invalid ID Details</fullName>
+                <default>false</default>
+                <label>Invalid ID Details</label>
+            </value>
+            <value>
+                <fullName>Invalid Address</fullName>
+                <default>false</default>
+                <label>Invalid Address</label>
+            </value>
+            <value>
+                <fullName>Invalid Passport Details</fullName>
+                <default>false</default>
+                <label>Invalid Passport Details</label>
+            </value>
+            <value>
+                <fullName>Invalid RP Details</fullName>
+                <default>false</default>
+                <label>Invalid RP Details</label>
+            </value>
+            <value>
+                <fullName>Invalid Onboarding Location</fullName>
+                <default>false</default>
+                <label>Invalid Onboarding Location</label>
+            </value>
+            <value>
+                <fullName>Similarity not Matched</fullName>
+                <default>false</default>
+                <label>Similarity not Matched</label>
+            </value>
+            <value>
+                <fullName>Jumio Related Issues</fullName>
+                <default>false</default>
+                <label>Jumio Related Issues</label>
+            </value>
+            <value>
+                <fullName>Manual Stop</fullName>
+                <default>false</default>
+                <label>Manual Stop</label>
+            </value>
+            <value>
+                <fullName>Converted From eKYC Case</fullName>
+                <default>false</default>
+                <label>Converted From eKYC Case</label>
+            </value>
+            <value>
+                <fullName>No Record in IGA</fullName>
+                <default>false</default>
+                <label>No Record in IGA</label>
+            </value>
+            <value>
+                <fullName>Missing Place of Birth</fullName>
+                <default>false</default>
+                <label>Missing Place of Birth</label>
+            </value>
+            <value>
+                <fullName>OB Dual Control</fullName>
+                <default>false</default>
+                <label>OB Dual Control</label>
+            </value>
+            <value>
+                <fullName>Selecting Unauthorized Country</fullName>
+                <default>false</default>
+                <label>Selecting Unauthorized Country</label>
+            </value>
+            <value>
+                <fullName>Source of Funds Verification</fullName>
+                <default>false</default>
+                <label>Source of Funds Verification</label>
+            </value>
+            <value>
+                <fullName>Monthly Income Verification</fullName>
+                <default>false</default>
+                <label>Monthly Income Verification</label>
+            </value>
+            <value>
+                <fullName>Procedural</fullName>
+                <default>false</default>
+                <label>Procedural</label>
+            </value>
+            <value>
+                <fullName>Face Match Verification</fullName>
+                <default>false</default>
+                <label>Face Match Verification</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_Application</fullName>
+    <columns>MasterLabel</columns>
+    <columns>isApiCall__c</columns>
+    <columns>fieldAPiName__c</columns>
+    <columns>Value__c</columns>
+    <columns>Status__c</columns>
+    <columns>Sub_Status__c</columns>
+    <columns>apiStatus__c</columns>
+    <columns>crmStage__c</columns>
+    <columns>emailAlertName__c</columns>
+    <columns>queueDeveloperName__c</columns>
+    <columns>criteria__c</columns>
+    <columns>fieldsToBeReseted__c</columns>
+    <columns>sectionResultFields__c</columns>
+    <columns>Sub_Type__c</columns>
+    <columns>Awaiting_Customer_Feedback__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>regionName__c</field>
+        <operation>equals</operation>
+        <value>Bahrain</value>
+    </filters>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>New Loan / Finance Application</value>
+    </filters>
+    <filters>
+        <field>RecordType_DeveloperName__c</field>
+        <operation>equals</operation>
+        <value>Loan_Application</value>
+    </filters>
+    <label>Loans_Application</label>
+</ListView>

@@ -1,0 +1,288 @@
+<apex:page controller="PayrollPDFController" 
+           showHeader="false" 
+           sidebar="false" 
+           standardStylesheets="false"
+           applyBodyTag="false"
+           renderAs="advanced_pdf"
+           language="en"
+           contentType="application/pdf"
+           cache="true"
+           applyHtmlTag="false">
+
+    <head>
+        <style type="text/css">
+            /* Reset margins for PDF */
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+                line-height: 1.4;
+            }
+            
+            /* Company Header */
+            .company-header {
+                background: #f8f9fa;
+                padding: 15px;
+                border: 1px solid #d8dde6;
+                border-radius: 4px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            .company-name {
+                font-size: 18px;
+                font-weight: bold;
+                color: #16325c;
+                margin: 0 0 5px 0;
+            }
+            
+            /* Report Header */
+            .report-title {
+                color: #2c3e50;
+                border-bottom: 2px solid #2c3e50;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+            
+            /* Section Styles */
+            .section {
+                margin-bottom: 25px;
+                page-break-inside: avoid;
+            }
+            
+            .section-title {
+                background-color: #2c3e50;
+                color: #fff;
+                font-weight: bold;
+                padding: 8px 12px;
+                margin: 20px 0 10px 0;
+                border-radius: 4px;
+                font-size: 13px;
+            }
+            
+            /* Table Styles */
+            .data-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 10px 0;
+            }
+            
+            .data-table th {
+                background-color: #f4f6f9;
+                padding: 8px 10px;
+                text-align: left;
+                border: 1px solid #d8dde6;
+                font-weight: bold;
+                color: #16325c;
+                width: 25%;
+            }
+            
+            .data-table td {
+                padding: 8px 10px;
+                border: 1px solid #d8dde6;
+            }
+            
+            /* Employee Table */
+            .employee-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 10px 0;
+                font-size: 10px;
+            }
+            
+            .employee-table th {
+                background-color: #2c3e50;
+                color: white;
+                padding: 6px 8px;
+                text-align: left;
+                border: 1px solid #d8dde6;
+                font-weight: bold;
+            }
+            
+            .employee-table td {
+                padding: 5px 8px;
+                border: 1px solid #d8dde6;
+            }
+            
+            /* Status Styles */
+            .status-authorized { color: #0070d2; font-weight: bold; }
+            .status-pending { color: #ff9a00; font-weight: bold; }
+            .status-rejected { color: #c23934; font-weight: bold; }
+            .status-unknown { color: #666; font-weight: bold; }
+            
+            /* Amount Styles */
+            .amount {
+                text-align: right;
+                font-family: 'Courier New', monospace;
+                font-weight: bold;
+            }
+            
+            /* Summary Section */
+            .summary {
+                background: #f8f9fa;
+                padding: 15px;
+                border: 1px solid #d8dde6;
+                border-radius: 4px;
+                margin-top: 20px;
+                text-align: center;
+            }
+            
+            .footer {
+                margin-top: 30px;
+                padding-top: 15px;
+                border-top: 1px solid #d8dde6;
+                text-align: center;
+                color: #54698d;
+                font-size: 10px;
+            }
+            
+            /* No Data Message */
+            .no-data {
+                text-align: center;
+                padding: 20px;
+                color: #666;
+                font-style: italic;
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+                margin: 10px 0;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- Company Header -->
+        <div class="company-header">
+            <div class="company-name">ABC Bank - Payroll Management System</div>
+            <div>Generated on: {!generationDate}</div>
+        </div>
+        
+        <!-- Report Title -->
+        <div class="report-title">
+            Payroll Details Report - Reference: {!payrollReference}
+        </div>
+        
+        <!-- Payroll Information -->
+        <div class="section">
+            <div class="section-title">Payroll Information</div>
+            <table class="data-table">
+                <tr>
+                    <th>Reference Number</th>
+                    <td>{!payrollReference}</td>
+                    <th>Employer Name</th>
+                    <td>{!employerName}</td>
+                </tr>
+                <tr>
+                    <th>Debit Account</th>
+                    <td>{!debitAccount}</td>
+                    <th>Salary Month</th>
+                    <td>{!salaryMonth}</td>
+                </tr>
+                <tr>
+                    <th>Payment Date</th>
+                    <td>{!paymentDate}</td>
+                    <th>Creation Date</th>
+                    <td>{!creationDate}</td>
+                </tr>
+                <tr>
+                    <th>Currency</th>
+                    <td>{!currencyValue}</td>
+                    <th>Status</th>
+                    <td><span class="{!statusClass}">{!status}</span></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Financial Details -->
+        <div class="section">
+            <div class="section-title">Financial Details</div>
+            <table class="data-table">
+                <tr>
+                    <th>Payroll Amount</th>
+                    <td class="amount">{!payrollAmount}</td>
+                    <th>Transaction Fees</th>
+                    <td class="amount">{!transactionAmount}</td>
+                </tr>
+                <tr>
+                    <th>VAT</th>
+                    <td class="amount">{!vat}</td>
+                    <th>Total Debt Amount</th>
+                    <td class="amount">{!totalDebt}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Additional Information -->
+        <div class="section">
+            <div class="section-title">Additional Information</div>
+            <table class="data-table">
+                <tr>
+                    <th>Number of Employees</th>
+                    <td>{!employeeCount}</td>
+                    <th>Reason</th>
+                    <td>{!reason}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td colspan="3">{!description}</td>
+                </tr>
+                <tr>
+                    <th>Customer ID</th>
+                    <td colspan="3">{!customerId}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Employee Details -->
+        <div class="section">
+            <div class="section-title">Employee Details</div>
+            <apex:outputPanel rendered="{!NOT(ISNULL(employees)) && employees.size > 0}">
+                <table class="employee-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Employee Name</th>
+                            <th>Credit Account</th>
+                            <th>Bank SEC</th>
+                            <th>Currency</th>
+                            <th>Amount</th>
+                            <th>ID Type</th>
+                            <th>ID Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!employees}" var="emp">
+                            <tr>
+                                <td>{!emp.recordNo}</td>
+                                <td>{!emp.name}</td>
+                                <td>{!emp.creditAccount}</td>
+                                <td>{!emp.bankSec}</td>
+                                <td>{!emp.currencyValue}</td>
+                                <td class="amount">{!emp.amount}</td>
+                                <td>{!emp.idType}</td>
+                                <td>{!emp.idNumber}</td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!ISNULL(employees) || employees.size == 0}">
+                <div class="no-data">No employee records found</div>
+            </apex:outputPanel>
+        </div>
+        
+        <!-- Summary -->
+        <div class="summary">
+            <strong>Total Employees Processed: 2 | Total Payroll Amount: {!payrollAmount}</strong>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>This is a computer-generated report. No signature is required.</p>
+            <p>Confidential Document - For Internal Use Only</p>
+            <p>ABC Bank - All Rights Reserved © {!currentYear}</p>
+        </div>
+    </body>
+</apex:page>

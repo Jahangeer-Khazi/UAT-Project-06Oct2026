@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sys_Mobile_Number__c</fullName>
+    <description>This field is concatenation of Mobile Country Code and Customer Mobile number</description>
+    <externalId>false</externalId>
+    <formula>Mobile_Country_Code__c +  MobilePhone</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Mobile Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

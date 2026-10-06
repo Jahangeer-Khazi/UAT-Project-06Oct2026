@@ -1,0 +1,63 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" controller="OnboardingCaseController">
+    
+    <!-- ============================================ -->
+    <aura:attribute name="account" type="Account" access="private"/>
+    <aura:attribute name="caseRecordTypeId" type="Id" access="private"/>
+    <aura:attribute name="customerId" type="String" access="private"/>
+    <aura:attribute name="prize" type="String" access="private" default=""/>
+    <aura:attribute name="sponPrize" type="String" access="private" default=""/>
+    <aura:attribute name="subType" type="String" access="private" default=""/>
+    <aura:attribute name="isOpenCase" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="RegionFlag" type="String" access="private" default=""/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler event="force:refreshView" action="{!c.onViewRefresh}" />
+    <!-- ============================================ -->
+    <aura:if isTrue="{!v.isOpenCase}">
+        <lightning:recordEditForm aura:id="caseIdentification"
+                                  recordId="{!v.recordId}"
+                                  recordTypeId="{!v.caseRecordTypeId}"
+                                  objectApiName="Case"
+                                  onsubmit="{!c.onSubmitClick}"
+                                  onsuccess="{!c.handleSuccess}"
+                                  onerror="{!c.handleError}"
+                                  >
+            
+            <lightning:messages /> 
+            <aura:if isTrue="{!OR('Roadshow' != v.subType,'Jordan'==v.RegionFlag) }">
+                <lightning:inputField fieldName="Final_Recommendation_for_Closing_Case__c"/>
+                <lightning:inputField fieldName="Closure_Type__c"/>
+                <lightning:inputField fieldName="Case_Outcome__c"/>
+                <br/>
+                <aura:set attribute="else"> 
+                    <div class="slds-grid slds-wrap slds-text-align_left custom-container">
+                        <lightning:inputField fieldName="Prize_Won__c" required="true" aura:id="prize" value="{!v.prize}"/>
+                        <aura:if isTrue="{!'Gift' == v.prize }">
+                            <lightning:inputField fieldName="Sponsor_Prize__c" required="true" aura:id="sprize" value="{!v.sponPrize}"/>
+                            <aura:if isTrue="{!'Voucher' == v.sponPrize}">
+                                <lightning:inputField fieldName="Sponsor_Details__c" required="true"/>
+                                <aura:set attribute="else">
+                                    <lightning:inputField fieldName="Sponsor_Details__c" />
+                                </aura:set>
+                            </aura:if>
+                        </aura:if>
+                    </div>
+                </aura:set>
+            </aura:if>
+            <br/>
+            <div class="slds-clearfix">
+                <div class="slds-clearfix">
+                    <div class="slds-float_right">
+                        <lightning:button aura:id="submit" type="submit" label="Submit" disabled="{!v.showSpinner}" />
+                    </div>
+                </div>
+            </div>
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            Case is already actioned to Close
+        </aura:set>
+    </aura:if>  
+    <c:apexService aura:id="apexService"/>
+</aura:component>

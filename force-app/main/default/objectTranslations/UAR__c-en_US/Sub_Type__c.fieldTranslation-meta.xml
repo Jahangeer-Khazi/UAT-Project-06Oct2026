@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sub Type --></label>
+    <name>Sub_Type__c</name>
+    <picklistValues>
+        <masterLabel>ATM Deposit</masterLabel>
+        <translation><!-- ATM Deposit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM Withdrawal</masterLabel>
+        <translation><!-- ATM Withdrawal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Card Transactions</masterLabel>
+        <translation><!-- Card Transactions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawateer</masterLabel>
+        <translation><!-- Fawateer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawri</masterLabel>
+        <translation><!-- Fawri --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fawri Plus</masterLabel>
+        <translation><!-- Fawri Plus --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>International</masterLabel>
+        <translation><!-- International --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfer</masterLabel>
+        <translation><!-- Transfer --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

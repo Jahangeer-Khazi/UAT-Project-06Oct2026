@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>FRAUD_COMPLETED</label>
+    <protected>false</protected>
+    <values>
+        <field>CRM_Stage__c</field>
+        <value xsi:type="xsd:string">FRAUD_COMPLETED</value>
+    </values>
+    <values>
+        <field>Email_Notification__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Email_Template_Code__c</field>
+        <value xsi:type="xsd:string">FRAUD_COMPLETED_EMAIL</value>
+    </values>
+    <values>
+        <field>Notification_Days__c</field>
+        <value xsi:type="xsd:string">0</value>
+    </values>
+    <values>
+        <field>Overdue_Handling__c</field>
+        <value xsi:type="xsd:string">Level 3 - App (Nudges &amp; Splash), Notifications &amp; Restrictions</value>
+    </values>
+    <values>
+        <field>Overdue_Stage__c</field>
+        <value xsi:type="xsd:string">Stage 4 – Block Debit Cards, Credit Cards, Account Debits &amp; App Access</value>
+    </values>
+    <values>
+        <field>PushNotification__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Push_Template_Code__c</field>
+        <value xsi:type="xsd:string">FRAUD_COMPLETED_PUSH</value>
+    </values>
+    <values>
+        <field>SMS_Notification__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>SMS_Template_Code__c</field>
+        <value xsi:type="xsd:string">FRAUD_COMPLETED_SMS</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This template is send to the Apple team, when there is a Fraud with Apple Pay with ILA</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Apple Pay Fraud Email Template</name>
+    <style>none</style>
+    <subject>Reporting Hostile Fraud</subject>
+    <textOnly>Reporting Hostile Fraud
+
+Dear Apple Fraud Agent,
+We would like to report a token with associated fraud transaction:
+
+SEID: [SEID__c]
+Description: [Subject]
+
+token has been suspended succesfully.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

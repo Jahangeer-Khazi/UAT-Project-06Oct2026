@@ -1,0 +1,46 @@
+.card-container {
+	margin: 0 15px;
+	/* text-overflow: ellipsis;
+  	overflow: hidden;
+  	white-space: nowrap; */
+	overflow: hidden;
+    display: -webkit-box;
+   -webkit-line-clamp: 2; /* Limit to 3 lines */
+   -webkit-box-orient: vertical;
+}
+
+.heading-container {
+	color: #000E3C;
+}
+
+.comment-container {
+	color: #7AEE00;
+}
+
+.error-container {
+	color: #BA0517;
+}
+
+.THIS header.slds-card__header.slds-grid{
+    padding-bottom:0px;
+}
+
+.bullet-container {
+	list-style-type: disc;
+	padding-left: 42px;
+}
+
+.inner-card {
+	padding: 2% 5%;
+}
+
+.case-number-container {
+	font-weight: bold;
+    font-size: larger;
+}
+
+.styled-checkbox .slds-form-element__label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e76f51;
+}

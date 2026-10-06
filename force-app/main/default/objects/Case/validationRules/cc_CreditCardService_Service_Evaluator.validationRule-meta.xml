@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Service_Evaluator</fullName>
+    <active>true</active>
+    <description>If Credit Evaluation Result is Refer to Service Center then Service Center Result must be Return to Evaluator.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(cc_Credit_Evaluation_Result__c, &quot;Refer to Service Center&quot;),ISCHANGED(cc_Service_Centre_Result__c),
+NOT(ISPICKVAL(cc_Service_Centre_Result__c, &quot;Return to Evaluator&quot;)),
+NOT(ISBLANK(TEXT(cc_Service_Centre_Result__c))),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Service_Centre_Result__c</errorDisplayField>
+    <errorMessage>The Case Should be return to Evaluator as it was assigned by Evaluation Team.</errorMessage>
+</ValidationRule>

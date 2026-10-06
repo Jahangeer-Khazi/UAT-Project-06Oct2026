@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Name__c</fullName>
+    <label>Campaign Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>1D</fullName>
+                <default>false</default>
+                <label>Zero Interest - Regular - ila Blue - Batelco</label>
+            </value>
+            <value>
+                <fullName>2D</fullName>
+                <default>false</default>
+                <label>Zero Interest - Premium - ila Blue - Batelco</label>
+            </value>
+            <value>
+                <fullName>3D</fullName>
+                <default>false</default>
+                <label>Zero Interest - Regular - ila Blue</label>
+            </value>
+            <value>
+                <fullName>4D</fullName>
+                <default>false</default>
+                <label>Zero Interest - Premium - ila Blue</label>
+            </value>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>Zero Interest - Regular - ila Blue - Any Employer</label>
+            </value>
+            <value>
+                <fullName>6</fullName>
+                <default>false</default>
+                <label>Zero Interest - Premium - ila Blue - Any Employer</label>
+            </value>
+            <value>
+                <fullName>7</fullName>
+                <default>false</default>
+                <label>Zero Interest - Regular - ila Switch - Batelco</label>
+            </value>
+            <value>
+                <fullName>8</fullName>
+                <default>false</default>
+                <label>Zero Interest - Premium - ila Switch - Batelco</label>
+            </value>
+            <value>
+                <fullName>9</fullName>
+                <default>false</default>
+                <label>Zero Interest - Regular - ila Switch</label>
+            </value>
+            <value>
+                <fullName>10</fullName>
+                <default>false</default>
+                <label>Zero Interest - Premium - ila Switch</label>
+            </value>
+            <value>
+                <fullName>11</fullName>
+                <default>false</default>
+                <label>Zero Interest - Regular - ila Switch - Any Employer</label>
+            </value>
+            <value>
+                <fullName>12</fullName>
+                <default>false</default>
+                <label>Zero Interest - Premium - ila Switch - Any Employer</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <label>Blue Secure</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <label>Blue unsecure</label>
+            </value>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <label>Switch Secure</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <label>Switch unsecure</label>
+            </value>
+            <value>
+                <fullName>13</fullName>
+                <default>false</default>
+                <label>World Secure any - employer</label>
+            </value>
+            <value>
+                <fullName>14</fullName>
+                <default>false</default>
+                <label>World unsecure any - employer</label>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+                <label>Elite Metal Secure any - employer</label>
+            </value>
+            <value>
+                <fullName>16</fullName>
+                <default>false</default>
+                <label>Elite Metal unsecure any - employer</label>
+            </value>
+            <value>
+                <fullName>17</fullName>
+                <default>false</default>
+                <label>Elite Plastic Secure any - employer</label>
+            </value>
+            <value>
+                <fullName>18</fullName>
+                <default>false</default>
+                <label>Elite Plastic unsecure any - employer</label>
+            </value>
+            <value>
+                <fullName>Special Rate</fullName>
+                <default>false</default>
+                <label>Special Rate</label>
+            </value>
+            <value>
+                <fullName>Grace Period</fullName>
+                <default>false</default>
+                <label>Grace Period</label>
+            </value>
+            <value>
+                <fullName>Admin Fee Reversal</fullName>
+                <default>false</default>
+                <label>Admin Fee Reversal</label>
+            </value>
+            <value>
+                <fullName>Rate + Grace</fullName>
+                <default>false</default>
+                <label>Rate + Grace</label>
+            </value>
+            <value>
+                <fullName>Rate + Grace + Admin Reversal</fullName>
+                <default>false</default>
+                <label>Rate + Grace + Admin Reversal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

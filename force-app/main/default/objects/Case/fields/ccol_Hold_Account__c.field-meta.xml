@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ccol_Hold_Account__c</fullName>
+    <description>This is for Cash Collateral Credit Cards.</description>
+    <label>Hold Account Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACCOUNT</fullName>
+                <default>false</default>
+                <label>ACCOUNT</label>
+            </value>
+            <value>
+                <fullName>HASAALA</fullName>
+                <default>false</default>
+                <label>HASAALA</label>
+            </value>
+            <value>
+                <fullName>PLA</fullName>
+                <default>false</default>
+                <label>PLA</label>
+            </value>
+            <value>
+                <fullName>POT</fullName>
+                <default>false</default>
+                <label>POT</label>
+            </value>
+            <value>
+                <fullName>FIXED_DEPOSIT</fullName>
+                <default>false</default>
+                <label>FIXED DEPOSIT</label>
+            </value>
+            <value>
+                <fullName>WAKALA</fullName>
+                <default>false</default>
+                <label>WAKALA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

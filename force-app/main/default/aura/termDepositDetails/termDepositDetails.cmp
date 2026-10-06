@@ -1,0 +1,426 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 03-01-2022
+ * 		Change History: 
+ *	    	  #CH01# #Tsioucha Imane #11-03-2024# Added logic for Download Deposit Certificate
+ *			  #CH02# #Jahangeer Mohammed #21-05-2024# Added Interest Payment Option and Calculated Interest
+ 			  #CH03# #Jahangeer Mohammed #04-07-2024# Added linkedAsCollateral, PCI Number(NBA-10092)
+             #CH04#: #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705)
+-->
+<aura:component controller="TermDepositController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <aura:attribute name="enableActions" type="Boolean" required="true" />
+    <aura:attribute name="urbisContractId" type="String" required="true" />
+    <!--<aura:attribute name="segment" type="String"/> -->
+    <aura:attribute name="regionName" type="String" />
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="caseId" type="String" />
+    <!-- ============================================ -->
+    <aura:attribute name="caseStatus" type="String" />
+    <aura:attribute name="termDepositData" type="Object" access="private" />
+    <aura:attribute name="showTermDepositButton" type="Boolean" default="true" />
+    <!-- CH04 start   -->
+    <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false" />
+    <!-- CH04 end  -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:handler name="change" value="{!v.urbisContractId}" action="{!c.load}" />
+    <br />
+    <br />
+
+    <lightning:card title="{! 'Fixed Deposit Id: ' + v.urbisContractId }">
+        <aura:if isTrue="{!v.enableActions}">
+            <aura:if isTrue="{! and('FCR' == v.caseRecordType,v.caseStatus != 'Closed')}">
+                <div class="slds-float--right" style="margin-top: -28px;margin-right: 10px; font-size:11px">
+                    <!-- <lightning:button label="{!v.regionName=='Bahrain'?'Send Deposit Certificate By Email':'Request Deposit Certificate'}" variant="brand" onclick="{!c.GenerateTermDeposit}"/> -->
+                    <lightning:button label="Request Deposit Certificate" variant="brand"
+                        onclick="{!c.GenerateTermDeposit}" />
+                </div>
+                <!-- CH01: Start -->
+                <!-- <aura:if isTrue="{!v.regionName=='Bahrain'}"> -->
+                <div class="slds-float--right" style="margin-top: -28px;margin-right: 20px;font-size:11px">
+                    <lightning:button label="Download Deposit Certificate" variant="brand"
+                        onclick="{!c.downloadClick}" />
+                </div>
+                <!-- </aura:if> -->
+                <!-- CH01: END -->
+            </aura:if>
+        </aura:if>
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">ID</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.tdID}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.name}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">State</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.statusCode}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.currencyCode}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Deposit Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH04 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.termDepositData.currencyCode}&nbsp; {!v.termDepositData.depositAmount}
+                                </aura:if>
+                                <!-- CH04 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Accrued Interest Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH04 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.termDepositData.accruedInterestAmt}
+                                </aura:if>
+                                <!-- CH04 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Start Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.startDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Maturity Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.matruityDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Deposit Duration</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.depositDurationValue} &nbsp;
+                                {!v.termDepositData.depositDurationUnit}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Duration in Days</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.tdCompletedPeriod}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Annual Interest Rate</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH04 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.termDepositData.interestRate}
+                                </aura:if>
+                                <!-- CH04 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Maturity Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH04 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.termDepositData.currencyCode}&nbsp;{!v.termDepositData.matruityAmount}
+                                </aura:if>
+                                <!-- CH04 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Interest Earned</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.totalInterestEarned}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Withdraw Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.withDrawDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Auto Rollover</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.autoRenewAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label"></span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CH02: Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Interest Payment Option</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.paymentType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Calculated Interest</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.nextInterestAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CH02: END -->
+            <!-- CH03: Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Is Linked to a Credit Card</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.linkedAsCollateral}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Credit Card PCI Number</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.linkedPciNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--- CH03: END -->
+
+            <!-- CH04: Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Is Linked to Loan/ Finance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                -- <!-- {!v.termDepositData.linkedAsCollateral} -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <!--empty column-->
+                    </div>
+                </div>
+            </div>
+            <!--- CH04: END -->
+        </div>
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <b>Changes Due to Early Withdrawal</b><br />
+            <div class="slds-form__row">
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Early Withdrawal Fee</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!-- CH04 start  -->
+                                <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+                                    {!v.termDepositData.earlyWithdrawFee }
+                                </aura:if>
+                                <!-- CH04 end  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Date of Early Withdrawal</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.earlyWithdrawDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Actual Deposit Period in Days</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.noOfDaysPassed}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Effective Interest Rate</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.withdrawIntrestRate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">New Interest Earned</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.interestEarned}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Proceeds Credited On</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.termDepositData.proceedCreditedOn}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+href="{!v.url}"
+		-->
+        
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <a onclick="{!c.handleClick}">Click on this link for Fixed Deposit Interest Rates</a>
+        </div>
+
+    </lightning:card>
+    <c:apexService aura:id="apexService" />
+</aura:component>

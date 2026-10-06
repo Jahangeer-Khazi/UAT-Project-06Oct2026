@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>true</default>
+        <label>New</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalated</fullName>
+        <default>false</default>
+        <label>Escalated</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Acknowledged</fullName>
+        <default>false</default>
+        <label>Acknowledged</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Sent to Specialist</fullName>
+        <default>false</default>
+        <label>Sent to Specialist</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>All Documents Uploaded</fullName>
+        <default>false</default>
+        <label>All Documents Uploaded</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Verified</fullName>
+        <default>false</default>
+        <label>Verified</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Alert No Match</fullName>
+        <default>false</default>
+        <label>Alert No Match</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Alert Confirmed Match</fullName>
+        <default>false</default>
+        <label>Alert Confirmed Match</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Visit to Service Center</fullName>
+        <default>false</default>
+        <label>Visit to Service Center</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Fraud Not Confirmed</fullName>
+        <default>false</default>
+        <label>Fraud Not Confirmed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Collection</fullName>
+        <default>false</default>
+        <label>Collection</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed</fullName>
+        <default>false</default>
+        <label>Completed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Failed</fullName>
+        <default>false</default>
+        <label>Failed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Delivery</fullName>
+        <default>false</default>
+        <label>Delivery</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Head of Business Review</fullName>
+        <default>false</default>
+        <label>Head of Business Review</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>In Progress - Handed Off</fullName>
+        <default>false</default>
+        <label>In Progress - Handed Off</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>All Child Cases Closed</fullName>
+        <default>false</default>
+        <label>All Child Cases Closed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reopen</fullName>
+        <default>false</default>
+        <label>Reopen</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Documents</fullName>
+        <default>false</default>
+        <label>Pending Documents</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Open</fullName>
+        <default>false</default>
+        <label>Open</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Under Review</fullName>
+        <default>false</default>
+        <label>Under Review</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending</fullName>
+        <default>false</default>
+        <label>Pending</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Referred</fullName>
+        <default>false</default>
+        <label>Referred</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Review</fullName>
+        <default>false</default>
+        <label>Review</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved Pending Signature</fullName>
+        <default>false</default>
+        <label>Approved Pending Signature</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Signature</fullName>
+        <default>false</default>
+        <label>Pending Signature</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Referred to Service Center</fullName>
+        <default>false</default>
+        <label>Referred to Service Center</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancelled</fullName>
+        <default>false</default>
+        <label>Cancelled</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Discrepancies</fullName>
+        <default>false</default>
+        <label>Discrepancies</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting for Customer</fullName>
+        <default>false</default>
+        <label>Waiting for Customer</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Merged</fullName>
+        <default>false</default>
+        <label>Merged</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Response Received</fullName>
+        <default>false</default>
+        <label>Response Received</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Activated</fullName>
+        <default>false</default>
+        <label>Account Activated</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Archived Closed</fullName>
+        <default>false</default>
+        <label>Archived Closed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On hold age</fullName>
+        <default>false</default>
+        <label>On hold age</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On hold language</fullName>
+        <default>false</default>
+        <label>On hold language</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On hold nationality</fullName>
+        <default>false</default>
+        <label>On hold nationality</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On hold restricted countries</fullName>
+        <default>false</default>
+        <label>On hold restricted countries</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Doc on Customer</fullName>
+        <default>false</default>
+        <label>Pending Doc on Customer</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reassign to New Agent</fullName>
+        <default>false</default>
+        <label>Reassign to New Agent</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Hassala Closure</fullName>
+        <default>false</default>
+        <label>Pending Hassala Closure</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Completed Hassala Closure</fullName>
+        <default>false</default>
+        <label>Completed Hassala Closure</label>
+        <closed>false</closed>
+    </standardValue>
+</StandardValueSet>

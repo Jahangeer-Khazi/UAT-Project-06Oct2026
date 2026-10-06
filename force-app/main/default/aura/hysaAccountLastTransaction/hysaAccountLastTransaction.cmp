@@ -1,0 +1,113 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Maksud Ali
+ *		Created Date: 08-12-2025 (Below code is cloned from bank account last transaction component)
+ * 		Change History:
+ *	    	   
+-->
+
+
+<aura:component controller="BankAccountController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    
+    
+    <aura:attribute name="data" type="Object" access="private" default="{}"/>
+
+    <!-- CH01 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.accountId}" action="{!c.load}"/>
+
+
+    <lightning:card title="Last Transaction Details">
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.TransactionDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                  {!v.data.TransactionType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.TransactionStatus}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Reference</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.TransactionReference}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.TransactionCurrency}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.TransactionAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Description</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.data.TransactionDescription}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+        </div>
+
+    </lightning:card>
+
+    <c:apexService aura:id="apexService"/>
+	
+</aura:component>

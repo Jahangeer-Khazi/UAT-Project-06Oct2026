@@ -1,0 +1,184 @@
+<aura:component controller = "DailyPaymentHistoryController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+     <aura:attribute name="accountId" type="String" />
+     <aura:attribute name="account" type="Account" required="true"/>
+     <aura:attribute name="caseId" type="String" required="false"/>
+     <aura:attribute name="enableActions" type="Boolean" required="true"/>
+     <aura:attribute name="caseRecordType" type="String"/>
+     <aura:attribute name="sObjectName" type="String"/>
+    
+    <aura:attribute name="cif" type="String"/>
+    <aura:attribute name="selectedAction" type="String" default="View"/>
+    <aura:attribute name="actionOptions" type="List"/>
+    
+    
+    <aura:attribute name="whitelistData" type="Object[]"/>
+	<aura:attribute name="columns" type="List"/>
+	<aura:attribute name="isLoading" type="Boolean" default="false"/>
+	<aura:attribute name="errorMessage" type="String"/>
+
+    <aura:attribute name="isWhitelistSuccess" type="Boolean" default="false"/>
+
+    <aura:attribute name="fromDate" type="String"/>
+    <aura:attribute name="toDate" type="String"/>
+
+    <aura:attribute name="sortedBy" type="String" default="creationDatetime"/>
+    <aura:attribute name="sortedDirection" type="String" default="desc"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card title="CIF Level Override (Whitelist)">
+        <div class="slds-is-relative">
+            <!-- Spinner -->
+            <aura:if isTrue="{!v.isLoading}">
+                <lightning:spinner
+                    alternativeText="Loading Whitelist Details..."
+                    size="medium"/>
+            </aura:if>
+            <div class="slds-p-around_medium">
+                <div class="slds-grid">
+                    <div class="slds-size_1-of-2">
+                        
+                        <lightning:input 
+                                         type="text"
+                                         name="cif"
+                                         label="CIF"
+                                         value="{!v.customerId}"
+                                         disabled="true"/>
+                    </div>
+                </div>
+                
+                <div class="slds-m-top_medium">
+                    
+                    <lightning:radioGroup
+                                          name="overrideAction"
+                                          label="Action"
+                                          options="{!v.actionOptions}"
+                                          value="{!v.selectedAction}"
+                                          type="radio"
+                                          onchange="{!c.handleActionChange}"/>
+                    
+                </div>
+                
+                <!-- Error Message -->
+                <aura:if isTrue="{!not(empty(v.errorMessage))}">
+
+                    <div class="slds-m-top_medium">
+
+                        <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+
+                            <span class="slds-assistive-text">
+                                Error
+                            </span>
+
+                            <h2>
+                                {!v.errorMessage}
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                </aura:if>
+                
+                 <!-- VIEW SECTION -->
+                <aura:if isTrue="{!v.selectedAction == 'View'}">
+
+                    <!-- Records available -->
+                    <aura:if isTrue="{!not(empty(v.whitelistData))}">
+
+                        <div class="slds-m-top_large">
+
+                            <lightning:datatable
+                                keyField="id"
+                                data="{!v.whitelistData}"
+                                columns="{!v.columns}"
+                                hideCheckboxColumn="true"
+                                showRowNumberColumn="false"
+                                sortedBy="{!v.sortedBy}"
+                                sortedDirection="{!v.sortedDirection}"
+                                onsort="{!c.handleSort}"/>
+
+                        </div>
+
+                        <aura:set attribute="else">
+
+                            <!-- Don't display while API is loading -->
+                            <aura:if isTrue="{!and(not(v.isLoading),empty(v.errorMessage))}">
+
+                                <div class="slds-m-top_large slds-text-align_center">
+
+                                    <p>
+                                        No override records found for the specified CIF.
+                                    </p>
+
+                                </div>
+
+                            </aura:if>
+
+                        </aura:set>
+
+                    </aura:if>
+
+                </aura:if>
+                <!-- ADD SECTION -->
+                <aura:if isTrue="{!v.selectedAction == 'Add'}">
+
+                    <div class="slds-grid slds-gutters slds-m-top_large">
+
+                        <!-- From Date -->
+                        <div class="slds-col slds-size_5-of-12">
+
+                            <lightning:input
+                                type="datetime"
+                                name="fromDate"
+                                label="From Date"
+                                value="{!v.fromDate}"
+                                required="true"/>
+
+                        </div>
+
+
+                        <!-- To Date -->
+                        <div class="slds-col slds-size_5-of-12">
+
+                            <lightning:input
+                                type="datetime"
+                                name="toDate"
+                                label="To Date"
+                                value="{!v.toDate}"
+                                required="true"/>
+
+                        </div>
+
+
+                        <!-- Whitelist Button -->
+                        <div class="slds-col slds-size_2-of-12 whitelist-button-container">
+                            <aura:if isTrue="{!not(v.isWhitelistSuccess)}">
+                                <lightning:button
+                                variant="brand"
+                                label="Whitelist"
+                                title="Whitelist"
+                                onclick="{!c.handleWhitelist}"/>
+                            </aura:if>
+                        </div>
+
+                    </div>
+
+                </aura:if>
+
+                <aura:if isTrue="{!v.isWhitelistSuccess}">
+
+                    <div class="slds-m-top_medium whitelist-success-message">
+
+                        CIF has been successfully added to the whitelist
+
+                    </div>
+
+                </aura:if>
+                
+            </div>
+        </div>
+    </lightning:card>
+	
+</aura:component>

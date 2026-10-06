@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Employer_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Listed_Employer_Name__c), Contact.Employer_Address__c,  Listed_Employer_Name__r.Address_PO_Box__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Employer Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

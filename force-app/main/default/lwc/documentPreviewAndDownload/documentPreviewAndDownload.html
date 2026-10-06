@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Credit Card Summary Preview" icon-name="doctype:pdf">
+        <!-- Spinner while loading -->
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-m-vertical_large">
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+                <p class="slds-m-top_small">Loading documents, please wait...</p>
+            </div>
+        </template>
+
+        <!-- Display PDF preview if available -->
+        <template if:true={previewUrl}>
+            <div class="iframe-container">
+                <iframe src={modifiedPreviewUrl} width="100%" height="100%" class="iframe-content" scrolling="no"></iframe>
+            </div>
+        </template>
+
+        <!-- Show message if no documents are available -->
+        <template if:false={previewUrl}>
+            <div class="slds-align_absolute-center slds-m-vertical_large">
+                <p class="slds-text-heading_small slds-text-color_error">No documents to display.</p>
+            </div>
+        </template>
+
+        <!-- Footer with Download Button -->
+        <template if:true={previewUrl}>
+            <div class="slds-card__footer slds-text-align_center slds-p-vertical_medium">
+                <lightning-button 
+                    label="Download PDF" 
+                    icon-name="utility:download" 
+                    variant="brand" 
+                    onclick={triggerDownload}>
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

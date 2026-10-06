@@ -1,0 +1,30 @@
+<aura:component controller = "creditLimitDecreaseController">
+	<aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" required="true" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <aura:attribute name="activeCards" type="Object" required="true" />
+    <aura:attribute name="cardId" type="String" required="true"/>
+   <!-- ====================================================================== -->
+    <aura:attribute name="requestedCreditLimit" type="Integer"/>
+    <aura:attribute name="enableForm" type="boolean" default = "true"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+     
+    <aura:if isTrue="{!v.enableForm}">
+        <lightning:card title="{!'Credit Limit Decrease'}">
+            <lightning:recordEditForm aura:id="recordEditForm"  
+                                      objectApiName="Case"
+                                      onsubmit="{!c.handleOnSubmit}">
+                <div class="slds-size_1-of-2">
+                    <lightning:inputField fieldName="cc_Requested_Credit_Limit__c" value = "{!v.requestedCreditLimit}" required = "true" width = "50px"/>
+                </div>
+                <div class="slds-p-left_xx-small">
+                    <lightning:button class="slds-m-top_small" type="submit" label="Submit" variant = "brand"/>
+                </div>
+                <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                
+            </lightning:recordEditForm>
+            
+        </lightning:card>
+    </aura:if>
+</aura:component>

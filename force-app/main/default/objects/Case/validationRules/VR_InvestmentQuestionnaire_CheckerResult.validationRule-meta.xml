@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_InvestmentQuestionnaire_CheckerResult</fullName>
+    <active>true</active>
+    <description>Prevents unauthorized changes to cc_Checker_Result__c for Investment Questionnaire Review records based on the configured user and record conditions.</description>
+    <errorConditionFormula>AND(
+    RecordType_DeveloperName__c = &quot;Investment_Questionnaire_Review&quot;,
+    $User.Maker_Checker_Bypass_Flag__c = false,
+    ISCHANGED(cc_Checker_Result__c),
+    NOT(ISPICKVAL(cc_Checker_Result__c, &quot;&quot;)),
+    Address_Updated_By__c = $User.Id,
+    $User.LastName &lt;&gt; &quot;Integration&quot;
+)</errorConditionFormula>
+    <errorMessage>You cannot change the Checker Result for an Investment Questionnaire Review record.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to agents when the call is recieved and there is NO case linked to the activity created by Genesis</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Activity_NoCaseCreation_Alert</name>
+    <style>none</style>
+    <subject>New Case Creation request</subject>
+    <textOnly>New Case Creation alert
+
+Dear {!Task.Task_Owner_Name__c}, you missed to create a Case on a received call on {!Task.CreatedDate} from mobile number - {!Task.Description}.
+
+Click to view the Task: {!Task.Subject}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

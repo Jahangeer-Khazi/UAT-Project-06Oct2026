@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Final_DBR</fullName>
+    <active>true</active>
+    <description>Final DBR Value must be less than 100</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Final_DBR__c),
+cc_Final_DBR__c &gt; 100,
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Final_DBR__c</errorDisplayField>
+    <errorMessage>Final DBR Value must be less then or it should be equal to 100</errorMessage>
+</ValidationRule>

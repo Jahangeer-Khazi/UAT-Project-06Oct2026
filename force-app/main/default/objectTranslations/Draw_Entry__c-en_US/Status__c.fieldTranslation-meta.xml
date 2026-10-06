@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Mapped from the S3 data upload file --></help>
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Eligible</masterLabel>
+        <translation><!-- Eligible --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ineligible</masterLabel>
+        <translation><!-- Ineligible --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

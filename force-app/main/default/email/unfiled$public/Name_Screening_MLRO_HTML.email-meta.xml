@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used to notify MLRO queue of name screening case being assigned to them</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Name Screening MLRO HTML</name>
+    <style>none</style>
+    <subject>Name Screening Case {!Case.CaseNumber} needs your review</subject>
+    <textOnly>Dear,
+
+Case {!Case.CaseNumber} needs your review.
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

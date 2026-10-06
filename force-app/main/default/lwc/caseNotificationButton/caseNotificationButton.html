@@ -1,0 +1,96 @@
+<template>
+    <div class="slds-fade-in-open slds-modal_medium" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+        <div >
+
+            <!-- Header (no custom close button) -->
+            <header class="slds-modal__header">
+                <h2 id="modal-heading" class="slds-modal__title slds-hyphenate">
+                    <lightning-icon icon-name="utility:sms" size="small" class="slds-m-right_x-small"></lightning-icon>
+                    Send Discrepancy SMS
+                </h2>
+            </header>
+
+            <!-- Body -->
+            <div class="slds-modal__content slds-p-around_medium">
+
+                <p class="slds-text-body_regular slds-m-bottom_medium slds-text-color_weak">
+                    Review the details below before sending the discrepancy notification.
+                </p>
+
+                <!-- Summary Card -->
+                <div class="slds-box slds-theme_shade slds-m-bottom_medium">
+                    <div class="slds-grid slds-wrap slds-gutters_small">
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-vertical_x-small">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label slds-text-color_weak">Customer</label>
+                                <div class="slds-form-element__control">
+                                    <p class="slds-text-body_regular slds-text-color_strong">{customerName}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-vertical_x-small">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label slds-text-color_weak">Mobile</label>
+                                <div class="slds-form-element__control">
+                                    <p class="slds-text-body_regular slds-text-color_strong">{customerPhone}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-vertical_x-small">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label slds-text-color_weak">Product</label>
+                                <div class="slds-form-element__control">
+                                    <p class="slds-text-body_regular slds-text-color_strong">{product}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-vertical_x-small">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label slds-text-color_weak">Stage</label>
+                                <div class="slds-form-element__control">
+                                    <p class="slds-text-body_regular slds-text-color_strong">{stage}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Warning -->
+                <div class="slds-notify slds-notify_alert slds-theme_warning slds-theme_alert-texture" role="alert">
+                    <span class="slds-assistive-text">Warning</span>
+                    <lightning-icon icon-name="utility:warning" alternative-text="Warning" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                    <h2 class="slds-text-body_small">
+                        This will send an SMS to the customer. Please confirm before proceeding.
+                    </h2>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="slds-modal__footer">
+                <lightning-button 
+                    label="Cancel" 
+                    variant="neutral" 
+                    onclick={handleCancel} 
+                    disabled={isProcessing}
+                    class="slds-m-right_x-small">
+                </lightning-button>
+
+                <lightning-button 
+                    label={sendButtonLabel}
+                    variant="brand" 
+                    onclick={handleSend} 
+                    disabled={isProcessing}
+                    icon-name={sendButtonIcon}
+                    icon-position="left">
+                </lightning-button>
+            </footer>
+
+        </div>
+    </div>
+</template>

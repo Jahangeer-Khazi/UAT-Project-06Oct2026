@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CC_Application_Source__c</fullName>
+    <description>This field identifies Credit Card source, if it is created by API or it is created Manually by an Agent</description>
+    <externalId>false</externalId>
+    <formula>IF( CreatedBy.LastName == &apos;Integration&apos;, &apos;API&apos;, &apos;Manual&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CC Application Source</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

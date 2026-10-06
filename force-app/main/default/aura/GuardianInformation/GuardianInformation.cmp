@@ -1,0 +1,54 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date:
+ * 		Change History: 
+ *	    	
+-->
+<aura:component >
+	<aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+   
+	<aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account">
+                                  
+            <lightning:messages />
+            
+            <label for="minor">Minor</label>
+            <div class="slds-form-element" style="width:400px">
+			<lightning:inputField fieldName="Minor_Update__pc" aura:id="minor" variant="label-hidden" onchange = "{!c.onMinorChange}"/>
+            </div>
+            <br/> 
+            <label for="gCIF">Guardian CIF</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="Guardian_CIF_Update__pc" aura:id="gCIF" value="{!v.account.Guardian_CIF_Update__pc}" variant="label-hidden"/>
+            </div>
+             <br/>
+            <!--<label for="gCPR">Guardian CPR</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="Guardian_CPR_Update__pc" aura:id="gCPR" value="{!v.account.Guardian_CPR_Update__pc}" variant="label-hidden"/>
+            </div> -->
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    	<div class="slds-box">
+                     		<label for="min">Minor</label> <br/>
+                        		<lightning:outputField fieldName="Minor_Update__pc" aura:id="min" variant="label-hidden"/>  <br/>
+                        	<label for="gCIF">Guardian CIF</label>  <br/>
+                        		<lightning:outputField fieldName="Guardian_CIF_Update__pc" aura:id="Guardian_CIF_Update__pc" variant="label-hidden"/>  <br/>
+                    		<!--<label for="gCPR">Guardian CPR</label>  <br/>
+                        		<lightning:outputField fieldName="Guardian_CPR_Update__pc" aura:id="Guardian_CPR_Update__pc" variant="label-hidden"/>  <br/> -->
+                    	</div> 
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>mohamed.almaraj@bank-abc.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>mohamed.fardan@bank-abc.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <name>CC_DAILY_REPORT</name>
+</ReportFolder>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CC_Applications_Pending_20_Days</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>cc_Application_Submission_Date_Time__c</columns>
+    <columns>Sales_Agent__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Sub_Status_Staff__c</columns>
+    <columns>Sub_Type__c</columns>
+    <columns>CASES.TYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.TYPE</field>
+        <operation>equals</operation>
+        <value>Credit Card Application,Credit Card Cash Collateral Application,Credit Card Supplementary Application,Credit Card Prepaid Application</value>
+    </filters>
+    <filters>
+        <field>Sub_Status_Staff__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>cc_Application_Submission_Date_Time__c</field>
+        <operation>lessOrEqual</operation>
+        <value>LAST_N_DAYS:20</value>
+    </filters>
+    <filters>
+        <field>Sales_Agent__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Region_Flag__c</field>
+        <operation>equals</operation>
+        <value>Bahrain</value>
+    </filters>
+    <label>CC Applications - Pending &gt; 20 Days</label>
+</ListView>

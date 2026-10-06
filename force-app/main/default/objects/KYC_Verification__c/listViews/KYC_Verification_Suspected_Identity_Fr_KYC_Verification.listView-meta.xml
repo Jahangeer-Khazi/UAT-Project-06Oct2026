@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KYC_Verification_Suspected_Identity_Fr_KYC_Verification</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Suspected Identity Fraud Queue</label>
+    <queue>Suspected_Identity_Fraud_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

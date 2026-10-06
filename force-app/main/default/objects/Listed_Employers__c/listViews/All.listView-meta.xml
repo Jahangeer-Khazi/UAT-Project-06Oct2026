@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Employer_Name_Link__c</columns>
+    <columns>Employer_Name_in_Arabic__c</columns>
+    <columns>Category_Sector__c</columns>
+    <columns>Grade_Rank__c</columns>
+    <columns>Sector_Code__c</columns>
+    <columns>Type_of_Company__c</columns>
+    <columns>CR_Number__c</columns>
+    <columns>Registration_Date__c</columns>
+    <columns>Owner_Equity_Capital__c</columns>
+    <columns>On_Boarding_Date_with_ila__c</columns>
+    <columns>Number_of_Staff__c</columns>
+    <columns>Salary_Range__c</columns>
+    <columns>Shareholders_Owners_Details__c</columns>
+    <columns>Email__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_Other_Documents_Required_Is_Checked</fullName>
+    <active>false</active>
+    <description>Other Documents Required Description must not be blank if Other Documents Required Checkbox is checked</description>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Customer_Periodic_Review&quot; 
+&amp;&amp;  pr_OtherDocumentsRequired__c = true 
+&amp;&amp;  ISBLANK(Other_Documents_Required_Description__c  )</errorConditionFormula>
+    <errorMessage>Other Documents Required Description is blank, please enter a value</errorMessage>
+</ValidationRule>

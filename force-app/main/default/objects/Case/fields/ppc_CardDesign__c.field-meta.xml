@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ppc_CardDesign__c</fullName>
+    <label>Card Design</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BLUE</fullName>
+                <default>false</default>
+                <label>Blue</label>
+            </value>
+            <value>
+                <fullName>PINK</fullName>
+                <default>false</default>
+                <label>Pink</label>
+            </value>
+            <value>
+                <fullName>GREEN</fullName>
+                <default>false</default>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>COBRANDED</fullName>
+                <default>false</default>
+                <label>Cobranded</label>
+            </value>
+            <value>
+                <fullName>ORANGE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Orange</label>
+            </value>
+            <value>
+                <fullName>YELLOW</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Yellow</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

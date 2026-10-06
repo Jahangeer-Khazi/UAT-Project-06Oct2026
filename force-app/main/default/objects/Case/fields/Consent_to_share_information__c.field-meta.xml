@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Consent_to_share_information__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used for Co-Branded Credit Card Application(NBA-12621)</description>
+    <label>Consent to share information</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

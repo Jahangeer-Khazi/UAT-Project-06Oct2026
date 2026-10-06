@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Staff_Data_Custom_Setting__c</fullName>
+    <description>If the region staff data needs to be hidden for some users, indicates which field of the Setting Custom Setting is used to flag the user as able to see Staff information.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>View Staff Data Custom Setting</label>
+    <length>50</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

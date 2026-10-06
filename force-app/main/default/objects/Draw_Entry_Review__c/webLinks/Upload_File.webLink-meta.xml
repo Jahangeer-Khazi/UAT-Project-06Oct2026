@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upload_File</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Upload File</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/lightning/cmp/c__raffleBulkExclusionContainer?c__currentDrawId={!Draw__c.Id}&amp;c__currentPrizeType={!Draw__c.Prize_Type__c}&amp;c__currentDrawName={!Draw__c.Draw_Name__c}</url>
+</WebLink>

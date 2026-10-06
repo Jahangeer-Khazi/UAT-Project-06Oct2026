@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Cash_Collateral_LMT_Increase</fullName>
+    <active>false</active>
+    <description>Pre screener Cannot able to select Discrepancy in docs for Cash Collateral Limit Increase</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &apos;Discrepancy in Documents&apos;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+Is_Cash_Collateral__c  = true
+)</errorConditionFormula>
+    <errorDisplayField>cc_Credit_Pre_Screening_Result__c</errorDisplayField>
+    <errorMessage>Pre-screener cannot able to select &apos;Discrepancy in Documents&apos; for Cash Collateral Limit Increase</errorMessage>
+</ValidationRule>

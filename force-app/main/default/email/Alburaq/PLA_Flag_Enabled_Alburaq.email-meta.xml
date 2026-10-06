@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Flag enabled on CRM for the customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Enabled Alburaq</name>
+    <style>none</style>
+    <subject>Al Kanz Prize Linked Account Eligibility</subject>
+    <textOnly>Hi,
+
+As per the terms and conditions of Kanz Prize Linked account, staff and their relatives listed below are not eligible to participate in prize draws. Because of this, we have flagged your Kanz account as not eligible.
+
+If you wish to update the list of your relatives, please use the link below to do so. Please note it is your responsibility to ensure that we have the latest information at all times.
+
+Relatives not eligible to participate in Kanz draws are as follows:
+Daughter(s)
+Son(s)
+Spouse(s)
+Grandchildren
+Parents
+
+https://dev-ilabank.cs173.force.com/pla
+
+Your OTP is:  {!Contact.OTP_Text__c}
+
+If you wish to know more or if you think this is an error, please call our Contact Center on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

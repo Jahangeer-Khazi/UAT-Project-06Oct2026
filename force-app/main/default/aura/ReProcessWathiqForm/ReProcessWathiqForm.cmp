@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="flag" type="boolean" default="true"/>
+    
+    <aura:if isTrue="{!v.flag}"> 
+    	<lightning:recordEditForm aura:id="recordViewForm" recordId="{!v.recordId}" 
+                              onsuccess ="{!c.onSuccessAction}"
+                              objectApiName="Case">	
+			<lightning:inputField aura:id="ReProcessWForm" fieldName="Re_Process_Wathiq_Form__c"  variant="label-inline" value="{!v.Case.Re_Process_Wathiq_Form__c}" required="false"/>
+            
+        <lightning:button variant="brand" type="submit" label="Save" />
+
+ 	</lightning:recordEditForm> 
+    </aura:if>
+    </aura:component>

@@ -1,0 +1,37 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *     
+-->
+<aura:component implements="lightning:availableForFlowScreens" controller="BankAccountController">
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="regionName" type="String" />
+
+    <!-- ============================================ -->
+	<aura:attribute name="gridDataRows" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="accounts" type="Object[]" access="private" default="[]" />
+    <aura:attribute name="columns" type="Object[]" access="private" default="[]" />
+    <!-- ============================================ -->
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <!-- ============================================ -->
+    
+    <aura:if isTrue="{!empty(v.gridDataRows)}">
+        <div class="slds-text-color_error slds-text-title_bold">
+        	No Transaction Data found for customer: {!v.customerId}
+        </div>
+    <aura:set attribute="else">
+        <lightning:datatable 
+            data="{! v.gridDataRows}" 
+            columns="{! v.columns}" 
+            keyField="id"
+            hideCheckboxColumn="true"
+            maxRowSelection="0"
+            />
+
+    </aura:set>
+    </aura:if>
+    <br/>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

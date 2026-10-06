@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Country_Code_Retsriction_JO</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) = &quot;Jordan&quot;,			
+CONTAINS(
+    &quot;,&quot; &amp; $Label.INVALID_COUNTRY_CODE_JO &amp; &quot;,&quot;,
+    &quot;,&quot; &amp; SUBSTITUTE(TRIM(Mobile_Country_Code__c), &quot; &quot;, &quot;&quot;) &amp; &quot;,&quot;
+)
+)</errorConditionFormula>
+    <errorDisplayField>Mobile_Country_Code__c</errorDisplayField>
+    <errorMessage>Restricted country code for mobile number. Please use different country code.</errorMessage>
+</ValidationRule>

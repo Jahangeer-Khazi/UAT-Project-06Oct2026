@@ -1,0 +1,115 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *      				#CH02# #Jahangeer Mohammed# #19-08-2025# Added Masked Card Number(NBA-15639)
+-->
+<aura:component controller="creditCardListController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" required="true" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <!-- CH02: Start -->
+    <aura:attribute name="cardDetails" type="Object" required="true" default="{}" />
+	<!-- CH02: END -->
+    <!-- ============================================ -->
+    
+    <aura:attribute name="selectedCardActionType" type="String" access="private" />
+    <aura:attribute name="selectedActionHelpText" type="String" access="private" />
+    <aura:attribute name="productType" type="String" access="private" />
+    <aura:attribute name="deliveryType" type="String" access="private" />
+    <aura:attribute name="showDeliveryTypeSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showProductTypeSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showLinkedAccountsSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showAccountsToLinkToSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showUpgradeDowngrade" type="Boolean" access="private" default="false" />
+    
+    
+    <aura:attribute name="reason" type="String" access="private" />
+    <aura:attribute name="cardActionTypeOptions" type="List" default="[]" access="private" />
+    <aura:attribute name="linkedAccountOptions" type="List" default="[]" access="private" />
+    <aura:attribute name="selectedAccountId" type="String" access="private" />
+    <aura:attribute name="allCustomerAcounts" type="List" default="[]" access="private" />
+    <aura:attribute name="accountsToLinkOptions" type="List" default="[]" access="private" />
+    <aura:attribute name="selectedReason" type="String" access="private" />
+    
+    <aura:attribute name="isClosed" type="Boolean" access="private" default="false" />
+
+    <!-- #CH01 Start : Aniss -->
+    <aura:attribute name="targetType" type="String" />
+    <!-- #CH01 : End-->
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <!-- CH02: Start -->
+    <aura:handler name="change" value="{!v.cardDetails}" action="{!c.handleCardDetailsChange}"/>
+    <!-- CH02: END -->
+    <!--
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+    -->
+    
+    <lightning:card title="{!'Credit Card Actions - ' + v.cardDetails.maskedCardNumber}">
+        <!--
+        card.Id = {!v.cardDetails.id}
+        -->
+        
+        <div style="padding: 1rem;">
+            <aura:if isTrue="{!not(empty(v.selectedActionHelpText))}">
+                <ui:message title="" severity="info" closable="true">
+                    {!v.selectedActionHelpText}
+                </ui:message>
+            </aura:if>
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <lightning:radioGroup name="radioGroup" label="Select Action" options="{! v.cardActionTypeOptions }"
+                                          value="{! v.selectedCardActionType }" onchange="{!c.onActionSelectionChange}" type="radio" />
+                    
+                    <aura:if isTrue="{!(v.selectedCardActionType =='temporaryBlock')}">
+                        <lightning:select name="reason" label="Reason" required="true" value="{!v.selectedReason}" disabled="{!v.isClosed}">
+                            <option value="">choose one...</option>
+                            <!--<option value="TEMPORARY_BLOCKED">Temporary Block</option>-->
+                            <option value="TEMPORARY_BLOCKED">Temporary block card</option>
+                            <!--<option value="FRAUD_BLOCK_WITHOUT_CARD_REPLACEMENT">Fraud Block without Card Replacement</option>-->
+                            <option value="FRAUD_BLOCK_WITHOUT_CARD_REPLACEMENT">Block card (Fraud)</option>
+                            <!--<option value="LOST_STOLEN_WITHOUT_CARD_REPLACEMENT">Lost/ Stolen without card Replacement</option>-->
+                            <option value="LOST_STOLEN_WITHOUT_CARD_REPLACEMENT">Block card  (Lost / Stolen)</option>
+                            <!--<option value="ACCOUNT_CANCELLED_BY_BANK">Account Cancelled by Bank</option>-->
+                           <!-- <option value="ACCOUNT_CANCELLED_BY_CUSTOMER">Account Cancelled by Customer</option>-->
+                            <!--<option value="DECEASED">Deceased</option>-->
+                            <!--<option value="LEGAL_BLOCK">Legal Block</option>-->
+                            <!--<option value="DAMAGED_WITHOUT_CARD_REPLACEMENT">Damaged without Card Replacement</option>-->
+                            <option value="DAMAGED_WITHOUT_CARD_REPLACEMENT">Block card (Damaged)</option>
+                        </lightning:select>
+                    </aura:if>
+                    <aura:if isTrue="{!(v.selectedCardActionType =='ReplaceCard')}">
+                        <lightning:select name="reason" label="Reason" required="true" value="{!v.selectedReason}" disabled="{!v.isClosed}">
+                            <option value="">choose one...</option>
+                            <!--<option value="LOST_STOLEN_WITH_CARD_REPLACEMENT">Lost/ Stolen</option> -->
+                            <option value="LOST_STOLEN_WITH_CARD_REPLACEMENT">Replace card (Lost / Stolen)</option>
+                            <!--<option value="DAMAGED_WITH_CARD_REPLACEMENT">Damaged with card Replacement</option>-->
+                            <option value="DAMAGED_WITH_CARD_REPLACEMENT">Replace card (Damaged)</option>
+                            <!--<option value="FRAUD_BLOCK_WITH_CARD_REPLACEMENT">Fraud Block</option>-->
+                            <option value="FRAUD_BLOCK_WITH_CARD_REPLACEMENT">Replace card (Fraud)</option>
+                        </lightning:select>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form-element__control slds-align_absolute-center">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_1-of-1">
+                        <div class="slds-form-element">
+                            <aura:if isTrue="{!not(empty(v.selectedCardActionType))}">
+                                <lightning:button variant="neutral" label="Submit" onclick="{! c.onSubmitClick }" disabled="{!v.isClosed}"/>
+                                
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </lightning:card>
+    
+    <c:apexService aura:id="apexService" />
+</aura:component>

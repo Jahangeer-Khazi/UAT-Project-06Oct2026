@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Entitlement284</label>
+    <protected>false</protected>
+    <values>
+        <field>Entitlement_Name__c</field>
+        <value xsi:type="xsd:string">CaseEntitlement_60DaysPremium</value>
+    </values>
+    <values>
+        <field>Request_Type__c</field>
+        <value xsi:type="xsd:string">No Financial Impact - Fraudulent/Unauthorized</value>
+    </values>
+    <values>
+        <field>SLA__c</field>
+        <value xsi:type="xsd:double">60.0</value>
+    </values>
+    <values>
+        <field>Segment__c</field>
+        <value xsi:type="xsd:string">Premium</value>
+    </values>
+    <values>
+        <field>Sub_Type__c</field>
+        <value xsi:type="xsd:string">ATM</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Benefit</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="flag" type="boolean" default="true"/>
+    
+    <aura:if isTrue="{!v.flag}"> 
+    	<lightning:recordEditForm aura:id="recordViewForm" recordId="{!v.recordId}" 
+                              onsuccess ="{!c.onSuccessAction}"
+                              objectApiName="Case">	
+			<lightning:inputField aura:id="WForm" fieldName="Wathiq_Consent_Form_Available__c"  variant="label-inline" value="{!v.Case.Wathiq_Consent_Form_Available__c}" required="false"/>
+            <lightning:inputField aura:id="CPRForm" fieldName="CPR_Form_Available__c"  variant="label-inline" value="{!v.Case.CPR_Form_Available__c}" required="false"/>
+            
+        <lightning:button variant="brand" type="submit" label="Save" />
+
+ 	</lightning:recordEditForm> 
+    </aura:if>
+    </aura:component>

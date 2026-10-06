@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Region Flag --></label>
+    <name>RegionFlag__c</name>
+    <picklistValues>
+        <masterLabel>Bahrain</masterLabel>
+        <translation><!-- Bahrain --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jordan</masterLabel>
+        <translation><!-- Jordan --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

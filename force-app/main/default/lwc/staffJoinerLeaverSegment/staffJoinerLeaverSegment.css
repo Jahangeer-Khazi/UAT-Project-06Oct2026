@@ -1,0 +1,12 @@
+.block-container {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+}
+
+.slds-combobox__input {
+    border-color: var(--slds-g-color-border-base-1, #c9c9c9);
+}
+
+.slds-input {
+    border-color: var(--slds-g-color-border-base-1, #c9c9c9);
+}

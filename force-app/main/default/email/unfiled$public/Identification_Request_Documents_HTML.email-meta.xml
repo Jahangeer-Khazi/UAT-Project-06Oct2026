@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used to automatically be sent when an Identification case is created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Identification Request Documents HTML</name>
+    <style>none</style>
+    <subject>You’re almost there with your ila account!</subject>
+    <textOnly>Dear Valued Customer
+
+Greetings from ila. We trust that you are doing great.
+
+Thank you for choosing ila. We look forward to welcoming you onboard ! We just need your support to provide us with the following documents in order for us to continue with your account opening process with us:
+
+{!Case.Sales_Call_Log__c}
+We look forward to welcoming you to the ila family.
+
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

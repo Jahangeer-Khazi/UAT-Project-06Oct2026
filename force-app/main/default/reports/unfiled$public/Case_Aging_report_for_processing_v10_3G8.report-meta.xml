@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>UAR__c.UAR_Closure_Date__c</field>
+    </columns>
+    <columns>
+        <field>UAR__c.Status__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Median</aggregateTypes>
+        <field>CDF1</field>
+    </columns>
+    <columns>
+        <field>UAR__c.Maker_Result__c</field>
+    </columns>
+    <columns>
+        <field>UAR__c.Checker_Result__c</field>
+    </columns>
+    <columns>
+        <field>UAR__c.Compliance_Result__c</field>
+    </columns>
+    <customDetailFormulas>
+        <calculatedFormula>IF(TEXT(UAR__c.Status__c) = &quot;Closed&quot;, DATEVALUE(UAR__c.UAR_Closure_Date__c) - DATEVALUE(CUST_CREATED_DATE), TODAY() - DATEVALUE(CUST_CREATED_DATE))</calculatedFormula>
+        <dataType>Double</dataType>
+        <developerName>CDF1</developerName>
+        <label>Case Aging</label>
+        <scale>2</scale>
+    </customDetailFormulas>
+    <format>Tabular</format>
+    <name>UAR-Case Aging report for processing</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$UAR__c@UAR__c.Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

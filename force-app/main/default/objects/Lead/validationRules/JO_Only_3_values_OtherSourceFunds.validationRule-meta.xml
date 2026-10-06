@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JO_Only_3_values_OtherSourceFunds</fullName>
+    <active>true</active>
+    <description>Restricting user to select only 3 values to Other Source of Funds</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;),
+
+IF(INCLUDES(Other_Sources_of_Fund__c, &quot;Salary&quot;),1,0) +
+IF(INCLUDES(Other_Sources_of_Fund__c, &quot;Inheritance&quot;),1,0) +
+IF(INCLUDES(Other_Sources_of_Fund__c, &quot;Business Ownership&quot;),1,0) + 
+IF(INCLUDES(Other_Sources_of_Fund__c, &quot;Investment&quot;),1,0) +
+IF(INCLUDES(Other_Sources_of_Fund__c, &quot;Family Support&quot;),1,0) +
+IF(INCLUDES(Other_Sources_of_Fund__c, &quot;Other&quot;),1,0) &gt; 3
+
+)</errorConditionFormula>
+    <errorDisplayField>Other_Sources_of_Fund__c</errorDisplayField>
+    <errorMessage>You cannot select more than 3 values for the &apos;Other Source of Funds&apos;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,85 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" controller="OnboardingCaseController" >
+	
+    <!-- ============================================ -->
+    <aura:attribute name="account" type="Account" access="private"/>
+    <aura:attribute name="caseRecordTypeId" type="Id" access="private"/>
+    <aura:attribute name="customerId" type="String" access="private"/>
+    <aura:attribute name="caseType" type="String" access="private" default=""/>
+    <aura:attribute name="isOpenCase" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="ClosureType" type="String" access="private" default=""/>
+    <aura:attribute name="FormType" type="String" access="private" default=""/>
+    <aura:attribute name="RegionFlag" type="String" access="private" default=""/>
+ 
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler event="force:refreshView" action="{!c.onViewRefresh}" />
+    <!-- ============================================ -->
+
+    <aura:if isTrue="{!v.isOpenCase}">
+        <lightning:tabset selectedTabId="one" variant="scoped">
+            <lightning:tab label="Close Case" id="one">
+
+                <aura:if isTrue="{! 'Identification' == v.caseType || 'FATCA' == v.caseType || 'EDD' == v.caseType || 'Name Screening' == v.caseType }">
+                    <lightning:recordEditForm aura:id="caseIdentification"
+                        recordId="{!v.recordId}"
+                        recordTypeId="{!v.caseRecordTypeId}"
+                        objectApiName="Case"
+                        onsubmit="{!c.onSubmitClick}"
+                        >
+
+                        <lightning:messages /> 
+
+                        <aura:if isTrue="{!'Name Screening' == v.caseType }">
+                            <lightning:select label="Closure Type" required="true" value="{!v.ClosureType}">
+                                <option value="">--None--</option>
+                                <option value="Closed Approved">Closed Approved</option>
+                            </lightning:select>
+                            <aura:set attribute="else">   
+                                <lightning:inputField fieldName="Closure_Type__c" required="true"/>
+                            </aura:set>
+                        </aura:if>
+                        
+                        <!-- <lightning:inputField fieldName="Closure_Type__c" required="true"/> -->
+                        <lightning:inputField fieldName="Case_Reject_Reason__c" />
+                        <aura:if isTrue="{!'FATCA' == v.caseType}">
+                             <!--Added as part of NBA-12150 -->
+                                <lightning:layout >
+                                    <lightning:layoutItem size="4" class="itemClass">
+                                        <label><span style="color:red;">*</span>FATCA Declaration - Form Type</label>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="8">
+                                        <lightning:select value="{!v.FormType}"
+                                                  variant="label-hidden">
+                                    <option value="">--None--</option>
+                                    <option value="W-8 BEN">W-8 BEN</option>
+                                    <option value="W-9">W-9</option>
+                                </lightning:select>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                                <!--End NBA-12150-->
+                                <br/>
+                            <lightning:inputField fieldName="FATCA_Document_Expiry_Date__c" />
+                        </aura:if>
+                        <br/>
+                        <div class="slds-clearfix">
+                            <div class="slds-clearfix">
+                                <div class="slds-float_right">
+                                    <lightning:button aura:id="submit" type="submit" label="Submit"  />
+                                </div>
+                            </div>
+                        </div>
+                    </lightning:recordEditForm>
+
+                    <aura:set attribute="else">
+                        Case type '{!v.caseType}' is not supported by this component
+                    </aura:set>
+                </aura:if>
+
+            </lightning:tab>
+
+        </lightning:tabset>
+    </aura:if>
+
+
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

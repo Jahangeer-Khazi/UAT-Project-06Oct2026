@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email will be sent to Customer on the Credit Card Application case creation for Jordan</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CreditCard Service Case Rejected Acknowledgment-JO</name>
+    <style>none</style>
+    <subject>Credit Card Request Rejected</subject>
+    <textOnly>Credit Card Request Rejected
+
+
+Hi,
+
+Your request about credit card {!Case.Sub_Type__c} was rejected.
+
+Please use the request ID {!Case.CaseNumber} to follow up.
+
+For any questions, call us on +962 65100001
+
+
+
+Click here
+
+Follow us on social media
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files 																		transmitted with it are confidential and 																		intended solely for the use of the individual or 																		entity to whom they are addressed. If you have 																		received this email in error, please notify the 																		system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

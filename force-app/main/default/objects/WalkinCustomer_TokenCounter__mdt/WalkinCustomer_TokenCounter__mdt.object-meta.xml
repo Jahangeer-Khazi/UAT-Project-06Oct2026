@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will generate the token and increment the counter</description>
+    <label>WalkinCustomer_TokenCounter</label>
+    <pluralLabel>WalkinCustomer_TokenCounters</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Status_Staff__c</fullName>
+    <description>This field is used to hide Sub Status value from staff segment users.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(
+Customer_Segment__c &lt;&gt; &quot;Staff&quot;,
+AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c),
+AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c)
+),
+TEXT(Sub_Status__c),
+&quot;&quot;
+)</formula>
+    <label>Sub Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

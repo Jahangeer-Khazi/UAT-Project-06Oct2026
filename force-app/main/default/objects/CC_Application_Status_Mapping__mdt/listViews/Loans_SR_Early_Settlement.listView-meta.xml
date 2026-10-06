@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_SR_Early_Settlement</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>apiStatus__c</columns>
+    <columns>fieldAPiName__c</columns>
+    <columns>RecordType_DeveloperName__c</columns>
+    <columns>Status__c</columns>
+    <columns>Type__c</columns>
+    <columns>Value__c</columns>
+    <columns>Sub_Status__c</columns>
+    <columns>queueDeveloperName__c</columns>
+    <columns>fieldsToBeReseted__c</columns>
+    <columns>crmStage__c</columns>
+    <columns>emailAlertName__c</columns>
+    <columns>Object__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>New Loan / Finance Service Request</value>
+    </filters>
+    <filters>
+        <field>Sub_Type__c</field>
+        <operation>equals</operation>
+        <value>Early Settlement</value>
+    </filters>
+    <label>Loans_SR_Early Settlement</label>
+</ListView>

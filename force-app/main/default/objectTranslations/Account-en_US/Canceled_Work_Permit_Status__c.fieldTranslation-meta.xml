@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Canceled Work Permit - Status --></label>
+    <name>Canceled_Work_Permit_Status__c</name>
+    <picklistValues>
+        <masterLabel>Completed</masterLabel>
+        <translation><!-- Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Confirmed Fraud</masterLabel>
+        <translation><!-- Confirmed Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Failed | Restricted</masterLabel>
+        <translation><!-- ID&amp;V Failed | Restricted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Pending</masterLabel>
+        <translation><!-- ID&amp;V Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID&amp;V Pending | Restricted</masterLabel>
+        <translation><!-- ID&amp;V Pending | Restricted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RP Not Provided</masterLabel>
+        <translation><!-- RP Not Provided --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RP Not Provided | Restricted</masterLabel>
+        <translation><!-- RP Not Provided | Restricted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RP Under Review</masterLabel>
+        <translation><!-- RP Under Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RP Under Review | Restricted</masterLabel>
+        <translation><!-- RP Under Review | Restricted --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

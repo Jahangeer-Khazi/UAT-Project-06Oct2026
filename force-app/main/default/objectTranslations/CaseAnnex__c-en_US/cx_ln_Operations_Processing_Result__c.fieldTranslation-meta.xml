@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Loan/Finance Operation Processing Result --></label>
+    <name>cx_ln_Operations_Processing_Result__c</name>
+    <picklistValues>
+        <masterLabel>Accept</masterLabel>
+        <translation><!-- Accept --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancelled by Customer</masterLabel>
+        <translation><!-- Cancelled by Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Decline</masterLabel>
+        <translation><!-- Decline --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Approver</masterLabel>
+        <translation><!-- Return to Approver --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Loan/ Finance Request Fees Waiver</masterLabel>
+        <translation><!-- Return to Loan/ Finance Request Fees Waiver --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Pre-screener</masterLabel>
+        <translation><!-- Return to Pre-screener --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

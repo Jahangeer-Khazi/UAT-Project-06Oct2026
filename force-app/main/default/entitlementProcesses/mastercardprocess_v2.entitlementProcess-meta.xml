@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <entryStartDateField>Case.ac_Pending_Date__c</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Type__c</field>
+            <operation>equals</operation>
+            <value>Customer Transaction &amp; Payment Disputes- Mastercard</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Issue_Milestone</milestoneName>
+        <minutesToComplete>45</minutesToComplete>
+        <timeTriggers>
+            <actions>
+                <name>Case.MasterCard_Warning</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>-5</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <timeTriggers>
+            <actions>
+                <name>Case.MasterCard_Violation</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>12</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>MasterCardProcess</name>
+    <versionMaster>552QI000005fkX3</versionMaster>
+    <versionNumber>2</versionNumber>
+</EntitlementProcess>

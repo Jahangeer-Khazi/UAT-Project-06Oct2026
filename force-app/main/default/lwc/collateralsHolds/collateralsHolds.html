@@ -1,0 +1,99 @@
+<template>
+    <lightning-card title="Collaterals / Holds" icon-name="standard:event">
+        <!-- Loading Spinner -->
+        <div if:true={isLoading} class="slds-is-relative slds-p-around_medium">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+
+        <template if:false={isLoading}>
+            <!-- Empty State -->
+            <template if:true={isEmpty}>
+                <div class="slds-p-around_medium slds-text-align_center">
+                    <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                    <p class="slds-m-top_small">No active holds found for this customer.</p>
+                </div>
+            </template>
+
+            <!-- Data Display -->
+            <template if:false={isEmpty}>
+                <!-- Section 1 – Overview -->
+                <div class="slds-p-around_medium">
+                    <h2 class="slds-text-heading_small slds-m-bottom_small">Overview</h2>
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th class="select-col">Select</th>
+                                    <th class="name-col">Product Type</th>
+                                    <th class="name-col">Product Name</th>          <!-- new column -->
+                                    <th class="number-col">Account Number</th>
+                                    <th class="currency-col">Currency</th>
+                                    <th class="amount-col">Hold Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={accountsWithHolds} for:item="account">
+                                    <tr key={account.accountNumber} class='selected-row'>
+                                        <td class="select-col">
+                                            <input type="radio"
+                                                   name="accountSelection"
+                                                   value={account.accountNumber}
+                                                   checked={account.isSelected}
+                                                   onchange={handleRadioChange}
+                                                   class="custom-radio" />
+                                        </td>
+                                        <td class="name-col">{account.accountName}</td>
+                                        <td class="name-col">{account.productName}</td>   <!-- new data -->
+                                        <td class="number-col">{account.accountNumber}</td>
+                                        <td class="currency-col">{account.cury}</td>
+                                        <td class="amount-col">{account.totalHoldAmount}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Section 2 – Details Panel -->
+                <div class="slds-p-around_medium" if:true={selectedAccount}>
+                    <h2 class="slds-text-heading_small slds-m-bottom_small">Hold Details</h2>
+                    <template for:each={selectedAccount.holds} for:item="hold">
+                        <div key={hold.holdId} class="hold-card">
+                            <div class="hold-header">
+                                <h3 class="hold-title">{hold.holdType} – {hold.holdId}</h3>
+                            </div>
+                            <div class="hold-body">
+                                <div class="hold-grid">
+                                    <div class="hold-item">
+                                        <span class="label">Hold Amount</span>
+                                        <p class="value">{hold.holdAmount}</p>
+                                    </div>
+                                    <div class="hold-item">
+                                        <span class="label">Hold Type</span>
+                                        <p class="value">{hold.holdType}</p>
+                                    </div>
+                                    <div class="hold-item">
+                                        <span class="label">Hold Description</span>
+                                        <p class="value">{hold.holdTypeDescription}</p>
+                                    </div>
+                                    <div class="hold-item">
+                                        <span class="label">From Date</span>
+                                        <p class="value">{hold.fromDate}</p>
+                                    </div>
+                                    <div class="hold-item">
+                                        <span class="label">Expiry Date</span>
+                                        <p class="value">{hold.expiryDate}</p>
+                                    </div>
+                                    <div class="hold-item">
+                                        <span class="label">Currency</span>
+                                        <p class="value">{hold.cury}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

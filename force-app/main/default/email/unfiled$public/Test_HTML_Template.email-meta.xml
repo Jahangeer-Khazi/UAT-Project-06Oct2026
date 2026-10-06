@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Test HTML Template</name>
+    <style>none</style>
+    <subject>Testing the HTML Template</subject>
+    <textOnly>Hi {!Contact.LastName},
+
+Thank you for taking the time to review this template for your email {!Contact.Email}.
+
+Thank you!
+
+{!User.Name}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

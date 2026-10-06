@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Case Origin --></label>
+    <name>Case_Origin__c</name>
+    <picklistValues>
+        <masterLabel>App</masterLabel>
+        <translation><!-- App --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CBB</masterLabel>
+        <translation><!-- CBB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CRM</masterLabel>
+        <translation><!-- CRM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Chat</masterLabel>
+        <translation><!-- Chat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Civil</masterLabel>
+        <translation><!-- Civil --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Compliance</masterLabel>
+        <translation><!-- Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EKYC-FETCH</masterLabel>
+        <translation><!-- EKYC-FETCH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EKYC-SIGNOFF</masterLabel>
+        <translation><!-- EKYC-SIGNOFF --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EKYC-UPLOAD</masterLabel>
+        <translation><!-- EKYC-UPLOAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Email</masterLabel>
+        <translation><!-- Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Facebook</masterLabel>
+        <translation><!-- Facebook --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud</masterLabel>
+        <translation><!-- Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud Alert</masterLabel>
+        <translation><!-- Fraud Alert --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ICU</masterLabel>
+        <translation><!-- ICU --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Instagram</masterLabel>
+        <translation><!-- Instagram --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Internal UAR</masterLabel>
+        <translation><!-- Internal UAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mobile</masterLabel>
+        <translation><!-- Mobile --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operation</masterLabel>
+        <translation><!-- Operation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Phone</masterLabel>
+        <translation><!-- Phone --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RCD</masterLabel>
+        <translation><!-- RCD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retail Credit - Collection</masterLabel>
+        <translation><!-- Retail Credit - Collection --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Roadshow</masterLabel>
+        <translation><!-- Roadshow --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Senior Management</masterLabel>
+        <translation><!-- Senior Management --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Service Center</masterLabel>
+        <translation><!-- Service Center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Service Centre</masterLabel>
+        <translation><!-- Service Centre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Siron AML</masterLabel>
+        <translation><!-- Siron AML --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Social Media</masterLabel>
+        <translation><!-- Social Media --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Twitter</masterLabel>
+        <translation><!-- Twitter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wathiq</masterLabel>
+        <translation><!-- Wathiq --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Web</masterLabel>
+        <translation><!-- Web --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>YouTube</masterLabel>
+        <translation><!-- YouTube --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

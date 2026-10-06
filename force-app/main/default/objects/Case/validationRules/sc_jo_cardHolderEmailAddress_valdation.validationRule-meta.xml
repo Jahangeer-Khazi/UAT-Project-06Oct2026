@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_jo_cardHolderEmailAddress_valdation</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType_DeveloperName__c == &apos;Credit_Card_Supplementary&apos; &amp;&amp; ( ISCHANGED(sc_Card_Holder_Email_Address__c) &amp;&amp; (!REGEX ( UPPER (sc_Card_Holder_Email_Address__c) ,&quot;^[A-Z0-9._%+-/!#$%&amp;&apos;*=?^_`{|}~]+@[A-Z0-9.-]+\\.[A-Z]{2,3}$&quot;)) )</errorConditionFormula>
+    <errorDisplayField>sc_Card_Holder_Email_Address__c</errorDisplayField>
+    <errorMessage>Please enter a valide address email</errorMessage>
+</ValidationRule>

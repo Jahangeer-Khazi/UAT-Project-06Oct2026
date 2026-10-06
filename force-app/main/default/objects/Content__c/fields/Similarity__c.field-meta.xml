@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Similarity__c</fullName>
+    <description>Jumio similarity MATCH/NO_MATCH</description>
+    <label>Similarity</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MATCH</fullName>
+                <default>false</default>
+                <label>MATCH</label>
+            </value>
+            <value>
+                <fullName>NO_MATCH</fullName>
+                <default>false</default>
+                <label>NO_MATCH</label>
+            </value>
+            <value>
+                <fullName>NOT_POSSIBLE</fullName>
+                <default>false</default>
+                <label>NOT_POSSIBLE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

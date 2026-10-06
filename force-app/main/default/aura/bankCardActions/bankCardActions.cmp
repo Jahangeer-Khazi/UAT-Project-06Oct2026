@@ -1,0 +1,263 @@
+<aura:component controller="BankCardListController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" required="true" />
+    <aura:attribute name="account" type="Account" required="true" />
+    <aura:attribute name="cardDetails" type="Object" required="true" />
+    <aura:attribute name="personEmail" type="String" required="true" />
+    <aura:attribute name="regionName" type="String" required="true" />
+    <aura:attribute name="selectedCardId" type="String" required="true" />
+    <aura:attribute name="cardCanReplaced" type="Boolean" required="true" /> 
+    <aura:attribute name="isLoading" type="Boolean" required="false" /> 
+    <!-- ============================================ -->
+
+    <aura:attribute name="selectedCardActionType" type="String" access="private" />
+    <aura:attribute name="selectedActionHelpText" type="String" access="private" />
+    <aura:attribute name="productType" type="String" access="private" />
+    <aura:attribute name="deliveryType" type="String" access="private" />
+    <aura:attribute name="showDeliveryTypeSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showProductTypeSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showLinkedAccountsSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showAccountsToLinkToSelector" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showUpgradeDowngrade" type="Boolean" access="private" default="false" />
+
+    <!-- For segment var -->
+    <aura:attribute name="segmentCardOpts" type="List" access="private" default="[]" />
+    <aura:attribute name="segmentCurCards" type="List" access="private" default="[]" />
+    <aura:attribute name="segmentCurrent" type="Object" access="private" default="{}" />
+    <aura:attribute name="segmentDisOpts" type="List" access="private" default="[]" />
+    <aura:attribute name="segmentOpts" type="List" access="private" default="[]" />
+    <aura:attribute name="segmenttransitionInProgress" type="Boolean" access="private" default="false" />
+    <aura:attribute name="curSegSelected" type="String" access="private" default="" />
+    <aura:attribute name="disSegSelected" type="String" access="private" default="" />
+    <aura:attribute name="segmentEmbossName" type="String" access="private" default="" />
+    
+    
+	<aura:attribute name="showDiscountDropdown" type="Boolean" access="private" default="false" />
+
+    <aura:attribute name="reason" type="String" access="private" />
+    <aura:attribute name="cardActionTypeOptions" type="List" default="[]" access="private" />
+    <aura:attribute name="linkedAccountOptions" type="List" default="[]" access="private" />
+    <aura:attribute name="selectedAccountId" type="String" access="private" />
+    <aura:attribute name="allCustomerAcounts" type="List" default="[]" access="private" />
+    <aura:attribute name="accountsToLinkOptions" type="List" default="[]" access="private" />
+
+
+    <!-- CH01 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    
+    <!-- CH02 Added by Aniss Mbarki 20-06-2022 -->
+    <aura:attribute name="caseStatus" type="String" access="private" />
+    <aura:attribute name="profileName" type="String" access="private" />
+    <!-- CH02 END -->
+
+    <!-- CH03 Added by Aniss Mbarki 16-03-2023 -->
+    <aura:attribute name="isSubmited" type="Boolean" access="private" default="false" />
+    <!-- CH03 END -->
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <!--
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+    -->
+
+    <lightning:card title="{!'Card Actions - ' + v.cardDetails.maskedCardNumber}">
+        <!--
+        card.Id = {!v.cardDetails.id}
+        -->
+
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="Please wait..." size="small" variant="brand"/>
+        </aura:if>
+        
+        <div style="padding: 1rem;">
+            <aura:if isTrue="{!not(empty(v.selectedActionHelpText))}">
+                <ui:message title="" severity="info" closable="true">
+                    {!v.selectedActionHelpText}
+                </ui:message>
+            </aura:if>
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <lightning:radioGroup name="radioGroup" label="Select Action" options="{! v.cardActionTypeOptions }"
+                        value="{! v.selectedCardActionType }" onchange="{!c.onActionSelectionChange}" type="radio" />
+                </div>
+            </div>
+            <aura:if isTrue="{!v.showDeliveryTypeSelector}">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:select label="Delivery Type" required="true" value="{!v.deliveryType}">
+                            <option value="">choose one...</option>
+                            <option value="CUSTOMER_ADDRESS" selected="true">Customer Address</option>
+                            <!--
+                            <option value="ATM_PRINT">ATM Print</option>
+                            <option value="BRANCH">Branch</option>
+                            -->
+                        </lightning:select>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showProductTypeSelector}">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:select label="Product Type" required="true" value="{!v.productType}">
+                            <option value="">choose one...</option>
+                            <option value="CLASSIC">Classic</option>
+                            <option value="PREMIUM">Premium</option>
+                            <!--
+                            <option value="VIRTUAL">Virtual</option>
+                            <option value="PREMIUM_ELITE">Premium Elite</option>
+                            -->
+                        </lightning:select>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showAccountsToLinkToSelector}">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:select label="Accounts" required="true" value="{!v.selectedAccountId}">
+                            <option value="">choose one...</option>
+                            <aura:iteration var="item" items="{!v.accountsToLinkOptions}">
+                                <option value="{!item.value}">{!item.label}</option>
+                            </aura:iteration>
+
+                        </lightning:select>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showLinkedAccountsSelector}">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:select label="Linked Accounts" required="true" value="{!v.selectedAccountId}">
+                            <option value="">choose one...</option>
+                            <aura:iteration var="item" items="{!v.linkedAccountOptions}">
+                                <option value="{!item.value}">{!item.label}</option>
+                            </aura:iteration>
+
+                        </lightning:select>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!'This is not currently used. Change me as required' == v.selectedCardActionType}">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="form-element-01">Reason</label>
+                    <div class="slds-form-element__control">
+                        <lightning:input value="{!v.reason}" label="{!$Label.c.Card_Block_Reason}" aura:id="reason"
+                            type="text" required="true" maxlength="100" />
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showUpgradeDowngrade}">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+
+                        <aura:if isTrue="{!v.segmenttransitionInProgress}">
+                            <div class="demo-only" style="height:4rem">
+                                <div class="slds-notify_container slds-is-relative">
+                                    <div class="slds-notify slds-notify_toast slds-theme_warning" role="status">
+                                        <span class="slds-assistive-text">warning</span>
+                                        <div class="slds-notify__content">
+                                            <h2 class="slds-text-heading_small ">Error. Segment or Card Upgrade/Downgrade is already in progress</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:if>
+                       <aura:if isTrue="{!!v.segmenttransitionInProgress}">
+                            
+                            <div class="slds-form__row" style="margin-top:10px;">
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label" >Current Segment</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">{!v.segmentCurrent.segmentName || '-'}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Avaialble Cards</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"> 
+                                                <lightning:combobox name="segment_available_card"
+                                                    value="{!v.curSegSelected}" 
+                                                    options="{! v.segmentCardOpts }" /> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             
+
+                            <div class="slds-form__row" >
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal"> 
+                                        <span class="slds-form-element__label" >Notes</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">-</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form__item" role="listitem">
+                                   <aura:if isTrue="{!v.showDiscountDropdown}">
+                                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                            <span class="slds-form-element__label">Available Discounts</span>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-form-element__static"> 
+                                                    <lightning:combobox name="segment_available_card"
+                                                                        value="{!v.disSegSelected}" 
+                                                                        options="{! v.segmentDisOpts }" /> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </aura:if>
+                                </div>
+                            </div>
+
+                            <div class="slds-form__row" >
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal"> 
+                                    </div>
+                                </div>
+
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Emboss Name</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static"> 
+                                                <lightning:input value="{!v.segmentEmbossName}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+        </div>
+        <aura:if isTrue="{!v.cardCanReplaced}">
+            <ui:message severity="warning">
+                This card cannot be replaced since there is a renewed card pending activation
+            </ui:message>
+        </aura:if>
+        <br></br>
+        <div class="slds-form__row">
+            <div class="slds-form-element__control slds-align_absolute-center">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_1-of-1">
+                        <div class="slds-form-element">
+                            <aura:if isTrue="{!not(empty(v.selectedCardActionType))}">
+                                <lightning:button variant="neutral" label="Submit" onclick="{! c.onSubmitClick }" disabled="{!or(v.isSubmited,v.cardCanReplaced)}" />
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </lightning:card>
+
+    <c:apexService aura:id="apexService" />
+</aura:component>

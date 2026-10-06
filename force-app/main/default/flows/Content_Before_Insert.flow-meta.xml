@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Region_Flag_From_Account</name>
+        <label>Assign Region Flag From Account</label>
+        <locationX>31</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Person__r.Region_Flag__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Region_Flag_From_Case</name>
+        <label>Assign Region Flag From Case</label>
+        <locationX>615</locationX>
+        <locationY>777</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Case__r.Region_Flag__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Region_Flag_From_Lead</name>
+        <label>Assign Region Flag From Lead</label>
+        <locationX>241</locationX>
+        <locationY>789</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Lead__r.Region_Flag__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Region_Flag_From_User</name>
+        <label>Assign Region Flag From User</label>
+        <locationX>768</locationX>
+        <locationY>421</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Region_Flag__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>When the Person Account, Lead and Case region flag fields are empty assign the region flag based on the user</description>
+        <name>Check_Corresponding_Object_Region_Flags</name>
+        <label>Check Corresponding Object Region Flags</label>
+        <locationX>428</locationX>
+        <locationY>540</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Region_Flag_Not_Empty</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Person__r.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region_Flag_From_Account</targetReference>
+            </connector>
+            <label>Account Region Flag Not Empty</label>
+        </rules>
+        <rules>
+            <name>Lead_Region_Flag_Not_Empty</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Lead__r.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region_Flag_From_Lead</targetReference>
+            </connector>
+            <label>Lead Region Flag Not Empty</label>
+        </rules>
+        <rules>
+            <name>Case_Region_Flag_Not_Empty</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Case__r.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region_Flag_From_Case</targetReference>
+            </connector>
+            <label>Case Region Flag Not Empty</label>
+        </rules>
+        <rules>
+            <name>Content_Region_Flag_Not_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Content Region Flag Not Empty</label>
+        </rules>
+        <rules>
+            <name>User_Region_Flag_Not_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region_Flag_From_User</targetReference>
+            </connector>
+            <label>User Region Flag Not Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Object_Region_Flag</name>
+        <label>Check Object Region Flag</label>
+        <locationX>423</locationX>
+        <locationY>332</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Content_Region_Flag_Empty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Region_Flag__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Corresponding_Object_Region_Flags</targetReference>
+            </connector>
+            <label>Content Region Flag Empty</label>
+        </rules>
+    </decisions>
+    <description>Updates inserted Content records with the Region Flag.</description>
+    <environments>Default</environments>
+    <interviewLabel>Content {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Content Before Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>305</locationX>
+        <locationY>57</locationY>
+        <connector>
+            <targetReference>Check_Object_Region_Flag</targetReference>
+        </connector>
+        <object>Content__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

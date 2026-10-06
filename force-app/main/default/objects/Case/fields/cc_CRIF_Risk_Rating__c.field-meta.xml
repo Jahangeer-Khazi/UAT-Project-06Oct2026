@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CRIF_Risk_Rating__c</fullName>
+    <label>CRIF Risk Rating</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Very High (300-564)</fullName>
+                <default>false</default>
+                <label>Very High (300-564)</label>
+            </value>
+            <value>
+                <fullName>High (565-654)</fullName>
+                <default>false</default>
+                <label>High (565-654)</label>
+            </value>
+            <value>
+                <fullName>Medium (655-684)</fullName>
+                <default>false</default>
+                <label>Medium (655-684)</label>
+            </value>
+            <value>
+                <fullName>Low (685-774)</fullName>
+                <default>false</default>
+                <label>Low (685-774)</label>
+            </value>
+            <value>
+                <fullName>Very Low (775-900)</fullName>
+                <default>false</default>
+                <label>Very Low (775-900)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

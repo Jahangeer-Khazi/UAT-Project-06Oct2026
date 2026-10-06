@@ -1,0 +1,113 @@
+<apex:page applyHtmlTag="false" showHeader="false" Controller="IBANRenderPDFPage" renderAs="pdf">
+    
+    <html>
+        <head>
+            <style>
+                @page {
+                    size: A4;
+                    margin-top: 1cm;
+                    margin-bottom: 1.8cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                    @top {
+                        content: element(header);
+                    }
+                    @bottom-left {
+                        content: element(footer);
+                    }
+                }
+                
+                div.footer {
+                    display: block;
+                    position: running(footer);
+                }
+                
+            </style>
+        </head>
+        <body>
+            <div class="header">
+   
+            <td style="width:1225px;text-align:right">
+                <!-- <apex:outputPanel rendered="{!  }">
+                    <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45"/>
+                </apex:outputPanel> -->
+
+                <apex:image value="{! IF( caseModel == 'alburaq', URLFOR($Resource.alburaq_logo_40_40) , URLFOR($Resource.Ila)) }" height="74.83px" width="74.45"/>
+            </td>
+            
+</div>
+        
+            <br/>
+        <p>{!acc.Name}</p>
+        <p>{!acc.ID_Number__pc}</p>
+        <apex:outputText value="{!acc.PersonMailingStreet}"></apex:outputText><br/>
+        <apex:outputText value="{!acc.PersonMailingCity}"></apex:outputText><br/> 
+       
+        <apex:outputText value="{!acc.PersonMailingPostalCode}"></apex:outputText><br/>
+        <apex:outputText value="{!acc.PersonMailingCountry}"></apex:outputText><br/><br/>
+        
+    <apex:outputText value="{0, date,  dd - MM - yyyy}"><apex:param value="{!Today()}" /></apex:outputText>
+    <P> <apex:outputText value="{!IF(acc.Gender__pc=='F','Dear Madam','Dear Sir')}" />,</P>
+   
+    <P>We confirm that the below information relates to your {!IF( caseModel == 'alburaq','alburaq','ila' )} Bank account held with us.</P>
+
+    
+    
+    <apex:outputLabel value="Account Opening Date"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{0, date,  dd - MM - yyyy}"><apex:param value="{!Datevalue(startDate)}" /></apex:outputText><br/>
+    <apex:outputLabel value="Account Type"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="Current Account"></apex:outputText><br/>
+    <apex:outputLabel value="Currency"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!accountCurrency}"></apex:outputText><br/>
+    <apex:outputLabel value="IBAN"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!iBAN}"></apex:outputText><br/>
+    <apex:outputLabel value="Account Number"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!Right(iBAN,Len(iBAN)-8)}"></apex:outputText><br/>
+    <apex:outputLabel value="SWIFT CODE"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!IF(region=='Jordan','ABCJJOAMXXX','ABCOBHBMXXX')}"></apex:outputText><br/><br/>
+    
+    
+    
+    <p>This letter is being issued at your request and without any liability to ila Bank.</p>
+    <p>
+        Thank you for being part of the ila family. 
+    </p>
+    <p>
+        Yours sincerely,</p>
+        <apex:outputPanel rendered="{!IF(region=='Bahrain', true, false)}">
+        <apex:image value="{!URLFOR($Resource.Ibandigitalsign)}" height="120px" width="200px"/>
+        <p>
+            Amit Sambhi <br/>
+            Head of Operations - ila Bank
+        </p>
+        </apex:outputPanel> 
+        <apex:outputPanel rendered="{!IF(region=='Jordan', true, false)}">
+        <apex:image value="{!URLFOR($Resource.IbandigitalsignJO)}" height="120px" width="200px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!URLFOR($Resource.IbandigitalsignJOHOB)}" height="120px" width="200px"/>
+        <p>
+            Samaher Shraideh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hamzeh Almohtasib<br/>
+           <apex:outputLabel value="Banking Cards & E-Channels Unit Manager"></apex:outputLabel> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Head of ila Jordan
+        </p>
+       </apex:outputPanel>   
+            
+            
+            <div style="text-align:left;margin-left:1%;">
+           <apex:image value="{!URLFOR($Resource.IBAN_Stamp)}" height="7.5%" width="16.5%"/>
+            </div>
+          <apex:outputPanel rendered="{!IF(region=='Bahrain', true, false)}">   
+        <p style="font-size:45%;color:#606060;font-family:'Calibri',sans-serif;margin-top: 1.7cm;">
+            This document is system generated and does not require the parties’ physical signatures. The parties acknowledge the Bank’s full discretion to include its own digital signatures/stamps on this document – as required‐ and further acknowledge the legality of this
+document and the obligations hereunder. ila Bank  shall not – under no circumstances‐ be liable for any change or modification made to this document as of the date of its issuance by electronic manners.
+            </p>
+          </apex:outputPanel>
+      <div class="footer">
+                <apex:outputPanel rendered="{!IF(region=='Bahrain', true, false)}">
+                <div><apex:image value="{!URLFOR($Resource.cusfooter)}" height="58.58px" width="720" /></div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(region=='Jordan', true, false)}">
+                <div><apex:image value="{!URLFOR($Resource.cusfooterJO)}" width="750"/></div>
+                </apex:outputPanel>
+                
+            </div>
+            </body>
+    </html>
+</apex:page>

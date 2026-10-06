@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Transaction_Notifications_To__c</fullName>
+    <label>Send Transaction Notifications To</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PRIMARY_CUSTOMER</fullName>
+                <default>false</default>
+                <label>Primary Customer</label>
+            </value>
+            <value>
+                <fullName>CARD_HOLDER</fullName>
+                <default>false</default>
+                <label>Cardholder</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

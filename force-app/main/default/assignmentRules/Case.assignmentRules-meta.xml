@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>AWS to contact centre</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Tier_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(Owner:User.LastName = &quot;AWS Integration&quot;,  RecordType.DeveloperName = &quot;Complaint&quot;)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Service_Centre</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(Owner:User.LastName = &quot;AWS Integration&quot;,  OR( ISPICKVAL(Sub_Type__c , &quot;Stop Cheque&quot;), ISPICKVAL(Sub_Type__c , &quot;Return Cheque&quot;),  ISPICKVAL(Sub_Type__c , &quot;Stop Managerial Cheque&quot;),  ISPICKVAL(Sub_Type__c , &quot;Request Adhoc Statement/Letter&quot;),  ISPICKVAL(Type , &quot;EDD&quot;),  ISPICKVAL(Type , &quot;Identification&quot;),  ISPICKVAL(Type , &quot;Name Screening&quot;) ))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Contact_Centre</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>AWS Integration</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Case Disputes and Frauds%2F Loans</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Transfers</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(     ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),     OR(         AND(             ISPICKVAL(Type, &quot;EFTs&quot;),              OR(                 ISPICKVAL(Sub_Type__c, &quot;Fawri&quot;),                  ISPICKVAL(Sub_Type__c, &quot;Fawri+&quot;),                  ISPICKVAL(Sub_Type__c, &quot;Fawateer&quot;)             ),              OR(                 ISPICKVAL(cc_Request_Type__c, &quot;Payment didn’t go through&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Recall Amount&quot;)             )         ),          AND(             ISPICKVAL(Type, &quot;SWIFT&quot;),              OR(                 ISPICKVAL(Sub_Type__c, &quot;AFAQ&quot;),                  ISPICKVAL(Sub_Type__c, &quot;Buna (MENA)&quot;),                  ISPICKVAL(Sub_Type__c, &quot;SWIFT (World Wide)&quot;)             ),              OR(                 ISPICKVAL(cc_Request_Type__c, &quot;Transfer didn’t go through&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Recall Amount&quot;)             )         )     ) )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Frauds</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( 
+    ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), 
+    OR( 
+        AND( 
+            ISPICKVAL(Type, &quot;Benefit&quot;), 
+            OR( 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;ATM&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Financial Impact - Fraudulent / Unauthorized&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;No Financial Impact - Fraudulent/Unauthorized&quot;) 
+                    ) 
+                ), 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;POS / E-Commerce&quot;), 
+                    OR(  
+                        ISPICKVAL(cc_Request_Type__c, &quot;Financial Impact - Fraudulent / Unauthorized&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;No Financial Impact - Fraudulent/Unauthorized&quot;) 
+                    ) 
+                ) 
+            ) 
+        ), 
+        AND( 
+            ISPICKVAL(Type, &quot;MasterCard&quot;), 
+            OR( 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;ATM&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Financial Impact - Fraudulent / Unauthorized&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;No Financial Impact - Fraudulent/Unauthorized&quot;) 
+                    ) 
+                ), 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;POS / E-Commerce&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Financial Impact - Fraudulent / Unauthorized&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;No Financial Impact - Fraudulent/Unauthorized&quot;) 
+                    ) 
+                ) 
+            ) 
+        ) 
+    ) 
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Dispute_OPS</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( 
+    ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), 
+    OR( 
+        AND( 
+            ISPICKVAL(Type, &quot;Benefit&quot;), 
+            OR( 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;ATM&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Did not receive cash from ATM&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Partial Amount Dispensed&quot;) 
+                    ) 
+                ), 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;POS / E-Commerce&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Transaction did not go through&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Duplicate payment&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Purchased goods not received&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Transaction amount differs.&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Late posted transaction&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Refund not processed&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Service Not Provided&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Other (Specify in description)&quot;)
+                    ) 
+                ) 
+            ) 
+        ), 
+        AND( 
+            ISPICKVAL(Type, &quot;MasterCard&quot;), 
+            OR( 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;ATM&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Did not receive cash from ATM&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Partial Amount Dispensed&quot;) 
+                    ) 
+                ), 
+                AND( 
+                    ISPICKVAL(Sub_Type__c, &quot;POS / E-Commerce&quot;), 
+                    OR( 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Transaction did not go through&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Duplicate payment&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Purchased goods not received&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Transaction amount differs.&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Late posted transaction&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Refund not processed&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Service Not Provided&quot;), 
+                        ISPICKVAL(cc_Request_Type__c, &quot;Other (Specify in description)&quot;) 
+                    ) 
+                ) 
+            ) 
+        ) 
+    ) 
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Frauds</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), OR(AND(ISPICKVAL(Type, &quot;EFTs&quot;), OR(AND(OR(ISPICKVAL(Sub_Type__c, &quot;Fawri&quot;), ISPICKVAL(Sub_Type__c, &quot;Fawri+&quot;), ISPICKVAL(Sub_Type__c, &quot;Fawateer&quot;)), OR(ISPICKVAL(cc_Request_Type__c, &quot;Financial Impact - Fraudulent / Unauthorized&quot;), ISPICKVAL(cc_Request_Type__c, &quot;No Financial Impact - Fraudulent/Unauthorized&quot;))))), AND(ISPICKVAL(Type, &quot;SWIFT&quot;), OR(ISPICKVAL(Sub_Type__c, &quot;Fraudulent/Unauthorized&quot;), ISPICKVAL(Sub_Type__c, &quot;Buna (MENA)&quot;)))))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ila_ServiceDesk</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(     ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),     OR(         AND(             ISPICKVAL(Type, &quot;App&quot;),              ISPICKVAL(Sub_Type__c, &quot;Debit Card Section&quot;),              OR(                 ISPICKVAL(cc_Request_Type__c, &quot;Taha&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Activate Card&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Transaction fail&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Name on card&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Card Request&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Change Pin&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Offer Page&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Applepay&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Samsungpay&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Fitbit&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Garmin&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Replace Card&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Freeze Card&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Card View page&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Linking currency accounts&quot;)             )         ),          AND(             ISPICKVAL(Type, &quot;App&quot;),              ISPICKVAL(Sub_Type__c, &quot;Credit Card Section&quot;),              OR(                 ISPICKVAL(cc_Request_Type__c, &quot;Documents upload&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Application failure&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Setting fault&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;EPP Error&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Unable to switch Rewards&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Activate Card&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Applepay&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Samsungpay&quot;),                  ISPICKVAL(cc_Request_Type__c, &quot;Provision Fitbit&quot;),  
+ISPICKVAL(cc_Request_Type__c, &quot;Provision&quot;), ISPICKVAL(cc_Request_Type__c, &quot;Apply for Prepaid&quot;), ISPICKVAL(cc_Request_Type__c, &quot;Apply for Supplementary&quot;),                ISPICKVAL(cc_Request_Type__c, &quot;Freeze Card&quot;)  )         )     ) )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tier_2</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(     ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),      ISPICKVAL(Type, &quot;Account&quot;),      ISPICKVAL(Sub_Type__c, &quot;Login Error&quot;),      OR(         ISPICKVAL(cc_Request_Type__c, &quot;Ping Issue&quot;),          ISPICKVAL(cc_Request_Type__c, &quot;Restricted Country&quot;)     ) )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Operations_Team</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(
+    OR(
+        AND(
+            ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), 
+            ISPICKVAL(Type, &quot;Account&quot;), 
+            ISPICKVAL(Sub_Type__c, &quot;Outage&quot;), 
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;EFTS&quot;), 
+                ISPICKVAL(cc_Request_Type__c, &quot;Swift&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Debit Card&quot;), 
+            ISPICKVAL(Sub_Type__c, &quot;Failed Payment&quot;), 
+            ISPICKVAL(cc_Request_Type__c, &quot;POS/ATM Transaction Failure&quot;)
+        )
+    )
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ila_ServiceDesk</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR(
+
+/* Account Faults */
+AND(
+    ISPICKVAL(Type, &quot;Account Faults&quot;),
+    OR(
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Account Reactivation Issues&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Post relationship termination&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Post Alburaq termination&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Post ila termination&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Account Settings Issues&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Enable/Disable Interest&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;IBAN Letter Issuance&quot;)
+            )
+        ),
+								AND(
+            ISPICKVAL(Sub_Type__c, &quot;Account Creation Failure&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Fx accounts&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Fixed Deposit/Wakala&quot;),
+																ISPICKVAL(cc_Request_Type__c, &quot;Alkanz&quot;),
+																ISPICKVAL(cc_Request_Type__c, &quot;Jamiya&quot;)
+            )
+        ),
+        ISPICKVAL(Sub_Type__c, &quot;Account termination fault&quot;),
+
+        /* Profile Settings Faults */
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Profile Settings Faults&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Update Mobile Number&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Switch Profile (ila/Alburaq)&quot;)
+            )
+        )
+    )
+),
+
+/* Login Failure */
+AND(
+    ISPICKVAL(Type, &quot;Login Failure&quot;),
+    OR(
+        ISPICKVAL(Sub_Type__c, &quot;Email Validation&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;ID &amp; Verification&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;PIN Creation&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;Credential Errors&quot;)
+    )
+),
+
+/* Card Faults */
+AND(
+    ISPICKVAL(Type, &quot;Card Faults&quot;),
+    OR(
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Premium&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Upgrade issue&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Downgrade issue&quot;)
+            )
+        ),
+		AND(
+            ISPICKVAL(Sub_Type__c, &quot;Debit Card Order/Activation Failure&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Debit Card Order&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Debit Card Activation&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Rewards Issues&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Earning Points issue&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Redeem Tokens issue&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Switch Reward Type issue&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Link Airmiles membership issue&quot;)
+            )
+        ),
+        ISPICKVAL(Sub_Type__c, &quot;Tokenization Issues&quot;),
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Transaction Issues&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Unclear response code&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Transaction OTP Fault&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Transaction attempt not found&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Sub_Type__c, &quot;Credit Card Application/Activation Failure&quot;),
+            OR(
+                ISPICKVAL(cc_Request_Type__c, &quot;Credit Card Application&quot;),
+                ISPICKVAL(cc_Request_Type__c, &quot;Credit Card Activation&quot;)
+            )
+        )
+    )
+),
+
+
+/* Fees &amp; Charges/Interest */
+AND(
+    ISPICKVAL(Type, &quot;Fees &amp; Charges/Interest&quot;),
+    OR(
+        ISPICKVAL(Sub_Type__c, &quot;Incorrect fees &amp; charges applied&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;Credit Card Interest calculation&quot;)
+    )
+)
+
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ila_ServiceDesk</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR(
+    AND(
+        ISPICKVAL(Type, &quot;Account Faults&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;Unclear Account Balance&quot;),
+        OR(
+            ISPICKVAL(cc_Request_Type__c, &quot;Hold Issue on Account&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Hold Issue on Hassala&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Hold Issue on Alkanz&quot;)
+        )
+    ),
+
+    AND(
+        ISPICKVAL(Type, &quot;Other Issues&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;Others&quot;),
+        OR(
+            ISPICKVAL(cc_Request_Type__c, &quot;Application&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Card Payment&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Funds Transfer&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Onboarding&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;BenefitPay&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;ATM&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Other&quot;)
+        )
+    ),
+
+    AND(
+        ISPICKVAL(Type, &quot;Onboarding faults&quot;),
+        OR(
+            ISPICKVAL(Sub_Type__c, &quot;eKey Issues&quot;),
+            ISPICKVAL(Sub_Type__c, &quot;IGA Data Failure&quot;),
+            ISPICKVAL(Sub_Type__c, &quot;KYC Questionnaire&quot;),
+            ISPICKVAL(Sub_Type__c, &quot;Default Account Creation Failure&quot;),
+
+            AND(
+                ISPICKVAL(Sub_Type__c, &quot;Identification Case&quot;),
+                OR(
+                    ISPICKVAL(cc_Request_Type__c, &quot;Creation Failure&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Processing Failure&quot;)
+                )
+            ),
+
+            AND(
+                ISPICKVAL(Sub_Type__c, &quot;Registration&quot;),
+                OR(
+                    ISPICKVAL(cc_Request_Type__c, &quot;Email Validation Fault&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Password &amp; PIN Creation Fault&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Mobile Verification Fault&quot;)
+                )
+            ),
+
+            AND(
+                ISPICKVAL(Sub_Type__c, &quot;Identification &amp; Verification&quot;),
+                OR(
+                    ISPICKVAL(cc_Request_Type__c, &quot;Scan ID Fault&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Selfie Fault&quot;)
+                )
+            )
+        )
+    ),
+
+    AND(
+        ISPICKVAL(Type, &quot;Transfer Issues&quot;),
+        OR(
+            AND(
+                ISPICKVAL(Sub_Type__c, &quot;EFTS&quot;),
+                OR(
+                    ISPICKVAL(cc_Request_Type__c, &quot;In&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Out&quot;)
+                )
+            ),
+
+            AND(
+                ISPICKVAL(Sub_Type__c, &quot;International&quot;),
+                OR(
+                    ISPICKVAL(cc_Request_Type__c, &quot;In&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Out&quot;)
+                )
+            ),
+
+            AND(
+                ISPICKVAL(Sub_Type__c, &quot;Within ila&quot;),
+                OR(
+                    ISPICKVAL(cc_Request_Type__c, &quot;In&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Out&quot;)
+                )
+            )
+        )
+    ),
+
+    AND(
+        ISPICKVAL(Type, &quot;Card Faults&quot;),
+        ISPICKVAL(Sub_Type__c, &quot;Card Control Faults&quot;),
+        OR(
+            ISPICKVAL(cc_Request_Type__c, &quot;Freeze/Unfreeze Issue&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Change PIN Issue&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Replace Card Issue&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Link Currencies Issue&quot;),
+            ISPICKVAL(cc_Request_Type__c, &quot;Show Details Issue&quot;)
+        )
+    )
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>ila_ServiceDesk</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(
+    ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+    OR(
+        AND(
+            ISPICKVAL(Type, &quot;Onboarding&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;Uploading Document&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Manual ID case&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Other&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Account&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;Adding Funds&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;IBAN Copy&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Currency account creation&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Incorrect Account Balance&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Unable to update Mobile&quot;),
+                AND(
+                    ISPICKVAL(Sub_Type__c, &quot;SMS Issue&quot;),
+                    OR(
+                        ISPICKVAL(cc_Request_Type__c, &quot;Transactinal&quot;),
+                        ISPICKVAL(cc_Request_Type__c, &quot;OTP&quot;)
+                    )
+                ),
+                AND(
+                    ISPICKVAL(Sub_Type__c, &quot;Outage&quot;),
+                    OR(
+                        ISPICKVAL(cc_Request_Type__c, &quot;Cards&quot;),
+                        ISPICKVAL(cc_Request_Type__c, &quot;Application access&quot;)
+                    )
+                ),
+                AND(
+                    ISPICKVAL(Sub_Type__c, &quot;Login Error&quot;),
+                    OR(
+                        ISPICKVAL(cc_Request_Type__c, &quot;Email Validation&quot;),
+                        ISPICKVAL(cc_Request_Type__c, &quot;Server Error&quot;),
+                        ISPICKVAL(cc_Request_Type__c, &quot;others&quot;)
+                    )
+                ),
+                AND(
+                    ISPICKVAL(Sub_Type__c, &quot;Profile Update&quot;),
+                    ISPICKVAL(cc_Request_Type__c, &quot;Unable to update email&quot;)
+                )
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Fixed Deposit&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;Failed Auto Renewal&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Adding Funds&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Withdraw to BHD&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Hassala&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;Adding Funds&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Withdraw to BHD&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Closing account&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Transfer between accounts&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Kanz&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;Adding Funds&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Withdraw to BHD&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Closing account&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Transfers/Payment&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;International&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Benefit&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;IBAN Error&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Charges Error&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Transfer between accounts&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Bill Payments&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;AlKanz Gift Card&quot;)
+            )
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Loans&quot;),
+            ISPICKVAL(Sub_Type__c, &quot;App issue&quot;)
+        ),
+        AND(
+            ISPICKVAL(Type, &quot;Sukuk/bonds/Government security&quot;),
+            ISPICKVAL(Sub_Type__c, &quot;App issue&quot;)
+        )
+    )
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Credit_Card_Operations</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(
+    ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+    ISPICKVAL(Type, &quot;Credit Card&quot;),
+    ISPICKVAL(Sub_Type__c, &quot;Failed Payment&quot;),
+    ISPICKVAL(cc_Request_Type__c, &quot;POS/ATM Transaction Failure&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Region_Flag__c</field>
+                <operation>equals</operation>
+                <value>Bahrain</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Region_Flag__c</field>
+                <operation>equals</operation>
+                <value>Jordan</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Loan Applications Assignment</fullName>
+        <active>false</active>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>RoadShow</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Roadshow_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Sales</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Type__c</field>
+                <operation>equals</operation>
+                <value>Roadshow</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

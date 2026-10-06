@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Jordan Makers Queue</name>
+    <queueMembers>
+        <users>
+            <user>anvesh.operations.jordan@bank-abc.com</user>
+            <user>omar.aito-gram@ilabank.com</user>
+            <user>praveenkumark.icu.jordan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Employer_Mandatory</fullName>
+    <active>true</active>
+    <description>If Employment Status = Employed then Length of Service, STL – S/O Condition, Whitelisted Employer, Employer Name, Employer Sector, Employer Grade, Employer Address are mandatory</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+ISPICKVAL(cc_Credit_Pre_Screening_Result__c, &quot;Accept&quot;),
+ISPICKVAL(cc_Employment_Status__c, &quot;Employed&quot;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+TEXT(Region_Flag__c) == &apos;Bahrain&apos;,
+OR(
+ISPICKVAL(cc_Length_Of_Service__c, &apos;&apos;),
+ISPICKVAL(STL_S_O_Condition__c, &apos;&apos;),
+ISBLANK(cc_Employer_Name__c),
+ISPICKVAL(cc_Employer_Sector__c, &apos;&apos;),
+ISPICKVAL(cc_Employer_Grade__c, &apos;&apos;),
+ISBLANK(cc_Credit_Bureau_Score__c),
+ISPICKVAL(cc_Credit_Bureau_Risk_Rating__c, &apos;&apos;),
+ISBLANK(cc_Occupation__c),
+ISBLANK(Listed_Employer_Name__c),
+ISBLANK(cc_House_Flat_Number__c),
+ISBLANK(cc_Building__c),
+ISBLANK(Street_Road_No__c),
+ISBLANK(cc_Block_No__c),
+ISBLANK(cc_City__c),
+ISPICKVAL(cc_Country__c, &apos;&apos;)
+),
+
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Convert Credit Card Nature Application&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Please fill the Length of Service, STL Condition, Employer Name,Sector, Grade,Credit Bureau Score, Risk Rating, Occupation, Listed Employer, Flat Number, Building, Street,Block,City and Country fields.</errorMessage>
+</ValidationRule>

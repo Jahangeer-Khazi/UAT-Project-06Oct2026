@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Passport_Expired__c</fullName>
+    <formula>IF(
+AND(Nationality__c != &apos;BH&apos;,
+OR(
+Passport_Expiry_Date__c &lt;= TODAY(),
+ISBLANK(Passport_Expiry_Date__c )
+),
+ISPICKVAL(Place_of_Birth__c, &quot;&quot;)
+),true,false)</formula>
+    <label>Passport Expired</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

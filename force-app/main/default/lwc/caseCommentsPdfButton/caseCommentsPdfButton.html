@@ -1,0 +1,67 @@
+<template>
+
+    <lightning-card>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Generate Comments Reports" variant="brand" onclick={handleOpenPdf}
+                id="generate-pdf-btn">
+            </lightning-button>
+            <div style="display:none;"><c-case-comments-pdf-preview record-id={recordId} onwordsuccess={handleWordSuccess} onworderror={handleWordError}></c-case-comments-pdf-preview></div>
+        </div>
+    </lightning-card>
+
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading"
+            class="slds-modal slds-fade-in-open slds-modal_large">
+
+            <div class="slds-modal__container">
+
+                <header class="slds-modal__header modal-header-custom">
+                    <h2 id="modal-heading" class="slds-modal__title slds-hyphenate">
+                        Case Comments &amp; Replies &mdash; PDF Preview
+                    </h2>
+                    <button class="slds-button slds-button_icon slds-button_icon-inverse slds-modal__close"
+                        title="Close" onclick={handleCloseModal} id="close-modal-btn">
+                        <lightning-icon icon-name="utility:close" size="small"
+                            alternative-text="Close"></lightning-icon>
+                    </button>
+                </header>
+
+                <div class="slds-modal__content modal-body-custom" id="modal-body">
+                    <template if:true={isLoading}>
+                        <div class="loading-overlay">
+                            <lightning-spinner alternative-text="Loading PDF..." variant="brand" size="large">
+                            </lightning-spinner>
+                            <p class="loading-text">Generating PDF report&hellip;</p>
+                        </div>
+                    </template>
+
+                    <iframe id="pdf-frame" src={pdfUrl} title="Case Comments PDF" class="pdf-iframe"
+                        onload={handleIframeLoad} frameborder="0">
+                    </iframe>
+                </div>
+
+                <footer class="slds-modal__footer modal-footer-custom">
+                    <!-- <span class="footer-info">
+                        <lightning-icon icon-name="utility:info" size="xx-small"
+                            class="slds-m-right_xx-small"></lightning-icon>
+                        PDF opens inline — use browser controls to download or print.
+                    </span> -->
+                    <div>
+
+                        <lightning-button label="Download as Word" icon-name="utility:download" icon-position="left"
+                            variant="success" onclick={handleWord} class="slds-m-right_small" id="word-btn">
+                        </lightning-button>
+                        <lightning-button label="Open in New Tab" icon-name="utility:new_window" icon-position="left"
+                            variant="neutral" onclick={handleOpenNewTab} class="slds-m-right_small" id="open-tab-btn">
+                        </lightning-button>
+                        <lightning-button label="Close" variant="brand" onclick={handleCloseModal}
+                            id="footer-close-btn">
+                        </lightning-button>
+                    </div>
+                </footer>
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

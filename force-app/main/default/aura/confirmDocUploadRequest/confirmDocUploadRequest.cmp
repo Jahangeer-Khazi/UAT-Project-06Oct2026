@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="TemporaryCreditHandler">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="documentTypeOptions" type="List" default="[]" />
+    <aura:attribute name="selectedValues" type="List" default="[]" />
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="caseStatus" type="String" />
+    <aura:attribute name="isButtonDisabled" type="Boolean" default="false" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Navigation Service -->
+    <lightning:navigation aura:id="navService"/>
+    
+    <!-- Lightning Card -->
+    <lightning:card >
+        <div class="slds-p-around_medium">
+            <!-- Checkbox Group -->
+            <lightning:checkboxGroup 
+                                     name="documentType" 
+                                     label="Document Type" 
+                                     options="{!v.documentTypeOptions}" 
+                                     value="{!v.selectedValues}" 
+                                     onchange="{!c.handleChange}" />
+        </div>
+        
+        <!-- Save Button -->
+        <div class="slds-p-around_medium">
+            <lightning:button 
+                              label="Save" 
+                              variant="brand" 
+                              onclick="{!c.handleSave}" 
+                              disabled="{!v.isButtonDisabled}"/>
+        </div>
+        
+        <c:apexService aura:id="apexService"/>
+        
+        <!-- Spinner for Loading -->
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner variant="brand" size="large" alternativeText="Please wait..."/>
+        </aura:if>
+        
+    </lightning:card>
+</aura:component>

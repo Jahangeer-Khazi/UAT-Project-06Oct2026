@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>ActionBasedonSupplimentaryServiceCenter_Result</name>
+        <label>ActionBasedonSupplimentaryServiceCenter Result</label>
+        <locationX>444</locationX>
+        <locationY>199</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Servicecenter_Return_to_Prescreener</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.cc_Service_Centre_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Pre-Screener</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>u_Servicecenter_Return_to_Prescreener</targetReference>
+            </connector>
+            <label>Servicecenter-Return to Prescreener</label>
+        </rules>
+        <rules>
+            <name>Servicecenter_Return_to_Maker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCaseRecord.cc_Service_Centre_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Maker</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>u_Servicecenter_Return_to_Maker</targetReference>
+            </connector>
+            <label>Servicecenter-Return to Maker</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>currentDateTime</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <name>SupplimentaryMakerQueue</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.Supplimentary_Maker_Queue}</expression>
+    </formulas>
+    <interviewLabel>CC_Supplimentary_Service_Center_Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CC_Supplimentary_Service_Center_Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>This will bring the current Case</description>
+        <name>GetCaseRecord</name>
+        <label>GetCaseRecord</label>
+        <locationX>448</locationX>
+        <locationY>55</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>ActionBasedonSupplimentaryServiceCenter_Result</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 3 AND(4 OR 5)</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Credit Card Supplementary Application</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New Supplementary Card</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Pre-Screener</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Maker</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>u_Servicecenter_Return_to_Maker</name>
+        <label>Servicecenter-Return to Maker</label>
+        <locationX>548</locationX>
+        <locationY>335</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Maker</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>SupplimentaryMakerQueue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>In-Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Maker</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>IN PROGRESS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Maker__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Service_Centre_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>u_Servicecenter_Return_to_Prescreener</name>
+        <label>Servicecenter-Return to Prescreener</label>
+        <locationX>292</locationX>
+        <locationY>332</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>caseRecordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Service_Centre_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Return to Pre-Screener</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Label.Credit_Card_Pre_Screener_Queue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>In-Progress</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Application_Stages__c</field>
+            <value>
+                <stringValue>Credit Pre-Screening</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_CRM_Stage__c</field>
+            <value>
+                <stringValue>IN PROGRESS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Credit_Pre_Screening_Result__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cc_Service_Centre_Date_Time__c</field>
+            <value>
+                <elementReference>currentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>GetCaseRecord</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This will fetch teh case record Id which will be passed from the process Buiolder</description>
+        <name>caseRecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

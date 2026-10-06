@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Selfie_Storage_Acceptance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Related to the consent for recording te Selfie</description>
+    <label>Selfie Storage Acceptance</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

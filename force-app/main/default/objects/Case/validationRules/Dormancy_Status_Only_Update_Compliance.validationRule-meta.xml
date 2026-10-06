@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dormancy_Status_Only_Update_Compliance</fullName>
+    <active>true</active>
+    <description>A member from the Compliance/Business queue can only update  Compliance/Business Section</description>
+    <errorConditionFormula>AND(Owner:Queue.DeveloperName = &quot;Compliance_Business_Queue&quot; ,
+     RecordType_DeveloperName__c =&apos;Dormancy_Status&apos;,
+     $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+      OR( ISCHANGED(Operation_Result__c),
+          ISCHANGED(ICU_Result__c ),
+          ISCHANGED(cc_Maker__c ),
+          ISCHANGED(cc_Checker_Result__c )
+         )
+    )</errorConditionFormula>
+    <errorMessage>A member from the Compliance/Business queue can only update  Compliance/Business Section</errorMessage>
+</ValidationRule>

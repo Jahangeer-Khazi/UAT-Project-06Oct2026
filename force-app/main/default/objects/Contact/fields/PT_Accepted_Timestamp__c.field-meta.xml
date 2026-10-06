@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PT_Accepted_Timestamp__c</fullName>
+    <description>Product Terms Accepted Timestamp</description>
+    <encryptionScheme>None</encryptionScheme>
+    <inlineHelpText>Product Terms Accepted Timestamp</inlineHelpText>
+    <label>ILA Product Terms Accepted Timestamp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

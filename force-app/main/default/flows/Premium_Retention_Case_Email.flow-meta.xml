@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Pending_Customer_Reminder</name>
+        <label>Pending Customer Reminder</label>
+        <locationX>430</locationX>
+        <locationY>843</locationY>
+        <actionName>Case.Premium_Retention_Pending_Customer_Reminder_EmailAlert</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Get_case_Details.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Premium_Retention_Pending_Customer_Reminder_EmailAlert</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Premium_Retention_Pending_Customer_Reminder_EmailAlert_Alburaq</name>
+        <label>Premium_Retention_Pending_Customer_Reminder_EmailAlert_Alburaq</label>
+        <locationX>170</locationX>
+        <locationY>843</locationY>
+        <actionName>Case.Premium_Retention_Pending_Customer_Reminder_EmailAlert_Alburaq</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Get_case_Details.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Premium_Retention_Pending_Customer_Reminder_EmailAlert_Alburaq</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Expired_Case</name>
+        <label>Expired Case</label>
+        <locationX>1167</locationX>
+        <locationY>616</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Close_Status</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_case_Details.Retention_Expiry_Days__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_status</targetReference>
+            </connector>
+            <label>Update Close Status</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Alburaq_Model_0</name>
+        <label>Is Alburaq Model</label>
+        <locationX>311</locationX>
+        <locationY>609</locationY>
+        <defaultConnector>
+            <targetReference>Pending_Customer_Reminder</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>is ila</defaultConnectorLabel>
+        <rules>
+            <name>Is_Alburaq_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_case_Details.Case_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>alburaq</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Premium_Retention_Pending_Customer_Reminder_EmailAlert_Alburaq</targetReference>
+            </connector>
+            <label>Is Alburaq</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Retention_Expiry_Date_check</name>
+        <label>Retention Expiry Date check</label>
+        <locationX>669</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Expired_Case</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Premium_Retention_Date_Check</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_case_Details.Retention_Expiry_Days__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>2.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_case_Details.RecordType_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Premium Retention</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Alburaq_Model_0</targetReference>
+            </connector>
+            <label>Premium Retention Date Check</label>
+        </rules>
+    </decisions>
+    <description>Clone From V4 for Islamic banking (Add)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>PremiumDate</name>
+        <dataType>Date</dataType>
+        <expression>({!$Flow.CurrentDate}-2)</expression>
+    </formulas>
+    <interviewLabel>Premium Retention Case Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Premium Retention Case Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_case_Details</name>
+        <label>Get case Details</label>
+        <locationX>669</locationX>
+        <locationY>383</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Retention_Expiry_Date_check</targetReference>
+        </connector>
+        <filterLogic>1 AND 2</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordType_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Premium Retention</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>update_status</name>
+        <label>update status</label>
+        <locationX>967</locationX>
+        <locationY>757</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>Expired</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>543</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Get_case_Details</targetReference>
+        </connector>
+        <filterLogic>1</filterLogic>
+        <filters>
+            <field>RecordType_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Premium Retention</stringValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Card_Acct_Closing_Restricted_JO</fullName>
+    <active>false</active>
+    <description>Credit Card Account Closing Applicable to BH Customers but not for Jordan</description>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) ==&apos;Jordan&apos;,
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Account Closing&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Credit Card Account Closing&quot;),
+ISNEW() 
+)</errorConditionFormula>
+    <errorMessage>Credit Card Account Closing is only applicable for Bahrain Customers.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Type__c</fullName>
+    <label>Document Type</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Region_Flag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bahraini ID</fullName>
+                <default>false</default>
+                <label>Bahraini ID</label>
+            </value>
+            <value>
+                <fullName>Jordanian ID</fullName>
+                <default>false</default>
+                <label>Jordanian ID</label>
+            </value>
+            <value>
+                <fullName>Military ID</fullName>
+                <default>false</default>
+                <label>Military ID</label>
+            </value>
+            <value>
+                <fullName>Gaza ID</fullName>
+                <default>false</default>
+                <label>Gaza ID</label>
+            </value>
+            <value>
+                <fullName>Sons of Jordanian Women&apos;s ID</fullName>
+                <default>false</default>
+                <label>Sons of Jordanian Women&apos;s ID</label>
+            </value>
+            <value>
+                <fullName>Civil Status Extract</fullName>
+                <default>false</default>
+                <label>Civil Status Extract</label>
+            </value>
+            <value>
+                <fullName>Passport</fullName>
+                <default>false</default>
+                <label>Passport</label>
+            </value>
+            <value>
+                <fullName>GCC ID</fullName>
+                <default>false</default>
+                <label>GCC ID</label>
+            </value>
+            <value>
+                <fullName>CPR Extract</fullName>
+                <default>false</default>
+                <label>CPR Extract</label>
+            </value>
+            <value>
+                <fullName>Bahraini Drivers Licence</fullName>
+                <default>false</default>
+                <label>Bahraini Drivers Licence</label>
+            </value>
+            <value>
+                <fullName>Utility Bill</fullName>
+                <default>false</default>
+                <label>Utility Bill</label>
+            </value>
+            <value>
+                <fullName>Bank Statement</fullName>
+                <default>false</default>
+                <label>Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Tenancy Agreement</fullName>
+                <default>false</default>
+                <label>Tenancy Agreement</label>
+            </value>
+            <value>
+                <fullName>Signature</fullName>
+                <default>false</default>
+                <label>Signature</label>
+            </value>
+            <value>
+                <fullName>Personal Photo</fullName>
+                <default>false</default>
+                <label>Personal Photo</label>
+            </value>
+            <value>
+                <fullName>Residency Permit</fullName>
+                <default>false</default>
+                <label>Residency Permit</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Salary Certificate</fullName>
+                <default>false</default>
+                <label>Salary Certificate</label>
+            </value>
+            <value>
+                <fullName>Commercial Registration</fullName>
+                <default>false</default>
+                <label>Commercial Registration</label>
+            </value>
+            <value>
+                <fullName>FATCA Form</fullName>
+                <default>false</default>
+                <label>FATCA Form</label>
+            </value>
+            <value>
+                <fullName>Electricity bill</fullName>
+                <default>false</default>
+                <label>Electricity bill</label>
+            </value>
+            <value>
+                <fullName>Telephone bill</fullName>
+                <default>false</default>
+                <label>Telephone bill</label>
+            </value>
+            <value>
+                <fullName>Employer&apos;s letters</fullName>
+                <default>false</default>
+                <label>Employer&apos;s letters</label>
+            </value>
+            <value>
+                <fullName>Record of any home visit by bank official</fullName>
+                <default>false</default>
+                <label>Record of any home visit by bank official</label>
+            </value>
+            <value>
+                <fullName>Wathiq Consent Form</fullName>
+                <default>false</default>
+                <label>Wathiq Consent Form</label>
+            </value>
+            <value>
+                <fullName>Benefit Report (CRB)</fullName>
+                <default>false</default>
+                <label>Benefit Report (CRB)</label>
+            </value>
+            <value>
+                <fullName>Credit Card Application</fullName>
+                <default>false</default>
+                <label>Credit Card Application</label>
+            </value>
+            <value>
+                <fullName>Promissory Note &amp; Authorization Letter</fullName>
+                <default>false</default>
+                <label>Promissory Note &amp; Authorization Letter</label>
+            </value>
+            <value>
+                <fullName>Credit Card Approval Sheet</fullName>
+                <default>false</default>
+                <label>Credit Card Approval Sheet</label>
+            </value>
+            <value>
+                <fullName>Salary Slip</fullName>
+                <default>false</default>
+                <label>Salary Slip</label>
+            </value>
+            <value>
+                <fullName>Underwriting Bundle</fullName>
+                <default>false</default>
+                <label>Underwriting Bundle</label>
+            </value>
+            <value>
+                <fullName>Professional Practice Certificate</fullName>
+                <default>false</default>
+                <label>Professional Practice Certificate</label>
+            </value>
+            <value>
+                <fullName>Business Bank Statement</fullName>
+                <default>false</default>
+                <label>Business Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Credit Card Statement</fullName>
+                <default>false</default>
+                <label>Credit Card Statement</label>
+            </value>
+            <value>
+                <fullName>SIO Certificate</fullName>
+                <default>false</default>
+                <label>SIO Certificate (GOSI / Pension)</label>
+            </value>
+            <value>
+                <fullName>Other Source of Income</fullName>
+                <default>false</default>
+                <label>Other Source of Income</label>
+            </value>
+            <value>
+                <fullName>CUSTOM</fullName>
+                <default>false</default>
+                <label>CUSTOM</label>
+            </value>
+            <value>
+                <fullName>WWCC</fullName>
+                <default>false</default>
+                <label>WWCC</label>
+            </value>
+            <value>
+                <fullName>CCS</fullName>
+                <default>false</default>
+                <label>CCS</label>
+            </value>
+            <value>
+                <fullName>Salary Transfer Letter (STL)</fullName>
+                <default>false</default>
+                <label>Salary Transfer Letter (STL)</label>
+            </value>
+            <value>
+                <fullName>Irrevocable Standing Order</fullName>
+                <default>false</default>
+                <label>Irrevocable Standing Order</label>
+            </value>
+            <value>
+                <fullName>Video Verification</fullName>
+                <default>false</default>
+                <label>Video Verification</label>
+            </value>
+            <value>
+                <fullName>Authorized Salary Letter</fullName>
+                <default>false</default>
+                <label>Authorized Salary Letter</label>
+            </value>
+            <value>
+                <fullName>DocuSign Document</fullName>
+                <default>false</default>
+                <label>DocuSign Document</label>
+            </value>
+            <value>
+                <fullName>Civil ID</fullName>
+                <default>false</default>
+                <label>Civil ID</label>
+            </value>
+            <value>
+                <fullName>Outstanding Letter</fullName>
+                <default>false</default>
+                <label>Outstanding Letter</label>
+            </value>
+            <value>
+                <fullName>Conditional Salary Certificate</fullName>
+                <default>false</default>
+                <label>Conditional Salary Certificate</label>
+            </value>
+            <value>
+                <fullName>Loan Approval Sheet</fullName>
+                <default>false</default>
+                <label>Loan Approval Sheet</label>
+            </value>
+            <value>
+                <fullName>Temporary Credit Approval</fullName>
+                <default>false</default>
+                <label>Temporary Credit Approval</label>
+            </value>
+            <value>
+                <fullName>Temporary Credit Declaration</fullName>
+                <default>false</default>
+                <label>Temporary Credit Declaration</label>
+            </value>
+            <value>
+                <fullName>Credit Card Disclosure Form</fullName>
+                <default>false</default>
+                <label>Credit Card Disclosure Form</label>
+            </value>
+            <value>
+                <fullName>CR</fullName>
+                <default>false</default>
+                <label>CR</label>
+            </value>
+            <value>
+                <fullName>Birth Certificate</fullName>
+                <default>false</default>
+                <label>Birth Certificate</label>
+            </value>
+            <value>
+                <fullName>Biometric Authentication</fullName>
+                <default>false</default>
+                <label>Biometric Authentication</label>
+            </value>
+            <value>
+                <fullName>No Liability Letter</fullName>
+                <default>false</default>
+                <label>No Liability Letter</label>
+            </value>
+            <value>
+                <fullName>DDCAP Document</fullName>
+                <default>false</default>
+                <label>DDCAP Document</label>
+            </value>
+            <value>
+                <fullName>Continues Salary Certificate</fullName>
+                <default>false</default>
+                <label>Continues Salary Certificate</label>
+            </value>
+            <value>
+                <fullName>Employment Contract</fullName>
+                <default>false</default>
+                <label>Employment Contract</label>
+            </value>
+            <value>
+                <fullName>Manual Service Request Document</fullName>
+                <default>false</default>
+                <label>Manual Service Request Document</label>
+            </value>
+            <value>
+                <fullName>Consent Form</fullName>
+                <default>false</default>
+                <label>Consent Form</label>
+            </value>
+            <value>
+                <fullName>CPR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CPR</label>
+            </value>
+            <value>
+                <fullName>Drivers License</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Drivers License</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Bahraini ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Passport</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>GCC ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>CPR Extract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Bahraini Drivers Licence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Utility Bill</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Bank Statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Tenancy Agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Signature</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Personal Photo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Residency Permit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Salary Certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Commercial Registration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>FATCA Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Electricity bill</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Telephone bill</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Employer&apos;s letters</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Record of any home visit by bank official</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Wathiq Consent Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Benefit Report (CRB)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Credit Card Application</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Promissory Note &amp; Authorization Letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Credit Card Approval Sheet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Salary Slip</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Underwriting Bundle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Professional Practice Certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Business Bank Statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Credit Card Statement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>SIO Certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Other Source of Income</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Salary Transfer Letter (STL)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Irrevocable Standing Order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Video Verification</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>DocuSign Document</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Outstanding Letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Conditional Salary Certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Temporary Credit Approval</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Temporary Credit Declaration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Biometric Authentication</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>No Liability Letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>DDCAP Document</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Continues Salary Certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Employment Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Manual Service Request Document</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Consent Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Jordanian ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Military ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Gaza ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Sons of Jordanian Women&apos;s ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Civil Status Extract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>CUSTOM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>WWCC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>CCS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Authorized Salary Letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Civil ID</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Credit Card Disclosure Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>CR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Birth Certificate</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

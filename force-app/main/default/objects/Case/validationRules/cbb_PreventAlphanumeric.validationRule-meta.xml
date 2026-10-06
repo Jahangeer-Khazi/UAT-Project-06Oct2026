@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cbb_PreventAlphanumeric</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+!ISNUMBER(CaseExecutionNumberB__c),
+LEN(CaseExecutionNumberB__c)&gt;18
+) &amp;&amp;
+TEXT(Sub_Type__c) = &apos;CBB Amount block&apos; &amp;&amp; NOT(ISBLANK(CaseExecutionNumberB__c ))</errorConditionFormula>
+    <errorMessage>&quot;Case / Execution Number&quot; should be a Number with maximum of 18 digits.</errorMessage>
+</ValidationRule>

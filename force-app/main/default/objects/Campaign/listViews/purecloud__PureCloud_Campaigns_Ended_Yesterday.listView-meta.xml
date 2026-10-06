@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>purecloud__PureCloud_Campaigns_Ended_Yesterday</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.BUDGETED_COST</columns>
+    <columns>CAMPAIGN.ACTUAL_COST</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>purecloud__PureCloud_Campaign_Status__c</columns>
+    <columns>purecloud__PureCloud_Campaign_Setting__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>purecloud__Adjusted_End_Date_Time__c</field>
+        <operation>equals</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>purecloud__PureCloud_Campaign_Setting__c</field>
+        <operation>notEqual</operation>
+        <value>null</value>
+    </filters>
+    <label>Genesys Cloud Campaigns Ended Yesterday</label>
+</ListView>

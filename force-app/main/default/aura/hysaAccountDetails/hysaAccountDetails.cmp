@@ -1,0 +1,297 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Maksud Ali 
+ *		Created Date: 08-12-2025 - Below code is cloned from bank account Details cmp
+ * 		Change History:
+ *	    	   
+-->
+
+<aura:component controller="BankAccountController">
+	<aura:attribute name="customerId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="caseId" type="String" />
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    
+    <!-- CH06: Start -->
+    <aura:attribute name="curency" type="String"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    <!-- CH06: END -->
+    
+    <aura:attribute name="data" type="Object" access="private" default="{}"/>
+    
+    <!-- CH06: Start -->
+    <aura:attribute name="data2" type="Object" access="private" default="{}"/>
+    <!-- CH06: END -->
+    
+    <aura:attribute name="debitInterestHY" type="string"/>
+    <aura:attribute name="hysaRate" type="string"/>
+    <aura:attribute name="debitInterestRate" type="String"/>
+    
+    <!-- CH01 : Added by Hamza Chaoui *** to handle alburaq Product  --> 	
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    
+    <!-- CH05: Start -->
+    <aura:attribute name="regionName" type="String" />
+    <!-- CH05: END -->
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.accountId}" action="{!c.load}"/>
+    
+    <lightning:card title="{!'Details of account: ' + v.data.accountNumber}">
+        
+        <aura:if isTrue="{!v.enableActions}">
+            <aura:if isTrue="{! 'FCR' == v.caseRecordType}">
+                <!--<div  style="margin-top: -38px;margin-right: 10px;">-->
+                <div class="slds-float--right" style="margin-top: -28px;margin-right: 10px;font-size:11px">
+                    <!-- CH09 -->
+                    <lightning:button label="{!v.regionName=='Bahrain'?'Send IBAN Letter By Email':'Generate IBAN Letter'}" variant="brand" onclick="{!c.GenerateIBAN}"/>
+                </div>
+                <!-- CH07: Start -->
+                <!-- <aura:if isTrue="{!v.regionName=='Bahrain'}"> -->
+                <div class="slds-float--right" style="margin-top: -28px;margin-right: 20px;font-size:11px">
+                    <!--<div style="margin-top: -38px;margin-right: 210px;">-->
+                    <lightning:button label="Download IBAN Letter " variant="brand" onclick="{!c.downloadClick}"/>
+                </div>
+                <!-- </aura:if> -->
+                <!-- CH07: ENDs -->
+            </aura:if>
+        </aura:if>
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">IBAN</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.iban}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CH05: Start -->
+                <aura:if isTrue="{!v.regionName == 'Bahrain'}">
+                    <aura:if isTrue = "{!v.data.accountCurrency != 'BHD'}"> 
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <span class="slds-form-element__label">Transfer by Mobile</span>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static">
+                                        <div class="slds-form-element">  
+                                            <div class="slds-form-element">
+                                                <label class="slds-checkbox_toggle slds-grid">
+                                                    <input type="checkbox" name="checkbox-toggle-20" value="checkbox-toggle-20" checked="{!v.data.transferByMobile}" aria-describedby="checkbox-toggle-20" disabled="true" />
+                                                    <span id="checkbox-toggle-20" class="slds-checkbox_faux_container" aria-live="assertive">
+                                                        <span class="slds-checkbox_faux"></span>
+                                                        <span class="slds-checkbox_on">Enabled</span>
+                                                        <span class="slds-checkbox_off">Disabled</span>
+                                                    </span>
+                                                </label>
+                                            </div>   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <aura:set attribute="else">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Transfer by Mobile</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            <i><b>Check Account CAS Status Below</b></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:set>  
+                    </aura:if> 
+                </aura:if>
+                
+                <aura:if isTrue="{!v.regionName == 'Jordan'}">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                            <span class="slds-form-element__label">Transfer by Mobile</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <div class="slds-form-element">  
+                                        <div class="slds-form-element">
+                                            <label class="slds-checkbox_toggle slds-grid">
+                                                <input type="checkbox" name="checkbox-toggle-20" value="checkbox-toggle-20" checked="{!v.data.transferByMobile}" aria-describedby="checkbox-toggle-20" disabled="true" />
+                                                <span id="checkbox-toggle-20" class="slds-checkbox_faux_container" aria-live="assertive">
+                                                    <span class="slds-checkbox_faux"></span>
+                                                    <span class="slds-checkbox_on">Enabled</span>
+                                                    <span class="slds-checkbox_off">Disabled</span>
+                                                </span>
+                                            </label>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+                <!-- CH05: END -->
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.accountCurrency}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Hold Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.holdAmount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Available Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.availableBalance}" minimumFractionDigits="{!v.data.accountCurrencyDecimalPlaces}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Ledger Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.ledgerBalance}" minimumFractionDigits="{!v.data.accountCurrencyDecimalPlaces}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Opening Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.startDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Closing Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.endDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <!-- CH08 Start -->
+                        <aura:if isTrue="{!v.isAlburaqProduct == true}">
+                            <span class="slds-form-element__label">Credit Profit Rate</span>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!v.isAlburaqProduct == false}">
+                            <span class="slds-form-element__label">Credit Interest Rate</span>
+                        </aura:if>
+                        <!-- CH08 END -->
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.hysaRate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Account Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--<div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <aura:if isTrue="{!v.isAlburaqProduct == true}">
+                            <span class="slds-form-element__label">Debit Profit Rate</span>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isAlburaqProduct == false}">
+                            <span class="slds-form-element__label">Debit Interest Rate</span>
+                        </aura:if>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.debitInterestRate}
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div> <!-- end row -->
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <aura:if isTrue="{!v.isAlburaqProduct == true}">
+                            <span class="slds-form-element__label">This Month's Profit</span>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isAlburaqProduct == false}">
+                            <span class="slds-form-element__label">This Month's Interest</span>
+                        </aura:if>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.debitInterestHY}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <aura:if isTrue="{!v.isAlburaqProduct == true}">
+                            <span class="slds-form-element__label">Annual Profit Rate</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.data.annualProfitRate}
+                                </div>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isAlburaqProduct == false}">
+                            <span class="slds-form-element__label">Annual Interest Rate</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    {!v.data.annualInterestRate}
+                                </div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+            
+        </div>   
+    </lightning:card>
+    
+    <aura:if isTrue="{!true == v.enableActions}">
+        <c:bankAccountActions customerId="{!v.customerId}" accountDetails="{!v.data}" 
+                              caseId="{!v.caseId}" account="{!v.account}" caseRecordType="{!v.caseRecordType}" isAlburaqProduct = "{!v.isAlburaqProduct}"/>
+    </aura:if>
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

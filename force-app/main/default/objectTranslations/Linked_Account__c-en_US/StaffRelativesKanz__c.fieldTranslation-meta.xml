@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Staff and Relatives Kanz --></label>
+    <name>StaffRelativesKanz__c</name>
+    <picklistValues>
+        <masterLabel>Exclude from the Raffles</masterLabel>
+        <translation><!-- Exclude from the Raffles --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Include in the Raffles</masterLabel>
+        <translation><!-- Include in the Raffles --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

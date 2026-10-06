@@ -1,0 +1,90 @@
+<aura:component implements="lightning:actionOverride,flexipage:availableForRecordHome" access="global" controller="LTNG10_GetDrawListController">
+    
+    <aura:html tag="style">
+        .slds-modal__container {
+        width : 60% !important;
+        max-width : 80% !important;
+        }
+    </aura:html>
+
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="drawType" type="String" />
+    <aura:attribute name="regionFlag" type="String"/>
+    <aura:attribute name="currentDraw" type="Object" default="{}" />
+    <aura:attribute name="prizeType" type="String" />
+    <aura:attribute name="recordTypeId" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.regionFlag}" action="{!c.regionFlagChange}"/>
+    <aura:handler name="change" value="{!v.drawType}" action="{!c.drawTypeChange}"/>
+
+    <div aura:id="editDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 class="slds-text-heading--medium">New Draw</h2>
+            </div>
+            <!-- overflow-y:hidden; -->
+            <div class="slds-modal__content slds-p-around--x-large slds-grid slds-wrap " style="padding-bottom:0px">
+                <lightning:recordEditForm aura:id="myRecordForm" objectApiName="Draw__c" recordTypeId="{!v.recordTypeId}"
+                        onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}" onsubmit="{!c.handleOnSubmit}">
+                    <lightning:messages aura:id="errorMsg" />
+
+                    <!--Information -->
+                    <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                        <h3 class="slds-section-title--divider" style="width:100%;text-align: left;"> Raffle Draw Maker </h3>
+                        
+                        <lightning:inputField aura:id="RegionFlag" fieldName="RegionFlag__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true" value="{!v.regionFlag}"/>
+                        <lightning:inputField aura:id="Name" fieldName="Draw_Name__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        <lightning:inputField aura:id="Prize_Type" fieldName="Prize_Type__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true" value="{!v.prizeType}" />
+                        
+                        <lightning:inputField aura:id="Draw_Type" fieldName="Draw_Type__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true" value="{!v.drawType}"/>
+                        <div class="slds-size--1-of-2 slds-p-horizontal_x-small">
+                            <c:LTNG10_GetDrawList drawType = "{!v.drawType}" regionFlag = "{!v.regionFlag}" currentDraw = "{!v.currentDraw}" />
+                        </div>
+
+                        <aura:if isTrue="{!OR (v.prizeType == 'CASH' , v.prizeType == 'CASHBACK' ) }">
+                            <lightning:inputField aura:id="Currency" fieldName="Currency__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        </aura:if>
+                        <aura:if isTrue="{! v.prizeType == 'CASH' }">
+                            <lightning:inputField aura:id="Grand_Prize" fieldName="Grand_Prize__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                            <lightning:inputField aura:id="Draw_Denomination" fieldName="Draw_Denomination__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                            <lightning:inputField aura:id="Total_Prize_Fund" fieldName="Total_Prize_Fund__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{! v.regionFlag == 'Jordan' }">
+                            <lightning:inputField aura:id="Minimum_Draw_Amount" fieldName="Minimum_Draw_Amount__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        </aura:if>
+
+                        <lightning:inputField aura:id="Campaign_From_Date" fieldName="Campaign_From_Date__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        <lightning:inputField aura:id="Campaign_To_Date" fieldName="Campaign_To_Date__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        
+                        <lightning:inputField aura:id="Draw_Date" fieldName="Draw_Date__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+                        <lightning:inputField aura:id="Draw_Terms_Conditions" fieldName="Draw_Terms_Conditions__c" class="slds-size--1-of-2 slds-p-horizontal_x-small" required="true"/>
+
+                        <br />
+                        <div class="slds-hidden" style="height: 5px;" >
+                            <lightning:inputField aura:id="Template_ID" fieldName="Template_ID__c" value="RaffleComponent" />
+                            <lightning:inputField aura:id="Status" fieldName="Status__c" value="New" disabled="true"/>
+                            <lightning:inputField aura:id="selectedDraw" fieldName="Selected_Draw__c" value="{!v.currentDraw.name}"/>
+                            <lightning:inputField aura:id="drawIdFromRedShift" fieldName="Draw_IdFromRedShift__c" value="{!v.currentDraw.id}"/>
+                        </div>
+                        
+                            
+                        <aura:if isTrue="{!v.showSpinner}">
+                            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" />
+                        </aura:if>
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div class="slds-modal__footer" style="text-align: center;">
+                        <lightning:button variant="neutral" label="Cancel" onclick="{!c.cancelDialog}" />
+                        <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                    </div>
+                </lightning:recordEditForm>
+            </div>
+        </div>
+    </div>
+    <div aura:id="overlay" class="slds-backdrop slds-backdrop--open"></div>
+</aura:component>

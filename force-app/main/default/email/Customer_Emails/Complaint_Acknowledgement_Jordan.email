@@ -1,0 +1,23 @@
+We heard you, our team are working on solving your case!
+
+Hi {!Case.Contact_First_Name__c}, we really appreciate your feedback. Our ila team is working hard to resolve your case, you will be hearing from us shortly.
+
+Your case id is {!Case.CaseNumber}
+
+If you are not satisfied with the outcome or did not hear back from us within 30 working days, you can submit your complaint to the Central Bank of Jordan (CBJ) within 30 calendar days from the date of receiving our final response. You can raise your complaint on www.cbj.gov.jo
+
+Customers are at the heart of everything that we do at ila. We are constantly striving to enhance your banking experience. Thank you for being part of the ila family
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+{!Case.Thread_Id}
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Numeric country code --></help>
+    <label><!-- Numeric Country Code --></label>
+    <name>Numeric_Country_Code__c</name>
+</CustomFieldTranslation>

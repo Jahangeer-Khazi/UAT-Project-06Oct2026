@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- To identify whether the customer will go to T24 or URBIS core banking --></help>
+    <label><!-- Core Banking Target --></label>
+    <name>Core_Banking_Target__c</name>
+    <picklistValues>
+        <masterLabel>T24</masterLabel>
+        <translation><!-- T24 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>URBIS</masterLabel>
+        <translation><!-- URBIS --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

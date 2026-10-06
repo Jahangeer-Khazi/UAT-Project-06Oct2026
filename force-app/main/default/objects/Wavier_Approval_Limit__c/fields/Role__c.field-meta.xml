@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <label>Role</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Team Leaders</fullName>
+                <default>true</default>
+                <label>Customer Service Team Leaders</label>
+            </value>
+            <value>
+                <fullName>Head of Contact Center</fullName>
+                <default>false</default>
+                <label>Head of Contact Center</label>
+            </value>
+            <value>
+                <fullName>Head of Customer Service</fullName>
+                <default>false</default>
+                <label>Head of Customer Service</label>
+            </value>
+            <value>
+                <fullName>Product Manager</fullName>
+                <default>false</default>
+                <label>Product Manager</label>
+            </value>
+            <value>
+                <fullName>Head of Proposition</fullName>
+                <default>false</default>
+                <label>Head of Proposition</label>
+            </value>
+            <value>
+                <fullName>HoB</fullName>
+                <default>false</default>
+                <label>Head of Business</label>
+            </value>
+            <value>
+                <fullName>CEO</fullName>
+                <default>false</default>
+                <label>CEO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Customer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Customers</value>
+    </caseValues>
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Account Summary --></label>
+            <section>Account Summary</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Compliance new</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Acceptance To Alburaq Terms and Conditions --></label>
+            <section>Acceptance To Alburaq Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Acceptance To Ila Terms and Conditions --></label>
+            <section>Acceptance To Ila Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance Details --></label>
+            <section>Compliance Details</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Questionnaire --></label>
+            <section>Financial Questionnaire</section>
+        </sections>
+        <sections>
+            <label><!-- Identification --></label>
+            <section>Identification</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Preferences --></label>
+            <section>Marketing Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Name and Risk Screening --></label>
+            <section>Name and Risk Screening</section>
+        </sections>
+        <sections>
+            <label><!-- Swift Details --></label>
+            <section>Swift Details</section>
+        </sections>
+        <sections>
+            <label><!-- Tax Status --></label>
+            <section>Tax Status</section>
+        </sections>
+        <sections>
+            <label><!-- eKYC iGA Data --></label>
+            <section>eKYC iGA Data</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Copy of Person Account Layout - temp</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Acceptance To Alburaq Terms and Conditions --></label>
+            <section>Acceptance To Alburaq Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Acceptance To Ila Terms and Conditions --></label>
+            <section>Acceptance To Ila Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Dormancy Details --></label>
+            <section>Dormancy Details</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Questionnaire --></label>
+            <section>Financial Questionnaire</section>
+        </sections>
+        <sections>
+            <label><!-- Identification --></label>
+            <section>Identification</section>
+        </sections>
+        <sections>
+            <label><!-- Investments - Gold &amp; Silver Accounts --></label>
+            <section>Investments - Gold &amp; Silver Accounts</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Preferences --></label>
+            <section>Marketing Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Name and Risk Screening --></label>
+            <section>Name and Risk Screening</section>
+        </sections>
+        <sections>
+            <label><!-- PLA &amp; Raffle --></label>
+            <section>PLA &amp; Raffle</section>
+        </sections>
+        <sections>
+            <label><!-- Personalization --></label>
+            <section>Personalization</section>
+        </sections>
+        <sections>
+            <label><!-- Swift Details --></label>
+            <section>Swift Details</section>
+        </sections>
+        <sections>
+            <label><!-- Tax Status --></label>
+            <section>Tax Status</section>
+        </sections>
+        <sections>
+            <label><!-- eKYC iGA Data --></label>
+            <section>eKYC iGA Data</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>GPH_Account layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Acceptance To Alburaq Terms and Conditions --></label>
+            <section>Acceptance To Alburaq Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Acceptance To Ila Terms and Conditions --></label>
+            <section>Acceptance To Ila Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Questionnaire --></label>
+            <section>Financial Questionnaire</section>
+        </sections>
+        <sections>
+            <label><!-- Identification --></label>
+            <section>Identification</section>
+        </sections>
+        <sections>
+            <label><!-- Name and Risk Screening --></label>
+            <section>Name and Risk Screening</section>
+        </sections>
+        <sections>
+            <label><!-- Tax Status --></label>
+            <section>Tax Status</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Acceptance To Alburaq Terms and Conditions --></label>
+            <section>Acceptance To Alburaq Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Acceptance To Ila Terms and Conditions --></label>
+            <section>Acceptance To Ila Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Canceled Work Permit --></label>
+            <section>Canceled Work Permit</section>
+        </sections>
+        <sections>
+            <label><!-- Collection &amp; Legal Action --></label>
+            <section>Collection &amp; Legal Action</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance Details --></label>
+            <section>Compliance Details</section>
+        </sections>
+        <sections>
+            <label><!-- Dormancy Details --></label>
+            <section>Dormancy Details</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Questionnaire --></label>
+            <section>Financial Questionnaire</section>
+        </sections>
+        <sections>
+            <label><!-- Identification --></label>
+            <section>Identification</section>
+        </sections>
+        <sections>
+            <label><!-- Investments - Bonds/Sukuk --></label>
+            <section>Investments - Bonds/Sukuk</section>
+        </sections>
+        <sections>
+            <label><!-- Investments - Gold &amp; Silver Accounts --></label>
+            <section>Investments - Gold &amp; Silver Accounts</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Preferences --></label>
+            <section>Marketing Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Name and Risk Screening --></label>
+            <section>Name and Risk Screening</section>
+        </sections>
+        <sections>
+            <label><!-- PLA &amp; Raffle --></label>
+            <section>PLA &amp; Raffle</section>
+        </sections>
+        <sections>
+            <label><!-- Periodic Review --></label>
+            <section>Periodic Review</section>
+        </sections>
+        <sections>
+            <label><!-- Personalization --></label>
+            <section>Personalization</section>
+        </sections>
+        <sections>
+            <label><!-- Swift Details --></label>
+            <section>Swift Details</section>
+        </sections>
+        <sections>
+            <label><!-- Tax Status --></label>
+            <section>Tax Status</section>
+        </sections>
+        <sections>
+            <label><!-- eKYC iGA Data --></label>
+            <section>eKYC iGA Data</section>
+        </sections>
+        <sections>
+            <label><!-- eKey Data --></label>
+            <section>eKey Data</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Case Disputes/Frauds --></label>
+        <name>Case_Disputes_Frauds</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Convert Credit Card Application --></label>
+        <name>Convert_Credit_Card_Application</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New FCR --></label>
+        <name>Create_New_FCR</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Service Request --></label>
+        <name>Create_New_Service_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create UAR --></label>
+        <name>Create_UAR</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Credit Card Application Test --></label>
+        <name>Credit_Card_Application_Test</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Credit Card Upgrade/ Split Request --></label>
+        <name>Credit_Card_Upgrade_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Customer Periodic Review --></label>
+        <name>Customer_Periodic_Review</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Customer Status Update Request --></label>
+        <name>Customer_Status_Update_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Customer Status Update Requests --></label>
+        <name>Customer_Status_Update_Requests</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Dispute/Fraud --></label>
+        <name>Dispute_Fraud</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Enquiries --></label>
+        <name>Enquiries</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Enquiries --></label>
+        <name>Enquiries_lwc</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Faults/Incident 3 --></label>
+        <name>Faults_Incident</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Faults/Incident --></label>
+        <name>Faults_Incident_2</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- JO Customer Periodic Review --></label>
+        <name>JO_Customer_Periodic_Review</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Jordan Update Customer Profile --></label>
+        <name>Jordan_Update_Customer_Profile</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Account Closure Request --></label>
+        <name>NewAccountClosureRequest</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Loan / Finance Service Request --></label>
+        <name>NewLoanFinanceServiceRequest</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Prepaid Credit Card Request --></label>
+        <name>NewPrepaidCreditCardRequest</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Supplementary Card Request --></label>
+        <name>NewSupplementaryCardRequest</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Account Hold Request --></label>
+        <name>New_Account_Hold_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Account Interest Rate Update/ Re-instate Request --></label>
+        <name>New_Account_Interest_Rate_Update_Re_instate_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Wallet Case --></label>
+        <name>New_Apple_Pay_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Apple Pay Case --></label>
+        <name>New_Apple_Pay_Case_JO</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Bank Statement Request --></label>
+        <name>New_Bank_Statement_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Block/Unblock Account Request --></label>
+        <name>New_Block_Unblock_Account_request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Block/Unblock Amount Case Request --></label>
+        <name>New_Block_Unblock_Amount_Case_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Bond/Sukuk Buy Request --></label>
+        <name>New_Bond_Sukuk_Buy_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Bond/Sukuk Sell Request --></label>
+        <name>New_Bond_Sukuk_Sell_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Cash Collateral Limit Increase Application --></label>
+        <name>New_Cash_Collateral_Limit_Increase_Application</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Collection &amp; Legal Action FCR --></label>
+        <name>New_Collection_Legal_Action_FCR</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Complaint --></label>
+        <name>New_Complaint</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Complaint --></label>
+        <name>New_Complaint_LWC</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Compliance Recommendation --></label>
+        <name>New_Compliance_Recommendation</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Test Compliance Recommendation --></label>
+        <name>New_Compliance_Recommendation_Aura</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Credit Card Application --></label>
+        <name>New_Credit_Card_Application</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Credit Card FCR --></label>
+        <name>New_Credit_Card_FCR</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Credit Card Service Request --></label>
+        <name>New_Credit_Card_Service_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Credit Cash Collateral  Application --></label>
+        <name>New_Credit_Cash_Collateral_Application</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Letter Generation Request --></label>
+        <name>New_Credit_Collection_Letter</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Credit Limit Increase Application --></label>
+        <name>New_Credit_Limit_Increase_Application</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Deceased Customer --></label>
+        <name>New_Deceased_Customer</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Enquiry --></label>
+        <name>New_Enquiry</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New FCR --></label>
+        <name>New_FCR_Aura</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Feedback --></label>
+        <name>New_Feedback</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Internal Case --></label>
+        <name>New_Internal_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Internal Case --></label>
+        <name>New_Internal_Case_2</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Internal Query --></label>
+        <name>New_Internal_Query</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Investment Questionnaire --></label>
+        <name>New_Investment_Questionnaire</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Issue --></label>
+        <name>New_Issue</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Jordan Loan --></label>
+        <name>New_Jordan_Loan</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New KYC Verification --></label>
+        <name>New_KYC_Verification</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Loan/Finance Application --></label>
+        <name>New_Loan_Finance_Application</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Manual Archival Case --></label>
+        <name>New_Manual_Archival_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Credit Limit Decrease Application --></label>
+        <name>New_Manual_Credit_Limit_Update</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Manual Onboarding FCR --></label>
+        <name>New_Manual_Onboarding_FCR</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Minimum Balance Fee Reversal Request --></label>
+        <name>New_Minimum_Balance_Fee_Reversal_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Minimum Balance Fee Waiver Update Request --></label>
+        <name>New_Minimum_Balance_Fee_Waiver_Update_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Name and Risk Screening Update --></label>
+        <name>New_Name_and_Risk_Screening_Update</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New PLA Staff Relative --></label>
+        <name>New_PLA_Staff_Relative</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Premium Invitation --></label>
+        <name>New_Premium_Invitation</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Premium Retention Case --></label>
+        <name>New_Premium_Retention_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Prizeout Case --></label>
+        <name>New_Prizeout_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New RFI --></label>
+        <name>New_RFI</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Relationship Termination --></label>
+        <name>New_Relationship_Termination</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Temporary Request --></label>
+        <name>New_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Request --></label>
+        <name>New_Request_FDS</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Roadshow Form --></label>
+        <name>New_Roadshow_Form</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Case --></label>
+        <name>New_Subscription_Model_Termination</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Update Customer Profile --></label>
+        <name>New_Update_Customer_Profile</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Update Customer Profile --></label>
+        <name>New_Update_Customer_Profile2</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Update WPS Payroll --></label>
+        <name>New_Update_WPS_Payroll</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Waiver --></label>
+        <name>New_Waiver</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Post Transaction on Dormant Account --></label>
+        <name>Post_Transaction_on_Dormant_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Reactivating Dormant Relationship Request --></label>
+        <name>Reactivating_Dormant_Relationship_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New RM Segment Request --></label>
+        <name>Segment_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Test Cobrand Card --></label>
+        <name>Test_Cobrand_Card</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Core Client Status --></label>
+        <name>Update_Core_Client_Status</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update PLA Eligibility Status --></label>
+        <name>Update_PLA_Eligibility_Status</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- World Elite Entitlements --></label>
+        <name>World_Elite_Entitlement</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Business Account --></label>
+        <name>Business_Account</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Account Information cannot be changed from this page! --></errorMessage>
+        <name>Account_Info_cannot_be_edited_directly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Guardian CIF should be Numeric --></errorMessage>
+        <name>BenefitPay_GuardingCIFMustBeNumeric</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot archive the record of a customer/prospect flagged as blacklisted --></errorMessage>
+        <name>DisallowArchivingIfCustomerIsBlackListed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Region Flag on the Account record cannot be changed. Please contact your administrator. --></errorMessage>
+        <name>Region_Flag_Change_Prevention</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Region Flag on the Account record is empty. Please contact your administrator. --></errorMessage>
+        <name>Region_Flag_not_Empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the Passport Number When ID Type is Passport --></errorMessage>
+        <name>Require_Passport_No_When_IDType_Passport</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Residency Permit should be valid for at least 10 days. --></errorMessage>
+        <name>Residency_Permit_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Customer record already archived. --></errorMessage>
+        <name>Stop_changes_to_archived_records</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Passport Expiry Date cannot be earlier than today, --></errorMessage>
+        <name>Validate_Passport_Expiry_Date</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Resubscribe --></label>
+        <name>et4ae5__ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Unsubscribe --></label>
+        <name>et4ae5__ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ExactTarget_Analytics --></label>
+        <name>et4ae5__View_ExactTarget_Analytics</name>
+    </webLinks>
+</CustomObjectTranslation>

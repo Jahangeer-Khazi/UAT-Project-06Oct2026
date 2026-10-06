@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_SignAppro_Operation</fullName>
+    <active>true</active>
+    <description>Buyout Operations Team Cannot Change the result until Signature Verifier Result Accepts.</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &quot;Credit_Card&quot;,
+ISCHANGED(cc_Operations_Result__c),
+NOT(ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;Accept&apos;)),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Operations_Result__c</errorDisplayField>
+    <errorMessage>Buyout Operations Team Cannot Change the result until Signature Verifier Result Accepts.</errorMessage>
+</ValidationRule>

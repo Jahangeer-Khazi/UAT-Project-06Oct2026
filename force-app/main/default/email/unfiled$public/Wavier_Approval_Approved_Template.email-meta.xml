@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be used for Wavier Approval request approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Wavier Approval Approved Template</name>
+    <style>none</style>
+    <subject>Your Request Has Been Completed By ila</subject>
+    <textOnly>Dear Valued Customer,
+
+We are writing to inform you that a reversal has been applied to your account for the following:
+
+Type of Fee/Charge: {!New_Wavier_Approval__c.Type__c}
+Amount Reversed: {!New_Wavier_Approval__c.Claim_Amount__c} BHD
+
+
+Should you need any assistance, please feel free to call us on  +973 17123456 or email us on support@ilabank.com
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

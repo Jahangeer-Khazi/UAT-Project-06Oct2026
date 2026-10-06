@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Sources_of_Fund__c</fullName>
+    <description>NBA-12843</description>
+    <label>Other Sources of Fund</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Civil Engineer</fullName>
+                <default>false</default>
+                <label>Civil Engineer</label>
+            </value>
+            <value>
+                <fullName>Architecture Engineer</fullName>
+                <default>false</default>
+                <label>Architecture Engineer</label>
+            </value>
+            <value>
+                <fullName>Electrician</fullName>
+                <default>false</default>
+                <label>Electrician</label>
+            </value>
+            <value>
+                <fullName>Car trader</fullName>
+                <default>false</default>
+                <label>Car trader</label>
+            </value>
+            <value>
+                <fullName>Plumber</fullName>
+                <default>false</default>
+                <label>Plumber</label>
+            </value>
+            <value>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+                <label>Lawyer</label>
+            </value>
+            <value>
+                <fullName>Private teacher/ tutor</fullName>
+                <default>false</default>
+                <label>Private teacher/ tutor</label>
+            </value>
+            <value>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+                <label>Photographer</label>
+            </value>
+            <value>
+                <fullName>Insurance intermediary</fullName>
+                <default>false</default>
+                <label>Insurance intermediary</label>
+            </value>
+            <value>
+                <fullName>Tailor</fullName>
+                <default>false</default>
+                <label>Tailor</label>
+            </value>
+            <value>
+                <fullName>Barber/ hairdresser</fullName>
+                <default>false</default>
+                <label>Barber/ hairdresser</label>
+            </value>
+            <value>
+                <fullName>Wedding planner</fullName>
+                <default>false</default>
+                <label>Wedding planner</label>
+            </value>
+            <value>
+                <fullName>Musician</fullName>
+                <default>false</default>
+                <label>Musician</label>
+            </value>
+            <value>
+                <fullName>Chef</fullName>
+                <default>false</default>
+                <label>Chef</label>
+            </value>
+            <value>
+                <fullName>Personal trainer</fullName>
+                <default>false</default>
+                <label>Personal trainer</label>
+            </value>
+            <value>
+                <fullName>Sales representative</fullName>
+                <default>false</default>
+                <label>Sales representative</label>
+            </value>
+            <value>
+                <fullName>Tour guide</fullName>
+                <default>false</default>
+                <label>Tour guide</label>
+            </value>
+            <value>
+                <fullName>Application Driver</fullName>
+                <default>false</default>
+                <label>Application Driver</label>
+            </value>
+            <value>
+                <fullName>Land broker</fullName>
+                <default>false</default>
+                <label>Land broker</label>
+            </value>
+            <value>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+                <label>Consulting</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Online trading</fullName>
+                <default>false</default>
+                <label>Online trading</label>
+            </value>
+            <value>
+                <fullName>IT Technician</fullName>
+                <default>false</default>
+                <label>IT Technician</label>
+            </value>
+            <value>
+                <fullName>Web developer</fullName>
+                <default>false</default>
+                <label>Web developer</label>
+            </value>
+            <value>
+                <fullName>Graphic design</fullName>
+                <default>false</default>
+                <label>Graphic design</label>
+            </value>
+            <value>
+                <fullName>Programming- coding</fullName>
+                <default>false</default>
+                <label>Programming- coding</label>
+            </value>
+            <value>
+                <fullName>Data analyst</fullName>
+                <default>false</default>
+                <label>Data analyst</label>
+            </value>
+            <value>
+                <fullName>Internal designer</fullName>
+                <default>false</default>
+                <label>Internal designer</label>
+            </value>
+            <value>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+                <label>Accountant</label>
+            </value>
+            <value>
+                <fullName>Translator</fullName>
+                <default>false</default>
+                <label>Translator</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

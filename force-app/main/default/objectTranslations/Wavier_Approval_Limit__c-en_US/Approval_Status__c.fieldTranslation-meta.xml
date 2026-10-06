@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Approval Status --></label>
+    <name>Approval_Status__c</name>
+    <picklistValues>
+        <masterLabel>Approved by Checker</masterLabel>
+        <translation><!-- Approved by Checker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Approved by Maker</masterLabel>
+        <translation><!-- Approved by Maker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected by Checker</masterLabel>
+        <translation><!-- Rejected by Checker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected by Maker</masterLabel>
+        <translation><!-- Rejected by Maker --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

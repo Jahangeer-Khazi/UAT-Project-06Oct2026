@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>smt_CanotSendTochecker_if_not_eligible</fullName>
+    <active>true</active>
+    <description>The maker result can not be send to checker if the Subscription model is not eligible to be terminated</description>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Subscription_Model_Termination&quot; &amp;&amp; ISCHANGED(cc_Maker__c) &amp;&amp; TEXT( cc_Maker__c )= &apos;Send to Checker&apos;  &amp;&amp;  ( OR(ac_EligibleToClose__c = false, Has_Open_Dispute_Case_s__c = true) )</errorConditionFormula>
+    <errorMessage>The Subscription model is not eligible or has open dispute cases to be terminated , for more info pease contact your administrator</errorMessage>
+</ValidationRule>

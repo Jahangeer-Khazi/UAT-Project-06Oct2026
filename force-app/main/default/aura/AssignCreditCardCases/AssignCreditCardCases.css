@@ -1,0 +1,17 @@
+.THIS .slds-modal__container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 100rem !important;
+    min-width: 20rem;
+}
+
+.THIS .sales{
+    margin-top:20px;
+}
+
+.THIS .slds-form-element.slds-size--1-of-2.searchholder{
+    margin-top:20px;
+}
+.THIS .slds-form-element.slds-size--1-of-2.searchleft{
+    margin-left:10px;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STL_S_O_Condition__c</fullName>
+    <label>STL - S/O Condition</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No STL (Clean Basis)</fullName>
+                <default>false</default>
+                <label>No STL (Clean Basis)</label>
+            </value>
+            <value>
+                <fullName>With STL Condition</fullName>
+                <default>false</default>
+                <label>With STL Condition</label>
+            </value>
+            <value>
+                <fullName>With Irrevocable Standing Instruction (Partial STL)</fullName>
+                <default>false</default>
+                <label>With Irrevocable Standing Instruction (Partial STL)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

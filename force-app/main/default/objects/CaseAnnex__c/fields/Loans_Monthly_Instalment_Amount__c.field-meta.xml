@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_Monthly_Instalment_Amount__c</fullName>
+    <description>This field is for Advance Payment sub type that is controlled by New Loan / Finance Service Request type.</description>
+    <externalId>false</externalId>
+    <label>Monthly Instalment Amount</label>
+    <precision>15</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

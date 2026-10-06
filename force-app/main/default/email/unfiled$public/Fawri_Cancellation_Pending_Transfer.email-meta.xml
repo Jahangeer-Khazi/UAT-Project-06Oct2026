@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Cancelling Pending Fawri Transfer email notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Fawri Cancellation Pending Transfer</name>
+    <style>none</style>
+    <subject>Your Fawri cancellation request has been processed successfully</subject>
+    <textOnly>Dear Valued Customer,
+
+Greetings from ila Bank. We hope this message finds you well.
+
+We are writing to confirm that the your request to cancel the fawri payment initiated on {!Case.Transaction_Date__c}, with reference number {!Case.cc_Transaction_Reference_Number__c}, has been processed. An amount of {!Case.Transaction_Currency__c} {!Case.Transaction_Amount__c}, has been credited back to your account ending with ${acctLastFourDigits}
+
+Should you need any assistance, please feel free to call us on +973 17123456 or email us on support@ilabank.com
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,47 @@
+<!--
+ - Created by ss on 22/06/18.
+ -->
+
+<aura:component description="Modal window">
+    <!-- ============================ FACETS =============================== -->
+    <aura:attribute name="showHeader" type="Boolean" default="true"/>
+    <aura:attribute name="showFooter" type="Boolean" default="true"/>
+    <aura:attribute name="header" type="Aura.Component[]"/>
+    <aura:attribute name="footer" type="Aura.Component[]"/>
+    <aura:attribute name="body" type="Aura.Component[]"/>
+    <aura:attribute name="refreshPageOnClose" type="Boolean" default="false"/>
+    <!-- ============================ METHODS ============================== -->
+    <aura:method name="open" action="{!c.open}" />
+    <aura:method name="close" action="{!c.close}" />
+    <!-- ============================ LAYOUT =============================== -->
+    <section role="dialog" tabindex="-1" aura:id="window"
+             aria-labelledby="mh-1"
+             aria-modal="true"
+             aria-describedby="mc-1"
+             class="slds-modal">
+        <div class="slds-modal__container">
+            <aura:if isTrue="{!v.showHeader}" >
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick="{!c.close}">
+                        <lightning:icon iconName="utility:close" class="w-close-ico"/>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="mh-1"
+                        class="slds-text-heading_medium slds-hyphenate">
+                        {!v.header}
+                    </h2>
+                </header>
+            </aura:if>
+            <div class="slds-modal__content slds-p-around_medium" id="mc-1">
+                {!v.body}
+            </div>
+            <aura:if isTrue="{!v.showFooter}" >
+                <footer class="slds-modal__footer">
+                    {!v.footer}
+                </footer>
+            </aura:if>
+        </div>
+    </section>
+    <div class="slds-backdrop" aura:id="dialog-back"></div>
+</aura:component>

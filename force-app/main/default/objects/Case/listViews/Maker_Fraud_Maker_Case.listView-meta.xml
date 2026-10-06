@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maker_Fraud_Maker_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Maker (Fraud Maker)</label>
+    <queue>Maker_Fraud_Maker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

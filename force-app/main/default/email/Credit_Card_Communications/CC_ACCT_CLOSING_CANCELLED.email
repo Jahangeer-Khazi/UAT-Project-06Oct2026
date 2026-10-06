@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <style type="text/css">
+         .ExternalClass {width: 100%;}
+
+                
+         @font-face {
+         font-family: 'Inter';
+         font-style: normal;
+         font-weight: 400;
+         src: url('https://fonts.gstatic.com/s/inter/v12/UcC03FwrQ3m1.woff2') format('woff2');
+      }
+      </style>
+   </head>
+   <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e; font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'; color:#ffffff;">
+         <tr>
+            <td align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e;">
+               <table border="0" cellpadding="0" cellspacing="0" style="max-width:480px;" align="center">
+                  <tbody>
+                     <tr>
+                        <td align="center">
+                           <br>
+                           <br>
+                           <a href="http://ilabank.com" target="_blank" tabindex="-1">
+                           <img src="https://images.ctfassets.net/2c8e80nprabl/5cgeqYcj46Yo7Vj76b4Pph/77905df16179591bb8a8a8b3e7d44bca/ilaemails_logo.png" width="70" style="max-width:70px; display:inline-block; display:block;">
+                           </a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <a href="http://ilabank.com" target="_blank"><img align="center" src="https://images.ctfassets.net/2c8e80nprabl/6zkh49EQnrOCM42IswE38I/08b5e1e20549ff2665a4c0aba3dd3a80/email.png" width="300" style="max-width:300px; display:inline-block; display:block;"></a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <span style="text-align: center; font-size:18px; color:#ffffff;text-decoration: none;">
+                              <br>
+                              <br>
+                              Hi,
+                              <br>
+                              <br>
+                              Your request to close your {!Case.cc_Requested_Card_Type__c} credit card was canceled.
+                              <br>
+                              <br>
+                              Please use the request ID {!Case.CaseNumber} to follow up.
+                              <br>
+                              <br>
+                              For any questions, call us on&nbsp;<a href="tel:+97317123456" style="color:#ffffff; text-decoration:none;">+973 17123456</a><br><br>
+                           </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="padding-top:10px; padding-right:18px; padding-bottom:10px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
+                           <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 30px;background-color: #79ED00;">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" valign="middle" class="mcnButtonContent" style="font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'; font-size: 25px; padding: 12px 36px;">
+                                      <a class="mcnButton " title="Open ila App" href="https://gateway.ilabank.com/redirect/mobile" target="_blank" style="font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #00153e;">Open ila app</a>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <span style="text-align: center; font-size:20px; text-decoration: none; color:#79ED00;">Follow us on social media</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <table>
+                              <tr>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://www.facebook.com/Ila-Bank-Bahrain-352144688790283/" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/1yboFPOOVPmS7O78JdWJoP/7a0bc89b71c6d839ac123f03b577d99b/ilaemails_facebook.png" alt="Facebook" style="display:block;" height="40" width="40"></a> 
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://instagram.com/ilabankbhr" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/4RckoPxJ8MzRJuP4oJuTP2/ac2c5371d673151d35ae6c63accacb08/ilaemails_instagram.png" alt="Instagram" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://twitter.com/ilaBankBHR" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/2JrAJees2RugJSieO64JzA/0070d557ef109cc562752a3d775d7a1d/ilaeamils_twitter.png" alt="Twitter" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://www.linkedin.com/company/ilabank/" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/4WHZQB4KgiI8rkr9M8mUTE/ac8ee952a49467abb5cb337df8bfc4cb/ilaemails_linkedin.png" alt="LinkedIn" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://www.youtube.com/channel/UC_ycAB7SYwy1B5G7MRgJrFw" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/5HxpWe7yNAkUdZz9AL83cK/15749342a20c0ddc0c41a336ab213b78/ilaemails_youtube.png" alt="YouTube" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span><a style="color:#7aee00; text-decoration:none;" href="https://www.ilabank.com" target="_blank">ilabank.com</a></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color:#FFFFFF; text-decoration: none;">Powered by Bank ABC</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color:#ffffff; text-decoration: none;"><a style="color: #79ED00; text-decoration: none; font-size:12px;" href="https://goo.gl/maps/XiabGNQGbBAEJpcr9" target="_blank">Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain</a></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color:#ffffff; font-size:12px; text-decoration: none;">This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color: #79ED00; font-size:12px; text-decoration: none;">Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color: #00153e; font-size:12px; text-decoration: none;">{!Case.Thread_Id}</span>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+         </tr>
+         </td>
+      </table>
+   </body>
+</html>

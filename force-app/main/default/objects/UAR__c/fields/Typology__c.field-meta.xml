@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Typology__c</fullName>
+    <label>Typology</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Funneling</fullName>
+                <default>false</default>
+                <label>Funneling</label>
+            </value>
+            <value>
+                <fullName>Charity front</fullName>
+                <default>false</default>
+                <label>Charity front</label>
+            </value>
+            <value>
+                <fullName>Identity Theft</fullName>
+                <default>false</default>
+                <label>Identity Theft</label>
+            </value>
+            <value>
+                <fullName>Cash Smurfing</fullName>
+                <default>false</default>
+                <label>Cash Smurfing</label>
+            </value>
+            <value>
+                <fullName>3rd party use</fullName>
+                <default>false</default>
+                <label>3rd party use</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Fraud Peer-to-Peer / pooling funds</fullName>
+                <default>false</default>
+                <label>Fraud Peer-to-Peer / pooling funds</label>
+            </value>
+            <value>
+                <fullName>Fraud Investment middleman</fullName>
+                <default>false</default>
+                <label>Fraud Investment middleman</label>
+            </value>
+            <value>
+                <fullName>Fraud – Disclosure of Personal Data</fullName>
+                <default>false</default>
+                <label>Fraud – Disclosure of Personal Data</label>
+            </value>
+            <value>
+                <fullName>Business Use</fullName>
+                <default>false</default>
+                <label>Business Use</label>
+            </value>
+            <value>
+                <fullName>Auction House</fullName>
+                <default>false</default>
+                <label>Auction House</label>
+            </value>
+            <value>
+                <fullName>Passthrough</fullName>
+                <default>false</default>
+                <label>Passthrough</label>
+            </value>
+            <value>
+                <fullName>Unusual Behavior</fullName>
+                <default>false</default>
+                <label>Unusual Behavior</label>
+            </value>
+            <value>
+                <fullName>Gambling</fullName>
+                <default>false</default>
+                <label>Gambling</label>
+            </value>
+            <value>
+                <fullName>Transaction not within profile</fullName>
+                <default>false</default>
+                <label>Transaction not within profile</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

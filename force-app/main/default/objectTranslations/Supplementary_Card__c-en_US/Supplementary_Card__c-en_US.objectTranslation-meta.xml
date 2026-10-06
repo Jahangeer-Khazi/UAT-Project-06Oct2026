@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Supplementary Card</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Supplementary Cards</value>
+    </caseValues>
+    <layouts>
+        <layout>Supplementary Card Layout</layout>
+        <sections>
+            <label><!-- Compliance Case Status API --></label>
+            <section>Compliance Case Status API</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Name Screening Api --></label>
+            <section>Name Screening Api</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

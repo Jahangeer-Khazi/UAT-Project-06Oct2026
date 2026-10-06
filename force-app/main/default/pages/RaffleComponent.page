@@ -1,0 +1,130 @@
+<!--
+  @description       : Raffle Page it will accept a Draw Id
+  @author            : ismael.ocana
+  @group             :
+  @last modified on  : 14/02/2022
+  @last modified by  : juan.trujillo
+  @History : #CH01 : 29/12/2022 by Aniss Raffle Application Ad-hoc Recurring Raffle Automation  (CRM-Changes)
+-->
+<apex:page docType="html-5.0" controller="RaffleComponentController" showHeader="false" sidebar="false" applyBodyTag="false"
+    applyHtmlTag="false" standardStylesheets="false">
+
+    <head>
+        <apex:includeScript value="{!URLFOR($Resource.Raffles,'Raffles/jquery-3.5.1.min.js')}"></apex:includeScript>
+        <apex:includeScript value="{!URLFOR($Resource.Raffles,'Raffles/ocanvas-2.10.0.min.js')}"></apex:includeScript>
+        <apex:includeScript value="{!URLFOR($Resource.Raffles, 'Raffles/index.js')}"></apex:includeScript>
+        <apex:stylesheet value="{!URLFOR($Resource.Raffles, 'Raffles/style.css')}" />
+        <style>
+            @font-face {
+                font-family: Neo Sans Arabic;
+                src: url("{!URLFOR($Resource.Raffles, 'Raffles/fonts/NeoSansArabic.ttf')}") format('truetype');
+            }
+
+            @font-face {
+                font-family: SF Pro Text;
+                src: url("{!URLFOR($Resource.Raffles, 'Raffles/fonts/SF-Pro-Text-Regular.otf')}") format('opentype');
+            }
+            
+            sup {
+                vertical-align: super;
+                font-size: medium;
+            }
+        </style>
+    </head>
+
+    <body>
+        <apex:form >
+            <div id="container">
+                <canvas id="canvas"> </canvas>
+                <div id="controls">
+                    <div class="main">
+                        <div class="logo-parent">
+                            <div class="logo">
+                                <apex:image styleClass="ila-logo" url="{!URLFOR($Resource.Raffles, 'Raffles/images/logo.png')}" />
+                            </div>
+                        </div>
+                        <div class="campaign-parent">
+                            <div class="campaign">
+                                <!-- DRAW TYPE toDo : -->
+                                {!drawTypeLabel} Campaign
+                            </div>
+                        </div>
+                        <div class="big-title">
+                            <!-- DRAW NAME -->
+                            {!draw.Draw_Name__c}
+                        </div>
+                        <div class="prize" style="height : 4%">
+                            <!-- #CH01 Start: add icon and remove grand prize design -->
+                            <div class="prize-num">Prizes to win 🎁</div>
+                            
+                            <!-- <div class="prize-amount">
+                                <sup class="currency">{!draw.Currency__c} </sup>
+                                    <span class="amount">
+                                        <apex:outputText value="{0, number, ###,##0}" style="white-space: nowrap;">
+                                            <apex:param value="{!draw.Grand_Prize__c}" /> 
+                                        </apex:outputText><sup class="decimal">.000</sup>
+                                    </span> 
+                                   
+                            </div> -->
+                            <!-- #CH01 End -->
+                        </div>
+                        <div class="prizes-boxes">
+                            <div class="boxes">
+                                <apex:repeat value="{!prizeList}" var="prize" id="prizesRepeat">
+                                    <div class="box">
+                                        <!-- #CH01 Start: changes on the prize design -->
+                                        <!-- <div>
+                                            <!-by default we set icon3 if we have more then 3 prizes->
+                                            <apex:image url="{!URLFOR($Resource.Raffles, 'Raffles/images/prize-icon-' + IF( AND(prize.Order__c != '1',prize.Order__c != '2') , '3', prize.Order__c ) + '.png')}" />
+                                        </div> -->
+                                        <div class="prize-pos" style="font-size : 20px;color: #FFFFFF">{!prize.Tier__c}</div>
+                                        <div class="winners-prize-amount">
+                                            <!-- <span>{! prize.Prize_Currency__c + ' '}</span>
+                                            <span>
+                                                <apex:outputText value="{0, number, ###,##0}" id="grandPrizeDisplay">
+                                                    <apex:param value="{!prize.Winning_Amount__c}" />
+                                                </apex:outputText>
+                                            </span>
+                                            <span>{! ' x ' + TEXT(prize.Number_of_Winners__c)}</span> -->
+
+                                            <span style="font-size : 18px;color: #8D97B9"> Number of Winners: </span>
+                                                <span style="font-size : 18px;color: #FFFFFF">{! TEXT(prize.Number_of_Winners__c) }</span>
+                                        </div>
+                                        <!-- #CH01 End -->
+                                    </div>
+                                </apex:repeat>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="raffle-parent">
+                        <div class="raffle">
+                            <!-- Button to next page -->
+                            <apex:commandButton styleClass="raffle-btn" value="Start Raffle" action="{!navigateToNextPage}" disabled="{!disableBtn}"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- handle errors in api calls to insert the winners list -->
+            <span class="slds-hide" style="height: 0px;display: none">
+                <apex:outputPanel id="displayAlertMsg" rendered="{!errorMsg != null}" >
+                    <apex:selectCheckboxes layout="pageDirection">
+                        <apex:selectOptions value="{!items}" />
+                        <apex:actionSupport event="onchange" reRender="displayAlertMsg" />
+                    </apex:selectCheckboxes>
+                    <script type="text/javascript">
+                        // Any js placed here will be fired when output panel is rerendered
+                        (function () {
+                            var errorMsg='{!errorMsg}';
+                            alert('Error from server side for more information check the System Action Or Contact your administrator \n'+errorMsg);
+                            console.error(errorMsg);
+                        })();
+                    </script>
+                </apex:outputPanel>
+            </span>
+
+        </apex:form>
+    </body>
+
+</apex:page>

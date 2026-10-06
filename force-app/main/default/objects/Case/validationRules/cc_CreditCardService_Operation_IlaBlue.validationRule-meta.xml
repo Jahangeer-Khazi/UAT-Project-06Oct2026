@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Operation_IlaBlue</fullName>
+    <active>true</active>
+    <description>Buyout Operations Team Cannot Select Balance Transfer Processed for Ila blue cards.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Operations_Result__c),
+ISPICKVAL(cc_Operations_Result__c, &apos;Balance Transfer Processed&apos;),
+ISPICKVAL(Region_Flag__c, &apos;Bahrain&apos;),
+ISPICKVAL(cc_Approved_Requested_Card_Type__c, &apos;PLATINUM_CASHBACK_AND_REWARD_01&apos;),  
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)  
+)</errorConditionFormula>
+    <errorDisplayField>cc_Operations_Result__c</errorDisplayField>
+    <errorMessage>Buyout Operations Team cannot select &apos;Balance Transfer Processed&apos; for Ila blue cards.</errorMessage>
+</ValidationRule>

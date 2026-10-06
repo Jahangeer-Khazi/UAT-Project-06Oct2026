@@ -1,0 +1,146 @@
+/* ----------------------------------------------
+   Table Styling – Compact, Clean, Professional
+   ---------------------------------------------- */
+.table-container {
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.custom-table thead th {
+    background-color: #f4f6f9;
+    color: #333;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid #d0d2d6;
+    white-space: nowrap;
+}
+
+.custom-table tbody td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid #edebeb;
+    vertical-align: middle;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f8fafd;
+}
+
+.custom-table tbody tr.selected-row {
+    background-color: #eef3fc;
+}
+
+/* Column widths */
+.select-col {}
+.name-col {}
+.number-col {}
+.currency-col {}
+.amount-col {
+    font-weight: 500;
+}
+
+/* Custom Radio Button */
+.custom-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.custom-radio:checked {
+    border-color: #0176d3;
+    background-color: #0176d3;
+    box-shadow: inset 0 0 0 3px #fff;
+}
+
+.custom-radio:checked:hover {
+    border-color: #005fb2;
+    background-color: #005fb2;
+}
+
+.custom-radio:hover {
+    border-color: #666;
+}
+
+/* ----------------------------------------------
+   Hold Details Cards – 3‑column layout
+   ---------------------------------------------- */
+.hold-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    background: #fff;
+}
+
+.hold-header {
+    padding: 0.6rem 1rem;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 6px 6px 0 0;
+}
+
+.hold-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1e293b;
+}
+
+.hold-body {
+    padding: 0.8rem 1rem;
+}
+
+.hold-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+}
+
+/* 3‑column layout: each item takes ~33% of the row */
+.hold-item {
+    flex: 1 0 calc(33.33% - 1.5rem);
+    min-width: 120px;
+}
+
+.hold-item .label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.hold-item .value {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .custom-table thead th,
+    .custom-table tbody td {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .hold-item {
+        flex: 1 0 100%; /* stack on small screens */
+    }
+}

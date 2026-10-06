@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ppc_QA_Result__c</fullName>
+    <label>QA Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending Documents</fullName>
+                <default>false</default>
+                <label>Pending Documents</label>
+            </value>
+            <value>
+                <fullName>Accept</fullName>
+                <default>false</default>
+                <label>Accept</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Document Accepted</fullName>
+                <default>false</default>
+                <label>Document Accepted</label>
+            </value>
+            <value>
+                <fullName>Documents Rejected</fullName>
+                <default>false</default>
+                <label>Documents Rejected</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

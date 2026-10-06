@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PEP_Self_Declaration_Staff__c</fullName>
+    <description>Self Declaration for PEP flag by customer - NBA-12147</description>
+    <formula>IF(
+OR(
+TEXT(Segment__c) &lt;&gt; &quot;Staff&quot;,
+AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c),
+AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c),
+				$User.Staff_Access__c
+),
+PEP_Self_Declaration__c,
+FALSE
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Self Declaration for PEP flag by customer while onboarding</inlineHelpText>
+    <label>PEP Self-Declaration</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

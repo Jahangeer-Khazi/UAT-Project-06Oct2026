@@ -1,0 +1,193 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="creditCardListController">
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="accountId" type="Id"/>
+    <aura:attribute name="balTransferotherCardLimit" type="Decimal"/>
+    <aura:attribute name="balTransferAmt" type="Decimal"/>
+    <aura:attribute name="mode" type="string" default="view"/>
+    <aura:attribute name="accId" type="string"/> 
+    <aura:attribute name="cardTypeConfig" type="Map"/>
+    <aura:attribute name="enableButton" type="boolean" default="true" />
+    
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="recordTypeId" type="String" />
+    
+    <aura:attribute name="selectedTenure" type="String"/>
+    <aura:attribute name="tenureOptions" type="List" />
+    <aura:attribute name="selectedFeePercentage" type="String" />
+    <aura:attribute name="reqCreditLimit" type = "decimal"/>
+    <aura:attribute name="defCreditLimit" type = "decimal"/> 
+    <aura:attribute name="balanceTransferFee" type="String"/>
+    <aura:attribute name="btminIssuerLmt" type = "decimal"/>
+    <aura:attribute name="tenureRawData" type="List" />
+    <aura:attribute name="balTransferOfferCode" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <force:recordData aura:id="recordLoader"
+                  	  recordId="{!v.recordId}"
+                      targetFields="{!v.record}"
+                      fields = "Id,AccountId,Case_Model__c,Status,cc_Requested_Card_Type__c,cc_Requested_Credit_Limit__c,Is_Balance_Transfer__c,Balance_Transfer_Other_Card_Limit__c,cc_Balance_Transfer_Card_Number__c,cc_Balance_Transfer_Amount__c,cc_Balance_Transfer_Card_Provider__c,Balance_Transfer_Tenor__c,Balance_Transfer_Offer_Code__c,Balance_Transfer_Rate__c,Balance_Transfer_Fee__c"
+                      mode="VIEW"/>
+    
+   
+    <lightning:accordion allowMultipleSectionsOpen="true" activeSectionName="bt">
+        <lightning:accordionSection name="bt" label="Balance Transfer Details"> 
+            
+            
+            <aura:if isTrue="{!'view' == v.mode}">
+                
+                <lightning:recordViewForm objectApiName="Case" 
+                                          recordId="{!v.recordId}">
+                    
+                    <aura:if isTrue="{!and(v.enableButton == true,v.record.Status != 'Closed')}">
+                        <div class="slds-text-align_right slds-m-top_medium slds-m-bottom_small">
+                            <lightning:button label = "Edit" variant="brand" onclick="{!c.onEditClick}"/>
+                        </div>
+                    </aura:if>
+                    
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        
+                        <!-- Row 1 -->
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="Is_Balance_Transfer__c"/>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="Balance_Transfer_Other_Card_Limit__c"/>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="cc_Balance_Transfer_Card_Number__c"/>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="cc_Balance_Transfer_Amount__c"/>
+                        </div>
+                        
+                        <!-- Row 3 -->
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="cc_Balance_Transfer_Card_Provider__c"/>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="Balance_Transfer_Tenor__c"/>
+                        </div>
+                        
+                        <!-- Row 4 -->
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="Balance_Transfer_Offer_Code__c"/>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="Balance_Transfer_Rate__c"/>
+                        </div>
+                        
+                        <!-- Row 5 -->
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="cc_Requested_Credit_Limit__c"/>
+                        </div>
+                        
+                        <div class="slds-col slds-size_1-of-2 slds-p-bottom_medium">
+                            <lightning:outputField fieldName="Balance_Transfer_Fee__c"/>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </lightning:recordViewForm>
+           
+                <aura:set attribute="else">
+            	
+                    <lightning:recordEditForm aura:id="form"
+                                              objectApiName="Case" 
+                                          	  recordId="{!v.recordId}"
+                                              onsubmit="{!c.handleOnSubmit}"
+                                              onsuccess="{!c.handleOnSuccess}"
+                                              onerror="{!c.handleOnError}">
+                        
+                        <aura:if isTrue="{!v.enableButton == true}">    
+                            <div class="slds-text-align_right slds-m-top_medium slds-m-bottom_small">
+                                <lightning:button label = "Update" variant="brand" type="submit"/>
+                                <lightning:button label = "Cancel" variant="brand" onclick="{!c.onCancelClick}"/>
+                                <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                            </div>
+                    	</aura:if>
+                    
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:inputField fieldName="Is_Balance_Transfer__c"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input aura:id="btOtherLimit" required="true"
+                 							 	 type="number"
+                 							 	 label="Balance Transfer Other Card Limit"
+                 							 	 value="{!v.balTransferotherCardLimit}"
+                 							 	 onchange="{!c.handleLimitChange}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                 <lightning:inputField aura:id="btCardNumber" fieldName="cc_Balance_Transfer_Card_Number__c" required="true"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input aura:id="btAmount" required="true"
+                 							 type="number"
+                 							 label="Balance Transfer Amount"
+                 							 value="{!v.balTransferAmt}"
+                 							 onchange="{!c.handleAmountChange}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:inputField aura:id="btCardProv" fieldName="cc_Balance_Transfer_Card_Provider__c" required="true"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:select label="Balance Transfer Tenor"
+                                                  value="{!v.selectedTenure}"
+                                                  required="true"
+                                                  onchange="{!c.handleTenureChange}">
+                                    <option value="">--None--</option>
+                                    <aura:iteration items="{!v.tenureOptions}" var="t">
+                                        <option text="{!t.key}" value="{!t.value}" selected="{!t.selected}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:inputField aura:id="btOffer" fieldName="Balance_Transfer_Offer_Code__c" value="{!v.balTransferOfferCode}" disabled="true"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input label="Balance Transfer Rate" 
+                                                 value="{!v.selectedFeePercentage}"
+                                                 disabled="true"/>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input aura:id="reqLmt" required="true"
+                                                 type="number"
+                                                 step="0.01"
+                                                 label="Requested Credit Limit"
+                                                 value="{!v.reqCreditLimit}"
+                                                 onkeyup="{!c.handleReqLimitChange}"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input label="Balance Transfer Fee" 
+                                                 value="{!v.balanceTransferFee}"
+                                                 disabled="true"/>
+                            </div>
+                        </div>
+                        
+                    
+                  </lightning:recordEditForm>
+            
+                </aura:set>
+            </aura:if>
+        </lightning:accordionSection>
+    </lightning:accordion>
+</aura:component>

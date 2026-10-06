@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Model_Change_Prevention</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(Case_Model__c),
+    NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+    NOT(archive__c),
+
+    NOT(
+        AND(
+            CreatedBy.LastName = &apos;System&apos;,
+            ISPICKVAL(Origin, &apos;Email-Alburaq&apos;)
+        )
+    ),
+
+    OR(
+        TEXT(Account.PersonContact.Subscription_Model__c) = &apos;ila&apos;,
+        TEXT(Account.PersonContact.Subscription_Model__c) = &apos;alburaq&apos;
+    ),
+
+    /* EXCLUDE Relationship Termination + Sub-Type values */
+    NOT(
+        AND(
+            ISPICKVAL(Type, &quot;Relationship Termination&quot;),
+            OR(
+                ISPICKVAL(Sub_Type__c, &quot;Relationship Termination - By Bank&quot;),
+                ISPICKVAL(Sub_Type__c, &quot;Relationship Termination - By Customer&quot;)
+            )
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>Case Model on the Case record cannot be changed. Please contact your administrator.</errorMessage>
+</ValidationRule>

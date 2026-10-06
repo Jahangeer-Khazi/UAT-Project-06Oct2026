@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Info_cannot_be_edited_directly</fullName>
+    <active>true</active>
+    <description>This Validation Rule prevents the AccountName field to be edited from the page layout. It excludes the Integration Profile</description>
+    <errorConditionFormula>Bypass_Validations__pc = false &amp;&amp; ISCHANGED(  Name  ) &amp;&amp;   $User.LastName &lt;&gt; &quot;Integration&quot; &amp;&amp; $User.LastName &lt;&gt; &quot;Pandey&quot; &amp;&amp; $User.LastName &lt;&gt; &quot;Manickam&quot; &amp;&amp; $User.LastName &lt;&gt; &quot;El Izmirli&quot; &amp;&amp; $User.Name_Change_Access__c = false</errorConditionFormula>
+    <errorMessage>The Account Information cannot be changed from this page!</errorMessage>
+</ValidationRule>

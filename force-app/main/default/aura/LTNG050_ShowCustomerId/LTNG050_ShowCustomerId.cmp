@@ -1,0 +1,72 @@
+<!-- 	
+    * 	Created By: Imane Tsioucha
+    *	Created Date: 07-05-2024
+    * 	Change History: 
+-->
+<aura:component
+                implements="force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" controller="LTNG050_ShowCustomerIdController">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="CIF" type="String" />
+    <aura:attribute name="RegionFlag" type="String" />
+    <aura:attribute name="searchResult" type="String" />
+    <aura:attribute name="rawResult" type="String" />
+    <aura:attribute name="searchTerm" type="String" />
+    <aura:attribute name="responseExist" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card title="Search CIF with IBAN">
+        <div class="slds-grid slds-wrap slds-gutters slds-grid_align-center">
+            <div class="slds-col slds-size_1-of-1 slds-text-align_center">
+                <div class="slds-form-element__control slds-grid slds-grid_align-center slds-m-around_medium">
+                    <lightning:input 
+                                     name="iban" 
+                                     value="{!v.searchTerm}" 
+                                     placeholder="Enter IBAN"
+                                     class="slds-m-right_medium"
+                                     label="IBAN"
+                                     variant="label-hidden"
+                                     />
+                    <lightning:button
+                                      label="SEARCH"
+                                      variant="brand"
+                                      onclick="{!c.handleSearch}"
+                                      class="custom-search-button"
+                                      />
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-1 slds-text-align_center slds-p-around_small">
+                <aura:if isTrue="{!v.responseExist}">
+                    <div class="slds-text-heading_small slds-text-color_success">
+                        <b>{!v.searchResult}</b>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-text-heading_small slds-text-color_error">
+                            {!v.searchResult}
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+        
+        <aura:if isTrue="{!v.showSpinner}">
+            <div class="slds-align_absolute-center">
+                <lightning:spinner 
+                                   alternativeText="Loading..." 
+                                   size="large" 
+                                   variant="brand"
+                                   />
+            </div>
+        </aura:if>
+    </lightning:card>
+    
+    <br/>
+    
+    <aura:if isTrue="{!v.responseExist}">
+        <c:customerCIFDetails CIF="{!v.rawResult}"></c:customerCIFDetails>
+    </aura:if>
+</aura:component>

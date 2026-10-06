@@ -1,0 +1,169 @@
+<template>
+    <template if:true={isLoading} class="slds-is-relative">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+    </template>
+
+    <lightning-card icon-name="custom:custom19" title="Please upload a separate CSV file for bulk blocking or unblocking the accounts.">
+        <lightning-button label="Download Template" slot="actions" onclick={handleDownload}></lightning-button>
+        <div class="file-upload-container">
+            <lightning-file-upload accept=".csv" style="text-align: center;" label="Upload CSV File" multiple="false"
+                onuploadfinished={handleFileUpload}>
+            </lightning-file-upload>
+        </div>
+        <br/>
+    </lightning-card>
+
+    <br/>
+
+    <template if:true={parsedData.length}>
+        <lightning-card>
+            <div class="header-alignment-custom">
+                <div class="slds-grid slds-wrap slds-align_absolute-center">
+                    <div class="slds-col slds-size_2-of-12">
+                        <h2 class="slds-text-heading_medium">Case Management</h2>
+                        <p class="slds-text-body_small">Total Records: {parsedData.length}</p>
+                    </div>
+                    <div class="slds-col slds-size_10-of-12"></div>
+                    <!-- <div class="slds-col slds-size_1-of-12">
+                        <lightning-combobox label="Type" value={selectedType} placeholder="Select Type" options={typeOptions} onchange={handleTypeChange}></lightning-combobox>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped slds-m-horizontal_medium custom-table">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th>CIF</th>
+                            <th>Subject</th>
+                            <th>Model</th>
+                            <th>Type</th>
+                            <th>Sub Type</th>
+                            <th>Case Nature</th>
+                            <th>Reason</th>
+                            <th>Origin</th>
+                            <th>IBAN</th>
+                            <th>All Accounts</th>
+                            <th>Block App Access</th>
+                            <th>Blacklist</th>
+                            <th>Is Fraud?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    <template if:true={parsedData.length}>
+        <template iterator:it={parsedData}>
+            <tr key={it.value.CIF} class="slds-hint-parent">
+                <td>
+                    <lightning-formatted-text value={it.value.CIF}></lightning-formatted-text>
+                </td>
+                <td>
+                    <lightning-formatted-text value={it.value.Subject}></lightning-formatted-text>
+                </td>
+                <td>
+                    <template lwc:if={it.last}>
+                        <lightning-combobox name="Model" label="Model" data-id={it.value.CIF} data-field="Model"
+                            value={it.value.Model} options={modelOptions} onchange={handleChange}
+                            dropdown-alignment="bottom-left">
+                        </lightning-combobox>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox name="Model" label="Model" data-id={it.value.CIF} data-field="Model"
+                            value={it.value.Model} options={modelOptions} onchange={handleChange}>
+                        </lightning-combobox>
+                    </template>
+                </td>
+                <td>
+                    <lightning-formatted-text value={it.value.Type}></lightning-formatted-text>
+                </td>
+                <td>
+                    <template lwc:if={it.last}>
+                        <lightning-combobox name="SubType" label="Sub Type" options={subTypeOptions}
+                            value={it.value.SubType} onchange={handleChange} data-id={it.value.CIF}
+                            data-field="SubType" dropdown-alignment="bottom-left">
+                        </lightning-combobox>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox name="SubType" label="Sub Type" options={subTypeOptions}
+                            value={it.value.SubType} onchange={handleChange} data-id={it.value.CIF}
+                            data-field="SubType">
+                        </lightning-combobox>
+                    </template>
+                </td>
+                <td>
+                    <template lwc:if={it.last}>
+                        <lightning-combobox name="CaseNature" label="Case Nature" options={caseNatureOptions}
+                            value={it.value.CaseNature} onchange={handleChange} data-id={it.value.CIF}
+                            data-field="CaseNature" dropdown-alignment="bottom-left">
+                        </lightning-combobox>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox name="CaseNature" label="Case Nature" options={caseNatureOptions}
+                            value={it.value.CaseNature} onchange={handleChange} data-id={it.value.CIF}
+                            data-field="CaseNature">
+                        </lightning-combobox>
+                    </template>
+                </td>
+                <td>
+                    <lightning-input value={it.value.Reason} onchange={handleChange} data-id={it.value.CIF}
+                        data-field="Reason">
+                    </lightning-input>
+                </td>
+                <td>
+                    <template lwc:if={it.last}>
+                        <lightning-combobox name="Origin" label="Case Origin" options={caseOriginOptions}
+                            value={it.value.Origin} onchange={handleChange} data-id={it.value.CIF}
+                            data-field="Origin" dropdown-alignment="bottom-left">
+                        </lightning-combobox>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox name="Origin" label="Case Origin" options={caseOriginOptions}
+                            value={it.value.Origin} onchange={handleChange} data-id={it.value.CIF}
+                            data-field="Origin">
+                        </lightning-combobox>
+                    </template>
+                </td>
+                <td>
+                    <lightning-textarea value={it.value.IBAN} onchange={handleChange} data-id={it.value.CIF}
+                        data-field="IBAN" disabled={it.value.AllAccounts}>
+                    </lightning-textarea>
+                </td>
+                <td>
+                    <lightning-input type="checkbox" checked={it.value.AllAccounts}
+                        onchange={handleCheckboxChange} data-id={it.index} data-field="AllAccounts">
+                    </lightning-input>
+                </td>
+                <td>
+                    <lightning-input type="checkbox" checked={it.value.BlockAppAccess}
+                        onchange={handleCheckboxChange} data-id={it.index} data-field="BlockAppAccess">
+                    </lightning-input>
+                </td>
+                <td>
+                    <lightning-input type="checkbox" checked={it.value.Blacklist}
+                        onchange={handleCheckboxChange} data-id={it.index} data-field="Blacklist">
+                    </lightning-input>
+                </td>
+                <td>
+                    <lightning-input type="checkbox" checked={it.value.isFraud}
+                        onchange={handleCheckboxChange} data-id={it.index} data-field="isFraud">
+                    </lightning-input>
+                </td>
+            </tr>
+        </template>
+    </template>
+    <template if:false={parsedData.length}>
+        <tr>
+            <td colspan="13" class="slds-text-align_center">No Records to Display</td>
+        </tr>
+    </template>
+</tbody>
+
+
+                </table>
+            </div>
+            <div class="slds-p-around_medium slds-text-align_center">
+                <lightning-button label="Submit" variant="brand" onclick={handleSave}></lightning-button> &nbsp;
+                <lightning-button label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+</template>

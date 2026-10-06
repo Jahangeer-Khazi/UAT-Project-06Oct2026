@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Timestamp in the source system which originated the system action --></help>
+    <label><!-- Source Timestamp --></label>
+    <name>Source_Timestamp__c</name>
+</CustomFieldTranslation>

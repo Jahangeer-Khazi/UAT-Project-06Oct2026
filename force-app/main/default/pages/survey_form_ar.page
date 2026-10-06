@@ -1,0 +1,188 @@
+<apex:page controller="WalkInCustomerSurveyController" sidebar="false" showHeader="false" applyHtmlTag="false" applyBodyTag="false" action="{!validateSurveyRequest}">
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link href="{!$Resource.bootstrap_min_css}" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+            <script src="{!$Resource.bootstrap_bundle_min_js}" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" />
+            <link rel="stylesheet" href="{!$Resource.Feedback_Survey_Css}"/>
+            <link rel="icon" href="https://ilabank.com/icons/icon-48x48.png?v=2b1e3cc648bfcc23e9a101465f3e7f34"/>
+            <title>Feedback Survey | ila Bank</title>
+            
+            <style type="text/css">
+                .input-comment {
+                    height:30px;
+                    width:95%;
+                    border: 0px !important;
+                }
+            	.input-comment:focus {
+                	outline: none;
+                }
+            	.input-box:has(input:focus) {
+                    border: 1px solid #7aee00 !important;
+                }
+            </style>
+        </head>
+        <body>
+              <div class="row vh-100 mx-0">
+              <div class="col-lg-6 order-last col-12 d-none d-lg-flex primary-gradient login-padding text-white justify-content-center">
+                <div class="d-flex flex-column justify-content-between text-center max-528px" >
+                  <div></div>
+                  <div class="row gy-5 mx-auto max-340px">
+                    <h2 class="fw-lighter font-size-36px px-0" dir="rtl">
+                      الخدمات البنكية بين يديك في في أي وقت وفي أي مكان
+                    </h2>
+                    <div>
+                      <img src="{!URLFOR($Resource.Feedback_Survey_Assets,'assets/logo/logo-en-green.svg')}" alt="" srcset="" />
+                    </div>
+                    <h4 class="fw-lighter font-size-20px"  dir="rtl">بنك يعبر عنك</h4>
+                  </div>
+                  <div class="text-secondary">
+                    <!--<p class="mb-0 font-size-12px">© ila Bank 2024. All Rights Reserved.</p>-->
+                    <p class="font-size-12px"  dir="rtl">
+                      © جميع الحقوق محفوظة لبنك "إلى" 2025. مرخّص كبنك تجزئة تقليدي (فرع تجزئة) من قبل مصرف البحرين المركزي.
+                    </p>
+                  </div>
+                </div>
+              </div>
+        
+              <apex:form id="form" styleClass="col-lg-6 col-12 d-flex flex-column align-items-center justify-content-between p-0 background-color">
+                <div></div>
+                <div class="container" dir="rtl">
+                  <div class="max-456px mx-auto my-3">
+                    <div class="d-flex flex-column w-100 h-100 align-items-center justify-content-center">
+                      <div class="d-flex flex-column gap-5">
+                        <fieldset class="d-flex flex-column gap-2">
+                          <label for="q1">
+                            <p class="text-shades-midtone font-size-16px"  dir="rtl">السؤال 1/2</p>
+                            <h4 class="font-size-24px text-primary-darkest"  dir="rtl">
+                              هل قدم لك ممثل خدمة العملاء المساعدة التي كنت تحتاجها؟
+                            </h4>
+                          </label>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-column align-items-center gap-1">
+                              <div class="position-relative radio-button rounded-pill bg-white border">
+                                <p class="text-primary-midtone-1 font-size-20px position-absolute w-100 h-100 d-flex justify-content-center align-items-center">1</p>
+                                <input onchange="enableButton()" class="position-absolute w-100 h-100 opacity-0 z-index-10" type="radio" name="q1" value="1"/>
+                              </div>
+                              <p class="font-size-10px" dir="rtl">غير مفيد</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-1">
+                              <div class="position-relative radio-button rounded-pill bg-white border">
+                                <p class="text-primary-midtone-1 font-size-20px position-absolute w-100 h-100 d-flex justify-content-center align-items-center">2</p>
+                                <input onchange="enableButton()" onChange="set()" class="position-absolute w-100 h-100 opacity-0 z-index-10" type="radio" name="q1" value="2"/>
+                              </div>
+                              <p class="font-size-10px" dir="rtl">مفيد قليلا</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-1">
+                              <div class="position-relative radio-button rounded-pill bg-white border">
+                                <p class="text-primary-midtone-1 font-size-20px position-absolute w-100 h-100 d-flex justify-content-center align-items-center">3</p>
+                                <input onchange="enableButton()" class="position-absolute w-100 h-100 opacity-0 z-index-10" type="radio" name="q1" value="3"/>
+                              </div>
+                              <p class="font-size-10px" dir="rtl">عادي</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-1">
+                              <div class="position-relative radio-button rounded-pill bg-white border">
+                                <p class="text-primary-midtone-1 font-size-20px position-absolute w-100 h-100 d-flex justify-content-center align-items-center">4</p>
+                                <input onchange="enableButton()" class="position-absolute w-100 h-100 opacity-0 z-index-10" type="radio" name="q1" value="4"/>
+                              </div>
+                              <p class="font-size-10px" dir="rtl">مفيد</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-1">
+                              <div class="position-relative radio-button rounded-pill bg-white border">
+                                <p class="text-primary-midtone-1 font-size-20px position-absolute w-100 h-100 d-flex justify-content-center align-items-center">5</p>
+                                <input onchange="enableButton()" class="position-absolute w-100 h-100 opacity-0 z-index-10" type="radio" name="q1" value="5"/>
+                              </div>
+                              <p class="font-size-10px" dir="rtl">مفيد جداً</p>
+                            </div>
+                          </div>
+                        </fieldset>
+                        <fieldset class="d-flex flex-column gap-2">
+                          <label for="q2">
+                            <p class="text-shades-midtone font-size-16px" dir="rtl">السؤال 2/2</p>
+                            <h4 class="font-size-24px text-primary-darkest" dir="rtl">
+                              هل قمنا بحل طلبك أو مشكلتك بما يرضيك؟
+                            </h4>
+                          </label>
+                          <div class="d-flex flex-column gap-2">
+                            <div class="radio-box d-flex flex-row align-items-center gap-3 bg-white rounded-4 border px-3 py-3">
+                              <input onchange="enableButton()" class="form-check-input" type="radio" name="q2" value="yes"/>
+                              <p class="m-0 font-size-16px fw-medium" dir="rtl">نعم تم حل كل شيء</p>
+                            </div>
+                            <div class="radio-box d-flex flex-row align-items-center gap-3  bg-white rounded-4 border px-3 py-3">
+                              <input onchange="enableButton()" class="form-check-input" type="radio" name="q2" value="no"/>
+                              <p class="m-0 font-size-16px fw-medium" dir="rtl">لا، مشكلتي لا تزال دون حل</p>
+                            </div>
+                            <div>
+                              	<p style="margin-bottom: -5px;margin-top: 5px;margin-left: 5px;"> ملاحظة إضافية (اختياري)</p>		
+                              </div>
+                              <div class="input-box d-flex flex-row align-items-center gap-3 bg-white rounded-4 border" style = "display:flex;justify-content:center;height:55px;">
+                              		<input class="input-comment" type="text" name="q3" value="" placeholder="يمكن كتابة ملاحظة هنا"/>
+                                    </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--<button
+                  type="submit"
+                  class="btn btn-primary mb-3 rounded-pill px-5 py-2"
+                  disabled="true">
+                  أرسل
+                </button>-->
+                 <div>
+                      <apex:actionStatus id="pageStatus">
+                          <apex:facet name="start">
+                              <apex:outputPanel >
+                              	<div style="display:flex;align-items:center">
+                              		<div><img src="{!$Resource.loader_gif}" width="70"/>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                              		<apex:outputLabel value="Please wait while we process your request ..." style="font-size: 16px;" />
+                              	</div>
+                              </apex:outputPanel>    
+                          </apex:facet>
+                      </apex:actionStatus>
+                              <apex:commandButton id="btnid" styleClass="btn btn-primary mb-3 rounded-pill px-5 py-2" style="font-weight:normal;font-family:'Segoe UI';font-size:15px;" value="أرسل"  
+                                                    onclick="submitSurveyResponse(); return false;" disabled="true"/>
+                              
+                              <apex:actionFunction action="{!saveSurveyRequest}" name="callSaveSurveyRequest" status="pageStatus" reRender="pageStatus">
+                                <apex:param name="ratingParameter" assignto="{!rating}" value=""/>
+								<apex:param name="issueFixesParameter" assignto="{!isIssueFixed}" value=""/>
+                                <apex:param name="txtcomments" assignto="{!optionalComment}" value=""/>
+                            </apex:actionFunction>
+                 </div>
+              </apex:form>
+            </div>
+        
+            <script>
+        
+              function enableButton(){
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                const q2 = document.querySelector('input[name="q2"]:checked');
+        
+                if(q1 && q1.value && q2 && q2.value){
+                  document.querySelector('input[type="submit"]').disabled = false;
+                }
+              }
+                                    
+              function submitSurveyResponse(){
+              		const q1 = document.querySelector('input[name="q1"]:checked');
+                	const q2 = document.querySelector('input[name="q2"]:checked');
+                  	const txtcomments = document.querySelector('input[name="q3"]').value;
+              		const rating = q1.value;
+                  	const issueFixed = q2.value == 'yes' ? true : false;
+                  document.querySelector('input[type="submit"]').style.display = 'none';
+                  callSaveSurveyRequest(rating,issueFixed,txtcomments); 
+              }
+        
+              function submit(e){
+              //submit logic  
+              console.log('submited');
+              e.preventDefault();
+              }
+        	document.getElementById("j_id0:form:j_id12").style.display = 'none';
+              
+            </script>
+        </body>
+    </html>
+</apex:page>

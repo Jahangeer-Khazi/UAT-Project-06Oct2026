@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>App</fullName>
+        <default>false</default>
+        <label>App</label>
+    </customValue>
+    <customValue>
+        <fullName>Core Banking System</fullName>
+        <default>false</default>
+        <label>Core Banking System</label>
+    </customValue>
+    <customValue>
+        <fullName>CRM</fullName>
+        <default>false</default>
+        <label>CRM</label>
+    </customValue>
+    <customValue>
+        <fullName>Jumio</fullName>
+        <default>false</default>
+        <label>Jumio</label>
+    </customValue>
+    <customValue>
+        <fullName>Siron</fullName>
+        <default>false</default>
+        <label>Siron</label>
+    </customValue>
+    <customValue>
+        <fullName>Orchestration Layer</fullName>
+        <default>false</default>
+        <label>Orchestration Layer</label>
+    </customValue>
+    <masterLabel>API Services</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

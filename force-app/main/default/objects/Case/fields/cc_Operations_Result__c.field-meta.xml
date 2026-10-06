@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Operations_Result__c</fullName>
+    <label>Operations Team(Balance Transfer) Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>EPP Disabled</fullName>
+                <default>false</default>
+                <label>EPP Disabled</label>
+            </value>
+            <value>
+                <fullName>Balance Transfer Processed</fullName>
+                <default>false</default>
+                <label>Balance Transfer Processed</label>
+            </value>
+            <value>
+                <fullName>Card Block Released</fullName>
+                <default>false</default>
+                <label>Card Block Released</label>
+            </value>
+            <value>
+                <fullName>Buyout Process</fullName>
+                <default>false</default>
+                <label>Buyout Process</label>
+            </value>
+            <value>
+                <fullName>Accept</fullName>
+                <default>false</default>
+                <label>Accept</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Refer to service center</fullName>
+                <default>false</default>
+                <label>Refer to service center</label>
+            </value>
+            <value>
+                <fullName>Return to Document Verifier OBL</fullName>
+                <default>false</default>
+                <label>Return to Document Verifier OBL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

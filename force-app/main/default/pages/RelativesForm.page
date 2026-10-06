@@ -1,0 +1,459 @@
+<!--
+  @description       : External Site Visualforce that will ask for the OTP and Staff ID to look for the matching contact. 
+                       It will allow the User to inform his/her relatives and store them in Linked_Account__c.
+  @author            : ismael.ocana
+  @group             : 
+  @last modified on  : 26/10/2021
+                        #CH02 : Aniss Mbarki NBA-12883 Al Kanz - Introducing Al Kanz for Staff - Changes to Staff Declaration Form
+  @last modified by  : ismael.ocana
+-->
+<apex:page controller="RelativesFormController" docType="html-5.0" showHeader="false" sidebar="false" applyBodyTag="false"
+    applyHtmlTag="false" standardStylesheets="false">
+
+    <!-- Including bootstrap styles -->
+
+    <head>
+        <apex:stylesheet value="http://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <apex:form id="pageForm">
+                <apex:pageBlock rendered="{!renderLogin}">
+                    <nav class="navbar">
+                        <apex:image id="ilaLogoLogin" value="{!$Resource.ila_logo_vf}" width="282" height="200" alt="Ila logo" />
+                    </nav>
+                    <div class="row">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card border-0 shadow rounded-3 my-5">
+                                <div class="card-body p-4 p-sm-5">
+                                    <h5 class="card-title text-center mb-5 fw-light fs-5">{!$Label.FORM_WELCOME_TEXT}</h5>
+                                    <!--<apex:pageMessages />-->
+                                    <apex:messages layout="block" styleClass="alert alert-danger errors" style="list-style-type: none;" />
+                                    <div class="form-floating mb-3">
+                                        <label for="login_otp">{!$Label.OTP_FIELD_LABEL}</label>
+                                        <apex:input styleClass="form-control" id="login_otp" value="{!otpUser}" label="{!$Label.OTP_FIELD_LABEL}" required="true"
+                                            type="text" html-min="1" html-max="999999999999999999"/>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <label for="login_staff">{!$Label.STAFF_ID_FIELD_LABEL}</label>
+                                        <apex:input styleClass="form-control" id="login_staff" value="{!staffIdUser}" label="{!$Label.STAFF_ID_FIELD_LABEL}" required="true"
+                                            type="text" html-maxlength="80"/>
+                                    </div>
+                                    <div class="d-grid">
+                                        <apex:commandButton styleClass="btn btn-primary btn-login btn-block text-uppercase fw-bold" value="{!$Label.ENTER}" action="{!saveLogin}"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </apex:pageBlock>
+            </apex:form>
+
+            <div class="card border-0 shadow rounded-3 my-5">
+                <apex:form >
+                    <apex:pageBlock id="userForm" rendered="{!showForm}">
+                        <div class="wrapper bg-white mt-sm-5" style="padding-left: 1em; padding-right:1em;">
+                           <!-- <nav class="navbar navbar-light blue lighten-4 pb-4 border-bottom">
+                                <apex:image id="ilaLogoForm" value="{!$Resource.ila_logo_vf}" width="282" height="200" alt="Description of image here" />
+                                <h class="navbar-brand card-title text-center">{!$Label.UPDATE_USER_INFO_PLA}</h4>
+                            </nav> -->
+                            
+                            
+                                
+                                            <div >
+                                                <center><apex:image id="ilaLogoForm" value="{!$Resource.ila_logo_vf}" width="282" height="200" alt="Description of image here" /></center>
+                                            </div>
+                                            <div >
+                                               <!-- Staff  -->
+                                               <!--  <label for="employmentType_user">{!$Label.UPDATE_USER_INFO_PLA}</label> -->
+                                                <p>
+                                                
+                                                  <!-- <em style="font-family: Helvetica;color:#000000;font-size:15px;"><u>Terms and conditions:</u></em> -->
+                                                  <!--<div style="font-family: Helvetica;color:#696969;font-size:13px;"> -->
+                                                  <ul class="list" style="font-family: Helvetica;color:#696969;font-size:13px;">
+                                                   <b style="font-size:16px;">Capture of Immediate Relatives Information</b><br></br><br></br>
+                                                   In accordance with our policies and procedures, staff members and their immediate relatives are not eligible to participate in any customer draws. Staff However can participate and can allow family members to participate in Staff related Draws (Al Kanz Prizes). Staff members must ensure that their immediate relatives' information is up to date. Please provide the details of your immediate relatives in the form below.
+                                                   </ul>
+                                                 <!-- </div> -->
+                                                <ul class="list" style="font-family: Helvetica;color:#696969;font-size:13px;margin-left: 30px">
+                                                   <li><b>Immediate Relatives</b> shall be defined as:</li>
+                                                   <apex:outputPanel rendered="{!userContact.Region_Flag__c == 'Bahrain'}">
+                                                        <ul class="list" style="font-family: Helvetica;color:#696969;font-size:13px;">
+                                                            <li>Spouse</li>
+                                                            <li>Daughter</li>
+                                                            <li>Son</li>
+                                                            <li>Granddaughter</li>
+                                                            <li>Grandson</li>
+                                                            <li>Parents</li>
+                                                        </ul> 
+                                                   </apex:outputPanel>
+                                                   <apex:outputPanel rendered="{!userContact.Region_Flag__c == 'Jordan'}">
+                                                        <ul class="list" style="font-family: Helvetica;color:#696969;font-size:13px;">
+                                                            <li>Father</li>
+                                                            <li>Mother</li>
+                                                            <li>Son</li>
+                                                            <li>Daughter</li>
+                                                            <li>Wife</li>
+                                                            <li>Husband</li>
+                                                        </ul> 
+                                                   </apex:outputPanel>
+                                                   
+                                                   <li>If your Immediate Relative already maintains an account with ila Bank, please provide the same Mobile Number and ID number used for opening ila Bank account.</li>
+                                                   <li>Please inform your immediate relatives that you have shared their information with ila Bank for the purpose of including or excluding them in Staff Draws. Their personal data will be managed as per the Bank's privacy policy. Immediate Relatives who are below 18 years old shall not be added to the list. However, you are required to update the list when an Immediate Relative becomes 18 years old.</li>
+                                                   <li>You can access this page to amend any entry you have made or to add a new relative or to delete any entry.</li>
+                                                </ul>
+                                                <ul class="list" style="font-family: Helvetica;color:#696969;font-size:13px;">
+                                                <b style="font-size:14px;">Your Staff Details:</b>
+                                                </ul>
+                                                </p>
+                                            </div>
+                                
+                            <div class="py-2">
+                                <div class="row py-2">
+                                    <div class="col-md-6">
+                                        <!-- Staff and contractor -->
+                                        <label for="otp_user">{!$Label.OTP_FIELD_LABEL}</label>
+                                        <apex:input id="otp_user" value="{!otpSelected}" styleClass="form-control"
+                                            disabled="true" />
+                                    </div>
+                                    <div class="col-md-6 pt-md-0 pt-3">
+                                        <!-- Staff and contractor -->
+                                        <label for="staff_user">{!$Label.STAFF_ID_FIELD_LABEL}</label>
+                                        <apex:inputField value="{!userContact.Staff_ID__c}" id="staff_user" ignoreEditPermissionForRendering="true" styleClass="form-control"
+                                            html-disabled="true" />
+                                    </div>
+                                </div>
+                                <apex:outputPanel rendered="{!isStaff}">
+                                    <div class="row py-2">
+                                        <div class="col-md-6">
+                                            <!-- Staff  -->
+                                            <label for="first_user">{!$Label.FIRST_NAME}</label>
+                                            <apex:inputField html-disabled="true" value="{!userContact.FirstName}" id="first_user" ignoreEditPermissionForRendering="true" styleClass="form-control"
+                                            />
+                                        </div>
+                                        <div class="col-md-6 pt-md-0 pt-3">
+                                            <!-- Staff  -->
+                                            <label for="last_user">{!$Label.LAST_NAME}</label>
+                                            <apex:inputField html-disabled="true" value="{!userContact.LastName}" id="last_user" ignoreEditPermissionForRendering="true" styleClass="form-control"
+                                            />
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!isStaff}">
+                                    <div class="row py-2">
+                                        <div class="col-md-6">
+                                            <!-- Staff  -->
+                                            <apex:outputPanel rendered="{!userContact.Region_Flag__c == 'Bahrain'}">
+                                                <label for="id_number_user">{!$Label.ID_NUMBER}</label>
+                                                <apex:inputField html-disabled="true" value="{!userContact.ID_Number__c}" id="id_number_user" ignoreEditPermissionForRendering="true" styleClass="form-control"
+                                                />
+                                            </apex:outputPanel>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Staff  -->
+                                            <label for="employmentType_user">{!$Label.EMPLOYMENT_TYPE}</label>
+                                            <apex:input styleClass="form-control" disabled="true" value="{!employmentType}" id="emp_type_user"></apex:input>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>
+                                <div class="row py-2">
+                                    <div class="col-md-6 pt-md-0 pt-3" id="lang">
+                                       <!-- <label for="marital_user">{!$Label.MARITAL_STATUS}</label>
+                                        <apex:inputField html-disabled="true" value="{!userContact.Marital_Status__c}" id="marital_user" ignoreEditPermissionForRendering="true" styleClass="form-control"
+                                        />-->
+                                    </div>
+                                    <div class="col-md-6 pt-md-0 pt-3" id="lang">
+                                        <!--<label for="join_user">{!$Label.DATE_OF_JOINING}</label>
+                                        <apex:input disabled="true" id="join_user" styleClass="form-control" type="date" value="{!joinDate}"></apex:input> -->
+                                    </div> 
+                                </div>
+                                <apex:outputPanel rendered="{!isContractor}">
+                                    <div class="row py-2">
+                                        <div class="col-md-6">
+                                            <label for="exit_user">{!$Label.DATE_OF_EXIT}</label>
+                                            <apex:input disabled="true" id="exit_user" styleClass="form-control" type="date" value="{!exitDate}"></apex:input>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>
+                                <div class="py-3 pb-4 border-bottom">
+                                    <apex:messages layout="block" styleClass="alert alert-danger errors" style="list-style-type: none;" />
+                                    <apex:outputPanel rendered="{!showSuccessUser}">
+                                        <div class="alert alert-success">
+                                            {!successMessageUser}
+                                        </div>
+                                    </apex:outputPanel>
+                                    <div class="alert alert-info" role="alert">
+                                        <ul class="ulBotton">
+                                            <li>{!$Label.INFO_HR}</li>
+                                            <li>{!$Label.SAVED_MESSAGE_INFO}</li>
+                                        </ul>
+                                    </div>
+                                    <!--CH01 Start - swapna -->
+                                    <div class="row py-2">
+                                    <div class="col-md-12">
+                                        <!-- Staff  -->
+                                        <apex:outputpanel id="counter">
+                                            <apex:actionSupport event="onclick" rerender="button,msg">
+                                                <apex:inputCheckbox value="{!immediateRelative}" id="id_Immediate_Relative" />  
+                                                &nbsp; <label for="id_Immediate_Relative_Label">{!$Label.Immediate_Relative + ' ' + userContact.Region_Flag__c + '.'}  </label>
+                                            </apex:actionSupport>
+                                        </apex:outputpanel>
+                                       
+                                    </div>
+                                </div>
+                                    <!--CH01 End-->
+                                </div>
+                            </div>
+                    <!-- CH01 Start Swapna -->
+                    <apex:outputPanel id="button">
+                             <div align="center" class="padding">
+                                  <apex:commandButton value="Submit" styleClass="btn btn-primary btn-login fw-bold" style="margin-bottom: 25px"  rendered="{!immediateRelative}" action="{!saveContact}"/>
+                                      </div>  </apex:outputPanel>
+                    <!-- CH01 End -->
+                    
+                        </div>
+                    </apex:pageBlock>
+                </apex:form>
+        
+                <apex:outputPanel id="msg" > <!-- CH01  Swapna -->
+                <apex:form rendered="{!!immediateRelative}"> <!-- CH01  Swapna -->
+                    <apex:pageBlock rendered="{!isStaff}">
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row container d-flex justify-content-center">
+                                    <div class="col-lg-12 grid-margin stretch-card">
+                                        <div class="">
+                                            <div class="">
+                                                <h4 class="card-title text-center">{!$Label.FORM_USER_TEXT}</h4>
+                                                <div class="text-center">
+                                                    <apex:outputPanel id="addRowSection">
+                                                        <span class="px-1">
+                                                            <apex:commandButton id="rowButtonAdd" styleClass="btn btn-info btn-login fw-bold" value="{!$Label.ADD_ROW_PLA}" action="{!addRow}"
+                                                                reRender="relativeForm" status="pageStatus">
+                                                            </apex:commandButton>
+                                                        </span>
+                                                        <span class="px-1">
+                                                            <apex:commandButton id="rowButtonSave" status="pageStatus" styleClass="btn btn-primary btn-login fw-bold" value="{!$Label.SAVE_ROWS_PLA}"
+                                                                action="{!saveRowAction}" reRender="relativeForm">
+                                                            </apex:commandButton>
+                                                        </span>
+                                                        <apex:actionStatus id="pageStatus">
+                                                            <apex:facet name="start">
+                                                                <apex:outputPanel >
+                                                                    <div id="backdropSpinner">
+                                                                        <div class="text-center text-centerSpinner loading">
+                                                                            <div class="spinner-border" role="status">
+                                                                                <span class="sr-only">Loading...</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </apex:outputPanel>
+                                                            </apex:facet>
+                                                        </apex:actionStatus>
+                                                    </apex:outputPanel>
+                                                </div>
+                                                <hr/>
+                                                <div class="table-responsive">
+                                                    <apex:outputPanel id="relativeForm">
+                                                        <apex:outputPanel rendered="{!showSuccess}">
+                                                            <div class="alert alert-success">
+                                                                {!successMessage}
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                        <apex:outputPanel rendered="{!showErrorForm}">
+                                                            <div class="alert alert-danger errors">
+                                                                {!errorMessageForm}
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                        <apex:outputPanel rendered="{!regionFlag != 'Jordan'}">
+                                                            <table id="faqs" class="table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>{!$Label.RELATIONSHIP_LABEL}</th>
+                                                                        <!-- <th>{!$Label.ID_NUMBER}</th> -->
+                                                                        <th>First Name</th>
+                                                                        <th>Last Name</th>
+                                                                        <th>CPR Number<span style="color: red;">*</span></th>
+                                                                        <th>Mobile Country Code</th>
+                                                                        <th>Mobile</th>
+                                                                        <!-- CH02  Start -->
+                                                                        <th>Customer Kanz</th>
+                                                                        <th>Staff and Relatives Kanz</th>
+                                                                        <!-- CH02  End -->
+                                                                        <th>{!$Label.ACTION_LABEL}</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <apex:repeat value="{!linkAccList}" var="linkAcc">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <apex:selectList required="true" value="{!linkAcc.relationship}" size="1" multiselect="false" styleClass="form-control" id="rel_table333">
+                                                                                    <apex:selectOptions value="{!items}"/>
+                                                                                </apex:selectList>
+                                                                            </td>
+                                                                            <!-- <td> 
+                                                                                <apex:input required="true" value="{!linkAcc.idNumber}" html-maxlength="20" id="id_number_table" styleClass="form-control" />
+                                                                            </td> -->
+    
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.First_Name__c}" id="rel_table15" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.Last_Name__c}" id="rel_table51" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+
+                                                                            <td>
+                                                                                <apex:inputField value="{!linkAcc.la.ID_Number__c}" id="rel_table3" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <apex:inputField value="{!linkAcc.la.Mobile_Country_Code__c}" id="rel_table1" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <apex:inputField value="{!linkAcc.la.Mobile__c}" id="rel_table2" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            
+                                                                            <!-- CH02  Start -->
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.CustomerKanz__c}" id="rel_table511" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" html-disabled="true" />
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.StaffRelativesKanz__c}" id="rel_table512" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <!-- CH02  End -->
+    
+                                                                            <td>
+                                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                                    <button class="btn btn-danger btn-block" name="optionsDelete" id="delete_button" onclick="deleteRowActionJS('{!linkAcc.id}');"
+                                                                                        value="Action" type="button">{!$Label.DELETE}</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </apex:repeat>
+                                                                </tbody>
+                                                            </table>
+                                                        </apex:outputPanel>
+                                                        <apex:outputPanel rendered="{!regionFlag == 'Jordan'}">
+                                                            <table id="faqs" class="table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>{!$Label.RELATIONSHIP_LABEL}</th>
+                                                                        <!-- <th>{!$Label.ID_NUMBER}</th> -->
+                                                                        <th>First Name</th>
+                                                                        <th>Last Name</th>
+                                                                        <th>Mobile Country Code</th>
+                                                                        <th>Mobile</th>
+                                                                        <th>ID Number</th>
+                                                                        <th>{!$Label.ACTION_LABEL}</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <apex:repeat value="{!linkAccList}" var="linkAcc">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <apex:selectList required="true" value="{!linkAcc.relationship}" size="1" multiselect="false" styleClass="form-control" id="rel_table333">
+                                                                                    <apex:selectOptions value="{!items}"/>
+                                                                                </apex:selectList>
+                                                                            </td>
+                                                                            <!-- <td> 
+                                                                                <apex:input required="true" value="{!linkAcc.idNumber}" html-maxlength="20" id="id_number_table" styleClass="form-control" />
+                                                                            </td> -->
+    
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.First_Name__c}" id="rel_table15" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.Last_Name__c}" id="rel_table51" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+    
+                                                                            <td>
+                                                                                <apex:inputField required="true" value="{!linkAcc.la.Mobile_Country_Code__c}" id="rel_table1" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <apex:inputField value="{!linkAcc.la.Mobile__c}" id="rel_table2" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <apex:inputField value="{!linkAcc.la.ID_Number__c}" id="rel_table3" ignoreEditPermissionForRendering="true"
+                                                                                                 styleClass="form-control" />
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                                    <button class="btn btn-danger btn-block" name="optionsDelete" id="delete_button" onclick="deleteRowActionJS('{!linkAcc.id}');"
+                                                                                        value="Action" type="button">{!$Label.DELETE}</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </apex:repeat>
+                                                                </tbody>
+                                                            </table>
+                                                        </apex:outputPanel>
+                                                        <apex:actionFunction action="{!deleteRowAction}" name="deleteRowActionFunction" immediate="true" rerender="relativeForm"
+                                                            status="pageStatus" id="actionFunctionDelete">
+                                                            <apex:param name="selectedWrapperVF" value=""></apex:param>
+                                                        </apex:actionFunction>
+                                                    </apex:outputPanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:pageBlock>
+                </apex:form>
+        </apex:outputPanel>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        function deleteRowActionJS(element) {
+            deleteRowActionFunction(element);
+            return false;
+        }
+    </script>
+
+    <style>
+        .text-centerSppiner {
+            width: 100%;
+            position: relative;
+            height: 100%;
+        }
+
+        .spinner-border {
+            display: block;
+            position: fixed;
+            top: calc(50% - (58px / 2));
+            right: calc(50% - (58px / 2));
+            color: red;
+        }
+
+        #backdropSpinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 999;
+            background-color: rgb(0, 0, 0, 0.2);
+        }
+        .ulBotton{
+            margin-bottom: 0 !important;
+        }
+    </style>
+
+</apex:page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Mapping_View</fullName>
+    <columns>DeveloperName</columns>
+    <columns>MasterLabel</columns>
+    <columns>Customer_Segment__c</columns>
+    <columns>Sub_Type__c</columns>
+    <columns>Card_Nature__c</columns>
+    <columns>Configuration_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Product Mapping View</label>
+</ListView>

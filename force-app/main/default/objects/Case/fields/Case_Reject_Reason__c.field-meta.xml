@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Reject_Reason__c</fullName>
+    <description>This field is used to update the reject reason</description>
+    <label>Case Reject Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closure_Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>InternalPolicy1</fullName>
+                <default>false</default>
+                <label>Internal Policy 1</label>
+            </value>
+            <value>
+                <fullName>Internal Policy 2</fullName>
+                <default>false</default>
+                <label>Internal Policy 2</label>
+            </value>
+            <value>
+                <fullName>Internal Policy 3</fullName>
+                <default>false</default>
+                <label>Internal Policy 3</label>
+            </value>
+            <value>
+                <fullName>Failed to provide Documents on time</fullName>
+                <default>false</default>
+                <label>Failed to provide Documents on time</label>
+            </value>
+            <value>
+                <fullName>ID Mismatch</fullName>
+                <default>false</default>
+                <label>ID Mismatch</label>
+            </value>
+            <value>
+                <fullName>Non Arabic/English speaker</fullName>
+                <default>false</default>
+                <label>Non Arabic/English speaker</label>
+            </value>
+            <value>
+                <fullName>Rejected by management</fullName>
+                <default>false</default>
+                <label>Rejected by management</label>
+            </value>
+            <value>
+                <fullName>Liquidity</fullName>
+                <default>false</default>
+                <label>Liquidity</label>
+            </value>
+            <value>
+                <fullName>Loan</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+            <value>
+                <fullName>Additional benefits</fullName>
+                <default>false</default>
+                <label>Additional benefits</label>
+            </value>
+            <value>
+                <fullName>Leaving the country</fullName>
+                <default>false</default>
+                <label>Leaving the country</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Do not see value in ila Premium</fullName>
+                <default>false</default>
+                <label>Do not see value in ila Premium</label>
+            </value>
+            <value>
+                <fullName>Stopped using ila</fullName>
+                <default>false</default>
+                <label>Stopped using ila</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Didn’t disclose</fullName>
+                <default>false</default>
+                <label>Didn’t disclose</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Closed Rejected</controllingFieldValue>
+            <valueName>InternalPolicy1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Rejected</controllingFieldValue>
+            <valueName>Internal Policy 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Rejected</controllingFieldValue>
+            <valueName>Internal Policy 3</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Rejected</controllingFieldValue>
+            <valueName>Failed to provide Documents on time</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

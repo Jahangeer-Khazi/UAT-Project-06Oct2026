@@ -1,0 +1,86 @@
+:host {
+    display: block;
+}
+
+.slds-card {
+    border: 1px solid #dddbda;
+    border-radius: .25rem;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.slds-section__title {
+    padding: 0.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #dddbda;
+}
+
+.slds-section__title-action {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.slds-section__title-action:hover {
+    text-decoration: none;
+}
+
+/* Edit Icon - Always Visible & Subtle */
+.edit-button-visible {
+    visibility: visible !important;
+    opacity: 0.5 !important;
+    margin-left: 0.5rem;
+    transition: opacity 0.2s ease;
+}
+
+.edit-button-visible:hover {
+    opacity: 1 !important;
+}
+
+.custom-control {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
+.slds-form-element__static {
+    padding: 0;
+    min-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* Component-Level Footer */
+.footer-container {
+    padding: 1rem;
+    border-top: 1px solid #dddbda;
+    background: #f9f9f9;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: -1rem;
+    border-radius: 0 0 .25rem .25rem;
+}
+
+.slds-section__content {
+    padding: 0.75rem 0;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

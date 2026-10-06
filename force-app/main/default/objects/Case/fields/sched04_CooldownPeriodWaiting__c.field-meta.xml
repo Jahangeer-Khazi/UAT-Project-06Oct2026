@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sched04_CooldownPeriodWaiting__c</fullName>
+    <formula>IF(true,null,
+
+IF(
+				AND
+				(
+								IsCreditCard__c = True,
+								cc_Waiting_for_Cooldown_Period__c = True
+				),
+				cc_Cool_Down_Period_For_Account_Closing__c,
+				null
+) 
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>sched04_CooldownPeriodWaiting</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

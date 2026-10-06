@@ -1,0 +1,32 @@
+h1 {
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.footer-buttons {
+    padding: 1rem;
+    background-color: #f4f6f9;
+    border-top: 1px solid #d8dde6;
+}
+
+.card-border {
+    border-top: 1px solid #C9C9C9; /* Line above footer */
+}
+
+.slds-modal__content {
+    width: 70%;
+    max-width: fit-content !important;
+    min-width: 480px;
+}
+
+/* Additional styling for transaction rows */
+.transaction-row {
+    align-items: center;
+}
+
+.delete-button {
+    margin-top: 1.5rem;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Approval_Appr_Signa</fullName>
+    <active>true</active>
+    <description>Signature Verifier Team Cannot Change the result until Credit Approver Approves.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Signature_Verifier_Result__c),
+NOT(ISPICKVAL(cc_Credit_Approval_Result__c, &apos;Approve&apos;)),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+AND(ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;),
+RecordType.DeveloperName = &apos;Credit_Card&apos;
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Signature_Verifier_Result__c</errorDisplayField>
+    <errorMessage>Signature Verifier cannot change the result until Credit Approval Approves.</errorMessage>
+</ValidationRule>

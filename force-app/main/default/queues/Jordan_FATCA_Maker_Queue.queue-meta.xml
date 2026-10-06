@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>false</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Jordan FATCA Maker Queue</name>
+    <queueMembers>
+        <users>
+            <user>contactcenterjo@bank-abc.com.uax</user>
+            <user>omar.aito-gram@ilabank.com</user>
+            <user>praveen.rathinam.operations@ilabank.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Case Nature --></label>
+    <name>Case_Nature__c</name>
+    <picklistValues>
+        <masterLabel>AFAQ</masterLabel>
+        <translation><!-- AFAQ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>APP/Technical issue</masterLabel>
+        <translation><!-- APP/Technical issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ATM</masterLabel>
+        <translation><!-- ATM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account Maintenance</masterLabel>
+        <translation><!-- Account Maintenance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AlKanz</masterLabel>
+        <translation><!-- AlKanz --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Alburaq</masterLabel>
+        <translation><!-- Alburaq --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Apple Pay</masterLabel>
+        <translation><!-- Apple Pay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BUNA</masterLabel>
+        <translation><!-- BUNA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Block</masterLabel>
+        <translation><!-- Block --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bond/Sukuk</masterLabel>
+        <translation><!-- Bond/Sukuk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cheque</masterLabel>
+        <translation><!-- Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card</masterLabel>
+        <translation><!-- Credit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card - Collection Case</masterLabel>
+        <translation><!-- Credit Card - Collection Case --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Verification</masterLabel>
+        <translation><!-- Customer Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DND</masterLabel>
+        <translation><!-- DND --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Card</masterLabel>
+        <translation><!-- Debit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dispute</masterLabel>
+        <translation><!-- Dispute --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EFT`s</masterLabel>
+        <translation><!-- EFT`s --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EXIT</masterLabel>
+        <translation><!-- EXIT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FATCA</masterLabel>
+        <translation><!-- FATCA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FCR</masterLabel>
+        <translation><!-- FCR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Feedback</masterLabel>
+        <translation><!-- Feedback --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Depoit</masterLabel>
+        <translation><!-- Fixed Depoit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fraud</masterLabel>
+        <translation><!-- Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hassala</masterLabel>
+        <translation><!-- Hassala --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jamiyah</masterLabel>
+        <translation><!-- Jamiyah --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Marketing</masterLabel>
+        <translation><!-- Marketing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Official letter</masterLabel>
+        <translation><!-- Official letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>On-Boarding</masterLabel>
+        <translation><!-- On-Boarding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PLA</masterLabel>
+        <translation><!-- PLA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Password</masterLabel>
+        <translation><!-- Password --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Personal Info Update</masterLabel>
+        <translation><!-- Personal Info Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium</masterLabel>
+        <translation><!-- Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prize out</masterLabel>
+        <translation><!-- Prize out --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Proactive Approach</masterLabel>
+        <translation><!-- Proactive Approach --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QA_Activity</masterLabel>
+        <translation><!-- QA_Activity --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RC</masterLabel>
+        <translation><!-- RC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RFI</masterLabel>
+        <translation><!-- RFI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Roadshow</masterLabel>
+        <translation><!-- Roadshow --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SWIFT</masterLabel>
+        <translation><!-- SWIFT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales</masterLabel>
+        <translation><!-- Sales --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Term Deposit</masterLabel>
+        <translation><!-- Term Deposit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transaction Related</masterLabel>
+        <translation><!-- Transaction Related --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Walkin</masterLabel>
+        <translation><!-- Walkin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>X-Pays</masterLabel>
+        <translation><!-- X-Pays --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>overdraft</masterLabel>
+        <translation><!-- overdraft --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

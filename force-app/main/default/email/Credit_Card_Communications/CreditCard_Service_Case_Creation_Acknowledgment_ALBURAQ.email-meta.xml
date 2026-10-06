@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email will be sent to Customer on the Credit Card Application case creation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CreditCard Service Case Creation Acknowledgment ALBURAQ</name>
+    <style>none</style>
+    <subject>Credit Card Request Received</subject>
+    <textOnly>Changes to Credit Card Settings Request Received
+
+
+Hi,
+
+Your Credit Card Setting request regarding the {!Case.Sub_Type__c} has been received and is under review.
+
+Request ID {!Case.CaseNumber} has been assigned for this request.
+
+You can contact the contact center on +973 17123456 to check the status of your request using the Request ID number above.
+
+
+
+
+Click here
+
+Follow us on social media
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

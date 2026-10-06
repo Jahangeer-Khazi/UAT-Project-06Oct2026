@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<div style="margin-left:100px;margin-top:20px;width:500px;">
+        	<p style="color:green;font-size:20px;">No Documents required from Customer</p>
+        </div>
+</aura:component>

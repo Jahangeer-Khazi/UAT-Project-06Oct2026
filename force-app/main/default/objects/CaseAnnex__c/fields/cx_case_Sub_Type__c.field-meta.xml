@@ -1,0 +1,1841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cx_case_Sub_Type__c</fullName>
+    <label>Case Sub Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account Block</fullName>
+                <default>false</default>
+                <label>Account Block</label>
+            </value>
+            <value>
+                <fullName>Account Block/Unblock</fullName>
+                <default>false</default>
+                <label>Account Block/Unblock</label>
+            </value>
+            <value>
+                <fullName>Account Closure</fullName>
+                <default>false</default>
+                <label>Account Closure</label>
+            </value>
+            <value>
+                <fullName>Account Unblock</fullName>
+                <default>false</default>
+                <label>Account Unblock</label>
+            </value>
+            <value>
+                <fullName>Adhoc Accounting Entries</fullName>
+                <default>false</default>
+                <label>Adhoc Accounting Entries</label>
+            </value>
+            <value>
+                <fullName>Adhoc Accounting Entries/BUSINESS</fullName>
+                <default>false</default>
+                <label>Adhoc Accounting Entries/BUSINESS</label>
+            </value>
+            <value>
+                <fullName>Adhoc Accounting Entries/CC</fullName>
+                <default>false</default>
+                <label>Adhoc Accounting Entries/CC</label>
+            </value>
+            <value>
+                <fullName>Android</fullName>
+                <default>false</default>
+                <label>Android</label>
+            </value>
+            <value>
+                <fullName>App Failure</fullName>
+                <default>false</default>
+                <label>App Failure</label>
+            </value>
+            <value>
+                <fullName>Application Reset</fullName>
+                <default>false</default>
+                <label>Application Reset</label>
+            </value>
+            <value>
+                <fullName>Compliance Query</fullName>
+                <default>false</default>
+                <label>Compliance Query</label>
+            </value>
+            <value>
+                <fullName>Customer Cheque Status Queries</fullName>
+                <default>false</default>
+                <label>Customer Cheque Status Queries</label>
+            </value>
+            <value>
+                <fullName>Customer Trans &amp; Pmt Disputes</fullName>
+                <default>false</default>
+                <label>Customer Trans &amp; Pmt Disputes</label>
+            </value>
+            <value>
+                <fullName>Customer Transaction &amp; Payment Disputes- Benefit</fullName>
+                <default>false</default>
+                <label>Customer Transaction &amp; Payment Disputes- Benefit</label>
+            </value>
+            <value>
+                <fullName>Customer Transaction and Payment Disputes- Mastercard</fullName>
+                <default>false</default>
+                <label>Customer Transaction and Payment Disputes- Mastercard</label>
+            </value>
+            <value>
+                <fullName>Cyber Security Threat</fullName>
+                <default>false</default>
+                <label>Cyber Security Threat</label>
+            </value>
+            <value>
+                <fullName>Damaged Card</fullName>
+                <default>false</default>
+                <label>Damaged Card</label>
+            </value>
+            <value>
+                <fullName>DB Archiving</fullName>
+                <default>false</default>
+                <label>DB Archiving</label>
+            </value>
+            <value>
+                <fullName>Documents completion</fullName>
+                <default>false</default>
+                <label>Documents completion</label>
+            </value>
+            <value>
+                <fullName>Domestic</fullName>
+                <default>false</default>
+                <label>Domestic</label>
+            </value>
+            <value>
+                <fullName>Dormant Account Reactivation</fullName>
+                <default>false</default>
+                <label>Dormant Account Reactivation</label>
+            </value>
+            <value>
+                <fullName>Downtime</fullName>
+                <default>false</default>
+                <label>Downtime</label>
+            </value>
+            <value>
+                <fullName>Freeze/Unfreeze Card</fullName>
+                <default>false</default>
+                <label>Freeze/Unfreeze Card</label>
+            </value>
+            <value>
+                <fullName>FT status</fullName>
+                <default>false</default>
+                <label>FT status</label>
+            </value>
+            <value>
+                <fullName>Incident Management</fullName>
+                <default>false</default>
+                <label>Incident Management</label>
+            </value>
+            <value>
+                <fullName>Internal</fullName>
+                <default>false</default>
+                <label>Internal</label>
+            </value>
+            <value>
+                <fullName>International</fullName>
+                <default>false</default>
+                <label>International</label>
+            </value>
+            <value>
+                <fullName>IOS</fullName>
+                <default>false</default>
+                <label>IOS</label>
+            </value>
+            <value>
+                <fullName>Link/ Delink Card</fullName>
+                <default>false</default>
+                <label>Link/ Delink Card</label>
+            </value>
+            <value>
+                <fullName>Lost/Stolen Card</fullName>
+                <default>false</default>
+                <label>Lost/Stolen Card</label>
+            </value>
+            <value>
+                <fullName>Onboarding related</fullName>
+                <default>false</default>
+                <label>Onboarding related</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Process</fullName>
+                <default>false</default>
+                <label>Process</label>
+            </value>
+            <value>
+                <fullName>Product</fullName>
+                <default>false</default>
+                <label>Product</label>
+            </value>
+            <value>
+                <fullName>Recovery Code</fullName>
+                <default>false</default>
+                <label>Recovery Code</label>
+            </value>
+            <value>
+                <fullName>Report Fraudulent Transactions</fullName>
+                <default>false</default>
+                <label>Report Fraudulent Transactions</label>
+            </value>
+            <value>
+                <fullName>Request Adhoc Statement/Letter</fullName>
+                <default>false</default>
+                <label>Request Adhoc Statement/Letter</label>
+            </value>
+            <value>
+                <fullName>Return Cheque</fullName>
+                <default>false</default>
+                <label>Return Cheque</label>
+            </value>
+            <value>
+                <fullName>Rude Behaviour</fullName>
+                <default>false</default>
+                <label>Rude Behaviour</label>
+            </value>
+            <value>
+                <fullName>Rude Behaviour Contact Centre</fullName>
+                <default>false</default>
+                <label>Rude Behaviour Contact Centre</label>
+            </value>
+            <value>
+                <fullName>Rude Behaviour Service Centre</fullName>
+                <default>false</default>
+                <label>Rude Behaviour Service Centre</label>
+            </value>
+            <value>
+                <fullName>Staff one time referral codes</fullName>
+                <default>false</default>
+                <label>Staff one time referral codes</label>
+            </value>
+            <value>
+                <fullName>Status of Debit Card Delivery</fullName>
+                <default>false</default>
+                <label>Status of Debit Card Delivery</label>
+            </value>
+            <value>
+                <fullName>Stop Cheque</fullName>
+                <default>false</default>
+                <label>Stop Cheque</label>
+            </value>
+            <value>
+                <fullName>Stop Cheque Payment</fullName>
+                <default>false</default>
+                <label>Stop Cheque Payment</label>
+            </value>
+            <value>
+                <fullName>Stop Managerial Cheque</fullName>
+                <default>false</default>
+                <label>Stop Managerial Cheque</label>
+            </value>
+            <value>
+                <fullName>Support Failed Payment Queries</fullName>
+                <default>false</default>
+                <label>Support Failed Payment Queries</label>
+            </value>
+            <value>
+                <fullName>System Outage</fullName>
+                <default>false</default>
+                <label>System Outage</label>
+            </value>
+            <value>
+                <fullName>Telex transfer copy</fullName>
+                <default>false</default>
+                <label>Telex transfer copy</label>
+            </value>
+            <value>
+                <fullName>Upgrade/Downgrade Card</fullName>
+                <default>false</default>
+                <label>Upgrade/Downgrade Card</label>
+            </value>
+            <value>
+                <fullName>Whitelisting</fullName>
+                <default>false</default>
+                <label>Whitelisting</label>
+            </value>
+            <value>
+                <fullName>New Credit Card</fullName>
+                <default>false</default>
+                <label>New Credit Card</label>
+            </value>
+            <value>
+                <fullName>Balance Transfer</fullName>
+                <default>false</default>
+                <label>Balance Transfer</label>
+            </value>
+            <value>
+                <fullName>Card Limits Control</fullName>
+                <default>false</default>
+                <label>Card Limits Control</label>
+            </value>
+            <value>
+                <fullName>Change Credit Limit</fullName>
+                <default>false</default>
+                <label>Change Credit Limit</label>
+            </value>
+            <value>
+                <fullName>Close Credit Card</fullName>
+                <default>false</default>
+                <label>Close Credit Card</label>
+            </value>
+            <value>
+                <fullName>No-due Certificate</fullName>
+                <default>false</default>
+                <label>No-due Certificate</label>
+            </value>
+            <value>
+                <fullName>Pay Card Bill</fullName>
+                <default>false</default>
+                <label>Pay Card Bill</label>
+            </value>
+            <value>
+                <fullName>Reversal/Waiver of Fees and Charges</fullName>
+                <default>false</default>
+                <label>Reversal/Waiver of Fees and Charges</label>
+            </value>
+            <value>
+                <fullName>Setup Payment Options</fullName>
+                <default>false</default>
+                <label>Setup Payment Options</label>
+            </value>
+            <value>
+                <fullName>Statement</fullName>
+                <default>false</default>
+                <label>Statement</label>
+            </value>
+            <value>
+                <fullName>Submit Dispute</fullName>
+                <default>false</default>
+                <label>Submit Dispute</label>
+            </value>
+            <value>
+                <fullName>Freeze / Unfreeze Card</fullName>
+                <default>false</default>
+                <label>Freeze / Unfreeze Card</label>
+            </value>
+            <value>
+                <fullName>Block/ Unblock Card</fullName>
+                <default>false</default>
+                <label>Block/ Unblock Card</label>
+            </value>
+            <value>
+                <fullName>Replace Card</fullName>
+                <default>false</default>
+                <label>Replace Card</label>
+            </value>
+            <value>
+                <fullName>Direct Debit Settings</fullName>
+                <default>false</default>
+                <label>Direct Debit Settings</label>
+            </value>
+            <value>
+                <fullName>Card Control Settings</fullName>
+                <default>false</default>
+                <label>Card Control Settings</label>
+            </value>
+            <value>
+                <fullName>Spending Limit Settings</fullName>
+                <default>false</default>
+                <label>Spending Limit Settings</label>
+            </value>
+            <value>
+                <fullName>Statement Request</fullName>
+                <default>false</default>
+                <label>Statement Request</label>
+            </value>
+            <value>
+                <fullName>Fees Reversal Request</fullName>
+                <default>false</default>
+                <label>Fees Reversal Request</label>
+            </value>
+            <value>
+                <fullName>EPP Early Closure</fullName>
+                <default>false</default>
+                <label>EPP Early Closure</label>
+            </value>
+            <value>
+                <fullName>EPP Technical Error</fullName>
+                <default>false</default>
+                <label>EPP Technical Error</label>
+            </value>
+            <value>
+                <fullName>Dispute</fullName>
+                <default>false</default>
+                <label>Dispute</label>
+            </value>
+            <value>
+                <fullName>Stolen/Sold Device</fullName>
+                <default>false</default>
+                <label>Stolen/Sold Device</label>
+            </value>
+            <value>
+                <fullName>Provisioning</fullName>
+                <default>false</default>
+                <label>Provisioning</label>
+            </value>
+            <value>
+                <fullName>Create Account</fullName>
+                <default>false</default>
+                <label>Create Account</label>
+            </value>
+            <value>
+                <fullName>Credit Limit Increase</fullName>
+                <default>false</default>
+                <label>Credit Limit Increase</label>
+            </value>
+            <value>
+                <fullName>Credit Limit Decrease</fullName>
+                <default>false</default>
+                <label>Credit Limit Decrease</label>
+            </value>
+            <value>
+                <fullName>Customer Transaction &amp; Payment Disputes- Credit Card</fullName>
+                <default>false</default>
+                <label>Customer Transaction &amp; Payment Disputes- Credit Card</label>
+            </value>
+            <value>
+                <fullName>Credit Card Account Closing</fullName>
+                <default>false</default>
+                <label>Credit Card Account Closing</label>
+            </value>
+            <value>
+                <fullName>Card Lien</fullName>
+                <default>false</default>
+                <label>Card Lien</label>
+            </value>
+            <value>
+                <fullName>CBB Amount block</fullName>
+                <default>false</default>
+                <label>CBB Amount block</label>
+            </value>
+            <value>
+                <fullName>CBB Amount unblock</fullName>
+                <default>false</default>
+                <label>CBB Amount unblock</label>
+            </value>
+            <value>
+                <fullName>No due certificate</fullName>
+                <default>false</default>
+                <label>No due certificate</label>
+            </value>
+            <value>
+                <fullName>Change Interest Rate</fullName>
+                <default>false</default>
+                <label>Change Interest Rate</label>
+            </value>
+            <value>
+                <fullName>PLA Staff’s relatives eligibility</fullName>
+                <default>false</default>
+                <label>PLA Staff’s relatives eligibility</label>
+            </value>
+            <value>
+                <fullName>New Supplementary Card</fullName>
+                <default>false</default>
+                <label>New Supplementary Card</label>
+            </value>
+            <value>
+                <fullName>Manual Credit Limit Decrease</fullName>
+                <default>false</default>
+                <label>Manual Credit Limit Decrease</label>
+            </value>
+            <value>
+                <fullName>Manual Credit Limit Increase</fullName>
+                <default>false</default>
+                <label>Manual Credit Limit Increase</label>
+            </value>
+            <value>
+                <fullName>Change Per Day Trans Limit</fullName>
+                <default>false</default>
+                <label>Change Per Day Trans Limit</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>New Cash Collateral</fullName>
+                <default>false</default>
+                <label>New Cash Collateral</label>
+            </value>
+            <value>
+                <fullName>Update PLA Eligibility Status</fullName>
+                <default>false</default>
+                <label>Update PLA Eligibility Status</label>
+            </value>
+            <value>
+                <fullName>TD Deposit Certificate</fullName>
+                <default>false</default>
+                <label>TD Deposit Certificate</label>
+            </value>
+            <value>
+                <fullName>Pending Exit Interview</fullName>
+                <default>false</default>
+                <label>Pending Exit Interview</label>
+            </value>
+            <value>
+                <fullName>Suggested Closing Reasons</fullName>
+                <default>false</default>
+                <label>Suggested Closing Reasons</label>
+            </value>
+            <value>
+                <fullName>Account Closure - API</fullName>
+                <default>false</default>
+                <label>Account Closure - API</label>
+            </value>
+            <value>
+                <fullName>Relationship Termination - By Bank</fullName>
+                <default>false</default>
+                <label>Relationship Termination - By Bank</label>
+            </value>
+            <value>
+                <fullName>Relationship Termination - By Customer</fullName>
+                <default>false</default>
+                <label>Relationship Termination - By Customer</label>
+            </value>
+            <value>
+                <fullName>Retained Without Discount</fullName>
+                <default>false</default>
+                <label>Retained Without Discount</label>
+            </value>
+            <value>
+                <fullName>Downgraded</fullName>
+                <default>false</default>
+                <label>Downgraded</label>
+            </value>
+            <value>
+                <fullName>Pending Customer</fullName>
+                <default>false</default>
+                <label>Pending Customer</label>
+            </value>
+            <value>
+                <fullName>Retained With Discount</fullName>
+                <default>false</default>
+                <label>Retained With Discount</label>
+            </value>
+            <value>
+                <fullName>Declined by Customer</fullName>
+                <default>false</default>
+                <label>Declined by Customer</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Block amount</fullName>
+                <default>false</default>
+                <label>Block amount</label>
+            </value>
+            <value>
+                <fullName>Unblock amount</fullName>
+                <default>false</default>
+                <label>Unblock amount</label>
+            </value>
+            <value>
+                <fullName>Block for debit</fullName>
+                <default>false</default>
+                <label>Block for debit</label>
+            </value>
+            <value>
+                <fullName>Block for credit</fullName>
+                <default>false</default>
+                <label>Block for credit</label>
+            </value>
+            <value>
+                <fullName>Block for both</fullName>
+                <default>false</default>
+                <label>Block for both</label>
+            </value>
+            <value>
+                <fullName>Unblock for debit</fullName>
+                <default>false</default>
+                <label>Unblock for debit</label>
+            </value>
+            <value>
+                <fullName>Unblock for credit</fullName>
+                <default>false</default>
+                <label>Unblock for credit</label>
+            </value>
+            <value>
+                <fullName>Unblock for both</fullName>
+                <default>false</default>
+                <label>Unblock for both</label>
+            </value>
+            <value>
+                <fullName>Mobile update</fullName>
+                <default>false</default>
+                <label>Mobile update</label>
+            </value>
+            <value>
+                <fullName>Email update</fullName>
+                <default>false</default>
+                <label>Email update</label>
+            </value>
+            <value>
+                <fullName>Address update</fullName>
+                <default>false</default>
+                <label>Address update</label>
+            </value>
+            <value>
+                <fullName>Expired ID Update</fullName>
+                <default>false</default>
+                <label>Expired ID Update</label>
+            </value>
+            <value>
+                <fullName>Name Fix / Update</fullName>
+                <default>false</default>
+                <label>Name Fix / Update</label>
+            </value>
+            <value>
+                <fullName>Release Debit Card Transaction</fullName>
+                <default>false</default>
+                <label>Release Debit Card Transaction</label>
+            </value>
+            <value>
+                <fullName>Release International Transfer</fullName>
+                <default>false</default>
+                <label>Release International Transfer</label>
+            </value>
+            <value>
+                <fullName>Release Fawri Transfer</fullName>
+                <default>false</default>
+                <label>Release Fawri Transfer</label>
+            </value>
+            <value>
+                <fullName>Additional Information</fullName>
+                <default>false</default>
+                <label>Additional Information</label>
+            </value>
+            <value>
+                <fullName>Account Interest Rate Update</fullName>
+                <default>false</default>
+                <label>Account Interest Rate Update</label>
+            </value>
+            <value>
+                <fullName>Account Interest Rate Re-instate</fullName>
+                <default>false</default>
+                <label>Account Interest Rate Re-instate</label>
+            </value>
+            <value>
+                <fullName>Technical Resolution</fullName>
+                <default>false</default>
+                <label>Technical Resolution</label>
+            </value>
+            <value>
+                <fullName>Periodic Review - Scheduled Review Date</fullName>
+                <default>false</default>
+                <label>Periodic Review - Scheduled Review Date</label>
+            </value>
+            <value>
+                <fullName>Periodic Review - By Bank</fullName>
+                <default>false</default>
+                <label>Periodic Review - By Bank</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit</fullName>
+                <default>false</default>
+                <label>Fixed Deposit</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Terminate ila model</fullName>
+                <default>false</default>
+                <label>Terminate ila model</label>
+            </value>
+            <value>
+                <fullName>Terminate alburaq model</fullName>
+                <default>false</default>
+                <label>Terminate alburaq model</label>
+            </value>
+            <value>
+                <fullName>Customer Request</fullName>
+                <default>false</default>
+                <label>Customer Request</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Fraud</fullName>
+                <default>false</default>
+                <label>Bank Request - Fraud</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Compliance</fullName>
+                <default>false</default>
+                <label>Bank Request - Compliance</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Credit Card Collection</fullName>
+                <default>false</default>
+                <label>Bank Request - Credit Card Collection</label>
+            </value>
+            <value>
+                <fullName>Bank Request - Other</fullName>
+                <default>false</default>
+                <label>Bank Request - Other</label>
+            </value>
+            <value>
+                <fullName>KYC</fullName>
+                <default>false</default>
+                <label>KYC</label>
+            </value>
+            <value>
+                <fullName>AML</fullName>
+                <default>false</default>
+                <label>AML</label>
+            </value>
+            <value>
+                <fullName>SAFEWATCH</fullName>
+                <default>false</default>
+                <label>SAFEWATCH</label>
+            </value>
+            <value>
+                <fullName>Temp. Credit</fullName>
+                <default>false</default>
+                <label>Temp. Credit</label>
+            </value>
+            <value>
+                <fullName>Hold Release</fullName>
+                <default>false</default>
+                <label>Hold Release</label>
+            </value>
+            <value>
+                <fullName>Overdraft</fullName>
+                <default>false</default>
+                <label>Overdraft</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>New Prepaid Application</fullName>
+                <default>false</default>
+                <label>New Prepaid Application</label>
+            </value>
+            <value>
+                <fullName>Reactivate Dormant Relationship</fullName>
+                <default>false</default>
+                <label>Reactivate Dormant Relationship</label>
+            </value>
+            <value>
+                <fullName>Post Transaction on Dormant Account</fullName>
+                <default>false</default>
+                <label>Post Transaction on Dormant Account</label>
+            </value>
+            <value>
+                <fullName>Revoke Consent</fullName>
+                <default>false</default>
+                <label>Revoke Consent</label>
+            </value>
+            <value>
+                <fullName>Cash Collateral Credit Limit Increase</fullName>
+                <default>false</default>
+                <label>Cash Collateral Credit Limit Increase</label>
+            </value>
+            <value>
+                <fullName>Type 1</fullName>
+                <default>false</default>
+                <label>Type 1</label>
+            </value>
+            <value>
+                <fullName>Type 2</fullName>
+                <default>false</default>
+                <label>Type 2</label>
+            </value>
+            <value>
+                <fullName>Type 3</fullName>
+                <default>false</default>
+                <label>Type 3</label>
+            </value>
+            <value>
+                <fullName>Type 4</fullName>
+                <default>false</default>
+                <label>Type 4</label>
+            </value>
+            <value>
+                <fullName>Type 5</fullName>
+                <default>false</default>
+                <label>Type 5</label>
+            </value>
+            <value>
+                <fullName>Manual Review</fullName>
+                <default>false</default>
+                <label>Manual Review</label>
+            </value>
+            <value>
+                <fullName>Requested By Bank</fullName>
+                <default>false</default>
+                <label>Requested By Bank</label>
+            </value>
+            <value>
+                <fullName>Requested By Customer</fullName>
+                <default>false</default>
+                <label>Requested By Customer</label>
+            </value>
+            <value>
+                <fullName>Switching between programs</fullName>
+                <default>false</default>
+                <label>Switching between programs</label>
+            </value>
+            <value>
+                <fullName>Enrollment</fullName>
+                <default>false</default>
+                <label>Enrollment</label>
+            </value>
+            <value>
+                <fullName>Domestic - PSP</fullName>
+                <default>false</default>
+                <label>Domestic - PSP</label>
+            </value>
+            <value>
+                <fullName>FT Status - PSP</fullName>
+                <default>false</default>
+                <label>FT Status - PSP</label>
+            </value>
+            <value>
+                <fullName>Guardian Info</fullName>
+                <default>false</default>
+                <label>Guardian Info</label>
+            </value>
+            <value>
+                <fullName>Siron KYC</fullName>
+                <default>false</default>
+                <label>Siron KYC</label>
+            </value>
+            <value>
+                <fullName>Alburaq Segment Change</fullName>
+                <default>false</default>
+                <label>Alburaq Segment Change</label>
+            </value>
+            <value>
+                <fullName>World Invitation</fullName>
+                <default>false</default>
+                <label>World Invitation</label>
+            </value>
+            <value>
+                <fullName>World Elite Invitation</fullName>
+                <default>false</default>
+                <label>World Elite Invitation</label>
+            </value>
+            <value>
+                <fullName>Apply Restriction</fullName>
+                <default>false</default>
+                <label>Apply Restriction</label>
+            </value>
+            <value>
+                <fullName>Remove Restriction</fullName>
+                <default>false</default>
+                <label>Remove Restriction</label>
+            </value>
+            <value>
+                <fullName>Prospect Archive - Automatically</fullName>
+                <default>false</default>
+                <label>Prospect Archive - Automatically</label>
+            </value>
+            <value>
+                <fullName>Prospect Archive - Manually</fullName>
+                <default>false</default>
+                <label>Prospect Archive - Manually</label>
+            </value>
+            <value>
+                <fullName>Add to DND List</fullName>
+                <default>false</default>
+                <label>Add to DND List</label>
+            </value>
+            <value>
+                <fullName>Remove from DND List</fullName>
+                <default>false</default>
+                <label>Remove from DND List</label>
+            </value>
+            <value>
+                <fullName>Manual Onboarding</fullName>
+                <default>false</default>
+                <label>Manual Onboarding</label>
+            </value>
+            <value>
+                <fullName>Apply Flag</fullName>
+                <default>false</default>
+                <label>Apply Flag</label>
+            </value>
+            <value>
+                <fullName>Remove Flag</fullName>
+                <default>false</default>
+                <label>Remove Flag</label>
+            </value>
+            <value>
+                <fullName>Roadshow</fullName>
+                <default>false</default>
+                <label>Roadshow</label>
+            </value>
+            <value>
+                <fullName>New Investment Questionnaire</fullName>
+                <default>false</default>
+                <label>New Investment Questionnaire</label>
+            </value>
+            <value>
+                <fullName>New Bond/Sukuk Buy Request</fullName>
+                <default>false</default>
+                <label>New Bond/Sukuk Buy Request</label>
+            </value>
+            <value>
+                <fullName>New Bond/Sukuk Sell Request</fullName>
+                <default>false</default>
+                <label>New Bond/Sukuk Sell Request</label>
+            </value>
+            <value>
+                <fullName>New Loan / Finance Application Request</fullName>
+                <default>false</default>
+                <label>New Loan / Finance Application Request</label>
+            </value>
+            <value>
+                <fullName>Top-up</fullName>
+                <default>false</default>
+                <label>Top-up</label>
+            </value>
+            <value>
+                <fullName>Restructuring</fullName>
+                <default>false</default>
+                <label>Restructuring</label>
+            </value>
+            <value>
+                <fullName>Early Settlement</fullName>
+                <default>false</default>
+                <label>Early Settlement</label>
+            </value>
+            <value>
+                <fullName>Partial Settlement</fullName>
+                <default>false</default>
+                <label>Partial Settlement</label>
+            </value>
+            <value>
+                <fullName>Instalment Deferment</fullName>
+                <default>false</default>
+                <label>Instalment Deferment</label>
+            </value>
+            <value>
+                <fullName>No Liability Letter</fullName>
+                <default>false</default>
+                <label>No Liability Letter</label>
+            </value>
+            <value>
+                <fullName>Outstanding balance Letter</fullName>
+                <default>false</default>
+                <label>Outstanding balance Letter</label>
+            </value>
+            <value>
+                <fullName>Request Credit Card Bank Statement</fullName>
+                <default>false</default>
+                <label>Request Credit Card Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Request Account Bank Statement</fullName>
+                <default>false</default>
+                <label>Request Account Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Request Prepaid Card Bank Statement</fullName>
+                <default>false</default>
+                <label>Request Prepaid Card Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Technical Issue</fullName>
+                <default>false</default>
+                <label>Technical Issue</label>
+            </value>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+            <value>
+                <fullName>Cancel EPP Plan</fullName>
+                <default>false</default>
+                <label>Cancel EPP Plan</label>
+            </value>
+            <value>
+                <fullName>Early Clousure</fullName>
+                <default>false</default>
+                <label>Early Clousure</label>
+            </value>
+            <value>
+                <fullName>Advance Payment</fullName>
+                <default>false</default>
+                <label>Advance Payment</label>
+            </value>
+            <value>
+                <fullName>Failed CRB Check</fullName>
+                <default>false</default>
+                <label>Failed CRB Check</label>
+            </value>
+            <value>
+                <fullName>Insufficient DBR Score</fullName>
+                <default>false</default>
+                <label>Insufficient DBR Score</label>
+            </value>
+            <value>
+                <fullName>Requirements</fullName>
+                <default>false</default>
+                <label>Requirements</label>
+            </value>
+            <value>
+                <fullName>Account Opening</fullName>
+                <default>false</default>
+                <label>Account Opening</label>
+            </value>
+            <value>
+                <fullName>Navigation</fullName>
+                <default>false</default>
+                <label>Navigation</label>
+            </value>
+            <value>
+                <fullName>Ila (conventional)</fullName>
+                <default>false</default>
+                <label>Ila (conventional)</label>
+            </value>
+            <value>
+                <fullName>Al Burraq (Islamic)</fullName>
+                <default>false</default>
+                <label>Al Burraq (Islamic)</label>
+            </value>
+            <value>
+                <fullName>Credit card</fullName>
+                <default>false</default>
+                <label>Credit card</label>
+            </value>
+            <value>
+                <fullName>Debit card</fullName>
+                <default>false</default>
+                <label>Debit card</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit /Wakala</fullName>
+                <default>false</default>
+                <label>Fixed Deposit /Wakala</label>
+            </value>
+            <value>
+                <fullName>Hassala</fullName>
+                <default>false</default>
+                <label>Hassala</label>
+            </value>
+            <value>
+                <fullName>Jamiya</fullName>
+                <default>false</default>
+                <label>Jamiya</label>
+            </value>
+            <value>
+                <fullName>Loans</fullName>
+                <default>false</default>
+                <label>Loans</label>
+            </value>
+            <value>
+                <fullName>Sukuk/Bonds</fullName>
+                <default>false</default>
+                <label>Sukuk/Bonds</label>
+            </value>
+            <value>
+                <fullName>ApplePay</fullName>
+                <default>false</default>
+                <label>ApplePay</label>
+            </value>
+            <value>
+                <fullName>Prepaid CC</fullName>
+                <default>false</default>
+                <label>Prepaid CC</label>
+            </value>
+            <value>
+                <fullName>Rewards program</fullName>
+                <default>false</default>
+                <label>Rewards program</label>
+            </value>
+            <value>
+                <fullName>CC type</fullName>
+                <default>false</default>
+                <label>CC type</label>
+            </value>
+            <value>
+                <fullName>Card Upgrade/Downgrade</fullName>
+                <default>false</default>
+                <label>Card Upgrade/Downgrade</label>
+            </value>
+            <value>
+                <fullName>Card Type</fullName>
+                <default>false</default>
+                <label>Card Type</label>
+            </value>
+            <value>
+                <fullName>Card Request</fullName>
+                <default>false</default>
+                <label>Card Request</label>
+            </value>
+            <value>
+                <fullName>Card Issue</fullName>
+                <default>false</default>
+                <label>Card Issue</label>
+            </value>
+            <value>
+                <fullName>Card Control - CC</fullName>
+                <default>false</default>
+                <label>Card Control - CC</label>
+            </value>
+            <value>
+                <fullName>Request</fullName>
+                <default>false</default>
+                <label>Request</label>
+            </value>
+            <value>
+                <fullName>Delivery Follow up</fullName>
+                <default>false</default>
+                <label>Delivery Follow up</label>
+            </value>
+            <value>
+                <fullName>Monitering account</fullName>
+                <default>false</default>
+                <label>Monitering account</label>
+            </value>
+            <value>
+                <fullName>Profit</fullName>
+                <default>false</default>
+                <label>Profit</label>
+            </value>
+            <value>
+                <fullName>Eligibility/Fees - FD</fullName>
+                <default>false</default>
+                <label>Eligibility/Fees - FD</label>
+            </value>
+            <value>
+                <fullName>General FAQ - FD</fullName>
+                <default>false</default>
+                <label>General FAQ - FD</label>
+            </value>
+            <value>
+                <fullName>Internal Transfer</fullName>
+                <default>false</default>
+                <label>Internal Transfer</label>
+            </value>
+            <value>
+                <fullName>Interest - FD</fullName>
+                <default>false</default>
+                <label>Interest - FD</label>
+            </value>
+            <value>
+                <fullName>Account Funding</fullName>
+                <default>false</default>
+                <label>Account Funding</label>
+            </value>
+            <value>
+                <fullName>Account Control - Account</fullName>
+                <default>false</default>
+                <label>Account Control - Account</label>
+            </value>
+            <value>
+                <fullName>AFAQ</fullName>
+                <default>false</default>
+                <label>AFAQ</label>
+            </value>
+            <value>
+                <fullName>ATM</fullName>
+                <default>false</default>
+                <label>ATM</label>
+            </value>
+            <value>
+                <fullName>Buna (MENA)</fullName>
+                <default>false</default>
+                <label>Buna (MENA)</label>
+            </value>
+            <value>
+                <fullName>Fawateer</fullName>
+                <default>false</default>
+                <label>Fawateer</label>
+            </value>
+            <value>
+                <fullName>Fawri</fullName>
+                <default>false</default>
+                <label>Fawri</label>
+            </value>
+            <value>
+                <fullName>Fawri+</fullName>
+                <default>false</default>
+                <label>Fawri+</label>
+            </value>
+            <value>
+                <fullName>Fraudulent/Unauthorized</fullName>
+                <default>false</default>
+                <label>Fraudulent/Unauthorized</label>
+            </value>
+            <value>
+                <fullName>POS / E-Commerce</fullName>
+                <default>false</default>
+                <label>POS / E-Commerce</label>
+            </value>
+            <value>
+                <fullName>SWIFT (World Wide)</fullName>
+                <default>false</default>
+                <label>SWIFT (World Wide)</label>
+            </value>
+            <value>
+                <fullName>Uploading Document</fullName>
+                <default>false</default>
+                <label>Uploading Document</label>
+            </value>
+            <value>
+                <fullName>Manual ID case</fullName>
+                <default>false</default>
+                <label>Manual ID case</label>
+            </value>
+            <value>
+                <fullName>Login Error</fullName>
+                <default>false</default>
+                <label>Login Error</label>
+            </value>
+            <value>
+                <fullName>IBAN Copy</fullName>
+                <default>false</default>
+                <label>IBAN Copy</label>
+            </value>
+            <value>
+                <fullName>SMS Issue</fullName>
+                <default>false</default>
+                <label>SMS Issue</label>
+            </value>
+            <value>
+                <fullName>Currency account creation</fullName>
+                <default>false</default>
+                <label>Currency account creation</label>
+            </value>
+            <value>
+                <fullName>Incorrect Account Balance</fullName>
+                <default>false</default>
+                <label>Incorrect Account Balance</label>
+            </value>
+            <value>
+                <fullName>Unable to update Mobile</fullName>
+                <default>false</default>
+                <label>Unable to update Mobile</label>
+            </value>
+            <value>
+                <fullName>Outage</fullName>
+                <default>false</default>
+                <label>Outage</label>
+            </value>
+            <value>
+                <fullName>Debit Card Section</fullName>
+                <default>false</default>
+                <label>Debit Card Section</label>
+            </value>
+            <value>
+                <fullName>Credit Card Section</fullName>
+                <default>false</default>
+                <label>Credit Card Section</label>
+            </value>
+            <value>
+                <fullName>Failed Auto Renewal</fullName>
+                <default>false</default>
+                <label>Failed Auto Renewal</label>
+            </value>
+            <value>
+                <fullName>Closing account</fullName>
+                <default>false</default>
+                <label>Closing account</label>
+            </value>
+            <value>
+                <fullName>Adding Funds</fullName>
+                <default>false</default>
+                <label>Adding Funds</label>
+            </value>
+            <value>
+                <fullName>Withdraw to BHD</fullName>
+                <default>false</default>
+                <label>Withdraw to BHD</label>
+            </value>
+            <value>
+                <fullName>Benefit</fullName>
+                <default>false</default>
+                <label>Benefit</label>
+            </value>
+            <value>
+                <fullName>IBAN Error</fullName>
+                <default>false</default>
+                <label>IBAN Error</label>
+            </value>
+            <value>
+                <fullName>Charges Error</fullName>
+                <default>false</default>
+                <label>Charges Error</label>
+            </value>
+            <value>
+                <fullName>Transfer between accounts</fullName>
+                <default>false</default>
+                <label>Transfer between accounts</label>
+            </value>
+            <value>
+                <fullName>Bill Payments</fullName>
+                <default>false</default>
+                <label>Bill Payments</label>
+            </value>
+            <value>
+                <fullName>AlKanz Gift Card</fullName>
+                <default>false</default>
+                <label>AlKanz Gift Card</label>
+            </value>
+            <value>
+                <fullName>App issue</fullName>
+                <default>false</default>
+                <label>App issue</label>
+            </value>
+            <value>
+                <fullName>EFTS</fullName>
+                <default>false</default>
+                <label>EFTS</label>
+            </value>
+            <value>
+                <fullName>EFTS &amp; Cards</fullName>
+                <default>false</default>
+                <label>EFTS &amp; Cards</label>
+            </value>
+            <value>
+                <fullName>Cards</fullName>
+                <default>false</default>
+                <label>Cards</label>
+            </value>
+            <value>
+                <fullName>APP</fullName>
+                <default>false</default>
+                <label>APP</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Apple Pay / Samsung Pay</fullName>
+                <default>false</default>
+                <label>Apple Pay / Samsung Pay</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card</fullName>
+                <default>false</default>
+                <label>Prepaid Card</label>
+            </value>
+            <value>
+                <fullName>FX accounts</fullName>
+                <default>false</default>
+                <label>FX accounts</label>
+            </value>
+            <value>
+                <fullName>Jamiyah</fullName>
+                <default>false</default>
+                <label>Jamiyah</label>
+            </value>
+            <value>
+                <fullName>AlKanz</fullName>
+                <default>false</default>
+                <label>AlKanz</label>
+            </value>
+            <value>
+                <fullName>Transfers/Payment</fullName>
+                <default>false</default>
+                <label>Transfers/Payment</label>
+            </value>
+            <value>
+                <fullName>Bonds/Sukuk</fullName>
+                <default>false</default>
+                <label>Bonds/Sukuk</label>
+            </value>
+            <value>
+                <fullName>Unauthorized Transaction</fullName>
+                <default>false</default>
+                <label>Unauthorized Transaction</label>
+            </value>
+            <value>
+                <fullName>Opening/Closing Issue</fullName>
+                <default>false</default>
+                <label>Opening/Closing Issue</label>
+            </value>
+            <value>
+                <fullName>Overdrawn</fullName>
+                <default>false</default>
+                <label>Overdrawn</label>
+            </value>
+            <value>
+                <fullName>Account Status</fullName>
+                <default>false</default>
+                <label>Account Status</label>
+            </value>
+            <value>
+                <fullName>Marketing Offers</fullName>
+                <default>false</default>
+                <label>Marketing Offers</label>
+            </value>
+            <value>
+                <fullName>Staff Behaviour</fullName>
+                <default>false</default>
+                <label>Staff Behaviour</label>
+            </value>
+            <value>
+                <fullName>Downtime/Outage</fullName>
+                <default>false</default>
+                <label>Downtime/Outage</label>
+            </value>
+            <value>
+                <fullName>Application not working</fullName>
+                <default>false</default>
+                <label>Application not working</label>
+            </value>
+            <value>
+                <fullName>SMS</fullName>
+                <default>false</default>
+                <label>SMS</label>
+            </value>
+            <value>
+                <fullName>Credit Card Upgrade - No Limit Increase</fullName>
+                <default>false</default>
+                <label>Credit Card Upgrade - No Limit Increase</label>
+            </value>
+            <value>
+                <fullName>Card Control - DC</fullName>
+                <default>false</default>
+                <label>Card Control - DC</label>
+            </value>
+            <value>
+                <fullName>Card Control - ApplePay/SamsungPay</fullName>
+                <default>false</default>
+                <label>Card Control - ApplePay/SamsungPay</label>
+            </value>
+            <value>
+                <fullName>Account Control - Transfers/Payment</fullName>
+                <default>false</default>
+                <label>Account Control - Transfers/Payment</label>
+            </value>
+            <value>
+                <fullName>Eligibility/Fees - Wakala</fullName>
+                <default>false</default>
+                <label>Eligibility/Fees - Wakala</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Hassala</fullName>
+                <default>false</default>
+                <label>General FAQ - Hassala</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Jamiyah</fullName>
+                <default>false</default>
+                <label>General FAQ - Jamiyah</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Kanz</fullName>
+                <default>false</default>
+                <label>General FAQ - Kanz</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Loans</fullName>
+                <default>false</default>
+                <label>General FAQ - Loans</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Premium</fullName>
+                <default>false</default>
+                <label>General FAQ - Premium</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Sukuk/Bonds/Gov security</fullName>
+                <default>false</default>
+                <label>General FAQ - Sukuk/Bonds/Gov security</label>
+            </value>
+            <value>
+                <fullName>General FAQ - Wakala</fullName>
+                <default>false</default>
+                <label>General FAQ - Wakala</label>
+            </value>
+            <value>
+                <fullName>Interest - Transfers/Payment</fullName>
+                <default>false</default>
+                <label>Interest - Transfers/Payment</label>
+            </value>
+            <value>
+                <fullName>Change Mobile Number</fullName>
+                <default>false</default>
+                <label>Change Mobile Number</label>
+            </value>
+            <value>
+                <fullName>Login from Unbound Device</fullName>
+                <default>false</default>
+                <label>Login from Unbound Device</label>
+            </value>
+            <value>
+                <fullName>Register Interest in ila GulfAir Card</fullName>
+                <default>false</default>
+                <label>Register Interest in ila GulfAir Card</label>
+            </value>
+            <value>
+                <fullName>Manual</fullName>
+                <default>false</default>
+                <label>Manual</label>
+            </value>
+            <value>
+                <fullName>Magic link</fullName>
+                <default>false</default>
+                <label>Magic link</label>
+            </value>
+            <value>
+                <fullName>Profile Update</fullName>
+                <default>false</default>
+                <label>Profile Update</label>
+            </value>
+            <value>
+                <fullName>Dormant</fullName>
+                <default>false</default>
+                <label>Dormant</label>
+            </value>
+            <value>
+                <fullName>Archival</fullName>
+                <default>false</default>
+                <label>Archival</label>
+            </value>
+            <value>
+                <fullName>Segment</fullName>
+                <default>false</default>
+                <label>Segment</label>
+            </value>
+            <value>
+                <fullName>Status</fullName>
+                <default>false</default>
+                <label>Status</label>
+            </value>
+            <value>
+                <fullName>Manual transfer</fullName>
+                <default>false</default>
+                <label>Manual transfer</label>
+            </value>
+            <value>
+                <fullName>Balance requires investigation</fullName>
+                <default>false</default>
+                <label>Balance requires investigation</label>
+            </value>
+            <value>
+                <fullName>Cheque issuance</fullName>
+                <default>false</default>
+                <label>Cheque issuance</label>
+            </value>
+            <value>
+                <fullName>Transacation amount</fullName>
+                <default>false</default>
+                <label>Transacation amount</label>
+            </value>
+            <value>
+                <fullName>Card Service</fullName>
+                <default>false</default>
+                <label>Card Service</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+            <value>
+                <fullName>Delivery</fullName>
+                <default>false</default>
+                <label>Delivery</label>
+            </value>
+            <value>
+                <fullName>Temporary card limit increase</fullName>
+                <default>false</default>
+                <label>Temporary card limit increase</label>
+            </value>
+            <value>
+                <fullName>Tranacation amount</fullName>
+                <default>false</default>
+                <label>Tranacation amount</label>
+            </value>
+            <value>
+                <fullName>Invitation</fullName>
+                <default>false</default>
+                <label>Invitation</label>
+            </value>
+            <value>
+                <fullName>Retention</fullName>
+                <default>false</default>
+                <label>Retention</label>
+            </value>
+            <value>
+                <fullName>SamsungPay</fullName>
+                <default>false</default>
+                <label>SamsungPay</label>
+            </value>
+            <value>
+                <fullName>ila prepaid</fullName>
+                <default>false</default>
+                <label>ila prepaid</label>
+            </value>
+            <value>
+                <fullName>ila Blue</fullName>
+                <default>false</default>
+                <label>ila Blue</label>
+            </value>
+            <value>
+                <fullName>ila Switch</fullName>
+                <default>false</default>
+                <label>ila Switch</label>
+            </value>
+            <value>
+                <fullName>Manual EPP</fullName>
+                <default>false</default>
+                <label>Manual EPP</label>
+            </value>
+            <value>
+                <fullName>Rewards type change</fullName>
+                <default>false</default>
+                <label>Rewards type change</label>
+            </value>
+            <value>
+                <fullName>Outstanding letter</fullName>
+                <default>false</default>
+                <label>Outstanding letter</label>
+            </value>
+            <value>
+                <fullName>Bank statement</fullName>
+                <default>false</default>
+                <label>Bank statement</label>
+            </value>
+            <value>
+                <fullName>No objection letter</fullName>
+                <default>false</default>
+                <label>No objection letter</label>
+            </value>
+            <value>
+                <fullName>Debit Authority letter</fullName>
+                <default>false</default>
+                <label>Debit Authority letter</label>
+            </value>
+            <value>
+                <fullName>Embassy referance letter</fullName>
+                <default>false</default>
+                <label>Embassy referance letter</label>
+            </value>
+            <value>
+                <fullName>Gaurdianship form</fullName>
+                <default>false</default>
+                <label>Gaurdianship form</label>
+            </value>
+            <value>
+                <fullName>Temporary credit declaration</fullName>
+                <default>false</default>
+                <label>Temporary credit declaration</label>
+            </value>
+            <value>
+                <fullName>Permenant Debit card limit</fullName>
+                <default>false</default>
+                <label>Permenant Debit card limit</label>
+            </value>
+            <value>
+                <fullName>Referance Letter</fullName>
+                <default>false</default>
+                <label>Referance Letter</label>
+            </value>
+            <value>
+                <fullName>University letter</fullName>
+                <default>false</default>
+                <label>University letter</label>
+            </value>
+            <value>
+                <fullName>Issue certifcate (term deposit)</fullName>
+                <default>false</default>
+                <label>Issue certifcate (term deposit)</label>
+            </value>
+            <value>
+                <fullName>IBAN letter</fullName>
+                <default>false</default>
+                <label>IBAN letter</label>
+            </value>
+            <value>
+                <fullName>Loan Outstanding Balance Certifcate</fullName>
+                <default>false</default>
+                <label>Loan Outstanding Balance Certifcate</label>
+            </value>
+            <value>
+                <fullName>Card Replacement fees</fullName>
+                <default>false</default>
+                <label>Card Replacement fees</label>
+            </value>
+            <value>
+                <fullName>Interest  fees</fullName>
+                <default>false</default>
+                <label>Interest  fees</label>
+            </value>
+            <value>
+                <fullName>Overlimit fees</fullName>
+                <default>false</default>
+                <label>Overlimit fees</label>
+            </value>
+            <value>
+                <fullName>EPP activation fees</fullName>
+                <default>false</default>
+                <label>EPP activation fees</label>
+            </value>
+            <value>
+                <fullName>EPP ealry withdrawal</fullName>
+                <default>false</default>
+                <label>EPP ealry withdrawal</label>
+            </value>
+            <value>
+                <fullName>Late Payment Fees</fullName>
+                <default>false</default>
+                <label>Late Payment Fees</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit early withdrawal</fullName>
+                <default>false</default>
+                <label>Fixed Deposit early withdrawal</label>
+            </value>
+            <value>
+                <fullName>Premium Fees</fullName>
+                <default>false</default>
+                <label>Premium Fees</label>
+            </value>
+            <value>
+                <fullName>Classic Fees</fullName>
+                <default>false</default>
+                <label>Classic Fees</label>
+            </value>
+            <value>
+                <fullName>Virtual Fees</fullName>
+                <default>false</default>
+                <label>Virtual Fees</label>
+            </value>
+            <value>
+                <fullName>Swift Fees</fullName>
+                <default>false</default>
+                <label>Swift Fees</label>
+            </value>
+            <value>
+                <fullName>Top up request</fullName>
+                <default>false</default>
+                <label>Top up request</label>
+            </value>
+            <value>
+                <fullName>Reschedule / Deferment</fullName>
+                <default>false</default>
+                <label>Reschedule / Deferment</label>
+            </value>
+            <value>
+                <fullName>Partial Early Settlement</fullName>
+                <default>false</default>
+                <label>Partial Early Settlement</label>
+            </value>
+            <value>
+                <fullName>Request to sell</fullName>
+                <default>false</default>
+                <label>Request to sell</label>
+            </value>
+            <value>
+                <fullName>New Credit Card - Cross Selling</fullName>
+                <default>false</default>
+                <label>New Credit Card - Cross Selling</label>
+            </value>
+            <value>
+                <fullName>Generate Cash Collateral Letter</fullName>
+                <default>false</default>
+                <label>Generate Cash Collateral Letter</label>
+            </value>
+            <value>
+                <fullName>Recovery code reset</fullName>
+                <default>false</default>
+                <label>Recovery code reset</label>
+            </value>
+            <value>
+                <fullName>Change email/ Mobile number</fullName>
+                <default>false</default>
+                <label>Change email/ Mobile number</label>
+            </value>
+            <value>
+                <fullName>Account Statements</fullName>
+                <default>false</default>
+                <label>Account Statements</label>
+            </value>
+            <value>
+                <fullName>IBAN Certificate</fullName>
+                <default>false</default>
+                <label>IBAN Certificate</label>
+            </value>
+            <value>
+                <fullName>Receive Card or Cheque</fullName>
+                <default>false</default>
+                <label>Receive Card or Cheque</label>
+            </value>
+            <value>
+                <fullName>APP Support</fullName>
+                <default>false</default>
+                <label>APP Support</label>
+            </value>
+            <value>
+                <fullName>Other Support</fullName>
+                <default>false</default>
+                <label>Other Support</label>
+            </value>
+            <value>
+                <fullName>Debit Card Activation</fullName>
+                <default>false</default>
+                <label>Debit Card Activation</label>
+            </value>
+            <value>
+                <fullName>Credit Card Activation</fullName>
+                <default>false</default>
+                <label>Credit Card Activation</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card Activation</fullName>
+                <default>false</default>
+                <label>Prepaid Card Activation</label>
+            </value>
+            <value>
+                <fullName>Instalment Deferment / Postponement</fullName>
+                <default>false</default>
+                <label>Instalment Deferment / Postponement</label>
+            </value>
+            <value>
+                <fullName>Fees Reversal / Waivers</fullName>
+                <default>false</default>
+                <label>Fees Reversal / Waivers</label>
+            </value>
+            <value>
+                <fullName>Call From Unregistered Number</fullName>
+                <default>false</default>
+                <label>Call From Unregistered Number</label>
+            </value>
+            <value>
+                <fullName>Callback Request</fullName>
+                <default>false</default>
+                <label>Callback Request</label>
+            </value>
+            <value>
+                <fullName>Fees Reversal / Waiver</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fees Reversal / Waiver</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dormancy_Status_Only_Update_Operation</fullName>
+    <active>true</active>
+    <description>A member from the Operation queue can only update Operation section</description>
+    <errorConditionFormula>AND(Owner:Queue.DeveloperName = &quot;Operations_Team&quot; ,
+     RecordType_DeveloperName__c =&apos;Dormancy_Status&apos;,
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+      OR( ISCHANGED(Compliance_Results__c ),
+          ISCHANGED(ICU_Result__c ),
+          ISCHANGED(cc_Maker__c ),
+          ISCHANGED(cc_Checker_Result__c )
+         )
+    )</errorConditionFormula>
+    <errorMessage>A member from the Operation queue can only update Operation section</errorMessage>
+</ValidationRule>

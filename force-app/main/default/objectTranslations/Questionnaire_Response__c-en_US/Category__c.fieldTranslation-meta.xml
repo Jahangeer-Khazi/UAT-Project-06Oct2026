@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Category --></label>
+    <name>Category__c</name>
+    <picklistValues>
+        <masterLabel>Approval &amp; Controls</masterLabel>
+        <translation><!-- Approval &amp; Controls --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Asset Allocation</masterLabel>
+        <translation><!-- Asset Allocation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Concentration Risk</masterLabel>
+        <translation><!-- Concentration Risk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Investment Horizon</masterLabel>
+        <translation><!-- Investment Horizon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Investment Objective</masterLabel>
+        <translation><!-- Investment Objective --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Knowledge &amp; Experience</masterLabel>
+        <translation><!-- Knowledge &amp; Experience --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loss Absorption</masterLabel>
+        <translation><!-- Loss Absorption --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Product Preference</masterLabel>
+        <translation><!-- Product Preference --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Risk Profile</masterLabel>
+        <translation><!-- Risk Profile --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Risk Tolerance</masterLabel>
+        <translation><!-- Risk Tolerance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Source of Funds</masterLabel>
+        <translation><!-- Source of Funds --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Trading Behaviour</masterLabel>
+        <translation><!-- Trading Behaviour --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

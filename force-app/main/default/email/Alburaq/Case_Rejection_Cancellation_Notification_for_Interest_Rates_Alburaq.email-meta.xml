@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Case Rejection/Cancellation Notification for Interest Rates Alburaq</name>
+    <style>none</style>
+    <subject>Case - {!Case.CaseNumber} has been Rejected/Cancel by Business Team</subject>
+    <textOnly>The case has been Rejected/Cancel.
+
+Hi,
+The Case with case number {!Case.CaseNumber} has been Rejected/Cancel by {!Case.OwnerFullName} due to the following reason
+
+Case Reject/Cancel Reason: {!Case.Business_Approver_Reject_Cancel_Reason__c}
+
+Open CRM case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

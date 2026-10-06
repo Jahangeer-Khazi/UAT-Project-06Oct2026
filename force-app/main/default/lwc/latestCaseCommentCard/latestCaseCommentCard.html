@@ -1,0 +1,106 @@
+<template>
+    <lightning-card hide-header="true">
+        <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle}
+            active-section-name={activeSections}>
+            <lightning-accordion-section name="A" label="Last Comment Details">
+                <template if:true={noData}>
+                    <div class="card-container">
+                        <strong class="error-container">There are no recent comments for this case.</strong>
+                    </div>
+                </template>
+                <template if:true={isLoading} class="slds-is-relative">
+                    <lightning-spinner alternative-text="Loading..." variant="brand">
+                    </lightning-spinner>
+                </template>
+                <template if:true={commentData}>
+                    <div class={innerCardClass}>
+                        <ul class="slds-timeline">
+                            <template for:each={commentData} for:item="comment">
+                                <li key={comment.caseNumber}>
+                                    <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open"
+                                        data-id={comment.caseNumber} data-ssexpanded="true">
+                                        <span class="slds-assistive-text">task</span>
+                                        <div class="slds-media">
+                                            <div class="slds-media__figure">
+                                                <lightning-button-icon icon-name="utility:switch"
+                                                    data-id={comment.caseNumber} size='x-small'
+                                                    class="slds-timeline__details-action-icon" variant="bare"
+                                                    alternative-text='switch' onclick={handleSubSectionToggle}>
+                                                </lightning-button-icon>
+                                                <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon"
+                                                    title="task">
+                                                    <lightning-icon icon-name="standard:record" size="small"
+                                                        alternative-text='task' title='task'>
+                                                    </lightning-icon>
+                                                </div>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                                                    <div
+                                                        class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                                                        <h3 class="slds-truncate" title={comment.caseNumber}>
+                                                            <strong>Case Number: {comment.caseNumber}</strong>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="slds-timeline__actions slds-timeline__actions_inline">
+                                                        <lightning-helptext
+                                                            content="Please click on this icon to navigate to the respective case for the comments">
+                                                        </lightning-helptext>
+                                                        <p class="slds-timeline__date">
+                                                            <lightning-button-icon icon-name="utility:bookmark"
+                                                                variant="bare" class="slds-m-left_xx-small"
+                                                                title={comment.caseId} onclick={markAsRead}
+                                                                style="margin-top: 4px;">
+                                                            </lightning-button-icon>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <article
+                                                    class="slds-box slds-box_xx-small slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium"
+                                                    aria-hidden="true">
+                                                    <div>
+                                                        <ul class="bullet-container">
+                                                            <li>
+                                                                <div class="card-container">
+                                                                    <strong class="heading-container">Created by:</strong>
+                                                                    &nbsp;<span class="heading-container">{comment.createdBy}</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="card-container">
+                                                                    <strong class="heading-container">Created on:</strong>
+                                                                    &nbsp;<span class="heading-container">{comment.createdDate}</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="card-container">
+                                                                    <strong class="heading-container">{comment.commentCount} New comment(s)</strong>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="card-container">
+                                                                    <strong class="heading-container">Last comment:</strong>
+                                                                    &nbsp;<span class="heading-container">{comment.commentBody}</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="card-container">
+                                                                    <strong class="heading-container">Last Sub-comment:</strong>
+                                                                    &nbsp;<span class="heading-container">{comment.subComment}</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </lightning-card>
+</template>

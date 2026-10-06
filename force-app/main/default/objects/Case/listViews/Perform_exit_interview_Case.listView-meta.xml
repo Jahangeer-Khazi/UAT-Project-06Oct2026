@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Perform_exit_interview_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Perform exit interview</label>
+    <queue>Perform_exit_interview</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

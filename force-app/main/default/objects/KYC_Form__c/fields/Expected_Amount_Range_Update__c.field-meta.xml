@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Amount_Range_Update__c</fullName>
+    <label>Expected Amount Range Update</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Below JOD 500</fullName>
+                <default>false</default>
+                <label>Below JOD 500</label>
+            </value>
+            <value>
+                <fullName>JOD 500 – JOD 999</fullName>
+                <default>false</default>
+                <label>JOD 500 – JOD 999</label>
+            </value>
+            <value>
+                <fullName>JOD 1,000 – JOD 1,999</fullName>
+                <default>false</default>
+                <label>JOD 1,000 – JOD 1,999</label>
+            </value>
+            <value>
+                <fullName>JOD 2,000 – JOD 2,999</fullName>
+                <default>false</default>
+                <label>JOD 2,000 – JOD 2,999</label>
+            </value>
+            <value>
+                <fullName>JOD 3,000 – JOD 5,000</fullName>
+                <default>false</default>
+                <label>JOD 3,000 – JOD 5,000</label>
+            </value>
+            <value>
+                <fullName>Above JOD 5,000</fullName>
+                <default>false</default>
+                <label>Above JOD 5,000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

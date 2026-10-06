@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BatchId_Required_for_Cancellation</fullName>
+    <active>true</active>
+    <description>The transaction must have a Batch ID before the transaction can be cancelled.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(cc_Checker_Result__c, &quot;Approve&quot;),
+    RecordType_DeveloperName__c = &quot;Request&quot;,
+    TEXT(Type) = &quot;Funds Transfer&quot;,
+    TEXT(Sub_Type__c) = &quot;EFTS&quot;,
+    ISBLANK(New_Mobile_Number__c)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Checker_Result__c</errorDisplayField>
+    <errorMessage>Batch ID is missing. The transaction cannot be cancelled.</errorMessage>
+</ValidationRule>

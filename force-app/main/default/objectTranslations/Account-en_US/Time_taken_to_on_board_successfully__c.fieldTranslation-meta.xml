@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- In minutes --></help>
+    <label><!-- Time taken to on-board successfully --></label>
+    <name>Time_taken_to_on_board_successfully__c</name>
+</CustomFieldTranslation>

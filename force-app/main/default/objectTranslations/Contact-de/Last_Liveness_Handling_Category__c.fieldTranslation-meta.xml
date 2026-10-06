@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Last Liveness Handling Category --></label>
+    <name>Last_Liveness_Handling_Category__c</name>
+    <picklistValues>
+        <masterLabel>Refer to branch for L1 review</masterLabel>
+        <translation><!-- Refer to branch for L1 review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reject</masterLabel>
+        <translation><!-- Reject --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retry</masterLabel>
+        <translation><!-- Retry --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Review to branch for L2 review</masterLabel>
+        <translation><!-- Review to branch for L2 review --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

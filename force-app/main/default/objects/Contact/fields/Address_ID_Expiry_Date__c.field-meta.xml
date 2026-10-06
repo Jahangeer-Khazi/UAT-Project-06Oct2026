@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_ID_Expiry_Date__c</fullName>
+    <description>Proof of Address ID Expiry Date</description>
+    <encryptionScheme>None</encryptionScheme>
+    <inlineHelpText>Proof of Address ID Expiry Date</inlineHelpText>
+    <label>Proof of Address ID Expiry Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

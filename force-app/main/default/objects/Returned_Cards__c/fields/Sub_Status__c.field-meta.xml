@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Status__c</fullName>
+    <label>Sub-Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>RegionFlag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending For Pick-up</fullName>
+                <default>false</default>
+                <label>Pending For Pick-up</label>
+            </value>
+            <value>
+                <fullName>Dispatch</fullName>
+                <default>false</default>
+                <label>Dispatch</label>
+            </value>
+            <value>
+                <fullName>Dispatch Return</fullName>
+                <default>false</default>
+                <label>Dispatch Return</label>
+            </value>
+            <value>
+                <fullName>Collected by Customer</fullName>
+                <default>false</default>
+                <label>Collected by Customer</label>
+            </value>
+            <value>
+                <fullName>Destroyed</fullName>
+                <default>false</default>
+                <label>Destroyed</label>
+            </value>
+            <value>
+                <fullName>Re-delivery</fullName>
+                <default>false</default>
+                <label>Re-delivery</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Pending For Pick-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Collected by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Destroyed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Re-delivery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Dispatch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Dispatch Return</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

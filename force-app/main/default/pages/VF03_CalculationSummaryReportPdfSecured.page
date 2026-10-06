@@ -1,0 +1,314 @@
+<!-- @History : #CH01 : 01/03/2023 by Imane Tsioucha for Credit Card - [CRM] Calculation Summary Report Secured Template-->
+<apex:page standardController="Case" renderAs="PDF" applyBodyTag="false" contentType="html" showHeader="false" extensions="VF03_CalculationSummaryReportController">
+
+<head>
+    <!-- <apex:stylesheet value="{!$Resource.}" /> -->
+    <style>
+        @page {
+            size: A4;
+            margin-top: 1cm;
+            margin-bottom: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+            /* font-family: 'Neo Sans'; */
+            font-family: 'Open Sans', Inter, sans-serif;
+            @top-center {
+                content: element(headerTitle);
+            }
+            div.headerTitle {
+                position: running(headerTitle);
+            }
+            @bottom-left {
+                        content: element(footer);
+                    }
+        }
+        div.footer {
+                    display: block;
+                    position: running(footer);
+                }
+
+        td, th {
+            border: 1px solid;
+            text-align: center;
+            /* overflow: hidden; */
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .Draw_Page_Break {
+            page-break-after: always;
+        }
+        ul.list { list-style-type:circle;font-size:12px; padding-left:5px; }
+        *{font-family:  Helvetica, sans-serif;}
+    </style>
+</head>
+
+<body>
+    <div>
+    <!-- toUse : border: 1px solid #000; -->
+
+    <!-- this div contains ila image and header title -->
+    <div class="headerTitle">
+        
+        <div style="text-align:right;">
+            <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" />
+        </div>
+        <div style="margin-top:-48px;">
+         <div style="margin-bottom:-25px;font-size:12px;">
+            <b> <h1>ila Credit Card Calculation Summary</h1> </b>
+            <br />
+         </div>
+        </div>
+        <hr ></hr>
+        </div>
+    <div style="margin-top:-25px" >
+        <h4><u>Customer Information: </u></h4> <br></br>
+        
+        <div style="font-size:12px; margin-top:-20px;width:100%;overflow:hidden;height:auto; ">
+            <div style="width:33.33%;float:left;">
+                <b> Customer Name:  </b>  <apex:outputField value="{!Case.Contact_Name__c}"/><br/>
+                <b> ID/CPR Number:  </b> <apex:outputField value="{!Case.cc_ID_Number__c}"/><br/>
+                <b> DOB:  </b> <apex:outputField value="{!Case.cc_Date_of_Birth__c}"/>
+            </div>
+            <div style="width:33.33%;float:left;">
+                <b>CIF:</b> <apex:outputField value="{!Case.Customer_CIF__c}"/><br/>
+                <b>Mobile Number:</b> <apex:outputField value="{!Case.cc_Mobile_Number__c}"/><br/>
+                <b> Age:   </b>{!age}
+            </div>
+            <div style="width:33.33%;float:left;">
+                <b>Application Date:</b> <apex:outputField value="{!Case.CreatedDate}"/><br/>
+                <b>Email:</b> <apex:outputField value="{!Case.cc_Email_Address__c}"/>
+            </div>
+
+            <hr style="width:100%;float:left;"></hr>
+         
+    </div>
+    <div style="margin-top:-15px" >
+        <h4><u>Case Details: </u></h4>
+        <br></br>
+
+        <div style="font-size:14px; margin-top:-20px;width:100%;overflow:hidden;height:auto; ">
+            <div style="width:33.33%;float:left;">
+                <b> Case Reference:  </b> <apex:outputField value="{!Case.CaseNumber}"/><br/>
+                <b> Requested Card Type:  </b> <apex:outputField value="{!Case.cc_Approved_Requested_Card_Type__c}"/>
+            </div>
+            <div style="width:33.33%;float:left;">
+                <b>Type:</b> <apex:outputField value="{!Case.Type}"/><br/>
+                <b>Approved Limit:</b> <apex:outputField value="{!Case.cc_Approved_Credit_Limit__c}"/>
+            </div>
+            <div style="width:33.33%;float:left;">
+                <b>Sub Type:</b> <apex:outputField value="{!Case.Sub_Type__c}"/>
+            </div>
+
+            <hr style="width:100%;float:left;"></hr>
+        </div>
+        
+    </div>
+    <div style="margin-top:-15px;">
+        <h4><u>Financial Details: </u></h4>
+        <br></br>
+        <div style="font-size:14px; margin-top:-20px;width:100%;overflow:hidden;height:auto; ">
+            <div style="width:33.33%;float:left;">
+                <b> Approved Credit Limit:  </b> <apex:outputField value="{!Case.cc_Approved_Credit_Limit__c}"/><br/>
+                <b> Hold Amount in Words:  </b> <apex:outputField value="{!Case.RHA_HoldAmount__c}"/><br/>
+                <b>Approved Hold Account IBAN:</b> <apex:outputField value="{!Case.ccol_Approved_Hold_Account_IBAN__c}"/><br/>
+                <b>Hold Reference No.: </b> <apex:outputField value="{!Case.ccol_Hold_Reference_Number__c}"/><br/>
+            </div>
+            <div style="width:33.33%;float:left;">
+                <b>Hold Amount:</b><apex:outputField value="{!Case.ccol_Approved_Hold_Amount__c}"/><br/>
+                
+            </div>
+            <div style="width:33.33%;float:left;">
+                <b>Coverage Ratio%:</b> {!if(ratio == 0, '', ratio)}<br/>
+                <b>Hold Account Type:</b> <apex:outputField value="{!Case.ccol_Approved_Hold_Account__c}"/>
+            </div>
+
+            <hr style="width:100%;float:left;"></hr>
+        </div>
+     
+    </div>
+    
+    <div style="margin-top:-20px;">
+        <h4><u>Remarks: </u></h4>
+        <br></br>  
+        <div style="font-size:14px; margin-top:-20px">
+            <b> Deviation 1 type:  </b> <apex:outputField value="{!Case.cc_Deviation_1_type__c}"/> 
+            <br></br>
+            <b> Other Deviation 1 type:  </b> <apex:outputField value="{!Case.cc_Other_Deviation_1_type__c}"/> 
+            <br></br>
+            <b> Deviation 2 type:  </b> <apex:outputField value="{!Case.cc_Deviation_2_type__c}"/> 
+            <br></br>
+            <b> Other Deviation 2 type  </b> <apex:outputField value="{!Case.cc_Other_Deviation_2_type__c}"/> 
+        </div>
+    </div>
+    <hr></hr>
+    <div style="font-size:14px; margin-top:-5px;width:100%;overflow:hidden;height:auto; ">
+        <div style="width:55%;float:left;">
+            <b> Credit Pre-Screening Result:  </b> <apex:outputField value="{!Case.cc_Credit_Pre_Screening_Result__c}"/><br/>
+            <b> Credit Pre-Screening Result Date Time:  </b> <apex:outputField value="{!Case.cc_Credit_Pre_Screening_Result_Date_Time__c}"/><br/>
+        </div>
+        <div style="width:45%;float:left;">
+            <b> Credit Pre-Screening by:  </b> <apex:outputField value="{!Case.cc_Credit_Pre_Screening_by__c}"/><br/>
+        </div>
+
+        <hr style="width:100%;float:left;"></hr>
+    </div>
+
+   
+    <div style="font-size:14px; margin-top:-5px;width:100%;overflow:hidden;height:auto; ">
+        <div style="width:55%;float:left;">
+            <b> Credit Evaluation Result:  </b> <apex:outputField value="{!Case.cc_Credit_Evaluation_Result__c}"/><br/>
+            <b> Credit Evaluation Result Date Time:  </b> <apex:outputField value="{!Case.cc_Credit_Evaluation_Result_Date_Time__c}"/><br/>
+        </div>
+        <div style="width:45%;float:left;">
+            <b> Credit Evaluation by:  </b> <apex:outputField value="{!Case.cc_Credit_Evaluation_by__c}"/><br/>
+        </div>
+
+        <hr style="width:100%;float:left;"></hr>
+    </div>
+
+    <div style="font-size:14px; margin-top:-5px;width:100%;overflow:hidden;height:auto; ">
+        <div style="width:55%;float:left;">
+            <b> Credit Approval Result:  </b> <apex:outputField value="{!Case.cc_Credit_Approval_Result__c}"/><br/>
+            <b> Credit Approval Result Date Time:  </b> <apex:outputField value="{!Case.cc_Credit_Approval_Result_Date_Time__c}"/><br/>
+        </div>
+        <div style="width:45%;float:left;">
+            <b> Credit Approved by:  </b> <apex:outputField value="{!Case.cc_Credit_Approved_by__c}"/><br/>
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <div >
+            <hr></hr>
+            © ila Bank - Retail Credit Department 
+        </div>
+    
+    </div>
+    </div>
+    
+</div>
+<div style="page-break-after:always;">
+</div>
+<div style="text-align:right;">
+    <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" />
+</div>
+<div style="margin-top:-48px;">
+ <div style="margin-bottom:-25px;font-size:12px;">
+    <b> <h1>ila Credit Card Case Content/Checklist </h1> </b>
+    <br />
+ </div>
+</div>
+<hr ></hr>
+<div style="margin-top:-10px" >
+    <h4><u>Customer Information: </u></h4> <br></br>
+    
+    <div style="font-size:14px; margin-top:-20px;width:100%;overflow:hidden;height:auto; ">
+        <div style="width:33.33%;float:left;">
+            <b> Customer Name:  </b>  <apex:outputField value="{!Case.Contact_Name__c}"/><br/>
+            <b> ID/CPR Number:  </b> <apex:outputField value="{!Case.cc_ID_Number__c}"/><br/>
+            <b> DOB:  </b> <apex:outputField value="{!Case.cc_Date_of_Birth__c}"/>
+        </div>
+        <div style="width:33.33%;float:left;">
+            <b>CIF:</b> <apex:outputField value="{!Case.Customer_CIF__c}"/><br/>
+            <b>Mobile Number:</b> <apex:outputField value="{!Case.cc_Mobile_Number__c}"/>
+            <b> Age:  </b>  {!if(age == 0, '', age)}
+        </div>
+        <div style="width:33.33%;float:left;">
+            <b>Application Date:</b> <apex:outputField value="{!Case.CreatedDate}"/><br/>
+            <b>Email:</b> <apex:outputField value="{!Case.cc_Email_Address__c}"/>
+        </div>
+
+        <hr style="width:100%;float:left;"></hr>
+        </div>
+     
+</div> 
+<div style="margin-top:-10px" >
+    <h4><u>Case Details: </u></h4>
+    <br></br>
+
+    <div style="font-size:14px; margin-top:-20px;width:100%;overflow:hidden;height:auto; ">
+        <div style="width:33.33%;float:left;">
+            <b> Case Reference:  </b> <apex:outputField value="{!Case.CaseNumber}"/><br/>
+            <b> Requested Card Type:  </b> <apex:outputField value="{!Case.cc_Approved_Requested_Card_Type__c}"/>
+        </div>
+        <div style="width:33.33%;float:left;">
+            <b>Type:</b> <apex:outputField value="{!Case.Type}"/><br/>
+            <b>Approved Limit:</b> <apex:outputField value="{!Case.cc_Approved_Credit_Limit__c}"/>
+        </div>
+        <div style="width:33.33%;float:left;">
+            <b>Sub Type:</b> <apex:outputField value="{!Case.Sub_Type__c}"/>
+        </div>
+
+        <hr style="width:100%;float:left;"></hr>
+    </div>
+    
+</div>
+<div style="margin-top:-15px;">
+    <h4><u>Case Contents: </u></h4> <br></br>
+    <apex:form >
+        <apex:variable value="{!1}" var="count"/> 
+        <table style="margin-left:auto;margin-right:auto; width:100%;margin-top:-20px;font-size:14px">
+           <thead>
+              <tr>
+                <th>No.</th>
+                 <th>Reference</th>
+                 <th>Document Type</th>
+                 <th>Created Date</th>
+              </tr>
+           </thead>
+           <tbody>
+            <apex:repeat value="{!caseDocuments}" var="doc">
+               <tr>
+                <td>{!FLOOR(count)} </td> 
+                  <td>
+                       <apex:outputLink value="{!$Label.Content_Name_Link + doc.Id}" target="_blank">{!doc.Name}</apex:outputLink>
+                    </td>
+                  <td>{!doc.Document_Type__c}</td>
+                  <td>{!doc.CreatedDate}</td>
+ 
+               </tr>
+               <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:repeat>
+         </tbody>
+        
+         <hr style="width:100%;float:left;"></hr>
+        </table>
+        
+     </apex:form>
+    
+</div>
+<div style="margin-top:-15px;">
+    <h4><u>DocuSign Documents: </u></h4> <br></br>
+    <apex:form >
+        <apex:variable value="{!1}" var="count"/> 
+        <table style="margin-left:auto;margin-right:auto; width:100%;margin-top:-20px;font-size:14px">
+           <thead>
+              <tr>
+                <th>No.</th>
+                 <th>Title</th>
+                 <th>Last Modified</th>
+              </tr>
+           </thead>
+           <tbody>
+            <apex:repeat value="{!CaseFiles}" var="doc">
+               <tr>
+                <td>{!FLOOR(count)} </td> 
+                  <td>
+                       <apex:outputLink value="{!$Label.Content_Name_Link + doc.ContentDocument.Id}" target="_blank">{!doc.ContentDocument.Title}</apex:outputLink>
+                    </td>
+                  <td>{!doc.ContentDocument.LastModifiedDate}</td>
+ 
+               </tr>
+               <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:repeat>
+         </tbody>
+        </table>
+     </apex:form>
+     
+</div>
+    
+</body>
+</apex:page>

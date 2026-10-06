@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancel_Balance_Transfer_Plan_Checker_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Cancel Balance Transfer Plan Checker</label>
+    <queue>Cancel_Balance_Transfer_Plan_Checker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

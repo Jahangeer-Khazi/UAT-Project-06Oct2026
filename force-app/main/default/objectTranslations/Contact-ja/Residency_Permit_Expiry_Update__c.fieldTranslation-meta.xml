@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Residency Permit Expiry Update --></label>
+    <name>Residency_Permit_Expiry_Update__c</name>
+</CustomFieldTranslation>

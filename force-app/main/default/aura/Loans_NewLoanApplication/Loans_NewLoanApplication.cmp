@@ -1,0 +1,418 @@
+<!--
+Change History :
+*         
+*/
+-->
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="Loans_NewLoanApplicationController">
+    
+    <aura:html tag="style">
+        .slds-modal__container {
+            width : 80%;
+            min-width : 1100px
+             <!-- width : 800px !important; -->
+             <!-- max-width : 800px !important; -->
+        }
+        <!-- Define a new CSS class for the two-column layout // -->
+        .two-column-layout {
+        	display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 33%; /* Adjust the width as needed */
+        } 
+        .sectionClass {
+            font-size: 1rem; /* Adjust font size */
+            background-color: #f3f2f2; /* Background color */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Add padding */
+        }
+        .slds-is-disabled {
+            background-color: #f4f6f9;
+            color: #d8dde6;
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 48em) {
+    .slds-form-element_horizontal .slds-form-element__control{
+        		padding-left:0 !important;
+        		clear:both;
+        	}
+        }
+        
+        @media (min-width: 48em) {
+    .slds-form-element_horizontal .slds-form-element__label {
+        	float:initial !important;
+        	max-width:100%
+        }
+        
+    </aura:html>
+    
+    
+    <aura:attribute name="type" type="String" default="New Loan / Finance Application"/> 
+    <aura:attribute name="subType" type="String" default="New Loan / Finance Application Request"/>
+    <aura:attribute name="requestedLoanTypes" type="Map"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <!-- <aura:attribute name="selectedLoanType" type="String"/> -->
+    <aura:attribute name="loanProductConfigurationId" type="String"/>
+    <aura:attribute name="subject" type="String"/>
+    <aura:attribute name="description" type="String"/>
+    <aura:attribute name="requestedHoldProductsOptions" type="Map"/>
+    <aura:attribute name="products" type="List" />
+    <aura:attribute name="calculationMatrixResponse" type="Object"/>
+    <aura:attribute name="holdAmount" type="Decimal" />
+    
+    
+    <aura:attribute name="caseModel" type="String" />
+    <!-- <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/> -->
+
+    <aura:attribute name="BusinessNature" type="String" />
+    <aura:attribute name="LiabilitiesOptions" type="Object" default="[]"/>
+    <aura:attribute name="LiabilitiesColumns" type="List" />
+    <aura:attribute name="RequestedLiabilitiesSelectedRows" type="List" access="PRIVATE"/>
+    <aura:attribute name="FinalRequestedLiabilitiesSelectedRows" type="List" access="PRIVATE"/>
+    <aura:attribute name="CustomerProductsOptions" type="Object" default="[]"/>
+    <aura:attribute name="selectedRows" type="List" access="PRIVATE"/>
+    <aura:attribute name="FinalselectedRows" type="List" access="PRIVATE"/>
+    <aura:attribute name="DisabledCustomerProductsOptions" type="Object" default="[]"/>
+    <aura:attribute name="CustomerProductsColumns" type="List" />
+    <aura:attribute name="CustomerProductsvalidationMessage" type="String" default="" />
+    <aura:attribute name="requestedLiabilitiesvalidationMessage" type="String" default="" />
+
+    <!-- <aura:attribute name="CustomerProductsMaxRowSelection" type="Integer" default="0"/> -->
+
+    <!-- <aura:attribute name="caseAnnexFields" type="Object" /> -->
+    <aura:attribute name="SelectedCalculationMethod" type="String" default="By Loan/Finance Amount"/>
+    <aura:attribute name="showLoanCalculatorSection" type="Boolean" default="false"/>
+    <aura:attribute name="disableLoanCalculationButton" type="Boolean" default="true"/>
+    <aura:attribute name="isLoanCalculated" type="Boolean" default="false"/>
+    <aura:attribute name="isLoanCalculatedValidationMessage" type="String" default="" />
+    <aura:attribute name="showAdditionalInfoTemporary" type="Boolean" default="true"/>
+    <aura:attribute name="Product" type="String" />
+    <aura:attribute name="isEmployed" type="Boolean" default="false"/>
+
+    <!-- Attribute to store the Account record -->
+    <aura:attribute name="customer" type="Account" />
+    
+    <!-- Handler for initialization -->
+    <aura:handler name="init" value="{!this}" action="{!c.Init}" />
+    <!-- ===================== -->
+
+   
+   
+    <h3 style="text-align: center; font-weight: bold; font-size: 1.5em;">New Loan/Finance Application</h3>
+    <lightning:card >
+        
+        <!-- <div class="slds-hidden" style="height: 0px;">
+            <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+                <lightning:inputField aura:id="CIF" fieldName="CIF__pc" />
+                <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            </lightning:recordEditForm>
+
+        </div> -->
+
+        <lightning:recordEditForm aura:id="caseform"
+                                  recordTypeId="{!$Label.c.LoanApplicationRecordTypeId}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+
+            <div class="slds-hidden" style="height: 0px;">
+
+                <lightning:inputField aura:id="ProductConfigurationId" fieldName="Card_Product_Configuration_Id__c" value="{!v.loanProductConfigurationId}"/>
+                <!-- <lightning:inputField aura:id="MonthlyIncome" fieldName="cc_Monthly_Income__c" /> -->
+                <lightning:inputField aura:id="RequestedLiabilities" fieldName="Loans_Requested_Liabilities__c" />
+                <!-- <lightning:inputField aura:id="ExtraInformation" fieldName="Extra_information__c" /> -->
+                <lightning:inputField fieldName="Description" value="{!v.description}" aura:id="description"/>
+                <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+
+                
+            </div>
+
+            <div class="two-column-layout">
+                <!-- First column -->
+                <div class="slds-size_1-of-3">
+                    <lightning:inputField fieldName="Subject" value="{!v.subject}" aura:id="subject" disabled="true"/>
+                    <lightning:input name="Description2" label="Description" value="{!v.description}" disabled="true"/>
+                    <lightning:inputField fieldName="Type" value="{!v.type}" aura:id="type" required="true"/>
+                    <lightning:inputField fieldName="Sub_Type__c" value="{!v.subType}" aura:id="subType" required="true"/>
+                    <lightning:inputField fieldName="Origin" aura:id="Origin" required="true" />
+                    
+                </div><!-- End column -->
+
+                <!-- second column -->
+                <div class="slds-size_1-of-3">
+                    
+                    <lightning:inputField fieldName="Case_Model__c" aura:id="caseModelField" required="true" value = "{!v.caseModel}" onchange="{!c.caseModelIsChanged}"/> 
+                    <lightning:recordEditForm   aura:id="caseAnnexform1"
+                                                objectApiName="CaseAnnex__c"  onerror="{!c.handleOnErrorAnnex}" onsuccess="{!c.handleOnSuccessAnnex}">
+                        <lightning:messages/>
+                        <lightning:inputField fieldName="cx_ln_Product__c"  aura:id="cx_ln_Product" value="{!v.Product}" required="true" onchange="{!c.handleRequestedLoanTypeChange}" />
+                        <lightning:inputField fieldName="cx_ln_Loan_Finance_Type__c"  aura:id="cx_ln_Loan_Finance_Type"  required="true" />
+                        <lightning:inputField fieldName="cx_ln_Business_Nature_Type__c"  aura:id="cc_Business_Nature_Type" value="{!v.BusinessNature}" onchange="{!c.BusinessNatureIsChanged}" required="true"/> 
+                    </lightning:recordEditForm>
+                    <!-- <lightning:inputField fieldName="cc_Business_Nature_Type__c"  aura:id="cc_Business_Nature_Type" value="{!v.BusinessNature}" onchange="{!c.BusinessNatureIsChanged}" required="true"/>  -->
+                    <lightning:inputField fieldName="Case_Nature__c" aura:id="CaseNature" required="true" /> 
+
+                </div><!-- End column -->
+            
+                <!-- third column -->
+                <div class="slds-size_1-of-3">
+                    <lightning:recordEditForm   aura:id="caseAnnexform3"
+                                                objectApiName="CaseAnnex__c"  >
+
+                        <lightning:messages/>
+                        <lightning:inputField fieldName="cx_ln_Loan_Calculation_Method__c"  aura:id="cx_ln_Loan_Calculation_Method" value="{!v.SelectedCalculationMethod}" required="true" onchange="{!c.handleLoanCalculationMethodChange}" />
+                        <aura:if isTrue="{!v.SelectedCalculationMethod == 'By Loan/Finance Amount'}">
+                            <lightning:inputField fieldName="cx_ln_Requested_Loan_Finance_Amount__c"  aura:id="Loans_Requested_Loan_Finance_Amount_Amount"  step="0.001" onfocusout="{!c.getLoanCalculatorMatrix}" required="true"/>   
+                            <lightning:inputField fieldName="cx_ln_Monthly_Instalment__c" aura:id="RequestedMonthlyInstalment_Amount" step="0.001"  disabled="true"/>                 
+                        </aura:if>
+                        <aura:if isTrue="{!v.SelectedCalculationMethod == 'By Monthly Installment'}">
+                            <lightning:inputField fieldName="cx_ln_Requested_Loan_Finance_Amount__c" aura:id="Loans_Requested_Loan_Finance_Amount_Installment" step="0.001" disabled="true" />
+                            <lightning:inputField fieldName="cx_ln_Monthly_Instalment__c" aura:id="RequestedMonthlyInstalment_Installment" step="0.001"  onfocusout="{!c.getLoanCalculatorMatrix}" required="true"/>
+                            
+                        </aura:if>
+                        <lightning:inputField fieldName="cx_ln_Requested_Duration_Months__c" aura:id="RequestedDuration" onfocusout="{!c.getLoanCalculatorMatrix}" required="true" />
+                    </lightning:recordEditForm>
+
+                </div>
+                <!-- End column -->
+            </div>
+
+            <aura:if isTrue="{!v.BusinessNature == 'Buyout Loan/Finance'}">
+                <br/>
+                <h2 class="sectionClass">Requested Liabilities</h2>
+                <br/>
+                <div style="width: 66%;">
+                    <aura:if isTrue="{!not(empty(v.requestedLiabilitiesvalidationMessage))}">
+                            <div class="slds-text-color_error slds-m-bottom_small">
+                                {!v.requestedLiabilitiesvalidationMessage}
+                            </div>
+                        </aura:if>
+                    <lightning:recordEditForm   aura:id="caseAnnexform4"
+                                            objectApiName="CaseAnnex__c"  >
+                        <lightning:messages/>
+                        <div class="slds-hide">
+                            <lightning:inputField fieldName="cx_ln_Requested_Liabilities__c"  aura:id="cx_ln_Requested_Liabilities" />
+                            <lightning:inputField fieldName="cx_ln_TotalLiabilitiesAmount__c"  aura:id="cx_ln_TotalLiabilitiesAmount" />
+                            <lightning:inputField fieldName="cx_ln_TotalLiabilityMonthlyInstallAmount__c"  aura:id="cx_ln_TotalLiabilityMonthlyInstallAmount" />
+                        </div>
+                    </lightning:recordEditForm>
+                    
+                    <!-- <label >Requested Liabilities</label> -->
+                    <lightning:datatable
+                        keyField="Id"
+                        data="{!v.LiabilitiesOptions}"
+                        selectedRows="{! v.RequestedLiabilitiesSelectedRows }"
+                        columns="{!v.LiabilitiesColumns}"
+                        onrowselection="{!c.handleLiabilitiesRowSelection}"
+                    />
+                </div>
+            </aura:if>
+
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+              
+                    <lightning:button 
+                    variant="brand-outline" 
+                    label="Calculate" 
+                    title="Loan Calculation" 
+                    onclick="{! c.handleLoanCalculationButton }" 
+                    disabled="{! v.disableLoanCalculationButton}"
+                />
+            </div>
+
+            <aura:if isTrue="{!not(empty(v.isLoanCalculatedValidationMessage))}">
+                    <div class="slds-text-color_error slds-m-bottom_small" style="display: flex; justify-content: center; margin-top: 20px;">
+                        {!v.isLoanCalculatedValidationMessage}
+                    </div>
+                </aura:if>
+            
+            <aura:if isTrue="{!v.showLoanCalculatorSection}">
+
+                <br/>
+                    <h2 class="sectionClass">Loan/Finance Calculator</h2>
+                <br/>
+            
+                <lightning:recordEditForm   aura:id="caseAnnexform5"
+                                                objectApiName="CaseAnnex__c"  >
+                    <lightning:messages/>
+                <div class="two-column-layout">
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="cx_ln_Requested_Loan_Finance_Amount__c"  aura:id="Loans_Requested_Loan_Finance_Amount" step="0.001" disabled="true"/>   
+                        <lightning:inputField fieldName="cx_ln_Monthly_Instalment__c" aura:id="RequestedMonthlyInstalment" step="0.001"  disabled="true"/>
+                        <lightning:inputField fieldName="cx_ln_Requested_Interest_Rate__c"  aura:id="cx_ln_Requested_Interest_Rate"  disabled="true" />
+                        
+                        <aura:if isTrue="{!v.Product == 'Secured'}">
+                            <lightning:inputField fieldName="cx_ln_Administrative_Fee__c"  aura:id="cx_ln_Administrative_Fee"  />
+                        </aura:if>
+                        <aura:if isTrue="{!v.Product == 'Unsecured'}">
+                            <lightning:inputField fieldName="cx_ln_Processing_Fee_Type__c"  aura:id="cx_ln_Processing_Fee_Type" value ="Upfront" disabled="true" />
+                        </aura:if>
+                    </div>
+
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="cx_ln_Requested_Insurance_Amount__c"  aura:id="cx_ln_Requested_Insurance_Amount" step="0.001" disabled="true" />
+                        <lightning:inputField fieldName="cx_ln_Requested_Processing_Fees__c"  aura:id="cx_ln_Requested_Processing_Fees" step="0.001" disabled="true" />
+                        <lightning:inputField fieldName="cx_ln_Requested_Vat_Processing_Fees__c"  aura:id="cx_ln_Requested_Vat_Processing_Fees" step="0.001"  disabled="true" />
+
+                        <aura:if isTrue="{!v.Product == 'Secured'}">
+                            <!-- CH02 : make the field disabled if it's secured loan-->
+                            <lightning:inputField fieldName="cx_ln_Insurance_Premium__c"  aura:id="cx_ln_Insurance_Premium" disabled="true" value ="Upfront" />
+                        </aura:if>
+                        <aura:if isTrue="{!v.Product == 'Unsecured'}">
+                            <lightning:inputField fieldName="cx_ln_Insurance_Premium__c"  aura:id="cx_ln_Insurance_Premium" required="true" value ="Monthly installment" />
+                        </aura:if>
+
+                    </div>
+
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="cx_ln_Requested_Cash_in_Hand__c"  aura:id="cx_ln_Requested_Cash_in_Hand" step="0.001" disabled="true" />
+                        <lightning:inputField fieldName="cx_ln_Requested_First_Payment_Date__c"  aura:id="cx_ln_Requested_First_Payment_Date"  disabled="true" />
+                        <lightning:inputField fieldName="cx_ln_Requested_Maturity_Date__c"  aura:id="cx_ln_Requested_Maturity_Date"  disabled="true" />
+                        <lightning:input label="Total Repayment Amount" aura:id="TotalRepaymentAmount" disabled="true" />
+                        <lightning:input label="Total Interest" aura:id="TotalInterest" disabled="true" />
+                    </div>
+                </div> 
+                </lightning:recordEditForm>
+            
+            </aura:if>  
+                
+            
+
+            <aura:if isTrue="{!v.Product == 'Secured'}">
+                <br/>
+                <h2 class="sectionClass">Customer Products</h2>
+                <br/>
+                
+                        <aura:if isTrue="{!not(empty(v.CustomerProductsvalidationMessage))}">
+                            <div class="slds-text-color_error slds-m-bottom_small">
+                                {!v.CustomerProductsvalidationMessage}
+                            </div>
+                        </aura:if>
+
+                        <lightning:datatable
+                            keyField="Id"
+                            data="{!v.CustomerProductsOptions}"
+                            selectedRows="{! v.selectedRows }"
+                            columns="{!v.CustomerProductsColumns}"
+                            onrowselection="{!c.handleRequestedHoldProductChange}"
+                            maxRowSelection="1"
+                            singleRowSelectionMode="radio"
+                        />
+                        <lightning:datatable
+                            keyField="Id"
+                            data="{!v.DisabledCustomerProductsOptions}"
+                            columns="{!v.CustomerProductsColumns}"
+                            onrowselection="{!c.handleRequestedHoldProductChange}"
+                            maxRowSelection="0"
+                            hideTableHeader="true"
+                            singleRowSelectionMode="radio"
+                        />
+                        
+                   
+
+                <br/>
+                <div class="two-column-layout">
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="ccol_Hold_Account__c" aura:id="ccol_Hold_Account" disabled="true"/>
+                        <lightning:inputField fieldName="ccol_Hold_Amount__c" aura:id="ccol_Hold_Amount" disabled="true"/>
+                    </div>
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" aura:id="ccol_Hold_Account_IBAN" disabled="true" required="true"/>
+                    </div>
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="ccol_Hold_Account_Balance__c" aura:id="ccol_Hold_Account_Balance" disabled="true"/>
+                    </div>
+                    
+                </div>
+                
+            </aura:if>
+
+            
+                
+            <!-- <aura:if isTrue="{!or(v.showAdditionalInfoTemporary,v.Product == 'Unsecured')}">  -->
+            <aura:if isTrue="{!v.Product == 'Unsecured'}"> 
+                <br/>
+                <h2 class="sectionClass">Additional Information</h2>
+            
+                <div class="two-column-layout">
+                    <!-- First column -->
+                    <div class="slds-size_1-of-3">
+                        <lightning:inputField fieldName="cc_Employment_Status__c" aura:id="EmploymentStatus" required="true" onchange="{!c.handleEmploymentStatusChange}" />
+                        <lightning:inputField fieldName="cc_Employer_Name__c" aura:id="EmployerName"   required="{!v.isEmployed}"/>
+                        <lightning:inputField fieldName="cc_Whitelisted_Employer__c" aura:id="WhitelistedEmployer"/>
+                        <lightning:inputField fieldName="cc_Employer_Grade__c" aura:id="EmployerGrade" /> <!-- required="{!v.isEmployed}" -->
+                        <lightning:inputField fieldName="cc_Employer_Sector__c" aura:id="EmployerSector" /> <!-- required="{!v.isEmployed}" -->
+                    </div>
+                    <!-- End column -->
+                
+                    <!-- second column -->
+                    <div class="slds-size_1-of-3">
+                        
+                        <lightning:recordEditForm   aura:id="caseAnnexform2"
+                                                    objectApiName="CaseAnnex__c"  >
+                            <lightning:messages/>
+                            <lightning:inputField fieldName="cx_ln_Gross_Income_2__c"  aura:id="cx_ln_Gross_Income" required="true"/>
+                        </lightning:recordEditForm>
+                        <lightning:input type="text" label="Current Address" aura:id="currentAddress" disabled="true" />
+                        <!-- <label for="CurrentAddressConfirmation">Current Address confirmation</label> -->
+                        <lightning:recordEditForm   aura:id="caseAnnexform5"
+                                                    objectApiName="CaseAnnex__c"  >
+                            <lightning:messages/>
+                            <lightning:inputField fieldName="cx_ln_Current_Address_confirmation__c" aura:id="CurrentAddressConfirmation"  required="true"/>
+                        </lightning:recordEditForm>
+                        
+                        <lightning:inputField fieldName="cc_Residence_Occupancy_Status__c" aura:id="ResidenceOccupancyStatus" required="true"/>
+            
+                        <abbr title="required" class="slds-required">*</abbr>
+                        <lightning:formattedText value="Number of Years at Current Residence" />
+                        <lightning:inputField fieldName="cc_Number_years_at_current_residence_jo__c" aura:id="NumberYearsCurrentResidence" required="true" variant="label-hidden"/>
+
+                    </div>
+                    <!-- End column -->
+
+                    <!-- third column -->
+                    <div class="slds-size_1-of-3">
+                        
+                        <lightning:inputField fieldName="cc_Marital_Status__c" aura:id="MaritalStatus" />
+                        <lightning:inputField fieldName="cc_Number_of_Dependents__c" aura:id="NumberOfDependents" required="true"/>
+                        <lightning:inputField fieldName="cc_Academic_Qualifications__c" aura:id="AcademicQualifications" required="true"/>
+                        <lightning:inputField fieldName="cc_Friend_s_Contact_Number__c" aura:id="FriendContactNumber" required="true"/>
+                        <lightning:inputField fieldName="cc_Friend_s_Name__c" aura:id="FriendName" required="true"/>
+                    </div>
+                    <!-- End column -->
+                </div>
+            <!-- </div> -->
+            
+            </aura:if>
+        <br/>
+        <lightning:input type="checkbox" label="Consent to Query Benefit Credit Bureau" name="ConsenttoQueryBenefitCreditBureau"  required="true"    />
+        <lightning:input type="checkbox" label="Terms and Conditions Acceptance Flag" name="TermsandConditionsAcceptanceFlag"  required="true"    />
+        <aura:if isTrue="{!v.caseModel == 'alburaq'}"> 
+            <lightning:input type="checkbox" label="Commodity Murabaha Transactions Consent" name="TermsandConditionsAcceptanceFlag"  required="true"    />
+        </aura:if>
+            
+            
+        <br/>
+        <footer>
+            <div class="slds-float_right">
+                <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}"/>
+                <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+
+            </div>
+        </footer>
+        
+        </lightning:recordEditForm>
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+        
+    </lightning:card>
+    <br/>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

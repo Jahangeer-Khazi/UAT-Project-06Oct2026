@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Veri_Appr_Approval</fullName>
+    <active>true</active>
+    <description>Approval Cannot Change the Approval result until Verifier Approves.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Approval_Result__c),
+NOT(ISPICKVAL(cc_Credit_Verification_Result__c, &apos;Approve&apos;)),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;),
+AND(ISPICKVAL( Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;))
+) 
+)</errorConditionFormula>
+    <errorDisplayField>cc_Credit_Approval_Result__c</errorDisplayField>
+    <errorMessage>Approval cannot change the Approval result until Credit Verification Result is Approved.</errorMessage>
+</ValidationRule>

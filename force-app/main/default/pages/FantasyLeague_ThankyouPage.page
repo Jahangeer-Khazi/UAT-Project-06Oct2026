@@ -1,0 +1,99 @@
+<apex:page title="ilaBank Fantasy League Registration" showHeader="false" standardStylesheets="true">
+<html>
+      <head>
+         <title>Fantasy Football | ila Digital Bank - Bahrain</title>
+         <meta name="ROBOTS" content="INDEX,FOLLOW"/>
+         <meta name="keywords" content=""/>
+         <meta name="description" content=""/>
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <style class="main_style">
+            .layout-canvas-b { background-color: #FFFFFF; border: none; box-sizing: border-box; padding: 0px; width: 100%; }
+            .layout-canvas-b > .header, .layout-canvas-b > .section, .layout-canvas-b > .footer { position: relative; overflow: hidden; width: 100%; overflow-wrap: break-word; }
+            .layout-canvas-b > .section { margin: 10px 0px; }
+            .layout-canvas-b > .section > .columns { box-sizing: border-box; overflow-wrap: break-word; min-width: 320px; }
+            body { color: #000000; font-family: Arial; font-size: 12px; margin: 0px auto; }
+            @media only screen and (max-width: 480px) {
+            .mobile-hidden { display: none !important; }
+            .responsive-td { width: 100% !important; display: block !important; padding: 0px !important; }
+            }
+            @media (min-width: 480px) {
+            .layout-canvas-b > .section { display: table; table-layout: fixed; }
+            }
+            @media (min-width: 480px) {
+            .layout-canvas-b > .section > .columns { display: table-cell; padding: 0px 5px; vertical-align: top; width: 50%; }
+            .layout-canvas-b > .section > .columns:first-child { padding-left: 0px; }
+            .layout-canvas-b > .section > .columns:last-child { padding-right: 0px; }
+            .layout-canvas-b > .section > .columns.col1 { }
+            .layout-canvas-b > .section > .columns.col2 { }
+            }
+            @media (max-width: 480px) {
+            .layout-canvas-b > .section > .columns { width: 100%; margin-bottom: 10px; }
+            .layout-canvas-b > .section > .columns:last-child { margin-bottom: 0px; }
+            }
+            ul.list { list-style-type:circle;font-size:8px; padding-left:8px; }
+            .button { background-color: #7aee00; text-align: center; display: inline-block; font-size: 15px;
+            }
+         </style>
+         <link rel="stylesheet" href="https://cloud.e.ilabank.com/ilabank.css"/>
+         <link rel="shortcut icon" href="https://image.e.ilabank.com/lib/fe3411717564047d7d1c75/m/1/37bedc9a-61cd-41ed-ad06-05e2a02b5bca.png"/>
+      </head>
+      <apex:form >
+      <body>
+         <div class="layout layout-canvas-b">
+            <div class="header">
+               <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                  <tr>
+                     <td class="stylingblock-content-wrapper camarker-inner">
+                        <div class="header">
+                           <table border="0" cellpadding="0" class="stylingblock-content-wrapper" width="100%">
+                              <tr>
+                                 <td class="stylingblock-content-wrapper camarker-inner" style="background-color:#000e3c;padding: 20px 40px;">
+                                    <img src="/resource/1647959401000/ilaLogoWithBankABC" style="padding: 0px; text-align: center; border: 0px solid transparent; height: auto;" width="224"/>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+           
+                <apex:define name="body"> 
+                <br/>
+                <br/><br/><br/><br/><br/>
+                    <center>
+                    <label class="slds-form-element__label" for="Prospect1" style="margin-left:0px;font-family: Helvetica; font-weight: bold;font-size:35px;color:#696969;">Thank you for your Registration. </label>
+                    </center>
+                <br/>
+                <br/><br/><br/><br/><br/><br/>
+                </apex:define> 
+                <br/><br/>
+              <div class="footer">
+               <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                  <tr>
+                     <td class="stylingblock-content-wrapper camarker-inner">
+                        <div class="footer">
+                           <table border="0" cellpadding="0" class="stylingblock-content-wrapper" width="100%">
+                              <tr>
+                                 <td style="background-color:#000e3c;padding: 20px 40px;"><a href="https://instagram.com/ilabankbhr"><img data-assetid="15345" height="45" src="/resource/1647954081000/ilaInstagram" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://www.facebook.com/Ila-Bank-Bahrain-352144688790283/"><img data-assetid="15344" height="45" src="/resource/1647954167000/ilaFacebook" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://twitter.com/ilaBankBHR"><img data-assetid="15346" height="45" src="/resource/1647954217000/ilaTwitter" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://www.youtube.com/channel/UC_ycAB7SYwy1B5G7MRgJrFw"><img data-assetid="15347" height="45" src="/resource/1647954266000/ilaYoutube" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://www.linkedin.com/company/ilabank/"><img data-assetid="15343" height="45" src="/resource/1647954320000/ilaLinkedin" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a><br/><br/>
+                                    <br/>
+                                    <span class=".Footer-module--copyrightGridItem--3XFBX;"><span style="color:#7aee00;">&copy; ila bank 2020. All Rights Reserved. Licensed as a Conventional Retail Bank &ndash; Branch by the Central Bank of Bahrain.</span></span>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+      </body>
+      </apex:form>     
+   </html>
+   
+</apex:page>

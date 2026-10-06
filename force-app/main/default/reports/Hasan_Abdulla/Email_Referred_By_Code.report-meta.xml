@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>PC_EMAIL</field>
+    </columns>
+    <columns>
+        <field>Account.Referred_By__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Referral_Code__c</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Account.Bank_Account_Opening_Date__c</field>
+    </columns>
+    <columns>
+        <field>RECORDTYPE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>PC_EMAIL</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>fatami222@gmail.com,zooxa@hotmail.com,hamza.sheikh1561@gmali.com,nawal.erhama65@gmail.com,malalawi77.2@gmail.com,ahmedhassanali187@gmail.com,rispergithinji23@gmail.com,dadzruth23@gmail.com,crazyhamany@gmail.com,buyousuf.07@gmail.com,hhumaidan20@gmail.com,ashraf33486785@gmail.com,connie23david@gmail.com,orphan1576@gmail.com,zubaida_mohdanwar@hotnail.com,husaain-ahmed91@hotmail.com,marwaalayoob@gmail.com,ha1406850@qu.edu.qa,wer5m@hotmail.com,haithamhes@hotmail.com,alaalikawthar5@gmail.com,christainfon90@gmail.com,kamalbalochi@icloud.com,j.ramadan91@outlook.com</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Email - Referred By Code</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

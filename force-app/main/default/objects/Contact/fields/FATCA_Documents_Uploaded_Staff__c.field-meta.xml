@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FATCA_Documents_Uploaded_Staff__c</fullName>
+    <formula>IF(
+				OR(
+								TEXT(Segment__c) &lt;&gt; &quot;Staff&quot;,
+								AND(ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;), $Setup.Setting__c.View_Staff_Data__c), 
+								AND(ISPICKVAL(Region_Flag__c, &quot;Jordan&quot;), $Setup.Setting__c.View_Staff_Data_Jordan__c)
+				),
+				FATCA_Documents_uploaded__c,  
+				FALSE 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>FATCA Documents Uploaded</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

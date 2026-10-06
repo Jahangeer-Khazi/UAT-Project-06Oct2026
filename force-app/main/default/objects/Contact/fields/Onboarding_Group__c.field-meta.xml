@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Onboarding_Group__c</fullName>
+    <label>Onboarding Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Onboarding_Stage__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Registration</fullName>
+                <default>false</default>
+                <label>Registration</label>
+            </value>
+            <value>
+                <fullName>ID Verification</fullName>
+                <default>false</default>
+                <label>ID Verification</label>
+            </value>
+            <value>
+                <fullName>Siron checks</fullName>
+                <default>false</default>
+                <label>Siron checks</label>
+            </value>
+            <value>
+                <fullName>Account Created</fullName>
+                <default>false</default>
+                <label>Account Created</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>REJECTED_UNDERAGE</controllingFieldValue>
+            <controllingFieldValue>ID_ENTERED_MANUALLY</controllingFieldValue>
+            <controllingFieldValue>REFERRED_NO_RETRY</controllingFieldValue>
+            <controllingFieldValue>PLACE_OF_BIRTH_SET</controllingFieldValue>
+            <controllingFieldValue>ID_MANUAL_ENTRY</controllingFieldValue>
+            <controllingFieldValue>ID_MANUAL_ENTRY_APPROVED</controllingFieldValue>
+            <controllingFieldValue>REFERRED_NO_RETRY_ID</controllingFieldValue>
+            <controllingFieldValue>ADDRESS_VERIFICATION_SUCCESS</controllingFieldValue>
+            <controllingFieldValue>REFERRED_NO_RETRY_ADDRESS</controllingFieldValue>
+            <controllingFieldValue>ID_LIVENESS_VERIFICATION_FAIL</controllingFieldValue>
+            <controllingFieldValue>ACCOUNT_OPENING_REASON_SET</controllingFieldValue>
+            <controllingFieldValue>ADDRESS_VERIFICATION_FAIL</controllingFieldValue>
+            <controllingFieldValue>ROB_EMAIL_VERIFIED</controllingFieldValue>
+            <controllingFieldValue>RESIDENCY_SET</controllingFieldValue>
+            <controllingFieldValue>REFERRED_COUNTRY_UNAUTHORIZED</controllingFieldValue>
+            <controllingFieldValue>ID_LIVENESS_COMPLETE</controllingFieldValue>
+            <controllingFieldValue>ADDRESS_DOC_TYPE_SET</controllingFieldValue>
+            <controllingFieldValue>ADDRESS_SCAN_COMPLETE</controllingFieldValue>
+            <controllingFieldValue>ROB_DEVICE_PIN_SET</controllingFieldValue>
+            <controllingFieldValue>ROB_MOBILE_VERIFIED</controllingFieldValue>
+            <valueName>ID Verification</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>REFERRED_MANUAL_STOP</controllingFieldValue>
+            <controllingFieldValue>REFERRED_NAME_SCREENING</controllingFieldValue>
+            <controllingFieldValue>REJECTED_NAME_SCREENING</controllingFieldValue>
+            <controllingFieldValue>REFERRED_EDD</controllingFieldValue>
+            <controllingFieldValue>REJECTED_EDD</controllingFieldValue>
+            <controllingFieldValue>FATCA_FORM</controllingFieldValue>
+            <controllingFieldValue>FATCA_FORM_RESUBMIT</controllingFieldValue>
+            <controllingFieldValue>EMPLOYMENT_INFO_SET</controllingFieldValue>
+            <controllingFieldValue>FUNDS_DATA_SET</controllingFieldValue>
+            <controllingFieldValue>TAX_DATA_SET</controllingFieldValue>
+            <controllingFieldValue>ID_DATA_VERIFICATION_SUCCESS</controllingFieldValue>
+            <controllingFieldValue>ACCOUNT_OPENING_REASON_SET</controllingFieldValue>
+            <controllingFieldValue>ROB_EMAIL_VERIFIED</controllingFieldValue>
+            <controllingFieldValue>SCREENING_IN_PROGRESS</controllingFieldValue>
+            <controllingFieldValue>SCREENING_SUCCESS</controllingFieldValue>
+            <controllingFieldValue>ROB_DEVICE_PIN_SET</controllingFieldValue>
+            <controllingFieldValue>ROB_MOBILE_VERIFIED</controllingFieldValue>
+            <controllingFieldValue>ACCOUNT_ACTIVATED</controllingFieldValue>
+            <valueName>Siron checks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ROB_EMAIL_VERIFIED</controllingFieldValue>
+            <controllingFieldValue>EMAIL_VERIFIED</controllingFieldValue>
+            <controllingFieldValue>TERMS_ACCEPTED</controllingFieldValue>
+            <controllingFieldValue>DEVICE_PIN_SET</controllingFieldValue>
+            <controllingFieldValue>MOBILE_VERIFIED</controllingFieldValue>
+            <controllingFieldValue>ROB_DEVICE_PIN_SET</controllingFieldValue>
+            <controllingFieldValue>ROB_MOBILE_VERIFIED</controllingFieldValue>
+            <valueName>Registration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ACCOUNT_FUNDED</controllingFieldValue>
+            <valueName>Account Created</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

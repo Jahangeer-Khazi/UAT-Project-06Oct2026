@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>notification for cooldown completion to Vision plus team for case closure</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>VisionPlusNotificationforCompletionofCoolDown</name>
+    <style>none</style>
+    <subject>Reminder: Proceed with Account Closure || Case Number: {!Case.CaseNumber}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Partial Settlement</label>
+    <protected>false</protected>
+    <values>
+        <field>JSON_Value__c</field>
+        <value xsi:type="xsd:string">[
+  {
+    &quot;sectionName&quot;: &quot;Case Information&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;ContactId&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;CaseNumber&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CC_Application_Source__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Customer_Segment__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;OwnerId&quot;,
+        &quot;Label&quot;: &quot;Case Owner&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Case_Model__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;Description Information&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Subject&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Awaiting_Customer_Feedback__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Description&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;Additional Information&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Status&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Type&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Sub_Status__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Sub_Type__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Case_Nature__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CRM_Stage__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;Read Only and Pre-populated by CRM&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_ID_Number__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Mobile_Number__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_ID_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Email_Address__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Place_of_Birth__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Gender__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Date_of_Birth__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Credit Loan/Finance Request Pre-Screener&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CPR_Number__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CPR_Number__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CPR_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CPR_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Passport_Number__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Passport_Number__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Passport_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Passport_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Residence_Permit_No__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;SA&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;KW&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;OM &quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;AE&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;QA &quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Residence_Permit_No__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;or&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;SA&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;KW&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;OM &quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;AE&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;QA &quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Residence_Permit_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;SA&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;KW&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;OM &quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;AE&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;QA &quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Residence_Permit_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;or&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;BH&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;SA&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;KW&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;OM &quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;AE&quot;
+            },
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Nationality__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;QA &quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Home_Country_Address__c&quot;,
+        &quot;Label&quot;: &quot;Address Line&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;New_Mailing_Postcode_Block__c&quot;,
+        &quot;Label&quot;: &quot;Postal Code/Block&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_City__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Country__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Blacklisted__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Employment_Status__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Listed_Employer_Name__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Employer_Name__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Employer_Address__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Employer_Country__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Occupation__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Length_Of_Service__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CR_License_Number__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_CR_Expiry_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_Operations_Starting_Date__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Business_Sector__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_Nature_Type__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Employer_Grade__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Pre_screener_Decline_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Pre_screener_Other_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screener_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_case_Sub_Type__c&quot;,
+        &quot;hidden&quot;: true,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_ln_Request_Pre_screener_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screening_Result_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Pre_Screening_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_ln_RecommendedByBusiness__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Queue&quot;,
+              &quot;fieldAPIName&quot;: &quot;DeveloperName&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;Loan_Finance_Request_Pre_screener_Queue&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_ln_RecommendedByBusiness__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Queue&quot;,
+              &quot;fieldAPIName&quot;: &quot;DeveloperName&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;Loan_Finance_Request_Pre_screener_Queue&quot;
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Credit Loan/Finance Request Evaluator&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_ln_Existing_Loan__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Approved_employment_status__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Deviation_1_type__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Other_Deviation_1_type__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Deviation_2_type__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Other_Deviation_2_type__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Evaluator_Decline_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Evaluator_Other_reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Exceptions__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluator_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluation_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluation_Result_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Evaluation_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Credit Loan/Finance Request Verifier&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Customer_Contacted__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Customer_s_Friend_Contacted_Flag__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Customer_s_Employer_Contacted_Flag__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Verifier_Decline_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Credit_Verification_Result__c&quot;,
+              &quot;operator&quot;: &quot;!=&quot;,
+              &quot;value&quot;: &quot;Decline&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Verifier_Decline_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: {
+          &quot;logicalOperator&quot;: &quot;and&quot;,
+          &quot;expressions&quot;: [
+            {
+              &quot;objectName&quot;: &quot;Case&quot;,
+              &quot;fieldAPIName&quot;: &quot;cc_Credit_Verification_Result__c&quot;,
+              &quot;operator&quot;: &quot;=&quot;,
+              &quot;value&quot;: &quot;Decline&quot;
+            }
+          ]
+        }
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Verifier_Other_reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Verifier_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Verification_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Verification_Result_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Verified_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Credit Loan/Finance Request Approver&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Approver_Decline_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Approver_Other_reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Approver_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Approval_Result__c&quot;,
+        &quot;Label&quot;: &quot;Credit Approver Result&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Approval_Result_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Approved_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Contact Center&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Customer_Contacted__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Contact_Centre_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Sub_Type__c&quot;,
+        &quot;hidden&quot;: true,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Contact_Centre_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Contact_Center_Result_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Contact_Center_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Service Center&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Customer_Authenticated_Flag__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: true,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_ln_CustomerAuthenticated_Datetime__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Service_Centre_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Service_Centre_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Service_Centre_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Service_Centre_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Loan/Finance Request Signature Verifier&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Signature_Verification_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Signature_Verifier_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Signature_Verification_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Signature_Verifier_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Business Team&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_team_Decline_Reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_team_Decline_Other_reason__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Credit_Business_Team_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_Approval_Result__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_Approval_Result_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Business_Approval_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;To be provided by Operations Processing&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Operations_Comments__c&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_case_Sub_Type__c&quot;,
+        &quot;hidden&quot;: true,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;CaseAnnex__c&quot;,
+        &quot;fieldAPIName&quot;: &quot;cx_ln_Operations_Processing_Result__c&quot;,
+        &quot;Label&quot;: &quot;Operation Result&quot;,
+        &quot;readOnly&quot;: false,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Operations_Date_Time__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;cc_Operation_by__c&quot;,
+        &quot;readOnly&quot;: true,
+        &quot;required&quot;: false,
+        &quot;visibilityFilter&quot;: true
+      }
+    ]
+  },
+  {
+    &quot;sectionName&quot;: &quot;System Information&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;CreatedById&quot;,
+        &quot;readOnly&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;LastModifiedById&quot;,
+        &quot;readOnly&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;SuppliedEmail&quot;,
+        &quot;readOnly&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Origin&quot;,
+        &quot;readOnly&quot;: true
+      },
+      {
+        &quot;objectName&quot;: &quot;Case&quot;,
+        &quot;fieldAPIName&quot;: &quot;Priority&quot;,
+        &quot;readOnly&quot;: true
+      }
+    ]
+  }
+]</value>
+    </values>
+    <values>
+        <field>RecordType_DeveloperName__c</field>
+        <value xsi:type="xsd:string">LoanFinanceServiceRequest</value>
+    </values>
+    <values>
+        <field>SubTypeValue__c</field>
+        <value xsi:type="xsd:string">Partial Settlement</value>
+    </values>
+    <values>
+        <field>TypeValue__c</field>
+        <value xsi:type="xsd:string">New Loan / Finance Service Request</value>
+    </values>
+</CustomMetadata>

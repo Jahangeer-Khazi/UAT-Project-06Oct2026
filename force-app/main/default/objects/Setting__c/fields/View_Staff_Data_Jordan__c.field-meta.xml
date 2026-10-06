@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Staff_Data_Jordan__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allows a user to view staff customer profile data and bank details for Jordan records.</description>
+    <inlineHelpText>Allows a user to view staff customer profile data and bank details for Jordan records.</inlineHelpText>
+    <label>View Staff Data (Jordan)</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

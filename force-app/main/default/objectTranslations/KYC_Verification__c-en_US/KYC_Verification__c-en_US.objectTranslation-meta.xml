@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>KYC Verification</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>KYC Verifications</value>
+    </caseValues>
+    <layouts>
+        <layout>KYC Verification Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Suspected Identity Fraud Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- JO KYC Verification --></label>
+        <name>JO_KYC_Verification</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- KYC Verification --></label>
+        <name>KYC_Verification</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- New KYC Verification case to be created manually for Suspected Identity Fraud type by agents assigned to Fraud queue --></description>
+        <label><!-- Suspected Identity Fraud --></label>
+        <name>Suspected_Identity_Fraud</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Case Model has to be Matched with Customer Subscription Model --></errorMessage>
+        <name>Case_Model_MatchWith_Account_Subcription</name>
+    </validationRules>
+</CustomObjectTranslation>

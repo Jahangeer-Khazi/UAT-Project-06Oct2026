@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Bypass Geo-Location Country --></label>
+    <name>Bypass_Geo_Location_Country__c</name>
+    <picklistValues>
+        <masterLabel>Angola</masterLabel>
+        <translation><!-- Angola --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Argentina</masterLabel>
+        <translation><!-- Argentina --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Austria</masterLabel>
+        <translation><!-- Austria --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bangladesh</masterLabel>
+        <translation><!-- Bangladesh --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Belarus</masterLabel>
+        <translation><!-- Belarus --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Benin</masterLabel>
+        <translation><!-- Benin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Botswana</masterLabel>
+        <translation><!-- Botswana --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Burundi</masterLabel>
+        <translation><!-- Burundi --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cameroon</masterLabel>
+        <translation><!-- Cameroon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cape Verde</masterLabel>
+        <translation><!-- Cape Verde --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Central African Republic</masterLabel>
+        <translation><!-- Central African Republic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Chad</masterLabel>
+        <translation><!-- Chad --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Comoros</masterLabel>
+        <translation><!-- Comoros --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Congo</masterLabel>
+        <translation><!-- Congo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cote D&apos;Ivoire</masterLabel>
+        <translation><!-- Cote D&apos;Ivoire --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cuba</masterLabel>
+        <translation><!-- Cuba --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Democratic People&apos;s Republic of Korea</masterLabel>
+        <translation><!-- Democratic People&apos;s Republic of Korea --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Djibouti</masterLabel>
+        <translation><!-- Djibouti --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Equatorial Guinea</masterLabel>
+        <translation><!-- Equatorial Guinea --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eritrea</masterLabel>
+        <translation><!-- Eritrea --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ethiopia</masterLabel>
+        <translation><!-- Ethiopia --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>France</masterLabel>
+        <translation><!-- France --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gabon</masterLabel>
+        <translation><!-- Gabon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gambia</masterLabel>
+        <translation><!-- Gambia --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Germany</masterLabel>
+        <translation><!-- Germany --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ghana</masterLabel>
+        <translation><!-- Ghana --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Guinea</masterLabel>
+        <translation><!-- Guinea --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Guinea-Bissau</masterLabel>
+        <translation><!-- Guinea-Bissau --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>India</masterLabel>
+        <translation><!-- India --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Iraq</masterLabel>
+        <translation><!-- Iraq --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Islamic Republic of Iran</masterLabel>
+        <translation><!-- Islamic Republic of Iran --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Italy</masterLabel>
+        <translation><!-- Italy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kenya</masterLabel>
+        <translation><!-- Kenya --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Madagascar</masterLabel>
+        <translation><!-- Madagascar  --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mali</masterLabel>
+        <translation><!-- Mali --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mauritius</masterLabel>
+        <translation><!-- Mauritius --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mayotte</masterLabel>
+        <translation><!-- Mayotte --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mozambique</masterLabel>
+        <translation><!-- Mozambique --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Namibia</masterLabel>
+        <translation><!-- Namibia --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Netherlands</masterLabel>
+        <translation><!-- Netherlands --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Norway</masterLabel>
+        <translation><!-- Norway --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pakistan</masterLabel>
+        <translation><!-- Pakistan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reunion</masterLabel>
+        <translation><!-- Reunion --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rwanda</masterLabel>
+        <translation><!-- Rwanda --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sao Tome and Principe</masterLabel>
+        <translation><!-- Sao Tome and Principe --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Senegal</masterLabel>
+        <translation><!-- Senegal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>South Sudan</masterLabel>
+        <translation><!-- South Sudan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Spain</masterLabel>
+        <translation><!-- Spain --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sudan</masterLabel>
+        <translation><!-- Sudan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Swaziland</masterLabel>
+        <translation><!-- Swaziland --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Syrian Arab Republic</masterLabel>
+        <translation><!-- Syrian Arab Republic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>The Democratic Republic of the Congo</masterLabel>
+        <translation><!-- The Democratic Republic of the Congo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Togo</masterLabel>
+        <translation><!-- Togo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Uganda</masterLabel>
+        <translation><!-- Uganda --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Western Sahara</masterLabel>
+        <translation><!-- Western Sahara --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Yemen</masterLabel>
+        <translation><!-- Yemen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zimbabwe</masterLabel>
+        <translation><!-- Zimbabwe --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

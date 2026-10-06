@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ac_MakerQueue_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Account Closure_Maker Queue</label>
+    <queue>ac_MakerQueue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

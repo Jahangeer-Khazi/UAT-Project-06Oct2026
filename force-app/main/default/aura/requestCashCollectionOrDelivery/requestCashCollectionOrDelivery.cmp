@@ -1,0 +1,101 @@
+<aura:component controller="BankAccountController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="true"/>
+    <aura:attribute name="accountObj" type="Object" required="true"/>
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="actionType" type="String" required="true" description="Collection | Delivery"/>
+    <!-- ============================================ -->
+    <aura:method name="open" action="{!c.open}" >
+        <aura:attribute name="accountObj" type="Object" required="true"/>
+        <aura:attribute name="actionType" type="String" required="true" description="Collection | Delivery"/>
+    </aura:method>
+
+    <!-- ============================================ -->
+	<aura:attribute name="requestData" type="Object" access="private" />
+    <aura:attribute name="currencyOptions" type="List" default="[]"/>
+    <aura:attribute name="countryOptions" type="List" default="[]"/>
+    <aura:attribute name="isInitialised" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+
+
+    <c:modal aura:id="request-popup">
+        <aura:set attribute="header">
+            Cash {!v.actionType}
+        </aura:set>
+        <aura:set attribute="body">
+            <lightning:card title="{! 'Account: ' + v.accountObj.accountNumber}">
+                <aura:if isTrue="{!v.isInitialised}">
+                    <div class="slds-form">
+                        <div class="slds-form-element__row">
+                            <div class="slds-size_1-of-1">
+                                <div class="slds-form-element slds-form-element_stacked slds-is-editing">
+                                    <lightning:input value="{!v.requestData.time}" label="{!'Time of ' + v.actionType}"
+                                        aura:id="collection-time"
+                                        type="datetime" required="true"/>
+                                </div>
+                            </div>
+                        </div> <!-- end of row -->
+                        <div class="slds-form-element__row">
+                            <div class="slds-size_1-of-1">
+                                <div class="slds-form-element slds-form-element_stacked slds-is-editing">
+                                    <lightning:inputAddress
+                                        required="true"
+                                        addressLabel="Address"
+                                        streetLabel="Street"
+                                        cityLabel="City"
+                                        countryLabel="Country"
+                                        provinceLabel="Province/State"
+                                        postalCodeLabel="PostalCode"
+                                        street="{! v.requestData.street }"
+                                        city="{! v.requestData.city }"
+                                        province="{! v.requestData.province }"
+                                        country="{! v.requestData.country }"
+                                        postalCode="{! v.requestData.postalCode }"
+                                        countryOptions="{! v.countryOptions }"
+                                        />
+                                </div>
+                            </div>
+                        </div> <!-- end of row -->
+                        <div class="slds-form-element__row">
+                            <div class="slds-size_1-of-2">
+                                <div class="slds-form-element slds-form-element_stacked slds-is-editing">
+                                    <lightning:select label="Currency" value="{!v.requestData.currency}" required="true">
+                                        <aura:iteration items="{!v.currencyOptions}" var="option">
+                                            <option text="{!option.MasterLabel}" value="{!option.DeveloperName}" selected="{!option.selected}"/>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                    <!--
+                                    <lightning:input value="{!v.requestData.currency}" label="Currency"
+                                        placeholder="BHD"
+                                        type="text" required="true" maxlength="3" minlength="3"/>
+                                    -->
+                                </div>
+                            </div>
+
+                            <div class="slds-size_1-of-2">
+                                <div class="slds-form-element slds-form-element_stacked slds-is-editing">
+                                    <lightning:input value="{!v.requestData.amount}" label="Amount"
+                                        type="number" required="true" maxlength="10" step="0.01"/>
+                                </div>
+                            </div>
+                        </div> <!-- end of row -->
+                    </div>
+
+                </aura:if>
+
+            </lightning:card>
+
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:button label="Send Request" variant="brand" onclick="{!c.onSendRequestClick}"/>
+            <lightning:button label="Cancel" variant="neutral" onclick="{!c.onCancel}"/>
+        </aura:set>
+
+    </c:modal>
+
+
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

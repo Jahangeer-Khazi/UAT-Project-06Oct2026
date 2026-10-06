@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_SReq_CheckFinancialTab_TopUp</fullName>
+    <active>true</active>
+    <description>Required Financial details fields for : Secured - New Loan/Finance</description>
+    <errorConditionFormula>AND(
+	ISPICKVAL(Case__r.Sub_Type__c, &apos;Top-up&apos;),
+	RecordType.DeveloperName = &apos;LoanFinanceServiceRequest&apos;,
+	AND(ISCHANGED(cx_ln_Request_Pre_screener_Result__c),ISPICKVAL(cx_ln_Request_Pre_screener_Result__c, &apos;Accept&apos;)),
+	NOT(cx_ln_isScheduleGenerated__c)
+)</errorConditionFormula>
+    <errorMessage>Please Provide all the required information in loan service financial details tab before giving a result.</errorMessage>
+</ValidationRule>

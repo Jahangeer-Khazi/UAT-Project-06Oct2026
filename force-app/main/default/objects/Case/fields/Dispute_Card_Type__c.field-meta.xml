@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispute_Card_Type__c</fullName>
+    <description>This field gives an option to select the card type, while raising the dispute case</description>
+    <label>Dispute Card Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Debit Card</fullName>
+                <default>false</default>
+                <label>Debit Card</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Prepaid Card</fullName>
+                <default>false</default>
+                <label>Prepaid Card</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <valueName>Debit Card</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Benfit</controllingFieldValue>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <valueName>Credit Card</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

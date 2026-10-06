@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>air_NotTheCorrectAccountType</fullName>
+    <active>false</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;AIR_AccountInterestRate&quot;  &amp;&amp;  NOT(RHA_AccountType__c = &quot;CUSTOMER_ACCOUNT&quot;  &amp;&amp; RHA_AccountType__c =&quot;HASSALA&quot;)</errorConditionFormula>
+    <errorDisplayField>ac_Pending_Date__c</errorDisplayField>
+    <errorMessage>The account type can only  be customer account or Hassala</errorMessage>
+</ValidationRule>

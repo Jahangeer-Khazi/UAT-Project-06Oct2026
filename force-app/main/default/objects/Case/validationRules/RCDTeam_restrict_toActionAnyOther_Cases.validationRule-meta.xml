@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RCDTeam_restrict_toActionAnyOther_Cases</fullName>
+    <active>true</active>
+    <description>This validation will restrict Retail credit team users to action/ close any other case not assigned to them</description>
+    <errorConditionFormula>AND(
+				($User.LastName &lt;&gt; &quot;Integration&quot;),
+                                ($User.LastName &lt;&gt; &quot;Pandey&quot;),
+                                ($Profile.Name &lt;&gt; &quot;System Administrator&quot;),
+                                ($Profile.Name &lt;&gt; &quot;Restricted System Admin&quot;),
+				NOT(ISPICKVAL(Type,&quot;Credit Card Application&quot;)),
+				NOT(ISPICKVAL(Type,&quot;Credit Limit Increase Application&quot;)),
+				NOT(ISPICKVAL(Type,&quot;Cash Collateral Credit Limit Increase Application&quot;)),
+				NOT(ISPICKVAL(Type,&quot;Credit Card Supplementary Application&quot;)),
+				NOT(ISPICKVAL(Type,&quot;Credit Card Cash Collateral Application&quot;)),
+				NOT(ISPICKVAL(Type,&quot;Credit Card Prepaid Application&quot;)),
+				NOT(ISPICKVAL(Type,&quot;Credit Card Upgrade&quot;)),
+                                NOT(ISPICKVAL(Type,&quot;Credit Card Account Closing&quot;)),
+                                NOT(ISPICKVAL(Type,&quot;Convert Credit Card Nature Application&quot;)),
+				NOT(ISPICKVAL(Sub_Type__c,&quot;Generate Cash Collateral Letter&quot;)),
+                                NOT(ISPICKVAL(Type,&quot;Relationship Termination&quot;)),
+				RecordType.DeveloperName != &quot;Collection_Legal_Action_FCR&quot;,
+				RecordType.DeveloperName != &quot;Internal_Case&quot;,
+				RecordType.DeveloperName != &quot;Loan_Application&quot;,
+				RecordType.DeveloperName != &quot;LoanFinanceServiceRequest&quot;,
+				TEXT(Case_Nature__c) != &apos;FCR&apos;,
+				ISCHANGED(Status),
+				ISPICKVAL(Status, &apos;Closed&apos;),
+				($User.Cannot_Close_Non_Credit_Card_Application__c = true)
+)</errorConditionFormula>
+    <errorMessage>You cannot action/ close this case, as it is not owned by your Queue.</errorMessage>
+</ValidationRule>

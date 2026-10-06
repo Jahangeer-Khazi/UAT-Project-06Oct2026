@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- What is your preference when holding risky assets? --></help>
+    <label><!-- Risk Preference --></label>
+    <name>Risk_Preference__c</name>
+    <picklistValues>
+        <masterLabel>Maximize Return</masterLabel>
+        <translation><!-- Maximize Return --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maximize Safety</masterLabel>
+        <translation><!-- Maximize Safety --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mix of Safety and Return</masterLabel>
+        <translation><!-- Mix of Safety and Return --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mostly Return</masterLabel>
+        <translation><!-- Mostly Return --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mostly Safety</masterLabel>
+        <translation><!-- Mostly Safety --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

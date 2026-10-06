@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sc_jo_cardHolderDates_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType_DeveloperName__c == &apos;Credit_Card_Supplementary&apos; &amp;&amp; TEXT(Region_Flag__c) == &apos;Jordan&apos; &amp;&amp; ( ( ISCHANGED(sc_Card_Holder_ID_Expiry_Date__c) &amp;&amp; (sc_Card_Holder_ID_Expiry_Date__c &lt; TODAY()) ) || ( ISCHANGED(sc_Card_Holder_Date_of_Birth__c) &amp;&amp; (YEAR(TODAY()) - YEAR(sc_Card_Holder_Date_of_Birth__c) &lt; 18) ) )</errorConditionFormula>
+    <errorMessage>Please ensure that the Card Holder Date of Birth field respects the minimum age requirement of 18 years old. Additionally, ensure that the Card Holder ID Expiry field is not expired.</errorMessage>
+</ValidationRule>

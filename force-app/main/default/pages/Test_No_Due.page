@@ -1,0 +1,190 @@
+<apex:page applyHtmlTag="false" showHeader="false" language="ar" renderAs="pdf" contentType="application/pdf">
+    <head>
+        <meta charset="UTF-8"/>
+        <style type="text/css">
+            
+            body {
+                font-family: Arial Unicode MS;
+                font-size: 12px;
+                margin: 5px;
+            }
+            
+            @page {
+                margin-top: 1cm;
+                margin-bottom: 2cm;
+                margin-left: 0.5cm;
+                margin-right: 0.5cm;
+                
+                @top-center {
+                    content: element(headerTitle);
+                }
+                div.headerTitle {
+                    position: running(headerTitle);
+                }
+            
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+            
+            table, td, th {
+              border: 0px solid;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            .topmargin20 {
+                margin-top:15px;
+            }
+            div.footer {
+                    position: running(footer);
+                    width:100%;
+                }
+            
+            .repeatTableHeader{-fs-table-paginate: paginate;}
+        </style>
+    </head>
+    <body style="font-family: Arial Unicode MS">
+        
+        <div>
+            <table width="100%">
+                <tr>
+                    <td align="left" style="border:0px;">
+                        <apex:image url="{!$Resource.ila_logo_pdf}" width="60"/>
+                    </td>
+                    <td align="right" style="border:0px;">
+                        <apex:image url="{!$Resource.alburaq_logo_pdf}" width="170"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="headerTitle">
+                <div style="text-align:center;margin-top:15px;font-size:18px;font-weight:bold">
+                    <p>No Liability Certificate<br/><!--شهادة براءة ذمة-->
+                        <apex:image url="{!$Resource.nodue_img07}" width="22%"/>
+                    </p>    
+                </div>
+                <div style="margin-top:14px;font-size:14px;border:1px">
+                    <table style="width:100%">
+                        <tr>
+                            <td width="60%" valign="top">
+                                <div style="font-size:12px">Date:&nbsp;<apex:outputText value="{0, date,  dd/MM/yyyy}"><apex:param value="{!Today()}" /></apex:outputText></div><br/>
+                            </td>
+                            <td valign="top">
+                                <div dir="LTR" style="text-align:right">
+                                    <!--التاريخ--> <apex:image url="{!$Resource.nodue_img01}" width="15%"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:13px">Ref: 0923422</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" border="1" colspan="2">
+                                <table width="100%">
+                                    <tr>
+                                    	<td>
+                                            <div style="font-size:13px">
+                                                Name: <span style="text-decoration:underline;text-transform:uppercase">MR.SARAVANA KUMAR SIVAPRAKASAM MOORTHY AMIRTHAMANI AMIRTHAMANI TEST TEST</span><br/>
+                                                CPR: 23445242342<br/>
+                                                Account Number IBAN#: #34234324234243242
+                                                <br/><br/><br/>
+                                            </div>
+                                        </td>
+                                        <td width="120px" valign="top">
+                                            <div style="text-align:right">
+                                                <apex:image url="{!$Resource.nodue_img02}" width="120px"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <!--<td valign="top">
+                                <div  style="text-align:right">
+                                    <apex:image url="{!$Resource.nodue_img02}" width="48%"/>
+                                </div>
+                            </td>-->
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <div style="font-size:13px">We would like to confirm that the above-mentioned 
+                                    customer has no obligation or any loan with us as of 
+                                    the date this certificate has been issued
+                                    <br/><br/>
+                                </div>
+                            </td>
+                            <td valign="top">
+                                <div  style="text-align:right"><!--
+                                    نشهد أن العميل المذكور أعلاه ليس لديه أية<br/>
+                                    التزامات أو أي قرض معنا اعتبارا من تاريخ إصدار<br/>
+                                    هذه الشهادة-->
+                                    <apex:image url="{!$Resource.nodue_img03}" width="94%"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <div style="font-size:13px">This certificate has been issued as per the request of 
+                                    the customer and without any liability from our part.
+                                    <br/><br/><br/>
+                                </div>
+                            </td>
+                            <td valign="top">
+                                <div  style="text-align:right"><!--
+                                    تم إصدار هذه الشهادة بناء على طلب<br/>
+                                    "العميل وبدون أي مسؤولية من جانب بنك "إلى<br/>-->
+                                    <apex:image url="{!$Resource.nodue_img04}" width="93%"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <div style="font-size:13px">Your Sincerely,<br/>ila Bank</div>
+                            </td>
+                            <td valign="top">
+                                <div  style="text-align:right"><!--
+                                    دمتم بود<br/>"بنك "إلى-->
+                                    <apex:image url="{!$Resource.nodue_img08}" width="23%"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>  
+                </div>
+                <br/>
+            </div>
+
+        
+        <div style="height:110px">
+            &nbsp;
+        </div>
+        
+        <div style="width:100%;text-align:center">            
+            <apex:image url="{!$Resource.ilaLogo}" width="100"/>
+        </div>
+        
+        <div style="position:fixed;bottom:0px;width:100%;">
+            <table style="font-size:8px;width:100%;color:#999999;">
+            <tr>
+                <td width="50%">
+                    <p>P.O. Box 5698, Manama, Kingdom of Bahrain (CR: 10299-2)
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+Powered by Bank ABC (Arab Banking Corporation B.S.C.)
+Please immediately advise the bank of any discrepancies in this statement</p>
+                </td>
+                <td width="50%">
+                    <p style="text-align:right"><!--
+                        ص.ب. ,٥٦٩٨ المنامة, مملكة البح��ن (س.ت. ١٠٢٩٩-٢)<br/>
+                        مرخص كبنك تجزئة تقليدي (ف�ع تجزئة) من قبل مصرف البح��ن المركزي<br/>
+                        تابع لبنك ABC) المؤسسة العر�ية المصرفية ش.م.ب.)<br/>
+�رجى إخطار البنك في حال وجود أي إستفسا�ات أو ملاحظات على هذا المستند
+                    -->
+                    <apex:image url="{!$Resource.nodue_img05}" width="70%"/>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</apex:page>

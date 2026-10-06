@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_Signature_Verification_Queue_Case</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>Loan_Product_Type__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Sub_Status_Staff__c</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>AIR_HaveCreditCard__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>Loan Signature Verification Queue</label>
+    <queue>Loan_Signature_Verification_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

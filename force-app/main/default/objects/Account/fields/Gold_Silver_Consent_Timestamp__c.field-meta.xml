@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gold_Silver_Consent_Timestamp__c</fullName>
+    <description>This field shows the timestamp of when the customer provided consent for the Gold &amp; Silver Accounts Terms &amp; Conditions.</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Gold &amp; Silver - Consent Timestamp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

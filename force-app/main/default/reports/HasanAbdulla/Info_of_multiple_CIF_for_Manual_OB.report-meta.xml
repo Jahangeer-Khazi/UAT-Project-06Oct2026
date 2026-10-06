@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.Employer_Name_Staff__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Onboarding_Stage__c</field>
+    </columns>
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>PC_EMAIL</field>
+    </columns>
+    <columns>
+        <field>Contact.Mobile_Country_Code__c</field>
+    </columns>
+    <columns>
+        <field>PC_PHONE3</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.CIF__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>4992758,4206174,4882847,4992956,4992713,4992484,4990658,4978315,4906079,4862801,4992070,4991356,4830625,4990943,4942238,4986009,4985336</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Info of multiple CIF for Manual OB</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

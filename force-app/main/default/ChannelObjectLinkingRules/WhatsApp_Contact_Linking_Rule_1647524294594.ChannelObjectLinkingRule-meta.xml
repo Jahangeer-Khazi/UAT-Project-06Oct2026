@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChannelObjectLinkingRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionForNoRecordFound>CreateNewRecordAndLink</actionForNoRecordFound>
+    <actionForSingleRecordFound>AutoLink</actionForSingleRecordFound>
+    <channelType>WhatsApp</channelType>
+    <description>Links WhatsApp Conversations to Contacts on CRM</description>
+    <isLinkedRecordOpenedAsSubTab>true</isLinkedRecordOpenedAsSubTab>
+    <isRuleActive>true</isRuleActive>
+    <masterLabel>WhatsApp_Contact</masterLabel>
+    <objectToLink>Contact</objectToLink>
+    <ruleName>WhatsApp Contact Linking Rule</ruleName>
+</ChannelObjectLinkingRule>

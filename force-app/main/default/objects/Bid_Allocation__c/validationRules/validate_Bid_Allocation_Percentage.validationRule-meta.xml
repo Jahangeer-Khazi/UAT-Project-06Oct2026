@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>validate_Bid_Allocation_Percentage</fullName>
+    <active>true</active>
+    <errorConditionFormula>!REGEX( Bid_Allocation_per__c ,&quot;^(?:100(?:\\.0(?:0)?)?|\\d{1,2}(?:\\.\\d{1,15})?)$&quot;)</errorConditionFormula>
+    <errorDisplayField>Bid_Allocation_per__c</errorDisplayField>
+    <errorMessage>Please Enter Valid Bid Allocation %</errorMessage>
+</ValidationRule>

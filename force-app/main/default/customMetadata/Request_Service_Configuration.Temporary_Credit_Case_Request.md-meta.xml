@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Temporary Credit Case (Request)</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Nature__c</field>
+        <value xsi:type="xsd:string">Account Maintenance, AlKanz, APP/Technical issue, Apple Pay, ATM, Block, Cheque, Credit Card, Debit Card, Dispute, EFT`s, EXIT, FCR, Fixed Deposit, Fraud, Hassala, Jamiyah, Marketing, Official letter, On-Boarding, Personal info update, PLA, Premium, Proactive Approach, QA_Activity, RC, RFI, Sales, SWIFT, Term Deposit, Transaction Related, X-Pays, Credit Card - Collection Case, AFAQ, Walkin, Feedback, Overdraft, FATCA, Alburaq, Roadshow, BUNA, DND, Bond/Sukuk</value>
+    </values>
+    <values>
+        <field>Case_Origin__c</field>
+        <value xsi:type="xsd:string">Phone, Chat, Social media, Email, App, Compliance, Fraud, Operation, Service Center, ICU, RCD</value>
+    </values>
+    <values>
+        <field>Profile_Names__c</field>
+        <value xsi:type="xsd:string">RMT, System Administrator, ila Risk</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Request</value>
+    </values>
+    <values>
+        <field>Request_Type__c</field>
+        <value xsi:type="xsd:string">Temporary Credit Case</value>
+    </values>
+    <values>
+        <field>Routing__c</field>
+        <value xsi:type="xsd:string">RMT</value>
+    </values>
+    <values>
+        <field>Sub_Type__c</field>
+        <value xsi:type="xsd:string">Temporary Credit</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Credit Card, Debit Card, EFTs, Swift Transfer</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,8 @@
+*** CASE ESCALATION ALERT *** 
+
+The following case has been escalated because it has been open for 10 days: 
+Customer: {!Account.Name} 
+Case: {!Case.CaseNumber}: {!Case.Subject} 
+Owner: {!Case.OwnerFullName} 
+
+Click on the link to access the case: {!Case.Link}

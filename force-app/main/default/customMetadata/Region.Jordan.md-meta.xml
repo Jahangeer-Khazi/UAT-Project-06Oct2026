@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Jordan</label>
+    <protected>false</protected>
+    <values>
+        <field>API_Endpoint__c</field>
+        <value xsi:type="xsd:string">Jordan_Endpoint</value>
+    </values>
+    <values>
+        <field>API_Key__c</field>
+        <value xsi:type="xsd:string">3vT7MGyz1gMfybyTyYv08wUg4RzHG6Ih</value>
+    </values>
+    <values>
+        <field>API_variable__c</field>
+        <value xsi:type="xsd:string">jor</value>
+    </values>
+    <values>
+        <field>Alburaq_API_variable__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>CIF_Generation_Type__c</field>
+        <value xsi:type="xsd:string">CIF8__c</value>
+    </values>
+    <values>
+        <field>Region__c</field>
+        <value xsi:type="xsd:string">Jordan</value>
+    </values>
+    <values>
+        <field>View_Staff_Data_Custom_Setting__c</field>
+        <value xsi:type="xsd:string">View_Staff_Data_Jordan__c</value>
+    </values>
+</CustomMetadata>

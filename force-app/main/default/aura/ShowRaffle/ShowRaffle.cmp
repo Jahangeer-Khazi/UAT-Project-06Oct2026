@@ -1,0 +1,12 @@
+<!--
+  @description       : This component it's used as a button to launch visualforce
+  @author            : ismael.ocana
+  @group             : 
+  @last modified on  : 19/10/2021
+  @last modified by  : ismael.ocana
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickAction" controller="ShowRaffleApexController">
+    <aura:attribute name="drawId" type="String" default="{!v.recordId}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:spinner></lightning:spinner>
+</aura:component>

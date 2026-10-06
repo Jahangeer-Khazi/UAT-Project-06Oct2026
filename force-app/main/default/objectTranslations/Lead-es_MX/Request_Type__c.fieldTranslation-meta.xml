@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Request Type --></label>
+    <name>Request_Type__c</name>
+    <picklistValues>
+        <masterLabel>Complaints/ Feedback</masterLabel>
+        <translation><!-- Complaints/ Feedback --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General Enquiry</masterLabel>
+        <translation><!-- General Enquiry --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Improvement Suggestions</masterLabel>
+        <translation><!-- Improvement Suggestions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

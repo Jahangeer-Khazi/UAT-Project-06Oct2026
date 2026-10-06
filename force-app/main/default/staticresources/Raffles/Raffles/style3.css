@@ -1,0 +1,138 @@
+html{
+  height: 100%;
+}
+body{
+  background: url(images/bg.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+  
+html, body, #canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+#canvas{
+  height: 100%;
+  width: 100%;
+}
+
+
+.main{
+  border-radius: 10px;
+  height: 85%; 
+}
+
+.main .logo{
+  text-align: center;
+  height: 120px;
+  position: relative;
+}
+
+img.ila-logo{
+  max-width: 62px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.big-title{
+  /* Auto Layout */
+  font-size: 32px;
+  
+}
+
+.big-title, .cif , .prize{
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 72px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.cif{
+  font-size: 70px;
+  position: absolute;
+  left: 29.24%;
+  right: 29.17%;
+  top: 31.42%;
+  bottom: 36.78%;
+}
+
+.winner-box{
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 20px 30px;
+
+
+background: linear-gradient(0deg, rgba(254, 220, 17, 0.2), rgba(254, 220, 17, 0.2));
+/* Inform / Midtone */
+
+border: 1px solid #FFD400;
+box-sizing: border-box;
+border-radius: 10px;
+margin-bottom:24px;
+
+margin-left:30%;
+margin-right:30%;
+margin-top: 15px;
+}
+
+.winner-box dev{
+  display:block;
+  
+}
+
+.prize-desc{
+  font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #F2F4F6;
+
+}
+
+.winner-name{
+  font-family: Neo Sans Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+/* or 150% */
+
+
+color: #FFFFFF;
+}
+
+.winner-cif{
+  font-family: Neo Sans Arabic;
+  font-size: 16px;
+  line-height: 27px;
+/* or 150% */
+  color: #CCCCCC;
+}
+
+.winner-boxes{
+  padding-bottom:20px;
+}
+
+.winner-names{
+  margin-top: 12px;
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Employer_Sector__c</fullName>
+    <description>Details : https://bank-abc.atlassian.net/wiki/spaces/RTS/pages/2572910605/CRM+Requirements+-+Application+Process#Employer-Grades</description>
+    <label>Employer Sector</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LC</fullName>
+                <default>false</default>
+                <label>Large Corporate</label>
+            </value>
+            <value>
+                <fullName>GO</fullName>
+                <default>false</default>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>FI</fullName>
+                <default>false</default>
+                <label>Financial Institution</label>
+            </value>
+            <value>
+                <fullName>AP</fullName>
+                <default>false</default>
+                <label>Airport</label>
+            </value>
+            <value>
+                <fullName>ET</fullName>
+                <default>false</default>
+                <label>Entertainment</label>
+            </value>
+            <value>
+                <fullName>IF</fullName>
+                <default>false</default>
+                <label>Insurance/Financial Institution</label>
+            </value>
+            <value>
+                <fullName>TC</fullName>
+                <default>false</default>
+                <label>Telecom</label>
+            </value>
+            <value>
+                <fullName>CO</fullName>
+                <default>false</default>
+                <label>Corporate</label>
+            </value>
+            <value>
+                <fullName>AL</fullName>
+                <default>false</default>
+                <label>Airlines</label>
+            </value>
+            <value>
+                <fullName>EI</fullName>
+                <default>false</default>
+                <label>Educational Institution</label>
+            </value>
+            <value>
+                <fullName>BF</fullName>
+                <default>false</default>
+                <label>Banking/Financial Institution</label>
+            </value>
+            <value>
+                <fullName>HO</fullName>
+                <default>false</default>
+                <label>Hospital</label>
+            </value>
+            <value>
+                <fullName>RE</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>PC</fullName>
+                <default>false</default>
+                <label>Private Company</label>
+            </value>
+            <value>
+                <fullName>OT</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

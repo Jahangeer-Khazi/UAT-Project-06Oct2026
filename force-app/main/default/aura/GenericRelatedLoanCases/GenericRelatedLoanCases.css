@@ -1,0 +1,14 @@
+.THIS .loadingContainer {
+    min-height: 5rem;
+}
+
+.THIS .tableContainer {
+    border-top: 1px solid #dddbda;
+}
+
+.THIS .emptyState {
+    border-top: 1px solid #dddbda;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}

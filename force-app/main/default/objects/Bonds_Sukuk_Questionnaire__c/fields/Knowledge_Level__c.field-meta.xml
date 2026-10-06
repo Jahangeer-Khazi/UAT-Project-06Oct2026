@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Knowledge_Level__c</fullName>
+    <inlineHelpText>How knowledgeable are you about financial and investment concepts?</inlineHelpText>
+    <label>Knowledge Level</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not At All Knowledgeable</fullName>
+                <default>false</default>
+                <label>Not At All Knowledgeable</label>
+            </value>
+            <value>
+                <fullName>Minimally Knowledgeable</fullName>
+                <default>false</default>
+                <label>Minimally Knowledgeable</label>
+            </value>
+            <value>
+                <fullName>Moderately Knowledgeable</fullName>
+                <default>false</default>
+                <label>Moderately Knowledgeable</label>
+            </value>
+            <value>
+                <fullName>Competent</fullName>
+                <default>false</default>
+                <label>Competent</label>
+            </value>
+            <value>
+                <fullName>Very Knowledgeable</fullName>
+                <default>false</default>
+                <label>Very Knowledgeable</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

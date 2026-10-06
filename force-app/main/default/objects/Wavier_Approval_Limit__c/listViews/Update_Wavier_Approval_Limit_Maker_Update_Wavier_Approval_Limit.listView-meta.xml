@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Wavier_Approval_Limit_Maker_Update_Wavier_Approval_Limit</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Update Waiver Approval Limit Maker</label>
+    <queue>Update_Waiver_Approval_Limit_Maker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

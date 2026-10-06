@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Maker__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field captures the user which creates and fill all the relevant details to the lead and assigned to Checker</description>
+    <label>Lead Maker</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Leads</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

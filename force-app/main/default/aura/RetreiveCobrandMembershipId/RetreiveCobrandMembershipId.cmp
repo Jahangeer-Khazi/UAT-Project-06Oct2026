@@ -1,0 +1,58 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="creditCardListController" >
+	
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="enableButton" type="boolean" default="true" />
+    
+    <aura:attribute name="showEditForm" type="boolean" default="false" />
+    
+    <aura:attribute name="isButtonDisabled" type="Boolean" default="false"/>
+    
+    <aura:attribute name="embossingLine4" type="String" />
+    
+    <force:recordData aura:id="recordLoader"
+    				  layoutType="FULL"
+    				  recordId="{!v.recordId}"
+    				  fields="Id,AccountId,Status,Type,Sub_Status__c,cc_Requested_Card_Type__c,cc_Embossing_Line_4__c,Has_Co_Brand_Membership_Number__c"
+    				  targetFields="{!v.caseRecord}"
+    				  targetError="{!v.recordLoadError}"/>
+    
+     <div class="slds-p-bottom_large"> 
+		<aura:if isTrue="{!and(v.caseRecord.cc_Requested_Card_Type__c == 'ILA_GULF_AIR_COBRAND_01', and(or(v.caseRecord.Type =='Credit Card Upgrade',or(v.caseRecord.Type =='Credit Card Application',v.caseRecord.Type =='Credit Card Cash Collateral Application')),v.caseRecord.Status != 'Closed'))}">
+         	
+            <aura:if isTrue="{!v.enableButton == true}">
+            	<lightning:button class="slds-float_right cursor-pointer" 
+                                  label="Validate Number" 
+                                  variant="brand"
+                    	   		  onclick="{!c.toggleEditForm}"
+                                  disabled="{!v.isButtonDisabled}"/>
+                                  
+                <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+			</aura:if>
+            
+        </aura:if>
+    <!--</div> -->
+    <!-- Record Edit Form -->
+    
+    <aura:if isTrue="{!v.showEditForm}">
+        
+        <lightning:recordEditForm aura:id="form"
+                                  objectApiName="Case" 
+                                  recordId="{!v.recordId}"
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}">
+            <lightning:messages />
+            <div style = "width: 70%;">
+                <lightning:inputField fieldName="cc_Embossing_Line_4__c" value="{!v.embossingLine4}" onchange="{!c.handleEmbossChange}"/>
+            </div>
+            <div style = "width: 70%;display: flex;justify-content: center;">
+                <lightning:button label="Save" variant="brand" type="submit" />
+                <lightning:button label="Cancel" variant="neutral" onclick="{!c.toggleEditForm}" />
+            </div>
+           
+        </lightning:recordEditForm>
+        
+    </aura:if>
+</div>
+    <!-- Record Edit Form -->    
+</aura:component>

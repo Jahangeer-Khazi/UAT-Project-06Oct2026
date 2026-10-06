@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved_Bal_Transfer_Less_App_Cred_LMT</fullName>
+    <active>true</active>
+    <description>Approved Balanced Transfer Amount Must be less than or equal to Approved Credit Limit</description>
+    <errorConditionFormula>AND(
+$User.LastName &lt;&gt; &apos;Integration&apos;,
+ISPICKVAL(Type, &apos;Credit Card Application&apos;),
+ISPICKVAL(Sub_Type__c, &apos;New Credit Card&apos;),
+ISPICKVAL(cc_Approved_Requested_Card_Type__c, &apos;PLATINUM_BALANCE_TRANSFER_01&apos;),
+ISPICKVAL(Region_Flag__c, &apos;Bahrain&apos;),
+OR(
+AND(
+ISCHANGED(cc_Approved_Credit_Limit__c),
+cc_Approved_Credit_Limit__c &lt; cc_Approved_Balance_Transfer_Amount__c
+),
+AND(
+ISCHANGED(cc_Approved_Balance_Transfer_Amount__c),
+NOT(ISBLANK(cc_Approved_Credit_Limit__c)), 
+cc_Approved_Balance_Transfer_Amount__c &gt; cc_Approved_Credit_Limit__c
+))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Balance_Transfer_Amount__c</errorDisplayField>
+    <errorMessage>Approved balance transfer amount must be equal to or less than the approved credit limit</errorMessage>
+</ValidationRule>

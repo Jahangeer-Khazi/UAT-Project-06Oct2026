@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Checker Result --></label>
+    <name>Checker_Result__c</name>
+    <picklistValues>
+        <masterLabel>Execute Process</masterLabel>
+        <translation><!-- Execute Process --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return to Maker</masterLabel>
+        <translation><!-- Return to Maker --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

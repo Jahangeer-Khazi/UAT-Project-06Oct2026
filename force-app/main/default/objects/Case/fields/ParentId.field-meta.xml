@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ParentId</fullName>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterItems>
+            <field>Case.RecordType_DeveloperName__c</field>
+            <operation>equals</operation>
+            <value>Service_Request,Issue,Enquiry,Complaint,Internal_Case,Customer_Profile_Update,Credit_Card_Services,db_AccountHold,Prizeout,Walkin_Customers,Customer_Periodic_Review,Compliance_Query,Loan_Application,Deceased_Customer</value>
+        </filterItems>
+        <filterItems>
+            <field>Case.RecordType_DeveloperName__c</field>
+            <operation>equals</operation>
+            <value>Credit_Limit_Increase_Staff,Credit_Limit_Increase,Cash_Collateral_Credit_Limit_Increase</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

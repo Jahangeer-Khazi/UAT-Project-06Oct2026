@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Request for Hold Amount is Expired.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>RELEASE_HOLD_EXPIRED</name>
+    <style>none</style>
+    <subject>Your request for releasing hold is expired</subject>
+    <textOnly>Your request for releasing hold is expired
+
+Hi,
+
+Your request to release the hold transaction {!Case.RHA_HoldTransactionsReferenceNo__c} with the amount of {!Case.ac_Currency__c} {!Case.RHA_HoldAmount__c} has expired.
+
+
+Our team is available 24/7 to help you on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

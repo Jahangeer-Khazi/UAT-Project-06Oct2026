@@ -1,0 +1,133 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *      			  #CH01# #Jahangeer Mohammed# #29-08-2021 Added two attributes dataInformation,dataInformationBasedOnFilter to hold the data.
+ *					  #CH02# #Jahangeer Mohammed# Added the above attributes as a parameters to c:creditCardList component
+ *					  #CH03# #Jahangeer Mohammed# #15-01-2023# Added attribute sub type for credit limit decrease(NBA-6757)
+ *					  #CH04# #Jahangeer Mohammed# #28-05-2023# Added a Purged Option in the Selected List(NBA-7010)
+-->
+<aura:component 
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global" 
+                controller="BankInformationController">
+    
+    <aura:attribute name="customerId" type="String"/>
+    <aura:attribute name="account" type="Account"/>
+    <aura:attribute name="Type" type="String"/>
+    <!-- ======================================================= -->
+    <aura:attribute name="tabsConfig" type="Object" access="private"/>
+    <aura:attribute name="enableActions" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="caseRecordType" type="String" access="private" default=""/>
+    <aura:attribute name="caseType" type="String"/>
+    
+    <!-- CH01 Added by Jahangeer Mohammed 29-08-2021 to get the data based on Filter condition -->
+    <aura:attribute name="dataInformation" type="Object[]" default="[]"/>
+	<aura:attribute name="dataInformationBasedOnFilter" type="Object[]" default="[]"/>    
+    <!-- CH01 END -->
+    
+    <!-- CH03 START -->
+    <aura:attribute name = "caseSubType" type = "String"/>
+    <aura:attribute name = "caseStatus" type = "String"/>
+    <!-- CH03 END -->
+    <aura:attribute name="selectedStatus" type="String"/>
+    
+    <aura:handler name="init" value="{!this }" action="{! c.init }"/>
+    
+    
+    <lightning:tabset variant="scoped"> <!-- selectedTabId="one" -->
+        
+        <aura:if isTrue="{!v.caseType != 'Cancel Balance Transfer Plan'}">
+        	<aura:if isTrue="{!true == v.tabsConfig.Credit_Cards__c}">
+            <lightning:tab label="Credit Cards">
+             <lightning:select aura:id="select" name="select" label="Select Card Status" onchange="{!c.onStatusChange}" value="{!v.selectedStatus}">
+                <option value="B">Exclude Blocked</option>
+                 <option value="A">All</option>
+                <!--<option value="B">Exclude Blocked</option>-->
+                <option value="C">Exclude Expired</option>
+                <option value="D">Exclude Blocked/ Expired</option>
+                 <!--CH04 Start-->
+                 <aura:if isTrue="{!v.account.Region_Flag__c == 'Bahrain'}">
+                	<option value="P">Purged</option>
+                 </aura:if>
+                 <!--CH04 END-->
+    		</lightning:select>
+                <br/>
+                <!-- CH01 Start added two attributes to hold data -->
+                
+                <!-- CH02  added two attributes "caseType" & "caseRecordType" -->
+                <!-- CH03 added a sub type & Status parameter to the component -->
+                <c:creditCardList aura:id="creditCardList" 
+                                  customerId="{!v.customerId}" 
+                                  caseId="{!v.recordId}" 
+                                  enableActions="{! 'Case' == v.sObjectName }" 
+                                  account="{!v.account}"
+                                  data = "{!v.dataInformation}"
+                                  CaptureDataBasedOnFilter = "{!v.dataInformationBasedOnFilter}"
+                                  caseType = "{!v.caseType}"
+                                  caseRecordType = "{!v.caseRecordType}"
+                                  caseSubType = "{!v.caseSubType}"
+                                  caseStatus = "{!v.caseStatus}"
+                                  isSecondary="false"
+                                  />
+                
+                <!--<aura:if isTrue="{!AND(v.account.Region_Flag__c == 'Jordan',OR(v.caseType == 'EPP Early Closure',OR(v.caseType == 'EPP Cancel Plan',v.caseType == 'EPP Technical Error')))}">
+                      <c:creditCardEPP customerId="{!v.customerId}" 
+                                             accountId="{!v.accountId}" 
+                                             pcICardId="{!v.selectedCardId}"
+                                             account="{!v.account}"
+                                             />
+                </aura:if>-->
+                <!-- CH01 END -->
+            </lightning:tab>
+        </aura:if>
+        </aura:if>
+        <aura:if isTrue="{!v.caseType == 'Cancel Balance Transfer Plan'}">
+        	<aura:if isTrue="{!true == v.tabsConfig.Credit_Cards__c}">
+            <lightning:tab label="Credit Cards">
+             <lightning:select aura:id="select" name="select" label="Select Card Status" onchange="{!c.onStatusChange}" value="{!v.selectedStatus}">
+                <option value="B">Exclude Blocked</option>
+                 <option value="A">All</option>
+                <!--<option value="B">Exclude Blocked</option>-->
+                <option value="C">Exclude Expired</option>
+                <option value="D">Exclude Blocked/ Expired</option>
+                 <!--CH04 Start-->
+                 <aura:if isTrue="{!v.account.Region_Flag__c == 'Bahrain'}">
+                	<option value="P">Purged</option>
+                 </aura:if>
+                 <!--CH04 END-->
+    		</lightning:select>
+                <br/>
+                <!-- CH01 Start added two attributes to hold data -->
+                
+                <!-- CH02  added two attributes "caseType" & "caseRecordType" -->
+                <!-- CH03 added a sub type & Status parameter to the component -->
+                <c:creditCardList aura:id="creditCardList" 
+                                  customerId="{!v.customerId}" 
+                                  caseId="{!v.recordId}" 
+                                  enableActions="{! 'Case' == v.sObjectName }" 
+                                  account="{!v.account}"
+                                  data = "{!v.dataInformation}"
+                                  CaptureDataBasedOnFilter = "{!v.dataInformationBasedOnFilter}"
+                                  caseType = "{!v.caseType}"
+                                  caseRecordType = "{!v.caseRecordType}"
+                                  caseSubType = "{!v.caseSubType}"
+                                  caseStatus = "{!v.caseStatus}"
+                                  isSecondary="true"
+                                  />
+                <!-- CH01 END -->
+            </lightning:tab>
+        </aura:if>
+        </aura:if>
+        
+        <aura:if isTrue="{!true == v.tabsConfig.Bank_Accounts__c}">
+            <lightning:tab label="Bank Accounts">
+                <c:bankAccountsList aura:id="bankAccountsList" 
+                                    customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                    enableActions="{! 'Case' == v.sObjectName }" caseRecordType="{!v.caseRecordType}" />
+            </lightning:tab>
+        </aura:if>
+    </lightning:tabset>	
+    
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ICU_Relationship_Termination_Checker_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>ICU Relationship Termination Checker</label>
+    <queue>ICU_Relationship_Termination_Checker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

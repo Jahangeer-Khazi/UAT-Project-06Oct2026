@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_CustomerRestrictionsByPassFlag__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>flag (with security level configuration on the user level) where a specific users can update (if true) and bypass Customer Restrictions //NBA-16690</description>
+    <label>Loan Customer Restrictions Bypass Flag</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

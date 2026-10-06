@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_LimitIncrease_Restrict_To_Close_Case</fullName>
+    <active>false</active>
+    <description>When an agent is trying to close the case manually if the Sub status is not equal to Approved, Declined, Completed, Expired, Cancelled</description>
+    <errorConditionFormula>AND(
+$Setup.Setting__c.Bypass_Validation_Rules__c = false,
+TEXT(Region_Flag__c) == &apos;Bahrain&apos;,
+ISCHANGED(Status),
+ISPICKVAL(Status, &quot;Closed&quot;),
+AND(
+NOT(ISPICKVAL(Sub_Status__c, &quot;Approved&quot;)),
+NOT(ISPICKVAL(Sub_Status__c, &quot;Declined&quot;)),
+NOT(ISPICKVAL(Sub_Status__c, &quot;Completed&quot;)),
+NOT(ISPICKVAL(Sub_Status__c, &quot;Expired&quot;)),
+NOT(ISPICKVAL(Sub_Status__c, &quot;Cancelled&quot;)) 
+),
+OR(
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Cash Collateral Credit Limit Increase Application&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>You cannot perform this action to close the case, Please contact the Administrator.</errorMessage>
+</ValidationRule>

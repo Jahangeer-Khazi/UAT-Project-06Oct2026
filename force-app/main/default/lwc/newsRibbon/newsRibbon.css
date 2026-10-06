@@ -1,0 +1,23 @@
+:host {
+    --lwc-spacingSmall: 0rem;
+}
+
+.ribbon-container {
+	display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--Inform-Lightest, #FFF6CC);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.ribbon-text {
+	color: var(--Accent-Tertiary-Dar, #B35900);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "SF Pro Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MasterCardWarning</name>
+    <style>none</style>
+    <subject>Dispute Case Approaching SLA – International</subject>
+    <textOnly>Dispute case is approaching SLA
+Hi, Please be advised that the case with case number {!Case.CaseNumber}, titled “{!Case.Subject},” has been open for 42 days and is approaching its SLA deadline. The case must be resolved by 45 days.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

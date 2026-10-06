@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ila_Ops_Maker_Investment_Distribution</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Ila Ops Maker</label>
+    <queue>Ila_Ops_Maker</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

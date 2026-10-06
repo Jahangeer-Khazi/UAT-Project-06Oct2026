@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Named Credential used for the selected Region. --></help>
+    <label><!-- API Endpoint --></label>
+    <name>API_Endpoint__c</name>
+</CustomFieldTranslation>

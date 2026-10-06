@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Deposit Channels --></label>
+    <name>Deposit_Channels__c</name>
+    <picklistValues>
+        <masterLabel>ATM</masterLabel>
+        <translation><!-- ATM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CHEQUE</masterLabel>
+        <translation><!-- CHEQUE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EFTS</masterLabel>
+        <translation><!-- EFTS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SWIFT</masterLabel>
+        <translation><!-- SWIFT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfer Wise</masterLabel>
+        <translation><!-- Transfer Wise --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

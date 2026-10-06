@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Approved_Balance_Transfer_Mandatory</fullName>
+    <active>true</active>
+    <description>If HR Result = Approve, Approved Requested Card Type = ila Switch and Segment = Staff</description>
+    <errorConditionFormula>AND(
+	$User.LastName &lt;&gt; &apos;Integration&apos;,
+	ISBLANK(cc_Approved_Balance_Transfer_Amount__c),
+        ISPICKVAL(Type , &quot;Credit Card&quot;),
+		OR(
+			AND(
+				ISCHANGED(cc_HR_Result__c),
+				ISPICKVAL(cc_HR_Result__c,&apos;Approved&apos;)
+				),
+			AND(
+				ISCHANGED(cc_Credit_Evaluation_Result__c),
+				ISPICKVAL(cc_Credit_Evaluation_Result__c,&apos;Accept&apos;)
+				)
+		),
+		TEXT(cc_Approved_Requested_Card_Type__c ) = &apos;PLATINUM_BALANCE_TRANSFER_01&apos;
+	)</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Balance_Transfer_Amount__c</errorDisplayField>
+    <errorMessage>Please fill the Approve Balance Transfer Amount field.</errorMessage>
+</ValidationRule>

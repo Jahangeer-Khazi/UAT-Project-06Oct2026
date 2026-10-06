@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>csu_PreventUpdateToSameStatus</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISNEW() &amp;&amp; ISPICKVAL(Type, &quot;Customer Status Update&quot;)  &amp;&amp;  TEXT(Account.CustomerStatus__c) = TEXT(CustomerStatusUpdate__c)</errorConditionFormula>
+    <errorDisplayField>CustomerStatusUpdate__c</errorDisplayField>
+    <errorMessage>You can&apos;t choose the same status that you have on customer level</errorMessage>
+</ValidationRule>

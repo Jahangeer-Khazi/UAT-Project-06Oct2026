@@ -1,0 +1,137 @@
+<template>
+    <div style={containerStyle}>
+        <template if:true={isLoading}>
+            <lightning-spinner
+                alternative-text="Loading"
+                size="medium">
+            </lightning-spinner>
+        </template>
+
+        <lightning-card>
+            <h1 class="slds-text-heading_medium slds-text-align_center">Faults/Incident</h1>
+
+            <div class="slds-p-around_medium">
+                <lightning-record-edit-form
+                    object-api-name="Case"
+                    record-type-id={recordTypeId}
+                    onsuccess={handleSuccess}
+                    onsubmit={handleSubmit}
+                    onerror={handleError}>
+
+                    <lightning-messages></lightning-messages>
+
+                    <template if:true={interactionId}>
+                        <div class="slds-m-top_medium">
+                            <p class="slds-text-body_regular pad-st">
+                                <strong>CIF:</strong> {cif}
+                            </p>
+                            <p class="slds-text-body_regular pad-st">
+                                <strong>Customer Name:</strong> {customerName}
+                            </p>
+                        </div>
+                    </template>
+
+                    <lightning-input-field field-name="Case_Model__c" required>
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="Type" required>
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="Sub_Type__c">
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="cc_Request_Type__c">
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="Case_Nature__c" required>
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="Origin" required>
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="Subject" required>
+                    </lightning-input-field>
+
+                    <lightning-input-field field-name="Description" required>
+                    </lightning-input-field>
+
+                    <div style="margin-left: 4px; margin-top: 15px; margin-bottom: 15px;">
+                        <label class="slds-form-element__label">
+                            Incident / Outage
+                        </label>
+                        <br/>
+                        <lightning-input
+                            type="checkbox"
+                            label="Incident / Outage"
+                            checked={incidentOutage}
+                            variant="label-hidden"
+                            onchange={handleIncidentOutage}>
+                        </lightning-input>
+                    </div>
+
+                    <template if:true={incidentOutage}>
+                        <lightning-input
+                            type="text"
+    label="Incident / Outage Number"
+    value={incidentOutageNumber}
+    onchange={handleIncidentOutageNumber}
+    onkeyup={handleIncidentOutageNumber}
+    pattern="[a-zA-Z0-9]*"
+    message-when-pattern-mismatch="Only alphanumeric characters are allowed."
+    style="padding-left: 4px; padding-right: 4px; padding-bottom: 15px;">
+                        </lightning-input>
+                    </template>
+
+                    <lightning-input-field
+                        field-name="Customer_Email_Suppression_on_Creation__c">
+                    </lightning-input-field>
+
+                    <lightning-input-field
+                        field-name="Customer_Email_Suppression_on_Closure__c">
+                    </lightning-input-field>
+
+                    <!-- Display Interaction ID and Wrap‑up Code if present -->
+                    <template if:true={interactionId}>
+                        <div class="slds-m-top_medium">
+                            <p class="slds-text-body_regular pad-st">
+                                <strong>Genesys Interaction ID:</strong> {interactionId}
+                            </p>
+                            <template if:true={wrapupCode}>
+                                <p class="slds-text-body_regular pad-st">
+                                    <strong>Wrap‑up Code:</strong> {wrapupLabel}
+                                </p>
+                            </template>
+                        </div>
+                    </template>
+                    <!-- If only wrapupCode exists (without interactionId) -->
+                    <template if:false={interactionId}>
+                        <template if:true={wrapupCode}>
+                            <div class="slds-m-top_medium">
+                                <p class="slds-text-body_regular pad-st">
+                                    <strong>Wrap‑up Code:</strong> {wrapupLabel}
+                                </p>
+                            </div>
+                        </template>
+                    </template>
+
+                    <div class="slds-m-top_large slds-text-align_right">
+                        <lightning-button
+                            label="Cancel"
+                            onclick={handleCancel}
+                            disabled={isLoading}>
+                        </lightning-button>
+
+                        <lightning-button
+                            variant="brand"
+                            type="submit"
+                            label="Save"
+                            disabled={isLoading}
+                            class="slds-m-left_small">
+                        </lightning-button>
+                    </div>
+
+                </lightning-record-edit-form>
+            </div>
+        </lightning-card>
+    </div>
+</template>

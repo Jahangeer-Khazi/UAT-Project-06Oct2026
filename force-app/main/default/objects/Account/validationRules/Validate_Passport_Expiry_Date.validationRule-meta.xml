@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Passport_Expiry_Date</fullName>
+    <active>true</active>
+    <description>Prevents users from entering a Passport Expiry Date that is earlier than the current system Date</description>
+    <errorConditionFormula>AND(
+     ISPICKVAL( Region_Flag__pc , &apos;Jordan&apos;),
+      Passport_Expiry_Date__pc &lt;  TODAY()  
+)</errorConditionFormula>
+    <errorDisplayField>Passport_Expiry_Date__pc</errorDisplayField>
+    <errorMessage>Passport Expiry Date cannot be earlier than today,</errorMessage>
+</ValidationRule>

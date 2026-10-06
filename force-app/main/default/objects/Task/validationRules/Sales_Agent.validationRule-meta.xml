@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Agent</fullName>
+    <active>false</active>
+    <errorConditionFormula>Owner:User.Profile.Name  &lt;&gt; &apos;ila TeleSales&apos;</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>Please Choose a Valid Sales Agent</errorMessage>
+</ValidationRule>

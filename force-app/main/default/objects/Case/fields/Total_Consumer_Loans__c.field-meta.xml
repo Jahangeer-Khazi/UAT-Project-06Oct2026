@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Consumer_Loans__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>https://bank-abc.atlassian.net/browse/NBA-6705</description>
+    <externalId>false</externalId>
+    <label>Total Consumer Loans</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

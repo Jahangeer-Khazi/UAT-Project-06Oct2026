@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="DocuSign Embedded Signing">
+        <div class="slds-p-around_medium">
+            <lightning-button 
+                label="Send for Signature" 
+                variant="brand" 
+                onclick={handleClick}
+                disabled={loadingSpinner}>
+            </lightning-button>
+            
+            <template if:true={loadingSpinner}>
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </template>
+            
+            <template if:true={envelopeId}>
+                <div class="slds-m-top_medium">
+                    <p>Envelope ID: <strong>{envelopeId}</strong></p>
+                    <p>Time taken: <strong>{processingTime} seconds</strong></p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

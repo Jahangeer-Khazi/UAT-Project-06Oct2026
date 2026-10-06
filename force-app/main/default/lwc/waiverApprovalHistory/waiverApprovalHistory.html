@@ -1,0 +1,15 @@
+<template>
+    <lightning-card variant="Narrow" title="Approval History" icon-name="standard:approval">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+        <div>
+            <lightning-datatable
+                key-field="Id"
+                data={waiverAppovalHistories}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

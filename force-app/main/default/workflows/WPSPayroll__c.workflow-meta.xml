@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>WPS_To_Checker</fullName>
+        <description>WPS To Checker</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>WPS/WPS_To_Checker</template>
+    </alerts>
+    <alerts>
+        <fullName>WPS_To_Checker_Alburaq</fullName>
+        <description>WPS To Checker Alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>WPS/WPS_To_Checker_Alburaq</template>
+    </alerts>
+    <alerts>
+        <fullName>WPS_To_Maker</fullName>
+        <description>WPS To Maker</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>WPS/WPS_To_Maker</template>
+    </alerts>
+    <alerts>
+        <fullName>WPS_To_Maker_Alburaq</fullName>
+        <description>WPS To Maker Alburaq</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>support@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>WPS/WPS_To_Maker_Alburaq</template>
+    </alerts>
+</Workflow>

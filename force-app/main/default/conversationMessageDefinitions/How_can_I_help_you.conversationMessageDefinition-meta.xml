@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConversationMessageDefinition xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <constants>
+        <compositeValues>
+            <constantItems>
+                <constantType>Title</constantType>
+                <primitiveValues>
+                    <textValue>General Request</textValue>
+                    <type>Text</type>
+                </primitiveValues>
+            </constantItems>
+            <identifier>fdf8844a-35b6-4776-78e1-7c85a2a081af</identifier>
+        </compositeValues>
+        <compositeValues>
+            <constantItems>
+                <constantType>Title</constantType>
+                <primitiveValues>
+                    <textValue>IBAN Related</textValue>
+                    <type>Text</type>
+                </primitiveValues>
+            </constantItems>
+            <identifier>3f7311f3-3860-eb8f-fdd7-5fb818bd7e9d</identifier>
+        </compositeValues>
+        <compositeValues>
+            <constantItems>
+                <constantType>Title</constantType>
+                <primitiveValues>
+                    <textValue>Onboarding Related</textValue>
+                    <type>Text</type>
+                </primitiveValues>
+            </constantItems>
+            <identifier>81aef802-6c3e-0b94-eab7-51d29d9625c6</identifier>
+        </compositeValues>
+        <compositeValues>
+            <constantItems>
+                <constantType>Title</constantType>
+                <primitiveValues>
+                    <textValue>Account Statements</textValue>
+                    <type>Text</type>
+                </primitiveValues>
+            </constantItems>
+            <identifier>fae3c9bc-4d0f-8fe8-dfc2-5c11f6a19dd6</identifier>
+        </compositeValues>
+        <compositeValues>
+            <constantItems>
+                <constantType>Title</constantType>
+                <primitiveValues>
+                    <textValue>APP Support</textValue>
+                    <type>Text</type>
+                </primitiveValues>
+            </constantItems>
+            <identifier>76aa87f7-f377-5813-35a1-ee92df203cb7</identifier>
+        </compositeValues>
+        <compositeValues>
+            <constantItems>
+                <constantType>Title</constantType>
+                <primitiveValues>
+                    <textValue>Others</textValue>
+                    <type>Text</type>
+                </primitiveValues>
+            </constantItems>
+            <identifier>f981b3e1-0759-0a91-ca99-57eb83376347</identifier>
+        </compositeValues>
+        <constantType>Options</constantType>
+    </constants>
+    <constants>
+        <constantType>Title</constantType>
+        <primitiveValues>
+            <textValue>What are you looking for ?</textValue>
+            <type>Text</type>
+        </primitiveValues>
+    </constants>
+    <label>How can I help you</label>
+    <language>en_US</language>
+    <messageLayouts>
+        <formatType>Text</formatType>
+        <layoutItems>
+            <collectionType>None</collectionType>
+            <name>text</name>
+            <primitiveValues>
+                <formulaTemplate>{!$Constants.Title}
+
+Select an option:
+
+{!$ListTemplates.OptionsList}</formulaTemplate>
+                <mergeFields>
+                    <formulaTemplate>{!$ListItem.Index}. {!$ListItem.Value.Title}{!BR()}</formulaTemplate>
+                    <mergeFieldType>ListTemplate</mergeFieldType>
+                    <name>OptionsList</name>
+                    <valueSourceReference>Constants.Options</valueSourceReference>
+                </mergeFields>
+                <type>FormulaTemplate</type>
+            </primitiveValues>
+        </layoutItems>
+        <layoutVariant xsi:nil="true"/>
+        <messageType>StaticContent</messageType>
+    </messageLayouts>
+    <type>Picklist</type>
+</ConversationMessageDefinition>

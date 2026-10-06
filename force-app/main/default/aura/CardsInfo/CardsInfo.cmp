@@ -1,0 +1,62 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" controller="DeviceDetailsController">
+    <aura:attribute name="customerId" type="String" access="global"/>
+    <aura:attribute name="cifNumber" type="String" access="global"/>
+	
+    <aura:attribute name="columns" type="List"/>
+	<aura:attribute name="currentCards" type="List"/>
+    <aura:attribute name="isLoadingCards" type="Boolean" default="false"/>
+    <aura:attribute name="message" type="String" default = ""/>
+    
+    <aura:attribute name="debitColumns" type="List"/>
+	<aura:attribute name="currentDebitCards" type="List"/>
+    <aura:attribute name="isLoadingDebitCards" type="Boolean" default="false"/>
+    <aura:attribute name="messageDebit" type="String" default = ""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.isLoadingCards}">
+        <lightning:spinner size="medium"/>
+    </aura:if>
+    <div class="slds-text-heading_small slds-m-bottom_small slds-m-top_medium">
+    			<b>Credit Cards</b>
+	</div>
+    <aura:if isTrue="{!empty(v.currentCards)}">
+        <div class="slds-text-color_error slds-text-title_bold">
+        	{!v.message}
+        </div>
+        
+        <aura:set attribute="else">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{!v.currentCards}"
+                                 columns="{!v.columns}"
+                                 hideCheckboxColumn="true"/>
+        </aura:set>
+    </aura:if>
+    
+    <br/>
+    
+    <aura:if isTrue="{!v.isLoadingDebitCards}">
+        <lightning:spinner size="medium"/>
+    </aura:if>
+    <div class="slds-text-heading_small slds-m-bottom_small slds-m-top_medium">
+    			<b>Debit Cards</b>
+   </div>
+    <aura:if isTrue="{!empty(v.currentDebitCards)}">
+        <div class="slds-text-color_error slds-text-title_bold">
+        	{!v.messageDebit}
+        </div>
+        <br/>
+        <aura:set attribute="else">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{!v.currentDebitCards}"
+                                 columns="{!v.debitColumns}"
+                                 hideCheckboxColumn="true"/>
+        </aura:set>
+    </aura:if>
+    
+    
+    <br/>
+	
+</aura:component>

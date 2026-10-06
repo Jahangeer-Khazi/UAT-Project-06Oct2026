@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Advertising</fullName>
+        <default>false</default>
+        <label>Advertising</label>
+    </customValue>
+    <customValue>
+        <fullName>Agriculture</fullName>
+        <default>false</default>
+        <label>Agriculture</label>
+    </customValue>
+    <customValue>
+        <fullName>Aircraft Manufacturing</fullName>
+        <default>false</default>
+        <label>Aircraft Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Associations/Clubs</fullName>
+        <default>false</default>
+        <label>Associations/Clubs</label>
+    </customValue>
+    <customValue>
+        <fullName>Auditing</fullName>
+        <default>false</default>
+        <label>Auditing</label>
+    </customValue>
+    <customValue>
+        <fullName>Aviation</fullName>
+        <default>false</default>
+        <label>Aviation</label>
+    </customValue>
+    <customValue>
+        <fullName>Banking</fullName>
+        <default>false</default>
+        <label>Banking</label>
+    </customValue>
+    <customValue>
+        <fullName>Brokerage</fullName>
+        <default>false</default>
+        <label>Brokerage</label>
+    </customValue>
+    <customValue>
+        <fullName>Building Societies</fullName>
+        <default>false</default>
+        <label>Building Societies</label>
+    </customValue>
+    <customValue>
+        <fullName>Catering</fullName>
+        <default>false</default>
+        <label>Catering</label>
+    </customValue>
+    <customValue>
+        <fullName>Central Bank</fullName>
+        <default>false</default>
+        <label>Central Bank</label>
+    </customValue>
+    <customValue>
+        <fullName>Charity</fullName>
+        <default>false</default>
+        <label>Charity</label>
+    </customValue>
+    <customValue>
+        <fullName>Chemicals</fullName>
+        <default>false</default>
+        <label>Chemicals</label>
+    </customValue>
+    <customValue>
+        <fullName>Commodity Trading</fullName>
+        <default>false</default>
+        <label>Commodity Trading</label>
+    </customValue>
+    <customValue>
+        <fullName>Communication</fullName>
+        <default>false</default>
+        <label>Communication</label>
+    </customValue>
+    <customValue>
+        <fullName>Company issuing bearer shares</fullName>
+        <default>false</default>
+        <label>Company issuing bearer shares</label>
+    </customValue>
+    <customValue>
+        <fullName>Consultancy</fullName>
+        <default>false</default>
+        <label>Consultancy</label>
+    </customValue>
+    <customValue>
+        <fullName>Credit Agency</fullName>
+        <default>false</default>
+        <label>Credit Agency</label>
+    </customValue>
+    <customValue>
+        <fullName>Dealer in precious metals / Gold Business</fullName>
+        <default>false</default>
+        <label>Dealer in precious metals / Gold Business</label>
+    </customValue>
+    <customValue>
+        <fullName>Defense/Military Contractors</fullName>
+        <default>false</default>
+        <label>Defense/Military Contractors</label>
+    </customValue>
+    <customValue>
+        <fullName>Electric/Electronics</fullName>
+        <default>false</default>
+        <label>Electric/Electronics</label>
+    </customValue>
+    <customValue>
+        <fullName>Engineering</fullName>
+        <default>false</default>
+        <label>Engineering</label>
+    </customValue>
+    <customValue>
+        <fullName>Fashion</fullName>
+        <default>false</default>
+        <label>Fashion</label>
+    </customValue>
+    <customValue>
+        <fullName>Film production</fullName>
+        <default>false</default>
+        <label>Film production</label>
+    </customValue>
+    <customValue>
+        <fullName>Fishing/Fisheries</fullName>
+        <default>false</default>
+        <label>Fishing/Fisheries</label>
+    </customValue>
+    <customValue>
+        <fullName>Forestry</fullName>
+        <default>false</default>
+        <label>Forestry</label>
+    </customValue>
+    <customValue>
+        <fullName>Garages and Motor Vehicle Retailers</fullName>
+        <default>false</default>
+        <label>Garages and Motor Vehicle Retailers</label>
+    </customValue>
+    <customValue>
+        <fullName>General Export/Import</fullName>
+        <default>false</default>
+        <label>General Export/Import</label>
+    </customValue>
+    <customValue>
+        <fullName>General Trading Company</fullName>
+        <default>false</default>
+        <label>General Trading Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Heavy Construction</fullName>
+        <default>false</default>
+        <label>Heavy Construction</label>
+    </customValue>
+    <customValue>
+        <fullName>Hotels</fullName>
+        <default>false</default>
+        <label>Hotels</label>
+    </customValue>
+    <customValue>
+        <fullName>Independent Contractor</fullName>
+        <default>false</default>
+        <label>Independent Contractor</label>
+    </customValue>
+    <customValue>
+        <fullName>Information Technology</fullName>
+        <default>false</default>
+        <label>Information Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>Infrastructure</fullName>
+        <default>false</default>
+        <label>Infrastructure</label>
+    </customValue>
+    <customValue>
+        <fullName>Insurance</fullName>
+        <default>false</default>
+        <label>Insurance</label>
+    </customValue>
+    <customValue>
+        <fullName>Leasing Services</fullName>
+        <default>false</default>
+        <label>Leasing Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Government</fullName>
+        <default>false</default>
+        <label>Local Government</label>
+    </customValue>
+    <customValue>
+        <fullName>Medical</fullName>
+        <default>false</default>
+        <label>Medical</label>
+    </customValue>
+    <customValue>
+        <fullName>Metals (smelting)</fullName>
+        <default>false</default>
+        <label>Metals (smelting)</label>
+    </customValue>
+    <customValue>
+        <fullName>Mining</fullName>
+        <default>false</default>
+        <label>Mining</label>
+    </customValue>
+    <customValue>
+        <fullName>Money Service Bureau</fullName>
+        <default>false</default>
+        <label>Money Service Bureau</label>
+    </customValue>
+    <customValue>
+        <fullName>Motor Vehicles Manufacturer</fullName>
+        <default>false</default>
+        <label>Motor Vehicles Manufacturer</label>
+    </customValue>
+    <customValue>
+        <fullName>Non-profit organization</fullName>
+        <default>false</default>
+        <label>Non-profit organization</label>
+    </customValue>
+    <customValue>
+        <fullName>Oil &amp; Gas</fullName>
+        <default>false</default>
+        <label>Oil &amp; Gas</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Financial Institutions</fullName>
+        <default>false</default>
+        <label>Other Financial Institutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Manufacturing Industries</fullName>
+        <default>false</default>
+        <label>Other Manufacturing Industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Services</fullName>
+        <default>false</default>
+        <label>Other Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Transport Equipment</fullName>
+        <default>false</default>
+        <label>Other Transport Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Pharmaceutical</fullName>
+        <default>false</default>
+        <label>Pharmaceutical</label>
+    </customValue>
+    <customValue>
+        <fullName>Railways</fullName>
+        <default>false</default>
+        <label>Railways</label>
+    </customValue>
+    <customValue>
+        <fullName>Real Estate &amp; Development</fullName>
+        <default>false</default>
+        <label>Real Estate &amp; Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Refining &amp; Distribution</fullName>
+        <default>false</default>
+        <label>Refining &amp; Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Restaurants</fullName>
+        <default>false</default>
+        <label>Restaurants</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Distribution</fullName>
+        <default>false</default>
+        <label>Retail Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Roads</fullName>
+        <default>false</default>
+        <label>Roads</label>
+    </customValue>
+    <customValue>
+        <fullName>Security Services</fullName>
+        <default>false</default>
+        <label>Security Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Shipping</fullName>
+        <default>false</default>
+        <label>Shipping</label>
+    </customValue>
+    <customValue>
+        <fullName>Society</fullName>
+        <default>false</default>
+        <label>Society</label>
+    </customValue>
+    <customValue>
+        <fullName>Stationary/Paper</fullName>
+        <default>false</default>
+        <label>Stationary/Paper</label>
+    </customValue>
+    <customValue>
+        <fullName>Trading</fullName>
+        <default>false</default>
+        <label>Trading</label>
+    </customValue>
+    <customValue>
+        <fullName>Transportation</fullName>
+        <default>false</default>
+        <label>Transportation</label>
+    </customValue>
+    <customValue>
+        <fullName>Utilities</fullName>
+        <default>false</default>
+        <label>Utilities</label>
+    </customValue>
+    <customValue>
+        <fullName>Water Supply</fullName>
+        <default>false</default>
+        <label>Water Supply</label>
+    </customValue>
+    <customValue>
+        <fullName>Wholesale Distribution</fullName>
+        <default>false</default>
+        <label>Wholesale Distribution</label>
+    </customValue>
+    <description>This is the newest version (And final) of the Business Industry picklist values</description>
+    <masterLabel>Business Industry - Updated</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

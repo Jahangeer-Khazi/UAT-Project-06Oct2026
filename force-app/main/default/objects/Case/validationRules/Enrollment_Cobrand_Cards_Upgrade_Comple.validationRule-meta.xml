@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrollment_Cobrand_Cards_Upgrade_Comple</fullName>
+    <active>true</active>
+    <description>When Operations Click on Upgrade Completed for Co-Branded Cards and Enroll to Gulf is false</description>
+    <errorConditionFormula>AND(
+TEXT(Region_Flag__c) ==&apos;Bahrain&apos;,
+ISCHANGED(Operation_Result__c),
+ISPICKVAL(Operation_Result__c , &quot;Upgrade Completed&quot;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Upgrade&quot;),
+ISPICKVAL(cc_Requested_Card_Type__c, &quot;ILA_GULF_AIR_COBRAND_01&quot;),
+Has_Co_Brand_Membership_Number__c = false,
+ISBLANK(cc_Embossing_Line_4__c),
+Relationship_Termination_Button_Checks__c = false
+)</errorConditionFormula>
+    <errorMessage>Please Enroll Customer to Gulf air first</errorMessage>
+</ValidationRule>

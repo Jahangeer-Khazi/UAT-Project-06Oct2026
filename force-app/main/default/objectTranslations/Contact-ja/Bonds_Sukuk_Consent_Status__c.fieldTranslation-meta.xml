@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Bonds/Sukuk - Consent Status --></label>
+    <name>Bonds_Sukuk_Consent_Status__c</name>
+    <picklistValues>
+        <masterLabel>EXPIRED</masterLabel>
+        <translation><!-- EXPIRED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VALID</masterLabel>
+        <translation><!-- VALID --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

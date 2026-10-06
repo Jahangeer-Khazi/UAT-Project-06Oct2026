@@ -1,0 +1,60 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,lightning:isUrlAddressable"
+    access="global"
+    controller="GenericRelatedLoanCasesController">
+
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="recordTypeDeveloperName" type="String" />
+    <aura:attribute name="caseStatut" type="String" />
+    <aura:attribute name="caseSubStatus" type="String" />
+    <aura:attribute name="caseSubType" type="String" default="" />
+    <aura:attribute name="sectionTitle" type="String" default="Related Cases" /> 
+
+    <aura:attribute name="allCases" type="List" default="[]" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="recordCount" type="Integer" default="0" />
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="isLoading" type="Boolean" default="true" />
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="pageReference" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:workspaceAPI aura:id="workspace" />
+
+    <lightning:card>
+        <aura:set attribute="title">
+            <div class="slds-grid slds-align_absolute-center slds-p-around_x-small">
+                <h2 class="slds-text-heading_small">
+                    {!v.sectionTitle} ({!v.recordCount})
+                </h2>
+            </div>
+        </aura:set>
+
+        <aura:if isTrue="{!v.isLoading}">
+            <div class="slds-is-relative" style="min-height: 5rem;">
+                <lightning:spinner alternativeText="Loading cases" size="small" />
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!not(empty(v.errorMessage))}">
+                    <div class="slds-p-around_medium slds-text-color_error">
+                        {!v.errorMessage}
+                    </div>
+                    <aura:set attribute="else">
+                        <div style="height: 60vh; overflow-y: auto;">
+                            <lightning:datatable
+                                keyField="Id"
+                                data="{!v.allCases}"
+                                columns="{!v.columns}"
+                                hideCheckboxColumn="true"
+                                onsort="{!c.handleSort}"
+                                sortedBy="{!v.sortedBy}"
+                                sortedDirection="{!v.sortDirection}" />
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+</aura:component>

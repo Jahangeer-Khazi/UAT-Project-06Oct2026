@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>World Elite Metal Whitelisting</fullName>
+                <default>false</default>
+                <label>World Elite Metal Whitelisting</label>
+            </value>
+            <value>
+                <fullName>World Elite Benefits</fullName>
+                <default>false</default>
+                <label>World Elite Benefits</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

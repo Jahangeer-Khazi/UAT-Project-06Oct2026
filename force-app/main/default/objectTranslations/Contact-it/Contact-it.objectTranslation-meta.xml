@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Test Contact Layout</layout>
+        <sections>
+            <label><!-- Update fields --></label>
+            <section>Update fields</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Contact Details --></label>
+        <name>Contact_Details</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Manual Archive --></label>
+        <name>Manual_Archive</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- Please select an Employment Type --></errorMessage>
+        <name>Employment_Type_if_Segment_is_Staff</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Region Flag on the Contact record cannot be changed. Please contact your administrator. --></errorMessage>
+        <name>Region_Flag_Change_Prevention</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Resubscribe --></label>
+        <name>et4ae5__ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Unsubscribe --></label>
+        <name>et4ae5__ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_SMS --></label>
+        <name>et4ae5__Send_ExactTarget_SMS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ExactTarget_Analytics --></label>
+        <name>et4ae5__View_ExactTarget_Analytics</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_To_Maker_Queue</name>
+        <label>Assign To Maker Queue</label>
+        <locationX>159</locationX>
+        <locationY>67</locationY>
+        <assignmentItems>
+            <assignToReference>CaseRecord.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.air_Maker_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CaseRecord.Sub_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Pending Business</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CaseRecord.AIR_ApprovedInterestRate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CaseRecord.AIR_SegmentInterestRate__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_case</targetReference>
+        </connector>
+    </assignments>
+    <interviewLabel>AIR_Case Creation Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AIR_Case Creation Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_case</name>
+        <label>Update case</label>
+        <locationX>159</locationX>
+        <locationY>256</locationY>
+        <inputReference>CaseRecord</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>330</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Assign_To_Maker_Queue</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>CaseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

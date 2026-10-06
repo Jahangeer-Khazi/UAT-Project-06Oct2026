@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Returned Card Bulk Operation Name --></label>
+    <name>Returned_Card_Bulk_Operation_Name__c</name>
+</CustomFieldTranslation>

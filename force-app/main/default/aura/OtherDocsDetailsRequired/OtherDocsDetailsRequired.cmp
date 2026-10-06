@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:attribute name="flag" type="boolean" default="true"/>
+    
+    <aura:if isTrue="{!v.flag}"> 
+    	<lightning:recordEditForm aura:id="recordViewForm" recordId="{!v.recordId}" 
+                              onsuccess ="{!c.onSuccessAction}"
+                              objectApiName="Case">	
+			
+            <lightning:inputField aura:id="FirstName" fieldName="pr_First_Name__c"  variant="label-inline" value="{!v.Case.pr_First_Name__c}" required="true"/>
+            <lightning:inputField aura:id="MiddleName" fieldName="pr_Middle_Name__c"  variant="label-inline" value="{!v.Case.pr_Middle_Name__c}" required="true"/>
+            <lightning:inputField aura:id="MiddleName2" fieldName="pr_Middle_Name_2__c"  variant="label-inline" value="{!v.Case.pr_Middle_Name_2__c}"/>
+            <lightning:inputField aura:id="MiddleName3" fieldName="pr_Middle_Name_3__c"  variant="label-inline" value="{!v.Case.pr_Middle_Name_3__c}"/>
+            <lightning:inputField aura:id="MiddleName4" fieldName="pr_Middle_Name_4__c"  variant="label-inline" value="{!v.Case.pr_Middle_Name_4__c}"/>
+
+            <lightning:inputField aura:id="LastName" fieldName="pr_Last_Name__c"  variant="label-inline" value="{!v.Case.pr_Last_Name__c}" required="true"/>
+ 			<lightning:inputField aura:id="DOB" fieldName="pcDate_of_Birth__c"  variant="label-inline" value="{!v.Case.pcDate_of_Birth__c}" required="true"/>
+            <lightning:inputField aura:id="Gender" fieldName="pcGender__c"  variant="label-inline" value="{!v.Case.pcGender__c}" required="true"/>
+            
+        <lightning:button variant="brand" type="submit" label="Save" />
+
+ 	</lightning:recordEditForm> 
+    </aura:if>
+   
+</aura:component>

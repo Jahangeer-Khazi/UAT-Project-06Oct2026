@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Copy_1_of_Send_Email_to_Customer_ila</name>
+        <label>Copy 1 of Send Email to Customer - ila</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value>
+                <collectionElements>
+                    <elementReference>caseRecord.ContactEmail</elementReference>
+                </collectionElements>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>support@ilabank.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useEmailTemplate</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>00XPw000006WO0aMAG</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>caseRecord.ContactId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>caseRecord.Id</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>2.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_to_Customer3</name>
+        <label>Send Email to Customer</label>
+        <locationX>3834</locationX>
+        <locationY>566</locationY>
+        <actionName>Case.Issue_Closure</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>caseRecord.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Issue_Closure</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_to_Customer_2</name>
+        <label>Send Email to Customer</label>
+        <locationX>2074</locationX>
+        <locationY>1274</locationY>
+        <actionName>Case.Issue_Closure_alburaq</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>caseRecord.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Issue_Closure_alburaq</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_to_Customer_2_0</name>
+        <label>Send Email to Customer</label>
+        <locationX>4098</locationX>
+        <locationY>566</locationY>
+        <actionName>Case.Issue_Closure_alburaq</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>caseRecord.Id</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Issue_Closure_alburaq</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_to_Customer_ila</name>
+        <label>Send Email to Customer - ila</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value>
+                <collectionElements>
+                    <elementReference>caseRecord.ContactEmail</elementReference>
+                </collectionElements>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>support@ilabank.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useEmailTemplate</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailTemplateId</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>00XPw000006WJorMAG</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>caseRecord.ContactId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>caseRecord.Id</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>2.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_to_Customer_V_2_1</name>
+        <label>Send Email to Customer</label>
+        <locationX>1810</locationX>
+        <locationY>1274</locationY>
+        <actionName>Case.Issue_Closure</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>caseRecord.Id</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Issue_Closure</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Case_Owner</name>
+        <label>Assign Case Owner</label>
+        <locationX>2866</locationX>
+        <locationY>950</locationY>
+        <assignmentItems>
+            <assignToReference>caseRecord.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.ila_ServiceDesk_Queue</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>caseRecord.RMT_Results_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Record_4</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Case_Status_and_Sub_Status</name>
+        <label>Assign Case Status and Sub Status</label>
+        <locationX>3130</locationX>
+        <locationY>950</locationY>
+        <assignmentItems>
+            <assignToReference>caseRecord.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>caseRecord.Sub_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Case_Sub_Status_to_Closed</name>
+        <label>Assign Case Sub Status to Closed</label>
+        <locationX>3020</locationX>
+        <locationY>1868</locationY>
+        <assignmentItems>
+            <assignToReference>caseRecord.Sub_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>caseRecord.IsClosed</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Sub_Status_to_closed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Checker_Date_Time</name>
+        <label>Assign Checker Date Time</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>caseRecord.cc_Checker_Result_Date_Time__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Checker_Result_Approved</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Owner_to_CC</name>
+        <label>Assign Owner to CC</label>
+        <locationX>2536</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>caseRecord.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Contact_Center_Internal</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Records</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Status</name>
+        <label>Assign Status</label>
+        <locationX>2272</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>caseRecord.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case_Records</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Case_Model</name>
+        <label>Check Case Model?</label>
+        <locationX>2074</locationX>
+        <locationY>1166</locationY>
+        <defaultConnectorLabel>both</defaultConnectorLabel>
+        <rules>
+            <name>ila</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Case_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ila</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_Customer_V_2_1</targetReference>
+            </connector>
+            <label>ila</label>
+        </rules>
+        <rules>
+            <name>alburaq</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Case_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>alburaq</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_Customer_2</targetReference>
+            </connector>
+            <label>alburaq</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Checker_Result_is_Changed</name>
+        <label>Check Checker Result is Changed?</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_00</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>oldCaseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>caseRecord.cc_Checker_Result__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Checker_Date_Time</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Checker_Result_is_Changed_1</name>
+        <label>Check Checker Result is Changed?</label>
+        <locationX>2536</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>oldCaseRecord.cc_Checker_Result__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approve</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Status</targetReference>
+            </connector>
+            <label>Yes, Approved</label>
+        </rules>
+        <rules>
+            <name>Yes_Declined</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>oldCaseRecord.cc_Checker_Result__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Decline</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Owner_to_CC</targetReference>
+            </connector>
+            <label>Yes, Declined</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Customer_Email_Suppression_on_Creation</name>
+        <label>Check Customer Email Suppression on Creation?</label>
+        <locationX>3878</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Check_Case_Model</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Customer_Email_Suppression_on_Creation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Record_Type</name>
+        <label>Check Record Type?</label>
+        <locationX>3020</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Enquiries</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Case_Enquiries</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Status_and_Sub_Status</targetReference>
+            </connector>
+            <label>Enquiries</label>
+        </rules>
+        <rules>
+            <name>Faults_and_Incidents</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Case_Faults_and_Incidents</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Check_Status_is_changed_to_Closed</targetReference>
+            </connector>
+            <label>Faults and Incidents</label>
+        </rules>
+        <rules>
+            <name>Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Type_and_Sub_Type</targetReference>
+            </connector>
+            <label>Request</label>
+        </rules>
+        <rules>
+            <name>Disputes_and_Frauds</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Case_Disputes_and_Frauds</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Status_is_changed_to_Closed</targetReference>
+            </connector>
+            <label>Disputes and Frauds</label>
+        </rules>
+        <rules>
+            <name>Complaint</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Complaint</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Check_Status_is_changed_to_Closed</targetReference>
+            </connector>
+            <label>Complaint</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Status_and_Sub_Status</name>
+        <label>Check Status and Sub Status?</label>
+        <locationX>798</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>General_Inquiries_Deferment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>General Inquiries</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.Sub_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Deferment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Checker_Result_is_Changed</targetReference>
+            </connector>
+            <label>General Inquiries - Deferment</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Status_is_changed_to_Closed</name>
+        <label>Check Status is changed to Closed?</label>
+        <locationX>4208</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>oldCaseRecord.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Customer_Email_Suppression_on_Creation</targetReference>
+            </connector>
+            <label>Yes, Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Sub_Type</name>
+        <label>Check Sub Type?</label>
+        <locationX>2206</locationX>
+        <locationY>950</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_not_Temporary_Credit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Sub_Type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Temporary Credit</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Check_Customer_Email_Suppression_on_Creation</targetReference>
+            </connector>
+            <label>Is not Temporary Credit?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Type_and_Sub_Type</name>
+        <label>Check Type and Sub Type?</label>
+        <locationX>2800</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Copy_2_of_Check_Status_is_changed_to_Closed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_and_Terminated_Account_Reactivation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Account</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.Sub_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Terminated Account Reactivation</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Checker_Result_is_Changed_1</targetReference>
+            </connector>
+            <label>Account and Terminated Account Reactivation</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Checker_Result_Approved</name>
+        <label>Checker Result - Approved?</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_01</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Accept</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_Customer_ila</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Decline</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Send_Email_to_Customer_ila</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_1_of_Check_Case_Model</name>
+        <label>Check Case Model?</label>
+        <locationX>4098</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>both</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_ila</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Case_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ila</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_Customer3</targetReference>
+            </connector>
+            <label>ila</label>
+        </rules>
+        <rules>
+            <name>Copy_1_of_alburaq</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Case_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>alburaq</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_Customer_2_0</targetReference>
+            </connector>
+            <label>alburaq</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_1_of_Check_Customer_Email_Suppression_on_Creation</name>
+        <label>Check Customer Email Suppression on Creation?</label>
+        <locationX>1810</locationX>
+        <locationY>1058</locationY>
+        <defaultConnector>
+            <targetReference>Check_Case_Model</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Customer_Email_Suppression_on_Creation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_1_of_Check_Status_is_changed_to_Closed</name>
+        <label>Copy 1 of Check Status is changed to Closed?</label>
+        <locationX>4890</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Yes_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>oldCaseRecord.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+            </connector>
+            <label>Copy 1 of Yes, Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_2_of_Check_Status_is_changed_to_Closed</name>
+        <label>Check Status is changed to Closed?</label>
+        <locationX>2800</locationX>
+        <locationY>842</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_2_of_Yes_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseRecord.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>oldCaseRecord.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Sub_Type</targetReference>
+            </connector>
+            <label>Yes, Changed</label>
+        </rules>
+        <rules>
+            <name>RMT_Result_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.RMT_Results__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approve</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Case_Owner</targetReference>
+            </connector>
+            <label>RMT Result Changed</label>
+        </rules>
+        <rules>
+            <name>Checker_Result_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseRecord.cc_Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approve</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Case_Status_and_Sub_Status</targetReference>
+            </connector>
+            <label>Checker Result Changed</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>isFraudQueueConditionOne</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+OR(
+AND(
+ISPICKVAL({!caseRecord.Type},&quot;Benefit&quot;),
+OR(
+AND(ISPICKVAL({!caseRecord.Sub_Type__c},&quot;ATM&quot;),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Did not receive cash from ATM&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Partial Amount Dispensed&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Financial Impact - Fraudulent / Unauthorized&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;No Financial Impact - Fraudulent/Unauthorized&quot;)
+)
+),
+AND(ISPICKVAL({!caseRecord.Sub_Type__c},&quot;POS / E-Commerce&quot;),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Transaction did not go through&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Duplicate payment&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Purchased goods not received&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Transaction amount differs.&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Late posted transaction&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Refund not processed&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Service Not Provided&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Other (Specify in description)&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Financial Impact - Fraudulent / Unauthorized&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;No Financial Impact - Fraudulent/Unauthorized&quot;)
+)
+)
+)
+),
+AND(
+ISPICKVAL({!caseRecord.Type},&quot;MasterCard&quot;),
+OR(
+AND(ISPICKVAL({!caseRecord.Sub_Type__c},&quot;ATM&quot;),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Did not receive cash from ATM&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Partial Amount Dispensed&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Financial Impact - Fraudulent / Unauthorized&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;No Financial Impact - Fraudulent/Unauthorized&quot;)
+)
+),
+AND(ISPICKVAL({!caseRecord.Sub_Type__c},&quot;POS / E-Commerce&quot;),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Transaction did not go through&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Duplicate payment&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Purchased goods not received&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Transaction amount differs.&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Late posted transaction&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Refund not processed&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Service Not Provided&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Other (Specify in description)&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Financial Impact - Fraudulent / Unauthorized&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;No Financial Impact - Fraudulent/Unauthorized&quot;)
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>isFraudQueueConditionTwo</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+OR(
+AND(
+ISPICKVAL({!caseRecord.Type},&quot;EFTs&quot;),
+OR(
+AND(
+OR(
+ISPICKVAL({!caseRecord.Sub_Type__c},&quot;Fawri&quot;),
+ISPICKVAL({!caseRecord.Sub_Type__c},&quot;Fawri+&quot;),
+ISPICKVAL({!caseRecord.Sub_Type__c},&quot;Fawateer&quot;)
+),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;Financial Impact - Fraudulent / Unauthorized&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c},&quot;No Financial Impact - Fraudulent/Unauthorized&quot;)
+)
+)
+)
+),
+AND(
+ISPICKVAL({!caseRecord.Type},&quot;SWIFT&quot;),
+OR(
+ISPICKVAL({!caseRecord.Sub_Type__c},&quot;Fraudulent/Unauthorized&quot;)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>isTransferQueue</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+OR(
+AND(ISPICKVAL({!caseRecord.Type}, &quot;EFTs&quot;),
+OR(
+ISPICKVAL({!caseRecord.Sub_Type__c}, &quot;Fawri&quot;),
+ISPICKVAL({!caseRecord.Sub_Type__c}, &quot;Fawri+&quot;),
+ISPICKVAL({!caseRecord.Sub_Type__c}, &quot;Fawateer&quot;)
+),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c}, &quot;Payment didn’t go through&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c}, &quot;Recall Amount&quot;)
+)
+),
+AND(ISPICKVAL({!caseRecord.Type}, &quot;SWIFT&quot;),
+OR(
+ISPICKVAL({!caseRecord.Sub_Type__c}, &quot;AFAQ&quot;),
+ISPICKVAL({!caseRecord.Sub_Type__c}, &quot;Buna (MENA)&quot;),
+ISPICKVAL({!caseRecord.Sub_Type__c}, &quot;SWIFT (World Wide)&quot;)
+),
+OR(
+ISPICKVAL({!caseRecord.cc_Request_Type__c}, &quot;Transfer didn’t go through&quot;),
+ISPICKVAL({!caseRecord.cc_Request_Type__c}, &quot;Recall Amount&quot;)
+)
+)
+)
+)</expression>
+    </formulas>
+    <interviewLabel>Send Issue Closure Email to the Customer {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Issue Closure Email to the Customer</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>578</locationX>
+        <locationY>950</locationY>
+        <inputReference>caseRecord</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_Record</name>
+        <label>Update Case Record</label>
+        <locationX>3130</locationX>
+        <locationY>1058</locationY>
+        <connector>
+            <targetReference>Assign_Case_Sub_Status_to_Closed</targetReference>
+        </connector>
+        <inputReference>caseRecord</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_Records</name>
+        <label>Update Case Records</label>
+        <locationX>2536</locationX>
+        <locationY>650</locationY>
+        <connector>
+            <targetReference>Copy_2_of_Check_Status_is_changed_to_Closed</targetReference>
+        </connector>
+        <inputReference>caseRecord</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_Sub_Status_to_closed</name>
+        <label>Update Case Sub Status to closed</label>
+        <locationX>3020</locationX>
+        <locationY>1976</locationY>
+        <inputReference>caseRecord</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Record_4</name>
+        <label>Update Record</label>
+        <locationX>2866</locationX>
+        <locationY>1058</locationY>
+        <inputReference>caseRecord</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>2894</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Record_Type</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>caseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>oldCaseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

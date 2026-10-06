@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Proof of Address Reject Reason Details --></label>
+    <name>Last_Address_Reject_Reason_Details_Staff__c</name>
+</CustomFieldTranslation>

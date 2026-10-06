@@ -1,0 +1,11 @@
+Dear {!Case.Account}, 
+
+Thank you for submitting your complaint to us. 
+Case #{!Case.CaseNumber}: "{!Case.Subject}" has been created with the following details:
+
+{!Case.Description}
+
+We will respond to you within 20 days.
+
+Thank you, 
+ {!Organization.Name}

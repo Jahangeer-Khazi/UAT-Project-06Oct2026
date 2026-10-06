@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Approved_Email_Alert</fullName>
+        <description>Approved Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Internal_Approval_Request_Approved_Whitelisted_Employer</template>
+    </alerts>
+    <alerts>
+        <fullName>Listed_Employer_Record_Email_Alert</fullName>
+        <description>Listed Employer Record Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply@ilabank.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Internal_Approval_Request_Whitelisted_Employer</template>
+    </alerts>
+    <alerts>
+        <fullName>Listed_Employer_Update_Email_Alert</fullName>
+        <description>Listed Employer Update Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Credit_Retail_Team</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Internal_Approval_Request_Approved_Whitelisted_Employer</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Modification_Field_Approved</fullName>
+        <field>Modification_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Modification Field Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Modification_Field_Rejected</fullName>
+        <field>Modification_Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Modification Field Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Approved</fullName>
+        <field>Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Status Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Rejected</fullName>
+        <field>Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Status Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

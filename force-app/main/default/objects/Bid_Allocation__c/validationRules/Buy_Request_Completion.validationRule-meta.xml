@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buy_Request_Completion</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL( Maker_Result__c ,&apos;Buy Order Request Completed&apos;) , NOT( ISPICKVAL( Auction_Report_Status__c ,&apos;Post Issuance Completed&apos;) ) )</errorConditionFormula>
+    <errorMessage>Buy Order Request can&apos;t be completed with out Post Issuance Report Generated /Shared</errorMessage>
+</ValidationRule>

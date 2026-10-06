@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Rejection/Cancelation Reason --></label>
+    <name>Rejection_Cancelation_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Bad Credit History</masterLabel>
+        <translation><!-- Bad Credit History --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Score Conditions</masterLabel>
+        <translation><!-- Credit Score Conditions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents not Submitted</masterLabel>
+        <translation><!-- Documents not Submitted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Legal band</masterLabel>
+        <translation><!-- Legal band --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

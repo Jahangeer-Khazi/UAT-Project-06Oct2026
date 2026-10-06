@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Nature__c</fullName>
+    <label>Case Nature</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FCR</fullName>
+                <default>false</default>
+                <label>FCR</label>
+            </value>
+            <value>
+                <fullName>RC</fullName>
+                <default>false</default>
+                <label>RC</label>
+            </value>
+            <value>
+                <fullName>EFT`s</fullName>
+                <default>false</default>
+                <label>EFT`s</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Debit Card</fullName>
+                <default>false</default>
+                <label>Debit Card</label>
+            </value>
+            <value>
+                <fullName>Account Maintenance</fullName>
+                <default>false</default>
+                <label>Account Maintenance</label>
+            </value>
+            <value>
+                <fullName>Personal info update</fullName>
+                <default>false</default>
+                <label>Personal info update</label>
+            </value>
+            <value>
+                <fullName>Apple Pay</fullName>
+                <default>false</default>
+                <label>Apple Pay</label>
+            </value>
+            <value>
+                <fullName>Fitbit Pay</fullName>
+                <default>false</default>
+                <label>Fitbit Pay</label>
+            </value>
+            <value>
+                <fullName>Garmin Pay</fullName>
+                <default>false</default>
+                <label>Garmin Pay</label>
+            </value>
+            <value>
+                <fullName>Samsung Pay</fullName>
+                <default>false</default>
+                <label>Samsung Pay</label>
+            </value>
+            <value>
+                <fullName>Official letter</fullName>
+                <default>false</default>
+                <label>Official letter</label>
+            </value>
+            <value>
+                <fullName>SWIFT</fullName>
+                <default>false</default>
+                <label>SWIFT</label>
+            </value>
+            <value>
+                <fullName>Transaction Related</fullName>
+                <default>false</default>
+                <label>Transaction Related</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Dispute</fullName>
+                <default>false</default>
+                <label>Dispute</label>
+            </value>
+            <value>
+                <fullName>Hassala</fullName>
+                <default>false</default>
+                <label>Hassala</label>
+            </value>
+            <value>
+                <fullName>Jamiyah</fullName>
+                <default>false</default>
+                <label>Jamiyah</label>
+            </value>
+            <value>
+                <fullName>Block</fullName>
+                <default>false</default>
+                <label>Block</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>X-Pays</fullName>
+                <default>false</default>
+                <label>X-Pays</label>
+            </value>
+            <value>
+                <fullName>QA_Activity</fullName>
+                <default>false</default>
+                <label>QA_Activity</label>
+            </value>
+            <value>
+                <fullName>On-Boarding</fullName>
+                <default>false</default>
+                <label>On-Boarding</label>
+            </value>
+            <value>
+                <fullName>ATM</fullName>
+                <default>false</default>
+                <label>ATM</label>
+            </value>
+            <value>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+                <label>Cheque</label>
+            </value>
+            <value>
+                <fullName>Proactive Approach</fullName>
+                <default>false</default>
+                <label>Proactive Approach</label>
+            </value>
+            <value>
+                <fullName>APP/Technical issue</fullName>
+                <default>false</default>
+                <label>APP/Technical issue</label>
+            </value>
+            <value>
+                <fullName>PLA</fullName>
+                <default>false</default>
+                <label>PLA</label>
+            </value>
+            <value>
+                <fullName>Term Deposit</fullName>
+                <default>false</default>
+                <label>Term Deposit</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Alkanz</fullName>
+                <default>false</default>
+                <label>Alkanz</label>
+            </value>
+            <value>
+                <fullName>Fixed Deposit</fullName>
+                <default>false</default>
+                <label>Fixed Deposit</label>
+            </value>
+            <value>
+                <fullName>EXIT</fullName>
+                <default>false</default>
+                <label>EXIT</label>
+            </value>
+            <value>
+                <fullName>RFI</fullName>
+                <default>false</default>
+                <label>RFI</label>
+            </value>
+            <value>
+                <fullName>Prize out</fullName>
+                <default>false</default>
+                <label>Prize out</label>
+            </value>
+            <value>
+                <fullName>AFAQ</fullName>
+                <default>false</default>
+                <label>AFAQ</label>
+            </value>
+            <value>
+                <fullName>Overdraft</fullName>
+                <default>false</default>
+                <label>Overdraft</label>
+            </value>
+            <value>
+                <fullName>FATCA</fullName>
+                <default>false</default>
+                <label>FATCA</label>
+            </value>
+            <value>
+                <fullName>DND</fullName>
+                <default>false</default>
+                <label>DND</label>
+            </value>
+            <value>
+                <fullName>Roadshow</fullName>
+                <default>false</default>
+                <label>Roadshow</label>
+            </value>
+            <value>
+                <fullName>Credit Card - Collection Case</fullName>
+                <default>false</default>
+                <label>Credit Card - Collection Case</label>
+            </value>
+            <value>
+                <fullName>Bond/Sukuk</fullName>
+                <default>false</default>
+                <label>Bond/Sukuk</label>
+            </value>
+            <value>
+                <fullName>Loan / Finance</fullName>
+                <default>false</default>
+                <label>Loan / Finance</label>
+            </value>
+            <value>
+                <fullName>Walkin</fullName>
+                <default>false</default>
+                <label>Walkin</label>
+            </value>
+            <value>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+                <label>Feedback</label>
+            </value>
+            <value>
+                <fullName>Alburaq</fullName>
+                <default>false</default>
+                <label>Alburaq</label>
+            </value>
+            <value>
+                <fullName>BUNA</fullName>
+                <default>false</default>
+                <label>BUNA</label>
+            </value>
+            <value>
+                <fullName>Password</fullName>
+                <default>false</default>
+                <label>Password</label>
+            </value>
+            <value>
+                <fullName>Bulk Block</fullName>
+                <default>false</default>
+                <label>Bulk Block</label>
+            </value>
+            <value>
+                <fullName>WPS Payroll</fullName>
+                <default>false</default>
+                <label>WPS Payroll</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

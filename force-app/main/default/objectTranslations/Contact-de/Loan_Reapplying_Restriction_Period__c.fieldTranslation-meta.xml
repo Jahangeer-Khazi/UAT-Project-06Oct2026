@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Loan Reapplying Restriction Period --></label>
+    <name>Loan_Reapplying_Restriction_Period__c</name>
+</CustomFieldTranslation>

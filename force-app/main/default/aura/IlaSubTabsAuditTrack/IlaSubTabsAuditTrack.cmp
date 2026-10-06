@@ -1,0 +1,5 @@
+<aura:component controller = "StandardTabsAuditTrackController"  access="global">
+	<aura:attribute name="accId" type="String" required="true"/>
+    <aura:attribute name="subTabName" type="String" required="true" />
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+</aura:component>

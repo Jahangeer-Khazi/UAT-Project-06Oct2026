@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- CRM Stage --></label>
+    <name>CRM_Stage__c</name>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK</masterLabel>
+        <translation><!-- FRAUD_BLOCK --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_CANCELED</masterLabel>
+        <translation><!-- FRAUD_CANCELED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_COMPLETED</masterLabel>
+        <translation><!-- FRAUD_COMPLETED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_IN_PROGRESS</masterLabel>
+        <translation><!-- FRAUD_IN_PROGRESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_CANCELED</masterLabel>
+        <translation><!-- PR_CANCELED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_COMPLETED</masterLabel>
+        <translation><!-- PR_COMPLETED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_COMPLETED_IDV</masterLabel>
+        <translation><!-- PR_COMPLETED_IDV --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_FAILED_IDV</masterLabel>
+        <translation><!-- PR_FAILED_IDV --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_IN_PROGRESS</masterLabel>
+        <translation><!-- PR_IN_PROGRESS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_EKYC</masterLabel>
+        <translation><!-- PR_PENDING_EKYC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_FORM</masterLabel>
+        <translation><!-- PR_PENDING_FORM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_IDV</masterLabel>
+        <translation><!-- PR_PENDING_IDV --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_TAX</masterLabel>
+        <translation><!-- PR_PENDING_TAX --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_UPLOAD</masterLabel>
+        <translation><!-- PR_PENDING_UPLOAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED</masterLabel>
+        <translation><!-- PR_REFERRED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_SKIPPED_IDV</masterLabel>
+        <translation><!-- PR_SKIPPED_IDV --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

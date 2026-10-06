@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Loan Calculation Method --></label>
+    <name>cx_ln_Loan_Calculation_Method__c</name>
+    <picklistValues>
+        <masterLabel>By Loan/Finance Amount</masterLabel>
+        <translation><!-- By Loan/Finance Amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>By Monthly Installment</masterLabel>
+        <translation><!-- By Monthly Installment --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

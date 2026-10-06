@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- SMS Template Code --></label>
+    <name>SMS_Template_Code__c</name>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_ACC_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_ACC_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_ACC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_ACC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_ALL_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_ALL_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_ACC_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_ACC_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_ACC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_ACC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_ACC_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_ACC_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_ACC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_ACC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_CC_ACC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_CC_ACC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_CC_APP_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_CC_APP_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_CC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_CC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_SMS</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_COMPLETED_SMS</masterLabel>
+        <translation><!-- FRAUD_COMPLETED_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_COMPLETED_BLOCKS_REMOVED_SMS</masterLabel>
+        <translation><!-- PR_COMPLETED_BLOCKS_REMOVED_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S2_SMS</masterLabel>
+        <translation><!-- PR_PENDING_S2_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S3_SMS</masterLabel>
+        <translation><!-- PR_PENDING_S3_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S4_SMS</masterLabel>
+        <translation><!-- PR_PENDING_S4_SMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_RETURNED_SMS</masterLabel>
+        <translation><!-- PR_RETURNED_SMS --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

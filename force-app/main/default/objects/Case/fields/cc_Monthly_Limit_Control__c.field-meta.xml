@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Monthly_Limit_Control__c</fullName>
+    <description>to be update for spending limit settings</description>
+    <label>Monthly Limit Control</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Enable</fullName>
+                <default>false</default>
+                <label>Enable</label>
+            </value>
+            <value>
+                <fullName>Disable</fullName>
+                <default>false</default>
+                <label>Disable</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

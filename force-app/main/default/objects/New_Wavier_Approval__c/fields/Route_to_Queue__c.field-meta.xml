@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Route_to_Queue__c</fullName>
+    <label>Reassign To</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Team leaders</fullName>
+                <default>false</default>
+                <label>Team leaders</label>
+            </value>
+            <value>
+                <fullName>Head of contact center</fullName>
+                <default>false</default>
+                <label>Head of contact center</label>
+            </value>
+            <value>
+                <fullName>Head of customer service</fullName>
+                <default>false</default>
+                <label>Head of customer service</label>
+            </value>
+            <value>
+                <fullName>Product Manager</fullName>
+                <default>false</default>
+                <label>Product Manager</label>
+            </value>
+            <value>
+                <fullName>Head of Proposition</fullName>
+                <default>false</default>
+                <label>Head of Proposition</label>
+            </value>
+            <value>
+                <fullName>HoB</fullName>
+                <default>false</default>
+                <label>HoB</label>
+            </value>
+            <value>
+                <fullName>CEO</fullName>
+                <default>false</default>
+                <label>CEO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

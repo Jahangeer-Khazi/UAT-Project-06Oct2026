@@ -1,0 +1,84 @@
+<aura:component implements="force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="LTNG039_BID_Allocation_Controller">
+    <aura:attribute name="recordtypeId" type="Id" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="InstrumentList" type="List" />
+    <aura:attribute name="SelInstrument" type="Object" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:html tag="style">
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        }
+        
+    </aura:html>
+    <!-- Modal/Popup Box starts here-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box Header Starts here-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                                      onclick="{! c.closeModel }"
+                                      alternativeText="close"
+                                      variant="bare-inverse"
+                                      class="slds-modal__close"/>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Manual BID Allocation</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="slds-p-around--large">
+                    <div  aura:id="articleOne">
+                        <aura:if isTrue="{! v.isLoading }">
+                            <lightning:spinner alternativeText="Loading" />
+                        </aura:if>
+                        <lightning:card>
+                            <lightning:layout>
+                                <lightning:layoutItem size="8" padding="around-small">
+                                    <!--<div class="slds-p-around_small slds-grid slds-grid_align-spread slds-grid_horizontal-align-start">-->
+                                    <div>
+                                        <lightning:select aura:id="ISINCODE" label="Instrument" required="true">
+                                            <option text="--None--" value="" />
+                                            <aura:iteration items="{!v.InstrumentList}" var="InstData">
+                                                <option text="{!InstData.bs_Instrument}" value="{!InstData.bs_Instrument_Id}" />
+                                            </aura:iteration>                         
+                                        </lightning:select>
+                                         <br></br><br></br>
+                                       <!-- <lightning:datatable
+                                 aura:id="bondListTable"
+                                 data="{!v.InstrumentList}"
+                                 columns="{! v.columns}"
+                                 keyField="id"
+                                 hideCheckboxColumn="false"
+                                 maxRowSelection="1"
+                                 onrowselection="{! c.handleRowSelection }"
+                                />-->
+                                        <!--<lightning:input type="date" name="BID Due Date" label="BID Due Date" required="true" />-->
+                                        <!-- <lightning:datatable data="{! v.mydata }" 
+                                             columns="{! v.mycolumns }" keyField="id" aura:id="caseTable"/>-->
+                                    </div>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </lightning:card>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="brand"
+                                      label="Generate BID Allocation"
+                                      title="Generate BID Allocation"
+                                      onclick="{!c.GenerateBID}"/>
+                    <lightning:button variant="neutral"
+                                      label="Close"
+                                      title="Close"
+                                      onclick="{! c.closeModel }"/>
+                    <!--<lightning:button variant="brand"
+                                          label="Select"
+                                          title="Select"
+                                          onclick="{!c.getSelectedId}"/>-->
+                </footer>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    <!--CH01 - End-->
+</aura:component>

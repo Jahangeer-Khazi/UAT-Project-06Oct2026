@@ -1,0 +1,373 @@
+<aura:component controller="JamiyahAccountController">
+
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="jameyaId" type="String" required="true"/>
+     <aura:attribute name="account" type="Account" />
+
+    <aura:attribute name="data" type="Object" access="private" default="{}"/>
+    <aura:attribute name="participant" type="Object" access="private" default="{}"/>
+	<aura:attribute name="share" type="Object" access="private" default="{}"/>
+    <aura:attribute name="payment" type="List" access="private" default="{}"/>
+    <aura:attribute name="parPay" type="Object[]"/>
+
+	<aura:attribute name="activeSections" type="List" default="['A','C']" />
+
+    <!--Data Table attributes-->
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="Partcolumns" type="List"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.jameyaId}" action="{!c.load}"/>
+
+    <!--  Jamiyah Detail  -->
+    <lightning:card title="{!'Details of Jamiyah account: ' + v.jameyaId}">
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Jamiyah Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.name}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">First collection date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.firstCollectionDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Description</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.description}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Contribution Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.cycleContributionAmount}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.jameyaStatus}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Currency</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.currency}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Organizer Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.organiserName}
+                                <!-- <ui:outputDate value="{!v.data.startDate}" format="DD-MM-YYYY" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Payment Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.cyclePaymentAmount}" minimumFractionDigits="3"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Member Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.memberType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Upcoming Payout Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputDate value="{!v.data.upcomingPayoutDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Number of shares</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <lightning:formattedNumber value="{!v.data.numberOfShares}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Has Pending Exit Request</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.hasExitRequest}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Number of accepted participant</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.numberOfAcceptedShares}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Organizer Customer Id</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.data.organiserCustomerId}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+    <!-- End Jamiyah Detail  -->
+
+    <!--  Participant Detail  -->
+    <lightning:card title="Participant Details">
+
+        <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Participant Id</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.id}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Share Id</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.share.id}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Is Organizer</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <ui:outputCheckbox value="{!v.participant.isOrganiser}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Expected Share Payout Date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <!--{!v.share.expectedPayoutDate} -->
+                               <ui:outputDate value="{!v.share.expectedPayoutDate}" format="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Participant Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.fullName}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Share Payout Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.share.payOutStatus}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Mobile Number</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.mobileNumber}
+                                <!-- <ui:outputDate value="{!v.data.startDate}" format="DD-MM-YYYY" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Participant Customer Id</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.customerId}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Participant Customer Segment</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.segment}
+                                <!-- <ui:outputDate value="{!v.data.startDate}" format="DD-MM-YYYY" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Participant Customer VVIP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.vvip}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Status</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.participant.status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </lightning:card>
+    <!-- End Participant Detail  -->
+
+    <!--  Payment Detail  -->
+   <lightning:card title="Payment Details">
+        <div class="slds-grid slds-gutters ">
+            <div class="slds-col maincantentdiv" style="padding-top:0px">
+                <p class="slds-p-horizontal_small">
+                    Payment Receiver Name (Click to view details)
+                </p>
+
+                <lightning:accordion allowMultipleSectionsOpen="true" >
+                    <div class="slds-tile__detail">
+                        <aura:iteration items="{!v.data.payments}" var="item">
+                            <lightning:accordionSection name="{!item.participants}" label="{!item.jameyaReceiverName}">
+                                    <table  class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped slds-max-medium-table--stacked-horizontal">
+                                        <thead>
+                                            <tr>
+                                                <th><center>Share Date</center></th>
+                                                <th><center>Receiver Name</center></th>
+                                                <th><center>Participant Name</center></th>
+                                                <th><center>Participant Share Amount</center></th>
+                                                <!-- <th><center>Contribution Amount</center></th>-->
+                                                <th><center>Pay Status</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td role="gridcell" class="slds-cell-wrap"><center>{!item.shareDate}</center></td>
+                                                <td role="gridcell" class="slds-cell-wrap"><center>{!item.jameyaReceiverName}</center></td>
+                                            </tr>
+                                            <aura:iteration items="{!item.participants}" var="par">
+                                                <tr>
+                                                    <td><center></center></td>
+                                                    <td><center></center></td>
+                                                    <td role="gridcell" class="slds-cell-wrap"><center>{!par.name}</center></td>
+                                                    <td role="gridcell" class="slds-cell-wrap"><center>{!par.amount}</center></td>
+                                                    <td role="gridcell" class="slds-cell-wrap"><center>{!par.payInStatus}</center></td>
+                                                </tr>
+                                            </aura:iteration>
+                                        </tbody>
+                                    </table>
+                            </lightning:accordionSection>
+                        </aura:iteration>
+                    </div>
+                </lightning:accordion>
+            </div>
+        </div>
+    <!-- End Payment Detail  -->
+</lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

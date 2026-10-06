@@ -1,0 +1,44 @@
+<template>
+    <lightning-card icon-name="custom:custom19" title="Reopen Expired Case" class="slds-is-relative compact-card">
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-spinner_container">
+                <div role="status" class="slds-spinner slds-spinner_medium">
+                    <span class="slds-spinner__dot-a"></span>
+                    <span class="slds-spinner__dot-b"></span>
+                </div>
+            </div>
+        </template>
+
+        <!-- Main Content -->
+        <div class="slds-p-around_medium">
+            <!-- Warning Alert -->
+            <div class="slds-notice slds-notice_alert slds-theme_alert-texture slds-theme_warning slds-m-bottom_medium animated-pulse">
+                <div class="slds-grid slds-grid_vertical-align-center" style="padding: 15px;">
+                    <span class="slds-icon_container slds-icon-utility-warning slds-m-right_small">
+                        <lightning-icon icon-name="utility:warning" size="small" alternative-text="Warning"></lightning-icon>
+                    </span>
+                    <div>
+                        <p>{confirmationMessage}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="slds-grid slds-grid_align-spread slds-m-top_large">
+                <lightning-button 
+                    label="Cancel" 
+                    onclick={handleCancel} 
+                    variant="neutral"
+                    class="slds-m-horizontal_x-small">
+                </lightning-button>
+                <lightning-button 
+                    label="Confirm & Reopen Case" 
+                    onclick={handleConfirm} 
+                    variant="brand"
+                    class="slds-m-horizontal_x-small confirm-button">
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

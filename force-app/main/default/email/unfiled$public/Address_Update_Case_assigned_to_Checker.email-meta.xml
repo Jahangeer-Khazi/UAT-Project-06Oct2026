@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Address Update Case assigned to Checker</name>
+    <style>none</style>
+    <subject>Address Update Case has been to you</subject>
+    <textOnly>The Case has been added to the queue for your review.
+
+Hi ,
+
+Please be advised that the case has been submitted by the maker and is assigned to you for your action.
+
+Case Number: {!Case.CaseNumber}
+
+Open Case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

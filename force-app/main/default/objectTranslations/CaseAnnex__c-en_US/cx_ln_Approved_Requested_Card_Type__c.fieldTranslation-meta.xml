@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Approved Requested Card Type --></label>
+    <name>cx_ln_Approved_Requested_Card_Type__c</name>
+    <picklistValues>
+        <masterLabel>Platinum Gulf Air</masterLabel>
+        <translation><!-- Platinum Gulf Air --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Titanium Gulf Air Brand 01</masterLabel>
+        <translation><!-- Titanium Gulf Air Brand 01 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Titanium Gulf Air Brand 02</masterLabel>
+        <translation><!-- Titanium Gulf Air Brand 02 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Blue</masterLabel>
+        <translation><!-- ila Blue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Gulf Air</masterLabel>
+        <translation><!-- ila Gulf Air --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Prepaid</masterLabel>
+        <translation><!-- ila Prepaid --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila Switch</masterLabel>
+        <translation><!-- ila Switch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila World</masterLabel>
+        <translation><!-- ila World --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila World Elite</masterLabel>
+        <translation><!-- ila World Elite --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila World Elite - Metal</masterLabel>
+        <translation><!-- ila World Elite - Metal --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

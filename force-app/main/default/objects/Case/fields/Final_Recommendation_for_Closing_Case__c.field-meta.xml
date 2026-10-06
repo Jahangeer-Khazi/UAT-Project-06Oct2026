@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Recommendation_for_Closing_Case__c</fullName>
+    <description>MLRO Recommendation for Head of business in EDD Case</description>
+    <encryptionScheme>None</encryptionScheme>
+    <inlineHelpText>MLRO Recommendation for Head of business in EDD Case</inlineHelpText>
+    <label>Recommendation for Closing Case (EDD)</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

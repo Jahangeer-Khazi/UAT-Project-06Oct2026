@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Type__c</fullName>
+    <label>Request Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account</fullName>
+                <default>false</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>Activating EPP on specific transaction</fullName>
+                <default>false</default>
+                <label>Activating EPP on specific transaction</label>
+            </value>
+            <value>
+                <fullName>added through device&apos;s wallet</fullName>
+                <default>false</default>
+                <label>added through device&apos;s wallet</label>
+            </value>
+            <value>
+                <fullName>added through ila application</fullName>
+                <default>false</default>
+                <label>added through ila application</label>
+            </value>
+            <value>
+                <fullName>Address</fullName>
+                <default>false</default>
+                <label>Address</label>
+            </value>
+            <value>
+                <fullName>Amount Credited</fullName>
+                <default>false</default>
+                <label>Amount Credited</label>
+            </value>
+            <value>
+                <fullName>Amount Debited</fullName>
+                <default>false</default>
+                <label>Amount Debited</label>
+            </value>
+            <value>
+                <fullName>Application amendment</fullName>
+                <default>false</default>
+                <label>Application amendment</label>
+            </value>
+            <value>
+                <fullName>Application Status Follow Up</fullName>
+                <default>false</default>
+                <label>Application Status Follow Up</label>
+            </value>
+            <value>
+                <fullName>Archival Duplicate</fullName>
+                <default>false</default>
+                <label>Archival Duplicate</label>
+            </value>
+            <value>
+                <fullName>Archival Others</fullName>
+                <default>false</default>
+                <label>Archival Others</label>
+            </value>
+            <value>
+                <fullName>Archival Stuck in OB stage</fullName>
+                <default>false</default>
+                <label>Archival Stuck in OB stage</label>
+            </value>
+            <value>
+                <fullName>Archival Underage</fullName>
+                <default>false</default>
+                <label>Archival Underage</label>
+            </value>
+            <value>
+                <fullName>Assisted customer until they accessed APP</fullName>
+                <default>false</default>
+                <label>Assisted customer until they accessed APP</label>
+            </value>
+            <value>
+                <fullName>Balance Transferred -Issue</fullName>
+                <default>false</default>
+                <label>Balance Transferred -Issue</label>
+            </value>
+            <value>
+                <fullName>Balance Transferred -Status</fullName>
+                <default>false</default>
+                <label>Balance Transferred -Status</label>
+            </value>
+            <value>
+                <fullName>By Bank - Compliance</fullName>
+                <default>false</default>
+                <label>By Bank - Compliance</label>
+            </value>
+            <value>
+                <fullName>By Bank - Credit card collection</fullName>
+                <default>false</default>
+                <label>By Bank - Credit card collection</label>
+            </value>
+            <value>
+                <fullName>By Bank - Fraud</fullName>
+                <default>false</default>
+                <label>By Bank - Fraud</label>
+            </value>
+            <value>
+                <fullName>By Bank - Other</fullName>
+                <default>false</default>
+                <label>By Bank - Other</label>
+            </value>
+            <value>
+                <fullName>By customer - Others</fullName>
+                <default>false</default>
+                <label>By customer - Others</label>
+            </value>
+            <value>
+                <fullName>By customer - Technical issues</fullName>
+                <default>false</default>
+                <label>By customer - Technical issues</label>
+            </value>
+            <value>
+                <fullName>By customer -Customer Service</fullName>
+                <default>false</default>
+                <label>By customer -Customer Service</label>
+            </value>
+            <value>
+                <fullName>By customer - Leaving country</fullName>
+                <default>false</default>
+                <label>By customer - Leaving country</label>
+            </value>
+            <value>
+                <fullName>By customer -Products &amp; Services</fullName>
+                <default>false</default>
+                <label>By customer -Products &amp; Services</label>
+            </value>
+            <value>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+                <label>Campaign</label>
+            </value>
+            <value>
+                <fullName>Card pick up from ila Bank</fullName>
+                <default>false</default>
+                <label>Card pick up from ila Bank</label>
+            </value>
+            <value>
+                <fullName>Card Replacement - Damaged</fullName>
+                <default>false</default>
+                <label>Card Replacement - Damaged</label>
+            </value>
+            <value>
+                <fullName>Card Replacement - Fraud</fullName>
+                <default>false</default>
+                <label>Card Replacement - Fraud</label>
+            </value>
+            <value>
+                <fullName>Card Replacement - Lost</fullName>
+                <default>false</default>
+                <label>Card Replacement - Lost</label>
+            </value>
+            <value>
+                <fullName>Card Replacement - Others</fullName>
+                <default>false</default>
+                <label>Card Replacement - Others</label>
+            </value>
+            <value>
+                <fullName>Change courier - Customer travelling</fullName>
+                <default>false</default>
+                <label>Change courier - Customer travelling</label>
+            </value>
+            <value>
+                <fullName>Change courier - Management request</fullName>
+                <default>false</default>
+                <label>Change courier - Management request</label>
+            </value>
+            <value>
+                <fullName>Change courier - others</fullName>
+                <default>false</default>
+                <label>Change courier - others</label>
+            </value>
+            <value>
+                <fullName>Change OTP email address</fullName>
+                <default>false</default>
+                <label>Change OTP email address</label>
+            </value>
+            <value>
+                <fullName>change OTP mobile number</fullName>
+                <default>false</default>
+                <label>change OTP mobile number</label>
+            </value>
+            <value>
+                <fullName>Choose account from a drop down list</fullName>
+                <default>false</default>
+                <label>Choose account from a drop down list</label>
+            </value>
+            <value>
+                <fullName>Choose fixed deposit from a drop down list</fullName>
+                <default>false</default>
+                <label>Choose fixed deposit from a drop down list</label>
+            </value>
+            <value>
+                <fullName>Classic</fullName>
+                <default>false</default>
+                <label>Classic</label>
+            </value>
+            <value>
+                <fullName>CPR expiry</fullName>
+                <default>false</default>
+                <label>CPR expiry</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Customer refused assistance</fullName>
+                <default>false</default>
+                <label>Customer refused assistance</label>
+            </value>
+            <value>
+                <fullName>Customer Request</fullName>
+                <default>false</default>
+                <label>Customer Request</label>
+            </value>
+            <value>
+                <fullName>Decrease credit limit</fullName>
+                <default>false</default>
+                <label>Decrease credit limit</label>
+            </value>
+            <value>
+                <fullName>Discount</fullName>
+                <default>false</default>
+                <label>Discount</label>
+            </value>
+            <value>
+                <fullName>Dormancy</fullName>
+                <default>false</default>
+                <label>Dormancy</label>
+            </value>
+            <value>
+                <fullName>Down grade to classic</fullName>
+                <default>false</default>
+                <label>Down grade to classic</label>
+            </value>
+            <value>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+                <label>Downgrade</label>
+            </value>
+            <value>
+                <fullName>Early closure</fullName>
+                <default>false</default>
+                <label>Early closure</label>
+            </value>
+            <value>
+                <fullName>Education/accommodation Fees</fullName>
+                <default>false</default>
+                <label>Education/accommodation Fees</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>External - EFTS (local)</fullName>
+                <default>false</default>
+                <label>External - EFTS (local)</label>
+            </value>
+            <value>
+                <fullName>External - SWIFT (international)</fullName>
+                <default>false</default>
+                <label>External - SWIFT (international)</label>
+            </value>
+            <value>
+                <fullName>Follow up on card status</fullName>
+                <default>false</default>
+                <label>Follow up on card status</label>
+            </value>
+            <value>
+                <fullName>Fraud/Management recommendation</fullName>
+                <default>false</default>
+                <label>Fraud/Management recommendation</label>
+            </value>
+            <value>
+                <fullName>Freeze</fullName>
+                <default>false</default>
+                <label>Freeze</label>
+            </value>
+            <value>
+                <fullName>Freeze - Detokinize</fullName>
+                <default>false</default>
+                <label>Freeze - Detokinize</label>
+            </value>
+            <value>
+                <fullName>From Kanz to Salary</fullName>
+                <default>false</default>
+                <label>From Kanz to Salary</label>
+            </value>
+            <value>
+                <fullName>From Salary to Kanz</fullName>
+                <default>false</default>
+                <label>From Salary to Kanz</label>
+            </value>
+            <value>
+                <fullName>FX accounts</fullName>
+                <default>false</default>
+                <label>FX accounts</label>
+            </value>
+            <value>
+                <fullName>Government bonds</fullName>
+                <default>false</default>
+                <label>Government bonds</label>
+            </value>
+            <value>
+                <fullName>Hold - By Operation</fullName>
+                <default>false</default>
+                <label>Hold - By Operation</label>
+            </value>
+            <value>
+                <fullName>Hold- By Fraud</fullName>
+                <default>false</default>
+                <label>Hold- By Fraud</label>
+            </value>
+            <value>
+                <fullName>Hold source</fullName>
+                <default>false</default>
+                <label>Hold source</label>
+            </value>
+            <value>
+                <fullName>ila blue</fullName>
+                <default>false</default>
+                <label>ila blue</label>
+            </value>
+            <value>
+                <fullName>ila prepaid</fullName>
+                <default>false</default>
+                <label>ila prepaid</label>
+            </value>
+            <value>
+                <fullName>ila switch</fullName>
+                <default>false</default>
+                <label>ila switch</label>
+            </value>
+            <value>
+                <fullName>Internal (Between accounts)</fullName>
+                <default>false</default>
+                <label>Internal (Between accounts)</label>
+            </value>
+            <value>
+                <fullName>International address</fullName>
+                <default>false</default>
+                <label>International address</label>
+            </value>
+            <value>
+                <fullName>Link Currency account</fullName>
+                <default>false</default>
+                <label>Link Currency account</label>
+            </value>
+            <value>
+                <fullName>Loans</fullName>
+                <default>false</default>
+                <label>Loans</label>
+            </value>
+            <value>
+                <fullName>Management request</fullName>
+                <default>false</default>
+                <label>Management request</label>
+            </value>
+            <value>
+                <fullName>Manual Balance Transfer</fullName>
+                <default>false</default>
+                <label>Manual Balance Transfer</label>
+            </value>
+            <value>
+                <fullName>Medical expenses</fullName>
+                <default>false</default>
+                <label>Medical expenses</label>
+            </value>
+            <value>
+                <fullName>Minimum due</fullName>
+                <default>false</default>
+                <label>Minimum due</label>
+            </value>
+            <value>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <label>Mobile</label>
+            </value>
+            <value>
+                <fullName>Mobile/Email</fullName>
+                <default>false</default>
+                <label>Mobile/Email</label>
+            </value>
+            <value>
+                <fullName>Name</fullName>
+                <default>false</default>
+                <label>Name</label>
+            </value>
+            <value>
+                <fullName>New card Issuance - with Balance</fullName>
+                <default>false</default>
+                <label>New card Issuance - with Balance</label>
+            </value>
+            <value>
+                <fullName>New card Issuance - with no Balance</fullName>
+                <default>false</default>
+                <label>New card Issuance - with no Balance</label>
+            </value>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Overdrawn</fullName>
+                <default>false</default>
+                <label>Overdrawn</label>
+            </value>
+            <value>
+                <fullName>Permanent limit increase against Salary</fullName>
+                <default>false</default>
+                <label>Permanent limit increase against Salary</label>
+            </value>
+            <value>
+                <fullName>Permanent limit increase against Cash</fullName>
+                <default>false</default>
+                <label>Permanent limit increase against Cash</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Reactivation</fullName>
+                <default>false</default>
+                <label>Reactivation</label>
+            </value>
+            <value>
+                <fullName>Relationship termination by customer</fullName>
+                <default>false</default>
+                <label>Relationship termination by customer</label>
+            </value>
+            <value>
+                <fullName>Release</fullName>
+                <default>false</default>
+                <label>Release</label>
+            </value>
+            <value>
+                <fullName>Replacement - with Fees</fullName>
+                <default>false</default>
+                <label>Replacement - with Fees</label>
+            </value>
+            <value>
+                <fullName>Replacement -Without Fees</fullName>
+                <default>false</default>
+                <label>Replacement -Without Fees</label>
+            </value>
+            <value>
+                <fullName>Second BHD</fullName>
+                <default>false</default>
+                <label>Second BHD</label>
+            </value>
+            <value>
+                <fullName>Status Follow Up</fullName>
+                <default>false</default>
+                <label>Status Follow Up</label>
+            </value>
+            <value>
+                <fullName>Sukuk</fullName>
+                <default>false</default>
+                <label>Sukuk</label>
+            </value>
+            <value>
+                <fullName>Temporary limit increase against Cash</fullName>
+                <default>false</default>
+                <label>Temporary limit increase against Cash</label>
+            </value>
+            <value>
+                <fullName>Temporary limit increase against Salary</fullName>
+                <default>false</default>
+                <label>Temporary limit increase against Salary</label>
+            </value>
+            <value>
+                <fullName>To Airmiles</fullName>
+                <default>false</default>
+                <label>To Airmiles</label>
+            </value>
+            <value>
+                <fullName>To Cash back</fullName>
+                <default>false</default>
+                <label>To Cash back</label>
+            </value>
+            <value>
+                <fullName>To Tokens</fullName>
+                <default>false</default>
+                <label>To Tokens</label>
+            </value>
+            <value>
+                <fullName>Travel expenses</fullName>
+                <default>false</default>
+                <label>Travel expenses</label>
+            </value>
+            <value>
+                <fullName>Treasury Bills</fullName>
+                <default>false</default>
+                <label>Treasury Bills</label>
+            </value>
+            <value>
+                <fullName>Trigger OB</fullName>
+                <default>false</default>
+                <label>Trigger OB</label>
+            </value>
+            <value>
+                <fullName>Unfreeze</fullName>
+                <default>false</default>
+                <label>Unfreeze</label>
+            </value>
+            <value>
+                <fullName>Unlink Currency account</fullName>
+                <default>false</default>
+                <label>Unlink Currency account</label>
+            </value>
+            <value>
+                <fullName>Update contact number with AFS</fullName>
+                <default>false</default>
+                <label>Update contact number with AFS</label>
+            </value>
+            <value>
+                <fullName>Upgrade to premium</fullName>
+                <default>false</default>
+                <label>Upgrade to premium</label>
+            </value>
+            <value>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+                <label>Upgrade</label>
+            </value>
+            <value>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+                <label>Virtual</label>
+            </value>
+            <value>
+                <fullName>Outstanding</fullName>
+                <default>false</default>
+                <label>Outstanding</label>
+            </value>
+            <value>
+                <fullName>Spending Control</fullName>
+                <default>false</default>
+                <label>Spending Control</label>
+            </value>
+            <value>
+                <fullName>Allowed Countries</fullName>
+                <default>false</default>
+                <label>Allowed Countries</label>
+            </value>
+            <value>
+                <fullName>Allowed Merchant Categories</fullName>
+                <default>false</default>
+                <label>Allowed Merchant Categories</label>
+            </value>
+            <value>
+                <fullName>Fees</fullName>
+                <default>false</default>
+                <label>Fees</label>
+            </value>
+            <value>
+                <fullName>Detokenization</fullName>
+                <default>false</default>
+                <label>Detokenization</label>
+            </value>
+            <value>
+                <fullName>Fees &amp; Charges</fullName>
+                <default>false</default>
+                <label>Fees &amp; Charges</label>
+            </value>
+            <value>
+                <fullName>Benefits</fullName>
+                <default>false</default>
+                <label>Benefits</label>
+            </value>
+            <value>
+                <fullName>Offers</fullName>
+                <default>false</default>
+                <label>Offers</label>
+            </value>
+            <value>
+                <fullName>TD Deposit Certificate</fullName>
+                <default>false</default>
+                <label>TD Deposit Certificate</label>
+            </value>
+            <value>
+                <fullName>IBAN Certificate</fullName>
+                <default>false</default>
+                <label>IBAN Certificate</label>
+            </value>
+            <value>
+                <fullName>Source of Inward Transfer</fullName>
+                <default>false</default>
+                <label>Source of Inward Transfer</label>
+            </value>
+            <value>
+                <fullName>Source of POS Refund</fullName>
+                <default>false</default>
+                <label>Source of POS Refund</label>
+            </value>
+            <value>
+                <fullName>Status of SWIFT - Out</fullName>
+                <default>false</default>
+                <label>Status of SWIFT - Out</label>
+            </value>
+            <value>
+                <fullName>Status of SWIFT - In</fullName>
+                <default>false</default>
+                <label>Status of SWIFT - In</label>
+            </value>
+            <value>
+                <fullName>Staff Joiner</fullName>
+                <default>false</default>
+                <label>Staff Joiner</label>
+            </value>
+            <value>
+                <fullName>Staff Leaver</fullName>
+                <default>false</default>
+                <label>Staff Leaver</label>
+            </value>
+            <value>
+                <fullName>Video Call Back</fullName>
+                <default>false</default>
+                <label>Video Call Back</label>
+            </value>
+            <value>
+                <fullName>Cancellation Request</fullName>
+                <default>false</default>
+                <label>Cancellation Request</label>
+            </value>
+            <value>
+                <fullName>Generate Random Password / Revoke Device</fullName>
+                <default>false</default>
+                <label>Generate Random Password / Revoke Device</label>
+            </value>
+            <value>
+                <fullName>In</fullName>
+                <default>false</default>
+                <label>In</label>
+            </value>
+            <value>
+                <fullName>Out</fullName>
+                <default>false</default>
+                <label>Out</label>
+            </value>
+            <value>
+                <fullName>Between Accounts</fullName>
+                <default>false</default>
+                <label>Between Accounts</label>
+            </value>
+            <value>
+                <fullName>EFTS</fullName>
+                <default>false</default>
+                <label>EFTS</label>
+            </value>
+            <value>
+                <fullName>Swift</fullName>
+                <default>false</default>
+                <label>Swift</label>
+            </value>
+            <value>
+                <fullName>Individual Beneficiary</fullName>
+                <default>false</default>
+                <label>Individual Beneficiary</label>
+            </value>
+            <value>
+                <fullName>Organization</fullName>
+                <default>false</default>
+                <label>Organization</label>
+            </value>
+            <value>
+                <fullName>ila Conventional</fullName>
+                <default>false</default>
+                <label>ila Conventional</label>
+            </value>
+            <value>
+                <fullName>Alburaq Islamic</fullName>
+                <default>false</default>
+                <label>Alburaq Islamic</label>
+            </value>
+            <value>
+                <fullName>Both</fullName>
+                <default>false</default>
+                <label>Both</label>
+            </value>
+            <value>
+                <fullName>Invitation</fullName>
+                <default>false</default>
+                <label>Invitation</label>
+            </value>
+            <value>
+                <fullName>FX Account</fullName>
+                <default>false</default>
+                <label>FX Account</label>
+            </value>
+            <value>
+                <fullName>Second BHD Account</fullName>
+                <default>false</default>
+                <label>Second BHD Account</label>
+            </value>
+            <value>
+                <fullName>Jamiya</fullName>
+                <default>false</default>
+                <label>Jamiya</label>
+            </value>
+            <value>
+                <fullName>Pick Up Request</fullName>
+                <default>false</default>
+                <label>Pick Up Request</label>
+            </value>
+            <value>
+                <fullName>International Delivery Request</fullName>
+                <default>false</default>
+                <label>International Delivery Request</label>
+            </value>
+            <value>
+                <fullName>Returned Cards Re-delivery Request</fullName>
+                <default>false</default>
+                <label>Returned Cards Re-delivery Request</label>
+            </value>
+            <value>
+                <fullName>Replacement with Fees</fullName>
+                <default>false</default>
+                <label>Replacement with Fees</label>
+            </value>
+            <value>
+                <fullName>Replacement without Fees</fullName>
+                <default>false</default>
+                <label>Replacement without Fees</label>
+            </value>
+            <value>
+                <fullName>Link/Delink Currency</fullName>
+                <default>false</default>
+                <label>Link/Delink Currency</label>
+            </value>
+            <value>
+                <fullName>Classic Card Issuance</fullName>
+                <default>false</default>
+                <label>Classic Card Issuance</label>
+            </value>
+            <value>
+                <fullName>Virtual Card Issuance with Fees</fullName>
+                <default>false</default>
+                <label>Virtual Card Issuance with Fees</label>
+            </value>
+            <value>
+                <fullName>Virtual Card Issuance without Fees</fullName>
+                <default>false</default>
+                <label>Virtual Card Issuance without Fees</label>
+            </value>
+            <value>
+                <fullName>Temporary Limit Increase for Campaign</fullName>
+                <default>false</default>
+                <label>Temporary Limit Increase for Campaign</label>
+            </value>
+            <value>
+                <fullName>Temporary Limit Increase for Education/Accommodation Fees</fullName>
+                <default>false</default>
+                <label>Temporary Limit Increase for Education/Accommodation Fees</label>
+            </value>
+            <value>
+                <fullName>Temporary Limit Increase for Medical Expenses</fullName>
+                <default>false</default>
+                <label>Temporary Limit Increase for Medical Expenses</label>
+            </value>
+            <value>
+                <fullName>Temporary Limit Increase for Travel Expenses</fullName>
+                <default>false</default>
+                <label>Temporary Limit Increase for Travel Expenses</label>
+            </value>
+            <value>
+                <fullName>Temporary Limit Increase for Other Reasons</fullName>
+                <default>false</default>
+                <label>Temporary Limit Increase for Other Reasons</label>
+            </value>
+            <value>
+                <fullName>Convert To/From Secured</fullName>
+                <default>false</default>
+                <label>Convert To/From Secured</label>
+            </value>
+            <value>
+                <fullName>Rewards Investigation</fullName>
+                <default>false</default>
+                <label>Rewards Investigation</label>
+            </value>
+            <value>
+                <fullName>Direct Debit Control</fullName>
+                <default>false</default>
+                <label>Direct Debit Control</label>
+            </value>
+            <value>
+                <fullName>Credit Card Closure</fullName>
+                <default>false</default>
+                <label>Credit Card Closure</label>
+            </value>
+            <value>
+                <fullName>Manual EPP Creation</fullName>
+                <default>false</default>
+                <label>Manual EPP Creation</label>
+            </value>
+            <value>
+                <fullName>Manual EPP Early Closure</fullName>
+                <default>false</default>
+                <label>Manual EPP Early Closure</label>
+            </value>
+            <value>
+                <fullName>Manual Credit Card Payment</fullName>
+                <default>false</default>
+                <label>Manual Credit Card Payment</label>
+            </value>
+            <value>
+                <fullName>Manual Airmiles Linkage</fullName>
+                <default>false</default>
+                <label>Manual Airmiles Linkage</label>
+            </value>
+            <value>
+                <fullName>Transfer Balance to Account</fullName>
+                <default>false</default>
+                <label>Transfer Balance to Account</label>
+            </value>
+            <value>
+                <fullName>Prepaid Dormancy Reactivation</fullName>
+                <default>false</default>
+                <label>Prepaid Dormancy Reactivation</label>
+            </value>
+            <value>
+                <fullName>Hold Release Request</fullName>
+                <default>false</default>
+                <label>Hold Release Request</label>
+            </value>
+            <value>
+                <fullName>Source of Refund</fullName>
+                <default>false</default>
+                <label>Source of Refund</label>
+            </value>
+            <value>
+                <fullName>CPR Update</fullName>
+                <default>false</default>
+                <label>CPR Update</label>
+            </value>
+            <value>
+                <fullName>Passport Update</fullName>
+                <default>false</default>
+                <label>Passport Update</label>
+            </value>
+            <value>
+                <fullName>Bonds</fullName>
+                <default>false</default>
+                <label>Bonds</label>
+            </value>
+            <value>
+                <fullName>Third BHD</fullName>
+                <default>false</default>
+                <label>Third BHD</label>
+            </value>
+            <value>
+                <fullName>Card Replacement -Damaged</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Card Replacement -Damaged</label>
+            </value>
+            <value>
+                <fullName>Card Replacement -Lost</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Card Replacement -Lost</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

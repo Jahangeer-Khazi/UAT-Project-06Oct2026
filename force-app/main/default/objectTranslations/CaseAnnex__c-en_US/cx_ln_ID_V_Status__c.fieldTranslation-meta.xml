@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- ID&amp;V Status --></label>
+    <name>cx_ln_ID_V_Status__c</name>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Not Authenticated</masterLabel>
+        <translation><!-- Customer Not Authenticated --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Declined</masterLabel>
+        <translation><!-- Declined --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rejected Due To Fraud</masterLabel>
+        <translation><!-- Rejected Due To Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Resubmit</masterLabel>
+        <translation><!-- Resubmit --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

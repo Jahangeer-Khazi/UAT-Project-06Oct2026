@@ -1,0 +1,73 @@
+<template>
+    <lightning-card>
+        <template if:true={noAccess}>
+            <div class="error-container">
+                <lightning-icon icon-name="utility:warning" alternative-text="No Access" size="large" variant="error">
+                </lightning-icon>
+                <h2 class="error-message">You don't have access to create the case</h2>
+            </div>
+        </template>
+        <template if:false={noAccess}>
+            <template if:true={isLoading} class="slds-is-relative">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+            </template>
+            <header class="slds-p-horizontal_medium slds-text-align_center">
+                <h2 class="slds-text-heading_medium">New Request</h2>
+            </header>
+            <div class="slds-divider_bottom slds-m-bottom_medium"></div>
+            <div class="slds-p-around_medium box-border box-height">
+                <!-- Case Fields -->
+                <lightning-input type="text" label="Subject" name="subject" onchange={handleChange} required>
+                </lightning-input>
+                <lightning-textarea label="Description" name="description" onchange={handleChange} required>
+                </lightning-textarea>
+                <lightning-combobox label="Case Model" name="caseModel" onchange={handleChange}
+                    options={caseModelOptions} required value={caseModel}></lightning-combobox>
+                <lightning-combobox label="Type" name="caseType" onchange={handleChange} options={caseTypeOptions}
+                    required></lightning-combobox>
+                <lightning-combobox label="Sub Type" name="caseSubType" onchange={handleChange}
+                    options={caseSubTypeOptions} disabled={isSubTypeDisabled} required value={caseSubType}>
+                </lightning-combobox>
+                <lightning-combobox label="Request Type" name="caseRequestType" onchange={handleChange}
+                    disabled={isRequestTypeDisabled} options={caseRequestTypeOptions} required value={caseRequestType}>
+                </lightning-combobox>
+
+                <!-- Case Origin and Case Nature Fields in Two Columns -->
+                <div class="case-nature-container">
+                    <lightning-combobox label="Case Origin" name="caseOrigin" onchange={handleChange}
+                        options={caseOriginOptions} required value={caseOrigin}></lightning-combobox>
+                    <lightning-combobox label="Case Nature" name="caseNature" onchange={handleChange}
+                        options={caseNatureOptions} required></lightning-combobox>
+                </div>
+
+                <!-- Temporary Credit Case Fields in Two Columns -->
+                <template if:true={isTempCreditCase}>
+                    <div class="temp-credit-container">
+                        <lightning-combobox label="Temporary Credit Reason" name="tempCreditReason"
+                            options={tempCreditReasonOptions} onchange={handleTempCreditReasonChange} required>
+                        </lightning-combobox>
+                        <template if:true={showOtherReason}>
+                            <lightning-textarea label="Other Reason" name="otherReason" onchange={handleChange}>
+                            </lightning-textarea>
+                        </template>
+                        <lightning-input type="number" label="Temporary Credit Amount" name="tempCreditAmount"
+                            onchange={handleChange} required></lightning-input>
+                        <lightning-combobox label="Currency" name="currency" onchange={handleChange}
+                            options={currencyOptions} required></lightning-combobox>
+                        <lightning-combobox label="Approved by" name="approvedBy" onchange={handleChange}
+                            options={approvedByOptions} required></lightning-combobox>
+                        <lightning-input type="text" label="Merchant Name" name="merchantName" onchange={handleChange}>
+                        </lightning-input>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Footer Buttons -->
+            <footer class="slds-grid slds-grid_align-center slds-p-vertical_medium">
+                <lightning-button label="Cancel" onclick={handleCancel} variant="neutral" class="slds-m-right_small">
+                </lightning-button>
+                <lightning-button label="Save" onclick={handleSave} variant="brand"></lightning-button>
+            </footer>
+        </template>
+    </lightning-card>
+</template>

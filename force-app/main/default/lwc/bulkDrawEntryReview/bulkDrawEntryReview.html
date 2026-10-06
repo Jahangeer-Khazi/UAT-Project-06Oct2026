@@ -1,0 +1,103 @@
+<template>
+    <lightning-card icon-name="custom:custom19" title="Bulk Draw Entry Review" class="slds-is-relative compact-card">
+        <!-- Spinner now covers the entire card and is more efficiently placed -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." variant="brand" class="slds-spinner slds-spinner_medium">
+            </lightning-spinner>
+        </template>
+
+        <!-- Warning Banner for non-Bahrain regions -->
+        <template if:true={showWarningBanner}>
+            <div class="slds-notice slds-notice_alert slds-theme_alert-texture slds-theme_warning slds-m-around_medium">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <span class="slds-icon_container slds-icon-utility-warning slds-m-right_small">
+                        <lightning-icon icon-name="utility:warning" size="small" alternative-text="Warning"></lightning-icon>
+                    </span>
+                    <div>
+                        <h2 class="slds-text-heading_small">Feature Not Available</h2>
+                        <p>This feature is only applicable for Bahrain users. Please contact your administrator if you
+                            believe this is an error.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-p-around_medium slds-text-align_center">
+                <lightning-button label="Back" onclick={handleBack} variant="neutral"></lightning-button>
+            </div>
+        </template>
+
+        <!-- Main Content (only shown for Bahrain region) -->
+        <template if:true={isBahrainRegion}>
+            <lightning-button label="Back" slot="actions" onclick={handleBack} class="slds-m-left_x-small">
+            </lightning-button>
+
+            <!-- Rest of your existing template content -->
+            <div class="slds-p-around_medium form-container">
+                <div class="slds-grid slds-wrap slds-gutters_medium">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                        <lightning-input label="Draw" value={displayedDrawName} disabled class="compact-input">
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                        <lightning-input label="Prize Type" value={displayedPrizeType} disabled class="compact-input">
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                        <lightning-input label="Category" value="Exclude" disabled class="compact-input">
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+                        <lightning-input label="Justification" value={justification}
+                            onchange={handleJustificationChange} required class="compact-input"></lightning-input>
+                    </div>
+                </div>
+            </div>
+
+            <div class="file-upload-container slds-p-around_medium">
+                <lightning-file-upload accept=".csv" label="Upload CSV File" multiple=true
+                    onuploadfinished={handleFileUpload} onerror={handleFileUploadError}
+                    message="Upload CSV File (Only CIF column required)" class="custom-file-upload">
+                </lightning-file-upload>
+            </div>
+
+            <template if:true={parsedData.length}>
+                <div class="slds-p-around_medium table-header">
+                    <div class="slds-grid slds-grid_align-spread">
+                        <div>
+                            <h2 class="slds-text-heading_small slds-m-bottom_xx-small">CIFs to Exclude</h2>
+                            <p class="slds-text-body_small">Total Records: {parsedData.length}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compact-table-container">
+                    <table
+                        class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped compact-table">
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th style="width: 20%;">S.No</th>
+                                <th style="width: 80%;">CIF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={parsedData} for:item="item">
+                                <tr key={item.Id} class="slds-hint-parent">
+                                    <td>
+                                        <lightning-formatted-number value={item.index}></lightning-formatted-number>
+                                    </td>
+                                    <td>
+                                        <lightning-formatted-text value={item.CIF}></lightning-formatted-text>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="slds-p-around_medium slds-text-align_center">
+                    <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button> &nbsp;
+                    <lightning-button label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

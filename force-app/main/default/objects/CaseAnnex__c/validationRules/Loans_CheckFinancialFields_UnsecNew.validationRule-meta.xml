@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_CheckFinancialFields_UnsecNew</fullName>
+    <active>true</active>
+    <description>Required Financial details fields for : Unsecured - New Loan/Finance</description>
+    <errorConditionFormula>AND(
+    !ISPICKVAL(Case__r.cc_Control_Type__c, &apos;STP&apos;),
+				ISPICKVAL(cx_ln_Product__c, &apos;Unsecured&apos;),
+	   ISPICKVAL(cx_ln_Business_Nature_Type__c, &apos;New Loan/Finance&apos;),
+				OR(
+			    AND(ISCHANGED(cx_ln_Credit_Pre_Screening_Result__c),ISPICKVAL(cx_ln_Credit_Pre_Screening_Result__c, &apos;Accept&apos;)),  
+			    AND(ISCHANGED(cx_ln_Credit_Approval_Result__c),ISPICKVAL(cx_ln_Credit_Approval_Result__c, &apos;Approve&apos;))
+	    ),
+				OR(
+	NOT(cx_ln_isScheduleGenerated__c),
+ISNULL(cx_ln_Basic_Salary__c),
+ISNULL(cx_ln_Fixed_Allowances__c),
+	ISNULL(cx_ln_Variable_Allowances__c),
+	ISNULL(cx_ln_Business_Income__c),
+	ISNULL(cx_ln_Total_Approved_Income__c),
+	ISNULL(cx_ln_Gross_Income__c),
+	ISNULL(cx_ln_Total_Obligations__c),
+	ISNULL(cx_ln_Current_DBR__c),
+	ISNULL(cx_ln_Approved_Loan_Amount__c),
+ISNULL(cx_ln_Approved_Duration_Months__c),
+	ISNULL(cx_ln_ApprovedInterestProfitRateReducing__c),
+	ISNULL(cx_ln_Approved_Installment_Amount__c),
+	ISNULL(cx_ln_Approved_Maturity_Date__c),
+	ISPICKVAL(cx_ln_Approved_Insurance_Premium__c, &apos;&apos;),
+	ISNULL(cx_ln_Approved_First_installment_date__c),
+	ISPICKVAL(cx_ln_ApprovedProcessing_Fee_Type__c,&apos;&apos;),
+	ISNULL(cx_ln_Approved_Cash_in_Hand__c),
+	ISNULL(cx_ln_Final_DBR__c),
+	ISNULL(cx_ln_APR__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Please Provide all the required information in financial details tab and generate the schedule before giving a result.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,204 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" 
+                controller="UserProfileController">
+	<aura:attribute name="email" type="String"/>
+    <aura:attribute name="customerId" type="String"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="account" type="Account"/>
+    <aura:attribute name="accountOld" type="Object" />
+    <aura:attribute name="case" type="Object" />
+    <aura:attribute name="readOnlyFields" type="Map" access="private" default="{}"/>
+    <aura:attribute name="isSavedOnBoarding" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="leadConverted" type="Boolean" />
+    <aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="isSuccess_eKYC" type="Boolean" default="false" />
+    <aura:attribute name="isWathiqConsent" type="Boolean"/>
+    
+    <aura:attribute name="isUpdateSuccessful" type="Boolean" default="false" />
+    <aura:attribute name="isFetchIGASuccessful" type="Boolean" default="false" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="guardianCIFFromChild" type="String"/>
+    <aura:attribute name="guardianIdNumberFromChild" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- ======================================================= -->
+    <aura:attribute name="mode" type="string" default="view"/>
+    <lightning:notificationsLibrary aura:id="idValNotice"/>
+    <lightning:card iconName="standard:account" title="{!v.account.Name}">
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="Loading..." size="large" variant="brand"/>
+        </aura:if>
+        <!-- <aura:set attribute="actions">
+            
+            <aura:if isTrue="{!and('Case' == v.sObjectName, v.mode != 'edit')}">
+                <lightning:button label="Edit" onclick="{!c.onEditClick}"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!not(and(v.case.RecordType_DeveloperName__c == 'On_Boarding', v.case.Type == 'Identification'))}">
+
+                <aura:if isTrue="{!and(v.case.Region_Flag__c=='Bahrain',v.isWathiqConsent)}">
+                    <lightning:button label="Fetch Data From eKYC" onclick="{!c.geteKYCdetails}"/>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{! and(v.account.ID_Validation_Status__pc == 'APPROVED_VERIFIED',v.account.ID_Similarity__pc =='MATCH')}">
+                            <lightning:button label="Fetch Data From eKYC" onclick="{!c.geteKYCdetails}"/>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+                
+            </aura:if>
+            
+            <aura:if isTrue="{!and('Case' == v.sObjectName, v.mode == 'edit')}">
+                <aura:if isTrue="{!v.account.RecordType.Name == 'Prospect'}">
+
+                    <aura:if isTrue="{!v.isSavedOnBoarding}">
+                        <lightning:button label="Continue Onboarding" onclick="{!c.doContinuOnboarding}"/>
+                    </aura:if>
+                    <aura:set attribute="else">
+                    	<lightning:button label="Save" onclick="{!c.onSaveClick}"/>
+                    </aura:set>
+                </aura:if>
+                    <lightning:button label="Fetch IGA Data" onclick="{!c.fetchIGAData}"/>
+                <lightning:button label="Update" onclick="{!c.onSaveFieldUpdate}"/>
+                <lightning:button label="Cancel" onclick="{!c.onCancelClick}"/>
+            </aura:if>
+        </aura:set> -->
+        
+        <aura:set attribute="actions">
+            <!-- Default Edit button - visible for all cases in view mode -->
+            <aura:if isTrue="{!and('Case' == v.sObjectName, v.mode != 'edit')}">
+                <lightning:button label="Edit" onclick="{!c.onEditClick}"/>
+            </aura:if>
+            
+            <!-- eKYC Button logic (unchanged) -->
+            <aura:if isTrue="{!not(and(v.case.RecordType_DeveloperName__c == 'On_Boarding', v.case.Type == 'Identification'))}">
+                <aura:if isTrue="{!and(v.case.Region_Flag__c=='Bahrain',v.isWathiqConsent)}">
+                    <lightning:button label="Fetch Data From eKYC" onclick="{!c.geteKYCdetails}"/>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{! and(v.account.ID_Validation_Status__pc == 'APPROVED_VERIFIED',v.account.ID_Similarity__pc =='MATCH')}">
+                            <lightning:button label="Fetch Data From eKYC" onclick="{!c.geteKYCdetails}"/>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+            
+            <!-- Edit Mode Buttons -->
+            <aura:if isTrue="{!and('Case' == v.sObjectName, v.mode == 'edit')}">
+                
+                <!-- Special logic for eKey cases -->
+                <aura:if isTrue="{!v.case.Origin == 'eKey'}">
+                    
+                    <aura:if isTrue="{!not(v.isUpdateSuccessful)}">
+
+                        <!--<aura:if isTrue="{!v.case.Region_Flag__c=='Bahrain'}"> -->
+                        <aura:if isTrue="{!and(v.account.eKYC_IDandV_Document_Upload_Hash__pc == 'EKEY_MANUAL', v.case.Region_Flag__c == 'Bahrain')}">
+                            <lightning:button label="Fetch IGA Data" onclick="{!c.fetchIGAData}"/>
+                        </aura:if>
+                        <lightning:button label="Update" onclick="{!c.onSaveFieldUpdate}"/>
+                        <lightning:button label="Cancel" onclick="{!c.onCancelClick}"/>
+                        
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!not(v.isFetchIGASuccessful)}">
+                                <lightning:button label="Cancel" onclick="{!c.onCancelClick}"/>
+                                
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!v.account.RecordType.Name == 'Prospect'}">
+                                        <aura:if isTrue="{!v.isSavedOnBoarding}">
+                                            <lightning:button label="Continue Onboarding" onclick="{!c.doContinuOnboarding}"/>
+                                        </aura:if>
+                                    </aura:if>
+                                    <lightning:button label="Cancel" onclick="{!c.onCancelClick}"/>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                    
+                    <!-- Non-eKey cases follow existing logic -->
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.account.RecordType.Name == 'Prospect'}">
+                            <aura:if isTrue="{!v.isSavedOnBoarding}">
+                                <lightning:button label="Continue Onboarding" onclick="{!c.doContinuOnboarding}"/>
+                            </aura:if>
+                            <aura:set attribute="else">
+                                <lightning:button label="Save" onclick="{!c.onSaveClick}"/>
+                            </aura:set>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.case.Region_Flag__c=='Bahrain'}">
+                            <lightning:button label="Fetch IGA Data" onclick="{!c.fetchIGAData}"/>
+                        </aura:if>
+                        <lightning:button label="Update" onclick="{!c.onSaveFieldUpdate}"/>
+                        <lightning:button label="Cancel" onclick="{!c.onCancelClick}"/>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+        </aura:set>
+
+        <lightning:tabset variant="scoped"> <!-- selectedTabId="one" -->
+
+            <lightning:tab label="Personal Details">
+                <c:PersonalDetail aura:id="personalDetail"
+                                  customerId="{!v.customerId}"
+                                  email="{!v.email}"
+                                  caseId="{!v.recordId}"
+                                  account="{!v.account}"
+                                  mode="{!v.mode}"
+                                  isOnbording="true"
+                                  readOnlyFields="{!v.readOnlyFields}"
+                                  cifUpdateEvent="{!c.handleGuardianCIFUpdate}"/>
+            </lightning:tab>
+
+            <lightning:tab label="Contact Info" >
+                <c:ContactInformation aura:id="contactInformation"
+                                   	customerId="{!v.customerId}"
+                                    caseId="{!v.recordId}"
+                                    account="{!v.account}"
+                                    readOnlyFields="{!v.readOnlyFields}"
+                                    isOnbording="true"
+                                    mode="{!v.mode}"/>
+            </lightning:tab>
+
+            <lightning:tab label="ID Info" >
+                <c:IdInformation aura:id="idInformation"
+                                 customerId="{!v.customerId}"
+                                 caseId="{!v.recordId}"
+                                 account="{!v.account}"
+                                 readOnlyFields="{!v.readOnlyFields}"
+                                 isOnbording="true"
+                                 mode="{!v.mode}"/>
+            </lightning:tab>
+
+            <lightning:tab label="Additional Info">
+                <c:AdditionalInformation aura:id="additionalInformation"
+                                         customerId="{!v.customerId}"
+
+                                         caseId="{!v.recordId}"
+                                         account="{!v.account}"
+                                         readOnlyFields="{!v.readOnlyFields}"
+                                         mode="{!v.mode}"/>
+            </lightning:tab>
+			
+			<aura:if isTrue="{!v.case.Region_Flag__c=='Bahrain'}"> <!-- IBJCRM-83 / YZ -->
+                <lightning:tab label="IGA Data">
+                    <c:eKYCDataOnOnboardingCase aura:id="eKYCDataOnOnboardingCase"
+                                             customerId="{!v.customerId}"
+                                             caseId="{!v.recordId}"
+                                             account="{!v.account}"
+                                             readOnlyFields="{!v.readOnlyFields}"
+                                             mode="{!v.mode}"/>
+                </lightning:tab>
+            </aura:if>
+
+            <aura:if isTrue ="{!v.isSuccess_eKYC}">
+                <lightning:tab label="eKYC Data">
+                    <c:eKYCSignoffCase aura:id="eKYCsignOffCase"
+                                         iseKYC="{!v.isSuccess_eKYC}"
+                                         customerId="{!v.customerId}"
+                                         caseId="{!v.recordId}"
+                                         account="{!v.account}"
+                                       />
+                </lightning:tab>
+            </aura:if>
+        </lightning:tabset>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

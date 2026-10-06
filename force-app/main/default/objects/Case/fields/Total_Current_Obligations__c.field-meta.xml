@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Current_Obligations__c</fullName>
+    <description>https://bank-abc.atlassian.net/browse/NBA-6705</description>
+    <externalId>false</externalId>
+    <formula>Total_Internal_Loans__c+Total_Consumer_Loans__c+Total_Mortgage_Loans__c+Total_Credit_Cards__c+Total_Government_Loans__c+Existing_ila_Credit_Card_Deduction__c+Other_Deductions__c+cc_Total_Obligations__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Current Obligations</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

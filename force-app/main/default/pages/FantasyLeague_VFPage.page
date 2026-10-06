@@ -1,0 +1,224 @@
+<!-- /**
+ *  @author: Ashish pandey
+ *  @date: 
+ *  @description:
+ *  
+ *
+ *  Version History :
+ *  CH01: Added the validation on VF page for Name field should contain only Alphabates.
+ *  CH01: @Prashant Kulshrestha 
+ *
+ */ -->
+<apex:page standardController="Fantasy_League_Entry__c" docType="html-5.0" sidebar="false" showHeader="false" extensions="FantasyLeague_VFPageController" standardStylesheets="false">     
+   
+   <html>
+   
+      <head>
+
+         <title>Fantasy Football | ila Digital Bank - Bahrain</title>
+         <meta name="ROBOTS" content="INDEX,FOLLOW"/>
+         <meta name="keywords" content=""/>
+         <meta name="description" content=""/>
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <style class="main_style">
+            .layout-canvas-b { background-color: #FFFFFF; border: none; box-sizing: border-box; padding: 0px; width: 100%; }
+            .layout-canvas-b > .header, .layout-canvas-b > .section, .layout-canvas-b > .footer { position: relative; overflow: hidden; width: 100%; overflow-wrap: break-word; }
+            .layout-canvas-b > .section { margin: 10px 0px; }
+            .layout-canvas-b > .section > .columns { box-sizing: border-box; overflow-wrap: break-word; min-width: 320px; }
+            body { color: #000000; font-family: Arial; font-size: 12px; margin: 0px auto; }
+            @media only screen and (max-width: 480px) {
+            .mobile-hidden { display: none !important; }
+            .responsive-td { width: 100% !important; display: block !important; padding: 0px !important; }
+            }
+            @media (min-width: 480px) {
+            .layout-canvas-b > .section { display: table; table-layout: fixed; }
+            }
+            @media (min-width: 480px) {
+            .layout-canvas-b > .section > .columns { display: table-cell; padding: 0px 5px; vertical-align: top; width: 50%; }
+            .layout-canvas-b > .section > .columns:first-child { padding-left: 0px; }
+            .layout-canvas-b > .section > .columns:last-child { padding-right: 0px; }
+            .layout-canvas-b > .section > .columns.col1 { }
+            .layout-canvas-b > .section > .columns.col2 { }
+            }
+            @media (max-width: 480px) {
+            .layout-canvas-b > .section > .columns { width: 100%; margin-bottom: 10px; }
+            .layout-canvas-b > .section > .columns:last-child { margin-bottom: 0px; }
+            }
+            ul.list { list-style-type:circle;font-size:8px; padding-left:8px; }
+            .button { background-color: #7aee00; text-align: center; display: inline-block; font-size: 15px;
+            }
+         </style>
+         <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+         <link rel="shortcut icon" href="https://image.e.ilabank.com/lib/fe3411717564047d7d1c75/m/1/37bedc9a-61cd-41ed-ad06-05e2a02b5bca.png"/>
+      </head>
+      <apex:form >
+      <body>
+      <div class="slds-scope">
+         <div class="layout layout-canvas-b">
+            <div class="header">
+               <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                  <tr>
+                     <td class="stylingblock-content-wrapper camarker-inner">
+                        <div class="header">
+                           <table border="0" cellpadding="0" class="stylingblock-content-wrapper" width="100%">
+                              <tr>
+                                 <td class="stylingblock-content-wrapper camarker-inner" style="background-color:#000e3c;padding: 20px 40px;">
+                                    <img src="/resource/1647959401000/ilaLogoWithBankABC" style="padding: 0px; text-align: center; border: 0px solid transparent; height: auto;" width="224"/>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div class="section">
+               <div class="columns col1">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="slot-styling">
+                     <tr>
+                        <td style="padding: 0px; " class="slot-styling camarker-inner">
+                           <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper">
+                              <tr>
+                                 <td style="padding: 8px; " class="stylingblock-content-wrapper camarker-inner">
+                                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
+                                       <tr>
+                                          <td align="center"><img data-assetid="84238" src="/resource/1647953681000/FantasyLeagueMain" alt="Fantasy League" height="450" width="360" style="display: block; padding: 0px; text-align: center; height: 450px; width: 360px; border: 0px;"/></td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="columns col2">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="slot-styling">
+                     <tr>
+                        <td style="padding: 0px 8px; " class="slot-styling camarker-inner">
+                           <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                              <tr>
+                                 <td class="stylingblock-content-wrapper camarker-inner">
+                                    <h2 style="font-family: Helvetica; font-weight: bold;color:#696969;font-size:24px;">
+                                       We’re glad you decided to take part in the ila Fantasy League 21-22, we wish you the best of luck!
+                                    </h2>
+                                    <p style="font-family: Helvetica;color:#696969;font-size:14px;">
+                                       In order to participate in the raffle draws each month and be eligible for our “Manager of the Month” and grand prizes, please provide us with the following information.
+                                    </p>
+                                    <form method="post" >
+                                       <label for="fantasyuser" style="font-family: Helvetica;color:#696969;font-weight: bold;font-size:15px;">Fantasy user name<br/>
+                                       <div class="slds-form-element__control">
+                                       <apex:inputField styleClass="slds-input" id="fantasyuser"  html-placeholder="Fantasy user name" value="{!objFan.Fantasy_Username__c}" required="true" styleclass="slds-select"  style="width:35%;" /></div></label><br/>
+                                       <label for="name" style="font-family: Helvetica;color:#696969;font-weight: bold;font-size:15px;">Name<br/>
+                                       <apex:inputField styleClass="slds-input" id="name123"  html-placeholder="Name"  value="{!objFan.Full_Name__c}" html-maxlength="150" required="true" onchange="allLetter();" styleclass="slds-select"  style="width:35%;"  /></label><br/>
+                                       <font color='red'>
+                                            <div id="une"> </div>
+                                        </font>
+                                        <font color='green'>
+                                            <div id="une1"> </div>
+                                        </font>
+                                      <!-- CH01: Added by Prashant for validate Name should contain onlyb text only.-->
+                                         <script type="text/javascript">
+                                            function allLetter()  
+                                             {    
+                                               console.log('Method call@@@'); 
+                                               var val = document.getElementById('{!$Component.name123}').value;
+                                               console.log('Inside val'+val);           
+                                                var letters = /^[A-Za-z ]+$/;  
+                                                var inputtxt = document.getElementById('{!$Component.name123}').value;
+                                                console.log('Method call@@@ Prashant'+inputtxt);  
+                                                if(!inputtxt.match(letters))  
+                                                {  
+                                                  document.getElementById('une').innerHTML = "Name must be text only.";
+                                                  document.getElementById('{!$Component.firstbutton}').disabled = true;
+                                                }else{
+                                                  document.getElementById('une').innerHTML = " ";
+                                                  document.getElementById('{!$Component.firstbutton}').disabled = false;
+                                                }                
+                                              }  
+                                         </script>
+                                       <!-- CH01: End.-->  
+                                       <label for="email" style="font-family: Helvetica;color:#696969;font-weight: bold;font-size:15px;">Email address<br/>
+                                       <apex:inputField styleClass="slds-input" html-placeholder="E-mail address" type="email"  value="{!objFan.Email__c}" required="true" styleclass="slds-select"  style="width:35%;" /></label><br/>
+                                       <label for="phone" style="font-family: Helvetica;color:#696969;font-weight: bold;font-size:15px;">Phone number<br/>
+                                       <apex:inputField styleClass="slds-input" id="mob123" html-placeholder="Mobile number" type="tel" value="{!objFan.Mobile_Number__c}" html-maxlength="12" html-minlength="8" required="true" onchange="allLetters();" styleclass="slds-select"  style="width:35%;"  /></label><br/>
+                                       <font color='red'>
+                                            <div id="unes"> </div>
+                                        </font>
+                                        <font color='red'>
+                                            <div id="unes1"> </div>
+                                        </font>
+                                      <!-- CH01: Added by Prashant for validate Name should contain onlyb text only.-->
+                                         <script type="text/javascript">
+                                            function allLetters()  
+                                             {    
+                                               console.log('Method call@@@'); 
+                                               var val = document.getElementById('{!$Component.mob123}').value;
+                                               console.log('Inside val'+val);           
+                                                var letters = /^[0-9]+$/;  
+                                                var inputtxt = document.getElementById('{!$Component.mob123}').value;
+                                                console.log('Method call@@@ Prashant'+inputtxt);  
+                                                if(!inputtxt.match(letters))  
+                                                {  
+                                                  document.getElementById('unes').innerHTML = "Mobile Number should not have text or special letters.";
+                                                  document.getElementById('{!$Component.firstbutton}').disabled = true;
+                                                }
+                                                else{
+                                                  document.getElementById('unes').innerHTML = " ";
+                                                  document.getElementById('{!$Component.firstbutton}').disabled = false;
+                                                }                
+                                              }  
+                                         </script>
+                                       <apex:commandButton value="Sign up!"  id="firstbutton" action="{!saveRequest}" style="font-size:large;background:#7aee00;" styleClass="button Header-module--downloadButton--3T1JT"/>
+                                    
+                                    <br></br>
+                                    </form>
+                                    <p>
+                                    <ul class="list" style="font-family: Helvetica;color:#696969;font-size:11px;">
+                                       <em>Terms and conditions:</em>
+                                       <li>You must be following our Instagram account to be eligible to win.</li>
+                                       <li>To be eligible for the prize, you must have an ila Bank account</li>
+                                       <li>You must use your personal email registered with ila Bank</li>
+                                       <li>To be eligible to win a “Manager of the Month” prize, you must have joined before end of the month and is on top of the leaderboard for that given month</li>
+                                       <li>Announcement for the prize winners will be at the end of each month, and the winner will be decided depending on each month's leaderboard.</li>
+                                       <li>Staff members of Bank ABC or ila Bank do not qualify to take part.</li>
+                                       <li>ila Bank can disqualify participants as they see fit.</li>
+                                    </ul>
+                                    </p>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+            <div class="footer">
+               <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                  <tr>
+                     <td class="stylingblock-content-wrapper camarker-inner">
+                        <div class="footer">
+                           <table border="0" cellpadding="0" class="stylingblock-content-wrapper" width="100%">
+                              <tr>
+                                 <td style="background-color:#000e3c;padding: 20px 40px;"><a href="https://instagram.com/ilabankbhr"><img data-assetid="15345" height="45" src="/resource/1647954081000/ilaInstagram" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://www.facebook.com/Ila-Bank-Bahrain-352144688790283/"><img data-assetid="15344" height="45" src="/resource/1647954167000/ilaFacebook" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://twitter.com/ilaBankBHR"><img data-assetid="15346" height="45" src="/resource/1647954217000/ilaTwitter" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://www.youtube.com/channel/UC_ycAB7SYwy1B5G7MRgJrFw"><img data-assetid="15347" height="45" src="/resource/1647954266000/ilaYoutube" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a>
+                                 <a href="https://www.linkedin.com/company/ilabank/"><img data-assetid="15343" height="45" src="/resource/1647954320000/ilaLinkedin" style="padding: 5px; text-align: center; height: 45px; width: 45px; border: 0px;" width="45"/></a><br/>
+                                    <br/>
+                                    <span class=".Footer-module--copyrightGridItem--3XFBX;"><span style="color:#7aee00;">&copy; ila bank 2020. All Rights Reserved. Licensed as a Conventional Retail Bank &ndash; Branch by the Central Bank of Bahrain.</span></span>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         </div>
+      </body>
+      </apex:form>
+   </html>
+</apex:page>

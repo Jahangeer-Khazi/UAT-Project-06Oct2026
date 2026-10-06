@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delinquency_Reason_Check</fullName>
+    <active>true</active>
+    <description>Other Downgrade Reason is required</description>
+    <errorConditionFormula>ISPICKVAL(Type,&quot;Update Delinquency Reason&quot;) &amp;&amp;
+ISPICKVAL(BUA_Reason__c ,&quot;Other&quot;) &amp;&amp;
+ISBLANK(Other_Downgrade_Reason__c)</errorConditionFormula>
+    <errorMessage>Reason text field is mandatory when Reason is selected Other</errorMessage>
+</ValidationRule>

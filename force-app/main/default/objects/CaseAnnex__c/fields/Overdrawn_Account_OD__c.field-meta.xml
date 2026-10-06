@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overdrawn_Account_OD__c</fullName>
+    <label>Overdrawn Account (OD)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>EFTS – System Issue</fullName>
+                <default>false</default>
+                <label>EFTS – System Issue</label>
+            </value>
+            <value>
+                <fullName>EFTS – Manual Issue</fullName>
+                <default>false</default>
+                <label>EFTS – Manual Issue</label>
+            </value>
+            <value>
+                <fullName>Cross Border Payments (SWIFT) – System Issue</fullName>
+                <default>false</default>
+                <label>Cross Border Payments (SWIFT) – System Issue</label>
+            </value>
+            <value>
+                <fullName>Cross Border Payments (SWIFT) – Manual Issue</fullName>
+                <default>false</default>
+                <label>Cross Border Payments (SWIFT) – Manual Issue</label>
+            </value>
+            <value>
+                <fullName>Cross Border Payments (AFAQ) – System Issue</fullName>
+                <default>false</default>
+                <label>Cross Border Payments (AFAQ) – System Issue</label>
+            </value>
+            <value>
+                <fullName>Cross Border Payments (AFAQ) – Manual Issue</fullName>
+                <default>false</default>
+                <label>Cross Border Payments (AFAQ) – Manual Issue</label>
+            </value>
+            <value>
+                <fullName>Cross Border Payments (BUNA) – System Issue</fullName>
+                <default>false</default>
+                <label>Cross Border Payments (BUNA) – System Issue</label>
+            </value>
+            <value>
+                <fullName>Cross Border Payments (BUNA) – Manual Issue</fullName>
+                <default>false</default>
+                <label>Cross Border Payments (BUNA) – Manual Issue</label>
+            </value>
+            <value>
+                <fullName>Return/Duplicate Payment – System Issue</fullName>
+                <default>false</default>
+                <label>Return/Duplicate Payment – System Issue</label>
+            </value>
+            <value>
+                <fullName>Return/Duplicate Payment – Manual Issue</fullName>
+                <default>false</default>
+                <label>Return/Duplicate Payment – Manual Issue</label>
+            </value>
+            <value>
+                <fullName>JBOS</fullName>
+                <default>false</default>
+                <label>JBOS</label>
+            </value>
+            <value>
+                <fullName>BCTS</fullName>
+                <default>false</default>
+                <label>BCTS</label>
+            </value>
+            <value>
+                <fullName>Mandate Direct Debit</fullName>
+                <default>false</default>
+                <label>Mandate Direct Debit</label>
+            </value>
+            <value>
+                <fullName>Balance inquiry</fullName>
+                <default>false</default>
+                <label>Balance inquiry</label>
+            </value>
+            <value>
+                <fullName>Cards – Multi Clearing</fullName>
+                <default>false</default>
+                <label>Cards – Multi Clearing</label>
+            </value>
+            <value>
+                <fullName>Cards – Authorization amount is less than clearing amount</fullName>
+                <default>false</default>
+                <label>Cards – Authorization amount is less than clearing amount</label>
+            </value>
+            <value>
+                <fullName>Cards – Partial Reversal Issue</fullName>
+                <default>false</default>
+                <label>Cards – Partial Reversal Issue</label>
+            </value>
+            <value>
+                <fullName>Cards – Hold Released</fullName>
+                <default>false</default>
+                <label>Cards – Hold Released</label>
+            </value>
+            <value>
+                <fullName>System issue</fullName>
+                <default>false</default>
+                <label>System issue</label>
+            </value>
+            <value>
+                <fullName>Wrong reversal</fullName>
+                <default>false</default>
+                <label>Wrong reversal</label>
+            </value>
+            <value>
+                <fullName>Manual Posting – ORE</fullName>
+                <default>false</default>
+                <label>Manual Posting – ORE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,152 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 23-11-2021
+ * 		Change History: 
+ *          #CH01 : Hamza Chaoui 20/06/2022 Alburaq Logic
+
+-->
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="customerId" type="String" />
+     <aura:attribute name="accountId" type="String" />
+     <!--<aura:attribute name="segment" type="String"/> -->
+     <aura:attribute name="eppDetailData" type="Object[]"/>
+     <aura:attribute name = "eppSel" type="boolean"/>
+    
+    <!-- #CH01 : add alburaqSegment variable-->
+     <aura:attribute name="alburaqSegment" type="String"/>
+    
+      <!-- ======================================================== -->
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    
+    <lightning:card>
+        <!--<aura:if isTrue = "{!and(v.eppSel,v.segment == 'Regular')}"> -->
+         <aura:if isTrue = "{!v.eppSel}">
+         <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Plan Number</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.eppDetailData[0].planNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Merchant Name</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.eppDetailData[0].merchant}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+                 
+             <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Tenor</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.eppDetailData[0].tenor}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Transaction Amount</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!(v.eppDetailData[0].transactionAmount+' '+v.eppDetailData[0].currencycode)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+             
+             <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Booking date</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.eppDetailData[0].installmentBookingDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Number of installments paid</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.eppDetailData[0].numberOfInstallmentsPaid}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+                 
+             <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Number of installments remaining</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.eppDetailData[0].numberOfInstallmentsRemaining}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Installments Amount</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!(v.eppDetailData[0].installmentAmount+' '+v.eppDetailData[0].currencycode)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+             
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Remaining Balance</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!(v.eppDetailData[0].remainingBalance+' '+v.eppDetailData[0].currencycode)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Status</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.eppDetailData[0].status}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+             
+            
+            </div>
+        </aura:if>
+        
+       
+    </lightning:card>
+     <c:apexService aura:id="apexService"/>
+</aura:component>

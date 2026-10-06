@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Route_Case_To_Loan_Pre_Screener_Queue</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Region_Flag__c ,&apos;Bahrain&apos;),
+ISPICKVAL(Type , &quot;New Loan / Finance Application&quot;),
+ISCHANGED(OwnerId),
+OR(
+OwnerId = &apos;00G6N0000014wax&apos;,
+OwnerId = &apos;00G6N0000013UW5&apos;,
+OwnerId = &apos;00G6N0000013UW2&apos;,
+OwnerId = &apos;00G6N0000014wb0&apos;,
+OwnerId = &apos;00G6N0000013UW4&apos;,
+OwnerId = &apos;00G6N0000013UW6&apos;
+)
+)</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>Case can’t be routed to Pre-screener/ Evaluator/ Verifier/ Approver/Temp queue. Please route the case to &quot;Loan Pre-screener Queue&quot;.</errorMessage>
+</ValidationRule>

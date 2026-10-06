@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stop_changes_to_archived_records</fullName>
+    <active>false</active>
+    <description>Restricting the Integration User from Updating the Archived Customers</description>
+    <errorConditionFormula>Archived__pc = true &amp;&amp;  $User.LastName = &apos;Integration&apos; &amp;&amp; NOT(ISCHANGED(Archived__pc))</errorConditionFormula>
+    <errorMessage>Customer record already archived.</errorMessage>
+</ValidationRule>

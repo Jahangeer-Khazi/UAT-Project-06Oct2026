@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>World Elite Entitlement</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>World Elite Entitlements</value>
+    </caseValues>
+    <layouts>
+        <layout>World Elite Entitlement Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Case Information --></label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- World Elite Benefits Membership Number --></label>
+            <section>World Elite Benefits Membership Number</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- World Elite Entitlement --></label>
+        <name>World_Elite_Entitlement</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

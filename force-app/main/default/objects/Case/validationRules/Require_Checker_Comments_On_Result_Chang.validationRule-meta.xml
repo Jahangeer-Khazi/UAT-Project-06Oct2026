@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Checker_Comments_On_Result_Chang</fullName>
+    <active>true</active>
+    <description>Ensures Checker Comments is mandatory when Checker Result is changed for On-Boarding records with Type as EDD.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(cc_Checker_Result__c),
+    ISBLANK(cc_Checker_Comments__c),
+    RecordType.DeveloperName = &quot;On_Boarding&quot;,
+    TEXT(Type) = &quot;EDD&quot;
+)</errorConditionFormula>
+    <errorMessage>Checker Comments is required when Checker Result is changed.</errorMessage>
+</ValidationRule>

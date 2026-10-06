@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Walk-in Service Centre Queue</name>
+    <queueMembers>
+        <users>
+            <user>ahmed.aljazeeri@bank-abc.com</user>
+            <user>ahmed.jasim@ilabank.com</user>
+            <user>ashish.pandey@bank-abc.com</user>
+            <user>maksud.ali@bank-abc.com</user>
+            <user>sara.jawad@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

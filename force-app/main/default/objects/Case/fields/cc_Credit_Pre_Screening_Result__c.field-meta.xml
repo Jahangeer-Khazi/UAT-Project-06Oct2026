@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Credit_Pre_Screening_Result__c</fullName>
+    <description>for credit card Application / limit increase case</description>
+    <inlineHelpText>Selecting an outcome and clicking &apos;Save&apos; will route the application respectively depeding on your selection</inlineHelpText>
+    <label>Credit Pre-Screening Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Region_Flag__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accept</fullName>
+                <default>false</default>
+                <label>Accept</label>
+            </value>
+            <value>
+                <fullName>Discrepancy in Documents</fullName>
+                <default>false</default>
+                <label>Discrepancy in Documents</label>
+            </value>
+            <value>
+                <fullName>Refer to Service Center</fullName>
+                <default>false</default>
+                <label>Refer to Service Center</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Pending Relationship Establishment</fullName>
+                <default>false</default>
+                <label>Pending Relationship Establishment</label>
+            </value>
+            <value>
+                <fullName>Re-Upload Document</fullName>
+                <default>false</default>
+                <label>Re-Upload Document</label>
+            </value>
+            <value>
+                <fullName>Pending Documents</fullName>
+                <default>false</default>
+                <label>Pending Documents</label>
+            </value>
+            <value>
+                <fullName>Offer Cash Collateral</fullName>
+                <default>false</default>
+                <label>Offer Cash Collateral / Limit Split</label>
+            </value>
+            <value>
+                <fullName>Request Missing / Incomplete Documents</fullName>
+                <default>false</default>
+                <label>Request Missing / Incomplete Documents</label>
+            </value>
+            <value>
+                <fullName>Retain Customer</fullName>
+                <default>false</default>
+                <label>Retain Customer</label>
+            </value>
+            <value>
+                <fullName>Request C2C Documents</fullName>
+                <default>false</default>
+                <label>Request C2C Documents</label>
+            </value>
+            <value>
+                <fullName>Offer Loan Against Deposit</fullName>
+                <default>false</default>
+                <label>Offer Loan Against Deposit</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Request Documents</fullName>
+                <default>false</default>
+                <label>Request Documents</label>
+            </value>
+            <value>
+                <fullName>Cancelled by ila</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cancelled by ila</label>
+            </value>
+            <value>
+                <fullName>Request Physical Signature</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Request Physical Signature</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Accept</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Discrepancy in Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Refer to Service Center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Expired</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Cancelled by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Pending Relationship Establishment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Re-Upload Document</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Pending Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Offer Cash Collateral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Request Missing / Incomplete Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Retain Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Offer Loan Against Deposit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Cancelled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bahrain</controllingFieldValue>
+            <valueName>Request Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Jordan</controllingFieldValue>
+            <valueName>Request C2C Documents</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

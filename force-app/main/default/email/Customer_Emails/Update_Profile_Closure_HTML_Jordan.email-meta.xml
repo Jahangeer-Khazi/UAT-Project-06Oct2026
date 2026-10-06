@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be sent when a profile update case is closed.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Update Profile Closure HTML - Jordan</name>
+    <style>none</style>
+    <subject>Your profile update has been completed by ila.</subject>
+    <textOnly>Success! Your ila profile update request was completed
+
+Hi {!Case.Contact_First_Name__c}, we are pleased to let you know that your request {!Case.CaseNumber} was completed.
+
+
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+{!Case.Thread_Id}
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

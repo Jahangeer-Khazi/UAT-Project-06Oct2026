@@ -1,0 +1,1583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Operation_Result__c</fullName>
+    <label>Operation Result</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Manager Check Issued</fullName>
+                <default>false</default>
+                <label>Manager Check Issued</label>
+            </value>
+            <value>
+                <fullName>Return to Back Office</fullName>
+                <default>false</default>
+                <label>Return to Back Office</label>
+            </value>
+            <value>
+                <fullName>Return to Maker</fullName>
+                <default>false</default>
+                <label>Return to Maker</label>
+            </value>
+            <value>
+                <fullName>Return to Checker</fullName>
+                <default>false</default>
+                <label>Return to Checker</label>
+            </value>
+            <value>
+                <fullName>Processing Transaction</fullName>
+                <default>false</default>
+                <label>Processing Transaction</label>
+            </value>
+            <value>
+                <fullName>Validating Posted Transaction</fullName>
+                <default>false</default>
+                <label>Validating Posted Transaction</label>
+            </value>
+            <value>
+                <fullName>Send to ICU</fullName>
+                <default>false</default>
+                <label>Send to ICU</label>
+            </value>
+            <value>
+                <fullName>Reversal Completed</fullName>
+                <default>false</default>
+                <label>Reversal Completed</label>
+            </value>
+            <value>
+                <fullName>Upgrade Completed</fullName>
+                <default>false</default>
+                <label>Upgrade Completed</label>
+            </value>
+            <value>
+                <fullName>Cancel Request</fullName>
+                <default>false</default>
+                <label>Cancel Request</label>
+            </value>
+            <value>
+                <fullName>Process Sell</fullName>
+                <default>false</default>
+                <label>Process Sell</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Processing</fullName>
+                <default>false</default>
+                <label>Processing</label>
+            </value>
+            <value>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <label>Canceled</label>
+            </value>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Send back to Credit Approver</fullName>
+                <default>false</default>
+                <label>Send back to Credit Approver</label>
+            </value>
+            <value>
+                <fullName>Send back to HR</fullName>
+                <default>false</default>
+                <label>Send back to HR</label>
+            </value>
+            <value>
+                <fullName>Send to Backoffice</fullName>
+                <default>false</default>
+                <label>Send to Backoffice</label>
+            </value>
+            <value>
+                <fullName>Send to Credit Card Closure ICU Team</fullName>
+                <default>false</default>
+                <label>Send to Credit Card Closure ICU Team</label>
+            </value>
+            <value>
+                <fullName>Send to Contact Center for Due Collection</fullName>
+                <default>false</default>
+                <label>Send to Contact Center for Due Collection</label>
+            </value>
+            <value>
+                <fullName>Credit Card Cancellation Completed</fullName>
+                <default>false</default>
+                <label>Credit Card Cancellation Completed</label>
+            </value>
+            <value>
+                <fullName>Return to Credit Card Closure Retail Credit / Collection</fullName>
+                <default>false</default>
+                <label>Return to Credit Card Closure Retail Credit / Collection</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Manager Check Issued</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Return to Back Office</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Return to Maker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Return to Checker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Processing Transaction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Validating Posted Transaction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Send to ICU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Reversal Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Upgrade Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Cancel Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Sukuk/bonds/Government security</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Sell Request</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Process Sell</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Sukuk/bonds/Government security</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Sell Request</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Processing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Update Core Client Status</controllingFieldValue>
+            <controllingFieldValue>Fitbit Pay</controllingFieldValue>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Garmin Pay</controllingFieldValue>
+            <controllingFieldValue>Samsung Pay</controllingFieldValue>
+            <controllingFieldValue>Credit Card Invitation</controllingFieldValue>
+            <controllingFieldValue>Customer Restriction</controllingFieldValue>
+            <controllingFieldValue>EPP</controllingFieldValue>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <controllingFieldValue>Marketing Preference</controllingFieldValue>
+            <controllingFieldValue>Manual Onboarding</controllingFieldValue>
+            <controllingFieldValue>FATCA</controllingFieldValue>
+            <controllingFieldValue>New Bank Statement Request</controllingFieldValue>
+            <controllingFieldValue>Fees/Charges</controllingFieldValue>
+            <controllingFieldValue>Collection Case</controllingFieldValue>
+            <controllingFieldValue>Fraud Alert</controllingFieldValue>
+            <controllingFieldValue>Identification</controllingFieldValue>
+            <controllingFieldValue>Name Screening</controllingFieldValue>
+            <controllingFieldValue>On-boarding</controllingFieldValue>
+            <controllingFieldValue>Payments &amp; Transfer</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Query</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Card Service</controllingFieldValue>
+            <controllingFieldValue>Case Management</controllingFieldValue>
+            <controllingFieldValue>Cash Collection</controllingFieldValue>
+            <controllingFieldValue>Cash Delivery</controllingFieldValue>
+            <controllingFieldValue>EDD</controllingFieldValue>
+            <controllingFieldValue>Technical</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Unblock App Access</controllingFieldValue>
+            <controllingFieldValue>Card Usage Control</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Funds Transfer</controllingFieldValue>
+            <controllingFieldValue>Outbound call</controllingFieldValue>
+            <controllingFieldValue>Escalation</controllingFieldValue>
+            <controllingFieldValue>Cheques</controllingFieldValue>
+            <controllingFieldValue>App Failure</controllingFieldValue>
+            <controllingFieldValue>Name and Risk Screening – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Manual Customer Archival</controllingFieldValue>
+            <controllingFieldValue>Address Change</controllingFieldValue>
+            <controllingFieldValue>Personal Info Update Mobile</controllingFieldValue>
+            <controllingFieldValue>Compliance Query</controllingFieldValue>
+            <controllingFieldValue>Customer Services</controllingFieldValue>
+            <controllingFieldValue>Apple Pay</controllingFieldValue>
+            <controllingFieldValue>GPH</controllingFieldValue>
+            <controllingFieldValue>eKYC</controllingFieldValue>
+            <controllingFieldValue>IBAN Certificate</controllingFieldValue>
+            <controllingFieldValue>Stop Jamiyah</controllingFieldValue>
+            <controllingFieldValue>ila ServiceDesk</controllingFieldValue>
+            <controllingFieldValue>Credit Card Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Services</controllingFieldValue>
+            <controllingFieldValue>Credit Card FCR</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Update</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <controllingFieldValue>Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>CBB Amount block/unblock request</controllingFieldValue>
+            <controllingFieldValue>PLA</controllingFieldValue>
+            <controllingFieldValue>Credit Card Supplementary Application</controllingFieldValue>
+            <controllingFieldValue>Credit Card Cash Collateral Application</controllingFieldValue>
+            <controllingFieldValue>Term Deposit</controllingFieldValue>
+            <controllingFieldValue>Name/ Address Change</controllingFieldValue>
+            <controllingFieldValue>Customer Status Update</controllingFieldValue>
+            <controllingFieldValue>Credit Collection Letter Application</controllingFieldValue>
+            <controllingFieldValue>Exit Recommendation</controllingFieldValue>
+            <controllingFieldValue>Relationship Termination</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Black-List – Manual Override</controllingFieldValue>
+            <controllingFieldValue>Release Hold Amount</controllingFieldValue>
+            <controllingFieldValue>Block Account</controllingFieldValue>
+            <controllingFieldValue>Unblock Account</controllingFieldValue>
+            <controllingFieldValue>Account Maintenance</controllingFieldValue>
+            <controllingFieldValue>Prizeout</controllingFieldValue>
+            <controllingFieldValue>Sales</controllingFieldValue>
+            <controllingFieldValue>Address Verification</controllingFieldValue>
+            <controllingFieldValue>RFI</controllingFieldValue>
+            <controllingFieldValue>Civil Department</controllingFieldValue>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Credit Card Prepaid Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <controllingFieldValue>Compliance</controllingFieldValue>
+            <controllingFieldValue>Credit Card - Collection Case</controllingFieldValue>
+            <controllingFieldValue>Legal Action</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Application</controllingFieldValue>
+            <controllingFieldValue>New Loan / Finance Service Request</controllingFieldValue>
+            <controllingFieldValue>Collection Letters</controllingFieldValue>
+            <controllingFieldValue>Investment Questionnaire</controllingFieldValue>
+            <controllingFieldValue>Walkin Customer</controllingFieldValue>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <controllingFieldValue>Cash Collateral Credit Limit Increase Application</controllingFieldValue>
+            <controllingFieldValue>Fee Reversal</controllingFieldValue>
+            <controllingFieldValue>Fee Waiver</controllingFieldValue>
+            <controllingFieldValue>Periodic Review</controllingFieldValue>
+            <controllingFieldValue>Rewards</controllingFieldValue>
+            <valueName>Canceled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card</controllingFieldValue>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Send to Backoffice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <valueName>Cancelled by Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <valueName>Send back to Credit Approver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Upgrade</controllingFieldValue>
+            <valueName>Send back to HR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Send to Credit Card Closure ICU Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Send to Contact Center for Due Collection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Credit Card Cancellation Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Card Account Closing</controllingFieldValue>
+            <valueName>Return to Credit Card Closure Retail Credit / Collection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <valueName>Active</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Bond/Sukuk Buy Request</controllingFieldValue>
+            <valueName>Closed</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disallow_Draw_Maker_from_Being_Checker</fullName>
+    <active>false</active>
+    <description>Disallows Draw Owner on Maker Draw statuses from being the Checker</description>
+    <errorConditionFormula>AND(Previous_Maker__c = OwnerId , 
+NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+OR(ISPICKVAL(Status__c, &quot;Ready for Scattering&quot;), 
+ISPICKVAL(Status__c, &quot;ICU Validation 1 Complete&quot;), 
+ISPICKVAL(Status__c, &quot;ICU Validation 2 Complete&quot;)
+))</errorConditionFormula>
+    <errorMessage>You cannot validate the draw if you were the previous Owner. Please check with someone from your team and ensure a different user validates the draw.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_Flag__c</fullName>
+    <defaultValue>CASE($User.Region_Flag__c, &apos;Bahrain&apos;, &apos;Bahrain&apos;, &apos;Jordan&apos;, &apos;Jordan&apos;, &apos;Bahrain&apos;)</defaultValue>
+    <description>A Region flag picklist to be able to set the country based on the integration user</description>
+    <label>Region Flag</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Region_Flag</valueSetName>
+    </valueSet>
+</CustomField>

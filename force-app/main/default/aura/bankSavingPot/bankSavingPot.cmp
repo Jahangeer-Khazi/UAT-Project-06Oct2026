@@ -1,0 +1,95 @@
+<!-- CH03 : Maksud Ali 12-10-2025, Added potName property and passed it to savingTransaction cmp -->
+<!-- CH04:   #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705)  -->
+
+
+<aura:component controller="SavingPotController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="true"/>
+    
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="false"/>
+    <!-- ============================================ -->
+	<aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="potId" type="String" access="private"/>
+    <aura:attribute name="displayPotDetails" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="displayPotTransactions" type="Boolean" access="private" default="false"/>
+
+    <aura:method name="reload" action="{!c.load}" />
+
+     <!-- CH01 :Added  by Imane TSIOUCHA to handle alburaq Product  --> 
+     <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+
+     <!-- CH02 :Added  by Imane TSIOUCHA to handle Saving Pots filters   -->
+    <aura:attribute name="selectedSavingPotStatus" type="String"/> 
+	<aura:attribute name="Origindata" type="Object[]" access="private" default="[]"/> 
+
+    <!-- CH03 Start -->
+    <aura:attribute name="potName" type="String" access="private"/>
+	<!-- CH03 End -->
+    <!-- CH04 start  -->
+     <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false"/>
+    <!-- CH04 end   -->
+
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+
+    <!-- Event is required to pass the accountID to non-related CardList and Card-details component -->
+    <aura:registerEvent name="onSelectionPassId" type="c:PassAccountIdEvent"/>
+    <!-- CH02 Start Saving Pots filters    -->
+        <lightning:select aura:id="select" name="select" label="Select Saving Pots Status" onchange="{!c.onSavingPotStatusChange}" value="{!v.selectedSavingPotStatus}">
+            <option value="A">Active/Inactive</option>
+            <option value="B">Completed/Closed</option>
+            <option value="C">Archived</option>
+            <option value="D">Dormant</option>
+            <option value="E">Blocked for Debits</option>
+        </lightning:select>
+        <br/>
+        <!--CH02 END -->
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for customer: {!v.customerId}
+    <aura:set attribute="else">
+        <lightning:datatable
+            aura:id="lstPots"
+            data="{! v.data}"
+            columns="{! v.columns}"
+            keyField="id"
+            hideCheckboxColumn="false"
+            maxRowSelection="1"
+            onrowselection="{! c.handleRowSelection }"
+            onrowaction="{! c.handleRowAction }"/>
+
+        <aura:if isTrue="{!and(not(empty(v.potId)),  true == v.displayPotDetails)}">
+            <br/>
+            <!-- CH04 added hideJordanFinancialDetails  -->
+            <c:savingPotDetails customerId="{!v.customerId}"
+                                  potId="{!v.potId}"
+                                  account="{!v.account}"
+                                  enableActions="{!v.enableActions}"
+                                  isAlburaqProduct="{!v.isAlburaqProduct}"
+                                  hideJordanFinancialDetails="{!v.hideJordanFinancialDetails}"
+                                  /> 
+        </aura:if>
+
+        <!-- CH04 start  -->
+        <aura:if isTrue="{!v.hideJordanFinancialDetails == false}">
+            <aura:if isTrue="{!and(not(empty(v.potId)),  true == v.displayPotTransactions)}">
+                <br/>
+                <!-- CH03 Added potName property -->
+                <c:savingPotTransactions customerId="{!v.customerId}" 
+                                        potId="{!v.potId}" 
+                                        account="{!v.account}" 
+                                        isAlburaqProduct="{!v.isAlburaqProduct}"
+                                        potName="{!v.potName}" />
+            </aura:if>
+        </aura:if>
+        <!-- CH04 end  -->
+    </aura:set>
+    </aura:if>
+
+    <c:apexService aura:id="apexService"/>
+</aura:component>

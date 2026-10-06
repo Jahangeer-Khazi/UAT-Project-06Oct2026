@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Reason --></label>
+    <name>Reason__c</name>
+    <picklistValues>
+        <masterLabel>Account archiving</masterLabel>
+        <translation><!-- Account archiving --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account dormancy</masterLabel>
+        <translation><!-- Account dormancy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account termination</masterLabel>
+        <translation><!-- Account termination --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>I do not know this device</masterLabel>
+        <translation><!-- I do not know this device --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>I lost this device</masterLabel>
+        <translation><!-- I lost this device --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>I no longer use this device</masterLabel>
+        <translation><!-- I no longer use this device --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

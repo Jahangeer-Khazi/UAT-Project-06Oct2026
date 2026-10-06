@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action__c</fullName>
+    <description>Actions performed by the customer</description>
+    <label>Action</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>EDD</fullName>
+                <default>false</default>
+                <label>EDD</label>
+            </value>
+            <value>
+                <fullName>Name Screening</fullName>
+                <default>false</default>
+                <label>Name Screening</label>
+            </value>
+            <value>
+                <fullName>Identification</fullName>
+                <default>false</default>
+                <label>Identification</label>
+            </value>
+            <value>
+                <fullName>FATCA</fullName>
+                <default>false</default>
+                <label>FATCA</label>
+            </value>
+            <value>
+                <fullName>Cash Delivery</fullName>
+                <default>false</default>
+                <label>Cash Delivery</label>
+            </value>
+            <value>
+                <fullName>Cash Collection</fullName>
+                <default>false</default>
+                <label>Cash Collection</label>
+            </value>
+            <value>
+                <fullName>Procedural</fullName>
+                <default>false</default>
+                <label>Procedural</label>
+            </value>
+            <value>
+                <fullName>Technical</fullName>
+                <default>false</default>
+                <label>Technical</label>
+            </value>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Service</fullName>
+                <default>false</default>
+                <label>Service</label>
+            </value>
+            <value>
+                <fullName>Fraud Alert</fullName>
+                <default>false</default>
+                <label>Fraud Alert</label>
+            </value>
+            <value>
+                <fullName>Mobile Number Update</fullName>
+                <default>false</default>
+                <label>Mobile Number Update</label>
+            </value>
+            <value>
+                <fullName>Email Update</fullName>
+                <default>false</default>
+                <label>Email Update</label>
+            </value>
+            <value>
+                <fullName>Lost/Stolen Card</fullName>
+                <default>false</default>
+                <label>Lost/Stolen Card</label>
+            </value>
+            <value>
+                <fullName>Damaged Card</fullName>
+                <default>false</default>
+                <label>Damaged Card</label>
+            </value>
+            <value>
+                <fullName>Card Renewal</fullName>
+                <default>false</default>
+                <label>Card Renewal</label>
+            </value>
+            <value>
+                <fullName>Upgrade Card</fullName>
+                <default>false</default>
+                <label>Upgrade Card</label>
+            </value>
+            <value>
+                <fullName>Downgrade Card</fullName>
+                <default>false</default>
+                <label>Downgrade Card</label>
+            </value>
+            <value>
+                <fullName>Cancel Card</fullName>
+                <default>false</default>
+                <label>Cancel Card</label>
+            </value>
+            <value>
+                <fullName>Unlock App Account</fullName>
+                <default>false</default>
+                <label>Unlock App Account</label>
+            </value>
+            <value>
+                <fullName>Freeze Card</fullName>
+                <default>false</default>
+                <label>Freeze Card</label>
+            </value>
+            <value>
+                <fullName>Unfreeze Card</fullName>
+                <default>false</default>
+                <label>Unfreeze Card</label>
+            </value>
+            <value>
+                <fullName>Open a Savings account</fullName>
+                <default>false</default>
+                <label>Open a Savings account</label>
+            </value>
+            <value>
+                <fullName>Link Card</fullName>
+                <default>false</default>
+                <label>Link Card</label>
+            </value>
+            <value>
+                <fullName>Delink Card</fullName>
+                <default>false</default>
+                <label>Delink Card</label>
+            </value>
+            <value>
+                <fullName>Open a Foreign Currency Account</fullName>
+                <default>false</default>
+                <label>Open a Foreign Currency Account</label>
+            </value>
+            <value>
+                <fullName>Close an Account</fullName>
+                <default>false</default>
+                <label>Close an Account</label>
+            </value>
+            <value>
+                <fullName>Switch On Interest</fullName>
+                <default>false</default>
+                <label>Switch On Interest</label>
+            </value>
+            <value>
+                <fullName>Switch Off Interest</fullName>
+                <default>false</default>
+                <label>Switch Off Interest</label>
+            </value>
+            <value>
+                <fullName>Request Closure of BHD Current Account</fullName>
+                <default>false</default>
+                <label>Request Closure of BHD Current Account</label>
+            </value>
+            <value>
+                <fullName>Reactivate an Account</fullName>
+                <default>false</default>
+                <label>Reactivate an Account</label>
+            </value>
+            <value>
+                <fullName>Receive Credits into account</fullName>
+                <default>false</default>
+                <label>Receive Credits into account</label>
+            </value>
+            <value>
+                <fullName>Manage Limits [Daily/ Transaction]</fullName>
+                <default>false</default>
+                <label>Manage Limits [Daily/ Transaction]</label>
+            </value>
+            <value>
+                <fullName>Manage Limits - Channel [ATM/ POS/ Internet]</fullName>
+                <default>false</default>
+                <label>Manage Limits - Channel [ATM/ POS/ Internet]</label>
+            </value>
+            <value>
+                <fullName>Request Card Delivery</fullName>
+                <default>false</default>
+                <label>Request Card Delivery</label>
+            </value>
+            <value>
+                <fullName>Request Card Collection at ATM</fullName>
+                <default>false</default>
+                <label>Request Card Collection at ATM</label>
+            </value>
+            <value>
+                <fullName>General Information only</fullName>
+                <default>false</default>
+                <label>General Information only</label>
+            </value>
+            <value>
+                <fullName>Customer Onboarding Guidance</fullName>
+                <default>false</default>
+                <label>Customer Onboarding Guidance</label>
+            </value>
+            <value>
+                <fullName>Unlock App Access</fullName>
+                <default>false</default>
+                <label>Unlock App Access</label>
+            </value>
+            <value>
+                <fullName>Jmaiyah Application</fullName>
+                <default>false</default>
+                <label>Jmaiyah Application</label>
+            </value>
+            <value>
+                <fullName>Cache API</fullName>
+                <default>false</default>
+                <label>Cache API</label>
+            </value>
+            <value>
+                <fullName>Periodic Review Unblock Products API</fullName>
+                <default>false</default>
+                <label>Periodic Review Unblock Products API</label>
+            </value>
+            <value>
+                <fullName>Credit Card Account Closure</fullName>
+                <default>false</default>
+                <label>Credit Card Account Closure</label>
+            </value>
+            <value>
+                <fullName>Credit Card Application</fullName>
+                <default>false</default>
+                <label>Credit Card Application</label>
+            </value>
+            <value>
+                <fullName>Credit Card Upgrade</fullName>
+                <default>false</default>
+                <label>Credit Card Upgrade</label>
+            </value>
+            <value>
+                <fullName>Credit Card BCRB</fullName>
+                <default>false</default>
+                <label>Credit Card BCRB</label>
+            </value>
+            <value>
+                <fullName>Credit Cards Cache API</fullName>
+                <default>false</default>
+                <label>Credit Cards Cache API</label>
+            </value>
+            <value>
+                <fullName>Debit Cards Cache API</fullName>
+                <default>false</default>
+                <label>Debit Cards Cache API</label>
+            </value>
+            <value>
+                <fullName>Jordan Loan Status Change API</fullName>
+                <default>false</default>
+                <label>Jordan Loan Status Change API</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

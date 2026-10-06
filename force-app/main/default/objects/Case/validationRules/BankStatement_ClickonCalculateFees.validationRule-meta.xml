@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BankStatement_ClickonCalculateFees</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				$User.LastName &lt;&gt; &quot;Integration&quot; , 
+				RecordType_DeveloperName__c == &apos;BankStatementRequest&apos;,
+    ISCHANGED(cc_Checker_Result__c),
+				OR(
+								TEXT(cc_Checker_Result__c) == &apos;Accept&apos;,
+								TEXT(cc_Checker_Result__c) == &apos;Generate Consent Form&apos;,
+								TEXT(cc_Checker_Result__c) == &apos;Send Email&apos;
+				),
+				ISBLANK(Calculated_Fees__c)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Checker_Result__c</errorDisplayField>
+    <errorMessage>Before proceeding further, kindly click on the &apos;Calculate Fees&apos; button.</errorMessage>
+</ValidationRule>

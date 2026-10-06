@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Since__c</fullName>
+    <description>This captures the Time(in days)since the the customer has onboarded successfully</description>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(Onboarding_Stage__pc)=&apos;ACCOUNT_ACTIVATED&apos; , (NOW()-  Bank_Account_Opening_Date__c)*24 , 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Customer Since</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

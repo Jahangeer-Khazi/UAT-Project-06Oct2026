@@ -1,0 +1,3 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes">
+	<c:LTNG049_SignaturePad aura:id="SignaturePad1"></c:LTNG049_SignaturePad>
+</aura:component>

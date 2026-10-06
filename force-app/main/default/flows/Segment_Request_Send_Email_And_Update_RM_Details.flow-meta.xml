@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>When Segment Request Record Updated, Record will assign to RM Cchecker Queue if Maker result is Send to checker.So send an email to RM Checker Queue Members</description>
+        <name>Send_Email_To_RM_Checker_Queue_Members</name>
+        <label>Send Email To RM Checker Queue Members</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Var_RMCheckerMemberQueueEmails</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>donotreply@ilajordan.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>New Segment Request Assigned</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Hi ,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;The RM Segment Request has been added to the queue for your review.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Please be advised that the RM Segment Request has been submitted by the maker and is assigned to you for your action.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;RM Segment Request : {!Var_RecordLink}&lt;/span&gt;&lt;/p&gt;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useLineBreaks</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <description>When Segment Request Record Inserted , Record will assign to RM Maker Queue.So send an email to RM Maker Queue Members</description>
+        <name>Send_Email_To_RM_Maker_Queue_Members</name>
+        <label>Send Email To RM Maker Queue Members</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Var_RMMakerMemberQueueEmails</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>donotreply@ilajordan.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>New Segment Request Assigned</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Hi ,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;The New RM Segment Request has been added to the queue for your review.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;RM Segment Request : {!Var_RecordLink}&lt;/span&gt;&lt;/p&gt;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useLineBreaks</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <actionCalls>
+        <description>When Segment Request Record Updated, Record will assign to RM Maker Queue if checker result is Return to Maker.So send an email to RM Maker Queue Members</description>
+        <name>Send_Email_To_RM_Maker_Queue_Members_If_Assigned_Back</name>
+        <label>Send Email To RM Maker Queue Members If Assigned Back</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Var_RMMakerMemberQueueEmails</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>donotreply@ilajordan.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>New Segment Request Assigned</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Hi ,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;The RM Segment Request has been added to the queue for your review.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Please be advised that the RM Segment Request has been submitted by the checker and is assigned to you for your action.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;RM Segment Request : {!Var_RecordLink}&lt;/span&gt;&lt;/p&gt;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>useLineBreaks</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>1.0.1</versionString>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign Group Member to RM Checker User Id Collections</description>
+        <name>Assign_Group_Member_to_RM_Checker_User_Id_Collections</name>
+        <label>Assign Group Member to RM Checker User Id Collections</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Var_RMCheckerUserIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_on_Group_Members.UserOrGroupId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_Group_Members</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign Group Member to RM Maker User Id Collections</description>
+        <name>Assign_Group_Member_to_RM_Maker_User_Id_Collections</name>
+        <label>Assign Group Member to RM Maker User Id Collections</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Var_RMMakerUserIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_on_Group_Members.UserOrGroupId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_Group_Members</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign RM Checker Queue Id to Variable</description>
+        <name>Assign_RM_Checker_Queue_Id</name>
+        <label>Assign RM Checker Queue Id</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Var_RMCheckerQueueId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_on_Queue_Ids.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_Queue_Ids</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign RM Maker User Email to Var_RMCheckerMemberQueueEmails</description>
+        <name>Assign_RM_Checker_User_Email_to_Collection</name>
+        <label>Assign RM Checker User Email to Collection</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Var_RMCheckerMemberQueueEmails</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_on_RM_Checker_Users.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_RM_Checker_Users</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign RM Maker Queue Id to Variable</description>
+        <name>Assign_RM_Maker_Queue_Id</name>
+        <label>Assign RM Maker Queue Id</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Var_RMMakerQueueId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_on_Queue_Ids.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_Queue_Ids</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign RM Maker User Email to Var_RMMakerMemberQueueEmails</description>
+        <name>Assign_RM_Maker_User_Email_to_Collection</name>
+        <label>Assign RM Maker User Email to Collection</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Var_RMMakerMemberQueueEmails</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_on_RM_Maker_Users.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_RM_Maker_Users</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>If Checker assigned request back to Maker , Owner will be RM Maker Queue</description>
+        <name>If_Checker_Result_is_Return_to_Maker</name>
+        <label>If Checker Result is Return to Maker</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>If_Maker_Result_is_Send_to_Checker</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Return_to_Maker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Checker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Maker</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Checker_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Return to Maker</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_To_RM_Maker_Queue_Members_If_Assigned_Back</targetReference>
+            </connector>
+            <label>Yes - Return to Maker</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Group Member Belongs to RM Maker Queue</description>
+        <name>If_Group_Member_Belongs_to_RM_Maker_Queue</name>
+        <label>If Group Member Belongs to RM Maker Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Group_Member_to_RM_Checker_User_Id_Collections</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>RM checker Queue</defaultConnectorLabel>
+        <rules>
+            <name>Yes_RM_Maker_Queue_Member</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_on_Group_Members.GroupId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Var_RMMakerQueueId</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Group_Member_to_RM_Maker_User_Id_Collections</targetReference>
+            </connector>
+            <label>Yes - RM Maker Queue Member</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Maker assigned the record to checker , Picklist value of Maker comment is Send to checker owner will be Assigned to RM checker Queue</description>
+        <name>If_Maker_Result_is_Send_to_Checker</name>
+        <label>If Maker Result is Send to Checker</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Send_to_Checker</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Maker_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send to Checker</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Maker_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Send to Checker</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_To_RM_Checker_Queue_Members</targetReference>
+            </connector>
+            <label>Yes - Send to Checker</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If New RM Name is None - Make RM Id And RM Name on customer blank</description>
+        <name>If_New_RM_Name_is_None</name>
+        <label>If New RM Name is None</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Update_RMID_And_RMNAME_Of_Customer_Record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_RM_Name_is_None</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.NewRMID__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>None</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_RMID_And_RMNAME_Of_Customer_Record_to_Null</targetReference>
+            </connector>
+            <label>Yes - RM Name is None</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check Queue name is RM Maker or RM Checker</description>
+        <name>If_Queue_Name_is_RM_Maker_Queue</name>
+        <label>If Queue Name is RM Maker Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_RM_Checker_Queue_Id</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>RM Checker Queue</defaultConnectorLabel>
+        <rules>
+            <name>Yes_RM_Maker_Queue</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_on_Queue_Ids.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>RM_Maker_Queue</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_RM_Maker_Queue_Id</targetReference>
+            </connector>
+            <label>Yes - RM Maker Queue</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Segment Request is newly inserted , send an email to RM Maker Queue</description>
+        <name>If_Segment_Request_in_Newly_Inserted</name>
+        <label>If Segment Request in Newly Inserted</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>If_Segment_Request_is_Approved</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Update Segment Request</defaultConnectorLabel>
+        <rules>
+            <name>Yes_New_Segment_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Var_IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_To_RM_Maker_Queue_Members</targetReference>
+            </connector>
+            <label>Yes - New Segment Request</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If Segment Request is Approved , Update RM Id and RM Name on Customer Record</description>
+        <name>If_Segment_Request_is_Approved</name>
+        <label>If Segment Request is Approved</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>If_Checker_Result_is_Return_to_Maker</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Record_Approved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Sub_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Sub_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Var_IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>If_New_RM_Name_is_None</targetReference>
+            </connector>
+            <label>Yes - Record Approved</label>
+        </rules>
+    </decisions>
+    <description>After Segment Request Created , Send an email to the queue members and Update Customer RM Details</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>If Record is new , this variable will return true</description>
+        <name>Var_IsNewRecord</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <description>This Variable will hold the Record URL</description>
+        <name>Var_RecordLink</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Api.Partner_Server_URL_340}, FIND(&quot;/services&quot;, {!$Api.Partner_Server_URL_340})) &amp; {!$Record.Id}</expression>
+    </formulas>
+    <interviewLabel>Segment Request - Send Email And Update RM Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Segment Request - Send Email And Update RM Details</label>
+    <loops>
+        <description>Loop on Group Members Assigned to the RM Maker And RM Checker Queue</description>
+        <name>Loop_on_Group_Members</name>
+        <label>Loop on Group Members</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Group_Members_of_RM_Maker_and_Checker_Queue</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>If_Group_Member_Belongs_to_RM_Maker_Queue</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_User_Records_Of_RM_Maker_Queue_Members</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Loop on Queue Ids</description>
+        <name>Loop_on_Queue_Ids</name>
+        <label>Loop on Queue Ids</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Queue_Id_s_Of_Maker_and_Checker_Queue</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>If_Queue_Name_is_RM_Maker_Queue</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Group_Members_of_RM_Maker_and_Checker_Queue</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Loop on RM Checker Queue Users to get the email ids</description>
+        <name>Loop_on_RM_Checker_Users</name>
+        <label>Loop on RM Checker Users</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_User_Records_Of_RM_Checker_Queue_Members</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_RM_Checker_User_Email_to_Collection</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>If_Segment_Request_in_Newly_Inserted</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Loop on RM Maker Queue Users to get the email ids</description>
+        <name>Loop_on_RM_Maker_Users</name>
+        <label>Loop on RM Maker Users</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_User_Records_Of_RM_Maker_Queue_Members</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_RM_Maker_User_Email_to_Collection</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_User_Records_Of_RM_Checker_Queue_Members</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get the Members or users assigned to the RM Maker Queue or RM Checker Queue.</description>
+        <name>Get_Group_Members_of_RM_Maker_and_Checker_Queue</name>
+        <label>Get Group Members of RM Maker and Checker Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_Group_Members</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>GroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Var_RMCheckerQueueId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>GroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Var_RMMakerQueueId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>GroupMember</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get the queue Ids of RM Maker Queue and RM Checker Queue , Store in the Separate Variables</description>
+        <name>Get_Queue_Id_s_Of_Maker_and_Checker_Queue</name>
+        <label>Get Queue Id&apos;s Of Maker and Checker Queue</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_Queue_Ids</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>RM_Maker_Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>RM_Checker_Queue</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Group</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get User Records Of RM Checker Queue Members</description>
+        <name>Get_User_Records_Of_RM_Checker_Queue_Members</name>
+        <label>Get User Records Of RM Checker Queue Members</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_RM_Checker_Users</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>Var_RMCheckerUserIds</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get User Records Of RM Maker Queue Members</description>
+        <name>Get_User_Records_Of_RM_Maker_Queue_Members</name>
+        <label>Get User Records Of RM Maker Queue Members</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_RM_Maker_Users</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>Var_RMMakerUserIds</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <sortField>Id</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update RM ID AND RM NAME Of Related Customer</description>
+        <name>Update_RMID_And_RMNAME_Of_Customer_Record</name>
+        <label>Update RMID And RMNAME Of Customer Record</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Contact_Name__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>RM_ID__pc</field>
+            <value>
+                <elementReference>$Record.NewRMID__r.RM_ID__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RM_Name__pc</field>
+            <value>
+                <elementReference>$Record.NewRMID__r.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Contact_Name__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update RM ID AND RM NAME Of Related Customer to Null if new rm name is none</description>
+        <name>Update_RMID_And_RMNAME_Of_Customer_Record_to_Null</name>
+        <label>Update RMID And RMNAME Of Customer Record to Null</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Contact_Name__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>RM_ID__pc</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RM_Name__pc</field>
+        </inputAssignments>
+        <inputReference>$Record.Contact_Name__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Queue_Id_s_Of_Maker_and_Checker_Queue</targetReference>
+        </connector>
+        <object>SegmentRequest__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This variable store the RM Checker Queue Members Email</description>
+        <name>Var_RMCheckerMemberQueueEmails</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This Variable will store the RM checker Queue Id</description>
+        <name>Var_RMCheckerQueueId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This Variable will store the RM Checker User Ids</description>
+        <name>Var_RMCheckerUserIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This variable stores the RM Maker Queue Email Ids</description>
+        <name>Var_RMMakerMemberQueueEmails</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This Variable will store the RM Maker Queue Id</description>
+        <name>Var_RMMakerQueueId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This Variable will store the ids for RM Maker Queue Users</description>
+        <name>Var_RMMakerUserIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Var_staticemaildid</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>shubham.m@rpint.com</stringValue>
+        </value>
+    </variables>
+</Flow>

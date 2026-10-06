@@ -1,0 +1,175 @@
+<!--
+  @description       :
+  @author            :
+  @group             :
+  @last modified on  : 06/06/2022
+  @last modified by  : D&A Team
+  @change history : 
+           #CH01 add case update segment tab
+           #CH02 04/09/2023 by Imane TSIOUCHA add Saving Pots tab
+           #CH03# #Elmustapha ELGARNI# #28-11-2023# Add loans List Component
+		   #CH04# #Maksud Ali# #08-12-2025# add new methods for HYSA.
+           #CH05# #Aniss Mbarki# #25-07-2026# change 10 NBA-17380.
+
+-->
+<aura:component
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global"
+                controller="BankInformationController">
+
+    <aura:attribute name="customerId" type="String"/>
+    <aura:attribute name="account" type="Account"/>
+    <aura:attribute name="Type" type="String"/>
+    <!-- ======================================================= -->
+    <aura:attribute name="tabsConfig" type="Object" access="private"/>
+    <aura:attribute name="enableActions" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="caseRecordType" type="String" access="private" default=""/>
+    <aura:attribute name="caseType" type="String"/>
+    <aura:attribute name="dataInformation" type="Object[]" default="[]"/>
+    <aura:attribute name="selectedStatus" type="String"/>
+    <aura:attribute name="regionName" type="String" />
+    
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+
+    <lightning:tabset variant="scoped"> 
+
+        <aura:if isTrue="{!true == v.tabsConfig.Bank_Accounts__c}">
+            <lightning:tab label="Bank Accounts">
+                <c:bankAccountsList aura:id="bankAccountsList"
+                                    customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                    enableActions="{! 'Case' == v.sObjectName }" caseRecordType="{!v.caseRecordType}" isAlburaqProduct='true' />
+            </lightning:tab>
+        </aura:if>
+        
+        <!-- #CH05 :  add this 'Loan_Application' != v.caseRecordType  -->
+        <aura:if isTrue="{! AND( 'FCR' != v.caseRecordType , 'Loan_Application' != v.caseRecordType)}">
+            <aura:if isTrue="{! 'Credit_Card' != v.caseRecordType}">
+                <aura:if isTrue="{! and(true == v.tabsConfig.Bank_Cards__c,v.caseRecordType != 'AmountBlockingUnblockingDirective')}">
+                    <lightning:tab label="Bank Cards">
+                        <c:bankCardsList aura:id="bankCardsList"
+                                         customerId="{!v.customerId}" caseId="{!v.recordId}" enableActions="{! 'Case' == v.sObjectName }" account="{!v.account}" isAlburaqProduct='true'/>
+                    </lightning:tab>
+                </aura:if> 
+                 <!-- START CH02=> Saving Pots Tab -->
+                 <aura:if isTrue="{!true == v.tabsConfig.Saving_Pots__c}">
+                    <lightning:tab label="Saving Pots">
+                        <c:bankSavingPot aura:id="SavingPotsList"
+                                         customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"
+                                         enableActions="{! 'Case' == v.sObjectName }" isAlburaqProduct='true'/>
+                    </lightning:tab>
+                </aura:if>
+                <!-- END CH02=> Saving Pots Tab -->
+            </aura:if>
+        </aura:if>
+         <aura:if isTrue="{!and(v.sObjectName =='Account', v.account.Region_Flag__c == 'Bahrain')}">
+         <aura:if isTrue="{!!empty(v.customerId)}">
+                    <lightning:tab label="Sukuk" >  
+                        <c:LTNG042_BOND_SUKUK_LIST aura:id="BondsList"
+                                 customerId="{!v.customerId}" account="{!v.account}" regionName="{!v.account.Region_Flag__c}" isAlburaqProduct='true'/>
+                    </lightning:tab>
+                </aura:if> 
+        </aura:if>
+        <aura:if isTrue="{! and(true == v.tabsConfig.Term_Deposits__c, v.account.Region_Flag__c == 'Bahrain')}">
+            <lightning:tab label="Wakala Investment">
+                 <c:termDepositList aura:id="termDepositList"
+                    	customerId="{!v.customerId}"
+                        caseId="{!v.recordId}"
+                        enableActions="{! 'Case' == v.sObjectName }"
+                        account="{!v.account}"
+                        caseRecordType="{!v.caseRecordType}"
+                        isAlburaqProduct='true'
+                        sObjectName="{!v.sObjectName}"/>
+			</lightning:tab>
+
+
+        </aura:if>
+        
+        <!--CH01 Start  add case model field and visible only on case record-->
+        <aura:if isTrue="{!and(true == v.tabsConfig.Unlock_App__c, 'Service_Request' == v.caseRecordType)}">
+            <lightning:tab label="Unlock App" >
+                <!--  <c:unlockApp customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}"/> -->
+                <c:RequestAppUnlock recordId="{!v.recordId}"/>
+            </lightning:tab>
+        </aura:if>
+        
+        <!-- #CH05 start :  add this 'Loan_Application' != v.caseRecordType -->
+       <aura:if isTrue="{!AND ('Case' == v.sObjectName, v.caseRecordType != '' ) }">
+            <aura:if isTrue="{!and(true == v.tabsConfig.Upgrade_Downgrade__c , v.caseRecordType != 'Loan_Application')}">
+                <lightning:tab label="Update Segment" >
+                    <c:UpdateSegmentTab customerId="{!v.customerId}" account="{!v.account}" caseId="{!v.recordId}" isAlburaqProduct='true'/>
+                </lightning:tab>
+            </aura:if>
+        </aura:if>
+        <!-- #CH05 End :  -->
+
+        
+           <!--CH06 Start Added Update Profile Tab -->
+                <aura:if isTrue="{! 'Customer_Profile_Update' == v.caseRecordType}">
+                    <lightning:tab label="Update Profile" >
+                        <c:profileUpdate aura:id="profile" customerId="{!v.customerId}" caseId="{!v.recordId}" enableActions="{! 'Case' == v.sObjectName }"
+                                         account="{!v.account}" caseRecordType="{!v.caseRecordType}"/>
+                    </lightning:tab>
+                </aura:if>
+                <!--CH06 End -->
+        <!--CH01 END-->
+        <!-- #CH03#Start-->
+        <aura:if isTrue="{!v.sObjectName =='Account'}">
+            <aura:if isTrue="{!!empty(v.customerId)}">
+                <lightning:tab label="Finances" >  
+                    <c:Loans_LoansList  aura:id="Loans_LoansList"
+                                        customerId="{!v.customerId}" 
+                                        caseId="{!v.recordId}" 
+                                        account="{!v.account}"
+                                        enableActions="{! 'Case' == v.sObjectName }" 
+                                        caseRecordType="{!v.caseRecordType}"
+                                        isAlburaqProduct='true'/>
+                </lightning:tab>
+            </aura:if> 
+        </aura:if>
+        <!-- #CH15 start :  add "Finace" subTab for Loan_Application recordType -->
+        <aura:if isTrue="{! 'Case' == v.sObjectName }">
+            <lightning:tab  label="Finances">
+                <c:Loans_LoansList aura:id="Loans_LoansList" customerId="{!v.customerId}" caseId="{!v.recordId}"
+                account="{!v.account}" enableActions="{! 'Case' == v.sObjectName }"
+                caseRecordType="{!v.caseRecordType}" isAlburaqProduct='true' />
+            </lightning:tab>
+        </aura:if>
+        <!-- #CH15 end -->
+
+        <!--#CH03#End -->
+        <!-- <aura:if isTrue="{!true == v.tabsConfig.Payrolls__c}">
+            <lightning:tab label="Payrolls" id = "payrolls">
+                <c:payrolls aura:id="lWCChild" recordId="{!v.recordId}"></c:payrolls>
+            </lightning:tab>
+        </aura:if> -->
+        <aura:if isTrue="{!'Account' == v.sObjectName}">
+            <aura:if isTrue="{! and(v.tabsConfig.Payrolls__c == true, v.account.Region_Flag__c == 'Bahrain') }">
+                <lightning:tab label="Payrolls" id = "payrolls">
+                    <c:payrolls aura:id="lWCChild" recordId="{!v.recordId}" isAlburaqProduct='true'></c:payrolls>
+                </lightning:tab>
+            </aura:if>
+        </aura:if>
+        
+
+        <!-- #CH05 start :  add "|| ('Loan_Application' == v.caseRecordType)"  -->
+        <aura:if isTrue="{! 'Loan_Application' != v.caseRecordType}">
+            <!--CH04 Start -->
+            <aura:if isTrue="{! and(v.tabsConfig.Hysa__c == true, v.account.Region_Flag__c == 'Bahrain') }">
+                <!-- <aura:if isTrue="{!true == v.tabsConfig.Hysa__c}"> -->
+                <lightning:tab label="HYSA" id = "hysa">
+                    <c:hysaAccountList aura:id="hysaAccountList"
+                                       customerId="{!v.customerId}" caseId="{!v.recordId}" account="{!v.account}" isAlburaqProduct='true'
+                                       enableActions="{! 'Case' == v.sObjectName }" caseRecordType="{!v.caseRecordType}" />
+                </lightning:tab>
+            </aura:if>
+            <!--CH04 End -->
+        </aura:if>
+        <!-- #CH05 End  -->
+         
+    </lightning:tabset>
+    
+
+
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,141 @@
+<apex:page showHeader="false" renderAs="advanced_pdf" standardController="Case" extensions="CashCollateralCertificateController">
+    <head>
+        <style type="text/css">
+            
+            body {
+                /* font-family: Arial Unicode MS; */
+                font-family: 'Open Sans', Inter, sans-serif;
+                font-size: 8px;
+                margin: 10px;
+            }
+            
+            @page {
+                margin-top: 1cm;
+                margin-bottom: 2cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                
+                @top-center {
+                    content: element(headerTitle);
+                }
+                div.headerTitle {
+                    position: running(headerTitle);
+                }
+            
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+            
+            table, td, th {
+              border: 1px solid;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            .topmargin20 {
+                margin-top:15px;
+            }
+            div.footer {
+                    display: block;
+                    position: running(footer);
+                    width:100%;
+                }
+            
+            .repeatTableHeader{-fs-table-paginate: paginate;}
+        </style>
+    </head>
+    <!-- <body style="font-family: Arial Unicode MS"> -->
+     <body style="font-family: 'Open Sans', Inter, sans-serif;">
+        
+        
+        
+        <div class="headerTitle">
+            
+        
+        <div style="width:100%;text-align:right">
+            <apex:image url="{!$Resource.ila_logo_vf}" width="100"/>
+        </div>
+        <div style="margin-top:14px;font-size:14px">
+            <div><span>Date: {!formattedTodayDate}</span></div>
+            <div><span>Ref.: {!caseNumber}</span></div>
+        </div>
+    
+        <div style="margin-top:14px;font-size:14px">
+            <div>To: <b>{!customerFullName}</b></div>
+            <div>{!customerFullAddress}</div>
+        </div>
+        <div style="margin-top:14px;font-size:14px">
+                 <b style="text-decoration:underline;font-family:'Open Sans', Inter, sans-serif;">Subject: Certification of Cash Collateral Against Credit Card Facility</b>
+            <!-- <b style="text-decoration:underline;font-family: Arial Unicode MS">Subject: Certification of Cash Collateral Against Credit Card Facility</b> -->
+        </div>
+        <div style="margin-top:14px;font-size:14px">
+            <div>Dear <strong>{!customerName}</strong>,</div>
+            <div>
+                <p>
+                   We refer to the credit card facility (the “Credit Card”) granted by ila Bank – a conventional retail branch of Arab Banking Corporation B.S.C (the “Bank”) to you, <strong>{!customerFullName}</strong>, <strong>{!nationality}</strong> national, holder of ID Card No. <strong>{!nationalityId}</strong>. We further refer to the security right created in favor of the Bank over your <strong>{!typeOfAccount}</strong> account No. <strong>{!holdAccount}</strong> for a total amount of BHD <strong>{!pledgedAmount}</strong> to secure full repayment of the Credit Card (the “Security”). 
+                </p>
+                <p>
+                   The Security is deemed an irrevocable, legally binding, untransferable arrangement which shall not be canceled, withdrawn or released without the prior written consent of the Bank and shall remain in full force and effect until all obligations and liabilities arising from the Credit Card are fully satisfied in favor of the Bank.
+                </p>
+                <p>
+                   In the event of default, non-payment or breach of any obligations under the Credit Card, the Bank reserves the right to set off, liquidate or apply the Security, in whole or in part, towards the settlement of your outstanding liabilities. 
+                </p>
+            </div>
+            <div style="text-decoration:underline;">
+                Credit Card Facility Details:
+            </div>
+            <div>&nbsp;</div>
+            <table border="1" align="center" style="border-collapse: collapse;width:90%;">
+                <tr style="background:#F2F2F2;">
+                    <th align="center">Account Number</th>
+                    <th align="center">Card Type</th>
+                    <th align="center">Credit Card Limit</th>
+                    <th align="center">Issue Date</th>
+                    <th align="center">Pledged Amount</th>
+                </tr>
+                <tr>
+                    <td align="center">{!accountNumber}</td>
+                    <td align="center">{!cardType}</td>
+                    <td align="center">BHD {!creditLimit}</td>
+                    <td align="center">{!issueDate}</td>
+                    <td align="center">BHD {!pledgedAmount}</td>
+                </tr>
+            </table>
+        </div>
+       <!-- <div>&nbsp;</div> -->
+    
+        <div style="margin-top:14px;font-size:14px">
+            The Security arrangement shall be binding on you, your legal heirs, successors, and assigns. This Security arrangement is governed by the law of the Kingdom of Bahrain and any disputes arising from it shall fall under the exclusive jurisdictions of the court of the Kingdom of Bahrain.
+        </div>
+        <div style="margin-top:14px;font-size:14px">
+            <p>
+                Sincerely,<br/>For and on behalf of ila Bank
+            </p>
+        </div>
+        <div style="width:100%;text-align:center">
+            <apex:image url="{!$Resource.ilaLogo}" width="150" height="95"/>
+        </div>
+            </div>
+        <div style="height:25px">
+            &nbsp;
+        </div>
+        <div>
+            <table style="font-size:8px;width:100%;color:#999999;">
+                <tr>
+                    <td width="55%">
+                        <p>T +97317543000<br/>www.ilabank.com</p>
+                    </td>
+                    <td width="50%" style="text-align:left">
+                        <p>
+                            <strong>Head Office</strong><br/>
+                            P.O. Box 5698, Manama, Kingdom of Bahrain (CR: 10299-2)<br/>
+                            Licensed as a Conventional Retail Bank - Branch by the Central Bank of Bahrain<br/>
+                            Powered by Bank ABC (Arab Banking Corporation B.S.C.)
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</apex:page>

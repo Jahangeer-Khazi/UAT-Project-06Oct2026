@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Business_Industry_Staff__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Business_Name_Staff__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Business_Address_Staff__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Business_Industry_Staff__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>AIR TRANSPORT,ASSOCIATION / CLUB / NO PROFIT ORG,Chemicals,Commodity Trading,DEVELOPERS,GENERAL EXPORT / IMPORT,HOUSE PURCHASE,Oil &amp; Gas Prod,OTHER - ADVANCES TO PERSONS,PROPERTY COMPANIES,REFINING &amp; DISTRIBUTION,Shipping,Trading,WHOLESALE DISTRIBUTION,bearer shares,charity,club or society,MSB (regulated),General Trading Company,Dealer in precious metals / Gold Business,Defense / Military Contractors</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>BO&amp;SE in high and restricted industries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>RECORDTYPE</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

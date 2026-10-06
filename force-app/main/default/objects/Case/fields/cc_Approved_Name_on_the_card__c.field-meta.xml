@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Approved_Name_on_the_card__c</fullName>
+    <description>Approved Name on the Card (in case Customer wants to change the Name on the card, which he has initially requested)</description>
+    <encryptionScheme>None</encryptionScheme>
+    <externalId>false</externalId>
+    <inlineHelpText>to be filled only for &apos;New Credit Card Application&apos;</inlineHelpText>
+    <label>Approved Name on the card</label>
+    <length>26</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

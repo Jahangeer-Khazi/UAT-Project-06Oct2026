@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_HYSA_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox would be checked if Customer has HYSA Account</description>
+    <label>Has HYSA Account</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

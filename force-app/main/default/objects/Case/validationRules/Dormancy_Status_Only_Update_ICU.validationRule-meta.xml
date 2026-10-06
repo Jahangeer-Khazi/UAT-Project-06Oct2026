@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dormancy_Status_Only_Update_ICU</fullName>
+    <active>true</active>
+    <description>A member from the ICU queue can only update ICU section</description>
+    <errorConditionFormula>AND(Owner:Queue.DeveloperName = &quot;ICU_Queue&quot; ,
+     RecordType_DeveloperName__c =&apos;Dormancy_Status&apos;,
+     $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+      OR( ISCHANGED(Compliance_Results__c ),
+          ISCHANGED(Operation_Result__c),
+          ISCHANGED(cc_Maker__c ),
+          ISCHANGED(cc_Checker_Result__c )
+         )
+    )</errorConditionFormula>
+    <errorMessage>A member from the ICU queue can only update ICU section</errorMessage>
+</ValidationRule>

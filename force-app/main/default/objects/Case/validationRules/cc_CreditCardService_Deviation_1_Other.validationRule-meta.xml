@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Deviation_1_Other</fullName>
+    <active>true</active>
+    <description>If Deviation 1 type = Credit Other then the agent has to fill Other Deviation 1 type manually.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Deviation_1_type__c),
+ISPICKVAL(cc_Deviation_1_type__c, &quot;Credit - Other&quot;), ISBLANK(cc_Other_Deviation_1_type__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type, &quot;Credit Card Cash Collateral Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Other_Deviation_1_type__c</errorDisplayField>
+    <errorMessage>Please fill the Other Deviation 1 type manually.</errorMessage>
+</ValidationRule>

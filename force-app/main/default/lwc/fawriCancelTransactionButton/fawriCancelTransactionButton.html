@@ -1,0 +1,16 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" variant="brand" size="large"></lightning-spinner>
+    </template>
+
+    <template if:true={userInCheckerQueue}>
+        <div style="text-align:right;">
+            <lightning-button
+                label="Re-Trigger Cancellation"
+                onclick={handleClick}
+                disabled={exhauseexhaustedApiLimit}
+                variant="brand">
+            </lightning-button>
+        </div>
+    </template>
+</template>

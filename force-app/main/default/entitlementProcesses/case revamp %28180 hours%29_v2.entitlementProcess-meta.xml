@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>Default</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Did not receive cash from ATM&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Partial Amount Dispensed&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction did not go through&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Duplicate payment&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Purchased goods not received&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction amount differs.&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Late posted transaction&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Refund not processed&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;)))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>10800</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Service Not Provided&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Other (Specify in description)&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawri&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawri+&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawateer&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = True || ISPICKVAL(Account.Segment__pc, &apos;Premium&apos;)))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>10800</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Did not receive cash from ATM&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Partial Amount Dispensed&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction did not go through&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Duplicate payment&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Purchased goods not received&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Transaction amount differs.&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Late posted transaction&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Refund not processed&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Service Not Provided&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>10800</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Other (Specify in description)&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawri&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawri+&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ATM&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Benefit&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;POS / E-Commerce&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;EFTs&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Fawateer&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Financial Impact - Fraudulent / Unauthorized&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Profile Update&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Name&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Profile Update&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Others&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>10800</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (180 hours)</name>
+    <versionMaster>552QI00000CRai2</versionMaster>
+    <versionNumber>2</versionNumber>
+</EntitlementProcess>

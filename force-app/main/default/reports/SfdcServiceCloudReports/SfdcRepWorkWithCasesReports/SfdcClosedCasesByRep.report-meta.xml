@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>AgentWork$Name</field>
+    </columns>
+    <columns>
+        <field>AgentWork.Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>AgentWork.Case$Origin</field>
+    </columns>
+    <columns>
+        <field>AgentWork.Case$Type</field>
+    </columns>
+    <columns>
+        <field>AgentWork.Case$Subject</field>
+    </columns>
+    <description>This report provides details about closed cases, grouped by rep and status. Details include the case name, number, origin, type, and subject.</description>
+    <filter>
+        <criteriaItems>
+            <column>AgentWork.Case$Status</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Closed</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>AgentWork$User</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>AgentWork.Case$Status</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Closed Cases by Rep</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SfdcRepWorkWithCasesReportType__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>AgentWork$AcceptDateTime</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

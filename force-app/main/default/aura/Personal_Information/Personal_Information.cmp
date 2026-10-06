@@ -1,0 +1,56 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date:
+ * 		Change History: 
+ *	    	
+-->
+<!---->
+<aura:component>
+   <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="String" default="view" description="view|edit"/>
+   
+	<aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account">
+                                  
+                                  
+            <lightning:messages />
+            
+            <label for="fname">First Name</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="FirstName_Update__pc" aura:id="fname" value="{!v.account.FirstName_Update__pc}" variant="label-hidden"/>
+            </div>
+            <br/>
+            <label for="mname">Middle Name</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="MiddleName_Update__pc" aura:id="mname" value="{!v.account.MiddleName_Update__pc}" variant="label-hidden"/>
+            </div>
+            <br/>
+            <label for="lname">Last Name</label>
+            <div class="slds-form-element" style="width:400px">
+            	<lightning:inputField fieldName="LastName_Update__pc" aura:id="lname" value="{!v.account.LastName_Update__pc}" variant="label-hidden"/>
+            </div>
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    	<div class="slds-box">
+                     		<label for="fname">First Name</label> <br/>
+                        		<lightning:outputField fieldName="FirstName_Update__pc" aura:id="fname" variant="label-hidden"/>  <br/>
+                        	<label for="mname">Middle Name</label>  <br/>
+                        		<lightning:outputField fieldName="MiddleName_Update__pc" aura:id="mname" variant="label-hidden"/>  <br/>
+                    		<label for="lname">Last Name</label>  <br/>
+                        		<lightning:outputField fieldName="LastName_Update__pc" aura:id="lname" variant="label-hidden"/>  <br/>
+                    	</div> 
+                </lightning:recordViewForm>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

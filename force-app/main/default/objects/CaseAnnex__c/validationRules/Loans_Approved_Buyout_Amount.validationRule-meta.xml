@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_Approved_Buyout_Amount</fullName>
+    <active>true</active>
+    <description>Field value shouldn’t exceed the approved loan amount</description>
+    <errorConditionFormula>!ISNEW() &amp;&amp; ISCHANGED(cx_ln_Approved_Buyout_Amount__c) &amp;&amp; cx_ln_Approved_Loan_Amount__c &lt; cx_ln_Approved_Buyout_Amount__c</errorConditionFormula>
+    <errorDisplayField>cx_ln_Approved_Buyout_Amount__c</errorDisplayField>
+    <errorMessage>Field value shouldn’t exceed the approved loan amount</errorMessage>
+</ValidationRule>

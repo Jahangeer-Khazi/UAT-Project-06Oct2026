@@ -1,0 +1,416 @@
+<!--
+  @description       : 
+  @author            : AITOGRAM Omar
+  @group             : 
+  @last modified on  : 05-16-2024
+  @last modified by  : AITOGRAM Omar
+-->
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="HandOffProcessController">
+
+    <!-- Setting value from parent component-->
+    <aura:attribute name="caseId" type="String" />
+    <aura:attribute name="loanNumber" type="String" />
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="responseLoanListdata" type="Object" />
+    <!-- Local Attributes -->
+    <aura:attribute name="isTopUp" type="Boolean" default="false" />
+    <aura:attribute name="isWaiver" type="Boolean" default="false" />
+    <aura:attribute name="isRestructuring" type="Boolean" default="false" />
+    <aura:attribute name="customerId" type="String" />
+
+     <!-- omar start -->
+     <aura:attribute name="hasContent" type="Boolean" default="true" />
+    <!-- omar end  -->
+
+    <aura:attribute name="isPartialSettlement" type="Boolean" default="false" />
+    <aura:attribute name="isInstallment" type="Boolean" default="false" />
+    <aura:attribute name="isEarlySettlement" type="Boolean" default="false" />
+    <aura:attribute name="isSubmit" type="Boolean" />
+    <aura:attribute name="totalTopUpAmount" type="Decimal" />
+    <aura:attribute name="FEEAmount" type="Decimal" />
+    <!--<aura:attribute name="earlySettlementReasonOptions" type="List" />-->
+    <aura:attribute name="selectedEarlySettlementReason" type="String" />
+    <aura:attribute name="ReversalWaiverReason" type="String" />
+    <aura:attribute name="InstallDefermentReason" type="String" />
+    <aura:attribute name="NumberDeferredInstallments" type="Integer" />
+    <aura:attribute name="reasonForRestructuring" type="String" />
+    <aura:attribute name="FEEType" type="String" />
+    <aura:attribute name="earlySettlementReasonValue" type="String" />
+    <aura:attribute name="PartialSettlementAmount" type="Decimal" />
+    <aura:attribute name="minPartialAmount" type="Decimal" default="0"/>
+    <aura:attribute name="PartialSettlementTerm" type="Integer" />
+    <aura:attribute name="isPartialSettlementTermRquired" type="Boolean" default="false" />
+    <aura:attribute name="totalNumberOfInstallments" type="Decimal" />
+    <aura:attribute name="isAdvancePayment" type="Boolean" default="false" />
+    <aura:attribute name="AdvancePaymentOptions" type="List" />
+    <aura:attribute name="restructuringOptions" type="List" />
+    <aura:attribute name="AdvancePaymentValue" type="String" />
+    <aura:attribute name="restructuringValue" type="String" />
+    <aura:attribute name="AdvancePaymentReason" type="Decimal" />
+    <aura:attribute name="InstalmentsForAdvancePayments" type="Integer" />
+    <aura:attribute name="newRate" type="Decimal" />
+
+    <aura:attribute name="subType" type="String" />
+
+    <aura:attribute name="PartialSettlementRestructureValue" type="String" />
+
+    <aura:attribute name="PartialSettlementOptions" type="List" />
+
+    <aura:attribute name="LoantemplateUrl" type="String" default="{! $Resource.LoanSettlementAdvancePaymentIla }"/>
+	<aura:attribute name="FinancetemplateUrl" type="String" default="{! $Resource.FinanceSettlementAdvancePayment }"/>
+    <aura:attribute name="LoantemplateUrlTopUp" type="String" default="{! $Resource.LoansTopUpIla }"/>
+	<aura:attribute name="FinancetemplateUrlTopUp" type="String" default="{! $Resource.FinanceLoansTopUp }"/>
+    <aura:attribute name="LoantemplateUrlRestrucuringInstallment" type="String" default="{! $Resource.LoanRestrucuringInstallment }"/>
+	<aura:attribute name="FinancetemplateUrlRestrucuringInstallment" type="String" default="{! $Resource.FinanceRestrucuringInstallment }"/>
+
+    <aura:attribute name="isSubmittedToParent" type="Boolean" />
+    <aura:attribute name="selectedPayOffAmount" type="String" /><!-- CH02 -->
+    <aura:attribute name="maxPartialAmount" type="Decimal" default="0"/><!-- CH02 -->
+
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <lightning:card title="{! 'Loan Service Request: ' + v.loanNumber }">
+        <aura:if isTrue="{!v.isTopUp || v.isPartialSettlement || v.isAdvancePayment || v.isRestructuring || v.isEarlySettlement || v.isInstallment}">
+            <div class="download_template_btn" style="cursor:pointer;text-align: right;width: 94%">
+                <lightning:button
+                            variant="brand"
+                            label="Download Template"
+                            iconName="utility:download"
+                            onclick="{! c.handleDownload }"/>
+            </div>
+        </aura:if>
+        <div>
+            <lightning:recordEditForm aura:id="form" recordId="{!v.caseId}" objectApiName="Case" onload="{!c.handleOnload}"
+                onsubmit="{!c.handleOnSubmit}" onsuccess="{!c.handleOnSuccess}" onerror="{!c.handleOnError}">
+                <lightning:messages />
+
+                <div class="slds-hidden" style="height: 0px;">
+                    <lightning:inputField aura:id="Case_Model" fieldName="Case_Model__c" />
+                    <lightning:inputField aura:id="Region_Flag" fieldName="Region_Flag__c" />
+                </div>
+                
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2 custom-column">
+                        <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" readonly="true" variant="label-stacked" />
+                    </div>
+                    <!-- Loan Top-up -->
+                    <aura:if isTrue="{!v.isTopUp}">
+                        <aura:if isTrue="{!v.isSubmit}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <div class="slds-form-element__control">
+                                    <lightning:select name="PartialSettlement" label="Top up option"
+                                        disabled="{!v.isSubmit}" value="{!v.PartialSettlementRestructureValue}"
+                                        onchange="{!c.handlePartialSettlementOptionChange}">
+                                        <aura:iteration items="{!v.PartialSettlementOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Top up amount" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementAmount}" step="0.001" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                
+                                <!--Hide for now Term input-->
+                                <!--<lightning:input label="Term" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementTerm}" required="{!v.isPartialSettlementTermRquired}" />-->
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isSubmit)}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <div class="slds-form-element__control">
+                                    <lightning:select name="PartialSettlement" label="Top up option" required="true"
+                                        value="{!v.PartialSettlementRestructureValue}"
+                                         onchange="{!c.handlePartialSettlementOptionChange}">
+                                        <aura:iteration items="{!v.PartialSettlementOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Top up amount" type="number" required="true"
+                                    value="{!v.PartialSettlementAmount}" step="0.001" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <!--Hide for now Term input-->
+                                <!--<lightning:input label="Term" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementTerm}" required="{!v.isPartialSettlementTermRquired}" />-->
+                            </div>
+                        </aura:if>
+                    </aura:if>
+                    <!-- Early Settlement Reason -->
+                    <aura:if isTrue="{!v.isEarlySettlement}">
+                        <div class="slds-col slds-size_1-of-2 custom-column">
+                            <aura:if isTrue="{!v.isSubmit}">
+                                <div class="slds-form-element__control">
+                                    <lightning:input label="Early Settlement Reason" type="text" disabled="{!v.isSubmit}"
+                                    value="{!v.earlySettlementReasonValue}" />
+
+                                    <!--<lightning:select name="earlySettlementReason" label="Early Settlement Reason"
+                                        disabled="{!v.isSubmit}" value="{!v.earlySettlementReasonValue}">
+                                        <aura:iteration items="{!v.earlySettlementReasonOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>-->
+                                </div>
+    
+                            </aura:if>
+                            <aura:if isTrue="{!not(v.isSubmit)}">
+                                <div class="slds-form-element__control">
+                                    <lightning:input label="Early Settlement Reason" type="text" disabled="{!v.isSubmit}"
+                                    value="{!v.earlySettlementReasonValue}" />
+                                    <!--<lightning:select name="earlySettlementReason" label="Early Settlement Reason"
+                                        value="{!v.earlySettlementReasonValue}" required="true">
+                                        <aura:iteration items="{!v.earlySettlementReasonOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>-->
+                                </div>
+                            </aura:if>
+                        </div>
+                    </aura:if>
+    
+                    <!-- Waiver -->
+                    <aura:if isTrue="{!v.isWaiver}">
+    
+    
+                        <aura:if isTrue="{!v.isSubmit}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="FEE Type" value="{!v.FEEType}" disabled="{!v.isSubmit}"
+                                    type="text" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="FEE Amount" value="{!v.FEEAmount}" type="number" step="0.001"
+                                    disabled="{!v.isSubmit}" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Reversal / Waiver reason" value="{!v.ReversalWaiverReason}"
+                                    type="text" disabled="{!v.isSubmit}" />
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isSubmit)}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="FEE Type" value="{!v.FEEType}" type="text" required="true"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="FEE Amount" value="{!v.FEEAmount}" type="number" step="0.001" required="true"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Reversal / Waiver reason" type="text" required="true"
+                                    value="{!v.ReversalWaiverReason}" />
+                            </div>
+                        </aura:if>
+    
+    
+                    </aura:if>
+    
+                    <!-- Installment Deferment -->
+                    <aura:if isTrue="{!v.isInstallment}">
+    
+    
+                        <aura:if isTrue="{!v.isSubmit }">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Install deferment reason" type="text"
+                                    value="{!v.InstallDefermentReason}" disabled="{!v.isSubmit}" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Number of Deferred Installments" type="text"
+                                    value="{!v.NumberDeferredInstallments}" disabled="{!v.isSubmit}" />
+                            </div>
+    
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isSubmit)}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Install deferment reason" type="text"
+                                    value="{!v.InstallDefermentReason}" required="true" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:select name="NumberDeferredInstallments" label="Number of Deferred Installments" disabled="{!v.isSubmit}"
+                                        value="{!v.NumberDeferredInstallments}" required="true">
+                                        <option value="1" text="1" />
+                                        <option value="2" text="2" />
+                                        <option value="3" text="3" />
+                                </lightning:select>
+                                <!-- <lightning:input label="Number of Deferred Installments" type="number"
+                                    value="{!v.NumberDeferredInstallments}" max="3" messageWhenRangeOverflow="Maximum allowed Deferred instalments is 3."/> -->
+                            </div>
+
+                        </aura:if>
+    
+                    </aura:if>
+    
+                    <!-- Restructuring -->
+                    <aura:if isTrue="{!v.isRestructuring}">
+                        <aura:if isTrue="{!v.isSubmit}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <div class="slds-form-element__control">
+                                    <lightning:select name="restructuring" label="Restructure option" disabled="{!v.isSubmit}"
+                                        value="{!v.restructuringValue}">
+                                        <aura:iteration items="{!v.restructuringOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </div>
+
+                            <aura:if isTrue="{! OR( v.restructuringValue == 'Change loan term', OR( v.restructuringValue == 'Change term and rate',v.restructuringValue == 'Change term without interest increase')) }">
+                                <div class="slds-col slds-size_1-of-2 custom-column">
+                                    <lightning:input aura:id="termInput" label="Term" type="number" disabled="{!v.isSubmit}"
+                                        value="{!v.PartialSettlementTerm}"/>
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!OR( v.restructuringValue == 'Change interest rate',v.restructuringValue == 'Change term and rate')}">
+                                <div class="slds-col slds-size_1-of-2 custom-column">
+                                    <lightning:input label="New Rate" type="number" step="0.001" disabled="{!v.isSubmit}"
+                                        value="{!v.newRate}" />
+                                </div>
+                            </aura:if>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isSubmit)}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <div class="slds-form-element__control">
+                                    <lightning:select name="restructuring" label="Restructure option"
+                                        value="{!v.restructuringValue}" required="true">
+                                        <aura:iteration items="{!v.restructuringOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </div>
+                            <aura:if isTrue="{! OR( v.restructuringValue == 'Change loan term', OR( v.restructuringValue == 'Change term and rate',v.restructuringValue == 'Change term without interest increase')) }">
+                                <div class="slds-col slds-size_1-of-2 custom-column">
+                                    <lightning:input label="Term" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementTerm}" required="true" max="84" messageWhenRangeOverflow="Maximum allowed term is 84 months" onchange="{!c.validateTerm}"/> <!-- #CH02 -->
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!OR( v.restructuringValue == 'Change interest rate',v.restructuringValue == 'Change term and rate')}">
+                                <div class="slds-col slds-size_1-of-2 custom-column">
+                                    <lightning:input label="New Rate" type="number" step="0.001" disabled="{!v.isSubmit}" required="true"
+                                        value="{!v.newRate}" />
+                                </div>
+                            </aura:if>
+                        </aura:if>
+                    </aura:if>
+    
+                    <!-- Partial Settlement -->
+                    <aura:if isTrue="{!v.isPartialSettlement}">
+    
+                        <aura:if isTrue="{!v.isSubmit}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <div class="slds-form-element__control">
+                                    <lightning:select name="PartialSettlement" label="Partial payment option"
+                                        disabled="{!v.isSubmit}" value="{!v.PartialSettlementRestructureValue}"
+                                        onchange="{!c.handlePartialSettlementOptionChange}">
+                                        <aura:iteration items="{!v.PartialSettlementOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Partial payment amount" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementAmount}" step="0.001" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                
+                                <!--Hide for now Term input-->
+                                <!--<lightning:input label="Term" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementTerm}" required="{!v.isPartialSettlementTermRquired}" />-->
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isSubmit)}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <div class="slds-form-element__control">
+                                    <lightning:select name="PartialSettlement" label="Partial payment option" required="true"
+                                        value="{!v.PartialSettlementRestructureValue}"
+                                         onchange="{!c.handlePartialSettlementOptionChange}">
+                                        <aura:iteration items="{!v.PartialSettlementOptions}" var="option">
+                                            <option value="{!option.value}" text="{!option.label}" />
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Partial payment amount" type="number" required="true" aura:id="partialAmountInput"
+                                    value="{!v.PartialSettlementAmount}" step="0.001" min="{!v.minPartialAmount}" max="{!v.maxPartialAmount}" /> <!-- CH02 -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <!--Hide for now Term input-->
+                                <!--<lightning:input label="Term" type="number" disabled="{!v.isSubmit}"
+                                    value="{!v.PartialSettlementTerm}" required="{!v.isPartialSettlementTermRquired}" />-->
+                            </div>
+                        </aura:if>
+                    </aura:if>
+    
+                    <!-- Advance Payment -->
+                    <aura:if isTrue="{!v.isAdvancePayment}">
+    
+                        <aura:if isTrue="{!v.isSubmit}">
+                            
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Installment Advance Payment reason" type="text" disabled="{!v.isSubmit}"
+                                    value="{!v.AdvancePaymentReason}" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Number of Instalments for Advance Payments" disabled="{!v.isSubmit}"
+                                    value="{!v.InstalmentsForAdvancePayments}" />
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isSubmit)}">
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:input label="Installment Advance Payment reason" type="text" disabled="{!v.isSubmit}"
+                                    value="{!v.AdvancePaymentReason}" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 custom-column">
+                                <lightning:select name="NumberInstalmentsAdvancePayments" label="Number of Instalments for Advance Payments" disabled="{!v.isSubmit}"
+                                        value="{!v.InstalmentsForAdvancePayments}">
+                                        <option value="1" text="1" />
+                                        <option value="2" text="2" />
+                                        <option value="3" text="3" />
+                                </lightning:select>
+                                <!--<lightning:input label="Number of Instalments for Advance Payments" type="number"
+                                    value="{!v.InstalmentsForAdvancePayments}" max="3" messageWhenRangeOverflow="Maximum allowed instalments is 3."/>-->
+                            </div>
+                        </aura:if>
+    
+                    </aura:if>
+    
+                </div>
+
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="isSubmitted__c" aura:id="chk" />
+                    <lightning:inputField fieldName="isSubmitted__c" aura:id="isSubmitted" />
+                    <lightning:inputField fieldName="Status" aura:id="status" />
+                    <lightning:inputField fieldName="Loan_Application_ID__c" aura:id="LoanApp" />
+                </div>
+
+                <div class="slds-m-top_medium">
+                    <aura:if isTrue="{!not(v.isSubmit)}">
+                        <div style="margin-left: 15px;">
+                            <lightning:button variant="brand" label="Submit" type="submit" /> <!-- disabled="{!not(v.hasContent)}" -->
+                        </div>
+                    </aura:if>
+    
+
+                <!-- Omar Start Error message for missing content --> 
+                    <aura:if isTrue="{!and(not(v.hasContent), not(v.isSubmit))}">
+                        <div class="slds-m-top_small slds-text-color_error" style="margin-left: 12px;">
+                            <lightning:icon iconName="utility:warning" size="x-small" variant="error" class="slds-m-right_xx-small" />
+                            <strong>Content Required: </strong> {!$Label.c.Content_Required_Message}
+                        </div>
+                    </aura:if>
+                <!-- Omar end -->
+
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand"
+                        size="large" class="slds-hide" />
+                </div>
+            </lightning:recordEditForm>
+        </div>
+    </lightning:card>
+    <c:apexService aura:id="apexService" />
+</aura:component>

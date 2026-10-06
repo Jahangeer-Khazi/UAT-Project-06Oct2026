@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>purecloud__PC_EndDate_Required</fullName>
+    <active>true</active>
+    <description>An end date is required for PureCloud Campaigns</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(purecloud__PureCloud_Campaign_Setting__c)), ISBLANK(EndDate))</errorConditionFormula>
+    <errorDisplayField>EndDate</errorDisplayField>
+    <errorMessage>An end date is required for PureCloud Campaigns</errorMessage>
+</ValidationRule>

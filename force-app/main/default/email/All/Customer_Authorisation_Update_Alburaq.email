@@ -1,0 +1,7 @@
+Thank you for your recent request.  Please review the content below and confirm your approval by replying to this mail.  If you do not reply to this mail, we will not action the request and it will be cancelled 10 days after we opened the request.
+<br>
+<br>
+{!Case.Description}
+<br>
+<br>
+{!Case.Thread_Id}

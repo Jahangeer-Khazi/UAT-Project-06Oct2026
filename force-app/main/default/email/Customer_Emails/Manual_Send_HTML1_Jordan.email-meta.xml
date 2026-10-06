@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Manual Send HTML1 - Jordan</name>
+    <style>none</style>
+    <subject>Your Case {!Case.CaseNumber}</subject>
+    <textOnly>Insert Text here
+
+
+Any questions? Get in touch with us through ilabank.com or our contact center +96265100001.
+
+See you soon,
+ila Team
+
+
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+{!Case.Thread_Id}
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

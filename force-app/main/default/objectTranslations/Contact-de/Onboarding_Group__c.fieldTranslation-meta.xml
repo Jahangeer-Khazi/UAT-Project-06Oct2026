@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Onboarding Group --></label>
+    <name>Onboarding_Group__c</name>
+    <picklistValues>
+        <masterLabel>Account Created</masterLabel>
+        <translation><!-- Account Created --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ID Verification</masterLabel>
+        <translation><!-- ID Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Registration</masterLabel>
+        <translation><!-- Registration --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Siron checks</masterLabel>
+        <translation><!-- Siron checks --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

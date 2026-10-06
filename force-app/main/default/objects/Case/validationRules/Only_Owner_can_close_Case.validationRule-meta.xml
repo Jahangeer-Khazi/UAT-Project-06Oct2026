@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Owner_can_close_Case</fullName>
+    <active>false</active>
+    <description>This validation prevents user from closing a case they do not own. Exception added for APi</description>
+    <errorConditionFormula>(ISPICKVAL (Status, &apos;Closed&apos;) &amp;&amp; (OwnerId &lt;&gt; $User.Id))
+
+&amp;&amp;
+NOT(CONTAINS($Label.UserIdExceptions, $User.Id))</errorConditionFormula>
+    <errorMessage>Only the Owner can close this Case</errorMessage>
+</ValidationRule>

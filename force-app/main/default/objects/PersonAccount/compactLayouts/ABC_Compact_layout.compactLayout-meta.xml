@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ABC_Compact_layout</fullName>
+    <fields>ds_Account_Name__c</fields>
+    <fields>CustomerStatus__c</fields>
+    <fields>Onboarding_Stage__pc</fields>
+    <fields>CIF__pc</fields>
+    <fields>PersonEmail</fields>
+    <fields>PersonMobilePhone</fields>
+    <fields>Icon_SubscriptionModel__c</fields>
+    <fields>Segment__pc</fields>
+    <fields>Region_icon__pc</fields>
+    <label>ABC Compact layout</label>
+</CompactLayout>

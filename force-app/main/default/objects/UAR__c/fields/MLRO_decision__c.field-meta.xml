@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MLRO_decision__c</fullName>
+    <label>MLRO decision</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Submit an STR</fullName>
+                <default>false</default>
+                <label>Submit an STR</label>
+            </value>
+            <value>
+                <fullName>Do not submit an STR</fullName>
+                <default>false</default>
+                <label>Do not submit an STR</label>
+            </value>
+            <value>
+                <fullName>Exit Recommendation</fullName>
+                <default>false</default>
+                <label>Exit Recommendation</label>
+            </value>
+            <value>
+                <fullName>Add to local Watchlist</fullName>
+                <default>false</default>
+                <label>Add to local Watchlist</label>
+            </value>
+            <value>
+                <fullName>Payment (in-flight Screening)</fullName>
+                <default>false</default>
+                <label>Payment (in-flight Screening)</label>
+            </value>
+            <value>
+                <fullName>ila Private Blacklist</fullName>
+                <default>false</default>
+                <label>ila Private Blacklist</label>
+            </value>
+            <value>
+                <fullName>ila Private EDD Caution List</fullName>
+                <default>false</default>
+                <label>ila Private EDD Caution List</label>
+            </value>
+            <value>
+                <fullName>ila Private Watchlist</fullName>
+                <default>false</default>
+                <label>ila Private Watchlist</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

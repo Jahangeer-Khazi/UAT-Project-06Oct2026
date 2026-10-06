@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- DBR_Sheet_ReadOnlyCheck --></label>
+    <name>cx_DBR_Sheet_ReadOnlyCheck__c</name>
+</CustomFieldTranslation>

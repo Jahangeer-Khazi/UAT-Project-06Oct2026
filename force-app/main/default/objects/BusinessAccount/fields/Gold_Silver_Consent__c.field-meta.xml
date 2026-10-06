@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gold_Silver_Consent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field shows the consent status of the Gold &amp; Silver Accounts Terms &amp; Conditions. The value is updated to TRUE when the customer provides consent during the investment questionnaire submission via the ila app.</description>
+    <label>Gold &amp; Silver Consent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

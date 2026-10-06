@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Sold Investment (1), Did Nothing (3), Purchased More (5) --></help>
+    <label><!-- Past Experience Score --></label>
+    <name>Past_Experience_Score__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>criteria__c</fullName>
+    <description>Criteria field to put condition when this metadata record is allowed to be used.
+Supported operators are : &apos;==&apos;, &apos;!=&apos;, &apos;&amp;&amp;&apos;</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>criteria</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Legal_Fee__c</fullName>
+    <defaultValue>0.00</defaultValue>
+    <description>This field is created as part for story 4151-Outstanding &amp; No liability Letters</description>
+    <externalId>false</externalId>
+    <label>Total Legal Fee</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

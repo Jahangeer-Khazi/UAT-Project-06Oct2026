@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cx_ln_Approved_Requested_Card_Type__c</fullName>
+    <label>Approved Requested Card Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PLATINUM_BALANCE_TRANSFER_01</fullName>
+                <default>false</default>
+                <label>ila Switch</label>
+            </value>
+            <value>
+                <fullName>PLATINUM_CASHBACK_AND_REWARD_01</fullName>
+                <default>false</default>
+                <label>ila Blue</label>
+            </value>
+            <value>
+                <fullName>WORLD_CASHBACK_AND_REWARDS_01</fullName>
+                <default>false</default>
+                <label>ila World</label>
+            </value>
+            <value>
+                <fullName>WORLD_ELITE_CASHBACK_AND_REWARDS_01</fullName>
+                <default>false</default>
+                <label>ila World Elite</label>
+            </value>
+            <value>
+                <fullName>TITANIUM_CO_BRAND_01</fullName>
+                <default>false</default>
+                <label>Titanium Gulf Air Brand 01</label>
+            </value>
+            <value>
+                <fullName>PLATINUM_CO_BRAND_01</fullName>
+                <default>false</default>
+                <label>Platinum Gulf Air</label>
+            </value>
+            <value>
+                <fullName>TITANIUM_CO_BRAND_02</fullName>
+                <default>false</default>
+                <label>Titanium Gulf Air Brand 02</label>
+            </value>
+            <value>
+                <fullName>PREPAID_01</fullName>
+                <default>false</default>
+                <label>ila Prepaid</label>
+            </value>
+            <value>
+                <fullName>ILA_GULF_AIR_COBRAND_01</fullName>
+                <default>false</default>
+                <label>ila Gulf Air</label>
+            </value>
+            <value>
+                <fullName>WORLD_ELITE_CASHBACK_AND_REWARDS_02</fullName>
+                <default>false</default>
+                <label>ila World Elite - Metal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

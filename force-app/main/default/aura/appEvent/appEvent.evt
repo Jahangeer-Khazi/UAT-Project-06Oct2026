@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="generic application event">
+	<aura:attribute name="message" type="Object" access="public" required="true" description="event payload, JS object"></aura:attribute>
+	<aura:attribute name="source" type="String" access="public" required="true" description="source/sender of the event"></aura:attribute>
+	<aura:attribute name="target" type="String" access="public" required="true" description="recipient of the event"></aura:attribute>
+</aura:event>

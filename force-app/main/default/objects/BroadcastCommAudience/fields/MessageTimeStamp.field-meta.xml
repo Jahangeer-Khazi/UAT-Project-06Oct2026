@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MessageTimeStamp</fullName>
+    <inlineHelpText>Timestamp of when Slack message was sent.</inlineHelpText>
+    <trackHistory>false</trackHistory>
+</CustomField>

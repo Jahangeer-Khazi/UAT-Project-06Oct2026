@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApplePay_Case_Validation_on_SubType</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Type)=&apos;Apple Pay&apos; &amp;&amp; TEXT(Sub_Type__c)=&apos;Stolen/sold device&apos; &amp;&amp; (ISBLANK(SEID__c) || ISBLANK(Date_of_Stolen_Sold_Device__c ))</errorConditionFormula>
+    <errorMessage>&apos;SEID&apos; and &apos;Date of Stolen/ Sold Device&apos; are mandatory to fill for the Apple Cases when Sub Type is selected as &apos;Stolen/sold device&apos;</errorMessage>
+</ValidationRule>

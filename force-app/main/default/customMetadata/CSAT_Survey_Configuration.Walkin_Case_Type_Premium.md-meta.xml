@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Walkin Case Type - Premium</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Type__c</field>
+        <value xsi:type="xsd:string">Walkin_Customers</value>
+    </values>
+    <values>
+        <field>Email_Template__c</field>
+        <value xsi:type="xsd:string">Walkin_Customer_Survey</value>
+    </values>
+    <values>
+        <field>Segment__c</field>
+        <value xsi:type="xsd:string">Premium</value>
+    </values>
+    <values>
+        <field>Survey_Enabled__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Unregistered_Users_Enabled__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

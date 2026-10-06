@@ -1,0 +1,190 @@
+<apex:page controller="loanPaymentPdfController" readOnly="true" contentType="application/vnd.ms-excel" standardStylesheets="false" showHeader="false">
+     
+    <head>
+        <style>
+            .text-format {
+                mso-number-format: "\@";
+            }
+        </style>
+    </head>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="font-size:24px;"><b>Repayment Schedule</b></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Customer Name</td>
+            <td><strong>{!decodedaccName}</strong></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Customer CIF</td>
+            <td align="left"><strong>{!decodedcustomerCIFNo}</strong></td>
+        </tr>
+        <apex:outputPanel rendered="{!decodedPageName == 'case'}">
+        	<tr>
+                <td></td>
+                <td>Application Submission Date</td>
+                <td style="mso-number-format: '\@'"><strong>{!caseCreatedDate}</strong></td>
+            </tr>
+        </apex:outputPanel>
+        <tr>
+            <td></td>
+            <td>Unit</td>
+            <td><strong>{!lbl_unit}</strong></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold">Application No.</td>
+                <td style="text-align: left;mso-number-format: '\@'">{!applicationNo}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Number of Payments</td>
+                <td style="text-align: left;">{!header.numberOfPayments}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">{!lbl_loanFinanceStartDate}</td>
+                <td style="text-align: left;mso-number-format: '\@'">{!header.loanStartDate}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">{!lbl_interestRate}</td>
+                <td style="text-align: left;mso-number-format: '\@'">{!header.formattedInterestRate} %</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Total Repayment Amount</td>
+                <td style="text-align: left;">BHD {!header.formattedTotalCostOfLoan}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">{!lbl_totalInterestAmount}</td>
+                <td style="text-align: left;">BHD {!header.formattedTotalInterest}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">{!lbl_ApprovedLoanAmount}</td>
+                <td style="text-align: left;">BHD {!header.formattedPrincipleAmount}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Life Insurance Rate</td>
+                <td style="text-align: left;mso-number-format: '\@'">{!header.formattedLifeInsuranceRate}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Cash in Hand</td>
+                <td style="text-align: left;">BHD {!header.formattedCashInHand}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Insurance Amount</td>
+                <td style="text-align: left;">BHD {!header.formattedInsuranceAmount}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Monthly Installment</td>
+                <td style="text-align: left;">BHD {!header.formattedMonthlyInstallment}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Processing Fee</td>
+                <td style="text-align: left;">BHD {!header.formattedAdministrationFees}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">{!lbl_loanDuration}</td>
+                <td style="text-align: left;">{!header.loanPeriod} months</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">VAT Processing Fee</td>
+                <td style="text-align: left;">BHD {!header.formattedAdministrationFeesVat}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">First Installment Date</td>
+                <td style="text-align: left;">{!header.firstInstallmentDate}</td>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Annual Percentage Rate (APR)</td>
+                <td style="text-align: left;mso-number-format: '\@'">{!header.formattedApr} %</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;font-weight:bold;">Last Installment Date:</td>
+                <td style="text-align: left;">{!header.lastInstallmentDate}</td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: left;mso-number-format: '\@'"></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+    
+    <table>
+                <thead>
+                  <tr style="background-color:#000F3B;color:#FFFFFF" border="1">
+                    <th rowspan="2" class="right-border font11">Installment No</th>
+                    <th rowspan="2" class="right-border font11">Installment Due Date</th>
+                    <apex:outputPanel rendered="{!decodedPageName == 'customer'}">
+                    <th rowspan="2" class="right-border font11">Status</th>
+                    </apex:outputPanel>
+                    <th rowspan="2" class="right-border font11">No. of Days</th>
+                    <th rowspan="2" class="right-border font11">Beginning Balance</th>
+                    <th colspan="3" class="right-border font11 bottom-border">Installment Breakdown</th>
+                    <th rowspan="2" class="right-border font11">Monthly Installment (full amount)</th>  
+                    <th rowspan="2" class="right-border font11">Monthly Installment (excl. Charges)</th>
+                    <th rowspan="2" class="right-border font11">Monthly Insurance Fee (reducing balance)</th>  
+                    <th rowspan="2" class="font11">Ending Balance</th>
+                  </tr>
+                    <tr style="background-color:#000F3B;color:#FFFFFF;border-top:1px solid white">
+                        <th class="right-border font11">Principal Amount</th>
+                        <th class="right-border font11">Interest/Profit Amount</th> 
+                        <!--<th class="right-border font11">Admin Fees(flat)</th>                       
+                        <th class="right-border font11">Admin Fees VAT</th>-->
+                        <th class="right-border font11">Insurance Fee (flat)</th>
+                    </tr>
+               </thead>
+               <tbody>
+                <apex:variable var="rowCount" value="{!0}"/>
+                <apex:repeat value="{!paymentsList}" var="payment">
+                    <tr style="border-bottom:1px solid #000">
+                        <td align="center">{!payment.installmentNo}</td>
+                        <td align="center">{!payment.installmentDueDate}</td>
+                        <apex:outputPanel rendered="{!decodedPageName == 'customer'}">
+                        <td align="center">{!payment.billStatus}</td>
+                        </apex:outputPanel>
+                        <td align="center">{!payment.noOfDays}</td>
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedBeginningBalance}</td>
+                        <!------------- Installment Breakdown ------------------->
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedPrincipalAmount}</td>
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedInterestAmount}</td>
+                        <!--<td align="center">{!payment.formattedAdminFeesFlat}</td>
+                        <td align="center">{!payment.formattedAdminFeesVat}</td>-->
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedMonthlyInsuranceFeesFlat}</td>
+                        <!------------------------------------------------------->
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedMonthlyInstallmentFull}</td>
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedMonthlyInstallmentExcludingCharges}</td>
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedMonthlyInsuranceFeesReducing}</td>
+                        <td align="center" style="mso-number-format: '\@'">{!payment.formattedEndingBalance}</td>
+                    </tr>
+                    <apex:variable var="rowCount" value="{!rowCount+1}"/>
+                </apex:repeat>
+               </tbody>
+            </table>
+</apex:page>

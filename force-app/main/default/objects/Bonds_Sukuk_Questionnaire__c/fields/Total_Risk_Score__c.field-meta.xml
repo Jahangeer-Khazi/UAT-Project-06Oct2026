@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Risk_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>Risk_Tolerance_Score__c + Risk_Preference_Score__c + Risk_Level_Score__c + Knowledge_Level_Score__c + Experience_Level_Score__c + Past_Experience_Score__c + Investor_Declaration_Score__c</formula>
+    <label>Total Risk Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

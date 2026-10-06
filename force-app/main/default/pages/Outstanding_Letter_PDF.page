@@ -1,0 +1,136 @@
+<apex:page applyHtmlTag="false" showHeader="false" Controller="LetterGenerationController" renderAs="advanced_pdf">
+    <head>
+        <style type="text/css">
+            
+            body {
+                font-family: Arial Unicode MS;
+                font-size: 8px;
+                margin: 10px;
+            }
+            
+            @page {
+                margin-top: 1cm;
+                margin-bottom: 2cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                
+                @top-center {
+                    content: element(headerTitle);
+                }
+                div.headerTitle {
+                    position: running(headerTitle);
+                }
+            
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+            
+            table, td, th {
+              border: 1px solid white;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            .topmargin20 {
+                margin-top:15px;
+            }
+            div.footer {
+                    display: block;
+                    position: running(footer);
+                    width:100%;
+                }
+            
+            .repeatTableHeader{-fs-table-paginate: paginate;}
+        </style>
+    </head>
+    <body style="font-family: Arial Unicode MS">
+        
+        
+        
+        <div class="headerTitle">
+            
+        
+        <div style="width:100%;text-align:right">
+            <apex:image url="{!$Resource.ila_logo_vf}" width="100"/>
+        </div>
+        <div style="margin-top:14px;font-size:14px">
+            <div><span>Ref &nbsp;:&nbsp;&nbsp;{!caseNumber}</span></div>
+            <div>Date:&nbsp;<apex:outputText value="{0, date,  dd/MM/yyyy}"><apex:param value="{!letterDate}" /></apex:outputText></div>
+        </div>
+    
+        <div style="text-align:center;font-size:18px">
+            To Whom It May Concern    
+        </div>
+        <div style="text-align:center;text-decoration:underline;margin-top:15px;font-size:16px">
+            Subject: Credit Card(s) Outstanding Balance Certificate    
+        </div>
+        <div style="margin-top:35px;font-size:14px">
+            <div>
+                This is to certify that <span style="text-decoration:underline;text-transform:uppercase">{!gender}.{!acc.Name}</span> has the following Outstanding Balance on ila Bank Credit Card(s):
+            </div>
+            
+            <div>&nbsp;</div>
+            
+            <table align="center" style="border-collapse: collapse;width:90%;">
+                <tr style="height:40px;">
+                    <th align="center" style="border-right:1px solid white;text-decoration:underline;">Card Type</th>
+                    <th align="center" style="border-right:1px solid white;text-decoration:underline;">Credit Limit</th>
+                    <th align="center" style="border-right:1px solid white;text-decoration:underline;">Card Number</th>
+                    <th align="center" style="border-right:1px solid white;text-decoration:underline;">Issue Date</th>
+                    <th align="center" style="border-right:1px solid white;text-decoration:underline;">Outstanding Balance</th>
+                </tr>
+                <apex:repeat value="{!cardDetails}" var="case">
+                    <tr style="background:#F2F2F2;height:40px">
+                        <td align="center" style="border-right:1px solid white"><apex:outputText value="{!case.displayName}"/></td>
+                        <td align="center" style="border-right:1px solid white"><apex:outputText value="{!case.cardLimit}"/></td>
+                        <td align="center" style="border-right:1px solid white"><apex:outputText value="{!case.pciNumber}"/></td>
+                        <td align="center" style="border-right:1px solid white"><apex:outputText value="{0, date,  dd-MM-yyyy}"><apex:param value="{!case.issueDate}" /></apex:outputText></td>
+                        <td align="center" style="border-right:1px solid white"><apex:outputText value="{!case.outstandingBalance}"/></td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+       <!-- <div>&nbsp;</div> -->
+        
+        <apex:outputPanel rendered="{!legalFee != 0 && legalFee != null}">
+            <div style="margin-top:25px;font-size:14px">
+                Legal Fee : {!legalFee} BHD    
+            </div>
+        </apex:outputPanel>
+
+        <div style="margin-top:25px;font-size:14px">
+            Since the Outstanding Balance is a net residual of daily transaction processed to the Card(s), the net balance shown above does not necessarily reﬂect the actual Outstanding Balance any date after the date of this letter.
+        </div>
+        <div style="margin-top:20px;font-size:14px">
+            <p>
+                This letter has been issued upon the customer's request and without any obligation on our part.
+            </p>
+        </div>
+        
+        <div style="height:50px">
+            &nbsp;
+        </div>
+        <div style="margin-top:20px;font-size:14px">
+            <p>
+                Sincerely,
+            </p>
+        </div>
+        <div style="width:100%;text-align:left">
+            <apex:image url="{!$Resource.ilaLogo}" width="150" height="95"/>
+        </div>
+            </div>
+        
+        <div style="position:fixed;bottom:0px;width:100%;">
+            <table style="font-size:8px;width:100%;color:#999999;">
+                <tr>
+                    <td style="text-align:left">
+                        <p>
+                            Building: 152, Road: 1703, Block: 317, Manama, Kingdom of Bahrain. Licensed as a Conventional Retail Bank - Branch by the Central Bank of Bahrain. Powered by Bank ABC (Arab Banking Corporation B.S.C.). Representative of Arab Banking Corporation (B.S.C.) Tax Group. Group TRN: 210000425500002. Disclaimer: This is an auto generated letter from ila Bank’s official channel. The information contained here within may be privileged or confidential. If you are not the intended recipient, you are hereby notified that you have received this letter in error; any review, dissemination, distribution or copying of this letter is strictly prohibited. If you have received this letter and/or attachments in error, please notify us immediately by reply to ila Bank or delete this message and all its attachments immediately.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</apex:page>

@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="jqDataTable event">
+	<aura:attribute name="message" type="Object" access="public" required="true" description="event payload, JS object"></aura:attribute>
+</aura:event>

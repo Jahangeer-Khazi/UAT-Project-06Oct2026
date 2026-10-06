@@ -1,0 +1,88 @@
+<!-- 	
+    * 	Created By: Imane Tsioucha
+    *	Created Date: 13-02-2024
+    * 	Change History: 
+-->
+
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global"
+                controller="LTNG035_CustomerTotalDepositsController">
+    <aura:attribute name="balance" type="String" />
+    <aura:attribute name="currency" type="String" />
+    <aura:attribute name="recordId" type="Id" /> 
+    <aura:attribute name="status" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="error" type="String" />
+    <aura:attribute name="errorSecond" type="String" />
+    <aura:attribute name="balanceBoth" type="String"/>
+    <aura:attribute name="currencyBoth" type="String"/>
+    <aura:attribute name="statusBoth" type="Boolean"/>
+    <aura:attribute name="regionOption" type="Boolean" default="false"/>
+    <aura:attribute name="firstTotal" type="String" />
+    <aura:attribute name="secondTotal" type="String"  />
+    <aura:attribute name="showLWCComponent" type="Boolean" default="false"/>
+    
+    <aura:attribute name="showButton" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card>
+        <div class="slds-p-horizontal_medium slds-m-bottom_small">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; width: 100%;">
+                <div style="display: flex; justify-content: flex-start; align-items: center; gap: 10px; flex-wrap: wrap; flex: 1;">
+                    <button style="width: 26%;max-width: 30%;background-color: #002244;margin-bottom: 7px;color: white;font-size: 10px;margin-left: 3%;padding: 1%; " 
+                            label="" title="SHOW TOTAL DEPOSIT" onclick="{!c.showPopup }">SHOW TOTAL DEPOSIT</button> 
+                </div>
+                <aura:if isTrue="{!v.showButton}">
+                    <div style="flex: 0 0 auto;">
+                        <button style="min-width: 160px; background-color: #00796b; color: white; font-size: 10px; padding: 6px 12px; cursor: pointer; border: none; border-radius: 4px;" 
+                                title="ELIGIBLE PRODUCTS AND OFFERS" onclick="{!c.openProductsOffers }">ELIGIBLE PRODUCTS AND OFFERS</button>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+        
+        <aura:if isTrue="{!v.status}">
+            <div class="slds-form__item" role="listitem" style="margin-left:40%;font-weight: bold;">
+                <span class="slds-form-element__label" style="margin-top:-37px;font-size:13px;color:#002244;margin-left: -15%;">{!v.firstTotal} Total Balance:</span>
+                <div class="slds-form-element__control" style="margin-top:-34px;">
+                    <div class="slds-form-element__static" style="font-weight: bold;color:#002244;">
+                        <!--  {!v.currency + ' ' + v.balance}-->
+                        {!v.balance}
+                    </div>
+                </div>
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-form__item" role="listitem" style="margin-left:40%;font-weight: bold;">
+                    <span class="slds-form-element__label" style="margin-top:-37px;font-size:12px;color:red;margin-left: -15%;">{!v.error}</span>
+                </div>
+            </aura:set>
+        </aura:if>
+        <aura:if isTrue="{!v.regionOption}">
+            <div class="slds-form__item" role="listitem" style="margin-left:40%;font-weight: bold;">
+                <span class="slds-form-element__label" style=" font-size:13px;color:#002244;margin-left: -15%;">{!v.secondTotal} Total Balance:</span>
+                <div class="slds-form-element__control" style="margin-top: -2px;">
+                    <div class="slds-form-element__static" style="font-weight: bold;color:#002244;  margin-top: 5%;">
+                        <!-- {!v.currencyBoth + ' ' + v.balanceBoth}-->
+                        {!v.balanceBoth}
+                    </div>
+                </div>   
+            </div>  
+            <aura:set attribute="else">
+                <div class="slds-form__item" role="listitem" style="margin-left:40%;font-weight: bold;">
+                    <span class="slds-form-element__label" style="font-size:12px;color:red;margin-left: -15%;">{!v.errorSecond}</span>
+                </div>
+            </aura:set>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showLWCComponent}">
+            <c:eligibleProductsAndOffers 
+                                         recordId="{!v.recordId}"
+                                         onmodalclosed="{!c.handleModalClose}"
+                                         aura:id="lwcComponent">
+            </c:eligibleProductsAndOffers>
+        </aura:if>
+    </lightning:card>
+</aura:component>

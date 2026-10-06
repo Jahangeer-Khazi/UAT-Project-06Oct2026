@@ -1,0 +1,29 @@
+.THIS .kanz-label {
+    width: 70% !important;
+}
+
+.THIS .kanz-value {
+    width: 30% !important; 
+}
+
+.THIS .outputLookupLink{   
+    pointer-events: none !important;
+    cursor: default  !important;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.THIS .tileTitle h3{   
+    pointer-events: none !important;
+    cursor: default  !important;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.THIS .tileTitle a{   
+    pointer-events: none !important;
+    cursor: default  !important;
+    text-decoration: none !important;
+    color: black !important;
+    font-weight: bold !important;
+}

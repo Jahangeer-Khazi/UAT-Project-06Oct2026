@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will confirm the Lead Details and transfer the lead to Checker Queue</description>
+    <height>250</height>
+    <label>Confirm Details1</label>
+    <lightningComponent>AssigntoCheckerQueue</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

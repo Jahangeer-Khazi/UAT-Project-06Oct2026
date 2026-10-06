@@ -1,0 +1,12 @@
+<template>
+    <div class="custom-container">
+        <div class="slds-m-left_medium">
+            <lightning-button variant="brand" label="Clear Customer Cache" title="Clear Customer Cache"
+                onclick={handleClearCache} loading={isLoading} disabled={isLoading}>
+            </lightning-button>
+        </div>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Clearing Cache" size="medium"></lightning-spinner>
+        </template>
+    </div>
+</template>

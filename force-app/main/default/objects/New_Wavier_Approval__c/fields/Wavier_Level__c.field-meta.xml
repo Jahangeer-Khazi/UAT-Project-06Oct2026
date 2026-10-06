@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wavier_Level__c</fullName>
+    <label>Waiver Level</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Waiver Level 1</fullName>
+                <default>false</default>
+                <label>Waiver Level 1</label>
+            </value>
+            <value>
+                <fullName>Waiver Level 2</fullName>
+                <default>false</default>
+                <label>Waiver Level 2</label>
+            </value>
+            <value>
+                <fullName>Waiver Level 3</fullName>
+                <default>false</default>
+                <label>Waiver Level 3</label>
+            </value>
+            <value>
+                <fullName>Waiver Level 4</fullName>
+                <default>false</default>
+                <label>Waiver Level 4</label>
+            </value>
+            <value>
+                <fullName>Waiver Level 5</fullName>
+                <default>false</default>
+                <label>Waiver Level 5</label>
+            </value>
+            <value>
+                <fullName>Ops</fullName>
+                <default>false</default>
+                <label>Ops</label>
+            </value>
+            <value>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+                <label>Contact Center</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

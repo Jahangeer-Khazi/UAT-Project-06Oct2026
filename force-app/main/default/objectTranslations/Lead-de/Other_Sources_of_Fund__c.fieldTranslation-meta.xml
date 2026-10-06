@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Other Sources of Fund --></label>
+    <name>Other_Sources_of_Fund__c</name>
+    <picklistValues>
+        <masterLabel>Accountant</masterLabel>
+        <translation><!-- Accountant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Application Driver</masterLabel>
+        <translation><!-- Application Driver --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Architecture Engineer</masterLabel>
+        <translation><!-- Architecture Engineer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Barber/ hairdresser</masterLabel>
+        <translation><!-- Barber/ hairdresser --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Car trader</masterLabel>
+        <translation><!-- Car trader --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Chef</masterLabel>
+        <translation><!-- Chef --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Civil Engineer</masterLabel>
+        <translation><!-- Civil Engineer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Consulting</masterLabel>
+        <translation><!-- Consulting --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Data analyst</masterLabel>
+        <translation><!-- Data analyst --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Electrician</masterLabel>
+        <translation><!-- Electrician --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Graphic design</masterLabel>
+        <translation><!-- Graphic design --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IT technician-</masterLabel>
+        <translation><!-- IT technician- --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Insurance intermediary</masterLabel>
+        <translation><!-- Insurance intermediary --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Internal designer</masterLabel>
+        <translation><!-- Internal designer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Land broker- سمسار</masterLabel>
+        <translation><!-- Land broker- سمسار --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lawyer</masterLabel>
+        <translation><!-- Lawyer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Marketing</masterLabel>
+        <translation><!-- Marketing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Musician</masterLabel>
+        <translation><!-- Musician --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Online trading</masterLabel>
+        <translation><!-- Online trading --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Personal trainer</masterLabel>
+        <translation><!-- Personal trainer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Photographer</masterLabel>
+        <translation><!-- Photographer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Plumber</masterLabel>
+        <translation><!-- Plumber --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Private teacher/ tutor</masterLabel>
+        <translation><!-- Private teacher/ tutor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Programming- coding</masterLabel>
+        <translation><!-- Programming- coding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales representative</masterLabel>
+        <translation><!-- Sales representative --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tailor</masterLabel>
+        <translation><!-- Tailor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tour guide</masterLabel>
+        <translation><!-- Tour guide --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Translator</masterLabel>
+        <translation><!-- Translator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Web developer</masterLabel>
+        <translation><!-- Web developer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wedding planner</masterLabel>
+        <translation><!-- Wedding planner --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

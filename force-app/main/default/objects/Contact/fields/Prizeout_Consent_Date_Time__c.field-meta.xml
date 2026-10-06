@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prizeout_Consent_Date_Time__c</fullName>
+    <description>Related to Prizeout</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Prizeout Consent Date &amp; Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

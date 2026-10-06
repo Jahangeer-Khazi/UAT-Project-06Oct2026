@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Ln Contact Center-Documents Uploaded</label>
+    <protected>false</protected>
+    <values>
+        <field>Awaiting_Customer_Feedback__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Is_Balance_Transfer__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>RecordType_DeveloperName__c</field>
+        <value xsi:type="xsd:string">Loan_Application</value>
+    </values>
+    <values>
+        <field>Status__c</field>
+        <value xsi:type="xsd:string">Under Review</value>
+    </values>
+    <values>
+        <field>Sub_Status__c</field>
+        <value xsi:type="xsd:string">In-Progress</value>
+    </values>
+    <values>
+        <field>Sub_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">New Loan / Finance Application</value>
+    </values>
+    <values>
+        <field>Value__c</field>
+        <value xsi:type="xsd:string">Documents Uploaded</value>
+    </values>
+    <values>
+        <field>apiStatus__c</field>
+        <value xsi:type="xsd:string">UNDER_REVIEW</value>
+    </values>
+    <values>
+        <field>cc_Application_Stages__c</field>
+        <value xsi:type="xsd:string">Credit Pre-Screening</value>
+    </values>
+    <values>
+        <field>criteria__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>crmStage__c</field>
+        <value xsi:type="xsd:string">IN PROGRESS</value>
+    </values>
+    <values>
+        <field>emailAlertName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>fieldAPiName__c</field>
+        <value xsi:type="xsd:string">cc_Contact_Centre_Result__c</value>
+    </values>
+    <values>
+        <field>fieldsToBeReseted__c</field>
+        <value xsi:type="xsd:string">cc_Credit_Pre_Screening_Result__c;CaseAnnex__c.cx_ln_Credit_Pre_Screening_Result__c</value>
+    </values>
+    <values>
+        <field>isApiCall__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>isDocuSign__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>queueDeveloperName__c</field>
+        <value xsi:type="xsd:string">Loan_Pre_Screer_Queue</value>
+    </values>
+    <values>
+        <field>regionName__c</field>
+        <value xsi:type="xsd:string">Bahrain</value>
+    </values>
+    <values>
+        <field>sectionResultFields__c</field>
+        <value xsi:type="xsd:string">Contact_Center_Result_Date_Time__c;cc_Contact_Center_by__c</value>
+    </values>
+</CustomMetadata>

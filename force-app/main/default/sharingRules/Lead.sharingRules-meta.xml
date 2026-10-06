@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Lead_Bahrain</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Lead with users assigned to Bahrain</description>
+        <label>Lead Bahrain</label>
+        <sharedTo>
+            <territory>Region.Bahrain</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Bahrain</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Lead_Jordan</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Lead with users assigned to Jordan</description>
+        <label>Lead Jordan</label>
+        <sharedTo>
+            <territory>Region.Jordan</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region_Flag__c</field>
+            <operation>equals</operation>
+            <value>Jordan</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

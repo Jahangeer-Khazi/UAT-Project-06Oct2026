@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMT_Results__c</fullName>
+    <label>RMT Results</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+                <label>Cancel</label>
+            </value>
+            <value>
+                <fullName>Escalate to Business</fullName>
+                <default>false</default>
+                <label>Escalate to Business</label>
+            </value>
+            <value>
+                <fullName>Apply Discount &amp; Wait For Customer</fullName>
+                <default>false</default>
+                <label>Apply Discount &amp; Wait For Customer</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Decline</fullName>
+                <default>false</default>
+                <label>Decline</label>
+            </value>
+            <value>
+                <fullName>Pending Documents</fullName>
+                <default>false</default>
+                <label>Pending Documents</label>
+            </value>
+            <value>
+                <fullName>Rollback</fullName>
+                <default>false</default>
+                <label>Rollback</label>
+            </value>
+            <value>
+                <fullName>Approve</fullName>
+                <default>false</default>
+                <label>Approve</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Onboarding</controllingFieldValue>
+            <valueName>Approve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <valueName>Pending</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <valueName>Decline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <valueName>Rollback</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <valueName>Escalate to Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <valueName>Apply Discount &amp; Wait For Customer</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

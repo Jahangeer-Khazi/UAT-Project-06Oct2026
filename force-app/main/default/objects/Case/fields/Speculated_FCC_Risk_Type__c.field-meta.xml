@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Speculated_FCC_Risk_Type__c</fullName>
+    <label>Speculated FCC Risk Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Money Laundering</fullName>
+                <default>false</default>
+                <label>Money Laundering</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>CBB/FID requests</fullName>
+                <default>false</default>
+                <label>CBB/FID requests</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Internal UAR</fullName>
+                <default>false</default>
+                <label>Internal UAR</label>
+            </value>
+            <value>
+                <fullName>Suspicious activity</fullName>
+                <default>false</default>
+                <label>Suspicious activity</label>
+            </value>
+            <value>
+                <fullName>Business Use</fullName>
+                <default>false</default>
+                <label>Business Use</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

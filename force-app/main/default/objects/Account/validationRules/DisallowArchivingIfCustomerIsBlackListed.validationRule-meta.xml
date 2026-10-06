@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisallowArchivingIfCustomerIsBlackListed</fullName>
+    <active>true</active>
+    <description>Back-end should not allow archiving for customer / prospect record which is flagged as Black-listed</description>
+    <errorConditionFormula>ISCHANGED(Archived__pc) &amp;&amp; Archived__pc == true &amp;&amp; Blacklisted__c == true</errorConditionFormula>
+    <errorMessage>You cannot archive the record of a customer/prospect flagged as blacklisted</errorMessage>
+</ValidationRule>

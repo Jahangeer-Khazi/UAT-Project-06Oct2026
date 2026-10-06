@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Out_Come__c</fullName>
+    <label>Sales OutCome</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No answer</fullName>
+                <default>false</default>
+                <label>No answer</label>
+            </value>
+            <value>
+                <fullName>Not interested</fullName>
+                <default>false</default>
+                <label>Not interested</label>
+            </value>
+            <value>
+                <fullName>Interested</fullName>
+                <default>false</default>
+                <label>Interested</label>
+            </value>
+            <value>
+                <fullName>Follow up</fullName>
+                <default>false</default>
+                <label>Follow up</label>
+            </value>
+            <value>
+                <fullName>FCR</fullName>
+                <default>false</default>
+                <label>FCR</label>
+            </value>
+            <value>
+                <fullName>customerAbandoned</fullName>
+                <default>false</default>
+                <label>Customer abandoned</label>
+            </value>
+            <value>
+                <fullName>handoffRequest</fullName>
+                <default>false</default>
+                <label>Handed off- request</label>
+            </value>
+            <value>
+                <fullName>handoffFault</fullName>
+                <default>false</default>
+                <label>Handed off- fault</label>
+            </value>
+            <value>
+                <fullName>EscalatedComplaint</fullName>
+                <default>false</default>
+                <label>Escalated- complaint</label>
+            </value>
+            <value>
+                <fullName>disputeFraud</fullName>
+                <default>false</default>
+                <label>Dispute - Fraud</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

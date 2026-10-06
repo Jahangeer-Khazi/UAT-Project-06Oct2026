@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- IBAN is Sent to Social Security Corporation --></help>
+    <label><!-- Send IBAN to SSC --></label>
+    <name>Send_IBAN_to_SSC__c</name>
+</CustomFieldTranslation>

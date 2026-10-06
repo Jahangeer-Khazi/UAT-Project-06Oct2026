@@ -1,0 +1,41 @@
+<aura:component access="global" controller = "LoanDocuSignDocumentListController" implements="force:lightningQuickAction,force:hasRecordId">
+	
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="data" type="Object[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="isNoRecordFound" type="Boolean" default="false"/>
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:100%;
+        }
+        .slds-modal__container {
+        transform: none !important;
+        width : 65% !important;
+        max-width : 65% !important;
+        }
+    </aura:html>
+    <div class="custom-modal slds-modal__content">
+    	<aura:if isTrue="{!v.data.length > 0}">
+            <div style="height:100%;">
+                <lightning:datatable 
+                                     keyField="id"
+                                     columnWidthMode="auto"
+                                     hideCheckboxColumn="true" 
+                                     data="{!v.data}" 
+                                     columns="{!v.columns}" 
+                                     onrowaction="{!c.handleRowAction}"/>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.isNoRecordFound}">
+            <p style="font-size:16px;color:red;">There is no docusign document.</p>
+        </aura:if>
+    </div>
+</aura:component>

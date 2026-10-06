@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId"
+    access="global">
+    <c:LTNG14_CallDrawApis recordId="{!v.recordId}" drawApiName="CREATE_DRAW" cmpTitle="Create Draw"
+        message="Once the draw is created, you can no longer make any changes. Are you sure you are ready to proceed?" />
+</aura:component>

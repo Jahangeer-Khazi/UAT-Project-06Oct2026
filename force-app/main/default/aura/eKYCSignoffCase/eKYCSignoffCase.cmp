@@ -1,0 +1,262 @@
+<aura:component >
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="iseKYC" type="Boolean" default="false"/>
+    
+    <div class="slds-p-bottom_large slds-p-left_large">
+        <lightning:recordViewForm
+                                  recordId="{!v.account.Id}"
+                                  objectApiName="Account"> 
+            <div class="slds-box">
+                <div class="slds-form" role="list" style="padding: 1rem;">
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <span class="slds-form-element__label">iGA ID Number</span>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static">
+                                        <lightning:outputField fieldName="iGA_ID_Number__pc" variant="label-hidden" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Nationality__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_English_First_Name__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Arabic_First_Name__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_English_Middle_Name_1__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Arabic_Middle_Name_1__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_English_Middle_Name_2__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Arabic_Middle_Name_2__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_English_Middle_Name_3__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Arabic_Middle_Name_3__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_English_Middle_Name_4__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Arabic_Middle_Name_4__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_English_Last_Name__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Arabic_Last_Name__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Gender__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Street__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Date_of_Birth__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_City__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="Place_of_Birth__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Country__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="Passport_Number__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Building_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="Occupation__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Building_Alpha__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Residency_Permit_Number__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Road_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="Passport_Expiry_Date__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Block_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Residency_Permit_Expiry__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Mailing_Flat_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employment_Status__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employer_Flat_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employer_Name__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employer_Building_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="Marital_Status__pc" />
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employer_Building_Alpha__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employer_Road_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <lightning:outputField fieldName="iGA_Employer_Block_Number__pc" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </lightning:recordViewForm>
+    </div>	
+</aura:component>

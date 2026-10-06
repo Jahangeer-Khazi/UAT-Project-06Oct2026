@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Jordan Manual Onboarding - Checker Queue</name>
+    <queueMembers>
+        <users>
+            <user>westbrook@bankabc.com</user>
+            <user>adrian.curtis@westbrook.co.uk</user>
+            <user>allensj.cc.jordan@bank-abc.com</user>
+            <user>allensj.rmt.jordan@bank-abc.com</user>
+            <user>irfan.operations.jordan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Jordan_Cases_Routing_config_CC</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

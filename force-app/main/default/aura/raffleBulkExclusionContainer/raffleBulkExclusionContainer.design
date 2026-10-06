@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="currentDrawId" label="Current Draw ID" description="The ID of the current draw" />
+    <design:attribute name="currentDrawName" label="Current Draw Name" description="The Name of the current draw" />
+    <design:attribute name="currentPrizeType" label="Current Prize Type" description="The type of prize for the current draw" />
+</design:component>

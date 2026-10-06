@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Draw Entry Review</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Draw Entries Review</value>
+    </caseValues>
+    <layouts>
+        <layout>Draw Entry Review Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Users with the ila Marketing Platform profile cannot edit Prize Type or Category after record creation. --></errorMessage>
+        <name>Cannot_Edit_PrizeType_And_Category</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CIF only accepts numeric values --></errorMessage>
+        <name>Cif_NumericValueOnly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot create or update draw entry reviews at this stage of the draw --></errorMessage>
+        <name>Disallow_CreationOrUpdateOfReviews</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the same Prize Type as the current draw --></errorMessage>
+        <name>Raffle_SamePrizeType</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Upload_File --></label>
+        <name>Upload_File</name>
+    </webLinks>
+</CustomObjectTranslation>

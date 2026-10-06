@@ -1,0 +1,114 @@
+<!--
+  @description       : 
+  @author            : ismael.ocana
+  @group             : 
+  @last modified on  : 27/10/2021
+  @last modified by  : ismael.ocana
+  @history : 
+    #CH01 : 29/12/2022 by Aniss Raffle Application Ad-hoc Recurring Raffle Automation  (CRM-Changes)
+-->
+<apex:page docType="html-5.0" controller="RaffleDrawComponentController" showHeader="false" sidebar="false" applyBodyTag="false"
+    applyHtmlTag="false" standardStylesheets="false">
+
+    <head>
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
+        <apex:includeScript value="http://cdnjs.cloudflare.com/ajax/libs/ocanvas/2.10.0/ocanvas.min.js" />
+        <apex:includeScript value="{!URLFOR($Resource.Raffles, 'Raffles/index.js')}"></apex:includeScript>
+        <apex:stylesheet value="{!URLFOR($Resource.Raffles, 'Raffles/style1.css')}" />
+        <style>
+        @font-face{
+          font-family: Neo Sans Arabic;
+          src: url("{!URLFOR($Resource.Raffles, 'Raffles/fonts/NeoSansArabic.ttf')}") format('truetype');
+        }
+        
+        @font-face{
+          font-family: SF Pro Text;
+          src: url("{!URLFOR($Resource.Raffles, 'Raffles/fonts/SF-Pro-Text-Regular.otf')}") format('opentype');
+        }
+        /* #CH01 : Start */
+        .boxesPrize{
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+        .boxPrize{
+            border-radius:8px;
+            display: inline-block;
+            padding: 26px 160px;
+            background: rgba(255, 246, 204, 0.06);
+            border: 1px solid rgba(255, 234, 134, 0.18);
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin-right: 16px;
+        }
+        /* #CH01 : End */
+        </style>
+    </head>
+
+    <body onload="changeValueOnTime();">
+        <apex:form id="frm">
+            <div id="container">
+                <canvas id="canvas"> </canvas>
+                <div id="controls">
+                    <div class="main">
+                        <div class="logo">
+                            <apex:image styleClass="ila-logo" url="{!URLFOR($Resource.Raffles, 'Raffles/images/logo.png')}" />
+                        </div>
+                        <div class="big-title">
+                            {!draw.Draw_Name__c}
+                        </div>
+                            <div class="cif" onclick="nextPage();">
+                                <div id="outputSpan"></div>
+                            </div>
+                        <div class="prize">
+                            <div class ="prize-child">
+                            <!-- #CH01 Start: changes on smallest prize design -->
+                            <div class="prize-num" style="font-size : 20px">Prize to win 🎁</div>
+                            <!-- <div class="prize-num">{!smallestPrizeWinner.Prize__r.Tier__c + '💰'}</div> -->
+                            <div class="boxesPrize">
+                                <div class="boxPrize">
+                                    <!-- <span class="currency">{!smallestPrizeWinner.Prize__r.Prize_Currency__c}</span>
+                                    <span class="amount">
+                                        <span>
+                                            <apex:outputText value="{0, number, ###,##0}" id="myNumberDisplay">
+                                                <apex:param value="{!smallestPrizeWinner.Prize__r.Winning_Amount__c}"/>
+                                            </apex:outputText>
+                                        </span>
+                                    </span>
+                                    <span class="decimal">.000</span> -->
+                                    <span>{!smallestPrizeWinner.Prize__r.Tier__c}</span>
+
+                                </div>
+                            </div>
+                            <!-- #CH01 End:-->
+
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <apex:actionFunction name="navigateNextPage" action="{!navigateToNextPage}"></apex:actionFunction>
+        </apex:form>
+    </body>
+
+    <script>
+        
+        function changeValueOnTime(){
+            j$ = jQuery.noConflict();
+            let cifsList = '{!cifsList}';
+            cifsList = cifsList.replace('[', '');
+            cifsList = cifsList.replace(']', '');
+            cifsList = cifsList ? cifsList.split(',') : null;
+            let listSize = cifsList ? cifsList.length : 0;
+            var interval = 0;
+            var jQueryElement = j$("#outputSpan");
+            setInterval(() => {
+                jQueryElement.text(cifsList[interval]);
+                interval = ((interval + 1) < listSize) ? interval+1 : 0;
+            }, 1);
+        }
+        function nextPage(){
+            navigateNextPage();
+        }
+    </script>
+</apex:page>

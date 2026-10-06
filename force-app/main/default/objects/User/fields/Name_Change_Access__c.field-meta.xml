@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Change_Access__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This permission(if true) gives the user to change the customer Name, as it will override the validation rule written for restricting any name change of the customer</description>
+    <label>Name Change Access</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

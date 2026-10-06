@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bahrain</fullName>
+        <default>false</default>
+        <label>Bahrain</label>
+    </customValue>
+    <customValue>
+        <fullName>Jordan</fullName>
+        <default>false</default>
+        <label>Jordan</label>
+    </customValue>
+    <masterLabel>Region Flag</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

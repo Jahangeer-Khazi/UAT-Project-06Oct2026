@@ -1,0 +1,53 @@
+<aura:component controller="BondSukukInfoController">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="true"/>
+    <aura:attribute name="caseRecordType" type="String"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="enableActions" type="Boolean" required="true"/>
+    <aura:attribute name="region" type="String" required="true"/>
+    <aura:attribute name="segment" type="String" required="true"/>
+    <aura:attribute name="curency" type="String"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="instrument" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="investment" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="currentInst" type="Object" required="true"/>
+    <aura:attribute name="currentInvst" type="Object" required="true"/>
+    <aura:attribute name="regionName" type="String" />
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="accountId" type="String" access="private"/>
+    
+    <aura:attribute name="displayInstrumentDetails" type="Boolean" access="private" default="false"/>
+    
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:method name="reload" action="{!c.load}" />
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+    <!-- Event is required to pass the accountID to non-related CardList and Card-details component -->
+    <aura:registerEvent name="onSelectionPassId" type="c:PassAccountIdEvent"/>
+    <aura:if isTrue="{!empty(v.data)}">
+        No Instruments Found
+        <aura:set attribute="else">
+            <lightning:datatable
+                                 aura:id="bondListTable"
+                                 data="{!v.data}"
+                                 columns="{! v.columns}"
+                                 keyField="id"
+                                 hideCheckboxColumn="false"
+                                 maxRowSelection="1"
+                                 onrowselection="{! c.handleRowSelection }"
+                                 onrowaction="{! c.handleRowAction }"/>
+            
+            <aura:if isTrue="{!v.displayInstrumentDetails}">
+                <br/>
+                <c:LTNG043_InstrumentDetails data="{!v.currentInst}" regionName="{!v.regionName}" investmentData="{!v.currentInvst}" isAlburaqProduct = "{!v.isAlburaqProduct}" customerId="{!v.customerId}"/>
+            </aura:if>
+            <br></br><br></br>
+       <c:LTNG054_BondsSukuk_Statement account="{!v.account}" customerId="{!v.customerId}" accountId="{!v.accountId}" isAlburaqProduct = "{!v.isAlburaqProduct}"/>
+        </aura:set>
+    </aura:if>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AlKanz_Status__c</fullName>
+    <description>Kanz Status Values</description>
+    <label>AlKanz Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Eligible - Active - Funded</fullName>
+                <default>false</default>
+                <label>Eligible - Active - Funded</label>
+            </value>
+            <value>
+                <fullName>Eligible - Active - NonFunded</fullName>
+                <default>false</default>
+                <label>Eligible - Active - NonFunded</label>
+            </value>
+            <value>
+                <fullName>Eligible - Inactive - NonFunded</fullName>
+                <default>false</default>
+                <label>Eligible - Inactive - NonFunded</label>
+            </value>
+            <value>
+                <fullName>Ineligible - Inactive - NonFunded</fullName>
+                <default>false</default>
+                <label>Ineligible - Inactive - NonFunded</label>
+            </value>
+            <value>
+                <fullName>Ineligible - Active - NonFunded</fullName>
+                <default>false</default>
+                <label>Ineligible - Active - NonFunded</label>
+            </value>
+            <value>
+                <fullName>Ineligible - Active - Funded</fullName>
+                <default>false</default>
+                <label>Ineligible - Active - Funded</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

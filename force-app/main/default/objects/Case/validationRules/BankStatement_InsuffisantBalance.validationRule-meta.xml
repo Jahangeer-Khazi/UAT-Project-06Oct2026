@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BankStatement_InsuffisantBalance</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				$User.LastName &lt;&gt; &quot;Integration&quot; , 
+				RecordType_DeveloperName__c == &apos;BankStatementRequest&apos;,
+    ISCHANGED(cc_Checker_Result__c),
+				TEXT(cc_Checker_Result__c) == &apos;Accept&apos;,
+				Debit_Account_Available_Balance__c &lt; Calculated_Fees__c
+)</errorConditionFormula>
+    <errorMessage>Insufficient funds in the unit’s primary BHD debit account</errorMessage>
+</ValidationRule>

@@ -1,0 +1,178 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:Jayanth Manickam
+ *		Created Date:02/12/2022
+-->
+<aura:component controller="RedemptionHistoryController" implements= "flexipage:availableForAllPageTypes" access="global">   
+    <aura:attribute name="showCmp" type="Boolean" default="true" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="cardId" type="String" required="true"/>
+    <aura:attribute name="preferredReward" type="Object"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="viewRedemption" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="gridDataRows" type="Object[]"/>
+    <aura:attribute name="gridDataColumns" type="Object[]"/>
+    <aura:attribute name="gridDataColumnDefs" type="Object[]"/>
+    <aura:attribute name="tbId" type="string"/>
+    <aura:attribute name="cardData" type="Object"/>
+    <aura:attribute name="preferredRewardsOption" type="String"/>
+    <aura:attribute name="amountFrom" type="Decimal" access="private"/>
+    <aura:attribute name="amountTo" type="Decimal" access="private"/>
+    <aura:attribute name="dateTo" type="Date" access="private"/>
+    <aura:attribute name="dateFrom" type="Date" access="private"/>
+    <aura:attribute name="isDisable" type= "boolean" default ="false"  />
+    <aura:attribute name="transactionStatus" type="String" access="private"/>
+    <aura:attribute name="type" type="String" access="private"/>
+    <aura:attribute name="airlinecode" type="String" access="private" default="ALL"/>
+    <aura:attribute name="flyNumber" type="String" access="private"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    
+    <aura:if isTrue="{!v.showCmp}">
+        <div style="padding-top: 2rem;">
+            <lightning:card title="Redemption History">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="View Redemption History" onclick="{!c.onLoadRedemptionHistory}" />
+                    
+                </div>
+                <div id="histTable" style="padding-top: 1rem;">
+                    <aura:If isTrue="{!v.viewRedemption}">
+                        <!-- CH01 Start-->
+                        <div style="margin-left:0px;margin-top:20px;width:700px;">
+                            <ui:message title="Information:" severity="confirm" closable="false">
+                                <b>* User will only be able to view last 60 transactions by default.</b><br/>
+                                <b>* On search, maximum of 500 transactions will be only available.</b><br/>
+                            </ui:message>
+                        </div>
+                        <div style="padding: 1rem;">
+                            
+                            <fieldset class="slds-form-element slds-form-element_compound">
+                                <legend class="slds-form-element__legend slds-form-element__label">Search</legend>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__row">
+                                        
+                                        
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <lightning:select label="Status" required="false" value="{!v.transactionStatus}">
+                                                    <option value="ALL">All</option>
+                                                    <option value="COMPLETED">Redeemed</option>
+                                                    <option value="PENDING">Pending</option>
+                                                </lightning:select>
+                                            </div>
+                                        </div>
+                                        <div class="slds-size_1-of-3">
+                                            
+                                            
+                                            <div class="slds-form-element">
+                                                <lightning:input value="{!v.amountFrom}" label="Amount From" type="number"
+                                                                 formatter="decimal" step="0.01" maxlength="10"/>
+                                            </div>
+                                        </div>
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <lightning:input value="{!v.amountTo}" label="Amount To" type="number"
+                                                                 formatter="decimal" step="0.01" maxlength="10"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                 <div class="slds-form-element__control">
+                                    <div class="slds-form-element__row">
+                                        
+                                        
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <ui:inputDate label="Date From" value="{!v.dateFrom}" format="DD-MM-YYYY" displayDatePicker="true"/>
+                                                <!--
+                                <lightning:input value="{!v.dateFrom}" label="Date From" type="date" maxlength="10"/>
+                                -->
+                                                <!--
+                                <label class="slds-form-element__label" for="input-01">Date From</label>
+                                <div class="slds-form-element__control">
+                                    <input type="date" class="slds-input" value="{!v.dateFrom}" />
+                                </div>
+                                -->
+                                            </div>
+                                        </div>
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <ui:inputDate label="Date To" value="{!v.dateTo}" format="DD-MM-YYYY" displayDatePicker="true"/>
+                                            </div>
+                                        </div>
+										<aura:if isTrue="{!(v.preferredRewardsOption=='ILA_TOKENS')}">                                       
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <lightning:select label="Redemption Type" required="false" value="{!v.type}" disabled="{!v.isDisable}">
+                                                    <option value="ALL">choose one...</option>
+                                                    <option value="CASHBACK">CashBack</option>
+                                                    <option value="TRANSACTION">Transaction</option>
+                                                    <option value="MILES">AirMiles</option>
+                                                </lightning:select>
+                                            </div>
+                                        </div>
+                                       </aura:if>
+                                    </div>
+                                </div>
+                                 <aura:if isTrue="{!!(v.preferredRewardsOption=='CASHBACK')}">
+                                         <div class="slds-form-element__control">
+                                    <div class="slds-form-element__row">
+                                        
+                                        
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <lightning:select label="Airlines" required="false" value="{!v.airlinecode}" disabled="{!v.isDisable}">
+                                                    <option value="ALL">choose one...</option>
+                                                    <option value="GULF_AIR">GULF AIR</option>
+                                                    <option value="TURKISH_AIRLINES">TURKISH AIRLINES</option>
+                                                </lightning:select>
+                                            </div>
+                                        </div>
+                                        <div class="slds-size_1-of-3">
+                                            <div class="slds-form-element">
+                                                <ui:inputText label="Fly Number" value="{!v.flyNumber}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </aura:if>
+                                <div class="slds-form-element__control slds-align_absolute-center">
+                                    <div class="slds-form-element__row">
+                                        <div class="slds-size_1-of-1">
+                                            <div class="slds-form-element">
+                                                <lightning:button variant="neutral" label="Search" onclick="{!c.onSearchClick }" />
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 &nbsp;
+                                <!-- CH03: Start -->
+                                <div class="slds-form-element__row">
+                                    <div class="slds-size_1-of-1">
+                                        <div class="slds-form-element">
+                                            <lightning:button variant="neutral" label="Download" onclick="{!c.generatePDF}"/>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <c:jqDataTable id="{!v.tbId}"
+                                       rows="{! v.gridDataRows }"
+                                       columns="{! v.gridDataColumns }"
+                                       columnDefs="{! v.gridDataColumnDefs }"
+                                       keyField="id"
+                                       orderBy="desc"
+                                       sortedBy="transactionDateTime"
+                                       showCheckboxColumn="false"
+                                       selectStyle="multi+shift"
+                                       />
+                    </aura:If>
+                </div>
+            </lightning:card>
+        </div>
+    </aura:if>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

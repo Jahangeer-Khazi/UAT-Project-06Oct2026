@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Sector__c</fullName>
+    <label>Sub Sector</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertising</fullName>
+                <default>false</default>
+                <label>Advertising</label>
+            </value>
+            <value>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+                <label>Agriculture</label>
+            </value>
+            <value>
+                <fullName>Aircraft Manufacturing</fullName>
+                <default>false</default>
+                <label>Aircraft Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Associations/Clubs</fullName>
+                <default>false</default>
+                <label>Associations/Clubs</label>
+            </value>
+            <value>
+                <fullName>Auditing</fullName>
+                <default>false</default>
+                <label>Auditing</label>
+            </value>
+            <value>
+                <fullName>Aviation</fullName>
+                <default>false</default>
+                <label>Aviation</label>
+            </value>
+            <value>
+                <fullName>Banking</fullName>
+                <default>false</default>
+                <label>Banking</label>
+            </value>
+            <value>
+                <fullName>Brokerage</fullName>
+                <default>false</default>
+                <label>Brokerage</label>
+            </value>
+            <value>
+                <fullName>Building Societies</fullName>
+                <default>false</default>
+                <label>Building Societies</label>
+            </value>
+            <value>
+                <fullName>Catering</fullName>
+                <default>false</default>
+                <label>Catering</label>
+            </value>
+            <value>
+                <fullName>Central Bank</fullName>
+                <default>false</default>
+                <label>Central Bank</label>
+            </value>
+            <value>
+                <fullName>Charity</fullName>
+                <default>false</default>
+                <label>Charity</label>
+            </value>
+            <value>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+                <label>Chemicals</label>
+            </value>
+            <value>
+                <fullName>Commodity Trading</fullName>
+                <default>false</default>
+                <label>Commodity Trading</label>
+            </value>
+            <value>
+                <fullName>Communication</fullName>
+                <default>false</default>
+                <label>Communication</label>
+            </value>
+            <value>
+                <fullName>Company issuing bearer shares</fullName>
+                <default>false</default>
+                <label>Company issuing bearer shares</label>
+            </value>
+            <value>
+                <fullName>Consultancy</fullName>
+                <default>false</default>
+                <label>Consultancy</label>
+            </value>
+            <value>
+                <fullName>Credit Agency</fullName>
+                <default>false</default>
+                <label>Credit Agency</label>
+            </value>
+            <value>
+                <fullName>Dealer in precious metals / Gold Business</fullName>
+                <default>false</default>
+                <label>Dealer in precious metals / Gold Business</label>
+            </value>
+            <value>
+                <fullName>Defense/Military Contractors</fullName>
+                <default>false</default>
+                <label>Defense/Military Contractors</label>
+            </value>
+            <value>
+                <fullName>Electric/Electronics</fullName>
+                <default>false</default>
+                <label>Electric/Electronics</label>
+            </value>
+            <value>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+                <label>Engineering</label>
+            </value>
+            <value>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+                <label>Fashion</label>
+            </value>
+            <value>
+                <fullName>Film production</fullName>
+                <default>false</default>
+                <label>Film production</label>
+            </value>
+            <value>
+                <fullName>Fishing/Fisheries</fullName>
+                <default>false</default>
+                <label>Fishing/Fisheries</label>
+            </value>
+            <value>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+                <label>Forestry</label>
+            </value>
+            <value>
+                <fullName>Garages and Motor Vehicle Retailers</fullName>
+                <default>false</default>
+                <label>Garages and Motor Vehicle Retailers</label>
+            </value>
+            <value>
+                <fullName>General Export/Import</fullName>
+                <default>false</default>
+                <label>General Export/Import</label>
+            </value>
+            <value>
+                <fullName>General Trading Company</fullName>
+                <default>false</default>
+                <label>General Trading Company</label>
+            </value>
+            <value>
+                <fullName>Heavy Construction</fullName>
+                <default>false</default>
+                <label>Heavy Construction</label>
+            </value>
+            <value>
+                <fullName>Hotels</fullName>
+                <default>false</default>
+                <label>Hotels</label>
+            </value>
+            <value>
+                <fullName>Independent Contractor</fullName>
+                <default>false</default>
+                <label>Independent Contractor</label>
+            </value>
+            <value>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+                <label>Information Technology</label>
+            </value>
+            <value>
+                <fullName>Infrastructure</fullName>
+                <default>false</default>
+                <label>Infrastructure</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+                <label>Leasing Services</label>
+            </value>
+            <value>
+                <fullName>Local Government</fullName>
+                <default>false</default>
+                <label>Local Government</label>
+            </value>
+            <value>
+                <fullName>Medical</fullName>
+                <default>false</default>
+                <label>Medical</label>
+            </value>
+            <value>
+                <fullName>Metals (smelting)</fullName>
+                <default>false</default>
+                <label>Metals (smelting)</label>
+            </value>
+            <value>
+                <fullName>Mining</fullName>
+                <default>false</default>
+                <label>Mining</label>
+            </value>
+            <value>
+                <fullName>Money Service Bureau</fullName>
+                <default>false</default>
+                <label>Money Service Bureau</label>
+            </value>
+            <value>
+                <fullName>Motor Vehicles Manufacturer</fullName>
+                <default>false</default>
+                <label>Motor Vehicles Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Non-profit organization</fullName>
+                <default>false</default>
+                <label>Non-profit organization</label>
+            </value>
+            <value>
+                <fullName>Oil &amp; Gas</fullName>
+                <default>false</default>
+                <label>Oil &amp; Gas</label>
+            </value>
+            <value>
+                <fullName>Other Financial Institutions</fullName>
+                <default>false</default>
+                <label>Other Financial Institutions</label>
+            </value>
+            <value>
+                <fullName>Other Manufacturing Industries</fullName>
+                <default>false</default>
+                <label>Other Manufacturing Industries</label>
+            </value>
+            <value>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+                <label>Other Services</label>
+            </value>
+            <value>
+                <fullName>Other Transport Equipment</fullName>
+                <default>false</default>
+                <label>Other Transport Equipment</label>
+            </value>
+            <value>
+                <fullName>Pharmaceutical</fullName>
+                <default>false</default>
+                <label>Pharmaceutical</label>
+            </value>
+            <value>
+                <fullName>Railways</fullName>
+                <default>false</default>
+                <label>Railways</label>
+            </value>
+            <value>
+                <fullName>Real Estate &amp; Development</fullName>
+                <default>false</default>
+                <label>Real Estate &amp; Development</label>
+            </value>
+            <value>
+                <fullName>Refining &amp; Distribution</fullName>
+                <default>false</default>
+                <label>Refining &amp; Distribution</label>
+            </value>
+            <value>
+                <fullName>Restaurants</fullName>
+                <default>false</default>
+                <label>Restaurants</label>
+            </value>
+            <value>
+                <fullName>Retail Distribution</fullName>
+                <default>false</default>
+                <label>Retail Distribution</label>
+            </value>
+            <value>
+                <fullName>Roads</fullName>
+                <default>false</default>
+                <label>Roads</label>
+            </value>
+            <value>
+                <fullName>Security Services</fullName>
+                <default>false</default>
+                <label>Security Services</label>
+            </value>
+            <value>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+                <label>Shipping</label>
+            </value>
+            <value>
+                <fullName>Society</fullName>
+                <default>false</default>
+                <label>Society</label>
+            </value>
+            <value>
+                <fullName>Stationary/Paper</fullName>
+                <default>false</default>
+                <label>Stationary/Paper</label>
+            </value>
+            <value>
+                <fullName>Trading</fullName>
+                <default>false</default>
+                <label>Trading</label>
+            </value>
+            <value>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <label>Transportation</label>
+            </value>
+            <value>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+                <label>Utilities</label>
+            </value>
+            <value>
+                <fullName>Water Supply</fullName>
+                <default>false</default>
+                <label>Water Supply</label>
+            </value>
+            <value>
+                <fullName>Wholesale Distribution</fullName>
+                <default>false</default>
+                <label>Wholesale Distribution</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

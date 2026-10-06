@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BUA_Reason__c</fullName>
+    <label>Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Request</fullName>
+                <default>false</default>
+                <label>Customer Request</label>
+            </value>
+            <value>
+                <fullName>Compliance recommendation</fullName>
+                <default>false</default>
+                <label>Compliance recommendation</label>
+            </value>
+            <value>
+                <fullName>Fraud recommendation</fullName>
+                <default>false</default>
+                <label>Fraud recommendation</label>
+            </value>
+            <value>
+                <fullName>QA/CDD</fullName>
+                <default>false</default>
+                <label>QA/CDD</label>
+            </value>
+            <value>
+                <fullName>Pending on customer response</fullName>
+                <default>false</default>
+                <label>Pending on customer response</label>
+            </value>
+            <value>
+                <fullName>Pending as it’s an open dispute case</fullName>
+                <default>false</default>
+                <label>Pending as it’s an open dispute case</label>
+            </value>
+            <value>
+                <fullName>Pending on internal investigation</fullName>
+                <default>false</default>
+                <label>Pending on internal investigation</label>
+            </value>
+            <value>
+                <fullName>Pending on Fraud to investigate</fullName>
+                <default>false</default>
+                <label>Pending on Fraud to investigate</label>
+            </value>
+            <value>
+                <fullName>Pending correspondent/beneficiary bank response</fullName>
+                <default>false</default>
+                <label>Pending correspondent/beneficiary bank response</label>
+            </value>
+            <value>
+                <fullName>Pending interest settlement</fullName>
+                <default>false</default>
+                <label>Pending interest settlement</label>
+            </value>
+            <value>
+                <fullName>Pending management decision</fullName>
+                <default>false</default>
+                <label>Pending management decision</label>
+            </value>
+            <value>
+                <fullName>Investigation</fullName>
+                <default>false</default>
+                <label>Investigation</label>
+            </value>
+            <value>
+                <fullName>Account sensitivity</fullName>
+                <default>false</default>
+                <label>Account sensitivity</label>
+            </value>
+            <value>
+                <fullName>Third Party Usage</fullName>
+                <default>false</default>
+                <label>Third Party Usage</label>
+            </value>
+            <value>
+                <fullName>Confirmed fraudulent transaction(s) detected</fullName>
+                <default>false</default>
+                <label>Confirmed fraudulent transaction(s) detected</label>
+            </value>
+            <value>
+                <fullName>Suspicious Behavior</fullName>
+                <default>false</default>
+                <label>Suspicious Behavior</label>
+            </value>
+            <value>
+                <fullName>Legal</fullName>
+                <default>false</default>
+                <label>Legal</label>
+            </value>
+            <value>
+                <fullName>Unresponsive RFI - Compliance</fullName>
+                <default>false</default>
+                <label>Unresponsive RFI - Compliance</label>
+            </value>
+            <value>
+                <fullName>Unresponsive RFI - Fraud</fullName>
+                <default>false</default>
+                <label>Unresponsive RFI - Fraud</label>
+            </value>
+            <value>
+                <fullName>Unauthorized App Login</fullName>
+                <default>false</default>
+                <label>Unauthorized App Login</label>
+            </value>
+            <value>
+                <fullName>Forged Documents</fullName>
+                <default>false</default>
+                <label>Forged Documents</label>
+            </value>
+            <value>
+                <fullName>Internal Alert - Fraud Monitoring System</fullName>
+                <default>false</default>
+                <label>Internal Alert - Fraud Monitoring System</label>
+            </value>
+            <value>
+                <fullName>Customer Reported Fraud</fullName>
+                <default>false</default>
+                <label>Customer Reported Fraud</label>
+            </value>
+            <value>
+                <fullName>FINC</fullName>
+                <default>false</default>
+                <label>FINC</label>
+            </value>
+            <value>
+                <fullName>Loss of Employment</fullName>
+                <default>false</default>
+                <label>Loss of Employment</label>
+            </value>
+            <value>
+                <fullName>Reduction in Income</fullName>
+                <default>false</default>
+                <label>Reduction in Income</label>
+            </value>
+            <value>
+                <fullName>Medical Emergency / Illness</fullName>
+                <default>false</default>
+                <label>Medical Emergency / Illness</label>
+            </value>
+            <value>
+                <fullName>Business Failure / Losses</fullName>
+                <default>false</default>
+                <label>Business Failure / Losses</label>
+            </value>
+            <value>
+                <fullName>Over-indebtedness (Too Many Loans)</fullName>
+                <default>false</default>
+                <label>Over-indebtedness (Too Many Loans)</label>
+            </value>
+            <value>
+                <fullName>Family Emergency or Expenses</fullName>
+                <default>false</default>
+                <label>Family Emergency or Expenses</label>
+            </value>
+            <value>
+                <fullName>Divorce or Separation</fullName>
+                <default>false</default>
+                <label>Divorce or Separation</label>
+            </value>
+            <value>
+                <fullName>Death of Primary Earner</fullName>
+                <default>false</default>
+                <label>Death of Primary Earner</label>
+            </value>
+            <value>
+                <fullName>Natural Disaster (e.g., flood, earthquake)</fullName>
+                <default>false</default>
+                <label>Natural Disaster (e.g., flood, earthquake)</label>
+            </value>
+            <value>
+                <fullName>Migration or Relocation</fullName>
+                <default>false</default>
+                <label>Migration or Relocation</label>
+            </value>
+            <value>
+                <fullName>Loan Dispute / Product Issue</fullName>
+                <default>false</default>
+                <label>Loan Dispute / Product Issue</label>
+            </value>
+            <value>
+                <fullName>Forgetfulness / Missed Due Date</fullName>
+                <default>false</default>
+                <label>Forgetfulness / Missed Due Date</label>
+            </value>
+            <value>
+                <fullName>Waiting for Income (e.g., salary delayed)</fullName>
+                <default>false</default>
+                <label>Waiting for Income (e.g., salary delayed)</label>
+            </value>
+            <value>
+                <fullName>Customer Refused to Pay (Intentional Default)</fullName>
+                <default>false</default>
+                <label>Customer Refused to Pay (Intentional Default)</label>
+            </value>
+            <value>
+                <fullName>Legal Issues or Imprisonment</fullName>
+                <default>false</default>
+                <label>Legal Issues or Imprisonment</label>
+            </value>
+            <value>
+                <fullName>High Cost of Living / Inflation Impact</fullName>
+                <default>false</default>
+                <label>High Cost of Living / Inflation Impact</label>
+            </value>
+            <value>
+                <fullName>Payment Arrangement in Progress</fullName>
+                <default>false</default>
+                <label>Payment Arrangement in Progress</label>
+            </value>
+            <value>
+                <fullName>Alimony case</fullName>
+                <default>false</default>
+                <label>Alimony case</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

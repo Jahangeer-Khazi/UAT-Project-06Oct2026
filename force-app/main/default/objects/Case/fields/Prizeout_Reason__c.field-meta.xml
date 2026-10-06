@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prizeout_Reason__c</fullName>
+    <label>Prizeout Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gift Card not delivered</fullName>
+                <default>false</default>
+                <label>Gift Card not delivered</label>
+            </value>
+            <value>
+                <fullName>Gift code is not working</fullName>
+                <default>false</default>
+                <label>Gift code is not working</label>
+            </value>
+            <value>
+                <fullName>Incorrect gift card amount</fullName>
+                <default>false</default>
+                <label>Incorrect gift card amount</label>
+            </value>
+            <value>
+                <fullName>Incorrect cash out amount (charges)</fullName>
+                <default>false</default>
+                <label>Incorrect cash out amount (charges)</label>
+            </value>
+            <value>
+                <fullName>Entry point failure</fullName>
+                <default>false</default>
+                <label>Entry point failure</label>
+            </value>
+            <value>
+                <fullName>Widget is not loading</fullName>
+                <default>false</default>
+                <label>Widget is not loading</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Technical Resolution</controllingFieldValue>
+            <valueName>Entry point failure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical Resolution</controllingFieldValue>
+            <valueName>Widget is not loading</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical Resolution</controllingFieldValue>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Gift Card not delivered</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Gift code is not working</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Incorrect gift card amount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Incorrect cash out amount (charges)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

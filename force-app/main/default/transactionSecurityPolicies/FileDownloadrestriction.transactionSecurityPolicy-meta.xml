@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TransactionSecurityPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <action>
+        <block>true</block>
+        <endSession>false</endSession>
+        <freezeUser>false</freezeUser>
+        <notifications>
+            <inApp>false</inApp>
+            <sendEmail>true</sendEmail>
+            <user>ashish.pandey@bank-abc.com</user>
+        </notifications>
+        <twoFactorAuthentication>false</twoFactorAuthentication>
+    </action>
+    <active>false</active>
+    <developerName>FileDownloadrestriction</developerName>
+    <eventName>FileEventStore</eventName>
+    <flow>PolicyCondition_PTufPXyBjcEBtVXsVRtw</flow>
+    <masterLabel>File Download restriction</masterLabel>
+    <type>CustomConditionBuilderPolicy</type>
+</TransactionSecurityPolicy>

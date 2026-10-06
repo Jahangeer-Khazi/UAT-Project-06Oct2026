@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Has_existing_credit_card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>for credit card Application / limit increase case</description>
+    <label>Has existing credit card</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

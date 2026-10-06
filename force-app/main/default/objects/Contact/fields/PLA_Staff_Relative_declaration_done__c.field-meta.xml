@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PLA_Staff_Relative_declaration_done__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Created as part of CRM22-84 Staff Relative Declaration</description>
+    <label>PLA Staff Relative declaration done</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

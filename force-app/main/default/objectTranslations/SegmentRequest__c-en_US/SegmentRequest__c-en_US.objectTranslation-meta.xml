@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RM Segment Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RM Segment Request</value>
+    </caseValues>
+    <layouts>
+        <layout>Segment Request Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Checker Section(To be provided by Checker) --></label>
+            <section>Checker Section(To be provided by Checker)</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Maker Section(To be provided by Maker) --></label>
+            <section>Maker Section(To be provided by Maker)</section>
+        </sections>
+        <sections>
+            <label><!-- Request Information --></label>
+            <section>Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Iinformation --></label>
+            <section>Web Iinformation</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please select the value of Checker Result or Maker Result to update the record --></errorMessage>
+        <name>Check_Maker_and_Checker_Result_Values</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Maker of the case cannot update checker results --></errorMessage>
+        <name>MakerCheckerCannotBeSamePerson</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transaction_Currency__c</fullName>
+    <description>Related to Apple Pay - Dispute Case</description>
+    <inlineHelpText>Please specify only if Sub Type is &apos;Dispute&apos;</inlineHelpText>
+    <label>Transaction Currency</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Currency</valueSetName>
+    </valueSet>
+</CustomField>

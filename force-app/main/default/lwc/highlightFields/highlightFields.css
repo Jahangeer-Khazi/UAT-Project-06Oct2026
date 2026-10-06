@@ -1,0 +1,46 @@
+.slds-box {
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+}
+
+.slds-text-title {
+    font-size: 0.75rem;
+    line-height: 1.25;
+    color: #706e6b;
+}
+
+.slds-text-color_error {
+    color: #c23934;
+}
+
+.slds-text-color_default {
+    color: #080707;
+}
+
+.custom-box-alignment {
+	width: 48%;
+	margin-left: 1%;
+	padding-right: 1%;
+}
+
+.custom-box-alignment-right {
+	width: 48%;
+	margin-left: 2%;
+}
+
+.text-custom-color {
+	color: #434343;
+}
+
+.value-alignment {
+	padding-left: 8%;
+}
+
+.label-alignment {
+	width: 26%;
+    display: inline-flex;
+}
+
+.inline-label {
+	padding-left: 3%;
+}

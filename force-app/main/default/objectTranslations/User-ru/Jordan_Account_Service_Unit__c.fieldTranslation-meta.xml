@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Jordan Account Service Unit --></label>
+    <name>Jordan_Account_Service_Unit__c</name>
+</CustomFieldTranslation>

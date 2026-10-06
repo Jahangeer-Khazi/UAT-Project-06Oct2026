@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>1</activeVersionNumber>
+    <description>This flow would update the Case Annex record when Case.ListedEmployer lookup populated.</description>
+    <masterLabel>Update Case Annex (Listed Employer) Sub Flow</masterLabel>
+</FlowDefinition>

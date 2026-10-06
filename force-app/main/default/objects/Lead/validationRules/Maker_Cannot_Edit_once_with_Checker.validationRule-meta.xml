@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maker_Cannot_Edit_once_with_Checker</fullName>
+    <active>true</active>
+    <errorConditionFormula>$User.Id = Lead_Maker__c &amp;&amp; TEXT(Status) = &apos;Data Validation - Checker&apos; &amp;&amp; NOT(ISCHANGED(Status)) &amp;&amp; NOT(ISCHANGED(OwnerId))</errorConditionFormula>
+    <errorMessage>Maker cannot modify the details once the lead is with Checker.</errorMessage>
+</ValidationRule>

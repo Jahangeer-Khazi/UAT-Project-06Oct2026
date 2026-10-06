@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Documents_Required_Description__c</fullName>
+    <description>This field is required to be filled by Compliance team if Other Documents Required is checked for review periodic .</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Other Documents Required Description</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

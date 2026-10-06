@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CC_EvaluatorApproval_req_before_Verifier</fullName>
+    <active>false</active>
+    <description>This validation will trigger, if the Credit Verifier is trying to approve/ Decline/ Return to Evaluator  the case, before the Credit Evaluator has Approved</description>
+    <errorConditionFormula>TEXT(Type ) = &apos;Credit Card Application&apos; &amp;&amp; TEXT(Sub_Type__c) = &apos;New Credit Card&apos; &amp;&amp;  (TEXT(cc_Credit_Verification_Result__c )=&apos;Approve&apos; || TEXT(cc_Credit_Verification_Result__c )=&apos;Decline&apos; || TEXT(cc_Credit_Verification_Result__c )=&apos;Return to Evaluator&apos;) 
+&amp;&amp; TEXT( cc_Credit_Evaluation_Result__c ) != &apos;Accept&apos; &amp;&amp; TEXT( cc_Credit_Evaluation_Result__c ) != &apos;Referred by Verifier&apos;</errorConditionFormula>
+    <errorMessage>Credit Evaluator needs to action the Case, before Credit Verifier actions the Case.</errorMessage>
+</ValidationRule>

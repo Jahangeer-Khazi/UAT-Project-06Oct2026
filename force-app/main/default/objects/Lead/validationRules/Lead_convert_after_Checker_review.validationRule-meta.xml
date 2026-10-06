@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_convert_after_Checker_review</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(Convert_Lead_to_Prospect__c = TRUE &amp;&amp;  NOT(ISPICKVAL(PRIORVALUE(Status),&apos;Data Validation - Checker&apos; )) &amp;&amp; NOT(CONTAINS($User.Alias,&apos;guest&apos;)) , true, false)</errorConditionFormula>
+    <errorMessage>Lead can only be converted to prospect, once it has been reviewed and vlaidated by Checker</errorMessage>
+</ValidationRule>

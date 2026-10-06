@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_KYC_Customer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This flag is manually updated to True, in order to make sure the Customer is non KYC compliance or Not, hence if the customer is Non Compliance - the &apos;Customer Call Priority&apos; will be set to 6</description>
+    <label>Non KYC Customer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

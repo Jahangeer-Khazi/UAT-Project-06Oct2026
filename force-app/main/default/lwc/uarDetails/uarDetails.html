@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="UAR Details PDF">
+        <!-- Loader -->
+        <template if:true={isLoading}>
+            <div class="slds-text-align_center slds-p-around_medium">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- iframe for VF Page -->
+        <div class="iframe-container">
+            <iframe src={vfPageUrl} width="100%" height="100%" class="iframe-content" scrolling="no" ></iframe>
+        </div>
+
+        <!-- Footer with Download Button -->
+        <template if:true={showDownloadButton}>
+            <div class="slds-card__footer slds-text-align_center slds-p-vertical_medium">
+                <lightning-button 
+                    label="Download PDF" 
+                    icon-name="utility:download" 
+                    variant="brand" 
+                    onclick={triggerDownload}
+                    disabled={isLoading}>
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

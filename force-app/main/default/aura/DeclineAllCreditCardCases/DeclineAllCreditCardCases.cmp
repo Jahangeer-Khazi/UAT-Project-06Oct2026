@@ -1,0 +1,64 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,lightning:isUrlAddressable" access="global" controller = "CreditCardDeclineCasesController">
+	<aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="allCases" type="List"/>
+    <aura:attribute name="allFiltercaseData" type="List"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="contactName" type="String" />
+    <aura:attribute name="contactId" type="Id" />
+    <aura:attribute name="recordCount" type="Integer" default="0" description="Total number of related cases"/>
+    
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="statusFilter" type="String" default=""/>
+    <aura:attribute name="pageReference" type="Object"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:workspaceAPI aura:id="workspace"/>
+     <lightning:card>
+        <aura:set attribute="title">
+            <div class="slds-grid slds-align_absolute-center slds-p-around_x-small">
+                
+                <lightning:icon iconName="action:close"
+                                alternativeText="Close"
+                                size="x-small" class="slds-m-right_small"/>
+                
+                <h2 class="slds-text-heading_small">
+                    <div class="slds-m-bottom_x-small">
+                        <lightning:formattedUrl value="{!'/' + v.contactId}"
+                                                label="{!v.contactName}"
+                                                target="_self"
+                                                class="slds-text-link"/>
+                    </div>
+                    Previous Declined Credit Card Cases ({!v.recordCount})
+                </h2>
+            </div>
+        </aura:set>
+        
+        <div class="slds-grid slds-wrap slds-m-bottom_small slds-m-left_small">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:select label="Filter by Status"
+                                  value="{!v.statusFilter}"
+                                  onchange="{!c.filterByStatus}">
+                    <option value="">-- All --</option>
+                    <option value="Credit Card Application">Credit Card Application</option>
+                    <option value="Credit Limit Increase Application">Credit Limit Increase Application</option>
+                    <option value="Credit Card Cash Collateral Application">Credit Card Cash Collateral Application</option>
+                    <option value="Cash Collateral Credit Limit Increase Application">Cash Collateral Credit Limit Increase Application</option>
+                </lightning:select>
+            </div>
+        </div>
+        
+        <div style="height: 60vh; overflow-y: auto;">
+            <lightning:datatable
+                                 keyField="Id"
+                                 data="{!v.allCases}"
+                                 columns="{!v.columns}"
+                                 hideCheckboxColumn="true"
+                                 onsort="{!c.handleSort}"
+                                 sortedBy="{!v.sortedBy}"
+                                 sortedDirection="{!v.sortDirection}"/>
+        </div>
+        
+        
+    </lightning:card>
+</aura:component>

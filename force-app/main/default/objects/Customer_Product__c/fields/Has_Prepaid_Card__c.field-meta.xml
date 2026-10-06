@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Prepaid_Card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If customer Has Prepaid Card then this field would set to true</description>
+    <label>Has Prepaid Card</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

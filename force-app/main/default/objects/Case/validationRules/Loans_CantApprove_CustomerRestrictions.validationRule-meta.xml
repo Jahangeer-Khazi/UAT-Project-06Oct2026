@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loans_CantApprove_CustomerRestrictions</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR ( 
+								RecordType_DeveloperName__c = &apos;Loan_Application&apos; , 
+								AND ( RecordType_DeveloperName__c = &apos;LoanFinanceServiceRequest&apos;, TEXT(Sub_Type__c) = &apos;Top-up&apos; )
+				),
+				!ISPICKVAL(cc_Control_Type__c, &apos;STP&apos;),
+    $User.Loan_CustomerRestrictionsByPassFlag__c = false,
+				ccol_Has_Legal_Cases__c = true,
+				OR(
+								AND( ISCHANGED(cc_Credit_Evaluation_Result__c),ISPICKVAL(cc_Credit_Evaluation_Result__c, &apos;Accept&apos;) ),
+								AND( ISCHANGED(cc_Credit_Verification_Result__c),ISPICKVAL(cc_Credit_Verification_Result__c, &apos;Approve&apos;) ),
+								AND( ISCHANGED(cc_Credit_Approval_Result__c),ISPICKVAL(cc_Credit_Approval_Result__c, &apos;Approve&apos;) ),
+								AND( ISCHANGED(cc_Business_Approval_Result__c),ISPICKVAL(cc_Business_Approval_Result__c, &apos;Approve&apos;) ),
+								AND( ISCHANGED(cc_Signature_Verifier_Result__c),ISPICKVAL(cc_Signature_Verifier_Result__c, &apos;Accept&apos;) ),
+								AND( ISCHANGED(cc_Operations_Result__c),ISPICKVAL(cc_Operations_Result__c, &apos;Accept&apos;) ),
+								AND( ISCHANGED(cc_CEO_Result__c),ISPICKVAL(cc_CEO_Result__c, &apos;Approve&apos;) )
+				)
+)</errorConditionFormula>
+    <errorMessage>The case cannot be approved because the customer has some restrictions. Please check the warning issues at the top of the page.</errorMessage>
+</ValidationRule>

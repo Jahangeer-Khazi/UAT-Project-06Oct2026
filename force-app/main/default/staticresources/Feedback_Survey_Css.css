@@ -1,0 +1,195 @@
+:root {
+  --primary: #000;
+  --primary-light: #7f869d;
+  --primary-midtone: #323d62;
+  --primary-midtone-1: #4a5474;
+  --primary-dark: #263259;
+  --primary-darker: #314072;
+  --primary-darker-1: #192b5a;
+  --primary-darker-2: #202e57;
+  --primary-darkest: #000e3c;
+  --secondary: var(--primary-light);
+  --background-color: #fafafa;
+  --shades-lightest: #f2f4f6;
+  --shades-lighter: #e0e3eb;
+  --shades-light: #a6aec9;
+  --shades-midtone: #8d97b9;
+  --shades-dark: #455587;
+  --ila-green: #7aee00;
+  --confirm-midtone: #00a1fe;
+}
+
+.background-color {
+  background: var(--background-color) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+.text-primary-light {
+  color: var(--primary-light) !important;
+}
+.text-primary-darkest {
+  color: var(--primary-darkest) !important;
+}
+.text-shades-dark {
+  color: var(--shades-dark) !important;
+}
+.text-shades-midtone {
+  color: var(--shades-midtone) !important;
+}
+.text-primary-midtone-1 {
+  color: var(--primary-midtone-1) !important;
+}
+.text-confirm-midtone {
+  color: var(--confirm-midtone) !important;
+}
+
+.font-family-neo{
+  font-family: 'Neo Sans Arabic Light', Arial, Helvetica, sans-serif;
+}
+
+.primary-gradient {
+  background: rgb(2, 29, 91) !important;
+  background: -moz-linear-gradient(315deg, #010c2f 0%, #021d5b 100%) !important;
+  background: -webkit-linear-gradient(315deg, #010c2f 0%, #021d5b 100%) !important;
+  background: linear-gradient(315deg, #010c2f 0%, #021d5b 100%) !important;
+}
+.max-340px {
+  max-width: 340px !important;
+}
+.max-528px {
+  max-width: 528px !important;
+}
+.max-456px {
+  max-width: 456px !important;
+}
+
+.font-size-10px {
+  font-size: 10px !important;
+}
+.font-size-12px {
+  font-size: 12px !important;
+}
+.font-size-14px {
+  font-size: 14px !important;
+}
+.font-size-16px {
+  font-size: 16px !important;
+}
+.font-size-20px {
+  font-size: 20px !important;
+}
+.font-size-24px {
+  font-size: 24px !important;
+}
+.font-size-36px {
+  font-size: 36px !important;
+}
+
+.divider-text {
+  position: relative !important;
+  text-align: center !important;
+  color: var(--secondary) !important;
+  font-size: 14px !important;
+}
+
+.divider-text:after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: -25% !important;
+  width: 150% !important;
+  height: 1px !important;
+  background: var(--shades-lighter) !important;
+}
+
+.divider-text span {
+  position: relative !important;
+  display: inline-block !important;
+  padding: 0 16px !important;
+  background: white !important;
+  z-index: 9 !important;
+}
+
+hr {
+  border-color: var(--shades-lighter) !important;
+  opacity: 1 !important;
+}
+
+.btn-primary {
+  background: var(--primary-darkest) !important;
+  border: 0 !important;
+  min-width: 200px !important;
+  color: white !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:disabled {
+  background: var(--primary-midtone) !important;
+}
+
+.radio-button {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+input {
+  cursor: pointer !important;
+}
+
+.radio-button:hover ~ p,
+.radio-button:has(input:checked) ~ p,
+.radio-box:hover p,
+.radio-box:has(input:checked) p {
+  color: var(--primary) !important;
+}
+
+.radio-button ~ p {
+  color: var(--primary-light) !important;
+  transition: color 250ms ease-in-out !important;
+  cursor: default !important;
+}
+
+.radio-box p {
+  color: var(--primary-darker) !important;
+  transition: color 250ms ease-in-out !important;
+  cursor: default !important;
+}
+
+.radio-button ~ p {
+  color: var(--primary-light) !important;
+  transition: color 250ms ease-in-out !important;
+}
+
+.radio-button:has(input:checked),
+.radio-box:has(input:checked) {
+  border: 1px solid var(--ila-green) !important;
+}
+
+.form-check-input:checked[type="radio"] {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 8 8"><circle r="2" fill="%23263259"/></svg>') !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--ila-green) !important;
+  border-color: var(--ila-green) !important;
+}
+
+.form-check-input {
+  border: 2px solid var(--shades-midtone) !important;
+}
+
+@media screen and (max-width: 450px) {
+  .divider-text:after {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: -12.5% !important;
+    width: 125% !important;
+    height: 1px !important;
+    background: var(--shades-lighter) !important;
+  }
+}

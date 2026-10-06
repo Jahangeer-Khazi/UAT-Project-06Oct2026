@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_Sent_to_Customer</name>
+        <label>Email Sent to Customer</label>
+        <locationX>348</locationX>
+        <locationY>484</locationY>
+        <actionName>Case.CreditLimit_Docs_Reminder</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Email_Sent</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.CreditLimit_Docs_Reminder</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_to_Customer</name>
+        <label>Send Email to Customer</label>
+        <locationX>708</locationX>
+        <locationY>453</locationY>
+        <actionName>Case.CreditLimit_Docs_Reminder</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>SMS_Sent</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.CreditLimit_Docs_Reminder</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Cloned from V2 to add a condition Customer Segment = Premium (PI-3309)</description>
+    <environments>Default</environments>
+    <interviewLabel>Credit Card Limit Increase Reminder {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Credit Card Limit Increase Reminder</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Email_Sent</name>
+        <label>Email Sent</label>
+        <locationX>463</locationX>
+        <locationY>641</locationY>
+        <inputAssignments>
+            <field>cc_Email_Sent_Flag__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>SMS_Sent</name>
+        <label>SMS Sent</label>
+        <locationX>595</locationX>
+        <locationY>636</locationY>
+        <inputAssignments>
+            <field>cc_SMS_Sent_Flag__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>422</locationX>
+        <locationY>81</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>1 AND 2 AND (3 OR 6) AND 4 AND 5</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Credit Limit Increase Application</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sub_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Credit Limit Increase</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Customer_Segment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Regular</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>cc_Last_Sub_Status_Changed_Pending__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Not Changed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Region_Flag__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Bahrain</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Customer_Segment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Premium</stringValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Send_Reminder_Email_Alert_for_Docs</name>
+            <connector>
+                <targetReference>Send_Email_to_Customer</targetReference>
+            </connector>
+            <label>Send Reminder Email Alert for Docs(2 Days)</label>
+            <offsetNumber>2</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>LastCaseSubStatusChanged__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Send_Reminder_Email_Alert_for_Docs_10_Minutes</name>
+            <connector>
+                <targetReference>Email_Sent_to_Customer</targetReference>
+            </connector>
+            <label>Send Reminder Email Alert for Docs(5 Days)</label>
+            <offsetNumber>5</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>LastCaseSubStatusChanged__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

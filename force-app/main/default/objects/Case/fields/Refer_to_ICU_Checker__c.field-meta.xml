@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refer_to_ICU_Checker__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This should be checked when the ICU maker refers to ICU Checker</description>
+    <label>Refer to ICU Checker</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

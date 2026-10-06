@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used in Deceased Customer Requirment</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Deceased_Customer_Email_Creation</name>
+    <style>none</style>
+    <subject>Requesting for list of documents and details related to the deceased Customer</subject>
+    <textOnly>Documents required for your Request
+
+Dear Valued customer,
+
+We acknowledge your recent notification regarding the passing of the ila Bank Account holder. Please accept our condolences for your loss.
+
+To proceed with the necessary administrative steps, we kindly request the following information:
+
+1. A certified copy of the death certificate.
+2. Power of Attorney letter/ wealth distribution letter.
+
+
+Once we receive this information, we will update our records accordingly.
+If you have any questions or require further assistance, please feel free to call us on  +973 17123456 or email us on support@ilabank.com
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

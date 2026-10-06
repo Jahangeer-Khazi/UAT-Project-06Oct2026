@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_have_Reason_if_PLA_is_Eligible</fullName>
+    <active>false</active>
+    <description>This validation rule prevents users from providing a PLA ineligibility reason if they selected eligibility as Yes. This is when creating a Update PLA Eligibility Status case.</description>
+    <errorConditionFormula>AND (
+ISPICKVAL( PLA_Eligibility__c , &apos;Yes&apos;),
+NOT(ISBLANK(TEXT((PLA_Ineligibility_Reason__c))))
+)</errorConditionFormula>
+    <errorDisplayField>PLA_Ineligibility_Reason__c</errorDisplayField>
+    <errorMessage>PLA Eligibility is Yes. Ineligibility reason is not required.</errorMessage>
+</ValidationRule>

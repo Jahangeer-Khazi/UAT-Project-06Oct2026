@@ -1,0 +1,90 @@
+<apex:page applyHtmlTag="false"
+           showHeader="false" Controller="NoDueCertificateController" renderAs="advanced_pdf">
+    
+    <html>
+        <head>
+            <style>
+                @page {
+                    size: A4;
+                    margin-top: 1cm;
+                    margin-bottom: 2cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                    @top {
+                        content: element(header);
+                    }
+                    @bottom-left {
+                        content: element(footer);
+                    }
+                }
+                
+                div.footer {
+                    display: block;
+                    position: running(footer);
+                }
+                
+            </style>
+        </head>
+        <body>
+            <div class="header">
+   
+            <td style="width:1225px;text-align:right">
+                <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45"/>
+            </td>
+        
+</div>
+        
+            <br/>
+        <p>{!acc.Name}</p>
+        <p>{!acc.ID_Number__pc}</p>
+        <apex:outputText value="{!acc.PersonMailingStreet}"></apex:outputText><br/>
+        <apex:outputText value="{!acc.PersonMailingCity}"></apex:outputText><br/> 
+       
+        <apex:outputText value="{!acc.PersonMailingPostalCode}"></apex:outputText><br/>
+        <apex:outputText value="{!acc.PersonMailingCountry}"></apex:outputText><br/><br/>
+        
+    <apex:outputText value="{0, date,  dd-MM -yyyy}"><apex:param value="{!Today()}" /></apex:outputText>
+    <P> <apex:outputText value="{!IF(acc.Gender__pc=='F','Dear Madam','Dear Sir')}" />,</P>
+   
+    <P>We confirm that the below information relates to your ila Bank account held with us.</P>
+
+    
+    
+    <apex:outputLabel value="Account Opening Date"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!startDate}"></apex:outputText><br/>
+    <apex:outputLabel value="Account Type"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="Current Account"></apex:outputText><br/>
+    <apex:outputLabel value="Currency"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!accountCurrency}"></apex:outputText><br/>
+    <apex:outputLabel value="IBAN"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!iBAN}"></apex:outputText><br/>
+    <apex:outputLabel value="Account Number"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="{!Right(iBAN,Len(iBAN)-8)}"></apex:outputText><br/>
+    <apex:outputLabel value="SWIFT CODE"></apex:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <apex:outputText value="ABCOBHBMXXX"></apex:outputText><br/><br/>
+    
+    
+    
+    <p>This letter is being issued at your as No Due Certificate from ila Bank.</p>
+    <p>
+        Thank you for being part of the ila family. 
+    </p>
+    <p>
+        Yours sincerely,</p>
+        <apex:image value="{!URLFOR($Resource.Ibandigitalsign)}" height="74.83px" width="74.45"/>
+        <p>
+            Amit Sambhi<br/>
+            Head of Operations - ila Bank
+        </p>
+        
+      <div class="footer">
+                
+                <div>
+                    Add signature Footer
+                    <!--<apex:image value="{!URLFOR($Resource.footer2)}" height="58.58px" width="750" />-->
+                </div>
+                
+            </div>
+            </body>
+    </html>
+</apex:page>

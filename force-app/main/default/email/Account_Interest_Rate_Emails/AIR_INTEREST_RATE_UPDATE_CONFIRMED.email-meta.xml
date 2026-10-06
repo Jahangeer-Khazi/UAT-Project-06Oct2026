@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When interest rate of customer’s account is updated successfully</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>AIR_INTEREST_RATE_UPDATE_CONFIRMED</name>
+    <style>none</style>
+    <subject>Your request for updating interest rate is completed</subject>
+    <textOnly>Your request for updating interest rate is completed
+
+Hi,
+
+Your request to update the interest rate for your {!Case.ac_Currency__c} {!Case.RHA_AccountType__c} is completed.
+The approved interest rate is {!Case.AIR_ApprovedInterestRate__c} effective from {!Case.cc_Checker_Result_Date_Time__c}.
+
+Our team is available 24/7 to help you on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

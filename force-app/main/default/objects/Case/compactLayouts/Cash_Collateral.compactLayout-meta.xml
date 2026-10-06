@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cash_Collateral</fullName>
+    <fields>CaseNumber</fields>
+    <fields>Customer_CIF__c</fields>
+    <fields>Customer_Segment__c</fields>
+    <fields>cc_Application_Stages__c</fields>
+    <fields>OwnerId</fields>
+    <label>Cash Collateral</label>
+</CompactLayout>

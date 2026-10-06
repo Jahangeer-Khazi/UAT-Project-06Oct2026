@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Total Credit Cards Installments --></label>
+    <name>cx_ln_TotalCreditCardsInstallments__c</name>
+</CustomFieldTranslation>

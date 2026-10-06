@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="JordanPeriodicReviewRetreiveID" >
+	
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="enableButton" type="boolean" default="true" />
+
+    <force:recordData aura:id="recordLoader"
+    				  layoutType="FULL"
+    				  recordId="{!v.recordId}"
+    				  fields="Id,ID_Type__c,Status,Type,Sub_Status__c,ccjo_ID_Expiry_Date__c,CivilDepart_Api_Retry_Counter__c"
+    				  targetFields="{!v.caseRecord}"
+    				  targetError="{!v.recordLoadError}"/>
+     <lightning:messages/>
+    
+    
+    
+    <div class="slds-p-bottom_large"> 
+      
+        <aura:if isTrue="{!and (and(v.caseRecord.ID_Type__c == 'Jordanian ID',lessthan(v.caseRecord.CivilDepart_Api_Retry_Counter__c,3)),and(v.caseRecord.Type =='Periodic Review',v.caseRecord.ccjo_ID_Expiry_Date__c == null))}">
+         	
+            <aura:if isTrue="{!v.enableButton == true}">
+            	<lightning:button class="slds-float_right" label="Retreive Jordanian ID" 
+                    	   		  onclick="{!c.retreiveJordanianId}"/>
+                <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+			</aura:if>
+            
+        </aura:if>
+            
+       
+    </div>
+</aura:component>

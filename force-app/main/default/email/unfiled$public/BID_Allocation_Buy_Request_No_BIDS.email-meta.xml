@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>BID Allocation - Buy Request No BIDS</name>
+    <style>none</style>
+    <subject>Buy Request - {!Bid_Allocation__c.ISIN_Code__c} - {!Bid_Allocation__c.ISIN_Type__c}</subject>
+    <textOnly>BID Allocation - Buy Request Details
+
+Dear Team,  Please find the attachment for the list of buy request and the related details
+
+Total Buy Requests : {!Bid_Allocation__c.Number_of_BIDS__c}
+Total Bid Amount :  {!Bid_Allocation__c.Total_Bid_Amount__c}
+
+Open CRM case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

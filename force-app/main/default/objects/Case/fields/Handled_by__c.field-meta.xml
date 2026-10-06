@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Handled_by__c</fullName>
+    <label>Handled by</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Al-Twaijri &amp; Partners Law Firm</fullName>
+                <default>false</default>
+                <label>Al-Twaijri &amp; Partners Law Firm</label>
+            </value>
+            <value>
+                <fullName>Jamila Ali Salman Law Firm</fullName>
+                <default>false</default>
+                <label>Jamila Ali Salman Law Firm</label>
+            </value>
+            <value>
+                <fullName>Regular</fullName>
+                <default>false</default>
+                <label>Regular</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Staff</fullName>
+                <default>false</default>
+                <label>Staff</label>
+            </value>
+            <value>
+                <fullName>Friends&amp;Family</fullName>
+                <default>false</default>
+                <label>Friends&amp;Family</label>
+            </value>
+            <value>
+                <fullName>Premium Plus</fullName>
+                <default>false</default>
+                <label>Premium Plus</label>
+            </value>
+            <value>
+                <fullName>Traders</fullName>
+                <default>false</default>
+                <label>Traders</label>
+            </value>
+            <value>
+                <fullName>Ultimate</fullName>
+                <default>false</default>
+                <label>Ultimate</label>
+            </value>
+            <value>
+                <fullName>VVIP</fullName>
+                <default>false</default>
+                <label>VVIP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

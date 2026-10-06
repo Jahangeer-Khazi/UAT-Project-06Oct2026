@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reapplying_Restriction_Last_Update_Date__c</fullName>
+    <description>This field is used for the Credit Card Control Feature(NBA-13040)</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>CC Reapply Restriction Last Update Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

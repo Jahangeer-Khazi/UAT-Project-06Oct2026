@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Relationship Termination HTML ALBURAQ</name>
+    <style>none</style>
+    <subject>Alburaq Account Closure Notice</subject>
+    <textOnly>Hi {!Case.Current_First_Name__c},
+
+We are addressing this letter to you to inform you that after careful consideration, we have decided to close your alburaq accounts with ila Bank. We reserve the right to do this as part of our terms and conditions. Hence no further debits or credits will be honored on these accounts.
+
+We can transfer your money to a domestic bank which you will need to provide us with the banking details or you may fill the provided swift document attached
+
+Once we have the above details, we will start the transfer process. In most cases it takes 2-3 days to get your money back. For any bills or payments linked to your card, you will need to make arrangements to change your card as your alburaq debit card will no longer be valid.
+
+Join the conversation
+
+ilabank.com/alburaq
+
+Powered by Bank ABC
+
+alburaq Sharia compliant services are managed strictly in accordance with Islamic principles and supervised by a recognized Sharia Supervisory Board.
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

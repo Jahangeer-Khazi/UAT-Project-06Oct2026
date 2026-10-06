@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sub Status --></label>
+    <name>SubStatus__c</name>
+    <picklistValues>
+        <masterLabel>Discrepancies Re-Upload</masterLabel>
+        <translation><!-- Discrepancies Re-Upload --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Discrepancy in Documents</masterLabel>
+        <translation><!-- Discrepancy in Documents --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Documents</masterLabel>
+        <translation><!-- Pending Documents --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending ID&amp;V</masterLabel>
+        <translation><!-- Pending ID&amp;V --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending No Due Letter</masterLabel>
+        <translation><!-- Pending No Due Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Offer Acceptance</masterLabel>
+        <translation><!-- Pending Offer Acceptance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Outstanding Letter</masterLabel>
+        <translation><!-- Pending Outstanding Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending STL</masterLabel>
+        <translation><!-- Pending STL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Signature</masterLabel>
+        <translation><!-- Pending Signature --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Signature Email</masterLabel>
+        <translation><!-- Pending Signature Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Signature In-App</masterLabel>
+        <translation><!-- Pending Signature In-App --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Resubmit ID&amp;V Verification</masterLabel>
+        <translation><!-- Resubmit ID&amp;V Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Resume ID&amp;V Verification</masterLabel>
+        <translation><!-- Resume ID&amp;V Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Review Offer</masterLabel>
+        <translation><!-- Review Offer --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

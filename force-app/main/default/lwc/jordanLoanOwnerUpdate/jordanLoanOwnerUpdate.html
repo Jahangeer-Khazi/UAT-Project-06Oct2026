@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="">
+
+        <template if:true={isError}>
+            <div class="slds-text-color_error slds-m-top_small">{msg}</div>
+        </template>
+
+        <template if:true={isSuccess}>
+            <div class="slds-text-color_success slds-m-top_small">{msg}</div>
+        </template>
+        <p>&nbsp;</p>
+        <p>
+            <lightning-input 
+                    type="checkbox" 
+                    label={labelText} 
+                    onchange={handleCheckboxChange}>
+            </lightning-input>
+        </p>
+        <p>&nbsp;</p>
+        <p>
+            <lightning-button 
+                    class="slds-m-top_medium" 
+                    label="Save" 
+                    variant="brand"
+                    disabled={isButtonDisabled}
+                    onclick={handleSave}>
+            </lightning-button>
+        </p>
+    </lightning-card>
+</template>

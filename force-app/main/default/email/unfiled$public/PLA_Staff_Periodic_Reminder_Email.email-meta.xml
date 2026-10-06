@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Updates staff relatives’ email to be sent automatically on 1st November and 1st May of every year.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA_Staff Periodic Reminder Email</name>
+    <style>none</style>
+    <subject>Al Kanz | Update Relatives Information</subject>
+    <textOnly>Al Kanz | Update Relatives Information
+
+Attn: All Staff
+
+As you are aware, staff and their immediate relatives are not eligible to participate in any ila Bank prize draws such as Al Kanz draws, or any other raffles with prizes.
+
+This is a kind reminder to review and update the list of your &quot;immediate relatives”. If you have already submitted this information, please take a moment to review the information provided previously to ensure it is still valid (if the information is outdated, we would appreciate if you could kindly update it).
+
+If you have no relatives to report, kindly select this option on the form. Please use this link to complete or update the information.
+
+Kindly note that “immediate relatives” are classified as Mother, Father, Spouse, Daughter, Son, Granddaughter and Grandson.
+
+It is worth noting that you will be required to provide:
+
+The mobile number your relatives used when opening ila Bank Accounts
+The CPR number of the relative
+The nature of your relationship
+
+If any of the “immediate relatives“ you declared hold an ila Bank account, we will notify them that they are no longer eligible for prize draws as a result of your declaration.
+
+Immediate relatives below the age of 18 do not need to be added to the list. However, you are kindly requested to update the list when they turn 18.
+
+Please note that the information you provide will be managed strictly in accordance with the Privacy Policy
+
+If you have any questions, please do not hesitate to contact ammar.abdulrahman@ilabank.com in ila business team.
+
+Best regards,
+ila Bank Team
+
+
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

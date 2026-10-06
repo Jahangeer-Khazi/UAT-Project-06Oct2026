@@ -1,0 +1,31 @@
+<aura:component controller="CivilServiceIntegrationApi"
+    implements="forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global">
+
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">Enter ID Number</h4>
+            </span>
+        </h2>
+    </header>
+
+    <lightning:card>
+        <lightning:recordEditForm aura:id="form" recordId="{!v.recordId}" objectApiName="Case" onsubmit="{!c.handleOnSubmit}">
+            <lightning:messages />
+
+            <lightning:inputField fieldName="sc_Card_Holder_Jordan_ID_Number__c" aura:id="sc_Card_Holder_Jordan_ID_Number" required="true"/>
+            <lightning:inputField fieldName="sc_CardHolder_ID_Type__c" aura:id="sc_CardHolder_ID_Type" value="Civil ID" disabled="true" required="true"/>
+            
+            <footer>
+                <div class="slds-float_right">
+                    <lightning:button variant="brand" label="Save" type="submit" />
+                    <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                </div>
+            </footer>
+        </lightning:recordEditForm>
+
+    </lightning:card>
+    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"
+        class="slds-hide" />
+
+</aura:component>

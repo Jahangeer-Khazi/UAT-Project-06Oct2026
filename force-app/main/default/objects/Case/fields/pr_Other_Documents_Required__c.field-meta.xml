@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pr_Other_Documents_Required__c</fullName>
+    <description>This field is populated automatically when the passport photo required is checked in periodic review for email templates .</description>
+    <externalId>false</externalId>
+    <formula>IF( pr_OtherDocumentsRequired__c = true,
+Other_Documents_Required_Description__c  ,&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>pr_Other Documents Required</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

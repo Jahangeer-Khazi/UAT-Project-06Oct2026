@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Results__c</fullName>
+    <label>Compliance Results</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Send to Head of Business</fullName>
+                <default>false</default>
+                <label>Send to Head of Business</label>
+            </value>
+            <value>
+                <fullName>Send to CEO</fullName>
+                <default>false</default>
+                <label>Send to CEO</label>
+            </value>
+            <value>
+                <fullName>Cancel Recommendation</fullName>
+                <default>false</default>
+                <label>Cancel Recommendation</label>
+            </value>
+            <value>
+                <fullName>Send To ICU</fullName>
+                <default>false</default>
+                <label>Send To ICU</label>
+            </value>
+            <value>
+                <fullName>Declined by ICU</fullName>
+                <default>false</default>
+                <label>Declined by ICU</label>
+            </value>
+            <value>
+                <fullName>Validating Transaction</fullName>
+                <default>false</default>
+                <label>Validating Transaction</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Send to Fraud</fullName>
+                <default>false</default>
+                <label>Send to Fraud</label>
+            </value>
+            <value>
+                <fullName>Pending Checks</fullName>
+                <default>false</default>
+                <label>Pending Checks</label>
+            </value>
+            <value>
+                <fullName>Approve</fullName>
+                <default>false</default>
+                <label>Approve</label>
+            </value>
+            <value>
+                <fullName>Refer to Maker</fullName>
+                <default>false</default>
+                <label>Refer to Maker</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

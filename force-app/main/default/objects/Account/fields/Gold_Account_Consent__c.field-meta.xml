@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gold_Account_Consent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field shows whether the customer has created a Gold Account. The value is updated to TRUE when the customer taps Create Gold Account in the ila app.</description>
+    <label>Gold Account Created</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

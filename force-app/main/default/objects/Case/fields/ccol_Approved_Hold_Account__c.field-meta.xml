@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ccol_Approved_Hold_Account__c</fullName>
+    <description>Related to Cash Collateral</description>
+    <label>Approved Hold Account Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACCOUNT</fullName>
+                <default>false</default>
+                <label>ACCOUNT</label>
+            </value>
+            <value>
+                <fullName>HASAALA</fullName>
+                <default>false</default>
+                <label>HASAALA</label>
+            </value>
+            <value>
+                <fullName>PLA</fullName>
+                <default>false</default>
+                <label>PLA</label>
+            </value>
+            <value>
+                <fullName>POT</fullName>
+                <default>false</default>
+                <label>POT</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

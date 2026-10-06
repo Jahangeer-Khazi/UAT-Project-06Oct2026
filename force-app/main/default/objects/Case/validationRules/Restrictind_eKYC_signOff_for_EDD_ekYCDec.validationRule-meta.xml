@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrictind_eKYC_signOff_for_EDD_ekYCDec</fullName>
+    <active>true</active>
+    <description>This will restrict the eKYC Decision when the  Case Origin is &quot;eKYC Sign off&quot;</description>
+    <errorConditionFormula>TEXT(Origin) = &apos;EKYC-SIGNOFF&apos; &amp;&amp; TEXT(Type) = &apos;eKYC&apos; &amp;&amp; TEXT(eKYC_Decision__c) = &apos;Convert to Identification Case&apos; &amp;&amp; $User.LastName &lt;&gt; &quot;Integration&quot;</errorConditionFormula>
+    <errorMessage>You cannot perform this action, when the request is for &apos;eKYC Sign-off&apos;</errorMessage>
+</ValidationRule>

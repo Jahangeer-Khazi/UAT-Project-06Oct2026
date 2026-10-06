@@ -1,0 +1,337 @@
+<apex:page standardController="UAR__c" extensions="UARDetailsPDFController" applyHtmlTag="false" showHeader="false" renderAs="pdf" action="{!init}">
+    <head>
+        <style type="text/css">
+            body {
+            /* font-family: Arial, sans-serif; */
+            font-family: 'Open Sans', Inter, sans-serif;
+            font-size: 12px;
+            margin: 20px;
+            color: #333;
+            line-height: 1.6;
+            }
+            h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            }
+            table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            page-break-inside: avoid; /* Prevent table from breaking across pages */
+            }
+            th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            }
+            th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #2c3e50;
+            width: 25%; /* Consistent width for all headings */
+            }
+            .section-title {
+            background-color: #2c3e50;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            }
+            .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            }
+            .mandatory {
+            color: #3498db;
+            font-weight: bold;
+            }
+            .custom-margin {
+            margin-top: 4px;
+            }
+            .no-padding {
+            padding: 0 !important;
+            }
+            .inner-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            }
+            .inner-table th, .inner-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Center align content in inner tables */
+            height: 40px; /* Increased height for better visibility */
+            }
+            .inner-table .section-title {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-weight: bold;
+            text-align: center;
+            }
+            .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            }
+            .image-container img {
+            max-width: 48%;
+            height: auto;
+            }
+            .page-alignment {
+            page-break-inside: avoid; /* Prevent table from breaking across pages */
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Investigation Date: {!formattedTodayDate}</h3>
+        
+        <!-- Customer Profile Section -->
+        <div class="page-alignment"> 
+            <div class="section-title">Customer Profile</div>
+            <table>
+                <tr>
+                    <th>Customer CIF</th>
+                    <td>{!uarRecord.Customer_CIF__c}</td>
+                    <th>Customer since</th>
+                    <td>{!uarRecord.Customer_since__c}</td>
+                </tr>
+                <tr>
+                    <th>Employer Name</th>
+                    <td>{!uarRecord.Account__r.Employer_Name__pc}</td>
+                    <th>Declared “source of funds”</th>
+                    <td>{!formattedSourceOfFunds}</td>
+                </tr>
+                <tr>
+                    <th>Declared expected monthly deposits (BHD)</th>
+                    <td>{!uarRecord.Declared_expected_monthly_deposits_BHD__c}</td>
+                    <th>Declared gross monthly income (BHD)</th>
+                    <td>{!uarRecord.Declared_gross_monthly_income_BHD__c}</td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <div class="page-alignment">
+            <!-- Investigation Reason Section -->
+            <div class="section-title">Investigation Reason</div>
+            <table>
+                <tr>
+                    <th>System Generated Suspicion</th>
+                    <td>
+                        <div class="checkbox-container">
+                            <apex:outputText value="✓ Yes" rendered="{!uarRecord.System_Generated_Suspicion__c}" style="color: green;" />
+                            <apex:outputText value="✗ No" rendered="{!!uarRecord.System_Generated_Suspicion__c}" style="color: red;" />
+                        </div>
+                    </td>
+                    <th>Suspicion raised by</th>
+                    <td>{!uarRecord.Owner.Name}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- Suspicious Transaction Details Section -->
+            <div class="section-title">Suspicious Transaction Details</div>
+            
+            <table>
+                <tr>
+                    <th>Typology</th>
+                    <td colspan="3">
+                        <div>
+                            <apex:repeat value="{!typologyListFirstHalf}" var="typology">
+                                <div class="custom-margin">{!typology}</div>
+                            </apex:repeat>
+                            <apex:repeat value="{!typologyListSecondHalf}" var="typology">
+                                <div class="custom-margin">{!typology}</div>
+                            </apex:repeat>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- Suspicion Details -->
+            <table>
+                <tr>
+                    <th>Suspicion Details</th>
+                    <td>{!uarRecord.Reason_for_Suspicion__c}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- Transactions -->
+                <table class="inner-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Transaction Amount (BHD)</th>
+                            <th>Transaction Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:variable var="counter" value="{!1}"/>
+                        <apex:repeat value="{!uarRecord.Suspicious_Transactions__r}" var="transaction">
+                            <tr>
+                                <td>{!counter}</td>
+                                <td>{!transaction.Transaction_Amount__c}</td>
+                                <td>
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!transaction.Transaction_Date__c}" />
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                            <apex:variable var="counter" value="{!counter + 1}"/>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- Investigation Section -->
+            <div class="section-title">Investigation</div>
+            <table>
+                <tr>
+                    <th>Summary of look-back exercise</th>
+                    <td>{!uarRecord.Summary_of_look_back_exercise__c}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- AML analyst investigation -->
+            <table>
+                <tr>
+                    <th>AML analyst investigation</th>
+                    <td class="no-padding">
+                        <table class="inner-table">
+                            <tr>
+                                <td>Total Deposits BHD</td>
+                                <td>{!uarRecord.Total_Deposits_BHD__c}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="section-title">Deposit Channels</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">{!formattedDepositChannels}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="no-padding">
+                        <table class="inner-table">
+                            <tr>
+                                <td>Total Withdrawals BHD</td>
+                                <td>{!uarRecord.Total_Withdrawals_BHD__c}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="section-title">Withdrawal Channels</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">{!formattedWithdrawChannels}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- List of notable transactions -->
+            <table>
+                <tr>
+                    <th>List of notable transactions</th>
+                    <td class="no-padding">
+                        <table class="inner-table">
+                            <tr>
+                                <td class="section-title">IBAN</td>
+                            </tr>
+                            <tr>
+                                <td>{!uarRecord.IBAN__c}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="no-padding">
+                        <table class="inner-table">
+                            <tr>
+                                <td class="section-title">Number of transfers</td>
+                            </tr>
+                            <tr>
+                                <td>{!uarRecord.Number_of_transfers__c}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="no-padding">
+                        <table class="inner-table">
+                            <tr>
+                                <td class="section-title">Amount (BHD)</td>
+                            </tr>
+                            <tr>
+                                <td>{!uarRecord.Amount_BHD__c}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <th>AML analyst summary of customer activity and findings</th>
+                    <td colspan="3">{!uarRecord.AML_Analyst_Summary__c}</td>
+                </tr>
+                <tr>
+                    <th>Key findings/risks identified</th>
+                    <td colspan="3">{!uarRecord.Key_findings_risks_identified__c}</td>
+                </tr>
+                <tr>
+                    <th>AML analyst Case closure recommendation</th>
+                    <td colspan="3">{!uarRecord.AML_Analyst_Case_Closure_Recommendation__c}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="page-alignment">
+            <!-- MLRO Decision Section -->
+            <div class="section-title">MLRO Decision — (For Compliance Team only)</div>
+            <table>
+                <tr>
+                    <th>MLRO Commentary</th>
+                    <td>{!uarRecord.MLRO_commentary__c}</td>
+                </tr>
+                <tr>
+                    <th>MLRO decision</th>
+                    <td>
+                        <div>
+                            <apex:repeat value="{!mlroDecisionListFirstHalf}" var="mlroDecision">
+                                <div class="custom-margin">{!mlroDecision}</div>
+                            </apex:repeat>
+                            <apex:repeat value="{!mlroDecisionListSecondHalf}" var="mlroDecision">
+                                <div class="custom-margin">{!mlroDecision}</div>
+                            </apex:repeat>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Customer Identity Section -->
+        <div class="page-alignment">
+            <div class="section-title">Customer Identity</div>
+            <table>
+                <tr>
+                    <th>Customer CPR</th>
+                    <td>
+                        <div class="image-container">
+                            <apex:repeat value="{!contentVersionIds}" var="contentVersionId">
+                                <apex:image url="/sfc/servlet.shepherd/version/download/{!contentVersionId}" height="250" width="500"/>
+                                <br/>
+                            </apex:repeat>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+    </body>
+</apex:page>

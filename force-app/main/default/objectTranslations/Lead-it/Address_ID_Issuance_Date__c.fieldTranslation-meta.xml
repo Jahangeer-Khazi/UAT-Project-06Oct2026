@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Proof of Address ID Issuance Date. --></help>
+    <label><!-- Address ID Issuance Date --></label>
+    <name>Address_ID_Issuance_Date__c</name>
+</CustomFieldTranslation>

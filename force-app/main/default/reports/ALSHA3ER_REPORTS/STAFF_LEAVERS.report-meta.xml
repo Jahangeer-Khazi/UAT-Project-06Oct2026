@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.CIF__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Segment__c</field>
+    </columns>
+    <columns>
+        <field>Contact.ID_Number__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <column>Contact.ID_Number__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>710449178,651236835,810626195,691043370,581007239,670816310,880504285,790560224,690657897,661002667,590820133,900766140,940714531,600607739,811202615,630928525,610805690,740753371,701144149,711116091,730581144,821104730,580921077,780379802,590800132,750951982,671216899,900359790,730261760,910708363,800229282,720905818,630703787,651042178,840713045,740364634,821339583,741120895,721003524,720358868,750701099,820102970,711100845,650011163,820703133,650402294,760805113,900709596,910812705,761058680,631212663,730473694,730260151,610123432,610173898,880508540,861004019,801066778,690941285,670934011,880100788,910611165,760764018,660570580,870810863,900908092,900908149,770811264,940712784,960601287</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.CIF__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1346742,2580754,1346796,4360089</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>STAFF_LEAVERS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

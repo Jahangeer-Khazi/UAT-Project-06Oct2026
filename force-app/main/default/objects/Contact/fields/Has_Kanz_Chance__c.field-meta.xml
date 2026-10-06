@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Kanz_Chance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This checks wether the customer has chance to be in Kanz draw, to be populated by API</description>
+    <label>Has Kanz Chance</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

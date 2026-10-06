@@ -1,0 +1,89 @@
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEDEC;
+    height: 7vh;
+    margin: -1.4%;
+    width: 104.7%;
+}
+
+@media (max-width: 767.98px) {
+    .centered-container {
+        height: 12vh;
+        margin: -4%;
+        width: 149.7%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .centered-container {
+        height: 10vh;
+        margin: -6%;
+    }
+}
+
+
+.slds-grid_pull-padded {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .centered-container {
+        flex-direction: column;
+    }
+
+    .slds-col.slds-size_1-of-2 {
+        width: 100%;
+    }
+
+    .slds-form__item {
+        margin-bottom: 1rem;
+    }
+}
+
+.wrapper {
+    height: 15vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.inlineFooter {
+    z-index: 999;
+    position: fixed;
+    bottom: 53px;
+    width: 62.8%;
+}
+
+.errorText {
+    color: #BA0517;
+    margin-left: 7px;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.error-link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.error-link:hover {
+    color: darkblue;
+}
+
+.undoIcon {
+    margin-left: 95%;
+    margin-bottom: -4%;
+}
+
+.errorBackground {
+
+    background-color: rgb(251, 243, 224);
+}
+
+.subSectionClass {
+    margin-left: 40px;
+}

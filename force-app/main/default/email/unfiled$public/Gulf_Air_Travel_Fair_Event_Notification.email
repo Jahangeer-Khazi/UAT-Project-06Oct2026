@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <style type="text/css">
+         .ExternalClass {width: 100%;}
+                  @font-face {
+         font-family: 'Inter';
+         font-style: normal;
+         font-weight: 400;
+         src: url('https://fonts.gstatic.com/s/inter/v12/UcC03FwrQ3m1.woff2') format('woff2');
+      }
+      </style>
+   </head>
+   <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e; font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'; color:#ffffff;">
+         <tr>
+            <td align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e;">
+               <table border="0" cellpadding="0" cellspacing="0" style="max-width:480px;" align="center">
+                  <tbody>
+                     <tr>
+                        <td align="center">
+                           <br>
+                           <br>
+                           <a href="http://ilabank.com" target="_blank" tabindex="-1">
+                           <img src="https://images.ctfassets.net/2c8e80nprabl/5cgeqYcj46Yo7Vj76b4Pph/77905df16179591bb8a8a8b3e7d44bca/ilaemails_logo.png" width="70" style="max-width:70px; display:inline-block; display:block;">
+                           </a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <a href="http://ilabank.com" target="_blank"><img align="center" src="https://images.ctfassets.net/2c8e80nprabl/6zkh49EQnrOCM42IswE38I/08b5e1e20549ff2665a4c0aba3dd3a80/email.png" width="300" style="max-width:300px; display:inline-block; display:block;"></a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="padding: 0px 18px 9px;">
+                           <div style="text-align: left; font-size:18px; color:#ffffff;">
+                              <p style="text-align: center;">
+                                 Hi {!Case.Contact_First_Name__c},<br><br>
+                                 Thanks for visiting the ila Booth at the Gulf Air Travel Fair on {!Case.CreatedDate}!<br><br>
+                                 You've entered the draw using your {!Case.Card_Type__c} card with a receipt of BHD {!Case.Transaction_Amount__c}.<br><br>
+                                 You now have 1 entry in the draw to be one of our lucky winners: <br>
+                              </p>
+                              <ul style="list-style-position: inside; padding-left: 0; margin: 0; text-align: center;">
+                                 <li style="text-align: left; width: 100%;">5 winners will win An upgrade to Business Class</li>
+                                 <li style="text-align: left; width: 100%;">5 winners will win Cashback up to BHD 1,000 on their Travel Fair spends submitted</li>
+                              </ul>
+                              <p style="text-align: center;">
+                                 The draw will take place on 27th September 2025 – stay tuned!<br><br>
+                                 The ila Bank team <br><br>
+                                 
+                                 <b>Terms & Conditions</b><br>
+                              </p>
+                              <ul style="list-style-position: outside; padding-left: 20px; margin: 0; text-align: left;">
+                                 <li>Campaign is valid only on 27th September 2025, from 9:00 AM to 10:00 PM at the Gulf Air Travel Fair venue.</li>
+                                 <li>Campaign applies exclusively to ila Mastercard Credit Cardholders including:
+                                      <ul style="padding-left: 20px;">
+                                        <li>ila Gulf Air Credit Card</li>
+                                        <li>ila Blue Credit Card</li>
+                                        <li>ila Switch Credit Card</li>
+                                      </ul>
+                                 </li>
+                                 <li>Minimum spend to be eligible to enter the draw is BHD 100 using the eligible Credit Card</li>
+                                 <li>Customers will receive one entry into the raffle draw, regardless of the number or value of transactions, if it meets the required minimum spend.</li>
+                                 <li>10 winners will be selected randomly to win one of the following prizes
+                                      <ul style="padding-left: 20px;">
+                                        <li>5 Winners will receive a FREE upgrade to Business Class on any Gulf Air flight (valid for one ticket only).</li>
+                                        <li>5 Winners will receive a cashback of their Travel Fair spends, up to BHD 1,000.</li>
+                                      </ul>
+                                 </li>
+                                 <li>Gulf Air standard ticketing Terms & Conditions apply to the upgrade voucher that will be won by customers</li>
+                                 <li>Maximum reimbursement of BHD 1,000 per winner, based on total eligible spend claimed at the booth.</li>
+                                 <li>In order to enter the draw, customers must visit the ila Bank booth at the Travel Fair and present the following
+                                      <ul style="padding-left: 20px;">
+                                        <li>Their ila Credit Card used for the transaction</li>
+                                        <li>The transaction receipt (showing BHD 100 or more spent at the fair)</li>
+                                      </ul>
+                                 </li>
+                                 <li>Only receipts stamped on the day of the event will be considered valid. Any attempt to submit fraudulent or duplicate receipts will result in disqualification.</li>
+                                 <li>To ensure that the draw is conducted in an unencumbered manner, the draw will be conducted in the attendance of a representative of the Ministry of Industry and Commerce (MOIC), senior bank representatives and internal auditors.</li>
+                                 <li>The winners will be required to take part in announcements related to the campaign including having his/her picture taken and their names disclosed.</li>
+                                 <li>Board Members and Staff of Bank ABC or ila Bank and their immediate family members are not eligible to participate in the draw.</li>
+                                 <li>By participating in the campaign, customers agree to:
+                                      <ul style="padding-left: 20px;">
+                                        <li>The campaign terms and conditions; and</li>
+                                        <li>
+                                          Allow the Bank to use their personal information for promotional purposes in compliance with the personal data protection law of the Kingdom of Bahrain.
+                                        </li>
+                                      </ul>
+                                 </li>
+                              </ul>
+                              <p style="text-align: left;">
+                                 ila Bank reserves the right to amend, suspend, or terminate the campaign at its sole discretion, at any time, even prior to the stated end date, without prior notice, after obtaining the approval from MOIC. 
+                              </p>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <span style="text-align: center; font-size:20px; text-decoration: none; color:#79ED00;">Follow us on social media</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <table align="center">
+                              <tr>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://www.facebook.com/Ila-Bank-Bahrain-352144688790283/" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/1yboFPOOVPmS7O78JdWJoP/7a0bc89b71c6d839ac123f03b577d99b/ilaemails_facebook.png" alt="Facebook" style="display:block;" height="40" width="40"></a> 
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://instagram.com/ilabankbhr" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/4RckoPxJ8MzRJuP4oJuTP2/ac2c5371d673151d35ae6c63accacb08/ilaemails_instagram.png" alt="Instagram" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://twitter.com/ilaBankBHR" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/2JrAJees2RugJSieO64JzA/0070d557ef109cc562752a3d775d7a1d/ilaeamils_twitter.png" alt="Twitter" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://www.linkedin.com/company/ilabank/" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/4WHZQB4KgiI8rkr9M8mUTE/ac8ee952a49467abb5cb337df8bfc4cb/ilaemails_linkedin.png" alt="LinkedIn" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                                 <td align="center" valign="middle" style="padding: 0px 5px 5px;"> 
+                                    <br>
+                                    <a href="https://www.youtube.com/channel/UC_ycAB7SYwy1B5G7MRgJrFw" target="_blank"><img src="https://images.ctfassets.net/2c8e80nprabl/5HxpWe7yNAkUdZz9AL83cK/15749342a20c0ddc0c41a336ab213b78/ilaemails_youtube.png" alt="YouTube" style="display:block;" height="40" width="40" class=""></a>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span><a style="color:#7aee00; text-decoration:none;" href="https://www.ilabank.com" target="_blank">ilabank.com</a></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color:#FFFFFF; text-decoration: none;">Powered by Bank ABC</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color:#ffffff; text-decoration: none;"><a style="color: #79ED00; text-decoration: none; font-size:12px;" href="https://goo.gl/maps/XiabGNQGbBAEJpcr9" target="_blank">Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain</a></span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color:#ffffff; font-size:12px; text-decoration: none;">This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <span style="color: #79ED00; font-size:12px; text-decoration: none;">Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</span>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

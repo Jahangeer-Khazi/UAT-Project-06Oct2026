@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Business Light Update Maker Queue</name>
+    <queueMembers>
+        <users>
+            <user>allensj.cc.jordan@bank-abc.com</user>
+            <user>ashish.pandey@bank-abc.com</user>
+            <user>maksud.ali@bank-abc.com</user>
+            <user>praveen.cc.jordan@bank-abc.com</user>
+            <user>santhoshiniv.ccagent@maveric-systems.com</user>
+            <user>santhoshiniv.cc.jordan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Liveness_Check_Reject_Reason__c</fullName>
+    <label>Last Liveness Check Reject Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>DENIED_UNSUPPORTED_ID_TYPE</fullName>
+                <default>false</default>
+                <label>DENIED_UNSUPPORTED_ID_TYPE</label>
+            </value>
+            <value>
+                <fullName>DENIED_UNSUPPORTED_ID_COUNTRY</fullName>
+                <default>false</default>
+                <label>DENIED_UNSUPPORTED_ID_COUNTRY</label>
+            </value>
+            <value>
+                <fullName>NO_ID_UPLOADED</fullName>
+                <default>false</default>
+                <label>NO_ID_UPLOADED</label>
+            </value>
+            <value>
+                <fullName>DENIED_FRAUD</fullName>
+                <default>false</default>
+                <label>DENIED_FRAUD</label>
+            </value>
+            <value>
+                <fullName>ERROR_NOT_READABLE_ID</fullName>
+                <default>false</default>
+                <label>ERROR_NOT_READABLE_ID</label>
+            </value>
+            <value>
+                <fullName>validity = FALSE</fullName>
+                <default>false</default>
+                <label>validity = FALSE</label>
+            </value>
+            <value>
+                <fullName>Similarity = NO_MATCH</fullName>
+                <default>false</default>
+                <label>Similarity = NO_MATCH</label>
+            </value>
+            <value>
+                <fullName>Similarity = NOT_POSSIBLE</fullName>
+                <default>false</default>
+                <label>Similarity = NOT_POSSIBLE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

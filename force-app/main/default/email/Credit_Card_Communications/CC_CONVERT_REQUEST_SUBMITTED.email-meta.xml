@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Once a Credit Card conversion application is submitted by the customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CC_CONVERT_REQUEST_SUBMITTED</name>
+    <style>none</style>
+    <subject>We have Received Your Credit Card Change Request</subject>
+    <textOnly>Credit Card Change Request Received
+
+Hi,
+
+Your request to change the type of your {!Case.cc_Requested_Card_Type__c} Credit Card has been received.
+
+Our team is currently reviewing your request.
+
+
+For any questions, call us on +973 17123456
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

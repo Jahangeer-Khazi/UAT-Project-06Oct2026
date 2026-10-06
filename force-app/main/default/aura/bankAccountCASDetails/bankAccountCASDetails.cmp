@@ -1,0 +1,371 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="bankAccountCASController" >
+	<aura:attribute name="account" type="Account" />
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    
+    <aura:attribute name="casData" type="Object" />
+    <aura:attribute name="casFormattedData" type="String"/>
+    
+    <aura:attribute name="showCASDetails" type="Boolean" default = "false" />
+    <aura:attribute name="checkCASDetails" type="Boolean" default = "false" />
+    <aura:handler name="init" value="{!this}" action="{!c.init }"/>
+    
+    	<div style="padding-top: 2rem;">
+            <lightning:card title="Account CAS Status">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="Check CAS Status" onclick="{!c.loadCASDetails}" />
+    			</div>
+             </lightning:card>
+        </div>
+    <aura:if isTrue ="{!v.showCASDetails == true}"> 
+     <div class="slds-form" role="list" style="padding: 1rem;">
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Customer ID</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].customerId}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Customer ID Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].customerIdType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Customer Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].customer_type} 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Mobile No.</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].mobileNo}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Instrument ID</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].instrumentId}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Instrument Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].instruments[0].instrumentType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bank Account Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].bankAccountType}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Bank ID</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].instruments[0].bank_id}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Email</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].email}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">User Consent</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].instruments[0].userConsent}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Default Channel</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].channels[0].isDefault}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Channel Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.casData.result[0].instruments[0].channels[0].name}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].name}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Alias</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].alias}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+
+        <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Address 1</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].instruments[0].address1}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Address 2</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].address2}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+         </div>
+         <!-- Row End -->
+         
+          <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Address 3</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].instruments[0].address3}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Country</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].country}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+          <!-- Row Start -->
+            <div class="slds-form__row">
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">City</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.casData.result[0].instruments[0].city}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Building</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.casData.result[0].instruments[0].building}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+         <!-- Row Start -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Flat</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].flat}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Road</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.casData.result[0].instruments[0].road}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+          <!-- Row Start -->
+            <div class="slds-form__row">
+               
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Block</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].block}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Nationality</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.casData.result[0].instruments[0].nationality}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+          <!-- Row Start -->
+            <div class="slds-form__row">
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Gender</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.casData.result[0].instruments[0].gender}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Date of Birth</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                 {!v.casFormattedData}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+         <!-- Row End -->
+         
+        
+         
+     </div>
+</aura:if>
+<aura:if isTrue="{!v.checkCASDetails}">
+    <b style='color:red;'>IBAN not found on CAS</b>
+</aura:if>
+<!--<c:apexService aura:id="apexService"/> -->
+</aura:component>

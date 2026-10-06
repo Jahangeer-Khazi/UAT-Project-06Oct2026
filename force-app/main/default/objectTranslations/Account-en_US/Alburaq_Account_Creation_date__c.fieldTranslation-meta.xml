@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Alburaq Account Creation date --></help>
+    <label><!-- Alburaq Account Creation date --></label>
+    <name>Alburaq_Account_Creation_date__c</name>
+</CustomFieldTranslation>

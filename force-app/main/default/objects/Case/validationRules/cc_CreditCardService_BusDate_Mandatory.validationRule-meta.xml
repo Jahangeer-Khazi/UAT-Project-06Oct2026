@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_BusDate_Mandatory</fullName>
+    <active>true</active>
+    <description>If Employment Status = Self Employed then Business opeartions Starting date is a mandatory.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Employment_Status__c),
+ISPICKVAL(cc_Employment_Status__c, &quot;Self Employed&quot;),
+ISBLANK(cc_Business_Operations_Starting_Date__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type, &quot;Convert Credit Card Nature Application&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Business_Operations_Starting_Date__c</errorDisplayField>
+    <errorMessage>Please fill the Business operations starting date field, if Employment status is Self Employed.</errorMessage>
+</ValidationRule>

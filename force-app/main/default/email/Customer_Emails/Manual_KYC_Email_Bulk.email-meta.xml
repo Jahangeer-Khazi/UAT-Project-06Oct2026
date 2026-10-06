@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>KYC emails for the Customer - Bulk</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Manual KYC Email - Bulk</name>
+    <style>none</style>
+    <subject>Urgent: ila Bank KYC update requirement</subject>
+    <textOnly>KYC Documents Requested !
+
+Dear Valued Customer,
+
+Greetings form ila, we trust that you are doing great.
+
+We are addressing this email to you after noticing that your account is not complying with the regulatory requirements of the CBB here in Bahrain, which is having valid residency permit and passport registered to your active bank account, and it is our responsibility as bank to assure that, therefore we highly encourage you to reply to us with the attached KYC document and the below documents and we will update your profile.
+Failing to provide valid documents before the 26th of May 2024 will result in the restriction of your account.
+
+• KYC Document
+• Valid BH ID
+• Valid Residency Permit and Passport
+
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Have a great day!
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

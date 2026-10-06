@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>asc_Membership_Discount__c</fullName>
+    <label>Membership Discount</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>No discount</label>
+            </value>
+            <value>
+                <fullName>Discount25</fullName>
+                <default>false</default>
+                <label>25% discount</label>
+            </value>
+            <value>
+                <fullName>Discount50</fullName>
+                <default>false</default>
+                <label>50% discount</label>
+            </value>
+            <value>
+                <fullName>Discount75</fullName>
+                <default>false</default>
+                <label>75% discount</label>
+            </value>
+            <value>
+                <fullName>Free</fullName>
+                <default>false</default>
+                <label>Free</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

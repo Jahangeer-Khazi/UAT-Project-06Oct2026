@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Reason__c</fullName>
+    <label>Cancellation Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Liquidity</fullName>
+                <default>false</default>
+                <label>Liquidity</label>
+            </value>
+            <value>
+                <fullName>Loan</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+            <value>
+                <fullName>Additional benefits</fullName>
+                <default>false</default>
+                <label>Additional benefits</label>
+            </value>
+            <value>
+                <fullName>Leaving the country</fullName>
+                <default>false</default>
+                <label>Leaving the country</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Do not see value in ila Premium</fullName>
+                <default>false</default>
+                <label>Do not see value in ila Premium</label>
+            </value>
+            <value>
+                <fullName>Stopped using ila</fullName>
+                <default>false</default>
+                <label>Stopped using ila</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Didn’t disclose</fullName>
+                <default>false</default>
+                <label>Didn’t disclose</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Customer</fullName>
+                <default>false</default>
+                <label>Cancelled by Customer</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Bank Due to Bank Minimum Amount</fullName>
+                <default>false</default>
+                <label>Cancelled by Bank Due to Bank Minimum Amount</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

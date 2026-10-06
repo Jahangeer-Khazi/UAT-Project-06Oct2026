@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Change_on_Unqualified_Lead</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Status) &amp;&amp;   RecordType.Name = &apos;Lead Unqualified&apos;</errorConditionFormula>
+    <errorMessage>Lead status cannot be changed for the Unqualified Lead, contact System Administrator</errorMessage>
+</ValidationRule>

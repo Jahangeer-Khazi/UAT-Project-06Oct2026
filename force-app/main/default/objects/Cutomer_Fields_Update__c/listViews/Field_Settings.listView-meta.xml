@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_Settings</fullName>
+    <columns>NAME</columns>
+    <columns>Field_Update__c</columns>
+    <columns>Encrypt__c</columns>
+    <columns>Allow_Null_Empty__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Field Settings</label>
+</ListView>

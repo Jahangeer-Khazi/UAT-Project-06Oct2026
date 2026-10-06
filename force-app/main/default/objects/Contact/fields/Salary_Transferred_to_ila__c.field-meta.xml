@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salary_Transferred_to_ila__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://bank-abc.atlassian.net/browse/NBA-13397</description>
+    <inlineHelpText>This will be updated to TRUE, if the salary Transfer to ila</inlineHelpText>
+    <label>Salary Transferred to ila</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

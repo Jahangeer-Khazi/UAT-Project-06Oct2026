@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Discount</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(ac_RequestedBy__c, &apos;Bank / CBB&apos;), 
+OR(
+AND(ISPICKVAL(Contact.Segment__c,&apos;Staff&apos;),
+Discount_Amount__c&lt;= 1.00,Discount_Amount__c&gt;= 25.00   ),
+AND(NOT(ISPICKVAL(Contact.Segment__c,&apos;Staff&apos;)),
+Discount_Amount__c&lt;= 1.00,Discount_Amount__c&gt;= 50.00   )
+)
+)</errorConditionFormula>
+    <errorDisplayField>Discount_Amount__c</errorDisplayField>
+    <errorMessage>Discount Amount is mandatory if requested by the bank</errorMessage>
+</ValidationRule>

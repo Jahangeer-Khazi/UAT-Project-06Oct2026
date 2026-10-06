@@ -1,0 +1,37 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" applyHtmlTag="false" renderAs="PDF" docType="html-5.0">
+    <header>
+        <title>Bank Statement Request Form</title>
+         
+        
+        <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en"> 
+            <head> 
+
+          <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system-vf.css')}" /> 
+         
+              
+             <!-- <apex:slds /> -->
+            
+            </head> 
+        </html> 
+        
+        
+        
+        
+        <style>
+        
+        body{
+            font-family: Cairo,Open Sans, sans-serif,Roboto,Helvetica Neu,Arial;
+            color:#000E3B;
+            font-size: 14px;
+            width: 1240px;
+            padding: 50px;
+            padding-bottom: 25px;
+            border: 1px solid #000E3B;
+            border-bottom: 5px solid #000E3B;
+
+        }
+        </style>
+        <script>
+        </script>
+    </header>
+</apex:page>

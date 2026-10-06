@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Stolen_Sold_Device__c</fullName>
+    <description>Field used for Apple Pay Cases</description>
+    <encryptionScheme>None</encryptionScheme>
+    <inlineHelpText>Please specify only if Sub Type is &apos;Stolen/ Sold Device&apos;</inlineHelpText>
+    <label>Date of Stolen/ Sold Device</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

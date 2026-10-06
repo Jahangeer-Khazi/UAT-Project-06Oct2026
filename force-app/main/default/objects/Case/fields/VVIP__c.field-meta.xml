@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VVIP__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+AND(
+Contact.VVIP__c = true, 
+ISPICKVAL(Sub_Type__c, &quot;Receive Card or Cheque&quot;)
+),
+IMAGE(&apos;/resource/1595172323000/VVIPFlag/&apos;,&apos;VVIP&apos;,55,90) &amp; &quot; &quot; &amp;
+IMAGE(&apos;/resource/1719739776000/CARD_INDICATOR/&apos;, &apos;INDICATOR&apos;,55,90),
+IF(Contact.VVIP__c = true, IMAGE(&apos;/resource/1595172323000/VVIPFlag/&apos;, &apos;VVIP&apos;,55,90),
+IF(ISPICKVAL(Sub_Type__c, &quot;Receive Card or Cheque&quot;) , IMAGE(&apos;/resource/1719739776000/CARD_INDICATOR/&apos;, &apos;INDICATOR&apos;,55,90),null)))</formula>
+    <label>VVIP/Card Pick up Indicator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

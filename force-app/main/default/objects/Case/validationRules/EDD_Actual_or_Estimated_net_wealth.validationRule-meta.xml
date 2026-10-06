@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDD_Actual_or_Estimated_net_wealth</fullName>
+    <active>false</active>
+    <description>Actual or Estimated net wealth (integer) - mandatory (cannot be null or less than or equal zero)</description>
+    <errorConditionFormula>ISPICKVAL(Type,&apos;EDD&apos;) &amp;&amp;  ISNULL( Actual_or_Estimated_net_wealth__c) &amp;&amp; $User.LastName &lt;&gt; &quot;Integration&quot;</errorConditionFormula>
+    <errorMessage>Actual or Estimated net wealth cannot be null or less than or equal zero</errorMessage>
+</ValidationRule>

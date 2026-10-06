@@ -1,0 +1,119 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 03-01-2022
+ * 		Change History: 
+ *       #CH01 : Hamza Chaoui Alburaq Logic
+ *	     #CH02# #Imane Tsioucha# #20-02-2024# Add Term Deposit Filter
+ *		 #CH03# Maksud Ali #07-01-2026# Added FD Term Deposit Button  
+         #CH04#: #Aitogram omar# #01-04-2026 Added logic for Dormancy Visibility Restrictions (NBA-11705)
+-->
+<aura:component controller = "TermDepositController">
+	 <aura:attribute name="customerId" type="String" required="true"/>
+     <aura:attribute name="accountId" type="String" />
+     <aura:attribute name="account" type="Account" required="true"/>
+     <aura:attribute name="caseId" type="String" required="false"/>
+     <aura:attribute name="enableActions" type="Boolean" required="true"/>
+     <aura:attribute name="caseRecordType" type="String"/>
+     <aura:attribute name="sObjectName" type="String"/>
+	<!--CH03 - START -->
+     <aura:attribute name="canUserViewTermDepositButton" type="Boolean"/>
+     <aura:attribute name="isShowTermDeposit" type="Boolean"/>
+     <aura:attribute name="fdColumns" type="List" access="private"/>
+     <aura:attribute name="fdData" type="Object[]" access="private" default="[]"/>
+	<!--CH04 - END -->
+
+     <aura:attribute name="selectedFixedDepositStatus" type="String"/> <!--CH02 -->
+     <aura:attribute name="Origindata" type="Object[]" access="private" default="[]"/>  <!--CH02 -->
+    
+     <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+     <aura:attribute name="columns" type="List" access="private"/>
+     <aura:attribute name="selectedTermDepositId" type="String" access="private"/>
+     <aura:attribute name="customerSegment" type="String"/>
+     <aura:attribute name="regionName" type="String"/>
+     <!-- CH04 start   -->
+     <aura:attribute name="hideJordanFinancialDetails" type="Boolean" default="false"/>
+     <!-- CH04 end -->
+
+     <!-- CH01 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:attribute name="customerAlburaqSegment" type="String"/>
+    
+    <!-- Events -->
+    <aura:registerEvent name="appEvent" type="c:appEvent"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEvent}"/>
+    <aura:handler event="c:PassAccountIdEvent" action="{!c.LoadAccountId}"/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+    <aura:if isTrue="{!v.sObjectName =='Account'}">
+    <!-- CH02 Start -->
+     <lightning:select aura:id="select" name="select" label="Select Fixed Deposit Status" onchange="{!c.onFixedDepositStatusChange}" value="{!v.selectedFixedDepositStatus}">
+        <option value="A">Active</option>
+        <option value="B">Matured</option>
+        <option value="C">Early Withdrawn</option>
+     </lightning:select>
+     <br/>
+                         </aura:if>
+
+  <!-- CH02 Start -->
+    
+    <aura:if isTrue="{!empty(v.data)}">
+        No Data for Term Deposits: {!v.customerId}
+    <aura:set attribute="else">
+        <lightning:datatable data="{! v.data}" 
+            aura:id="termDepositListTable"
+            columns="{! v.columns}" 
+            keyField="id"
+            hideCheckboxColumn="false"
+            maxRowSelection="1"
+            onrowselection="{! c.handleRowSelection }"
+            onrowaction="{! c.handleRowAction }"/>
+        <!--CH03 - START -->
+        <div style="margin-top:20px">
+            <aura:if isTrue="{!v.canUserViewTermDepositButton}">
+                <lightning:button label="Show Total Deposit" class="slds-button slds-button_neutral" variant="brand"
+                        onclick="{!c.onTotalDepositClicked}" />
+                <aura:if isTrue="{!v.isShowTermDeposit}">
+                    <div style="margin-top:20px">
+                        <lightning:datatable data="{!v.fdData}" 
+                            aura:id="termDepositListTable12"
+                            columns="{!v.fdColumns}" 
+                            keyField="id"
+                            hideCheckboxColumn="true"/>
+                    </div>
+                </aura:if>
+            </aura:if>
+        </div>
+        <!--CH03 - END -->
+        <!-- CH04 : added  hideJordanFinancialDetails. -->
+        <aura:if isTrue="{!not(empty(v.selectedTermDepositId))}">
+             <c:termDepositDetails customerId="{!v.customerId}"
+                                      accountId="{!v.accountId}"
+                                      urbisContractId="{!v.selectedTermDepositId}"
+                                      account="{!v.account}"
+                                      aura:id="TermDepositDetails"
+                                      enableActions="{!v.enableActions}"
+                                      regionName="{!v.regionName}"
+                                      caseId="{!v.caseId}"
+                                      caseRecordType = "{!v.caseRecordType}"
+                                       hideJordanFinancialDetails="{!v.hideJordanFinancialDetails}"
+                                       />
+            <!--<aura:if isTrue="{!v.customerSegment == 'Regular'}">
+            		<c:TermDepositMatrix customerId="{!v.customerId}"
+                                  		 regionName="{!v.regionName}"/>
+            </aura:if>
+             <aura:if isTrue="{!or( v.customerSegment == 'Staff' , v.customerAlburaqSegment == 'Staff')}">
+            		<c:TermDepositStaffMatrix customerId="{!v.customerId}"
+                                  		 regionName="{!v.regionName}"/>
+            </aura:if>
+             <aura:if isTrue="{!v.customerSegment == 'Premium'}">
+            		<c:TermDepositPremiumMatrix customerId="{!v.customerId}"
+                                  		 regionName="{!v.regionName}"/>
+            </aura:if> -->
+                                     
+         </aura:if>
+       </aura:set>
+    </aura:if>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

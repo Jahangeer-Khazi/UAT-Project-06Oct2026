@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Expected Amount Range for Other Sources of Income --></help>
+    <label><!-- Expected Amount Range --></label>
+    <name>Expected_Amount_Range__c</name>
+    <picklistValues>
+        <masterLabel>Above JOD 5,000</masterLabel>
+        <translation><!-- Above JOD 5,000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Below JOD 500</masterLabel>
+        <translation><!-- Below JOD 500 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JOD 1,000 – JOD 1,999</masterLabel>
+        <translation><!-- JOD 1,000 – JOD 1,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JOD 2,000 – JOD 2,999</masterLabel>
+        <translation><!-- JOD 2,000 – JOD 2,999 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JOD 3,000 – JOD 5,000</masterLabel>
+        <translation><!-- JOD 3,000 – JOD 5,000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JOD 500 – JOD 999</masterLabel>
+        <translation><!-- JOD 500 – JOD 999 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

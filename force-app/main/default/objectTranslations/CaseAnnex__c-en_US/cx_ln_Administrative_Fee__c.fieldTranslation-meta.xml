@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Processing Fee Type --></label>
+    <name>cx_ln_Administrative_Fee__c</name>
+    <picklistValues>
+        <masterLabel>Monthly instalment</masterLabel>
+        <translation><!-- Monthly instalment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Upfront</masterLabel>
+        <translation><!-- Upfront --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

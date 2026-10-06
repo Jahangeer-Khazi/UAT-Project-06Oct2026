@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closure_Type__c</fullName>
+    <description>This field will be used in the process Builder to update the Case.Status to Approved/Rejected</description>
+    <inlineHelpText>Select if the case is approved or rejected</inlineHelpText>
+    <label>Closure Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Closed Approved</fullName>
+                <default>false</default>
+                <label>Closed Approved</label>
+            </value>
+            <value>
+                <fullName>Closed Rejected</fullName>
+                <default>false</default>
+                <label>Closed Rejected</label>
+            </value>
+            <value>
+                <fullName>Request Resolved</fullName>
+                <default>false</default>
+                <label>Request Resolved</label>
+            </value>
+            <value>
+                <fullName>Request Un-Resolved</fullName>
+                <default>false</default>
+                <label>Request Un-Resolved</label>
+            </value>
+            <value>
+                <fullName>Accepted: Dispute Won (No Temporary Credit)</fullName>
+                <default>false</default>
+                <label>Accepted: Dispute Won (No Temporary Credit)</label>
+            </value>
+            <value>
+                <fullName>Accepted: Dispute Won (Temporary Credit Granted)</fullName>
+                <default>false</default>
+                <label>Accepted: Dispute Won (Temporary Credit Granted)</label>
+            </value>
+            <value>
+                <fullName>Accepted: Pre-arbitration Won. (No Temporary Credit)</fullName>
+                <default>false</default>
+                <label>Accepted: Pre-arbitration Won. (No Temporary Credit)</label>
+            </value>
+            <value>
+                <fullName>Accepted: Pre-arbitration Won. (Temporary Credit Granted)</fullName>
+                <default>false</default>
+                <label>Accepted: Pre-arbitration Won. (Temporary Credit Granted)</label>
+            </value>
+            <value>
+                <fullName>Accepted: Write Off Granted</fullName>
+                <default>false</default>
+                <label>Accepted: Write Off Granted</label>
+            </value>
+            <value>
+                <fullName>Accepted: Reversed on Benefit Portal</fullName>
+                <default>false</default>
+                <label>Accepted: Reversed on Benefit Portal</label>
+            </value>
+            <value>
+                <fullName>Accepted: Dispute Claim Accepted</fullName>
+                <default>false</default>
+                <label>Accepted: Dispute Claim Accepted</label>
+            </value>
+            <value>
+                <fullName>Rejected: Dispute Rejected (No Temporary Credit)</fullName>
+                <default>false</default>
+                <label>Rejected: Dispute Rejected (No Temporary Credit)</label>
+            </value>
+            <value>
+                <fullName>Rejected: Dispute Rejected (Temporary Credit Granted)</fullName>
+                <default>false</default>
+                <label>Rejected: Dispute Rejected (Temporary Credit Granted)</label>
+            </value>
+            <value>
+                <fullName>Rejected: Pre-Arbitration Rejected. (No Temporary Credit)</fullName>
+                <default>false</default>
+                <label>Rejected: Pre-Arbitration Rejected. (No Temporary Credit)</label>
+            </value>
+            <value>
+                <fullName>Rejected: Pre-Arbitration Rejected. (Temporary Credit Granted)</fullName>
+                <default>false</default>
+                <label>Rejected: Pre-Arbitration Rejected. (Temporary Credit Granted)</label>
+            </value>
+            <value>
+                <fullName>Rejected: Write off Granted</fullName>
+                <default>false</default>
+                <label>Rejected: Write off Granted</label>
+            </value>
+            <value>
+                <fullName>Rejected: Dispute Claim Rejected</fullName>
+                <default>false</default>
+                <label>Rejected: Dispute Claim Rejected</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Closed Recovered</fullName>
+                <default>false</default>
+                <label>Closed Recovered</label>
+            </value>
+            <value>
+                <fullName>Closed Not Recovered</fullName>
+                <default>false</default>
+                <label>Closed Not Recovered</label>
+            </value>
+            <value>
+                <fullName>Closed Failed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Closed Failed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

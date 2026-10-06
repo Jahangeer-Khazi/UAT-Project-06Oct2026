@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" controller="LeadTriggerHandler" >
+    <aura:attribute name="referComments" type="String" access="private"/>
+    <!--<aura:attribute name="recordId" type="Id" access="public"/>-->
+    
+    <div class="slds-text-heading_medium slds-text-align_center slds-text-color_success">
+        The Lead has been assigned to the Maker's Queue.
+    </div>
+    <div class="slds-p-around_medium lgc-bg slds-text-color_success">
+        <lightning:textarea name="inputComments" label="Comments" value="{!v.referComments}"></lightning:textarea>
+    </div>
+    
+    <div align="right">
+        <br/>
+         <lightning:button label="Save" variant="brand" onclick="{!c.handleClick}"></lightning:button>
+	</div>
+    
+</aura:component>

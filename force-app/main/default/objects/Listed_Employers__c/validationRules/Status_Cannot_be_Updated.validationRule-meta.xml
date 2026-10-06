@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Cannot_be_Updated</fullName>
+    <active>true</active>
+    <description>Status field cannot be updated once the status is set to Approved or Rejected.</description>
+    <errorConditionFormula>NOT(ISBLANK(CreatedById)) &amp;&amp; ISCHANGED(Status__c) &amp;&amp; Text(PRIORVALUE(Status__c)) != &quot;Pending&quot;</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Status cannot be updated once it is Approved or Rejected.</errorMessage>
+</ValidationRule>

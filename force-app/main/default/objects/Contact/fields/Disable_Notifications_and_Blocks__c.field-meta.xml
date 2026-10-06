@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Notifications_and_Blocks__c</fullName>
+    <formula>OR(
+ISPICKVAL(Segment__c , &quot;Staff&quot;),
+NOT(ISBLANK(VVIP_Flag__c))
+)</formula>
+    <label>Disable Notifications and Blocks</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

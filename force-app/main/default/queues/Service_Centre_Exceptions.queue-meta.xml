@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>bh.ops.caseopened@bank-abc.com</email>
+    <name>Service Centre Exceptions</name>
+    <queueMembers>
+        <roles>
+            <role>Operations</role>
+            <role>Service_Center</role>
+        </roles>
+        <users>
+            <user>contactcenter@bank-abc.com</user>
+            <user>mavericrmt@bank-abc.com</user>
+            <user>servicecenter@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>cases_Routing_config_CC</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

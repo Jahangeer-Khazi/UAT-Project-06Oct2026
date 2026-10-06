@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Notification Type --></label>
+    <name>NotificationType__c</name>
+    <picklistValues>
+        <masterLabel>Immediate</masterLabel>
+        <translation><!-- Immediate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reminder</masterLabel>
+        <translation><!-- Reminder --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

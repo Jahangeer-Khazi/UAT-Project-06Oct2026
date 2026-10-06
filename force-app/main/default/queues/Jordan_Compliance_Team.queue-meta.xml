@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Jordan Compliance Team</name>
+    <queueMembers>
+        <users>
+            <user>allensj.compliance.jordan@bank-abc.com</user>
+            <user>njoud.compliance.jordan@bank-abc.com</user>
+            <user>omar.aito-gram@ilabank.com</user>
+            <user>praveen.compliance.jordan@bank-abc.com</user>
+            <user>sibivk.compliance.jordan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Jordan_Cases_Routing_config_CC</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

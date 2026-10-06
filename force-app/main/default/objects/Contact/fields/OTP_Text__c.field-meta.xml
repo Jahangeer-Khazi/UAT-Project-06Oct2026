@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OTP_Text__c</fullName>
+    <description>OTP random number without comma. This version of the OTP will be used in the Page Layout and Email so that the OTP is given in the correct string format.</description>
+    <externalId>false</externalId>
+    <formula>TEXT(OTP__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>OTP</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

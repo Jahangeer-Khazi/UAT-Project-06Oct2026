@@ -1,0 +1,53 @@
+<!--
+  @description       :
+  @author            : Aniss Mbarki
+  @group             :
+  @last modified on  : 08/05/2022
+-->
+<aura:component controller="LTNG23_PLaRecurringPaymentsController">
+    <aura:attribute name="customerId" type="String" required="true" />
+    <aura:attribute name="account" type="Account" required="true" />
+
+    <aura:attribute name="viewReccPay" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]" />
+    <aura:attribute name="columns" type="List" access="private" />
+
+    <aura:attribute name="viewPaymentDetails" type="Boolean" default="false" />
+    <aura:attribute name="scheduleId" type="String" />
+    <aura:attribute name="dataPaymentDetails" type="Object[]" access="private" default="[]" />
+    <aura:attribute name="columnsDataPaymentDetails" type="List" access="private" />
+    <aura:attribute name="regionName" type="String"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <!-- <aura:handler name="change" value="{!v.customerId}" action="{!c.load}"/> -->
+
+    <div style="padding-top: 2rem;">
+        <lightning:card title="Recurring Payments">
+            <div style="overflow:auto">
+                <lightning:button variant="brand" label="Show Recurring Payments"
+                    onclick="{!c.onLoadviewReccPayments}" />
+
+            </div>
+            <div style="padding-top: 1rem;">
+                <aura:If isTrue="{!v.viewReccPay}">
+                    <lightning:datatable aura:id="ReccPayTable" data="{!v.data}" columns="{!v.columns}" keyField="id"
+                        hideCheckboxColumn="false" maxRowSelection="1" onrowselection="{! c.handleRowSelection }" />
+                </aura:If>
+
+                <aura:If isTrue="{!v.viewPaymentDetails}">
+                    <br />
+                    <br />
+                    <lightning:card title="{!'Details of Schedule Transactions : ' + v.scheduleId}">
+
+                        <lightning:datatable aura:id="PayDetailsTable" data="{! v.dataPaymentDetails}"
+                            columns="{! v.columnsDataPaymentDetails}" keyField="id" hideCheckboxColumn="true" />
+
+                    </lightning:card>
+
+                </aura:If>
+            </div>
+
+        </lightning:card>
+    </div>
+
+</aura:component>

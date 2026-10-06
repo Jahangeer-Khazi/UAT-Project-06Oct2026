@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPP_validationRule</fullName>
+    <active>false</active>
+    <description>checker of the case cannot update make for Credit Card Service Request</description>
+    <errorConditionFormula>Owner:Queue.QueueName =&quot;CheckerQueue&quot; &amp;&amp;
+TEXT(Type) = &apos;Credit Card Services&apos; &amp;&amp;
+(TEXT(Sub_Type__c) = &apos;EPP Early Closure&apos; || TEXT(Sub_Type__c) = &apos;EPP Technical Error&apos;)
+ &amp;&amp; ISCHANGED(cc_Maker__c)</errorConditionFormula>
+    <errorMessage>Checker of the case cannot update Maker section</errorMessage>
+</ValidationRule>

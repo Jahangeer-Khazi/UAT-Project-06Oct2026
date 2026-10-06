@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>Default</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Create Account&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;FX accounts&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Tokenization&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ApplePay&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;added through device\&apos;s wallet&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Tokenization&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ApplePay&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;added through ila application&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Tokenization&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;others&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;added through device\&apos;s wallet&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Tokenization&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;others&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;added through ila application&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Tokenization&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;SamsungPay&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;added through device\&apos;s wallet&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Tokenization&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;SamsungPay&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;added through ila application&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Debit card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Delivery&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Card pick up from ila Bank&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Official letter&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Outstanding letter&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Loans&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Debit card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Temporary card limit increase&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Medical expenses&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ila Blue&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Status Follow Up&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Direct Debit setting&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Minimum due&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>2160</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <isDisplayedOnLinkedEntity>false</isDisplayedOnLinkedEntity>
+        <milestoneCriteriaFormula>(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Direct Debit setting&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Outstanding&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ila Switch&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Status Follow Up&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ila Switch&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Balance Transferred - Status&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;ila Switch&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Balance Transferred - Issue&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Manual transfer&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Internal (Between accounts)&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Manual transfer&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;External - SWIFT (international)&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Manual transfer&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;External - EFTS (local)&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Official letter&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;No objection letter&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Debit card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Permanent card limit increase&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Management request&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Credit Card&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Transaction amount&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Release&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Transacation amount&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Hold- By Fraud&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;)))) ||
+(ISPICKVAL(Type, &apos;Account&apos;) &amp;&amp;
+ ISPICKVAL(Sub_Type__c, &apos;Segment&apos;) &amp;&amp;
+ ISPICKVAL(cc_Request_Type__c, &apos;Upgrade&apos;) &amp;&amp;
+ (Account.VVIP__pc = False &amp;&amp; (ISPICKVAL(Account.Segment__pc, &apos;Regular&apos;) || ISPICKVAL(Account.Segment__pc, &apos;Staff&apos;))))</milestoneCriteriaFormula>
+        <milestoneName>Case Milestone</milestoneName>
+        <minutesToComplete>2160</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <name>Case Revamp (36 hours) Regular</name>
+    <versionMaster>552QI00000CRWbB</versionMaster>
+    <versionNumber>3</versionNumber>
+</EntitlementProcess>

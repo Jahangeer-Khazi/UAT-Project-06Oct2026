@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_Credit_Exceptions__c</fullName>
+    <label>Credit Exceptions</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Recommend Exception with Deviation</fullName>
+                <default>false</default>
+                <label>Recommend Exception with Deviation</label>
+            </value>
+            <value>
+                <fullName>Recommend Exception with Escalation</fullName>
+                <default>false</default>
+                <label>Recommend Exception with Escalation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

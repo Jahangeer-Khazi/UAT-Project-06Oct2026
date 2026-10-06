@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bahrain_BlockAccount_SendToChecker</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;Block_Unblock_Account&quot; &amp;&amp; TEXT( cc_Maker__c )= &apos;Send to Checker&apos; &amp;&amp; TEXT(Type)= &apos;Block Account&apos;</errorConditionFormula>
+    <errorMessage>The maker result can not be send to checker if the type is Block Account.</errorMessage>
+</ValidationRule>

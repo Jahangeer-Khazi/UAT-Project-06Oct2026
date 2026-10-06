@@ -1,0 +1,141 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 25-08-2023
+ * 		Change History: 
+ *	    	  
+-->
+<apex:page controller="creditCardPdfController2" renderAs="pdf" applyBodyTag="false" contentType="html" showHeader="false">
+   <head>
+    <style>
+        @page {
+            size: A4;
+            margin-top: 1cm;
+            margin-bottom: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+            font-family: 'Neo Sans';
+            
+            
+            @top-center {
+                content: element(headerTitle);
+            }
+            div.headerTitle {
+                position: running(headerTitle);
+            }
+            @bottom-left {
+                        content: element(footer);
+                    }
+        }
+        div.footer {
+                    display: block;
+                    position: running(footer);
+                }
+
+       
+
+        td,th{
+              border:0.5px solid black;
+			  padding: 7px;
+              word-wrap: break-word;
+              text-align: center;
+          }
+          
+          table tr, table td{
+                page-break-inside: avoid;
+          }
+          
+          table{
+                -fs-table-paginate: paginate;
+                border-collapse: collapse;
+                border-spacing: 0;
+          }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- Start div contains ila image and header title -->
+    <div class="headerTitle">
+        <div style="text-align:right;">
+            <apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" />
+        </div>
+        <div style="margin-top:-48px;">
+         <div style="margin-bottom:-25px;font-size:12px;">
+            <b> <h1>ila Credit Card Transaction Statement</h1> </b>
+            <br />
+         </div>
+        </div>
+        <hr ></hr>
+    </div>
+    <!-- END div contains ila image and header title -->
+    
+    <div style="margin-top:10px" >
+        <h4><u>Customer Information: </u></h4> <br></br>
+    
+    	<div style="font-size:14px; margin-top:-10px;width:100%;overflow:hidden;height:auto; ">
+     		<div style="width:60.00%;float:left;">
+                <b> Customer Name: {!decodedaccName}  </b>  <br/>
+            </div>
+    		<div style="width:40.00%;float:left;">
+                <b> Customer CIF: {!decodedcustomerId} </b>  <br/><br/>
+            </div>
+            <div style="width:60.00%;float:left;">
+                <b> Card Number: {!decodedselCardId} </b>  <br/>
+            </div>
+            
+            <hr style="width:100%;float:left;"></hr>
+    	</div>
+	</div>
+
+<div style="margin-top:25px;">
+    
+    <apex:form >
+        <apex:variable value="{!1}" var="count"/>
+        <table style="margin-left:auto;margin-right:auto; width:100%;margin-top:-20px;font-size:12.5px">
+           <thead>
+              <tr>
+                <th>Sno</th>
+                <th>Transaction Date</th>
+            	<th>Type</th>
+            	<th>Status</th>
+            	<th>Amount</th>
+            	<th>Currency</th>
+            	<th>Description</th>
+            	<th>Reference</th>
+              </tr>
+           </thead>
+           <tbody>
+            <apex:repeat value="{!transactionList}" var="transaction">
+               <tr>
+                 <td>{!FLOOR(count)} </td>
+                 <!--<td><apex:outputText value="{0,date,MMM d, yyyy}">
+                    <apex:param value="{!transaction.transactionDate}" />
+                </apex:outputText></td>-->
+                  <td>{!transaction.transactionDate}</td>
+                 <td>{!transaction.transactionType}</td>
+                 <td>{!transaction.status}</td>
+                 <td>{!transaction.originalAmount}</td>
+                 <td>{!transaction.originalCurrency.code}</td>
+                 <td>{!transaction.transactionDescription1}</td>
+                 <td>{!transaction.transactionReference}</td> 
+               </tr>
+               <apex:variable var="count" value="{!count+ 1}"/>
+           </apex:repeat>
+         </tbody>
+        
+      </table>
+        
+   </apex:form>
+    
+</div>
+    
+ <!-- Start div contains footer -->
+    <div class="footer">
+        <div >
+            <hr></hr>
+            © ila Bank - Retail Credit Department 
+        </div>
+    </div>
+	<!-- END div contains footer -->
+</body> 
+</apex:page>

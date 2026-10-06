@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Credit Reason --></label>
+    <name>Credit_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Dispute</masterLabel>
+        <translation><!-- Dispute --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Management exceptional approval</masterLabel>
+        <translation><!-- Management exceptional approval --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other Reason</masterLabel>
+        <translation><!-- Other Reason --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Swift Delay</masterLabel>
+        <translation><!-- Swift Delay --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

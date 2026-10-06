@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Contact Center Result --></label>
+    <name>cx_ln_Contact_Center_Result__c</name>
+    <picklistValues>
+        <masterLabel>Contact Failed</masterLabel>
+        <translation><!-- Contact Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Declined Offer</masterLabel>
+        <translation><!-- Customer Declined Offer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer accepted to Proceed with application</masterLabel>
+        <translation><!-- Customer accepted to Proceed with application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Documents Uploaded</masterLabel>
+        <translation><!-- Documents Uploaded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Follow Up Completed</masterLabel>
+        <translation><!-- Follow Up Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Signature Email</masterLabel>
+        <translation><!-- Pending Signature Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending Signature In-App</masterLabel>
+        <translation><!-- Pending Signature In-App --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retain Customer</masterLabel>
+        <translation><!-- Retain Customer --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

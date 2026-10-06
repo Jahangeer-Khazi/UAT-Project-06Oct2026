@@ -1,0 +1,49 @@
+<apex:page sidebar="false" showHeader="false" applyHtmlTag="false" applyBodyTag="false">
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link href="{!$Resource.bootstrap_min_css}" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+            <script src="{!$Resource.bootstrap_bundle_min_js}" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" />
+            <link rel="stylesheet" href="{!$Resource.Feedback_Survey_Css}"/>
+            <link rel="icon" href="https://ilabank.com/icons/icon-48x48.png?v=2b1e3cc648bfcc23e9a101465f3e7f34"/>
+            <title>Feedback Survey | ila Bank</title>
+        </head>
+        <body>
+            <div class="row vh-100 mx-0 background-color">
+          <div class="col-12 d-flex flex-column align-items-center justify-content-center p-0">
+            <div class="container">
+              <div class="max-456px mx-auto my-3">
+                <div class="d-flex flex-column w-100 h-100 align-items-center justify-content-center">
+                  <img src="{!URLFOR($Resource.Feedback_Survey_Assets,'assets/icons/ila-info.svg')}" alt="" srcset="" />
+                  <h4 class="text-center font-size-24px mb-4 mt-3 fw-normal" style="font-family:'Segoe UI'">
+                    Server Error
+                  </h4>
+                  <p class="font-size-14px text-primary-light text-center" style="font-family:'Segoe UI'">
+                    Sorry for the inconvenience, Please try again later..
+                  </p>
+                  <div class="mt-3">
+                    <p class="text-center" style="margin-bottom:8px !important;">
+                      Email Us at:
+                      <a
+                        class="text-center text-confirm-midtone"
+                        href="mailto:feedback@ilabank.com"
+                        >feedback&#64;ilabank.com</a>
+                    </p>
+                    <p class="text-center">
+                      Call Us on:
+                      <a
+                        class="text-center text-confirm-midtone"
+                        dir="ltr"
+                        href="tel:0097317123456"
+                        >+973 17123456</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </body>
+    </html>
+</apex:page>

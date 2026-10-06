@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ac_Canot_send_to_checker_if_not_eligible</fullName>
+    <active>true</active>
+    <description>The maker result can not be send to checker if the account is not eligible to close</description>
+    <errorConditionFormula>RecordType.DeveloperName = &quot;ac_AccountClosure&quot; &amp;&amp; TEXT( cc_Maker__c )= &apos;Send to Checker&apos;  &amp;&amp;  ac_EligibleToClose__c == false</errorConditionFormula>
+    <errorMessage>The account is not eligible to close , the case needs to be sent to the temp queue first</errorMessage>
+</ValidationRule>

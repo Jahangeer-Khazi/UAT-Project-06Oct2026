@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>customer_Total_Fees</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(ISPICKVAL(ac_RequestedBy__c,&apos;Customer&apos; ) , 
+   OR(Total_Fees__c==null,Total_Fees__c&lt;0))</errorConditionFormula>
+    <errorDisplayField>Total_Fees__c</errorDisplayField>
+    <errorMessage>Total Fees is mandatory if requested by the customer</errorMessage>
+</ValidationRule>

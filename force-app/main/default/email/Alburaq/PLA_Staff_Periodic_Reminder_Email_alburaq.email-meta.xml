@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Updates staff relatives’ email to be sent automatically on 1st November and 1st May of every year.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA_Staff Periodic Reminder Email_alburaq</name>
+    <style>none</style>
+    <subject>Al Kanz | Update Relatives Information</subject>
+    <textOnly>Dear Colleagues,
+
+Due to regulatory restrictions, we are unable to offer a product like Al Kanz, or any other raffle related prizes, to our employees or to their immediate relatives who have valid residency permits. (These include those with valid residency permits who do not reside in Bahrain).
+
+“Immediate Relatives” are defined as:
+
+Parents
+
+Spouse
+
+Daughter
+
+Son
+
+Granddaughter
+
+Grandson
+
+We request you to kindly review and update the list of your “immediate relatives” through the Relatives Form* by providing the below details:
+
+the mobile numbers your relatives have used during ila bank accounts creation, and
+
+the nature of your relationship
+
+Please note that the information you provide will be handled and managed as per our Privacy Policy.
+
+If your immediate relative has an account with ila, please note that we will inform them of flagging their accounts as ineligible for Al Kanz draws based on your inputs, and we appreciate if you would update your relatives accordingly.
+
+Immediate relatives below the age of 18 do not need to be added to the list. However, you are required to update the list when an immediate relative reaches 18.
+
+We assure you that you can still use Al Kanz Gift feature – this feature will allow you to gift your friends or relatives, who are not “Immediate Relatives” chances to participate in Al Kanz draws!
+
+Please do not hesitate to reach out to us at support@ilabank.com should you have any questions or feedback.
+
+Best regards,
+
+The ila team
+
+*Note: Please note that Relatives Form can only be accessed through Bank ABC’s internal network.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

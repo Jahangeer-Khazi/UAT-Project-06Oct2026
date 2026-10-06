@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used by MLRO to invite the customer to the branch</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Name Screening Invite to Branch HTML Alburaq</name>
+    <style>none</style>
+    <subject>Almost there with your ila account!</subject>
+    <textOnly>Almost there with your ila account!
+
+Hi, we can&amp;apos;t wait for you to start using our app, but we need a bit more information first.
+
+We would really appreciate if you could reply to this email attaching copies of the below listed documents.
+
+Documents:
+
+- Original passport
+-  Salary certificate
+-  One proof of address from the below:
+
+•  Bahraini Driver&amp;apos;s License
+•  Bahraini Identity Card
+• Utility Bill
+• Bank Statement
+• Tenancy Agreement
+
+
+All supporting documents should have three months validity.
+
+
+Happy to help you with any enquiries, the number to call is +973 17123456
+
+Join the conversation
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, &gt;Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

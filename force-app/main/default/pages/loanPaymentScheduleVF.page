@@ -1,0 +1,414 @@
+<apex:page controller="loanPaymentPdfController" renderAs="pdf" applyBodyTag="false" applyHtmlTag="false" contentType="html" showHeader="false" title="Payments schedule" >
+  <head>
+    <style>
+        body {
+            font-family: 'Open Sans', Inter, sans-serif;
+        }
+        @page {
+            size: landscape;
+            margin-top: 1cm;
+            margin-bottom: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+            /* font-family: 'Neo Sans'; */
+            font-family: 'Open Sans', Inter, sans-serif;
+            
+            
+            @top-center {
+                content: element(headerTitle);
+            }
+            div.headerTitle {
+                position: running(headerTitle);
+            }
+            @bottom-left {
+                        content: element(footer);
+                    }
+        }
+        div.footer {
+                    display: block;
+                    position: running(footer);
+                    width:100%;
+                }
+
+       
+
+        td,th{
+        /*border:0.5px solid black;*/
+              padding: 7px;
+              word-wrap: break-word;
+              text-align: center;
+          }
+          
+          table tr, table td{
+                page-break-inside: avoid;
+          }
+          
+          table{
+                -fs-table-paginate: paginate;
+                border-collapse: collapse;
+                border-spacing: 0;
+          }
+            .customTD {
+                border-right:2px solid white;
+                font-size:10px;
+            }
+        .right-border {
+            border-right:2px solid white;
+        }
+        .bottom-border {
+            border-bottom:2px solid white;
+        }
+        .font10 {
+            font-size:10px;        
+        }
+        .font11 {
+            font-size:11px;        
+        }
+        .repeatTableHeader{-fs-table-paginate: paginate;}
+    </style>
+</head>
+
+<body>
+    
+    <div class="footer" style="width:1000px;">
+       <!--<div><b> Customer Name: {!decodedaccName} </b></div>-->
+        <div style="height:25px">
+            <!--<div style="width:60.00%;float:left;">
+                <b> Customer Name: {!decodedaccName} </b>
+            </div>
+            <div style="width:40.00%;float:left;">
+                <b> Customer CIF: {!decodedcustomerCIFNo} </b>
+            </div>-->
+            <table width="100%">
+                <tr>
+                    <td><b>Customer Name: {!decodedaccName} </b></td>
+                    <td><b>Customer CIF: {!decodedcustomerCIFNo} </b></td>
+                    <td><b>Date/Time: {!currentDate} </b></td>
+                    <td><b>Unit: {!lbl_unit} </b></td>
+                </tr>
+            </table>
+        </div>
+        <div >
+            <hr/>
+            © ila Bank - Retail Credit Department
+        </div>
+   </div>
+    
+    <!-- Start div contains ila image and header title -->
+    <div class="headerTitle">
+        <div>
+            <table width="100%">
+                <tr>
+                    <td style="text-align: left;"><apex:image value="{!URLFOR($Resource.Ila)}" height="74.83px" width="74.45" /></td>
+                    <td style="text-align: right;">
+                        <apex:outputPanel rendered="{!isAlburaqProduct == true}">
+                            <apex:image value="{!URLFOR($Resource.alburaqalburaq )}" height="38px" />
+                        </apex:outputPanel>
+                         
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+         <div style="font-size:18px;margin-top:10px;">
+            <b>Repayment Schedule</b>
+         </div>
+        </div>
+        <!--<hr />-->
+    </div>
+    <!-- END div contains ila image and header title -->
+    
+
+    <div style="margin-top:10px" >
+        <!-- <h4><u>Repayment Schedule Details: </u></h4> <br></br> -->
+    
+        <table style="font-size:15.5px">
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">{!IF(decodedPageName  == 'case', 'Application No.',IF(isAlburaqProduct,'Finance Reference No.','Loan Reference No.'))}</td>
+                <td style="text-align: left;">{!applicationNo}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">Number of Payments</td>
+                <td style="text-align: left;">{!header.numberOfPayments}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">{!lbl_loanFinanceStartDate}</td>
+                <td style="text-align: left;">{!header.loanStartDate}</td>              
+                <td width="80"></td><!-- extra space -->                
+                <td style="text-align: left;">{!lbl_interestRate}</td>
+                <td style="text-align: left;">{!header.formattedInterestRate} %</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Total Repayment Amount</td>
+                <td style="text-align: left;">BHD {!header.formattedTotalCostOfLoan}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">{!lbl_totalInterestAmount}</td>
+                <td style="text-align: left;">BHD {!header.formattedTotalInterest}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">{!lbl_ApprovedLoanAmount}</td>
+                <td style="text-align: left;">BHD {!header.formattedPrincipleAmount}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">Life Insurance Rate</td>
+                <td style="text-align: left;">{!header.formattedLifeInsuranceRate}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Cash in Hand</td>
+                <td style="text-align: left;">BHD {!header.formattedCashInHand}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">Insurance Amount</td>
+                <td style="text-align: left;">BHD {!header.formattedInsuranceAmount}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Monthly Installment</td>
+                <td style="text-align: left;">BHD {!header.formattedMonthlyInstallment}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">Processing Fee</td>
+                <td style="text-align: left;">BHD {!header.formattedAdministrationFees}</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">{!lbl_loanDuration}</td>
+                <td style="text-align: left;">{!header.loanPeriod} months</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">VAT Processing Fee</td>
+                <td style="text-align: left;">BHD {!header.formattedAdministrationFeesVat}</td>                
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">First Installment Date</td>
+                <td style="text-align: left;">{!header.firstInstallmentDate}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;">Annual Percentage Rate (APR)</td>
+                <td style="text-align: left;">{!header.apr} %</td>
+            </tr>
+            <tr>
+                <td width="100"></td>
+                <td style="text-align: left;">Last Installment Date</td>
+                <td style="text-align: left;">{!header.lastInstallmentDate}</td>
+                <td width="80"></td><!-- extra space -->
+                <td style="text-align: left;"></td>
+                <td style="text-align: left;"></td>
+            </tr>
+            
+            
+        </table>
+        <div style="font-size:14px;width:100%;overflow:hidden;height:auto; ">
+            
+        </div>
+        <br/>
+    </div>
+    
+ <div style="margin-top:10px;">
+    
+    <apex:form >
+        <apex:variable value="{!1}" var="count"/>
+        <apex:outputPanel rendered="{!decodedPageName == 'customer'}">
+          <!-- <table style="margin-left:auto;margin-right:auto; width:100%;margin-top:-20px;font-size:12.5px">
+           <thead>
+              <tr>
+                <th>Sno</th>
+                <th>Payment Type</th>
+                <th>Monthly Installment (BHD)</th>
+                <th>Principal (BHD)</th>
+                <th>Profit (BHD)</th>
+                <th>Admin Fee + VAT (BHD)</th>
+                <th>Insurance (BHD)</th>
+                <th>Outstanding balance (BHD)</th>
+              </tr>
+           </thead>
+           <tbody>
+            <apex:repeat value="{!paymentsList}" var="payment">
+               <tr>
+                 <td>{!FLOOR(count)} </td>
+                 <td>{!payment.paymentDate}</td>
+                 <td>{!payment.monthlyInstallmentNoCharge + payment.interestAmount + payment.adminFeesFlat + IF(payment.monthlyInsuranceFeesFlat != null, payment.monthlyInsuranceFeesFlat, 0)}</td>
+                 <td>{!payment.monthlyInstallmentNoCharge}</td>
+                 <td>{!payment.formattedInterestAmount}</td>
+                 <td>{!payment.formattedAdminFeesFlat}</td>
+                 <td>{!payment.monthlyInsuranceFeesFlat}</td>
+                 <td>{!payment.formattedOutstandingAmount}</td>
+               </tr>
+               <apex:variable var="count" value="{!count+ 1}"/>
+           </apex:repeat>
+         </tbody>
+        
+      </table>
+            -->
+            <table class="repeatTableHeader" style="margin-left:auto;margin-right:auto; width:100%;margin-top:-20px;font-size:12.5px">
+                <thead>
+                  <tr style="background-color:#000F3B;color:#FFFFFF" border="1">
+                    <th rowspan="2" class="right-border font11">No</th>
+                    <th rowspan="2" class="right-border font11" width="80">Installment Due Date</th>
+                    <th rowspan="2" class="right-border font11">Status</th>
+                    <th rowspan="2" class="right-border font11" width="50">No. of Days</th>
+                    <th rowspan="2" class="right-border font11" width="80">Beginning Balance</th>
+                    <th colspan="3" class="right-border font11 bottom-border" width="450">Installment Breakdown</th>        
+                    <th rowspan="2" class="right-border font11">Monthly Installment (Full Amount)</th>  
+                    <th rowspan="2" class="right-border font11">Monthly Installment (excl. Charges)</th>
+                    <th rowspan="2" class="right-border font11">Monthly Insurance Fee (Reducing Balance)</th>  
+                    <th rowspan="2" class="font11">Ending Balance</th>
+                  </tr>
+                  <tr style="background-color:#000F3B;color:#FFFFFF;border-top:1px solid white">
+                     <th rowspan="2" class="right-border font11">Principal Amount</th>
+                     <th rowspan="2" class="right-border font11">Interest/Profit Amount</th> 
+                     <!--<th rowspan="2" class="right-border font11">Admin Fees(flat)</th>                       
+                     <th rowspan="2" class="right-border font11">Admin Fees VAT</th>-->
+                     <th rowspan="2" class="right-border font11">Insurance Fee (flat)</th>
+                  </tr>
+               </thead>
+               <tbody>
+                   <apex:variable var="rowCount" value="{!0}"/>
+                    <apex:repeat value="{!paymentsList}" var="payment">
+                    <tr style="{!IF(MOD(rowCount,2)==0, 'background-color: #FFFFFF;','background-color: #F7F7F7;border-bottom:1px solid #000')}">
+                        <td>{!payment.installmentNo}</td>
+                        <td>{!payment.installmentDueDate}</td>
+                        <td>{!payment.billStatus}</td>
+                        <td>{!payment.noOfDays}</td>
+                        <td>{!payment.formattedBeginningBalance}</td>
+                        <!------------- Installment Breakdown ------------------->
+                        <td>{!payment.formattedPrincipalAmount}</td>
+                        <td>{!payment.formattedInterestAmount}</td>
+                        <!--<td>{!payment.adminFeesFlat}</td>
+                        <td>{!payment.adminFeesVat}</td>-->
+                        <td>{!payment.formattedMonthlyInsuranceFeesFlat}</td>
+                        <!------------------------------------------------------->
+                        <td>{!payment.formattedMonthlyInstallmentFull}</td>
+                        <td>{!payment.formattedMonthlyInstallmentExcludingCharges}</td>
+                        <td>{!payment.formattedMonthlyInsuranceFeesReducing}</td>
+                        <td>{!payment.formattedEndingBalance}</td>
+                    </tr>
+                    <apex:variable var="rowCount" value="{!rowCount+1}"/>
+                </apex:repeat>
+               </tbody>
+            </table>
+        </apex:outputPanel>    
+        
+        <apex:outputPanel rendered="{!decodedPageName == 'case'}">
+            <table class="repeatTableHeader" style="margin-left:auto;margin-right:auto; width:100%;margin-top:-20px;font-size:12.5px">
+                <thead>
+                  <tr style="background-color:#000F3B;color:#FFFFFF" border="1">
+                    <th rowspan="2" class="right-border font11">No</th>
+                    <th rowspan="2" class="right-border font11" width="80">Installment Due Date</th>
+                    <apex:outputPanel rendered="{!decodedPageName == 'customer'}">
+                        <th rowspan="2" class="right-border font11">Status</th>
+                    </apex:outputPanel>
+                    <th rowspan="2" class="right-border font11" width="70">No. of Days</th>
+                    <th rowspan="2" class="right-border font11" width="80">Beginning Balance</th>
+                    <th colspan="3" class="right-border font11 bottom-border" width="450">Installment Breakdown</th>        
+                    <th rowspan="2" class="right-border font11">Monthly Installment (Full Amount)</th>  
+                    <th rowspan="2" class="right-border font11">Monthly Installment (excl. Charges)</th>
+                    <th rowspan="2" class="right-border font11">Monthly Insurance Fee (Reducing Balance)</th>  
+                    <th rowspan="2" class="font11">Ending Balance</th>
+                    
+                    <!--<th rowspan="2" class="right-border font11">Monthly Insurance Fee (flat distribution)</th> -->
+                    <!-- <th rowspan="2" class="right-border font11">Admin Fees (flat distribution)</th> -->
+                    
+                    
+                    
+                      
+                    <!--<th rowspan="2" style="border-right:2px solid white">Outstanding Amount</th>
+                    <th rowspan="2" style="border-right:2px solid white">Payment Date</th>
+                    <th colspan="4" style="border-right:2px solid white">Installment Breakdown</th>
+                    <th rowspan="2" style="border-right:2px solid white">Transaction Type</th>
+                    <th rowspan="2" style="border-right:2px solid white">Schedule Type</th>
+                    <th rowspan="2" style="border-right:2px solid white">Monthly Insurance Fee Flat</th>
+                    <th rowspan="2" style="border-right:2px solid white">Admin Fee Flat</th>
+                    <th rowspan="2" style="border-right:2px solid white">Monthly Installment Full</th>
+                    
+                    
+                    <th>Principal Amount</th>
+                    <th>Interest Amount</th>-->
+                      
+                      
+                  </tr>
+                    <tr style="background-color:#000F3B;color:#FFFFFF;border-top:1px solid white">
+                        <th rowspan="2" class="right-border font11">Principal Amount</th>
+                        <th rowspan="2" class="right-border font11">Interest/Profit Amount</th> 
+                        <!--<th rowspan="2" class="right-border font11">Admin Fees(flat)</th>                       
+                        <th rowspan="2" class="right-border font11">Admin Fees VAT</th>-->
+                        <th rowspan="2" class="right-border font11">Insurance Fee (flat)</th>
+                    </tr>
+               </thead>
+               <tbody>
+                <apex:variable var="rowCount" value="{!0}"/>
+                <apex:repeat value="{!paymentsList}" var="payment">
+                    <tr style="{!IF(MOD(rowCount,2)==0, 'background-color: #FFFFFF;','background-color: #F7F7F7;border-bottom:1px solid #000')}">
+                        
+                        
+                        
+                        <!--<td>{!payment.outstandingAmount}</td>
+                        <td>{!payment.paymentDate}</td>
+                        
+                        <td>{!payment.interestAmount}</td>
+                        
+                        <td>0</td>
+                        <td>{!payment.transactionType}</td>
+                        <td>{!payment.scheduleType}</td>-->
+                        
+                        <td>{!payment.installmentNo}</td>
+                        <td>{!payment.installmentDueDate}</td>
+                        <apex:outputPanel rendered="{!decodedPageName == 'customer'}">
+                            <td>{!payment.billStatus}</td>
+                        </apex:outputPanel>
+                        <td>{!payment.noOfDays}</td>
+                        <td>{!payment.formattedBeginningBalance}</td>
+                        <!------------- Installment Breakdown ------------------->
+                        <td>{!payment.formattedPrincipalAmount}</td>
+                        <td>{!payment.formattedInterestAmount}</td>
+                        <!--<td>{!payment.adminFeesFlat}</td>
+                        <td>{!payment.adminFeesVat}</td>-->
+                        <td>{!payment.formattedMonthlyInsuranceFeesFlat}</td>
+                        <!------------------------------------------------------->
+                        <td>{!payment.formattedMonthlyInstallmentFull}</td>
+                        <td>{!payment.formattedMonthlyInstallmentExcludingCharges}</td>
+                        <td>{!payment.formattedMonthlyInsuranceFeesReducing}</td>
+                        <td>{!payment.formattedEndingBalance}</td>
+                        <!-- <td>{!payment.monthlyInsuranceFeesFlat}</td> -->
+                        <!-- <td>{!payment.adminFeesFlat}</td> -->
+                        
+                        
+                        
+                    </tr>
+                    <apex:variable var="rowCount" value="{!rowCount+1}"/>
+                </apex:repeat>
+               </tbody>
+            </table>
+        </apex:outputPanel>
+   </apex:form>
+   <br/>
+   
+   <div style="margin-top:0px" >
+    <!-- <h4><u>Customer Information: </u></h4> <br></br> -->
+
+    <!--<div style="font-size:14px; margin-top:-10px;width:100%;overflow:hidden;height:auto; ">
+        <div style="width:60.00%;float:left;">
+            <b> Customer Name: {!decodedaccName} </b>  <br/>
+        </div>
+        <div style="width:40.00%;float:left;">
+            <b> Customer CIF: {!decodedcustomerId} </b>  <br/><br/>
+        </div>
+        
+    </div>-->
+</div>
+    
+</div>
+    
+    
+
+    
+    <!-- Start div contains footer -->
+    <!--<div class="footer">
+        <div >
+            <hr/>
+            © ila Bank - Retail Credit Department
+        </div>
+    </div>-->
+    <!-- END div contains footer -->
+</body> 
+</apex:page>

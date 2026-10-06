@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Overdrawn Account (OD) --></label>
+    <name>Overdrawn_Account_OD__c</name>
+    <picklistValues>
+        <masterLabel>BCTS</masterLabel>
+        <translation><!-- BCTS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Balance inquiry</masterLabel>
+        <translation><!-- Balance inquiry --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cards – Authorization amount is less than clearing amount</masterLabel>
+        <translation><!-- Cards – Authorization amount is less than clearing amount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cards – Hold Released</masterLabel>
+        <translation><!-- Cards – Hold Released --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cards – Multi Clearing</masterLabel>
+        <translation><!-- Cards – Multi Clearing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cards – Partial Reversal Issue</masterLabel>
+        <translation><!-- Cards – Partial Reversal Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cross Border Payments (AFAQ) – Manual Issue</masterLabel>
+        <translation><!-- Cross Border Payments (AFAQ) – Manual Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cross Border Payments (AFAQ) – System Issue</masterLabel>
+        <translation><!-- Cross Border Payments (AFAQ) – System Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cross Border Payments (BUNA) – Manual Issue</masterLabel>
+        <translation><!-- Cross Border Payments (BUNA) – Manual Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cross Border Payments (BUNA) – System Issue</masterLabel>
+        <translation><!-- Cross Border Payments (BUNA) – System Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cross Border Payments (SWIFT) – Manual Issue</masterLabel>
+        <translation><!-- Cross Border Payments (SWIFT) – Manual Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cross Border Payments (SWIFT) – System Issue</masterLabel>
+        <translation><!-- Cross Border Payments (SWIFT) – System Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EFTS – Manual Issue</masterLabel>
+        <translation><!-- EFTS – Manual Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EFTS – System Issue</masterLabel>
+        <translation><!-- EFTS – System Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>JBOS</masterLabel>
+        <translation><!-- JBOS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mandate Direct Debit</masterLabel>
+        <translation><!-- Mandate Direct Debit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual Posting – ORE</masterLabel>
+        <translation><!-- Manual Posting – ORE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return/Duplicate Payment – Manual Issue</masterLabel>
+        <translation><!-- Return/Duplicate Payment – Manual Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Return/Duplicate Payment – System Issue</masterLabel>
+        <translation><!-- Return/Duplicate Payment – System Issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>System issue</masterLabel>
+        <translation><!-- System issue --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wrong reversal</masterLabel>
+        <translation><!-- Wrong reversal --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

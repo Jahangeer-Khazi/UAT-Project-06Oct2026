@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SLA1_violation_benefit</name>
+    <style>none</style>
+    <subject>Dispute Case Breached SLA – Local</subject>
+    <textOnly>Dispute case is approaching SLa
+Hi, Please be advised that the case with case number {!Case.CaseNumber}, titled “{!Case.Subject},” has been open for 10 days and has breached its SLA. The case was due for resolution by 9 days.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

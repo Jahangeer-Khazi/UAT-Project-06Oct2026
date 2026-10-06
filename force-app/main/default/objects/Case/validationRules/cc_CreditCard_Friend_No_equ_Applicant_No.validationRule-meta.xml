@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCard_Friend_No_equ_Applicant_No</fullName>
+    <active>true</active>
+    <description>“friend’s contact number should be different than applicant mobile number”</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;),
+NOT(ISBLANK(cc_Mobile_Number__c)),
+NOT(ISBLANK(cc_Final_Friend_s_Contact_Number__c)),
+(cc_Mobile_Number__c  =  cc_Final_Friend_s_Contact_Number__c)
+)</errorConditionFormula>
+    <errorDisplayField>cc_Friend_s_Contact_Number__c</errorDisplayField>
+    <errorMessage>&quot;Friend’s contact number should be different than applicant mobile number&quot;</errorMessage>
+</ValidationRule>

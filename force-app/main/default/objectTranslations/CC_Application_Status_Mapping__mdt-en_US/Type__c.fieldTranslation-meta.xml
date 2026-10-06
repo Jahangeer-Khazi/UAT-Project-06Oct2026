@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Credit Card Application</masterLabel>
+        <translation><!-- Credit Card Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Supplementary Application</masterLabel>
+        <translation><!-- Credit Card Supplementary Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Limit Increase Application</masterLabel>
+        <translation><!-- Credit Limit Increase Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Loan / Finance Application</masterLabel>
+        <translation><!-- New Loan / Finance Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Loan / Finance Service Request</masterLabel>
+        <translation><!-- New Loan / Finance Service Request --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

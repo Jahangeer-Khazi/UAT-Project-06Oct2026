@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OD_Reason__c</fullName>
+    <label>OD Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>IPM Related - Late Presentment</fullName>
+                <default>false</default>
+                <label>IPM Related - Late Presentment</label>
+            </value>
+            <value>
+                <fullName>IPM Related - Declined Transaction</fullName>
+                <default>false</default>
+                <label>IPM Related - Declined Transaction</label>
+            </value>
+            <value>
+                <fullName>IPM Related - Duplicate Claim</fullName>
+                <default>false</default>
+                <label>IPM Related - Duplicate Claim</label>
+            </value>
+            <value>
+                <fullName>IPM Related - Partial Reversal</fullName>
+                <default>false</default>
+                <label>IPM Related - Partial Reversal</label>
+            </value>
+            <value>
+                <fullName>IPM Related - Split of Transactions</fullName>
+                <default>false</default>
+                <label>IPM Related - Split of Transactions</label>
+            </value>
+            <value>
+                <fullName>IPM Related - Difference in Auth &amp; Set Amount</fullName>
+                <default>false</default>
+                <label>IPM Related - Difference in Auth &amp; Set Amount</label>
+            </value>
+            <value>
+                <fullName>Negative Interest</fullName>
+                <default>false</default>
+                <label>Negative Interest</label>
+            </value>
+            <value>
+                <fullName>EFTS Related - Not Debited</fullName>
+                <default>false</default>
+                <label>EFTS Related - Not Debited</label>
+            </value>
+            <value>
+                <fullName>EFTS Related - Declined Incoming</fullName>
+                <default>false</default>
+                <label>EFTS Related - Declined Incoming</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Customer Transaction &amp; Payment Disputes- Mastercard</controllingFieldValue>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>EFTS Related - Not Debited</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>IPM Related - Late Presentment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>IPM Related - Declined Transaction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>IPM Related - Duplicate Claim</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>IPM Related - Partial Reversal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>IPM Related - Split of Transactions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>IPM Related - Difference in Auth &amp; Set Amount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>Negative Interest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>EFTS Related - Declined Incoming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overdraft</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

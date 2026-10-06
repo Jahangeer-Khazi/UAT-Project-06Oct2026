@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ineligible_Customers_cannot_enter_Draw</fullName>
+    <active>false</active>
+    <description>Validates that Customers with PLA Eligibility = No are unable to have a Draw Entry record.</description>
+    <errorConditionFormula>AND( 
+				NOT($Setup.Setting__c.Bypass_Validation_Rules__c),
+				
+				
+				ISPICKVAL(Customer__r.PersonContact.PLA_Eligibility__c, &quot;No&quot;)
+				)</errorConditionFormula>
+    <errorMessage>Customer is not eligible for Raffle Draw</errorMessage>
+</ValidationRule>

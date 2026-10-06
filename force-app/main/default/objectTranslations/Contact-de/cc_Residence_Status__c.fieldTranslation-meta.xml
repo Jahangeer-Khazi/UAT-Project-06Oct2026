@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Residence Status --></label>
+    <name>cc_Residence_Status__c</name>
+    <picklistValues>
+        <masterLabel>Owned</masterLabel>
+        <translation><!-- Owned --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Provided by Employer</masterLabel>
+        <translation><!-- Provided by Employer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented</masterLabel>
+        <translation><!-- Rented --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shared</masterLabel>
+        <translation><!-- Shared --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

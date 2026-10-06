@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Customer_gave_feedback__c</fullName>
+    <description>Date to capture whenever the customer gave the feedback and agent unchecks the &apos;Awaiting Customer Feedback&apos; checkbox</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Date Customer gave feedback</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,31 @@
+<aura:component controller="LTNG019_ReleaseHoldAmountController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="accToReleaseHoldList" type="List" />
+    <aura:attribute name="TransactionsToHoldList" type="List" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="currentAcc" type="Object" />
+    <aura:attribute name="accDetails" type="Object" />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:attribute name="region" type="String" />
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <lightning:select aura:id="accToReleaseHold" label="Account " required="true" onchange="{!c.accountToReleaseHoldChange}">
+        <option text="--None--" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.accToReleaseHoldList}" var="accToReleaseHoldData">
+                <option text="{!accToReleaseHoldData.ac_label}" value="{!accToReleaseHoldData.iban}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select>
+    
+    
+     
+
+</aura:component>

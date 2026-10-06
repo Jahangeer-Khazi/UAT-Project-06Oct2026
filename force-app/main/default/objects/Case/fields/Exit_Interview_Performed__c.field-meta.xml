@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exit_Interview_Performed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Exit_Interview_Performed field created for Premium Retention story</description>
+    <label>Exit Interview Performed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

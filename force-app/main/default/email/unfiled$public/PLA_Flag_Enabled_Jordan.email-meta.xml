@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Flag enabled on CRM for the Jordan customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PLA Flag Enabled_Jordan</name>
+    <style>none</style>
+    <subject>Al Kanz - Capture of Immediate Relatives Information.</subject>
+    <textOnly>Al Kanz - Capture of Immediate Relatives Information
+
+Hi,
+
+For you and your immediate relatives to participate in Al Kanz staff draws, staff members must ensure that their immediate relatives&apos; information is up to date. Please provide the details of your immediate relatives in the form below.
+
+Please note that your immediate relative will not be eligible for Al Kanz Staff draws if you are in your probation period or notice period.
+
+You can access to page to amend any entry you have made or to add a new relative or to delete an entry.
+
+“Immediate Relatives” are defined as:
+
+Father
+Mother
+Son
+Daughter
+Wife
+Husband
+
+If your Immediate Relative already maintains an account with ila, please provide the same Mobile Number used for opening ila Jordan account.
+
+Please inform your immediate relatives that you have shared their information with ila Jordan for the purpose of including them in Al Kanz Staff Draws. Their personal data will be managed as per the Bank&apos;s privacy policy. Immediate Relatives who are below 18 years old shall not be added to the list. However, you are required to update the list when an Immediate Relative becomes18 years old.
+
+Link to Update the information: Click Here
+
+Should you need any assistance, please feel free to call us on +96265100001 or email us on support@ilajordan.com
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

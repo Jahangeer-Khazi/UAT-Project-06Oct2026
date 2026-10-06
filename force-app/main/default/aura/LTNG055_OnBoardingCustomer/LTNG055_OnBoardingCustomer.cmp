@@ -1,0 +1,203 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes" controller="LTNG055_OnBoardingCustomerController">
+  <aura:attribute name="isOpen" type="Boolean" default="true" />
+  <aura:attribute name="isOpen2" type="Boolean" default="true" />
+  <aura:attribute name="fieldList" type="List" default="[
+    {'fieldName': 'Applicable_Residency_Tax__pc'},
+    {'fieldName': 'Tax_Country_1__pc'},
+    {'fieldName': 'Tax_Country_1_ID__pc'},                                                 
+    {'fieldName': 'Tax_Country_2__pc'},
+    {'fieldName': 'Tax_Country_2_ID__pc'},
+    {'fieldName': 'Tax_Country_3__pc'},
+    {'fieldName': 'Tax_Country_3_ID__pc'},
+    {'fieldName': 'Tax_Country_4__pc'},
+    {'fieldName': 'Tax_Country_4_ID__pc'}
+  ]" 
+  />
+  <aura:attribute name="CRSfieldList" type="List" default="[
+    {'fieldName': 'ApplicableResidencyTax__c' , 'readOnly': false},
+    {'fieldName': 'Tax_Country_1__c' , 'readOnly': false},
+    {'fieldName': 'Tax_Country_1_ID__c' , 'readOnly': false},                                                 
+    {'fieldName': 'Tax_Country_2__c', 'readOnly': false},
+    {'fieldName': 'Tax_Country_2_ID__c', 'readOnly': false},
+    {'fieldName': 'Tax_Country_3__c', 'readOnly': false},
+    {'fieldName': 'Tax_Country_3_ID__c', 'readOnly': false},
+    {'fieldName': 'Tax_Country_4__c', 'readOnly': false},
+    {'fieldName': 'Tax_Country_4_ID__c', 'readOnly': false},
+    {'fieldName': 'CRS_Checker_Result__c', 'readOnly': false},
+    {'fieldName': 'CRS_Checker_Result_Date_Time__c', 'readOnly': true},
+    {'fieldName': 'CRS_Checker_Comments__c', 'readOnly': false}
+  ]" 
+  />
+  <aura:attribute name="accountId" type="String" />
+  <aura:attribute name="crsRecordId" type="String"/>
+  <aura:attribute name="showSectionReadOnly" type="Boolean" default="true" />
+  <aura:attribute name="editSection" type="Boolean" default="false" />
+  <aura:attribute name="ApplicableResidencyTax" type="String" />
+  <aura:attribute name="tax1" type="String" />
+  <aura:attribute name="tax2" type="String" />
+  <aura:attribute name="tax3" type="String" />
+  <aura:attribute name="tax4" type="String" />
+  <aura:handler name="change" value="{!v.ApplicableResidencyTax}" action="{!c.ApplicableResidencyTaxIsChanged}" />
+
+
+  
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+
+  <div>
+      <div class="slds-hidden" style="height: 0px;display: none;">
+          <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleLoad}">
+              <lightning:inputField aura:id="account_ID" fieldName="AccountId" />
+          </lightning:recordEditForm>
+          <lightning:recordEditForm recordId="{!v.crsRecordId}" objectApiName="CrsOnboarding__c" onload="{!c.handleLoadCrs}">
+              <lightning:inputField aura:id="ApplicableResidencyTaxId" fieldName="ApplicableResidencyTax__c" />
+              <lightning:inputField aura:id="Tax_Country_1_1" fieldName="Tax_Country_1__c" />
+              <lightning:inputField aura:id="Tax_Country_2_2" fieldName="Tax_Country_2__c" />
+              <lightning:inputField aura:id="Tax_Country_3_3" fieldName="Tax_Country_3__c" />
+              <lightning:inputField aura:id="Tax_Country_4_4" fieldName="Tax_Country_4__c" />
+          </lightning:recordEditForm>
+          
+      </div>
+      
+      <div class="{!'section-layout-container slds-section ' + (v.isOpen ? 'slds-is-open' : '')}" aura:id="section">
+          <h3 class="label slds-section__title slds-truncate slds-p-around_xx-small slds-theme_shade" style="width: 100%;">
+            <button class="slds-button slds-section__title-action" aria-expanded="{!v.isOpen}" onclick="{!c.toggleSection}">
+              <lightning:icon iconName="{!v.isOpen ? 'utility:chevrondown' : 'utility:chevronright'}" alternativeText="Toggle" size="x-small" />
+              <span class="slds-truncate" title="To be provided by Customer">&nbsp;To be provided by Customer</span>
+            </button>
+          </h3>
+          <div class="{!'slds-grid slds-wrap slds-section__content ' + (!v.isOpen ? 'slds-hide' : '')}" aura:id="sectionContent">
+              <aura:if isTrue="{!not(empty(v.accountId)) }">
+                  <lightning:recordViewForm recordId="{!v.accountId}" objectApiName="Account">
+                    <div class="slds-grid slds-wrap" style="margin-left: 12px;">
+                      <aura:iteration items="{!v.fieldList}" var="field" indexVar="index">
+                        <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                          <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <div class="slds-form-element__control">
+                              <div class="slds-form-element__static">
+                                <lightning:outputField fieldName="{!field.fieldName}" variant="label-stacked" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <aura:if isTrue="{! field.fieldName == 'Applicable_Residency_Tax__pc' }">
+                          <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                          </div>
+                        </aura:if>
+                      </aura:iteration>
+                    </div>
+                  </lightning:recordViewForm>
+              </aura:if>
+          </div>
+      </div>
+  </div>
+  
+  <div>
+    <div class="{!'section-layout-container slds-section ' + (v.isOpen2 ? 'slds-is-open' : '')}" aura:id="section">
+        <h3 class="label slds-section__title slds-truncate slds-p-around_xx-small slds-theme_shade" style="width: 100%;">
+          <button class="slds-button slds-section__title-action" aria-expanded="{!v.isOpen2}" onclick="{!c.toggleSection2}">
+            <lightning:icon iconName="{!v.isOpen2 ? 'utility:chevrondown' : 'utility:chevronright'}" alternativeText="Toggle" size="x-small" />
+            <span class="slds-truncate" title="To be provided by Customer">&nbsp;To be provided by CRS Checker</span>
+          </button>
+        </h3>
+        <div class="{!'slds-grid slds-wrap slds-section__content ' + (!v.isOpen2 ? 'slds-hide' : '')}" aura:id="sectionContent">
+          <aura:if isTrue="{!not(empty(v.crsRecordId)) }">
+
+            <!--Display on readOnly mode the CRS Checker Section-->
+            <aura:if isTrue="{! v.showSectionReadOnly }">
+                  <lightning:recordViewForm recordId="{!v.crsRecordId}" objectApiName="CrsOnboarding__c">
+                    <div class="slds-grid slds-wrap" style="margin-left: 12px;">
+                      <aura:iteration items="{!v.CRSfieldList}" var="field" indexVar="index">
+                        <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                          <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <div class="slds-form-element__control">
+                              <div class="slds-form-element__static">
+                                <lightning:outputField fieldName="{!field.fieldName}" variant="label-stacked" aura:id="{!field.fieldName}"/>
+                              </div>
+                              <aura:if isTrue="{! field.readOnly == false }">
+                                <lightning:buttonIcon
+                                    iconName="utility:edit"
+                                    alternativeText="Edit"
+                                    class="slds-button__icon slds-button__icon_hint"
+                                    variant="bare"
+                                    size="medium"
+                                    onclick="{! c.handleChangeFormValeurs }"
+                                />
+                              </aura:if>
+                            </div>
+                          </div>
+                        </div>
+                        <aura:if isTrue="{! field.fieldName == 'ApplicableResidencyTax__c' }">
+                          <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                          </div>
+                        </aura:if>
+                      </aura:iteration>
+                    </div>
+                  </lightning:recordViewForm>
+            </aura:if>
+
+            <!--Display on edit mode the CRS Checker Section-->
+            <aura:if isTrue="{! v.editSection }">
+              <lightning:recordEditForm aura:id="form"
+                  recordId="{!v.crsRecordId}"
+                  objectApiName="CrsOnboarding__c" onsubmit="{!c.handleOnSubmit}" onsuccess="{!c.handleOnSuccess}"
+                  onerror="{!c.handleOnError}">
+                <lightning:messages/>
+                
+                <div class="slds-grid slds-wrap" style="margin-left: 12px;">
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="ApplicableResidencyTax__c" value ="{!v.ApplicableResidencyTax}" required="true" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_1__c" aura:id ="Tax_Country_1" disabled="{!v.ApplicableResidencyTax == 'No'}" value="{!v.tax1}" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_1_ID__c" aura:id ="Tax_Country_1_ID" disabled="{!v.ApplicableResidencyTax == 'No'}" required="{!AND(v.tax1 != '',v.tax1 != null)}" variant="label-stacked" />
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_2__c" aura:id ="Tax_Country_2" disabled="{!v.ApplicableResidencyTax == 'No'}" value="{!v.tax2}" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_2_ID__c" aura:id ="Tax_Country_2_ID" disabled="{!v.ApplicableResidencyTax == 'No'}" required="{!AND(v.tax2 != '',v.tax2 != null)}" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_3__c" aura:id ="Tax_Country_3" disabled="{!v.ApplicableResidencyTax == 'No'}" value="{!v.tax3}" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_3_ID__c" aura:id ="Tax_Country_3_ID" disabled="{!v.ApplicableResidencyTax == 'No'}" required="{!AND(v.tax3 != '',v.tax3 != null)}" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_4__c" aura:id ="Tax_Country_4" disabled="{!v.ApplicableResidencyTax == 'No'}" value="{!v.tax4}" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="Tax_Country_4_ID__c" aura:id ="Tax_Country_4_ID" disabled="{!v.ApplicableResidencyTax == 'No'}" required="{!AND(v.tax4 != '',v.tax4 != null)}" variant="label-stacked"/>
+                    </div>
+                    
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="CRS_Checker_Result__c" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="CRS_Checker_Result_Date_Time__c" disabled="true" variant="label-stacked"/>
+                    </div>
+                    <div class="slds-size_1-of-2 slds-p-around_xxx-small">
+                      <lightning:inputField fieldName="CRS_Checker_Comments__c" variant="label-stacked"/>
+                    </div>
+
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                </div>
+                <footer style="text-align: center;">
+                  <lightning:button variant="neutral" label="Cancel" onclick="{!c.onCancel}" />
+                  <lightning:button variant="brand" label="Save" type="submit" />
+                </footer>
+              </lightning:recordEditForm>
+            </aura:if>
+
+          </aura:if>
+        </div>
+    </div>
+  </div>
+
+
+</aura:component>

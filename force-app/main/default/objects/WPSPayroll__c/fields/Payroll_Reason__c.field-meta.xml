@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payroll_Reason__c</fullName>
+    <label>Cancel/Reject Reason</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Action_Status__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>C00001</fullName>
+                <default>false</default>
+                <label>Change in debit account</label>
+            </value>
+            <value>
+                <fullName>C00002</fullName>
+                <default>false</default>
+                <label>Change in total debit amount</label>
+            </value>
+            <value>
+                <fullName>C00003</fullName>
+                <default>false</default>
+                <label>Change in one or more credit accounts</label>
+            </value>
+            <value>
+                <fullName>C00004</fullName>
+                <default>false</default>
+                <label>Change in one or more credit amounts</label>
+            </value>
+            <value>
+                <fullName>C00005</fullName>
+                <default>false</default>
+                <label>Change in value date</label>
+            </value>
+            <value>
+                <fullName>C00006</fullName>
+                <default>false</default>
+                <label>Adding one or more credit accounts</label>
+            </value>
+            <value>
+                <fullName>C00007</fullName>
+                <default>false</default>
+                <label>Insufficient balance in the debit account</label>
+            </value>
+            <value>
+                <fullName>C00008</fullName>
+                <default>false</default>
+                <label>Change in the debit account status</label>
+            </value>
+            <value>
+                <fullName>C00009</fullName>
+                <default>false</default>
+                <label>Change in one or more credit account status</label>
+            </value>
+            <value>
+                <fullName>R00001</fullName>
+                <default>false</default>
+                <label>Invalid Debtor Account Number</label>
+            </value>
+            <value>
+                <fullName>R00002</fullName>
+                <default>false</default>
+                <label>Invalid Creditor Account Number</label>
+            </value>
+            <value>
+                <fullName>R00003</fullName>
+                <default>false</default>
+                <label>Invalid Currency</label>
+            </value>
+            <value>
+                <fullName>R00005</fullName>
+                <default>false</default>
+                <label>Account does not exist</label>
+            </value>
+            <value>
+                <fullName>R00006</fullName>
+                <default>false</default>
+                <label>Account is closed</label>
+            </value>
+            <value>
+                <fullName>R00007</fullName>
+                <default>false</default>
+                <label>Account is Dormant</label>
+            </value>
+            <value>
+                <fullName>R00008</fullName>
+                <default>false</default>
+                <label>Account is Blocked</label>
+            </value>
+            <value>
+                <fullName>R00009</fullName>
+                <default>false</default>
+                <label>Account is partially blocked</label>
+            </value>
+            <value>
+                <fullName>R00010</fullName>
+                <default>false</default>
+                <label>Invalid account type</label>
+            </value>
+            <value>
+                <fullName>R00011</fullName>
+                <default>false</default>
+                <label>Invalid identification code</label>
+            </value>
+            <value>
+                <fullName>R00012</fullName>
+                <default>false</default>
+                <label>Invalid account number</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00001</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00002</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00003</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00005</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00006</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00007</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00008</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00009</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00010</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00011</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reject</controllingFieldValue>
+            <valueName>R00012</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00001</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00002</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00003</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00004</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00005</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00006</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00007</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00008</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancel</controllingFieldValue>
+            <valueName>C00009</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

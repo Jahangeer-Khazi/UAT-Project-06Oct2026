@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sub Type --></label>
+    <name>Sub_Type__c</name>
+    <picklistValues>
+        <masterLabel>ATM</masterLabel>
+        <translation><!-- ATM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Account</masterLabel>
+        <translation><!-- Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cheque</masterLabel>
+        <translation><!-- Cheque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card</masterLabel>
+        <translation><!-- Credit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card - Interest Reversal</masterLabel>
+        <translation><!-- Credit Card - Interest Reversal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit card - Fee &amp; Charges</masterLabel>
+        <translation><!-- Credit card - Fee &amp; Charges --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit card - Special FX rate</masterLabel>
+        <translation><!-- Credit card - Special FX rate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Debit Card</masterLabel>
+        <translation><!-- Debit Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fixed Deposit</masterLabel>
+        <translation><!-- Fixed Deposit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Government Security</masterLabel>
+        <translation><!-- Government Security --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan</masterLabel>
+        <translation><!-- Loan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others</masterLabel>
+        <translation><!-- Others --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premium</masterLabel>
+        <translation><!-- Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepaid Card</masterLabel>
+        <translation><!-- Prepaid Card --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfers</masterLabel>
+        <translation><!-- Transfers --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

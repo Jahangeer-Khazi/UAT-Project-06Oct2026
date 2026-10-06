@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Expected Monthly Deposits --></help>
+    <label><!-- Expected Monthly Account Turnover --></label>
+    <name>Expected_Monthly_Deposits_Staff__c</name>
+</CustomFieldTranslation>

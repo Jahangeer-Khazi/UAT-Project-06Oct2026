@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To confirm international funds transfer processing</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Manual Transfer Completion Email</name>
+    <style>none</style>
+    <subject>Manual Transfer Completion Email</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

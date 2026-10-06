@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segment_Update</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CIF__pc</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CIF__pc</field>
+        <operation>equals</operation>
+        <value>,1030150,1004755,1005495,1002314,1008772</value>
+    </filters>
+    <label>Segment Update</label>
+</ListView>

@@ -1,0 +1,136 @@
+<apex:page standardStylesheets="false" showHeader="false" renderAs="pdf" Controller="bankStatementController" cache="false">
+    <apex:styleSheet value="{!$Resource.bsCss3}"/>
+       <apex:styleSheet value="{!$Resource.bsCss1}"/>
+         <apex:styleSheet value="{!$Resource.bsCss2}"/>
+<html>
+<head>
+<title>Bank Statement Request Form</title>
+</head>
+<body style="font-family: Cairo,Open Sans, sans-serif,Roboto,Helvetica Neu,Arial;color:#000E3B;font-size: 14px;width:700px;">
+<div id="header">
+<div class="Title">
+    <span style="font-size:30px;">Bank Statement Request</span>
+    <span style="float:right;">
+    <apex:image value="{!URLFOR($Resource.ilalogobs)}" rendered="{!IF(RequestDetail.Case_Model__c== 'ila',true,false)}" height="76" width="76"/>
+    <apex:image value="{!URLFOR($Resource.alburaqila)}" rendered="{!IF(RequestDetail.Case_Model__c== 'alburaq',true,false)}" height="56" width="56" style="padding-right:10px"/>
+    <apex:image value="{!URLFOR($Resource.alburaqalburaq)}" rendered="{!IF(RequestDetail.Case_Model__c== 'alburaq',true,false)}" height="56" width="112"/>
+</span><br/> 
+    <span style="font-size:30px;">Form</span>
+</div>
+
+<div style="float:none;clear:both;"></div>
+<br></br>
+<br></br>
+</div>
+<div id="Content">
+<div style="margin-bottom: 15px;">
+    <div style="float:left;width: 30%;line-height: 28px;">Date: </div>
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">
+    <apex:outputText value="{0,date,dd.MM.yyyy}">
+       <apex:param value="{! NOW() }" />
+    </apex:outputText>
+    </div>
+</div>
+
+<br></br>
+<br></br>
+<div style="margin-bottom: 15px;">
+    <div style="color:white;background:#000E3B;width: 99%;padding-left: 1%;margin-bottom: 20px;">
+        <span><b>Customer Information: </b></span>
+    </div>
+    <div style="float:left;width: 30%;line-height: 28px;">Name: </div>
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">{!RequestDetail.Account.Name}</div>
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;"></div>
+    <div style="float:none;clear:both;"></div>
+    <div style="float:left;width: 30%;line-height: 28px;">CIF Number: </div>
+    <!--<div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;"></div>-->
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">{!RequestDetail.Customer_CIF__c}</div>
+</div> 
+<br></br>
+<br></br>
+<div style="margin-bottom: 15px;">
+    <div style="color:white;background:#000E3B;width: 99%;padding-left: 1%;margin-bottom: 20px;">
+        <span><b>Statement Details: </b></span>
+    </div>
+     <!--<div style="float:none;clear:both;"></div>-->
+    <apex:outputPanel rendered="{!RequestDetail.Sub_Type__c == 'Request Account Bank Statement'}">
+        <div style="float:left;width: 30%;line-height: 28px;">Account Number/ IBAN:</div>
+        <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">{!RequestDetail.ac_Iban__c}</div>
+        <div style="float:none;clear:both;"></div>
+        <div style="float:left;width: 30%;line-height: 28px;">Account Currency: </div>
+         <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">{!RequestDetail.Currency__c}</div>
+         <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;"></div><br></br>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!RequestDetail.Sub_Type__c != 'Request Account Bank Statement'}">
+        <div style="float:left;width: 30%;line-height: 28px;">Masked Card Number:</div>
+        <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">{!RequestDetail.cc_Credit_Card_PCI_Number__c}</div>
+    </apex:outputPanel>
+
+    <div style="float:none;clear:both;"></div>
+    <div style="width: 100%;line-height: 20px;padding-top:5px;"><b>Statement Period </b></div>
+    <div style="float:none;clear:both;"></div>
+    <div style="float:left;width: 30%;line-height: 28px;">From: </div>
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;"><apex:outputText value="{0,date,dd.MM.yyyy}"><apex:param value="{!RequestDetail.From_Date__c}"/>
+    </apex:outputText><span style="font-size:12px; padding-left: 20px;">(Start date)</span></div>
+    <div style="float:none;clear:both;"></div>
+    <div style="float:left;width: 30%;line-height: 28px;">To: </div>
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;"><apex:outputText value="{0,date,dd.MM.yyyy}"><apex:param value="{!RequestDetail.To_Date__c}"/></apex:outputText><span style="font-size:12px;  padding-left: 20px;">(End date)</span></div>
+    <div style="float:none;clear:both;"></div>
+    <apex:form >
+    <div style="float:left;width: 30%;line-height: 28px;">Format: <span style="font-size:12px">(Please select one)</span></div>
+    <div style="float:left;width: 70%;line-height: 24px;margin-right: -5px;">
+     <apex:outputPanel rendered="{!formatPrinted}" layout="block">
+                   <img src="/img/checkbox_checked.gif"/> Printed
+                   <img src="/img/checkbox_unchecked.gif"/> Electronic via registered email address on file               
+            </apex:outputPanel>
+             <apex:outputPanel rendered="{!formatElectronic}" layout="block">
+                <img src="/img/checkbox_unchecked.gif"/> Printed
+                <img src="/img/checkbox_checked.gif"/> Electronic via registered email address on file  
+            </apex:outputPanel>
+        <!--<img src="/img/checkbox_unchecked.gif"/> Printed
+        <img src="/img/checkbox_unchecked.gif"/> Electronic via registered email address on file-->
+    </div>
+    </apex:form>
+    <div style="float:none;clear:both;"></div>
+        <div style="float:left;width: 30%;line-height: 22px;">Printing fees: {!regionCurrency}</div>
+    <div style="float:left;width: 70%;line-height: 16px;margin-right: -5px;">{!RequestDetail.Calculated_Fees__c}</div>
+    <div style="float:none;clear:both;"></div><br></br>
+    <div style="width: 100%;line-height: 20px;padding-top: 5px;">I, <b>{!RequestDetail.Account.Name}</b>
+    </div>
+    <div style="width: 100%;line-height: 20px;padding-top: 5px;">hereby request a bank statement for the speciﬁed period. I understand and agree to pay all relevant fees and charges associated with this request, including printing and delivery fees, if applicable. I authorize the bank to deduct the charges directly from my BHD primary account IBAN:
+    <b>{!RequestDetail.Debit_Account_IBAN__c}</b></div><br></br>
+    <div style="width: 100%;line-height: 20px;padding-top: 5px;overflow-wrap: anywhere;">
+    I confirm that I do not fall within the segments defined by the Central Bank of Bahrain that are exempted from the bank's fees and charges related to this service. I understand that additional details about the exempted segments can be found on the Central Bank website (https://cbben.thomsonreuters.com/sites/default/ﬁles/
+    net_ﬁle_store/Vol_1_Appendix_BC-7_Retail_Banks_Standard_Service_Charges_January_2022.pdf).
+    </div>
+    <div style="width: 100%;line-height: 20px;padding-top: 5px;"><br></br>
+    *I consent that the Bank will generate the required Account Statement and share it with me via the registered email address on file. 
+    </div>
+    <!--<div style="float:none;clear:both;"></div>-->
+    <div style="margin-bottom: 5px;"><br></br>
+    <div style="float:left;width: 30%;line-height: 22px;"><br></br>Customer Signature: </div>
+    <div style="float:left;width: 70%;line-height: 16px;margin-right: -5px;"><br></br><br></br>
+          <textarea id="CustomerSignature" name="CustomerSignature" rows="4" style="width:100%;border: 1px solid #000E3B;" ></textarea>
+    </div>
+    <div style="float:none;clear:both;"></div>
+        <div style="float:left;width: 30%;line-height: 22px;">Date: </div>
+    <div style="float:left;width: 70%;line-height: 16px;margin-right: -5px;">
+    <apex:outputText value="{0,date,dd.MM.yyyy}">
+       <apex:param value="{! NOW() }" />
+    </apex:outputText></div>
+    <div style="float:none;clear:both;"></div>
+</div>
+</div>   
+</div>
+<div style="height:20px;padding-top: 20px;">
+<div style="float:left;margin-top: 15px;">
+    <span style="font-size:11px;"><a href="www.ilabank.com">www.ilabank.com</a></span><br></br>
+</div>
+<div style="float:right;">
+    <span style="font-size:11px;">Licensed as a Conventional Retail Bank - Branch by the Central
+Bank of Bahrain.<br></br> Powered by Bank ABC (Arab Banking Corporation B.S.C.)</span><br></br>
+</div>
+</div>
+</body>
+</html>
+</apex:page>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Knowledge_Level_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Knowledge_Level__c,
+&quot;Not At All Knowledgeable&quot;, 1,
+&quot;Minimally Knowledgeable&quot;, 2,
+&quot;Moderately Knowledgeable&quot;, 3,
+&quot;Competent&quot;, 4,
+&quot;Very Knowledgeable&quot;, 5,
+0
+)</formula>
+    <inlineHelpText>Not At All Knowledgeable (1), Minimally Knowledgeable (2), Moderately Knowledgeable (3), Competent (4), Very Knowledgeable (5)</inlineHelpText>
+    <label>Knowledge Level Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

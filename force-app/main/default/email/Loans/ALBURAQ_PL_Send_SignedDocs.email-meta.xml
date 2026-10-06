@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When customer signs the finance documents using in-app process.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ALBURAQ_PL_Send_SignedDocs</name>
+    <style>none</style>
+    <subject>Completed: Signed Documents for your {!CaseAnnex__c.cx_ln_Loan_Finance_Type__c} Finance Application.</subject>
+    <textOnly>Completed: Signed Documents for your {!CaseAnnex__c.cx_ln_Loan_Finance_Type__c} Finance Application
+
+Hi,
+
+Thank you for signing the required documents for your {!CaseAnnex__c.cx_ln_Loan_Finance_Type__c} Finance.
+
+Kindly find attached the copies of all your signed documents for your reference.
+
+If you need any assistance, please call us on +973 17123456 or email us on support.alburaq@ilabank.com
+
+
+
+Join the 																				conversation
+
+
+ilabank.com/alburaq
+
+Powered 																											by Bank 																											ABC
+
+alburaq 																											Sharia 																											compliant 																											services are 																											managed 																											strictly in 																											accordance 																											with Islamic 																											principles 																											and 																											supervised 																											by a 																											recognized 																											Sharia 																											Supervisory 																											Board.
+
+Bank 																																	ABC 																																	Tower, 																																	Head 																																	Office, 																																	P.O 																																	Box: 																																	5698, 																																	Manama, 																																	Kingdom 																																	of 																																	Bahrain
+
+This 																																email 																																and 																																any 																																files 																																transmitted 																																with 																																it 																																are 																																confidential 																																and 																																intended 																																solely 																																for 																																the 																																use 																																of 																																the 																																individual 																																or 																																entity 																																to 																																whom 																																they 																																are 																																addressed. 																																If 																																you 																																have 																																received 																																this 																																email 																																in 																																error, 																																please 																																notify 																																the 																																system 																																manager.
+
+Licensed 																																as 																																a 																																Conventional 																																Retail 																																Bank 																																– 																																Branch 																																by 																																the 																																Central 																																Bank 																																of 																																Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

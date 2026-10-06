@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Push Template Code --></label>
+    <name>Push_Template_Code__c</name>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_ACC_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_ACC_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_ACC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_ACC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_ALL_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_ALL_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_ACC_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_ACC_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_ACC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_ACC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_CC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_CC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_ACC_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_ACC_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_ACC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_ACC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_CC_ACC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_CC_ACC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_CC_APP_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_CC_APP_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_CC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_CC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK_DC_PUSH</masterLabel>
+        <translation><!-- FRAUD_BLOCK_DC_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_COMPLETED_PUSH</masterLabel>
+        <translation><!-- FRAUD_COMPLETED_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_COMPLETED_BLOCKS_REMOVED_PUSH</masterLabel>
+        <translation><!-- PR_COMPLETED_BLOCKS_REMOVED_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_COMPLETED_PUSH</masterLabel>
+        <translation><!-- PR_COMPLETED_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_REMINDER_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_REMINDER_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S1_LAST_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S1_LAST_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S1_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S1_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S1_REMINDER_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S1_REMINDER_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S2_LAST_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S2_LAST_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S2_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S2_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S2_REMINDER_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S2_REMINDER_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S3_LAST_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S3_LAST_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S3_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S3_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S3_REMINDER_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S3_REMINDER_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_PENDING_S4_PUSH</masterLabel>
+        <translation><!-- PR_PENDING_S4_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED_BLOCKS_PUSH</masterLabel>
+        <translation><!-- PR_REFERRED_BLOCKS_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED_PUSH</masterLabel>
+        <translation><!-- PR_REFERRED_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED_S1_PUSH</masterLabel>
+        <translation><!-- PR_REFERRED_S1_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED_S2_PUSH</masterLabel>
+        <translation><!-- PR_REFERRED_S2_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED_S3_PUSH</masterLabel>
+        <translation><!-- PR_REFERRED_S3_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_REFERRED_S4_PUSH</masterLabel>
+        <translation><!-- PR_REFERRED_S4_PUSH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PR_RETURNED_PUSH</masterLabel>
+        <translation><!-- PR_RETURNED_PUSH --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

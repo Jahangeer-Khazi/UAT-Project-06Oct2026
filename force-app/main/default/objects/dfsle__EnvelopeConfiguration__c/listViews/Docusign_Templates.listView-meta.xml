@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Docusign_Templates</fullName>
+    <columns>NAME</columns>
+    <columns>dfsle__Active__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>dfsle__DocuSignId__c</columns>
+    <columns>dfsle__EmailSubject__c</columns>
+    <columns>dfsle__IsDraft__c</columns>
+    <columns>dfsle__TemplateType__c</columns>
+    <columns>dfsle__SourceObject__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Docusign Templates</label>
+</ListView>

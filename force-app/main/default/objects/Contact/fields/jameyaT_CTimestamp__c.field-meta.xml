@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>jameyaT_CTimestamp__c</fullName>
+    <description>Timestamp when Jameya&apos;s Terms and Conditions are accepted</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>jameyaT&amp;CTimestamp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

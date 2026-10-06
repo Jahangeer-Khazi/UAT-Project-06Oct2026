@@ -1,0 +1,236 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By: Jahangeer Mohammed
+ *		Created Date: 03-01-2022
+ * 		Change History: 
+ *	    	  
+-->
+<aura:component controller = "TermDepositController" >
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="regionName" type="String"/>
+    <!-- ============================================ -->
+    
+    <aura:attribute name="termDepositData" type="List"/>
+    <aura:attribute name="termDepositDataFor1Month" type="List"/>
+    <aura:attribute name="termDepositDataFor3Month" type="List"/>
+    <aura:attribute name="termDepositDataFor6Month" type="List"/>
+    <aura:attribute name="termDepositDataFor9Month" type="List"/>
+    <aura:attribute name="termDepositDataFor1Year" type="List"/>
+    <aura:attribute name="termDepositDataFor2Year" type="List"/>
+    
+    <aura:attribute name="termDepositDataUSA" type="List"/>
+    <aura:attribute name="termDepositDataFor1MonthUSA" type="List"/>
+    <aura:attribute name="termDepositDataFor3MonthUSA" type="List"/>
+    <aura:attribute name="termDepositDataFor6MonthUSA" type="List"/>
+    <aura:attribute name="termDepositDataFor9MonthUSA" type="List"/>
+    <aura:attribute name="termDepositDataFor1YearUSA" type="List"/>
+    <aura:attribute name="termDepositDataFor2YearUSA" type="List"/>
+    
+    <aura:attribute name="BHDTable" type="String"/>
+    <aura:attribute name="USDTable" type="String"/>
+    <!--<aura:attribute name="customerId" type = "String" default = '1294463'/> -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card title="{! 'Current Term Deposit Interest Rates(%) ' }">
+    <!--<div class="slds-text-heading_medium"><b>Term Deposit Interest Rates(%)</b></div> -->
+    <br/>
+    <aura:if isTrue="{!v.BHDTable == 'BHD'}">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    
+                    <th class="" scope="col" >
+                        <div class="slds-truncate" title="Amount Description">Amount (Premium BHD)</div>
+                    </th>
+                    
+                    <th class="" scope="col" >
+                        <div class="slds-truncate" title="Description 1">1 Month</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 2">3 Month</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 3">6 Month</div>
+                    </th>
+                    <th class="" scope="col" >
+                        <div class="slds-truncate" title="Description 4">9 Month</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 5">1 Year</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 6">2 Year</div>
+                    </th>
+                </tr>
+            </thead> 
+            <tbody>
+                <td data-label="Amount (Regular BHD)">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositData}" var="row">
+                            <tr class = "slds-hint-parent">
+                                <td style="width:10%"> <b>{!row}</b></td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                
+                <td data-label="1 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor1Month}" var="row1Month">
+                            <tr class = "slds-hint-parent">
+                                <td style="width:10%"> {!row1Month} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="3 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor3Month}" var="row3Month">
+                            <tr>
+                                <td style="width:10%"> {!row3Month} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="6 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor6Month}" var="row6Month">
+                            <tr>
+                                <td style="width:10%"> {!row6Month} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="9 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor9Month}" var="row9Month">
+                            <tr>
+                                <td style="width:10%"> {!row9Month} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="1 Year">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor1Year}" var="row1Year">
+                            <tr>
+                                <td style="width:10%"> {!row1Year} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="2 Year">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor2Year}" var="row2Year">
+                            <tr>
+                                <td style="width:10%"> {!row2Year} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                
+            </tbody>
+        </table>
+    </aura:if>
+    <br/>
+    <br/>
+    <aura:if isTrue="{!v.USDTable == 'USD'}">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    
+                    <th class="" scope="col" >
+                        <div class="slds-truncate" title="Amount Description">Amount (Premium USD)</div>
+                    </th>
+                    
+                    <th class="" scope="col" >
+                        <div class="slds-truncate" title="Description 1">1 Month</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 2">3 Month</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 3">6 Month</div>
+                    </th>
+                    <th class="" scope="col" >
+                        <div class="slds-truncate" title="Description 4">9 Month</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 5">1 Year</div>
+                    </th>
+                    <th class="" scope="col"  >
+                        <div class="slds-truncate" title="Description 6">2 Year</div>
+                    </th>
+                </tr>
+            </thead> 
+            <tbody>
+                <td data-label="Amount (Regular USD)">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataUSA}" var="rowUSA">
+                            <tr class = "slds-hint-parent">
+                                <td style="width:10%"> <b>{!rowUSA}</b></td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                
+                <td data-label="1 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor1MonthUSA}" var="row1MonthUSA">
+                            <tr class = "slds-hint-parent">
+                                <td style="width:10%"> {!row1MonthUSA} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="3 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor3MonthUSA}" var="row3MonthUSA">
+                            <tr>
+                                <td style="width:10%"> {!row3MonthUSA} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="6 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor6MonthUSA}" var="row6MonthUSA">
+                            <tr>
+                                <td style="width:10%"> {!row6MonthUSA} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="9 Month">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor9MonthUSA}" var="row9MonthUSA">
+                            <tr>
+                                <td style="width:10%"> {!row9MonthUSA} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="1 Year">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor1YearUSA}" var="row1YearUSA">
+                            <tr>
+                                <td style="width:10%"> {!row1YearUSA} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                <td data-label="2 Year">
+                    <div class="slds-truncate"> 
+                        <aura:iteration items="{!v.termDepositDataFor2YearUSA}" var="row2YearUSA">
+                            <tr>
+                                <td style="width:10%"> {!row2YearUSA} </td>
+                            </tr>
+                        </aura:iteration>
+                    </div>
+                </td>
+                
+            </tbody>
+        </table>
+    </aura:if>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>  
+</aura:component>

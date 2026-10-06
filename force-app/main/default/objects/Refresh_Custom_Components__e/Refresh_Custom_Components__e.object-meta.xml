@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This Platform Event will be triggered from the desired object and notify the custom components about the data change</description>
+    <eventType>HighVolume</eventType>
+    <label>Refresh Custom Components</label>
+    <pluralLabel>Refresh Custom Components</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

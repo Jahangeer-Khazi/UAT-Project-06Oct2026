@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disallow_CreationOrUpdateOfReviews</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+    TEXT(Draw__r.TECH_FirstApiCall__c) = &apos;Success&apos;,
+				AND
+				(
+								TEXT(Draw__r.Status__c) != &apos;New&apos;,
+        TEXT(Draw__r.Status__c) != &apos;Rework&apos;
+				)
+)</errorConditionFormula>
+    <errorMessage>You cannot create or update draw entry reviews at this stage of the draw</errorMessage>
+</ValidationRule>

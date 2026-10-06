@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Pending ID&amp;V - Overdue Stage 3-L1</label>
+    <protected>false</protected>
+    <values>
+        <field>API_Status__c</field>
+        <value xsi:type="xsd:string">PR_PENDING_IDV_S1</value>
+    </values>
+    <values>
+        <field>Account_Debits_App_Access__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Block_App_Access__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Block_Credit_Cards__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Block_Debit_Card__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>CRM_Stage__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ID_V_Required__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ID_V_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>KYC_Form_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>KYC_Form_Tax_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>KYC_Upload_Document_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>KYC_Verification_Result__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Next_API_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Next_Sub_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Overdue_Handling__c</field>
+        <value xsi:type="xsd:string">Level 1 - App (Nudges)</value>
+    </values>
+    <values>
+        <field>Overdue_Stage_Enable_L3__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Overdue_Stage__c</field>
+        <value xsi:type="xsd:string">Stage 3 – Block Debit Cards &amp; Credit Cards</value>
+    </values>
+    <values>
+        <field>Review_Personal_Information_Required__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Sub_Status__c</field>
+        <value xsi:type="xsd:string">Pending ID&amp;V</value>
+    </values>
+    <values>
+        <field>Upload_Documents_Required__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

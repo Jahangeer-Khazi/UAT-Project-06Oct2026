@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AppleCase_DisputeCase_Closure</fullName>
+    <active>true</active>
+    <description>This is the validation, when Apple Case - &apos;Dispute&apos; type is closed : Transaction Details, Closure Reason are mandatory</description>
+    <errorConditionFormula>TEXT(Type) = &apos;Apple Pay&apos; &amp;&amp;  TEXT(Sub_Type__c) = &apos;Dispute&apos; &amp;&amp; 
+OR ( ISBLANK( SEID__c)  , 
+ISBLANK(TEXT(Apple_Pay_Closure_Reason__c )), ISBLANK(Transaction_Amount__c), ISBLANK(TEXT(Transaction_Currency__c)), ISBLANK(TEXT(Transaction_Type__c)), ISBLANK( Token_Unique_Reference__c)) &amp;&amp; TEXT( Status ) = &apos;Closed&apos;</errorConditionFormula>
+    <errorMessage>&apos;SEID&apos;, &apos;Transaction Amount&apos;, &apos;Transaction Currency&apos;, &apos;Transaction Type&apos;, Token Unique Reference&apos; and &apos;Closure Reason&apos; are mandatory while Closing the &apos;Dispute&apos; case.</errorMessage>
+</ValidationRule>

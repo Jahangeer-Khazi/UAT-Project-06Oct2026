@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DocumentCountry_Mustbe_NonBahrain</fullName>
+    <active>false</active>
+    <description>Document Country should be Non-Bahrain</description>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type, &quot;Periodic Review&quot;),
+ISCHANGED(Document_Country__c),
+ISPICKVAL(Document_Country__c, &quot;BH&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>Document_Country__c</errorDisplayField>
+    <errorMessage>Document Country must be Non-Bahraini</errorMessage>
+</ValidationRule>

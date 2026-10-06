@@ -1,0 +1,73 @@
+<template>
+    <lightning-card>
+        <h1 class="slds-text-heading_medium slds-text-align_center">New Credit Card Service Request</h1>
+
+        <lightning-spinner if:true={isLoading} alternative-text="Loading"></lightning-spinner>
+
+        <div class="slds-p-around_small">
+            <lightning-record-edit-form object-api-name="Case" record-type-id={recordTypeId} onsubmit={handleSubmit}
+                onsuccess={handleSuccess} onerror={handleError}>
+
+                <lightning-messages></lightning-messages>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Subject" required>
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Description" required>
+                    </lightning-input-field>
+                </div>
+
+                <!-- Required Fields -->
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Case_Model__c" value={caseModel} required>
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Type" required>
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Sub_Type__c" onchange={handleSubTypeChange}>
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Origin" required>
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Case_Nature__c" required>
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Invitation_Expiry_Date__c">
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Customer_Email_Suppression_on_Closure__c">
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-input-field field-name="Customer_Email_Suppression_on_Creation__c">
+                    </lightning-input-field>
+                </div>
+
+                <div class="slds-card__footer slds-text-align_right">
+                    <lightning-button variant="neutral" label="Cancel" onclick={handleCancel}>
+                    </lightning-button> &nbsp;
+                    <lightning-button variant="brand" label="Save" onclick={handleSave}>
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

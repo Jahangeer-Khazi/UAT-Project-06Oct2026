@@ -1,0 +1,25 @@
+<aura:component controller="LTNG027_MinimumBalanceFeeController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="showCmp" type="Boolean" default="false" />
+    <aura:attribute name="AccountsList" type="List" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="currentAcc" type="Object" />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+
+    <lightning:select aura:id="MinimumBalanceFeeReversal" label="Accounts" required="true" onchange="{!c.AccountChange}">
+        <option text="--None--" value="" />
+        <aura:if isTrue="{!v.showCmp}">
+            <aura:iteration items="{!v.AccountsList}" var="Account">
+                <option text="{!Account.ac_label}" value="{!Account.ac_label}" />
+            </aura:iteration>
+        </aura:if>
+    </lightning:select>
+
+</aura:component>

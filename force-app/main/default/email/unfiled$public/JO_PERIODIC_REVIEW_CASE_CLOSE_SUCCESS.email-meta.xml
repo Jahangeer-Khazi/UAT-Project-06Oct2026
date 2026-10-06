@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When (manual/automatic) case in CRM is closed successfully</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>JO_PERIODIC_REVIEW_CASE_CLOSE_SUCCESS</name>
+    <style>none</style>
+    <subject>Your request has been completed by ila</subject>
+    <textOnly>Your ila request was completed and closed
+
+Hi,
+
+We are pleased to let you know that your case reference number {!Case.CaseNumber} was completed and closed.
+
+Should you need any assistance, please feel free to call us on +962 65100001 or email us on supportJo@ilabank.com
+
+Open ila app
+
+ila Service center, Abdali Mall, Al Aswaq St 8, Al Abdali, Amman, Jordan
+
+This email and any files 								transmitted with it are confidential and 								intended solely for the use of the individual or 								entity to whom they are addressed. If you have 								received this email in error, please notify the 								system manager.
+
+Powered by Bank ABC in Jordan (Arab Banking Corporation – Jordan)
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

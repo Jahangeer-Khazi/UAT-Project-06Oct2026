@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>this is a reminder N days before reverting back to original credit limit for temporary increased credit limit</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>CC_LI_TEMP_EXPIRY</name>
+    <style>none</style>
+    <subject>Credit Limit Increase Temporary - Reminder</subject>
+    <textOnly>this is a reminder N days before reverting back to original credit limit for temporary increased credit limit</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

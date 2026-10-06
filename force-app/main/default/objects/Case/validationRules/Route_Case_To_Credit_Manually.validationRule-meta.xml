@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Route_Case_To_Credit_Manually</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL( Region_Flag__c ,&apos;Bahrain&apos;),
+ISCHANGED(OwnerId),
+OR(
+OwnerId = &apos;00GPw000002SvS1&apos;,
+OwnerId = &apos;00GPw0000093OF7&apos;,
+OwnerId = &apos;00GPw000000uOAw&apos;,
+OwnerId = &apos;00GPw0000046DbN&apos;,
+OwnerId = &apos;00GPw000002SvS3&apos;,
+OwnerId = &apos;00GPw000002SvS4&apos;,
+OwnerId = &apos;00GPw000002SvS2&apos;,
+OwnerId = &apos;00GPw000006Hyyp&apos;
+),
+OR(
+ISPICKVAL(Type , &quot;Credit Card Application&quot;),
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;),
+ISPICKVAL(Type , &quot;Cash Collateral Credit Limit Increase Application&quot;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;),
+ISPICKVAL(Type , &quot;Credit Card Upgrade&quot;),
+ISPICKVAL(Type , &quot;Credit Card Supplementary Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Manual Credit Limit Decrease&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>Case can’t be routed to Pre-screener/ Evaluator/ Verifier/ Approver/Temp queue. Please route the case to &quot;Credit Card Pre-Screener Queue.&quot;.</errorMessage>
+</ValidationRule>

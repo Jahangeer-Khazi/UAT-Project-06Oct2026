@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Evalutor_Accept_Upgrade_Case</fullName>
+    <active>true</active>
+    <description>If the Credit Evaluation Result is Accept than Approved Credit must be greater than or equal to new upgrade card minimum limit</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Region_Flag__c, &quot;Bahrain&quot;),
+ISCHANGED(cc_Credit_Evaluation_Result__c),
+ISPICKVAL(cc_Credit_Evaluation_Result__c, &quot;Accept&quot;),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;Credit Limit Increase&quot;),
+Is_Initiated_from_Upgrade_Case__c = true,
+cc_Approved_Credit_Limit__c  &lt; sc_Spending_Limit_Amount__c
+)</errorConditionFormula>
+    <errorDisplayField>cc_Credit_Evaluation_Result__c</errorDisplayField>
+    <errorMessage>Approved limit must be greater than or equal to the minimum limit of the target credit card when the limit increase is initiated from an upgrade case</errorMessage>
+</ValidationRule>

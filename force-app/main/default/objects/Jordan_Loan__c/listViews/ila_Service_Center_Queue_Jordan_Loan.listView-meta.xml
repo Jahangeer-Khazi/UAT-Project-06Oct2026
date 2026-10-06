@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ila_Service_Center_Queue_Jordan_Loan</fullName>
+    <filterScope>Queue</filterScope>
+    <label>ila Service Center Queue</label>
+    <queue>ila_Service_Center_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

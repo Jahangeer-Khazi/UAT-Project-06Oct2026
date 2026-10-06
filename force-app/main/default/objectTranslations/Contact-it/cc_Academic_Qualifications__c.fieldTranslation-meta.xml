@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Academic Qualifications --></label>
+    <name>cc_Academic_Qualifications__c</name>
+    <picklistValues>
+        <masterLabel>Diploma</masterLabel>
+        <translation><!-- Diploma --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Less than Secondary</masterLabel>
+        <translation><!-- Less than Secondary --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Post Graduate</masterLabel>
+        <translation><!-- Post Graduate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Secondary School</masterLabel>
+        <translation><!-- Secondary School --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>University Degree</masterLabel>
+        <translation><!-- University Degree --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

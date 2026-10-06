@@ -1,0 +1,116 @@
+<template>
+    <div class="slds-form-element block-container">
+        <div class="slds-form-element__control slds-m-top_medium">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium" class="slds-align_absolute-center">
+                </lightning-spinner>
+            </template>
+
+            <template if:true={segmenttransitionInProgress}>
+                <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                    <div class="slds-notify_container slds-is-relative">
+                        <div class="slds-notify slds-notify_toast slds-theme_warning" role="status">
+                            <span class="slds-assistive-text">warning</span>
+                            <div class="slds-notify__content">
+                                <h2 class="slds-text-heading_small slds-truncate">Segment or Card Upgrade/Downgrade
+                                    cannot the process of one</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template if:false={segmenttransitionInProgress}>
+                <div class="slds-form slds-form_compound">
+                    <fieldset class="slds-form-element slds-m-bottom_medium">
+                        <div class="slds-form__row slds-m-bottom_small">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <label class="slds-form-element__label" for="current-segment">Current Segment</label>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static" id="current-segment">
+                                            {segmentCurrent.segmentName}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-form__row slds-m-bottom_small">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_edit slds-form-element_horizontal">
+                                    <label class="slds-form-element__label" for="change-segment">Change Segment To</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-combobox id="change-segment" name="segment_available_card"
+                                            value={segOptSelected} options={segmentOpts} onchange={handleSegmentChange}
+                                            disabled={isDisabled} class="slds-combobox__input slds-input_bare">
+                                        </lightning-combobox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <template if:true={isPremiumSelected}>
+                            <div class="slds-form__row slds-m-bottom_small">
+                                <div class="slds-form__item" role="listitem">
+                                    <lightning-input-field field-name="asc_Membership_Discount__c"
+                                        value={membershipDiscount} disabled={isDisabled}
+                                        onchange={handleMembershipDiscountChange}>
+                                    </lightning-input-field>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template if:true={showStaffFields}>
+
+                            <template if:false={showExitField}>
+                                <div class="slds-m-bottom_small">
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input label="Staff ID" name="staffId" required
+                                                disabled={isDisabled} onchange={handleStaffIdChange} value={staffId}
+                                                style="border-colour: white;" class="slds-input">
+                                            </lightning-input>
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning-input label="Staff Corporate Email" type="email"
+                                                name="staffCorporateEmail" required disabled={isDisabled} value={staffCorporateEmail}
+                                                onchange={handleStaffEmailChange} style="border-colour: white;"
+                                                class="slds-input">
+                                            </lightning-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            
+                        </template>
+
+                        <template if:true={isPremiumSegment}>
+                            <template if:false={hideExitField}>
+                                <div class="slds-m-bottom_small">
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input label="Exit Date" type="date" name="exitDate" required
+                                                disabled={isDisabled} onchange={handleExitDateChange} value={exitDate}
+                                                style="border-colour: white;" class="slds-input">
+                                            </lightning-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                    </fieldset>
+
+                    <div class="slds-form__row slds-m-top_medium slds-align_absolute-center">
+                        <div class="slds-form-element__control">
+                            <template if:true={showSubmitButton}>
+                                <lightning-button variant="brand" label="Submit" disabled={isDisabled}
+                                    onclick={handleSubmit} class="slds-button_stretch">
+                                </lightning-button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

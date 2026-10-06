@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Declaration that the staff does not have any immediate relatives in Bahrain. --></help>
+    <label><!-- No Immediate Relative --></label>
+    <name>No_Immediate_Relative__c</name>
+</CustomFieldTranslation>

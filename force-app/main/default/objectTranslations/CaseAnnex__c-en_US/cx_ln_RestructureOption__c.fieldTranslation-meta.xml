@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Restructure option --></label>
+    <name>cx_ln_RestructureOption__c</name>
+    <picklistValues>
+        <masterLabel>Change interest rate</masterLabel>
+        <translation><!-- Change interest rate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change loan term</masterLabel>
+        <translation><!-- Change loan term --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change term and rate</masterLabel>
+        <translation><!-- Change term and rate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change term without interest increase</masterLabel>
+        <translation><!-- Change term without interest increase --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

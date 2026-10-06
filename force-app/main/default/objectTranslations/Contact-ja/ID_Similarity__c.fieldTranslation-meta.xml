@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- ID Similarity from Jumio --></help>
+    <label><!-- ID Similarity --></label>
+    <name>ID_Similarity__c</name>
+</CustomFieldTranslation>

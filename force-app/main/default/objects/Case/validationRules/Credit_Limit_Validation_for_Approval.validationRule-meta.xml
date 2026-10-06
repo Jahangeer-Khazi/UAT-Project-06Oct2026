@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Limit_Validation_for_Approval</fullName>
+    <active>true</active>
+    <description>to check if Status is Approved and &apos;Approved Credit&apos; limit is provided</description>
+    <errorConditionFormula>AND(
+$User.LastName &lt;&gt; &apos;Integration&apos;,
+ISBLANK(cc_Approved_Credit_Limit__c),
+OR(
+AND(
+ISPICKVAL(Type, &apos;Credit Card Application&apos;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &apos;Credit Limit Increase Application&apos;),
+ISPICKVAL(Type , &quot;Convert Credit Card Nature Application&quot;)
+),
+OR(
+AND(
+ISCHANGED(cc_HR_Result__c),
+ISPICKVAL(cc_HR_Result__c,&apos;Approved&apos;)
+),
+AND(
+ISCHANGED(cc_Credit_Evaluation_Result__c),
+ISPICKVAL(cc_Credit_Evaluation_Result__c,&apos;Accept&apos;)
+)))</errorConditionFormula>
+    <errorDisplayField>cc_Approved_Credit_Limit__c</errorDisplayField>
+    <errorMessage>Please provide the &apos;Approved Credit Limit&apos; before &apos;Approving&apos; the Case.</errorMessage>
+</ValidationRule>

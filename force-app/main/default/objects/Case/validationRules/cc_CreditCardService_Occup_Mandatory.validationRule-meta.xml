@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardService_Occup_Mandatory</fullName>
+    <active>true</active>
+    <description>If Employment status is self employed then length of service is mandatory field.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Employment_Status__c),
+ISPICKVAL(cc_Employment_Status__c, &quot;Self Employed&quot;),
+ISBLANK(cc_Occupation__c),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+OR(
+AND(
+ISPICKVAL(Type, &quot;Credit Card Application&quot;),
+ISPICKVAL(Sub_Type__c, &quot;New Credit Card&quot;)
+),
+ISPICKVAL(Type, &quot;Credit Limit Increase Application&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>cc_Occupation__c</errorDisplayField>
+    <errorMessage>If Employment Status is Self Employed then Occupation field is mandatory.</errorMessage>
+</ValidationRule>

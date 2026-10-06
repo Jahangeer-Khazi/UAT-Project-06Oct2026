@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Has Active Unsecured Loans --></label>
+    <name>Has_Active_Unsecured_Loans__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<design:component>
+	
+    <design:attribute name="customerId" label="Account Id"/>
+    <design:attribute name="deviceSummary" label="Device"/>
+		
+</design:component>

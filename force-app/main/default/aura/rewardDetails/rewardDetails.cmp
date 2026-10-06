@@ -1,0 +1,521 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:Jayanth Manickam
+ *		Created Date:02/12/2022
+-->
+<aura:component controller="creditCardListController">	
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="cardId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="preferredRewardsOption" type="String"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="cardData" type="Object"/>
+    <aura:attribute name="rewardDetail" type="Object"/>
+    <aura:attribute name="preferredReward" type="Object"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+    
+    <lightning:card title="Reward Details">
+        <aura:if isTrue="{!(v.preferredRewardsOption=='ILA_TOKENS')}">
+         <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Ila Preferred Rewards Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.preferredReward.viewCode}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start : Added by Jahangeer Mohammed -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Avaliable Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.availableTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Avaliable Tokens Value in Cash(BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.availableTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.earnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div> <!-- end row -->
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Tokens Value in Cash (BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.earnedTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.redeemedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                         <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens Value in Cash (BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.redeemedTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens as Cashback</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.redeemedCashbackTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens as Cashback Cash Value(BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.redeemedCashbackTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens as Transactions</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.redeemedTransactionsTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens as Transactions Cash Value(BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.redeemedTransactionsTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <!--<span class="slds-form-element__label">Total Redeemed Tokens as Transactions</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.redeemedTransactionsTokens}
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+              <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens as Airmiles</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.redeemedMilesTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Redeemed Tokens as Airmiles Cash Value(BHD)</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.redeemedMilesTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Airline</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.airLine}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Airline Membership Number</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.lastUsedFlyNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Expired Tokens</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.expiredTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Expired Tokens Cash Value (BHD)</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.expiredTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Number of Expiring Soon Tokens</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.expiringTokens[0].expiryTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start : Added by Jahangeer Mohammed -->
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Date of Expiring Soon Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.expiringTokens[0].expiryDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div>
+               <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Expring Soon Tokens Cash Value (BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.expiringTokens[0].expiryTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Pay with Rewards Option Enables</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.payWithRewards}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </aura:if>
+         <aura:if isTrue="{!(v.preferredRewardsOption=='CASHBACK')}">
+         <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Ila Preferred Rewards Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.preferredReward.viewCode}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">This Month Total Earned Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.earnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">This Month Total Earned Cashback (BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.earnedTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.totalEarnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected  Cashback(BHD)</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.totalEarnedTokensValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Next Cashback Date</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.nextCashbackDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             </div>
+        </aura:if>
+        <aura:if isTrue="{!(v.preferredRewardsOption=='AIRLINE_MILES')}">
+         <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Ila Preferred Rewards Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.preferredReward.viewCode}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">This Month Total Earned Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.earnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">This Month Total Earned Miles</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.earnedTokensMilesValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.totalEarnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Miles</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.totalEarnedTokensMilesValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+   
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Next Transfer Date</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.nextTransferDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+            </div> <!-- end row -->
+               <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Airline</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.airLine}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Airline Membership Number</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.flyNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             </div>
+        </aura:if>
+        <!-- <aura:if isTrue="{!(v.preferredRewardsOption=='GULF_AIR_AIRLINE_MILES')}">
+         <div class="slds-form" role="list" style="padding: 1rem;">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Ila Preferred Rewards Type</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.preferredReward.preferredRewardsOption}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">This Month Total Earned Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.earnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">This Month Total Earned Miles</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.earnedTokensMilesValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Tokens</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.totalEarnedTokens}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Total Collected Miles</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                {!v.rewardDetail.totalEarnedTokensMilesValue}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+   
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Next Transfer Date</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.nextTransferDate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
+            
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                        <span class="slds-form-element__label">Airline Membership Number</span> 
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                               {!v.rewardDetail.flyNumber}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </aura:if> -->
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

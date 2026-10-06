@@ -1,0 +1,165 @@
+<aura:component controller="LTNG056_LoansCalculatorController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader">
+
+    <!-- START style -->
+    <aura:html tag="style">
+        .slds-modal__content {
+            height: 90% !important;
+        }
+        .slds-modal__container {
+            width: 44% !important;
+            max-width: 90% !important;
+            transform: none !important;
+        }
+        .panelTitle{
+            text-align: center !important;
+        }
+        .sectionClass {
+            font-size: 1rem; /* Adjust font size */
+            background-color: #f3f2f2; /* Background color */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Add padding */
+        }
+    </aura:html>
+    <!-- END style -->
+
+    <!--START attributes-->
+    <aura:attribute name="calculMeth" type="String" default="BY_LOAN_AMOUNT" />
+    <aura:attribute name="busNature" type="String" default="New Loan" />
+    <aura:attribute name="productVal" type="String" default="Unsecured" />
+    <aura:attribute name="showResults" type="Boolean" default="false" />
+    <aura:attribute name="data" type="List" default="[]"/>
+    <aura:attribute name="result" type="Object" default="{}"/>
+    <aura:attribute name="columns" type="List" default="[]"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+
+    <!--END attributes-->
+
+    <!--START handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--END handlers-->
+    <br />
+    <h2 class="sectionClass">Loan Calculator Details</h2>
+    <form style="transform: scale(0.95); transform-origin: top center;">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Calculating..." title="Calculating.." variant="brand" size="large"/>
+        </aura:if>
+        <div style="display:flex;justify-content: space-around;">
+            <div style="width: 48%;">
+                <lightning:input type="text" aura:id="typeTxt" name="typeTxt"
+                    label="Type" required="true" value="New Loan Application" disabled="true"/>
+            </div>
+            <div style="width: 48%;">
+                <lightning:select aura:id="loanType" name="loanType" label="Loan Type" value="personal" required="true" disabled="true">
+                    <option text="Personal" value="personal" />
+                </lightning:select>
+            </div>
+        </div>
+        <div style="display:flex;justify-content: space-around;">
+            <div style="width: 48%;">
+                <lightning:input type="text" aura:id="segment" name="segment"
+                    label="Segment" required="true" value="Regular" disabled="true"/>
+            </div>
+            <div style="width: 48%;">
+                <lightning:input type="text" aura:id="nationality" name="nationality"
+                    label="Nationality" required="true" value="Bahrain" disabled="true"/>
+            </div>
+        </div>
+        <div style="display:flex;justify-content: space-around;">
+            <div style="width: 48%;">
+                <lightning:select aura:id="loanSubType" name="loanSubType" label="Product" value="{!v.productVal}" required="true" onchange="{!c.inputOnChange}">
+                    <option text="Unsecured" value="Unsecured" />
+                    <option text="Secured" value="Secured" />
+                </lightning:select>
+            </div>
+            <div style="width: 48%;">
+                <lightning:select aura:id="subscription" name="subscription" label="Unit" value="ila" required="true" onchange="{!c.inputOnChange}">
+                    <option text="ila" value="ila" />
+                    <option text="alburaq" value="alburaq" />
+                </lightning:select>
+            </div>
+        </div>
+        <div style="display:flex;justify-content: space-around;">
+            <div style="width: 48%;">
+                <lightning:select aura:id="businessNature" name="businessNature" label="Business Nature/Type" value="{!v.busNature}" required="true" onchange="{!c.inputOnChange}">
+                    <option text="New Loan" value="New Loan" />
+                    <option text="Buyout Loan" value="Buyout Loan" />
+                </lightning:select>
+            </div>
+            <div style="width: 48%;">
+                <lightning:select aura:id="calculationMethod" name="calculationMethod" label="Calculation Method" value="{!v.calculMeth}" required="true" onchange="{!c.inputOnChange}" >
+                    <option text="By Loan Amount" value="BY_LOAN_AMOUNT" />
+                    <option text="By Monthly Installment" value="BY_MONTHLY_INSTALLMENT" />
+                </lightning:select>
+            </div>
+        </div>
+        <div style="display:flex;justify-content: space-around;">
+            <aura:if isTrue="{!v.calculMeth == 'BY_LOAN_AMOUNT'}">
+                <div style="width: 48%;">
+                    <lightning:input type="number" aura:id="LoanAmount" name="LoanAmount"
+                        label="Requested Loan/Finance Amount" step="0.001" required="true" onchange="{!c.inputOnChange}"/>
+                </div>
+                <aura:set attribute="else">
+                    <div style="width: 48%;">
+                        <lightning:input type="number" aura:id="InstallmentAmount" name="InstallmentAmount"
+                            label="Requested Monthly Instalment" step="0.001" required="true" onchange="{!c.inputOnChange}"/>
+                    </div>
+                </aura:set>
+            </aura:if>
+            <div style="width: 48%;">
+                <lightning:input type="number" aura:id="LoanDuration" name="LoanDuration"
+                    label="Requested Duration (Months)" required="true" onchange="{!c.inputOnChange}" />
+            </div>
+        </div>
+        <aura:if isTrue="{!v.busNature == 'Buyout Loan'}">
+            <div style="display:flex;justify-content: space-around;">
+                <div style="width: 48%;">
+                    <lightning:input type="number" aura:id="ExistingLoans" name="ExistingLoans"
+                        label="Existing Loans" step="0.001" onchange="{!c.inputOnChange}" />
+                </div>
+                <div style="width: 48%;">
+                    <!--
+                    <lightning:input type="date" aura:id="Firstpaymentdate" name="Firstpaymentdate"
+                    label="Requested First Payment Date" onchange="{!c.inputOnChange}" />-->
+                </div>
+            </div>
+        </aura:if>
+        
+        <br />
+        <div style="margin: 1px;text-align: center;">
+            <lightning:button variant="brand" label="Calculate"
+                onclick="{!c.onClickSubmitAction}" />
+        </div>
+    </form>
+    
+    <aura:if isTrue="{!v.showResults}">
+        <h2 class="sectionClass">Loan Calculator Results</h2>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-3 slds-p-around_medium">
+                <lightning:input label="Interest Rate" value="{!v.result.interestRate}" disabled="true" />
+                <lightning:input label="Total Interest" value="{!v.result.totalInterest}" disabled="true" />
+                <lightning:input label="First payment date" value="{!v.result.firstPaymentDate}" disabled="true" />
+                <aura:if isTrue="{!v.productVal == 'Secured'}">
+                    <lightning:input label="Hold Amount" value="{!v.result.holdAmount}" disabled="true" />
+                </aura:if>
+            </div>
+            
+            <div class="slds-size_1-of-3 slds-p-around_medium">
+                <lightning:input label="Processing Fees" value="{!v.result.processingFee}" disabled="true" />
+                <lightning:input label="Vat Processing Fees" value="{!v.result.vatProcessingFee}" disabled="true" />
+                <lightning:input label="Maturity Date" value="{!v.result.maturityDate}" disabled="true" />
+            </div>
+
+            <div class="slds-size_1-of-3 slds-p-around_medium">
+                <aura:if isTrue="{!v.calculMeth == 'BY_LOAN_AMOUNT'}">
+                    <lightning:input label="Monthly Installment" value="{!v.result.monthlyInstallment}" disabled="true" />
+                    <aura:set attribute="else">
+                        <lightning:input label="Loan Amount" value="{!v.result.loanAmount}" disabled="true" />
+                    </aura:set>
+                </aura:if>
+                <lightning:input label="Total Cash in Hand" value="{!v.result.totalCashInHand}" disabled="true" />
+                <lightning:input label="Total Repayment Amount" value="{!v.result.totalRepayment}" disabled="true" />
+            </div>
+        </div>
+         
+    </aura:if>
+</aura:component>

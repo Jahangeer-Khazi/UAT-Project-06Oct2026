@@ -1,0 +1,96 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *	    	    
+-->
+<aura:component controller="NotificationViewController">
+  <aura:attribute name="customerId" type="String" />
+  <aura:attribute name="accountId" type="String" />
+  <aura:attribute name="account" type="Account" />
+  <!-- ============================================ -->
+  <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent" />
+  <!-- Internal attributes -->
+  <aura:attribute name="gridDataRows" type="Object[]" />
+  <aura:attribute name="gridDataColumns" type="Object[]" />
+  <aura:attribute name="gridDataColumnDefs" type="Object[]" />
+  <aura:attribute name="tbId" type="string" />
+
+  <!-- search filter attributes -->
+  <aura:attribute name="dateTo" type="Date" access="private" />
+  <aura:attribute name="dateFrom" type="Date" access="private" />
+  <aura:attribute name="finaldateTo" type="Date" access="private" />
+  <aura:attribute name="finaldateFrom" type="Date" access="private" />
+  <aura:attribute name="category" type="String" access="private" default="CREDIT CARD" />
+
+  <!-- internal events -->
+  <aura:handler name="init" value="{! this }" action="{! c.init }" />
+  <aura:handler name="change" value="{!v.accountId}" action="{!c.load}" />
+  <aura:handler name="change" value="{!v.dateFrom}" action="{!c.changedateTo}" />
+  <aura:handler name="change" value="{!v.dateTo}" action="{!c.changedateFrom}" />
+
+  <lightning:card title="{!$Label.c.Notification_View_Header+v.customerId}">
+    <div style="margin-left:0px;margin-top:20px;width:700px;">
+      <ui:message title="Information:" severity="confirm" closable="false">
+        <b>* User will only be able to view last 50 notifications by default.</b><br />
+        <b>* User will only be able to search the notifications for a maximum of
+          3 months duration at a given period.</b><br />
+      </ui:message>
+    </div>
+
+    <div style="padding: 1rem;">
+      <fieldset class="slds-form-element slds-form-element_compound">
+        <legend class="slds-form-element__legend slds-form-element__label">Search</legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__row">
+            <div class="slds-size_1-of-3">
+              <div class="slds-form-element">
+                <ui:inputDate label="From Date" aura:id="fromDate" value="{!v.dateFrom}" format="DD-MM-YYYY" displayDatePicker="true" />
+              </div>
+            </div>
+            <div class="slds-size_1-of-3">
+              <div class="slds-form-element">
+                <ui:inputDate label="To Date" aura:id="toDate" value="{!v.dateTo}" format="DD-MM-YYYY" displayDatePicker="true" />
+              </div>
+            </div>
+            <div class="slds-size_1-of-3">
+              <div class="slds-form-element">
+                <lightning:select label="Category" required="false" value="{!v.category}" >
+                  <option value="all">choose one...</option>
+                  <option value="CREDIT_CARD">Credit Card</option>
+                  <!--   <option value="debit">Debit</option> -->
+                </lightning:select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slds-form-element__control slds-align_absolute-center">
+          <div class="slds-form-element__row">
+            <div class="slds-size_1-of-1">
+              <div class="slds-form-element">
+                <lightning:button
+                  variant="neutral"
+                  label="Search"
+                  onclick="{! c.onSearchClick }"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <c:jqDataTable
+        id="{!v.tbId}"
+        rows="{! v.gridDataRows }"
+        columns="{! v.gridDataColumns }"
+        columnDefs="{! v.gridDataColumnDefs }"
+        keyField="id"
+        orderBy="desc"
+        sortedBy="notificationDate"
+        showCheckboxColumn="false"
+        selectStyle="multi+shift"
+      />
+    </div>
+  </lightning:card>
+  <c:apexService aura:id="apexService" />
+</aura:component>

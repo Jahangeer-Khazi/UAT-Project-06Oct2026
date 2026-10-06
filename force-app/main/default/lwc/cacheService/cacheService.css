@@ -1,0 +1,309 @@
+/* clearCache.css */
+.compact-card {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Full-screen spinner overlay - FIXED */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10000;
+    backdrop-filter: blur(3px);
+}
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    min-height: 120px;
+}
+
+/* Fix for lightning-spinner positioning */
+.spinner-container lightning-spinner {
+    position: relative !important;
+    transform: none !important;
+    margin-bottom: 1rem;
+}
+
+/* Override Salesforce's default spinner styles */
+:host {
+    --lwc-spinner-size: 3rem; /* Increase spinner size */
+    --lwc-spinner-stroke-width: 0.25rem; /* Make spinner thicker */
+}
+
+/* Ensure spinner container has proper dimensions */
+.slds-spinner_container {
+    position: static !important;
+}
+
+.spinner-text {
+    margin-top: 0.5rem;
+    color: #080707;
+    font-size: 0.875rem;
+    font-weight: 500;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Options Grid - Modern, compact layout */
+.options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.option-item {
+    flex: 1 1 auto;
+    min-width: 180px;
+    max-width: 200px;
+}
+
+.option-item button {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #080707;
+    font-size: 0.875rem;
+    line-height: 1.25;
+}
+
+.option-item button:hover {
+    border-color: #0070d2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+.option-item button.selected {
+    border-color: #04844b;
+    background-color: #e3f3e8;
+}
+
+.option-item button.selected:hover {
+    border-color: #04844b;
+    background-color: #d1e7dd;
+}
+
+.option-label {
+    font-weight: 500;
+}
+
+/* Selected pill indicator */
+.selected-pill-container {
+    background-color: #f3f3f3;
+    border-radius: 2rem;
+    margin: 0.5rem 0;
+}
+
+.selected-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #04844b;
+    color: white;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(4, 132, 75, 0.2);
+}
+
+.selected-pill lightning-icon {
+    --sds-c-icon-color-foreground: white;
+}
+
+.clear-selection-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 0.25rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.clear-selection-btn:hover {
+    opacity: 1;
+}
+
+/* File Upload - Compact and centered */
+.upload-section {
+    display: flex;
+    justify-content: center;
+}
+
+.compact-file-upload {
+    width: 100%;
+    max-width: 400px;
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: 2px dashed #dddbda;
+    border-radius: 0.75rem;
+    background-color: #fafaf9;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.upload-placeholder:hover {
+    border-color: #0070d2;
+    background-color: #f3f3f3;
+}
+
+.compact-file-upload .slds-file-selector {
+    display: block;
+    width: 100%;
+}
+
+.compact-file-upload .slds-file-selector__dropzone {
+    border: none;
+    padding: 0;
+}
+
+/* Preview table - Compact with scroll */
+.preview-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.preview-table-wrapper {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    background: white;
+}
+
+.compact-table {
+    width: 100%;
+    table-layout: fixed;
+    border: none;
+}
+
+.compact-table th,
+.compact-table td {
+    padding: 0.5rem;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.compact-table th {
+    background-color: #fafaf9;
+    font-weight: 600;
+}
+
+.compact-table td {
+    border-bottom: 1px solid #dddbda;
+}
+
+.compact-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Clear link */
+.clear-link {
+    background: none;
+    border: none;
+    color: #0070d2;
+    font-size: 0.8125rem;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+}
+
+.clear-link:hover {
+    text-decoration: underline;
+}
+
+/* Action buttons */
+.action-button {
+    min-width: 120px;
+}
+
+/* Recent activity - Compact */
+.recent-activity {
+    max-width: 600px;
+    margin: 1rem auto 0;
+}
+
+.recent-table-wrapper {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    background: white;
+}
+
+/* Status badges */
+.slds-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.slds-theme_success {
+    background-color: #e3f3e8;
+    color: #04844b;
+}
+
+.slds-theme_error {
+    background-color: #fbedeb;
+    color: #c23934;
+}
+
+.slds-theme_info {
+    background-color: #e5f2fc;
+    color: #0070d2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .options-grid {
+        gap: 0.5rem;
+    }
+    
+    .option-item {
+        min-width: calc(50% - 0.25rem);
+        max-width: none;
+    }
+    
+    .preview-section,
+    .recent-activity {
+        max-width: 100%;
+    }
+}

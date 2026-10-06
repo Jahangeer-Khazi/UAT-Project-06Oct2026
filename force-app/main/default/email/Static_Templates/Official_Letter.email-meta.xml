@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To provide customers with the requested  documents</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Official  Letter</name>
+    <style>none</style>
+    <subject>Official Document</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

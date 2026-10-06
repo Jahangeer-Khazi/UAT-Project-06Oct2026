@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Supplementary/Prepaid  Card Notification Settings Update</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>IDV - Supplementary/Prepaid  Card Notification</name>
+    <style>none</style>
+    <subject>Support Card Activation Request</subject>
+    <textOnly>KYC Documents Requested
+
+Dear Valued Customer,
+
+Greetings form ila, we trust that you are doing great.
+
+We hope this message finds you well.
+We would like to remind you that you can easily activate your {!Case.Sub_Type__c} through the ila app.
+To ensure a smooth process, please follow these steps carefully:
+
+Open the ila app and navigate to the cards section.
+Click on {!Case.Sub_Type__c}.
+Navigate to your card and click activate button.
+Ensure you have a valid CPR (Civil Personal Registration) ID and are ready to take a selfie.
+
+Our Support team will be happy to serve you 7 days a week, 24 hours a day on +973 17123456, or you can send us an email to support@ilabank.com
+
+Have a great day!
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+If you have received this message in error, please notify our contact center of the error and delete the message.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

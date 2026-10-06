@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Periodic_Review_Overdue_Case_flag__c</fullName>
+    <formula>OR(pr_OtherDocumentsRequired__c=true,
+   pr_PassportPhotoRequired__c=true,
+   pr_ResidencyPermitPhotoRequired__c=true,
+   pr_WathiqConsentAcceptanceRequired__c=true,
+   pr_WathiqConsentFormRequired__c=true)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Periodic Review_Overdue Case flag</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

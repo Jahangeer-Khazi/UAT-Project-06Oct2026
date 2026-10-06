@@ -1,0 +1,4 @@
+.THIS .button-container {
+    height: 38px; /* Ensures the button height matches the input field */
+    line-height: 46px; /* Centers the button label vertically */
+}

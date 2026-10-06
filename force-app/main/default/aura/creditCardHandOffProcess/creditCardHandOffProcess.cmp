@@ -1,0 +1,288 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History:
+ *     					#CH03# #Jahangeer Mohammed# #24-10-2024# Added Logic for Credit Card Account Closure(NBA-9192)
+						#CH04# #Jahangeer Mohammed# #07-05-2025# Added Logic for Credit Card Cancellation Process(NBA-13500)
+ 						#CH05# #Jahangeer Mohammed #11-11-2025# Added Logic for World Elite Entitlement Process (NBA-15929)
+
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="creditCardListController">
+    <!-- Setting value from parent component-->
+    <aura:attribute name="caseId" type="String"/>
+    <!-- CH03: Start -->
+    <aura:attribute name="caseIdRelatedToCard" type="String"/>
+    <!-- CH03: END -->
+    <aura:attribute name="cc_CardId" type="String"/>
+    <aura:attribute name="cc_CardNumber" type="String"/>
+    <aura:attribute name="cc_Status" type="String"/>
+    <aura:attribute name="cclast4Digit" type="String"/>
+    
+    <aura:attribute name="cc_displayRejectButton" type="Boolean"/>
+    <aura:attribute name="cc_displayGenerateCertificateButton" type="Boolean"/>
+    <aura:attribute name="cc_displaySendForBusinessApprovalButton" type="Boolean"/>
+    
+    <!-- aura attribute for field visibility based on Sub type value-->
+    <aura:attribute name="isDirectDebit" type="Boolean" default="false"/>
+    <aura:attribute name="isCardControl" type="Boolean" default="false"/>
+    <aura:attribute name="isSpendingLimit" type="Boolean" default="false"/>
+    <aura:attribute name="isStatementReq" type="Boolean" default="false"/>
+    <aura:attribute name="isEpp" type="Boolean" default="false"/>
+    <aura:attribute name="isFeeRev" type="Boolean" default="false"/>
+    <aura:attribute name="isCreditLimitInc" type="Boolean" default="false"/>
+    <aura:attribute name="isCreditLimitDec" type="Boolean" default="false"/>
+    <aura:attribute name="isAccountClosure" type="Boolean" default="false"/>
+    <aura:attribute name="isNoDueCertificate" type="Boolean" default="false"/>
+    <aura:attribute name="isButtonVisible" type="Boolean" default="true"/>
+    <aura:attribute name="isBusinessApproval" type="Boolean" default="true"/>
+    <aura:attribute name="SelectedPlan" type="String"/>
+
+    <aura:attribute name="cc_Monthly_Limit_Label" type="String"/> <!-- #CH02 -->
+
+    
+    <!--Controlling Field Visibility based on Queue assigned-->
+    <aura:attribute name="isChecker" type="Boolean" default="false"/>
+    <aura:attribute name="isNotNull" type="Boolean" default="false"/>
+    <aura:attribute name="cc_CardType" type="Boolean" default="false"/>
+    <!-- CH04: Start -->
+    <aura:attribute name = "currentCreditLmt" type = "Decimal"/>
+    <aura:attribute name = "currentOutStandingBalance" type = "Decimal"/>
+    <aura:attribute name="cardNature" type="String"/>
+    <aura:attribute name = "cardProductId" type = "String"/>
+    <!-- CH04: END -->
+    <!-- CH05: Start -->
+    <!--<aura:attribute name="membershipNumber" type="String"/>-->
+    <!-- CH05: END -->
+    
+   <aura:attribute name="customerId" type="String" />
+     <aura:attribute name="accountId" type="String" />
+     <aura:attribute name="account" type="Account"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:card title="{! 'Credit Card Service Request:-' +  v.cc_CardNumber }">
+        
+        <lightning:recordEditForm aura:id="form"
+                                  recordId="{!v.caseId}"
+                                  objectApiName="Case"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  >
+            <lightning:messages/>
+            <div class="slds-hide">
+                <lightning:inputField fieldName="isSubmitted__c" aura:id="chk" />
+                <lightning:inputField fieldName="cc_Request_Type__c" aura:id="reqType" />                
+                <lightning:inputField fieldName="isSubmitted__c" aura:id="isSubmitted" />
+                <lightning:inputField fieldName="Status" aura:id="status" />
+                <lightning:inputField fieldName="Region_Flag__c" aura:id="rFlag"  readonly="true"/>
+                <lightning:inputField fieldName="cc_Business_Approval_Result__c" aura:id="businessApproval" />
+                <lightning:inputField fieldName="LetterReferenceNumberB__c" aura:id="selectedPlan" />
+            </div>
+            <!--<aura:if isTrue="{! or(v.isChecker,isNotNull)}">-->
+            <aura:if isTrue="{!v.isChecker}">
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning:inputField fieldName="Sub_Type__c" aura:id="subType1" readonly="true"/>
+                         <aura:if isTrue="{!v.isEpp}">
+                            <c:creditCardEPP customerId="{!v.customerId}" 
+                                             accountId="{!v.accountId}" 
+                                             pcICardId="{!v.cc_CardId}"
+                                             account="{!v.account}"
+                                             SelectedPlan="{!v.SelectedPlan}"
+                                             />
+                            <!--<lightning:button variant="brand" label="Submit" type="submit" />-->
+                        </aura:if>
+                        <!--Direct Debit Option-->
+                        <aura:if isTrue="{!v.isDirectDebit}">
+                            <lightning:outputField fieldName="cc_Direct_Debit_Option__c"/>
+                        </aura:if>
+                        <!--Card Control Setting-->
+                        <aura:if isTrue="{!v.isCardControl}">
+                            <lightning:outputField fieldName="cc_Control_Type__c" />
+                        </aura:if>
+                        <!--spending limit settings-->
+                        <aura:if isTrue="{!v.isSpendingLimit}">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <lightning:outputField fieldName="cc_Channel__c"  />
+                                </div>
+                                <div class="slds-col">
+                                    <lightning:outputField fieldName="cc_Monthly_Limit_Control__c"/>
+                                </div>
+                                <div class="slds-col"> <!-- #CH02 : add label based on regionflag -->
+                                    <span class="slds-form-element__label" >{!v.cc_Monthly_Limit_Label}</span>
+                                    <lightning:outputField fieldName="cc_Monthly_Limit_Value__c" variant='label-hidden' />
+                                </div>
+                            </div>
+                        </aura:if>
+                        <!--statement request-->
+                        <aura:if isTrue="{!v.isStatementReq}">
+                            <!--<lightning:outputField fieldName="cc_Statement_Month_Year__c" />-->
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <lightning:outputField fieldName="cc_From_Month__c" aura:id="fromMonth"/>
+                                    <lightning:outputField fieldName="cc_To_Month__c" aura:id="toMonth"/>
+                                </div>
+                                <div class="slds-col">
+                                    <lightning:outputField fieldName="cc_From_Year__c" aura:id="fromYear"/>
+                                    <lightning:outputField fieldName="cc_To_Year__c" aura:id="toYear"/>
+                                </div>
+                            </div>
+                            
+                        </aura:if>
+                        <!--fees reversal request-->
+                        <aura:if isTrue="{!v.isFeeRev}">
+                            <lightning:outputField fieldName="cc_Transaction_Reference_Number__c"  />
+                        </aura:if>
+                        <!--Increase Credit Limit -->
+                        <aura:if isTrue="{!v.isCreditLimitInc}">
+                            <div class="slds-col">
+                                <lightning:outputField fieldName="cc_Requested_Credit_Limit__c"/>
+                                <lightning:outputField fieldName="cc_Employment_Status__c"/>
+                                <lightning:outputField fieldName="cc_Employer_Name__c"/>
+                                
+                            </div>
+                            <div class="slds-col">
+                                <lightning:outputField fieldName="cc_Monthly_Income__c"/>
+                                <lightning:outputField fieldName="cc_Confirm_Address__c"/>
+                            </div>
+                        </aura:if>
+                        <!--Decrease Credit Limit -->
+                        <aura:if isTrue="{!v.isCreditLimitDec}">
+                            <lightning:outputField fieldName="cc_Requested_Credit_Limit__c"/>
+                        </aura:if>
+                        <!--Account Closure -->
+                        <aura:if isTrue="{!v.isAccountClosure}">
+                            <lightning:outputField fieldName="cc_Requested_Card_Type__c" />
+                            <lightning:outputField fieldName="cc_Last_4_Digit__c"/>
+                        </aura:if>
+                        <!--No Due Certificate-->	
+                        <aura:if isTrue="{!v.isNoDueCertificate}">
+                        </aura:if>
+                    </div>                        
+                </div>
+                <div class="slds-m-top_medium">
+                    <lightning:button variant="brand" label="Edit" type="submit" />
+                    <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                </div>
+                <aura:set attribute="else">
+                    <!--<aura:if isTrue="{!not(v.isNotNull)}">-->
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" readonly="true"/>
+                             <aura:if isTrue="{!v.isEpp}">
+                            <c:creditCardEPP customerId="{!v.customerId}" 
+                                             accountId="{!v.accountId}" 
+                                             pcICardId="{!v.cc_CardId}"
+                                             account="{!v.account}"
+                                             SelectedPlan="{!v.SelectedPlan}"
+                                             />
+                                 <!--<lightning:button variant="brand" label="Submit" type="submit" />-->
+                        </aura:if>
+                             
+                            <!--Direct Debit Option-->
+                            <aura:if isTrue="{!v.isDirectDebit}">
+                                <lightning:inputField fieldName="cc_Direct_Debit_Option__c" aura:id="ccDebitOption"/>
+                            </aura:if>
+                            <!--Card Control Setting-->
+                            <aura:if isTrue="{!v.isCardControl}">
+                                <lightning:inputField fieldName="cc_Control_Type__c" aura:id="ccControlType"/>
+                            </aura:if>
+                            <!--spending limit settings-->
+                            <aura:if isTrue="{!v.isSpendingLimit}">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <lightning:inputField fieldName="cc_Channel__c" aura:id="ccChannel" />
+                                    </div>
+                                    <div class="slds-col">
+                                        <lightning:inputField fieldName="cc_Monthly_Limit_Control__c" aura:id="ccMonthlyLimitControl" />
+                                    </div>
+                                    <div class="slds-col"> <!-- #CH02 : add label based on regionflag -->
+                                        <span class="slds-form-element__label" >{!v.cc_Monthly_Limit_Label}</span>
+                                        <lightning:inputField fieldName="cc_Monthly_Limit_Value__c" aura:id="ccMonthlyLimitValue" variant='label-hidden' />
+                                    </div>
+                                </div>
+                            </aura:if>
+                            <!--statement request-->
+                            <aura:if isTrue="{!v.isStatementReq}">
+                                <!--<lightning:inputField fieldName="cc_Statement_Month_Year__c" aura:id="ccstatementMonthYear"/>-->
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <lightning:inputField fieldName="cc_From_Month__c" aura:id="fromMonth"/>
+                                        <lightning:inputField fieldName="cc_To_Month__c" aura:id="toMonth"/>
+                                    </div>
+                                    <div class="slds-col">
+                                        <lightning:inputField fieldName="cc_From_Year__c" aura:id="fromYear"/>
+                                        <lightning:inputField fieldName="cc_To_Year__c" aura:id="toYear"/>
+                                    </div>
+                                </div>
+                            </aura:if>
+                            <!--fees reversal request-->
+                            <aura:if isTrue="{!v.isFeeRev}">
+                                <lightning:inputField fieldName="cc_Transaction_Reference_Number__c" aura:id="ccTxnRef"/>
+                            </aura:if>
+                            <!--Increase Credit Limit -->
+                            <aura:if isTrue="{!v.isCreditLimitInc}">
+                                <div class="slds-col">
+                                    <lightning:inputField fieldName="cc_Requested_Credit_Limit__c" aura:id="requestedLimit"/>
+                                    <lightning:inputField fieldName="cc_Employment_Status__c" aura:id="empStatus"/>
+                                    <lightning:inputField fieldName="cc_Employer_Name__c" aura:id="employerName"/>
+                                </div>
+                                <div class="slds-col">
+                                    <lightning:inputField fieldName="cc_Monthly_Income__c" aura:id="monthlyIncome"/>
+                                    <lightning:inputField fieldName="cc_Confirm_Address__c" aura:id="confirmAddress"/>
+                                </div>
+                            </aura:if>
+                            <!--Decrease Credit Limit -->
+                            <aura:if isTrue="{!v.isCreditLimitDec}">
+                                <lightning:inputField fieldName="cc_Requested_Credit_Limit__c" aura:id="decRequestedLimit"/>
+                            </aura:if>
+                            <!--Account Closure -->
+                            <aura:if isTrue="{!v.isAccountClosure}">
+                                <lightning:inputField fieldName="cc_Requested_Card_Type__c" value="{!v.cc_CardType}" aura:id="requestedType" readOnly="true"/>
+                                <!-- CH04: Start -->
+                                <lightning:inputField fieldName="cc_Current_Credit_Limit__c" value="{!v.currentCreditLmt}" aura:id="currentLmt" readonly="true"/>
+								<lightning:inputField fieldName="Credit_Card_Outstanding_Balance__c" value="{!v.currentOutStandingBalance}" aura:id="currentOusBalance" readonly="true"/>
+								<!-- CH04: END -->
+                                <div style="margin:4px">
+                                    <lightning:input name="Last4Digit" label="Last 4 Digit" value="{!v.cclast4Digit}" aura:id="cclast4Digit" maxlength="4" oncommit="{!c.last4DigitValidation}"/>
+                                </div>
+                                <div class="slds-hide">
+                                    <lightning:inputField fieldName="cc_Last_4_Digit__c" aura:id="last4Digit" value="{!v.cclast4Digit}"/>
+                                </div>
+                            </aura:if>
+                            
+                        </div>                        
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <!--No Due Certificate-->
+                        <aura:if isTrue="{!v.isButtonVisible}">
+                            <aura:if isTrue="{!v.isNoDueCertificate}">
+                                <!-- CH01 Start Added by Jahangeer Mohammed -->
+                                <aura:if isTrue="{!v.cc_displayGenerateCertificateButton}">
+                                	<lightning:button variant="brand" label="Generate Certificate" onclick = "{!c.generateCertificate}"/>
+                                </aura:if>
+                                
+                                <aura:if isTrue="{!v.cc_displaySendForBusinessApprovalButton}">
+                                	<lightning:button variant="brand" label="Send for Business Approval" onclick = "{!c.sendForBusinessApproval}"/>
+                                </aura:if>
+                                
+                            	<aura:if isTrue="{!v.cc_displayRejectButton}">
+                                	<lightning:button variant="brand" label="Reject" onclick = "{!c.rejection}" />
+                                </aura:if>
+                                <!-- CH01 END -->
+                            <aura:set attribute="else">
+                                    <lightning:button variant="brand" label="Submit" type="submit" />
+                            </aura:set>
+                            </aura:if>
+                        </aura:if>
+                        <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large" class="slds-hide"/>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </lightning:recordEditForm>
+    </lightning:card>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

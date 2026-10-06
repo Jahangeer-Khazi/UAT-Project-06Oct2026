@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Subscription model --></label>
+    <name>Subscription_Model__c</name>
+    <picklistValues>
+        <masterLabel>alburaq</masterLabel>
+        <translation><!-- alburaq --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila</masterLabel>
+        <translation><!-- ila --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ila &amp; alburaq</masterLabel>
+        <translation><!-- ila &amp; alburaq --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

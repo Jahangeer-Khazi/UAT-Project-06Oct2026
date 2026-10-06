@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Having_Existing_Periodic_Review_Case__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Which are not Closed</inlineHelpText>
+    <label>Having Existing Periodic Review Case</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

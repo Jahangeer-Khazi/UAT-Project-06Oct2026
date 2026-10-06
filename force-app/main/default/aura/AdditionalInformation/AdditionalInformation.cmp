@@ -1,0 +1,111 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History: 
+ *	    	   #CH01# Added #28-10-2021# IBJCRM-90 Gross Income field to be hidden for Staff and ex-Staff members by YZ.
+			   
+-->
+<aura:component >
+	<aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="false"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="mode" type="string" default="view"/>
+    <aura:attribute name="caseRecordType" type="String" access="public" default=""/>
+    <aura:attribute name="readOnlyFields" type="Map" default="{}"/>
+    <aura:attribute name="accountFLS" type="Map" default="{}"/>
+    
+    <aura:if isTrue="{!'edit' == v.mode}">
+        <lightning:recordEditForm aura:id="recordViewForm"
+                                  recordId="{!v.account.Id}"
+                                  recordTypeId="{!v.account.RecordTypeId}"
+                                  objectApiName="Account">
+
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.employment_status__pc}" fieldName="Employment_Status__pc" value="{!v.account.Employment_Status__pc}" onchange="{!c.onEmploymentStatusChanged}" />
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.employer_name__pc}" fieldName="Employer_Name__pc" value="{!v.account.Employer_Name__pc}"/>
+            
+            <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.Employer_City__pc}" fieldName="Employer_City__pc" value="{!v.account.Employer_City__pc}" aura:id="employerCity"/>
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.Employer_Address__pc}" fieldName="Employer_Address__pc" value="{!v.account.Employer_Address__pc}" aura:id="employerAddress"/>
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.Employer_Country__pc}" fieldName="Employer_Country__pc" value="{!v.account.Employer_Country__pc}"/>
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.Occupation__pc}" fieldName="Occupation__pc" value="{!v.account.Occupation__pc}" aura:id="occupation"/>
+            </aura:if>
+            
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.business_name__pc}" fieldName="Business_Name__pc" value="{!v.account.Business_Name__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.business_address__pc}" fieldName="Business_Address__pc" value="{!v.account.Business_Address__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.business_industry__pc}" fieldName="Business_Industry__pc" value="{!v.account.Business_Industry__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.sources_of_funds__pc}" fieldName="Sources_of_Funds__pc" value="{!v.account.Sources_of_Funds__pc}" onchange="{!c.SourceOfFundsChanged}" required="true" />
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.source_found_specify__pc}" fieldName="Source_Found_specify__pc" value="{!v.account.Source_Found_specify__pc}" />
+            <!-- CH01 Start-->
+            <aura:if isTrue="{!v.account.Show_Info_Staff__pc}">   
+                <!-- disabled="{!and(v.readOnlyFields.Gross_Monthly_Income__pc, v.account.Show_Info_Staff__pc)}" -->
+                <lightning:inputField variant="label-inline"  fieldName="Gross_Monthly_Income__pc" value="{!v.account.Gross_Monthly_Income__pc}" required="true"  disabled="{!and(v.readOnlyFields.Gross_Monthly_Income__pc, v.account.Show_Info_Staff__pc)}"/>
+                <aura:set attribute="else">
+                    <lightning:inputField variant="label-inline" disabled="true" fieldName="Gross_Monthly_Income_Staff__pc" value="{!v.account.Gross_Monthly_Income_Staff__pc}"/>
+                </aura:set>
+            </aura:if>
+            <!-- CH01 End-->
+            <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.expected_monthly_deposits__pc}" fieldName="Expected_Monthly_deposits__pc" value="{!v.account.Expected_Monthly_deposits__pc}" aura:id="expectedMonthlyDeposit" required="true"/>
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.Other_Sources_of_Fund__pc}" fieldName="Other_Sources_of_Fund__pc" value="{!v.account.Other_Sources_of_Fund__pc}"/>
+                <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.Expected_Amount_Range__pc}" fieldName="Expected_Amount_Range__pc" value="{!v.account.Expected_Amount_Range__pc}"/>
+            </aura:if>
+            
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.fatca_customer__pc}" fieldName="FATCA_Customer__pc" aura:id="fatcaCustomer" onchange="{!c.onFATCA_CustomerChanged}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_1__pc}" fieldName="Tax_Country_1__pc" value="{!v.account.Tax_Country_1__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_1_id__pc}" fieldName="Tax_Country_1_ID__pc" value="{!v.account.Tax_Country_1_ID__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_2__pc}" fieldName="Tax_Country_2__pc" value="{!v.account.Tax_Country_2__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_2_id__pc}" fieldName="Tax_Country_2_ID__pc" value="{!v.account.Tax_Country_2_ID__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_3__pc}" fieldName="Tax_Country_3__pc" value="{!v.account.Tax_Country_3__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_3_id__pc}" fieldName="Tax_Country_3_ID__pc" value="{!v.account.Tax_Country_3_ID__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_4__pc}" fieldName="Tax_Country_4__pc" value="{!v.account.Tax_Country_4__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.tax_country_4_id__pc}" fieldName="Tax_Country_4_ID__pc" value="{!v.account.Tax_Country_4_ID__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.applicable_residency_tax__pc}" fieldName="Applicable_Residency_Tax__pc" value="{!v.account.Applicable_Residency_Tax__pc}"/>
+            <lightning:inputField variant="label-inline" disabled="{!v.readOnlyFields.us_indicia__pc}" fieldName="US_Indicia__pc" value="{!v.account.US_Indicia__pc}"/>
+            <!-- CH01 Start-->
+            <lightning:inputField variant="label-inline" disabled="true" fieldName="Region_Flag__pc" value="{!v.account.Region_Flag__pc}" /> 
+            <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                            <lightning:outputField fieldName="Onboarding_Country__c" />
+                            <lightning:outputField fieldName="PEP_Self_Declaration__pc" />
+                        </aura:if>
+            <!-- CH01 End-->
+        </lightning:recordEditForm>
+        
+        <aura:set attribute="else">
+            <div class="slds-p-bottom_large slds-p-left_large">
+                <lightning:recordViewForm
+                        recordId="{!v.account.Id}"
+                        objectApiName="Account">
+                    <div class="slds-box">
+                        <lightning:outputField fieldName="Employment_Status__pc" />
+                        <lightning:outputField fieldName="Employer_Name__pc" />
+                        <lightning:outputField fieldName="Business_Name__pc" />
+                        <lightning:outputField fieldName="Business_Address__pc" />
+                        <lightning:outputField fieldName="Business_Industry__pc" />
+                        <lightning:outputField fieldName="Sources_of_Funds__pc" />
+                        <lightning:outputField fieldName="Source_Found_specify__pc" />
+                        <!-- CH01 Start-->
+                        <lightning:outputField fieldName="Gross_Monthly_Income_Staff__pc" />
+                        <!-- CH01 End-->
+                        <lightning:outputField fieldName="Expected_Monthly_deposits__pc" />
+                        <lightning:outputField fieldName="FATCA_Customer__pc" />
+                        <lightning:outputField fieldName="Tax_Country_1__pc" />
+                        <lightning:outputField fieldName="Tax_Country_1_ID__pc" />
+                        <lightning:outputField fieldName="Tax_Country_2__pc" />
+                        <lightning:outputField fieldName="Tax_Country_2_ID__pc" />
+                        <lightning:outputField fieldName="Tax_Country_3__pc" />
+                        <lightning:outputField fieldName="Tax_Country_3_ID__pc" />
+                        <lightning:outputField fieldName="Tax_Country_4__pc" />
+                        <lightning:outputField fieldName="Tax_Country_4_ID__pc" />                        
+                        <lightning:outputField fieldName="Applicable_Residency_Tax__pc" />
+                        <lightning:outputField fieldName="US_Indicia__pc" />
+                        
+                        <aura:if isTrue="{!v.account.Region_Flag__c=='Jordan'}">
+                            <lightning:outputField fieldName="Onboarding_Country__c" />
+                            <lightning:outputField fieldName="PEP_Self_Declaration__pc" />
+                        </aura:if>
+                    </div>
+                </lightning:recordViewForm> 
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

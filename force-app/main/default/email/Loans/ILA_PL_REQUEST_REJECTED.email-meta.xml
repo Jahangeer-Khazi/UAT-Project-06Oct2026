@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When Loan / Finance Application is declined by ila, Customer to receive this notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ILA_PL_REQUEST_REJECTED</name>
+    <style>none</style>
+    <subject>Your {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c} Request</subject>
+    <textOnly>Your {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c} Request
+
+Hi,
+
+Unfortunately, your application for a {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c} was not approved.
+
+After careful review of your application, the documents submitted and your credit score, we were unable to approve your {!CaseAnnex__c.cx_Ln_Requested_Loan_Finance_Type__c} application.
+
+if you need any assistance, please call us on  +973 17123456 or email us on support@ilabank.com
+
+Open ila app
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

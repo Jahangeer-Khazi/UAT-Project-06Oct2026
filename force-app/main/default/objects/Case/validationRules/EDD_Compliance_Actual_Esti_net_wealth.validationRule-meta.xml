@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDD_Compliance_Actual_Esti_net_wealth</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND($Profile.Name=&apos;Compliance&apos;,ISPICKVAL(Type,&apos;EDD&apos;),ISNULL(Actual_or_Estimated_net_wealth__c),  ISPICKVAL(Region_Flag__c,&apos;Bahrain&apos;) )</errorConditionFormula>
+    <errorDisplayField>Actual_or_Estimated_net_wealth__c</errorDisplayField>
+    <errorMessage>Please Fill in Actual Or Estimated Net Wealth</errorMessage>
+</ValidationRule>

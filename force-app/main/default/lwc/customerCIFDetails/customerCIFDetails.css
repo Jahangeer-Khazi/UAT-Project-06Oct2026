@@ -1,0 +1,58 @@
+.custom-datatable {
+    --lwc-tableCellSpacing: 0.75rem 0.5rem;
+    --lwc-colorTextDefault: #181818;
+    --lwc-colorBackgroundAlt: #ffffff;
+}
+
+::slotted(.slds-card__body) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.cell-alignment {
+    padding-left: 5%;
+}
+
+.slds-text-heading_small {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #1f86d7;
+}
+
+.slds-card {
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    background: #f3f3f3;
+}
+
+.slds-text-body_regular {
+    font-size: 0.8125rem;
+    color: #181818;
+    padding-left: 1rem;
+    border-bottom: 1px solid #c9c9c9;
+    border-radius: 0.25rem o.25rem 0 0;
+    box-shadow: none;
+}
+
+.slds-card__header {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0;
+}
+
+.first-column-padding {
+    padding-left: 0.5% !important;
+    color: blue;
+}
+
+.slds-table a {
+    padding-left: 5%;
+    color: #0070d2;
+    text-decoration: none;
+}
+.slds-table a:hover {
+    text-decoration: underline;
+}

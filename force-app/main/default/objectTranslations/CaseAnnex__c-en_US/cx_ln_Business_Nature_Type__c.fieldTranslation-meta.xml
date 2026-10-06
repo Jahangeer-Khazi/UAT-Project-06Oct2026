@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Nature/Type --></label>
+    <name>cx_ln_Business_Nature_Type__c</name>
+    <picklistValues>
+        <masterLabel>Buyout Loan/Finance</masterLabel>
+        <translation><!-- Buyout Loan/Finance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Loan/Finance</masterLabel>
+        <translation><!-- New Loan/Finance --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

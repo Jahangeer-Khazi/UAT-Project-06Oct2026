@@ -1,0 +1,156 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:
+ *		Created Date:
+ * 		Change History: 
+ *	    	   #CH01# Added #05-04-2021# 'Date To' and 'Date From' Events in the component and ui:message by Jahangeer Mohammed.
+ *	    	   #CH02# Added #28-10-2021# IBJCRM-71 Region Name changes by YZ.
+ *             #CH03# Added #06-06-2022# to handle alburaq Product by Hamza Chaoui
+ *             #CH04# Added #11-11-2025# Transaction Excel Generation and added download button
+-->
+<aura:component controller="BankAccountController">
+    <aura:attribute name="customerId" type="String" />
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="account" type="Account" /> <!-- #CH02# -->
+    <!-- ============================================ -->
+    <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent"/>
+    <aura:handler event="c:jqDataTableEvent" action="{!c.handleJqDataTableEvent}"/>
+
+    <!-- Internal attributes -->
+    <aura:attribute name="selectedTransaction" type="Object" access="private"/>
+    <aura:attribute name="gridDataRows" type="Object[]"/>
+    <aura:attribute name="gridDataColumns" type="Object[]"/>
+    <aura:attribute name="gridDataColumnDefs" type="Object[]"/>
+    <aura:attribute name="tbId" type="string"/>
+    
+    <!-- CH04 Start -->
+    <aura:attribute name="bankProductName" type="string"/>
+    <aura:attribute name="bankAccountNo" type="string"/>
+    <!-- CH04 End -->
+    
+    <!-- search filter attributes -->
+    <aura:attribute name="amountFrom" type="Decimal" access="private"/>
+    <aura:attribute name="amountTo" type="Decimal" access="private"/>
+    <aura:attribute name="dateTo" type="Date" access="private"/>
+    <aura:attribute name="dateFrom" type="Date" access="private"/>
+    <aura:attribute name="debitCreditIndicator" type="String" access="private"/>
+    <aura:attribute name="transactionStatus" type="String" access="private" default="completed"/>
+
+    <!-- CH03 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    
+    <!-- internal events -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="change" value="{!v.accountId}" action="{!c.load}"/>
+	
+    <!-- CH01 Start-->
+    <aura:handler name="change" value="{!v.dateFrom}" action="{!c.changedateTo}"/>
+    <aura:handler name="change" value="{!v.dateTo}" action="{!c.changedateFrom}"/>
+    <!-- CH01 END-->
+    
+    <aura:attribute name="isNoDataFound" type="Boolean" default="false" />
+    <aura:attribute name="searchParametersJson" type="String" default=""/>
+    
+    <lightning:card title="{!'Transactions of account: ' + v.accountId}">
+        <!-- CH01 Start-->
+        <div style="margin-left:0px;margin-top:20px;width:700px;">
+        	<ui:message title="Information:" severity="confirm" closable="false">
+               <b>* User will only be able to view last 50 transactions by default.</b><br/>
+               <b>* On search, maximum of 1000 transactions will be only available.</b><br/>
+               <b>* User will only be able to search the transactions for a maximum of 3 months duration at a given period.</b><br/>
+            </ui:message>
+        </div>
+        <!-- CH01 END-->
+        <div style="padding: 1rem;">
+
+            <fieldset class="slds-form-element slds-form-element_compound">
+                <legend class="slds-form-element__legend slds-form-element__label">Search</legend>
+                <div class="slds-form-element__control">
+                    <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-6">		
+                            <div class="slds-form-element">		
+                                <lightning:select label="Status" required="false" value="{!v.transactionStatus}"> 		
+                                    <option value="completed">Completed</option>		
+                                    <option value="failed">Failed</option>		
+                                    <option value="pending">Pending</option>	
+                                    <option value="failed_pending">Pending/Failed</option>	
+                                </lightning:select>		
+                            </div>		
+                        </div>		
+                        <div class="slds-size_1-of-6">
+                        
+                        
+                            <div class="slds-form-element">
+                                <lightning:input value="{!v.amountFrom}" label="Amount From" type="number" 
+                                    formatter="decimal" step="0.01" maxlength="10"/>
+                            </div>
+                        </div>
+                        <div class="slds-size_1-of-6">
+                            <div class="slds-form-element">
+                                <lightning:input value="{!v.amountTo}" label="Amount To" type="number" 
+                                    formatter="decimal" step="0.01" maxlength="10"/>
+                            </div>
+                        </div>
+                        <div class="slds-size_1-of-6">
+                            <div class="slds-form-element">
+                                <ui:inputDate label="Date From" value="{!v.dateFrom}" format="DD-MM-YYYY" displayDatePicker="true"/>
+                            </div>
+                        </div>
+                        <div class="slds-size_1-of-6">
+                            <div class="slds-form-element">
+                                <ui:inputDate label="Date To" value="{!v.dateTo}" format="DD-MM-YYYY" displayDatePicker="true"/>
+                            </div>
+                        </div>
+                        <div class="slds-size_1-of-6">
+                            <div class="slds-form-element">
+                                    <lightning:select label="Debit/Credit" required="false" value="{!v.debitCreditIndicator}">
+                                        <option value="all">choose one...</option>
+                                        <option value="credit">Credit</option>
+                                        <option value="debit">Debit</option>
+                                    </lightning:select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form-element__control slds-align_absolute-center">
+                    <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-1">
+                            <div class="slds-form-element">
+                                <lightning:button variant="neutral" label="Search" onclick="{! c.onSearchClick }" />
+							</div>
+                        </div>
+                    </div>
+                    <!-- CH04 Start -->
+                    &nbsp;
+                    <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-1">
+                            <div class="slds-form-element">
+                                <lightning:button variant="neutral" label="Download Excel" onclick="{! c.onDownloadExcelClick }" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CH04 End -->
+                </div>
+                <aura:if isTrue="{!v.isNoDataFound}">
+                    <div style="margin-bottom: 15px;margin-top: 15px;">
+                        <p style="padding: 10px;background: #ba0517;width: 350px;color: white;font-weight: 500;border-radius: 5px;">There is no Account transaction to download.</p>
+                    </div>
+                </aura:if>
+            </fieldset>
+            
+            <c:jqDataTable id="{!v.tbId}"
+                           rows="{! v.gridDataRows }" 
+                           columns="{! v.gridDataColumns }" 
+                           columnDefs="{! v.gridDataColumnDefs }" 
+                           keyField="id"
+                           orderBy="desc"              
+                           sortedBy="transactionDate"                 
+                           showCheckboxColumn="false"
+                           selectStyle="multi+shift"
+                           />
+        </div>
+        
+    </lightning:card>	
+    
+    <c:apexService aura:id="apexService"/>
+
+</aura:component>

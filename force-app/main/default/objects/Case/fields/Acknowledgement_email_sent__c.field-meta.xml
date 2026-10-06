@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acknowledgement_email_sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether an acknowledgement email has been sent to the customer.</description>
+    <label>Acknowledgement email sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

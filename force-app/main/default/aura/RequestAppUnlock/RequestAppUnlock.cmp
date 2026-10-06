@@ -1,0 +1,18 @@
+<aura:component controller="RequestAppUnlockController" implements="force:hasRecordId,flexipage:availableForRecordHome">
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+    <force:recordData aura:id="recordLoader"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      fields="Id,Last_Date_Email_Changed__c,Last_Date_Mobile_Changed__c,ownerId"
+                      targetFields="{!v.caseRecord}"
+                      targetError="{!v.recordLoadError}"
+                      />
+    <lightning:messages/>
+    <div class="slds-p-bottom_large"> 
+        <lightning:button class="slds-float_right" label="New Request App Unlock" 
+                          onclick="{!c.handleClick}"/>
+    </div>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

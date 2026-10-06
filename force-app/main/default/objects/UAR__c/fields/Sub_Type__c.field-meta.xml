@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Type__c</fullName>
+    <label>Sub Type</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ATM Withdrawal</fullName>
+                <default>false</default>
+                <label>ATM Withdrawal</label>
+            </value>
+            <value>
+                <fullName>ATM Deposit</fullName>
+                <default>false</default>
+                <label>ATM Deposit</label>
+            </value>
+            <value>
+                <fullName>Card Transactions</fullName>
+                <default>false</default>
+                <label>Card Transactions</label>
+            </value>
+            <value>
+                <fullName>Fawri</fullName>
+                <default>false</default>
+                <label>Fawri</label>
+            </value>
+            <value>
+                <fullName>Fawri Plus</fullName>
+                <default>false</default>
+                <label>Fawri Plus</label>
+            </value>
+            <value>
+                <fullName>Fawateer</fullName>
+                <default>false</default>
+                <label>Fawateer</label>
+            </value>
+            <value>
+                <fullName>International</fullName>
+                <default>false</default>
+                <label>International</label>
+            </value>
+            <value>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+                <label>Transfer</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Withdrawal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ATM</controllingFieldValue>
+            <valueName>ATM Deposit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Card</controllingFieldValue>
+            <valueName>Card Transactions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EFTS</controllingFieldValue>
+            <valueName>Fawri</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EFTS</controllingFieldValue>
+            <valueName>Fawri Plus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EFTS</controllingFieldValue>
+            <valueName>Fawateer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Swift</controllingFieldValue>
+            <valueName>International</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Swift</controllingFieldValue>
+            <valueName>Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Others</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

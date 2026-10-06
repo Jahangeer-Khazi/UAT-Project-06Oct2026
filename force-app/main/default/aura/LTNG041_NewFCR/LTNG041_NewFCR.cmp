@@ -1,0 +1,93 @@
+<!--
+  @description       : 
+  @author            :
+  @group             : 
+  @last modified on  : 02-20-2024
+  @last modified by  : Elmustapha ELGARNI
+-->
+<aura:component controller="FCRCaseController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    
+    
+    <aura:attribute name="type" type="String" />
+    <aura:attribute name="recordTypeId" type="String" default="" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="originOption" type="String" default="" />
+    <aura:attribute name="DNDSubType" type="String"/>
+    <aura:attribute name="subTypeOptions" type="List"/>
+    <aura:attribute name="selectedSubType" type="String"/>
+
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.caseModel}" action="{!c.caseModelIsChanged}"/><!--CH01-->
+   
+
+
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New FCR</h4>
+            </span>
+        </h2>
+    </header>
+
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="DND" fieldName="DND__pc" />
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+
+    <lightning:card>
+        <aura:if isTrue="{! v.recordTypeId != '' }">
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"     
+                                      onload="{!c.handleOnload}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                 <lightning:inputField fieldName="Subject" aura:id="subject"  value=""/>
+                <lightning:inputField fieldName="Description" aura:id="description" value="" />
+                <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/>
+                <lightning:inputField fieldName="Type" aura:id="type" required="true" value="{!v.type}"  />
+                
+                <aura:if isTrue="{!v.type=='Marketing Preference'}">
+                    <!-- <lightning:inputField fieldName="Sub_Type__c" value="{!v.DNDSubType}" disabled="true" /> -->
+                    <div style="padding: 4px;">
+                        <lightning:select name="subType" label="Sub Type" aura:id="subType" value="{!v.selectedSubType}" >
+                            <aura:iteration items="{!v.subTypeOptions}" var="subType">
+                                <option text="{!subType.label}" value="{!subType.apiName}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                    
+                    <aura:set attribute="else">
+                        <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" required="true" />
+                    </aura:set>
+                </aura:if>
+
+                <lightning:inputField fieldName="Origin" aura:id="origin" required="true" value="{!v.originOption}" />
+                <lightning:inputField fieldName="Case_Nature__c" required="true" aura:id="nature" />
+			      
+                
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                </div>
+                
+                <footer>
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}"  />
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    </div>
+                </footer>
+            </lightning:recordEditForm>
+        </aura:if>
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+    </lightning:card>
+</aura:component>

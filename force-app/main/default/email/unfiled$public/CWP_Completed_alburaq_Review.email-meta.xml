@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CWP Completed alburaq Review</name>
+    <style>none</style>
+    <subject>Document Update</subject>
+    <textOnly>{!System_Action__c.Case_Type__c} API Call Failure.
+
+
+
+This is to notify you that an API failure has been detected for {!System_Action__c.Case_Type__c}. Please find the details below:
+
+
+Case Number: {!System_Action__c.Case__c}
+CIF Number: {!System_Action__c.Account_Number__c}
+Case Type: {!System_Action__c.Case_Type__c}
+Case Sub Type: {!System_Action__c.Case_Sub_Type__c}
+Case Subject: {!System_Action__c.Case_Subject__c}
+Owner: {!System_Action__c.Case_Owner__c}
+Created Date: {!System_Action__c.Case_Creation_Date__c}
+Status: {!System_Action__c.Case_Status__c}
+Sub Status: {!System_Action__c.Case_Sub_Status__c}
+Failure Date: {!System_Action__c.Created_Date_Time__c}
+
+
+
+
+Action is required to investigate and resolve the issue at the earliest.
+
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

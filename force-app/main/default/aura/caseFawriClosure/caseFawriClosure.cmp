@@ -1,0 +1,55 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="CaseFawriTransferController">
+    
+    <aura:attribute name="recordTypeId" type="Id" access="private"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="isFawriCase" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="selectedCaseClosure" type="String" access="private"/>
+    <aura:attribute name="isCheckerQueueMember" type="Boolean" default="false" access="private"/>
+    <!-- Event Handlers -->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner variant="brand" alternativeText="Loading" size="medium" />
+        </aura:if>
+    	<lightning:recordEditForm aura:id="caseFawri"
+                                  recordId="{!v.recordId}"
+                                  recordTypeId="{!v.recordTypeId}"
+                                  objectApiName="Case"
+                                  onsubmit="{!c.onSubmitClick}"
+                                  onsuccess="{!c.handleSuccess}"
+                                  onerror="{!c.handleError}">
+            <lightning:messages />
+            
+            <aura:if isTrue="{!v.isFawriCase}">
+                <lightning:select label="Closure Reason" value="{!v.selectedCaseClosure}" required="true">
+                    <option text="--None--" value="" />
+                    <option text="Closed Approved" value="Approved" />
+                    <option text="Closed Rejected" value="Rejected" />
+                    <option text="Closed Failed" value="Failed" />
+                </lightning:select>
+                <aura:set attribute="else">
+                    <lightning:inputField fieldName="Closure_Reason__c" required="true" />
+                </aura:set>
+            </aura:if> 
+            
+            <aura:if isTrue="{!v.isFawriCase}">
+                	<lightning:inputField fieldName="Comments" />
+                <aura:set attribute="else">
+                    <lightning:inputField fieldName="Status" />
+                    <lightning:inputField fieldName="Subject" />
+                    <lightning:inputField fieldName="Description" />
+                </aura:set>
+            </aura:if>
+
+            <!-- Save Button -->
+            <div class="slds-clearfix">
+                <div class="slds-float_right">
+                    <lightning:button aura:id="submit" type="submit" label="Save" />
+                </div>
+            </div>
+        </lightning:recordEditForm>
+    </div>
+    
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ac_RequestedBy__c</fullName>
+    <label>Requested by</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer</fullName>
+                <default>false</default>
+                <label>Customer</label>
+            </value>
+            <value>
+                <fullName>Bank / CBB</fullName>
+                <default>false</default>
+                <label>Bank / CBB</label>
+            </value>
+            <value>
+                <fullName>Compliance/Business</fullName>
+                <default>false</default>
+                <label>Compliance/Business</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Reactivate Dormant Relationship</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <valueName>Customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Account</controllingFieldValue>
+            <controllingFieldValue>Premium</controllingFieldValue>
+            <controllingFieldValue>Account Service</controllingFieldValue>
+            <controllingFieldValue>Premium Retention Application</controllingFieldValue>
+            <controllingFieldValue>Premium Invitation Application</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <valueName>Bank / CBB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Post Transaction on Dormant Account</controllingFieldValue>
+            <controllingFieldValue>Subscription Model Termination</controllingFieldValue>
+            <valueName>Compliance/Business</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

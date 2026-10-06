@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PLA_Ineligibility_Reason__c</fullName>
+    <description>This field is for the PLA functionality : https://bank-abc.atlassian.net/wiki/spaces/RTS/pages/2542403606/PLA+-+CRM+Requirements+-+Requirements#PLA-Account-Details</description>
+    <label>PLA Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Staff</fullName>
+                <default>false</default>
+                <label>Staff</label>
+            </value>
+            <value>
+                <fullName>Contractors</fullName>
+                <default>false</default>
+                <label>Contractors</label>
+            </value>
+            <value>
+                <fullName>Relatives</fullName>
+                <default>false</default>
+                <label>Relatives</label>
+            </value>
+            <value>
+                <fullName>Third-party contractors/companies</fullName>
+                <default>false</default>
+                <label>Third-party contractors/companies</label>
+            </value>
+            <value>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+                <label>Deceased</label>
+            </value>
+            <value>
+                <fullName>CBB restricted</fullName>
+                <default>false</default>
+                <label>CBB restricted</label>
+            </value>
+            <value>
+                <fullName>Underage</fullName>
+                <default>false</default>
+                <label>Underage</label>
+            </value>
+            <value>
+                <fullName>Not Interested Relative</fullName>
+                <default>false</default>
+                <label>Not Interested Relative</label>
+            </value>
+            <value>
+                <fullName>Probationary Staff</fullName>
+                <default>false</default>
+                <label>Probationary Staff</label>
+            </value>
+            <value>
+                <fullName>Probationary Relatives</fullName>
+                <default>false</default>
+                <label>Probationary Relatives</label>
+            </value>
+            <value>
+                <fullName>Resigned Staff</fullName>
+                <default>false</default>
+                <label>Resigned Staff</label>
+            </value>
+            <value>
+                <fullName>Resigned Relatives</fullName>
+                <default>false</default>
+                <label>Resigned Relatives</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

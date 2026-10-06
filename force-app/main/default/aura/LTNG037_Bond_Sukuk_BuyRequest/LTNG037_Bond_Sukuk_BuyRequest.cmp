@@ -1,0 +1,160 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" controller="LTNG037_BondSukukController">
+    <aura:attribute name="type" type="String" default="New Bond/Sukuk Buy Request"/> 
+    <aura:attribute name="Sub_Type__c" type="String" default="New Bond/Sukuk Buy Request" />
+    <aura:attribute name="recordTypeId" type="String" />
+    <aura:attribute name="Consent_Status" type="String" />
+    <aura:attribute name="currentAcc" type="Object"/>
+    <aura:attribute name="currentInst" type="Object"/>
+    <aura:attribute name="bondInst" type="Object"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="caseNature" type="String" /> <!--CH02-->
+    <aura:attribute name="regionFlag" type="String" />
+    <aura:attribute name="accToReleaseHoldList" type="List" />
+    <aura:attribute name="BidInformationCal" type="List" />
+    <aura:attribute name="InstrumentList" type="List" />
+    <aura:attribute name="minAmount" type="Integer"  />
+    <aura:attribute name="maxAmount" type="Integer" />
+    <aura:attribute name="bidAmount" type="Integer" />
+    <aura:attribute name="allowedMultiples" type="Integer" />
+    <aura:attribute name="questionnaire" type="String" />
+    <aura:attribute name="investmenExist" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:html tag="style">
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        }
+        
+    </aura:html>
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Bond/Sukuk Buy Request</h4>
+            </span>
+        </h2>
+    </header>
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+            <lightning:inputField aura:id="segment" fieldName="Segment__pc" />
+            <lightning:inputField aura:id="regionFlag" fieldName="Region_Flag__pc" />
+            <lightning:inputField aura:id="Consent_Status" fieldName="Bonds_Sukuk_Consent_Status__pc" />
+        </lightning:recordEditForm>
+    </div>
+    <lightning:card>
+        <aura:if isTrue="{!AND(v.recordTypeId != '',v.Consent_Status =='VALID')}">
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"     
+                                      onload="{!c.handleOnload}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                <!--on load handle name on Card, handle Submit -->
+                <lightning:inputField fieldName="Subject" aura:id="subject" value="Bond/Sukuk Buy Request" />
+                <lightning:inputField fieldName="Description" aura:id="description" value="New Bond/Sukuk Buy Request" />
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value="{!v.caseModel}"  onchange="{!c.OncaseModelChange}"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Type" aura:id="type" required="true" value="{!v.type}"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Sub_Type__c" value="{!v.Sub_Type__c}" aura:id="subType" required="true"/></div>           
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Origin" aura:id="origin" required="true" disabled="true" value="CRM"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Status" aura:id="status" required="true" disabled="true" value="Open"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Case_Nature__c" value="{!v.caseNature}" aura:id="CaseNature" required="true" /></div>
+                    <div class="slds-col slds-size_1-of-2">
+                    <lightning:select aura:id="accToReleaseHold" label="Account" required="true" onchange="{!c.accountToReleaseHoldChange}">
+                        <option text="--None--" value="" />
+                        <aura:iteration items="{!v.accToReleaseHoldList}" var="accToReleaseHoldData">
+                            <option text="{!accToReleaseHoldData.ac_label}" value="{!accToReleaseHoldData.iban}" />
+                        </aura:iteration>
+                    </lightning:select>
+                    </div>
+                    <!-- <aura:if isTrue="{! v.caseModel != null }">
+                     <div class="slds-col slds-size_2-of-2">
+                    <c:LTNG019_ReleaseHoldAmount accountId = "{!v.recordId}" currentAcc = "{!v.currentAcc}" caseModel="{!v.caseModel}" />
+                    </div>                                                                                                                 
+                    </aura:if>-->
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="ccol_Hold_Account_IBAN__c" aura:id="ac_Iban" disabled="true" value="{!v.currentAcc.iban}"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="ccol_Hold_Account__c" aura:id="ac_Type" disabled="true" value="{!(v.currentAcc.ac_type==''?'Account':v.currentAcc.ac_type)}"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="ac_Currency__c" aura:id="ac_Currency" disabled="true" value="{!v.currentAcc.ac_currency}"/></div>
+                    <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="ccol_Hold_Account_Balance__c" aura:id="ac_Type" disabled="true" value="{!v.currentAcc.ac_balance}"/></div>
+                    <div class="slds-col slds-size_1-of-2"></div><br/><br/>
+                    <div class="slds-col slds-size_2-of-2 slds-section slds-is-open slds-grid slds-wrap" aura:id="InstSection">
+                        <h3 class="slds-col slds-size_2-of-2 slds-section__title slds-theme_shade">
+                            <button aria-controls="InstSection" class="slds-button slds-section__title-action">
+                                
+                                <span onclick="{!c.toggleSection}" data-auraId="InstSection">
+                                    
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon_left" alternativeText="button icon"/>
+                                    
+                                </span>
+                                <span title="Instrument Information">Instrument Information</span></button>
+                        </h3><br/><br/>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning:select aura:id="InsUnit" label="Instrument" required="true" onchange="{!c.OnSelectingInstrument}">
+                                <option text="--None--" value="" />
+                               <aura:iteration items="{!v.InstrumentList}" var="InstData">
+                                    <option text="{!InstData.bs_Instrument}" value="{!InstData.bs_ISIN_Code}" />
+                                </aura:iteration>                         
+                            </lightning:select>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Instrument__c" aura:id="bs_Instrument" disabled="true" value="{!v.currentInst.bs_Instrument}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Instrument_ID__c" aura:id="bs_Instrument_Id" disabled="true" value="{!v.currentInst.bs_Instrument_Id}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_ISIN_Type__c" aura:id="bs_ISIN_Type" disabled="true"  value="{!v.currentInst.bs_ISIN_Type}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_ISIN_Code__c" aura:id="bs_ISIN_Code" disabled="true" value="{!v.currentInst.bs_ISIN_Code}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Issue_No__c" aura:id="bs_Issue_No" disabled="true" value="{!v.currentInst.bs_Issue_No}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Issue_Amount__c" aura:id="bs_Issue_Amount" disabled="true" value="{!v.currentInst.bs_Issue_Amount}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Invitation_Date__c" aura:id="bs_Invitation_Date" disabled="true" value="{!v.currentInst.bs_Invitation_Date}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Bid_Due_Date__c" aura:id="bs_Bid_Due_Date" disabled="true" value="{!v.currentInst.bs_Bid_Due_Date}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Tender_Date__c" aura:id="bs_Tender_Date" disabled="true" value="{!v.currentInst.bs_Tender_Date}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Issue_Date__c" aura:id="bs_Issue_Date" disabled="true" value="{!v.currentInst.bs_Issue_Date}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Maturity_Date__c" aura:id="bs_Maturity_Date" disabled="true" value="{!v.currentInst.bs_Maturity_Date}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="Special_Rate__c" aura:id="bs_Rate" disabled="true" value="{!v.currentInst.bs_Rate}"/></div></div><br/><br/>
+                    <aura:if isTrue="{!not(empty(v.currentInst))}">
+                        <h3 class="slds-col slds-size_2-of-2 slds-section__title slds-theme_shade">
+                            <button aria-controls="InstSection" class="slds-button slds-section__title-action">
+                                
+                                <span onclick="{!c.toggleSection}" data-auraId="InstSection">
+                                    
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon_left" alternativeText="button icon"/>
+                                    
+                                </span>
+                                <span title="Instrument Information">Bid Information</span></button>
+                        </h3><br/><br/>
+                        
+                        <!--<div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Units__c" aura:id="bs_Units"  value="{!v.noofUnits}" onchange="{!c.OnSelectingInstrument}" maxlenght="5"/></div>-->
+                        <!--<div class="slds-col slds-size_1-of-2"><lightning:input type="number" aura:id="bs_Units" label="Units" value="{!v.noofUnits}" max="99999" min="0" onchange="{!c.OnSelectingInstrument}" maxlength="5"/></div>-->
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Bid_Amount__c" aura:id="bs_Bid_Amount" required="true" onchange="{!c.OnSelectingInstrument}"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Bid_Fees__c" aura:id="bs_Bid_Fees" disabled="true"/></div>
+                        <div class="slds-col slds-size_1-of-2"><lightning:inputField fieldName="bs_Bid_VAT__c" aura:id="bs_Bid_VAT" disabled="true"/></div>
+                        
+                        <div class="slds-col slds-size_1-of-2"><label for="bs_Total_Bid_Amount">Bid Allocation Amount</label><lightning:inputField fieldName="bs_Total_Bid_Amount__c" aura:id="bs_Total_Bid_Amount" disabled="true" variant="label-hidden"/></div></aura:if></div>
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                </div>
+                <footer>
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                        <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                    </div>
+                </footer>
+                
+            </lightning:recordEditForm>
+            <aura:set attribute="else">
+                <lightning:notificationsLibrary aura:id="notifyId"/>
+                
+            </aura:set>
+            
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+    </lightning:card>
+    <!--CH01 - End-->
+</aura:component>

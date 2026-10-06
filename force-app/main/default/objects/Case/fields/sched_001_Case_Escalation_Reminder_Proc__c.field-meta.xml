@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sched_001_Case_Escalation_Reminder_Proc__c</fullName>
+    <formula>IF(true,null,
+IF
+(
+				IsCreditCard__c = False &amp;&amp; IsClosed = False &amp;&amp; TEXT(Region_Flag__c) = &apos;Bahrain&apos;,
+				Owner_Change_Date__c,
+				null
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>sched_001_Case Escalation Reminder Proc</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

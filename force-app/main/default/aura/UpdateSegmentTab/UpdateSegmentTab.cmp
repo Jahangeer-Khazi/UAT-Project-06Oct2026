@@ -1,0 +1,144 @@
+<!-- 	
+    * 	Created By: 
+    *	Created Date: 
+    * 	Change History: 
+    *             #CH01# #Imane Tsioucha# #14-05-2024# Add add new logic for staff segment
+-->
+<aura:component controller="SegmentAPIHandler">
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="account" type="Account" required="true"/> 
+    <aura:attribute name="caseId" type="String" required="true"/>  
+    <aura:attribute name="accountId" type="String" required="true"/>  
+
+    <!-- For segment var -->
+    <aura:attribute name="segmentCardOpts" type="List" access="private" default="[]" />
+    <aura:attribute name="segmentCurCards" type="List" access="private" default="[]" />
+    <aura:attribute name="segmentCurrent" type="Object" access="private" default="{}" />
+    <aura:attribute name="segmentDisOpts" type="List" access="private" default="[]" />
+    <aura:attribute name="segmentOpts" type="List" access="private" default="[]" />
+    <aura:attribute name="segmenttransitionInProgress" type="Boolean" access="private" default="false" />
+    <aura:attribute name="showChangeSegment" type="Boolean" access="private" default="false" />
+    <aura:attribute name="curSegSelected" type="String" access="private" default="" />
+    <aura:attribute name="disSegSelected" type="String" access="private" default="" />
+    <aura:attribute name="segOptSelected" type="String" access="private" default="" />
+    
+    
+    <aura:attribute name="segmentEmbossName" type="String" access="private" default="" />
+    
+    <!-- CH01 : to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+    <aura:attribute name="isSubmited" type="Boolean" />
+    <aura:attribute name="disabledButton" type="Boolean" access="private" default="false" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }" /> 
+    
+    <div class="slds-form-element">
+        <div class="slds-form-element__control">
+
+            <aura:if isTrue="{!v.segmenttransitionInProgress}">
+                <div class="demo-only" style="height:4rem">
+                    <div class="slds-notify_container slds-is-relative">
+                        <div class="slds-notify slds-notify_toast slds-theme_warning" role="status">
+                            <span class="slds-assistive-text">warning</span>
+                            <div class="slds-notify__content">
+                                <h2 class="slds-text-heading_small ">Segment or Card Upgrade/Downgrade cannot the process of one</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!!v.segmenttransitionInProgress}">
+                
+                <lightning:recordEditForm recordId="{!v.caseId}" objectApiName="Case" onload="{!c.handleLoad}" >
+
+                    <div class="slds-form__row" style="margin-top:10px;">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <span class="slds-form-element__label" >Current Segment</span>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static">{!v.segmentCurrent.segmentName || '-'}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <span class="slds-form-element__label">Avaialble Cards</span>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static"> 
+                                        <lightning:combobox name="segment_available_card"
+                                            value="{!v.curSegSelected}" 
+                                            options="{! v.segmentCardOpts }" /> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+
+                    <div class="slds-form__row" > 
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                <span class="slds-form-element__label">Change Segment To</span>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static"> 
+                                        <lightning:combobox name="segment_available_card"
+                                            value="{!v.segOptSelected}" 
+                                            options="{! v.segmentOpts }" 
+                                            onchange="{!c.segmentHandleOnChange}"/> <!--CH01--> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <aura:if isTrue="{! v.account.Subscription_Model__pc == 'alburaq' }">
+                        <aura:if isTrue="{! v.segOptSelected == 'Premium' }">
+                            <lightning:inputField fieldName="asc_Membership_Discount__c" aura:id="segMemberShipDiscount" />
+                        </aura:if>
+                    </aura:if>
+                <!--CH01:START Added by Imane Tsioucha--> 
+               
+                    <aura:if isTrue="{! v.showChangeSegment}">
+                        <lightning:recordEditForm recordId="{!v.accountId}" objectApiName="Account" onload="{!c.handleLoadAccount}" >
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <lightning:inputField fieldName="Staff_ID__pc" aura:id="staff_id" required="true" />
+                                </div>
+                                <div class="slds-col">
+                                    <lightning:inputField fieldName="Staff_Corporate_Email__pc" aura:id="staff_corporate_email" required="true" />
+                                </div>
+                            </div>
+                           
+                        </lightning:recordEditForm>
+                    </aura:if>
+                <!--CH01:END Added by Imane Tsioucha--> 
+
+                
+                    <div class="slds-hide">
+                        <lightning:inputField fieldName="isSubmitted__c" aura:id="isSubmitted" />
+                    </div>
+
+                    <div class="slds-form__row" style="margin-top: 20px;">
+                        <div class="slds-form-element__control slds-align_absolute-center">
+                            <div class="slds-form-element__row">
+                                <div class="slds-size_1-of-1">
+                                    <div class="slds-form-element">
+                                        <aura:if isTrue="{! v.isSubmited == false }">
+                                            <lightning:button variant="neutral" label="Submit" onclick="{! c.onSubmitClick }" disabled="{! v.disabledButton }" /> 
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+
+                </lightning:recordEditForm>
+                
+ 
+            </aura:if>
+        </div>
+    </div>
+
+    <c:apexService aura:id="apexService" />
+</aura:component>

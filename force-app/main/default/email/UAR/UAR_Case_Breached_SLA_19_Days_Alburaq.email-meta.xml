@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email template is designed to streamline communication and notifications for compliance and SLA management processes in the CRM system</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>UAR Case Breached SLA 19 Days Alburaq</name>
+    <style>none</style>
+    <subject>UAR case has breached SLA - {!UAR__c.OwnerLastName}</subject>
+    <textOnly>The case has been assigned to Compliance.
+
+Please be advised that a Case with case number  {!UAR__c.Name} has been assigned to Compliance - UAR Case.
+
+Case Type: {!UAR__c.Type__c}
+Case Subtype: {!UAR__c.Sub_Type__c}
+Case Description: {!UAR__c.Description__c}
+
+Should you need any assistance, please feel free to call us on +973 17123456 or email us on support@ilabank.com
+
+Open CRM case
+
+
+
+Follow us on social media
+
+
+
+
+
+
+
+ilabank.com
+
+Powered by Bank ABC
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain
+
+{!Case.Thread_Id}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cc_CreditCardSupp_PreScr_Approver</fullName>
+    <active>true</active>
+    <description>Pre screener Cannot Change the Credit Pre screener result until Maker Result Send to Pre-screener</description>
+    <errorConditionFormula>AND(
+ISCHANGED(cc_Credit_Pre_Screening_Result__c),
+NOT(ISPICKVAL(cc_Maker__c, &apos;Send to Pre-Screener&apos;)),
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+ISPICKVAL(Type , &quot;Credit Card Supplementary Application&quot;)  
+)</errorConditionFormula>
+    <errorDisplayField>cc_Credit_Pre_Screening_Result__c</errorDisplayField>
+    <errorMessage>Pre-screener cannot change the Credit Pre-screening result until Maker Result is Send to Pre-screener</errorMessage>
+</ValidationRule>

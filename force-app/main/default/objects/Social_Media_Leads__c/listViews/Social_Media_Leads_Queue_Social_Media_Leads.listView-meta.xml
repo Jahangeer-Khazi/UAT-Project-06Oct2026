@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Social_Media_Leads_Queue_Social_Media_Leads</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Social_Media_Leads_Queue</label>
+    <queue>Social_Media_Leads_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

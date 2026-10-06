@@ -1,0 +1,3173 @@
+<!--
+  @description       : 
+  @author            : Elmustapha ELGARNI
+  @group             : 
+  @last modified on  : 05-02-2024
+  @last modified by  : Elmustapha ELGARNI
+-->
+<aura:component controller="Loans_RLOSViewController" 
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" 
+                access="global">
+    
+    <aura:html tag="style">
+            .slds-modal__container {
+                width : 800px !important;
+                max-width : 800px !important;
+            }
+            <!-- Define a new CSS class for the two-column layout -->
+            .two-column-layout {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .column {
+                width: 48%; /* Adjust the width as needed */
+            }
+
+            .accordionClass{
+                --slds-c-accordion-heading-font-size:1rem;
+                --slds-c-accordion-summary-color-background:#f3f2f2;
+                --slds-c-accordion-summary-radius-radius:# 5px;
+            }
+
+            .sub-section {
+            
+            }
+            
+            .sub-section h4 {
+                font-size: 14px;
+                padding: 3px;
+                color: #333;
+                background-color: #dfeeff;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+            
+            
+    </aura:html>
+
+    <!-- Attributes -->
+    <aura:attribute name="activeSections" type="List" default="['ToBeProvidedByCustomerSection','PrescreenerSection','EvaluatorSection','VerifierSection', 'ApproverSection', 'BusinessTeamSection', 'CEOSection', 'OperationSection', 'SignatureVerificationSection', 'DocumentVerifierSection', 'DocumentVerifierOBLSection']" />
+    <aura:attribute name="pendingLoan" type="Object" />
+    <aura:attribute name="pendingLoanstatus" type="String" />
+
+    <!-- Add an init handler to execute a function on component load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Start -->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="LoanApplicationId" fieldName="Loan_Application_ID__c" />
+        </lightning:recordEditForm>
+    </div>
+    <!-- End-->
+    <aura:if isTrue="{!not(v.pendingLoan)}">
+        <br/>
+        <br/>
+        <div  aura:id="NoDataDivElement" class="slds-hidden" style="text-align: center;">
+            <span style="color: red; font-weight: bold; font-size: 20px;">There is No Pending Loan Application or the Loan Application ID on the case detail is missing.. !!</span>
+        </div>
+        <br/>
+
+        <aura:set attribute="else">
+            <br/>
+            <lightning:progressIndicator currentStep="{!v.pendingLoanstatus}" type="path" variant="shade">
+                <lightning:progressStep label="Pending" value="Pending"/>
+                <lightning:progressStep label="Discrepancies" value="Discrepancies"/>
+                <lightning:progressStep label="Review" value="Review"/>
+                <lightning:progressStep label="Referred" value="Referred"/>
+                <lightning:progressStep label="Closed" value="Closed"/>
+            </lightning:progressIndicator>
+            <br/>
+            <br/>
+
+            <lightning:card title="{!'Details of Loan Application :'+ v.pendingLoan.applicationId}">
+            <lightning:accordion 
+                    allowMultipleSectionsOpen="true" 
+                    activeSectionName="{! v.activeSections }" 
+                    class="accordionClass">
+                <br/>
+
+                <!-- TO be provided by Customer (App) or Contact Center Section -->
+                <!-- <lightning:accordionSection name="ToBeProvidedByCustomerSection" label="To be provided by Customer (App) or Contact Center" aura:id="ToBeProvidedByCustomerSection" class="sectionStyle">
+    
+                    Use the two-column layout class
+                    <div class="two-column-layout">
+
+                        First column
+                        <div class="column">
+                            
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Unit</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.cprNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Product</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.cprExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employment Status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.passportNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Name</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.passportExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Whitelisted Employer</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.residencePermitNo}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Grade</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.residencePermitExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Grade</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityPreScreener.sameResidenceAddress}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Sector</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employmentStatus}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Gross Income</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessName}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Current Address confirmation</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressHouseFlatNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Residence occupancy status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressBuilding}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">No of Years at Current Residence</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressStreetRoadNo}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Marital Status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressBlockNo}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Number of dependents</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressCity}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Academic Qualification</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressCountry}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Persons Contact</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.occupation}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Persons Name</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.lengthOfServiceYears}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Loan Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.crLicenseNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Loan Duration</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.crExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Loan Monthly Instalment</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.businessOperationsStartingDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Interest Rate</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.businessSector}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Insurance Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalMortgageLoans}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            Line 
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Processing Fees</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalCreditCards}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>End column
+                    
+
+                         Second column 
+                        <div class="column">
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Vat Processing Fees</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.totalGovernmentLoans} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested First Payment Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.otherDeductions} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Maturity Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.totalCurrentObligations} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Cash in Hand</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.totalObligations} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Requested Liabilities</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.totalCreditExposure} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Hold Account Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.creditBureauScore} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Hold Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.creditBureauRiskRating} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Hold Account ID</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.basicSalary} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Hold Account Balance</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.fixedAllowances} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Administrative Fee</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.variableAllowances} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Insurance Premium</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.businessIncome} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Preexisting insurance</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.totalApprovedIncome} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Pre-existing Insurance Status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.finalTotalObligations} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.finalDBR} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Type</span>
+                                    <div class="slds-form-element__control">
+                                         <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityPreScreener.salaryTransfertoIla}" disabled="true"/> 
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Limit</span>
+                                    <div class="slds-form-element__control">
+                                         <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityPreScreener.blacklisted}" disabled="true"/> 
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Customer Name</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.creditPreScreeningComments} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">T&amp;C and Benefit Credit Bureau Consent</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.creditPreScreeningResult} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">T&amp;C and  Benefit Credit Bureau Consent timestamp</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.preScreenerDeclineReason} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Commodity Murahaba Transactions Consent</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.otherPreScreenerDeclineReason} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Commodity Murahaba TransactionsConsent timestamp</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.creditPreScreeningResultDateAndTime} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Line  
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Application submission Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                             {!v.pendingLoan.infinityPreScreener.creditPreScreeningResultUpdatedBy} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                    
+                    
+                        </div> End column 
+
+
+                    </div>
+                </lightning:accordionSection>
+                <br/> -->
+
+                <!-- Pre-screener Section -->
+                <lightning:accordionSection name="PrescreenerSection" label="To be provided by Credit Pre-Screener" aura:id="PrescreenerSection" class="sectionStyle">
+                    
+
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CPR Number</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.cprNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CPR Expiry Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.cprExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Passport Number</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.passportNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Passport Expiry Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.passportExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Residence Permit No</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.residencePermitNo}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Residence Permit Expiry Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.residencePermitExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Same Residence Address</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityPreScreener.sameResidenceAddress}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employment status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employmentStatus}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Name</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessName}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Address - House/Flat number</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressHouseFlatNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Address - Building</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressBuilding}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Address - Street / Road No</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressStreetRoadNo}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Address - Block No</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressBlockNo}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Address - City</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressCity}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Employer Address - Country</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.employerBusinessAddressCountry}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Occupation</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.occupation}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Length of Service (Years)</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.lengthOfServiceYears}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CR License Number</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.crLicenseNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CR Expiry Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.crExpiryDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Operations Starting Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.businessOperationsStartingDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Sector</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.businessSector}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Nature / Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.businessNatureType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Internal Loans</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalInternalLoans}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Consumer Loans</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalConsumerLoans}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Mortgage Loans</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalMortgageLoans}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Credit Cards</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalCreditCards}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Hold Account Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.approvedHoldAccountType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Hold Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.approvedHoldAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Hold Account Id</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.approvedHoldAccountId}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div><!-- End column -->
+                    
+
+
+
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Government Loans</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalGovernmentLoans}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Deductions</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.otherDeductions}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Current Obligations</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalCurrentObligations}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Obligations</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalObligations}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Credit Exposure</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalCreditExposure}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Bureau Score</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.creditBureauScore}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Bureau Risk Rating</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.creditBureauRiskRating}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Basic Salary</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.basicSalary}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Fixed Allowances</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.fixedAllowances}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Variable Allowances</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.variableAllowances}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Income</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.businessIncome}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Total Approved Income</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.totalApprovedIncome}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Gross Income</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.grossIncome}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Net Income</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.netIncome}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Final Total Obligations</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.finalTotalObligations}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Final DBR</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.finalDBR}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Salary Transfer to ila</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityPreScreener.salaryTransfertoIla}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Blacklisted</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityPreScreener.blacklisted}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Pre-Screener Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.creditPreScreeningComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Pre-screening Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.creditPreScreeningResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Pre-screener Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.preScreenerDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Pre-screener Other Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.otherPreScreenerDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Pre-Screening Result Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.creditPreScreeningResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Pre-Screening by</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.creditPreScreeningResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Pre-screening Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.cccrossSellPreScreenerResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Pre-screening Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.cccrossSellPreScreenerDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Hold Account Balance</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.approvedHoldAccountBalance}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Hold Account Reference</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityPreScreener.holdAccountReference}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                        </div><!-- End column -->
+
+
+                    </div>
+
+                    <div class="sub-section">
+                        <h4>Financial Information</h4>
+                        <!-- Use the two-column layout class -->
+                        <div class="two-column-layout">
+
+                            <!-- First column -->
+                            <div class="column">
+
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">No. of Credit Cards without Ila</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total no. of Loans</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">No. of Arrears without gov. loans</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total Credit Cards Installments</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total Ila Credit Cards Installments</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- Second column -->
+                            <div class="column">
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">No. of Ila Credit Cards</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">No. of Arrears with gov. loans</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Current Customer Status</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total Ila Credit Cards Installments (without ila)</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-section">
+                        <h4>DBR Sheet</h4>
+                        <!-- Use the two-column layout class -->
+                        <div class="two-column-layout">
+                            <!-- First column -->
+                            <div class="column">
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Loan Amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Interest/ Profit Rate (Reducing)</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Insurance Amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Pre-existing Insurance Status</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Processing Fee Type</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Hold Amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">APR</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-- Second column -->
+                            <div class="column">
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Loan Duration</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Insurance Premium</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Preexisting insurance?</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated First installment date</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Initiated Cash in Hand</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Final DBR</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-section">
+                        <h4>Liabilities</h4>
+                        <!-- Use the two-column layout class -->
+                        <div class="two-column-layout">
+                            <!-- First column -->
+                            <div class="column">
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Selection checkbox</span>
+                                        <div class="slds-form-element__control">
+                                            <lightning:input type="checkbox" checked="{!}" disabled="true"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Liability outstanding amountt</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Liability Comment</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total selected liability monthly installment amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Second column -->
+                            <div class="column">
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Liability Type</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Liability monthly installment amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total selected liabilities amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Line  -->
+                                <div class="slds-form__item" role="listitem">
+                                    <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                        <span class="slds-form-element__label">Total Actual Obligations amount</span>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-form-element__static">
+                                                {!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </lightning:accordionSection>
+                <br/>
+                <!-- Evaluator Section -->
+                <lightning:accordionSection name="EvaluatorSection" label="To be provided by Credit Evaluator" aura:id="EvaluatorSection" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+                        <!-- First column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Has existing Loan</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityCreditEvaluator.hasExistingLoan}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Loan Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedLoanAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Loan Duration</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedLoanDuration}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Loan Monthly Instalment</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedLoanMonthlyInstalment}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Interest Rate</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedInterestRate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved APR</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedAPR}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Insurance Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedInsuranceAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Processing Fees</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedProcessingFees}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Vat Processing Fees</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedVatProcessingFees}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved First Payment Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedFirstPaymentDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Maturity Date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedMaturityDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Cash in Hand</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedCashInHand}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Liabilities</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedLiabilities}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved card type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved credit card limit</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved name on the card</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Preexisting insurance?</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Processing Fee Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End column -->
+                    
+                        <!-- Second column -->
+                        <div class="column">
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Commodity</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.commodity}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved employment status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.approvedEmploymentStatus}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Deviation 1 type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.deviationOneType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Deviation 1 type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.otherDeviationOneType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Deviation 2 type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.deviationTwoType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Deviation 2 type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.otherDeviationTwoType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Exceptions</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.creditExceptions}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Evaluator Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.creditEvaluationComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Evaluation Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.creditEvaluationResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Evaluator Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.evaluatorDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Evaluator Other reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.otherEvaluatorDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Evaluation Result Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.creditEvaluationResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Evaluation by</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.creditEvaluationResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Credit Evaluator Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.cccrossSellEvaluatorResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Credit Evaluator Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditEvaluator.cccrossSellEvaluatorDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Pre-existing Insurance Status</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Final DBR</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+                <br/>
+                <!-- Verifier Section -->
+                <lightning:accordionSection name="VerifierSection" label="To be provided by Credit Verifier" aura:id="VerifierSection"  >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+                        <!-- First column -->
+                        <div class="column">
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Customer Contacted</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityCreditVerifier.customerContacted}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Customer’s Friend Contacted Flag</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityCreditVerifier.customerFriendContacted}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Customer’s Employer Contacted Flag</span>
+                                    <div class="slds-form-element__control">
+                                        <lightning:input type="checkbox" checked="{!v.pendingLoan.infinityCreditVerifier.customerEmployerContacted}" disabled="true"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Verifier Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.creditVerificationComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Verification Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.creditVerificationResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+                    
+
+                        <!-- Second column -->
+                        <div class="column">
+
+                            
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Verified by</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.creditVerificationResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Verifier Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.verificationDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Verifier Other reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.otherVerificationDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Verification Result Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.creditVerificationResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Credit Verifier Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.cccrossSellVerifierResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Credit Verifier Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditVerifier.cccrossSellVerifierDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+                <br/>
+                <!-- Approver Section -->
+                <lightning:accordionSection name="ApproverSection" label="To be provided by Creditor Approver" aura:id="ApproverSection" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Approver Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.creditApproverComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Approval Result  Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.creditApproverResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Approval Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.creditApproverResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Approved by</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.creditApproverResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End column -->
+                    
+
+
+
+                        <!-- Second column -->
+                        <div class="column">
+
+                            
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approver Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.approverDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approver Other reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.otherApproverDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Credit Approver Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.cccrossSellApproverResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Card Cross Selling Credit Approver Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditorApprover.cccrossSellApproverDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+                <br/>
+                <!-- BusinessTeam Section -->
+                <lightning:accordionSection name="BusinessTeamSection" label="To be provided by Credit Business Team" aura:id="BusinessTeamSection" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Credit Business Team Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditBusinessTeam.creditBusinessTeamComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Approval Result Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditBusinessTeam.creditBusinessTeamResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Approval by</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditBusinessTeam.creditBusinessTeamResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+                    
+
+
+
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business Approval Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditBusinessTeam.creditBusinessTeamResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business team Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditBusinessTeam.businessTeamDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Business team Decline Other reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityCreditBusinessTeam.otherBusinessTeamDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+                <br/>
+                <!-- CEO Section -->
+                <lightning:accordionSection name="CEOSection" label="To be provided by CEO" aura:id="CEOSection" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CEO Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.ceo.ceoComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CEO Result Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.ceo.ceoResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CEO Result by</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.ceo.ceoResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End column -->
+                    
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CEO Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.ceo.ceoResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">CEO Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.ceo.ceoDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other CEO Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.ceo.otherCeoDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+                <br/>
+                <!-- Operation Section -->
+                <lightning:accordionSection name="OperationSection" label="To be provided by Operations Team (BuyOut)" aura:id="OperationSection" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+
+							<!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Buyout Liabilities Reference Number</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.buyoutLiabilitiesReferenceNumber}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Operations Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.comments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Operation Result Updated By</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.resultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.declineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+                    
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Operation Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.resultValue}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Operations Result Date Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.resultDateTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Decline Reason</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.buyOut.otherDeclineReason}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+
+                <br/>
+                <!-- To be provided by Signature Verification Section -->
+                <lightning:accordionSection name="SignatureVerificationSection" label="To be provided by Signature Verification" aura:id="DocumentVerifierSection" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Signature Verification DocuSign Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinitySignatureVerifier.signatureVerifierResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Signature Verification DocuSign Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinitySignatureVerifier.signatureVerifierComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+                    
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Signature Verification Result Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinitySignatureVerifier.signatureVerifierResultDateAndTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Signature Verification Result Updated By</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinitySignatureVerifier.signatureVerifierResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+
+                <br/>
+                <!-- Document Verifier STL Section -->
+                <lightning:accordionSection name="DocumentVerifierSection" label="To be provided by Document Verifier STL" aura:id="DocumentVerifierSection" >
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+
+                        <!-- First column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.documentType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.documentVerifierComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.documentVerifierResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Result Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.documentVerifierResultDateTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Result Updated By</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.documentVerifierResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Require Conditional Salary Certificate</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.requireConditionalSalaryCertificate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">STL Code</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.stlCode}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">STL Validation date</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.stlValidationDate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+                    
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.otherDocumentType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.otherDocumentVerifierComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.otherDocumentVerifierResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Result Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.otherDocumentVerifierResultDateTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Result Updated By</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.otherDocumentVerifierResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Buyout Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.approvedBuyOutAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Valid STL</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierStl.validStl}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End column -->
+
+
+                    </div>
+                </lightning:accordionSection>
+
+                <!-- Document Verifier STL Section -->
+                <lightning:accordionSection name="DocumentVerifierOBLSection" label="To be provided by Document Verifier OBL" aura:id="DocumentVerifierSectionOBL" >
+                    
+                    <!-- Use the two-column layout class -->
+                    <div class="two-column-layout">
+
+                        <!-- First column -->
+                        <div class="column">
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.documentType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.documentVerifierComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.documentVerifierResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Result Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.documentVerifierResultDateTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Document Verifier Result Updated By</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.documentVerifierResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Require Conditional Salary Certificate</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.requireConditionalSalaryCertificate}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End column -->
+                    
+                        <!-- Second column -->
+                        <div class="column">
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Type</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.otherDocumentType}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Comments</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.otherDocumentVerifierComments}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Result</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.otherDocumentVerifierResult}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Result Date &amp; Time</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.otherDocumentVerifierResultDateTime}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Other Document Verifier Result Updated By</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.otherDocumentVerifierResultUpdatedBy}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Line  -->
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_readonly slds-form-element_horizontal">
+                                    <span class="slds-form-element__label">Approved Buyout Amount</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">
+                                            {!v.pendingLoan.infinityDocumentVerifierObl.approvedBuyOutAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End column -->
+                    </div>
+                </lightning:accordionSection>
+
+
+            </lightning:accordion>
+
+            
+            
+            </lightning:card>
+
+        </aura:set>
+    </aura:if>
+    <br/>
+
+    <c:apexService aura:id="apexService"/>
+</aura:component>

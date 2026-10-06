@@ -1,0 +1,48 @@
+<!-- 	Organization : ABC Bank
+ * 		Created By:Jayanth Manickam
+ *		Created Date:02/12/2022
+-->
+<aura:component controller="RedemptionHistoryController" implements= "flexipage:availableForAllPageTypes" access="global">
+	 <aura:registerEvent name="jqDataTableEvent" type="c:jqDataTableEvent"/>
+    <!--<aura:handler event="c:jqDataTableEvent" action="{!c.handleJqDataTableEvent}"/>-->
+ 
+    <aura:attribute name="showCmp" type="Boolean" default="true" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="customerId" type="String" />
+     <aura:attribute name="cardId" type="String" required="true"/>
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="viewRewardPgm" type="Boolean" default="false" />
+    <aura:attribute name="data" type="Object[]" access="private" default="[]"/>
+    <aura:attribute name="columns" type="List" access="private"/>
+    <aura:attribute name="gridDataRows" type="Object[]"/>
+    <aura:attribute name="gridDataColumns" type="Object[]"/>
+    <aura:attribute name="gridDataColumnDefs" type="Object[]"/>
+    <aura:attribute name="tbId" type="string"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+        <aura:if isTrue="{!v.showCmp}">
+        <div style="padding-top: 2rem;">
+            <lightning:card title="Chosen Reward Program History">
+                <div style="overflow:auto">
+                    <lightning:button variant="brand" label="View Chosen Reward History" onclick="{!c.onLoadRewardHistory}" />
+    
+                </div>
+                <div style="padding-top: 1rem;">
+                    <aura:If isTrue="{!v.viewRewardPgm}">
+                               <c:jqDataTable id="{!v.tbId}"
+                           rows="{! v.gridDataRows }"
+                           columns="{! v.gridDataColumns }"
+                           columnDefs="{! v.gridDataColumnDefs }"
+                           keyField="requestedDate"
+                           orderBy="desc"
+                           sortedBy="requestedDate"
+                           showCheckboxColumn="false"
+                           selectStyle="multi+shift"
+                           />
+                    </aura:If>
+                </div>
+            </lightning:card>
+            </div>
+    </aura:if>
+<c:apexService aura:id="apexService"/>
+</aura:component>

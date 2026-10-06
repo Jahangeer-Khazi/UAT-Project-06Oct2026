@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Closure Reason --></label>
+    <name>Closure_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Bank Request - Compliance</masterLabel>
+        <translation><!-- Bank Request - Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Credit Card Collection</masterLabel>
+        <translation><!-- Bank Request - Credit Card Collection --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Fraud</masterLabel>
+        <translation><!-- Bank Request - Fraud --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Request - Other</masterLabel>
+        <translation><!-- Bank Request - Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>By Bank - Dormancy</masterLabel>
+        <translation><!-- By Bank - Dormancy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer Request</masterLabel>
+        <translation><!-- Customer Request --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Death Confirmed</masterLabel>
+        <translation><!-- Death Confirmed --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

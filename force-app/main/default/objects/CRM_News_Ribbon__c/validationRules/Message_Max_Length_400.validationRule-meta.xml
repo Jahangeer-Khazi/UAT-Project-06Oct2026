@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Message_Max_Length_400</fullName>
+    <active>true</active>
+    <description>User can enter max 400 character,</description>
+    <errorConditionFormula>LEN(Message__c) &gt; 400</errorConditionFormula>
+    <errorDisplayField>Message__c</errorDisplayField>
+    <errorMessage>You can enter max 400 character.</errorMessage>
+</ValidationRule>

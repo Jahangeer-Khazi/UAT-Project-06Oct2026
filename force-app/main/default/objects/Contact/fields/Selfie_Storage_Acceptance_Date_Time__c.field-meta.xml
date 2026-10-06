@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Selfie_Storage_Acceptance_Date_Time__c</fullName>
+    <description>Related to the consent for recording te Selfie</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Selfie Storage Acceptance Date/Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

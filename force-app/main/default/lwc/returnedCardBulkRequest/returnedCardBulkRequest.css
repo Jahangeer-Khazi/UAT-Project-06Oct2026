@@ -1,0 +1,646 @@
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* File Upload */
+.file-upload-container {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/* Content Container */
+.content-container {
+    padding: 0.5rem;
+}
+
+/* Summary Dashboard */
+.summary-dashboard {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid #e4e7eb;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f3f2f2;
+}
+
+.dashboard-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #181818;
+    margin: 0;
+}
+
+.record-count {
+    font-size: .75rem;
+    color: #5c5c5c;
+}
+
+.stats-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 200px;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e4e7eb;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.stat-icon.valid {
+    background: #e8f4fd;
+    color: #0176d3;
+}
+
+.stat-icon.status {
+    background: #f0f8ff;
+    color: #0176d3;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 0.600rem;
+    color: #5c5c5c;
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #181818;
+}
+
+.status-ready {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.preview-section {
+    margin-top: 1.2rem;
+}
+
+.preview-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #181818;
+    margin-bottom: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1.5rem;
+}
+
+/* Validation Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 1200px; /* Increased from 800px to 1200px */
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e4e7eb;
+    background: #f8fafc;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-title-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-title-icon {
+    color: #0176d3;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #181818;
+    margin: 0;
+}
+
+.modal-subtitle {
+    color: #5c5c5c;
+    font-size: 0.95rem;
+}
+
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.validation-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.error-section {
+    background: #fef6f6;
+    border: 1px solid #f2dede;
+}
+
+.warning-section {
+    background: #fffbf3;
+    border: 1px solid #fcefdc;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.error-icon {
+    color: #c23934;
+}
+
+.warning-icon {
+    color: #ffb75d;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: #181818;
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.error-badge {
+    background: #c23934;
+    color: white;
+}
+
+.warning-badge {
+    background: #ffb75d;
+    color: #5c3b1a;
+}
+
+.section-description {
+    color: #5c5c5c;
+    margin: 0.5rem 0 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+.validation-table {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e4e7eb;
+}
+
+/* Ensure the datatable takes full width */
+.validation-table table {
+    width: 100%;
+    table-layout: auto; /* Changed from fixed to auto for better column distribution */
+}
+
+/* Optional: Adjust specific column widths if needed */
+.validation-table .slds-cell-wrap {
+    white-space: normal;
+    word-break: break-word;
+}
+
+.success-section {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    background: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.success-icon lightning-icon {
+    color: #2e7d32;
+}
+
+.success-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #181818;
+    margin-bottom: 0.75rem;
+}
+
+.success-description {
+    color: #5c5c5c;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.success-stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0176d3;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #5c5c5c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e4e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    background: #f8fafc;
+    border-radius: 0 0 12px 12px;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Make error message cells more readable */
+.message-cell {
+    max-width: 350px;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+/* Optional: Add hover effect to see full message */
+.message-cell:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+    }
+    
+    .stat-card {
+        min-width: 100%;
+    }
+    
+    .success-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .modal-container {
+        max-width: 100vw; /* Full width on mobile */
+        max-height: 85vh;
+        margin: 0.5rem;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1rem;
+    }
+
+    /* Stack modal footer buttons on mobile */
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .button-group lightning-button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* ============================================ */
+/* REGION MODAL STYLES - Added for Region Selection Feature */
+/* ============================================ */
+
+/* Region Modal specific container */
+.region-modal {
+    max-width: 500px !important;
+}
+
+/* Region selection container */
+.region-selection {
+    padding: 20px;
+}
+
+/* Required field asterisk */
+.required-asterisk {
+    color: red;
+    margin-left: 4px;
+}
+
+/* Ensure modal-overlay for region modal has higher z-index if needed */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Modal container styling (already defined above, keeping for consistency) */
+.modal-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Modal header styling */
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Modal title section */
+.modal-title-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Modal title icon */
+.modal-title-icon {
+    color: #0070d2;
+}
+
+/* Modal title text */
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+/* Modal subtitle text */
+.modal-subtitle {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Modal body styling */
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Modal footer styling */
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Additional styling for combobox in region modal */
+.region-selection .slds-form-element {
+    margin-bottom: 0;
+}
+
+.region-selection lightning-combobox {
+    width: 100%;
+}
+
+/* Ensure proper spacing for region selection */
+.region-selection .slds-form-element__label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Template download modal specific styles */
+.template-download-modal .modal-container {
+    max-width: 400px;
+}
+
+.template-download-modal select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.template-download-modal select:focus {
+    outline: none;
+    border-color: #1589ee;
+    box-shadow: 0 0 3px #1589ee;
+}
+
+/* Animation for region modal */
+@keyframes regionModalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.region-modal {
+    animation: regionModalSlideIn 0.3s ease-out;
+}
+
+/* Template Download Modal Specific Styles */
+.template-download-modal {
+    max-width: 450px !important;
+}
+
+.template-download-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.template-download-modal .region-selection {
+    padding: 0;
+}
+
+.template-download-modal .slds-form-element {
+    margin-bottom: 0;
+}
+
+.template-download-modal lightning-combobox {
+    width: 100%;
+}
+
+/* Ensure proper spacing for the template modal */
+.template-download-modal .slds-form-element__label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #181818;
+}
+
+/* Modal animation */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-container {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Ensure modal has proper z-index */
+.modal-overlay {
+    z-index: 10000;
+}
+
+/* Make sure the modal is centered and looks good on all screen sizes */
+@media (max-width: 768px) {
+    .template-download-modal {
+        width: 90%;
+        margin: 1rem;
+    }
+    
+    .template-download-modal .modal-footer {
+        flex-direction: column;
+    }
+    
+    .template-download-modal .modal-footer lightning-button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

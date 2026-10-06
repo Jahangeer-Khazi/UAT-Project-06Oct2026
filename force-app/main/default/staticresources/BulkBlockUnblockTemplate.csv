@@ -1,0 +1,2 @@
+CIF,Subject,Model,Type,Sub Type,Case Nature,Reason,Origin,IBAN,All Accounts,BlockAppAccess,Blacklist,isFraud
+123456,Bulk Block/Unblock Requests,ila,Block Account,Block for debit,Block,Compliance Recommendation,CRM,BH42ABCO55802369126001,No,No,No,No

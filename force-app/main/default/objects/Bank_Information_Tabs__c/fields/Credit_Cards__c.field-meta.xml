@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Cards__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This tab will show the Credit Card tab, when clicked on &quot;Account and Cards&quot; tab on Customer Profile</description>
+    <label>Credit Cards</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

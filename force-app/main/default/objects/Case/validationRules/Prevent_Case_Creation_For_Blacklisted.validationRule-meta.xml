@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Case_Creation_For_Blacklisted</fullName>
+    <active>true</active>
+    <description>Prevents users from creating a Case with Type &apos;Account Service&apos; and Sub-Type &apos;Create Account&apos; if the related customer is blacklisted. Displays an error message on save.</description>
+    <errorConditionFormula>AND(
+ISNEW(),
+OR(
+ISPICKVAL(Type, &apos;Account Service&apos;),
+ISPICKVAL(Type, &apos;Account&apos;)),
+ISPICKVAL(Sub_Type__c, &apos;Create Account&apos;), Account.Blacklisted__c = TRUE,
+$User.LastName &lt;&gt; &quot;Integration&quot;,
+ISPICKVAL( Account.Region_Flag__c , &apos;Bahrain&apos;)
+)</errorConditionFormula>
+    <errorMessage>Creating new account for blacklisted customer is not allowed.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>bh.ops.caseopened@bank-abc.com</email>
+    <name>Operations Team</name>
+    <queueMembers>
+        <roles>
+            <role>Operations</role>
+            <role>Service_Center</role>
+        </roles>
+        <users>
+            <user>ligin.george@ilabank.com</user>
+            <user>maksud.ali@bank-abc.com</user>
+            <user>operations@bank-abc.com</user>
+            <user>ranjith.mathiyalagan@bank-abc.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>cases_Routing_config_CC</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>New_Wavier_Approval__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

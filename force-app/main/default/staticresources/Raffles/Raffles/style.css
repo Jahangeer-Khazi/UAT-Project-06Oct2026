@@ -1,0 +1,278 @@
+html{
+  height: 100%;
+}
+body{
+  background-image:url("./images/bg.png");
+		  background-repeat: no-repeat;
+		  background-size: cover; 
+  height: 100%;
+}
+body {
+  margin: 0;
+  }
+  
+  html, body, #canvas {
+  width: 100%;
+  height: 100%;
+  }
+
+
+  #canvas
+  {
+    height: 100%;
+    width: 100%;
+  }
+  #controls
+  {
+    top: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }  
+
+.main{
+  border: 1px solid #FFD400;
+  border-radius: 10px;
+  margin: 5% 5% 0 5%;
+  height: 85%; 
+}
+
+.main .logo-parent, .raffle-parent{
+  width: 100%;
+  text-align: center;
+  background-color: #121C39;
+}
+.main .logo{
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100px;
+  background-color: #121C39;
+  position: absolute;
+}
+
+.raffle{
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 430px;
+  background-color: #121C39;
+  position: absolute;
+}
+
+img.ila-logo{
+  max-width: 62px;
+  height: auto;
+  text-align: center;
+}
+
+.campaign{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+  color:  #FFD400;
+  font-family: Neo Sans Arabic;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 4px;
+  
+}
+
+.big-title{
+  
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 72px;
+  text-align: center;
+  color: #FFFFFF;
+
+}
+.raffle{
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+.raffle-btn{
+  height: 64px;
+  width: 410px;
+  left: 414px;
+  top: 630px;
+  border-radius: 114px;
+  font-family: SF Pro Text;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 14px 0px #FEC7104D;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 10.12%, rgba(255, 255, 255, 0.6) 23.76%, rgba(255, 255, 255, 0) 75.61%),linear-gradient(0deg, #FFD400, #FFD400);
+}
+
+
+.prize{
+  
+
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 15px;
+  text-align: center;
+  color: #CCCFD8;
+  height: 20%;
+}
+
+
+
+.prize-amount{
+  display: block;
+  font-size: 64px;
+}
+
+.prize-num{
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #CCCFD8;
+}
+
+.decimal{
+  
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: #FFFFFF;
+  top: -6px;
+    position: relative;
+}
+
+.currency{
+ 
+  font-family: SF Pro Text;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: #FFFFFF;
+  top: -6px;
+  position: relative;
+  
+}
+
+span.amount{
+  
+  font-family: Neo Sans Arabic;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 76.8px;
+  color: #FFFFFF;
+  
+}
+
+.prize1,.prize2,.prize3{
+  
+
+  background: rgba(255, 246, 204, 0.06);
+  border: 1px solid rgba(255, 234, 134, 0.18);
+  box-sizing: border-box;
+  border-radius: 8px
+}
+
+
+.prize-groups{
+  position: absolute;
+  left: 44.52%;
+  right: 44.6%;
+  top: 50.05%;
+  bottom: 57.49%;
+  
+ 
+}
+
+.prizes-boxes{
+  height: 20%;
+  
+  width: 100%;
+  text-align: center;
+}
+
+.box{
+  
+  border-radius: 8px;
+  display:inline-block;
+  padding:26px 21px;
+  background: rgba(255, 246, 204, 0.06);
+  border: 1px solid rgba(255, 234, 134, 0.18);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-right:16px;
+ 
+}
+
+.boxes{
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 25px;
+}
+
+.prize-pos{
+ 
+  font-family: SF Pro Text;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 5px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+.prize-no-winners{
+  color: rgba(255, 255, 255, 0.7);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.winners-prize-amount{
+  font-family: SF Pro Text;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+text-align: center;
+
+color: #FFFFFF;
+
+}
+
+.box dev{
+  display:block;
+  clear:left;
+  padding-top:12px;
+}
+
+.campaign-parent{
+  position: relative;
+  height: 60px;
+  margin-top: 30px;
+}

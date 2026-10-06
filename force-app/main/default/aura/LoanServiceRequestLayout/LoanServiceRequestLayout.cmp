@@ -1,0 +1,77 @@
+<aura:component controller="LoanServiceRequestActionController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    
+    
+    <aura:attribute name="recordTypeId" type="String" default="" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="caseModel" type="String" default=""/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="typeOption" type="String" />
+    <aura:attribute name="subjectValue" type="String" default="Loan / Finance Service Request"/>
+    <aura:attribute name="descriptionValue" type="String" default="New Loan / Finance Service Request"/>
+    <aura:attribute name="isErrorVisible" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <header class="slds-modal__header" aura:id="header_section">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Loan Service Request</h4>
+            </span>
+        </h2>
+    </header>
+
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+
+    <lightning:card>
+        <aura:if isTrue="{! v.recordTypeId != '' }">
+            <aura:if isTrue="{! v.isErrorVisible == true }">
+            	<p aura:id="errorSection"  class="slds-text-color_error slds-m-top_x-small custom_error" role="alert">
+  					Please fill all the mandatory (*) fields.
+				</p>
+            </aura:if>
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"     
+                                      onload="{!c.handleOnload}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                <lightning:inputField fieldName="Subject" aura:id="subject" required="true" value="{!v.subjectValue}"/>
+                <lightning:inputField fieldName="Description" aura:id="description" required="true" value="{!v.descriptionValue}" />
+                <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/>
+                <lightning:inputField fieldName="Type" aura:id="type" required="true" value="New Loan / Finance Service Request" onchange="{!c.handleTypeChange}" />
+                <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" required="true" value="" onchange="{!c.handleSubTypeChange}" />
+                <lightning:inputField fieldName="Origin" aura:id="origin" value="" required="true"/>
+                <lightning:inputField fieldName="Case_Nature__c" required="true" aura:id="nature" value="Loans"/>
+                <lightning:inputField fieldName="Reason" required="true" aura:id="Reason" value="Service"/>
+			      
+                  
+                   <aura:if isTrue="{!v.typeOption  == 'Collection Letters'}">
+                         <lightning:inputField fieldName="Delivery_Preference__c" aura:id="delivery" />
+                  	     <lightning:inputField fieldName="Letter_Type__c" aura:id="letter" disabled = "true" />
+                   </aura:if>
+                
+                 <!-- <lightning:inputField fieldName="Customer_Email_Suppression_on_Creation__c" aura:id="emailCreation" />
+                <lightning:inputField fieldName="Customer_Email_Suppression_on_Closure__c" aura:id="emailClosure" /> -->
+                
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                </div>
+                
+                <footer>
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" label="Save" disabled="{!v.showSpinner}" onclick="{!c.handleOnSubmit}" />
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    </div>
+                </footer>
+            </lightning:recordEditForm>
+        </aura:if>
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+    </lightning:card>
+</aura:component>

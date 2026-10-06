@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Internal Approval Request Approved - Whitelisted Employer</name>
+    <style>none</style>
+    <subject>Whitelisted Employer Review Needed</subject>
+    <textOnly>Whitelisted Employer request,
+
+Dear Team,
+
+Please note that Whitelisted Employer {!Listed_Employers__c.Employer_Name__c} record request has been approved.
+
+
+Open CRM case
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

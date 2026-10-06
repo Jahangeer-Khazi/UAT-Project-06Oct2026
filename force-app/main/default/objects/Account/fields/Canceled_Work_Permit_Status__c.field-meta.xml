@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canceled_Work_Permit_Status__c</fullName>
+    <label>Canceled Work Permit - Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>IDV_PENDING</fullName>
+                <default>false</default>
+                <label>ID&amp;V Pending</label>
+            </value>
+            <value>
+                <fullName>IDV_BLOCK</fullName>
+                <default>false</default>
+                <label>ID&amp;V Pending | Restricted</label>
+            </value>
+            <value>
+                <fullName>IDV_BLOCK_REVIEW</fullName>
+                <default>false</default>
+                <label>ID&amp;V Failed | Restricted</label>
+            </value>
+            <value>
+                <fullName>RP_PENDING</fullName>
+                <default>false</default>
+                <label>RP Not Provided</label>
+            </value>
+            <value>
+                <fullName>RP_BLOCK</fullName>
+                <default>false</default>
+                <label>RP Not Provided | Restricted</label>
+            </value>
+            <value>
+                <fullName>RP_REVIEW</fullName>
+                <default>false</default>
+                <label>RP Under Review</label>
+            </value>
+            <value>
+                <fullName>RP_BLOCK_REVIEW</fullName>
+                <default>false</default>
+                <label>RP Under Review | Restricted</label>
+            </value>
+            <value>
+                <fullName>COMPLETED</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>COMPLETED_FRAUD</fullName>
+                <default>false</default>
+                <label>Confirmed Fraud</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

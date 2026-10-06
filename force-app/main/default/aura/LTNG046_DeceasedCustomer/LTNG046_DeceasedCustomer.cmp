@@ -1,0 +1,104 @@
+<!--
+  @description       : 
+  author            : 
+  @group             : 
+  @last modified on  : 08-07-2024
+  last modified by  : 
+-->
+<aura:component controller="LTNG046_DeceasedCustomerController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    
+    <aura:attribute name="recordTypeId" type="String" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="caseModel" type="String" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:handler name="change" value="{!v.type}" action="{!c.isChangeType}"/> 
+    <aura:attribute name="caseNature" type="String" />
+    <aura:attribute name="SuppliedPhone" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">New Deceased Customer</h4>
+            </span>
+        </h2>
+    </header>
+       
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+    <!--CH01 - End-->
+    
+    <lightning:card>
+        <aura:if isTrue="{! v.recordTypeId != '' }">
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"     
+                                      onload="{!c.handleOnload}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                <!--on load handle name on Card, handle Submit -->
+                <lightning:inputField fieldName="Subject" aura:id="subject" />
+                <lightning:inputField fieldName="Description" aura:id="description" />
+                <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value="{!v.caseModel}"/>
+                <lightning:inputField fieldName="Type" aura:id="type" required="true"/>
+                <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" required="true" />       
+                
+                <div class="slds-col">
+                    <abbr title="required" class="slds-required">*</abbr>
+                    <span class="slds-form-element__label"> Caller First Name</span>
+                    <lightning:inputField fieldName="pr_First_Name__c" aura:id="pr_First_Name" required="true" variant='label-hidden'/>
+                </div>
+                <div class="slds-col">
+                    <abbr title="required" class="slds-required">*</abbr>
+                    <span class="slds-form-element__label"> Caller Last Name</span>
+                    <lightning:inputField fieldName="pr_Last_Name__c" aura:id="pr_Last_Name" required="true" variant='label-hidden'/>
+                </div>
+                <div class="slds-col">
+                    <abbr title="required" class="slds-required">*</abbr>
+                    <span class="slds-form-element__label"> Caller Mobile Number</span>
+                    <lightning:inputField fieldName="SuppliedPhone" aura:id="SuppliedPhone" required="true" variant='label-hidden' value="{!v.SuppliedPhone}" />
+                </div>
+                <div class="slds-col">
+                    <abbr title="required" class="slds-required">*</abbr>
+                    <span class="slds-form-element__label"> Caller Relationship</span>
+                    <lightning:inputField fieldName="sc_Relationship__c" aura:id="sc_Relationship" required="true" variant='label-hidden'/>
+                </div>
+                <div class="slds-col">
+                    <abbr title="required" class="slds-required">*</abbr>
+                    <span class="slds-form-element__label"> Caller Email address</span>
+                    <lightning:inputField fieldName="SuppliedEmail" aura:id="SuppliedEmail" required="true" variant='label-hidden'/>
+                </div>
+               
+                <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+                <lightning:inputField fieldName="Case_Nature__c" value="{!v.caseNature}" aura:id="CaseNature" required="true" />
+                <lightning:inputField fieldName="Customer_Email_Suppression_on_Creation__c" aura:id="Customer_Email_Suppression_on_Creation"/>
+               
+               <div class="slds-hide">
+                   <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+               </div>
+               
+               <br/>
+               <br/>
+    
+               <footer>
+                   <div class="slds-float_right">
+                       <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                       <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                   </div>
+               </footer>
+            </lightning:recordEditForm>
+        </aura:if>
+
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+    </lightning:card>
+</aura:component>

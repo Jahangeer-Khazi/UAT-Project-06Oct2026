@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Document Type --></label>
+    <name>Document_Type__c</name>
+    <picklistValues>
+        <masterLabel>Authorized Salary Letter</masterLabel>
+        <translation><!-- Authorized Salary Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bahraini Drivers Licence</masterLabel>
+        <translation><!-- Bahraini Drivers Licence --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bahraini ID</masterLabel>
+        <translation><!-- Bahraini ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bank Statement</masterLabel>
+        <translation><!-- Bank Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Benefit Report (CRB)</masterLabel>
+        <translation><!-- Benefit Report (CRB) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Biometric Authentication</masterLabel>
+        <translation><!-- Biometric Authentication --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Birth Certificate</masterLabel>
+        <translation><!-- Birth Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Business Bank Statement</masterLabel>
+        <translation><!-- Business Bank Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CCS</masterLabel>
+        <translation><!-- CCS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CPR Extract</masterLabel>
+        <translation><!-- CPR Extract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CR</masterLabel>
+        <translation><!-- CR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CUSTOM</masterLabel>
+        <translation><!-- CUSTOM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Civil ID</masterLabel>
+        <translation><!-- Civil ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Civil Status Extract</masterLabel>
+        <translation><!-- Civil Status Extract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Commercial Registration</masterLabel>
+        <translation><!-- Commercial Registration --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Conditional Salary Certificate</masterLabel>
+        <translation><!-- Conditional Salary Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Consent Form</masterLabel>
+        <translation><!-- Consent Form --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Continues Salary Certificate</masterLabel>
+        <translation><!-- Continues Salary Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Application</masterLabel>
+        <translation><!-- Credit Card Application --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Approval Sheet</masterLabel>
+        <translation><!-- Credit Card Approval Sheet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Disclosure Form</masterLabel>
+        <translation><!-- Credit Card Disclosure Form --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Credit Card Statement</masterLabel>
+        <translation><!-- Credit Card Statement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DDCAP Document</masterLabel>
+        <translation><!-- DDCAP Document --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DocuSign Document</masterLabel>
+        <translation><!-- DocuSign Document --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Electricity bill</masterLabel>
+        <translation><!-- Electricity bill --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Employer&apos;s letters</masterLabel>
+        <translation><!-- Employer&apos;s letters --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Employment Contract</masterLabel>
+        <translation><!-- Employment Contract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FATCA Form</masterLabel>
+        <translation><!-- FATCA Form --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GCC ID</masterLabel>
+        <translation><!-- GCC ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gaza ID</masterLabel>
+        <translation><!-- Gaza ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Irrevocable Standing Order</masterLabel>
+        <translation><!-- Irrevocable Standing Order --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jordanian ID</masterLabel>
+        <translation><!-- Jordanian ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan Approval Sheet</masterLabel>
+        <translation><!-- Loan Approval Sheet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual Service Request Document</masterLabel>
+        <translation><!-- Manual Service Request Document --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Military ID</masterLabel>
+        <translation><!-- Military ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No Liability Letter</masterLabel>
+        <translation><!-- No Liability Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other Source of Income</masterLabel>
+        <translation><!-- Other Source of Income --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outstanding Letter</masterLabel>
+        <translation><!-- Outstanding Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Passport</masterLabel>
+        <translation><!-- Passport --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Personal Photo</masterLabel>
+        <translation><!-- Personal Photo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Professional Practice Certificate</masterLabel>
+        <translation><!-- Professional Practice Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promissory Note &amp; Authorization Letter</masterLabel>
+        <translation><!-- Promissory Note &amp; Authorization Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Record of any home visit by bank official</masterLabel>
+        <translation><!-- Record of any home visit by bank official --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Residency Permit</masterLabel>
+        <translation><!-- Residency Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SIO Certificate (GOSI / Pension)</masterLabel>
+        <translation><!-- SIO Certificate (GOSI / Pension) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Salary Certificate</masterLabel>
+        <translation><!-- Salary Certificate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Salary Slip</masterLabel>
+        <translation><!-- Salary Slip --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Salary Transfer Letter (STL)</masterLabel>
+        <translation><!-- Salary Transfer Letter (STL) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Signature</masterLabel>
+        <translation><!-- Signature --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sons of Jordanian Women&apos;s ID</masterLabel>
+        <translation><!-- Sons of Jordanian Women&apos;s ID --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telephone bill</masterLabel>
+        <translation><!-- Telephone bill --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary Credit Approval</masterLabel>
+        <translation><!-- Temporary Credit Approval --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary Credit Declaration</masterLabel>
+        <translation><!-- Temporary Credit Declaration --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tenancy Agreement</masterLabel>
+        <translation><!-- Tenancy Agreement --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Underwriting Bundle</masterLabel>
+        <translation><!-- Underwriting Bundle --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Utility Bill</masterLabel>
+        <translation><!-- Utility Bill --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Video Verification</masterLabel>
+        <translation><!-- Video Verification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WWCC</masterLabel>
+        <translation><!-- WWCC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wathiq Consent Form</masterLabel>
+        <translation><!-- Wathiq Consent Form --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

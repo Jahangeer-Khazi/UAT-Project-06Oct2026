@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Customer will receive this notification when loan generic case is declined</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ILA_Loans_PartialSettlment_SERVICE_REJECTED</name>
+    <style>none</style>
+    <subject>Loan Partial Payment Request Declined</subject>
+    <textOnly>Loan {!Case.Sub_Type__c} Request Closed
+Hi,
+
+Your loan {!Case.Sub_Type__c} request {!Case.CaseNumber} has been declined.
+
+You can contact the contact center on +973 17123456 . to check the status of your request using the Request ID number above.
+
+
+
+
+Open ila App
+
+Bank ABC Tower, Head Office, P.O Box: 5698, Manama, Kingdom of Bahrain
+
+This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error, please notify the system manager.
+
+Licensed as a Conventional Retail Bank – Branch by the Central Bank of Bahrain</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

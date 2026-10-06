@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Cross Selling Pre-screening Result --></label>
+    <name>cx_ln_Cross_Selling_PreScreening_Result__c</name>
+    <picklistValues>
+        <masterLabel>Approve</masterLabel>
+        <translation><!-- Approve --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancelled</masterLabel>
+        <translation><!-- Cancelled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Decline</masterLabel>
+        <translation><!-- Decline --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

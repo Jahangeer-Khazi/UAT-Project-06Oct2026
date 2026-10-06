@@ -1,0 +1,18 @@
+<aura:component controller="relationshipTerminationController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,force:hasSObjectName" 
+                access="global" >
+    <aura:attribute name="sObjectName" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- ===================== Spinner ================================= -->    
+    <aura:if isTrue="{!v.showLoadingSpinner}">
+        <div class="slds-text-body_small slds-text-color_error">
+            <img src="/auraFW/resources/aura/images/spinner.gif" class="spinner-img" alt="Loading" style="position: relative; display: inline-block; left: 50%; transform: translate(-50%);"/>
+        </div>
+    </aura:if>    
+    <!-- ===================== /Spinner ================================= -->
+    
+</aura:component>

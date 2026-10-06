@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to queue members when a case is added to the FloD queue.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Internal_Email_Alert_FLoD_Alburaq</name>
+    <style>none</style>
+    <subject>Case Review Needed</subject>
+    <textOnly>A new case has been added to the FLoD queue...
+
+Hi,  Please be advised that a new Case with below details have been assigned to the Queue
+
+Case Type :  {!Case.Type}
+Case Sub Type : {!Case.Sub_Type__c}
+Case number : {!Case.CaseNumber}
+
+Open CRM case</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

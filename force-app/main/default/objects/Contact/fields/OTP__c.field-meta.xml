@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OTP__c</fullName>
+    <description>For Bahrain - PLA: https://bank-abc.atlassian.net/wiki/spaces/RTS/pages/2542272536/PLA+-+CRM+Requirements+-+Processes
+This generates the OTP for the Staff when they want to add relatives in the Relatives Form.</description>
+    <externalId>false</externalId>
+    <label>OTP (Not displayed)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

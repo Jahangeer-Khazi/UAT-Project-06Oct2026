@@ -1,0 +1,11 @@
+<apex:page controller="EmailTemplatePreviewController" 
+           showHeader="false" 
+           sidebar="false" 
+           standardStylesheets="false"
+           applyHtmlTag="false"
+           applyBodyTag="false">
+    
+    <apex:variable var="templateBody" value="{!templateBody}"/>
+    <apex:outputText value="{!templateBody}" escape="false"/>
+    
+</apex:page>

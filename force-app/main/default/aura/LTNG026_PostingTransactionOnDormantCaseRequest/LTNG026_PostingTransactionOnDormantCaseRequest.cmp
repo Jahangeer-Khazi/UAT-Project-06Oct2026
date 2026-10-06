@@ -1,0 +1,77 @@
+<!--
+  Change History :
+*         #CH01 :Added by D&A technologies team 14-07-2022 add case model field
+*/
+-->
+<aura:component controller="LTNG026_DormancyStatusController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    
+    
+    <aura:attribute name="recordTypeId" type="String" default="" />
+    <aura:attribute name="accDetails" type="String" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false"  />
+    <aura:attribute name="caseModel" type="String" /><!--CH01-->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+            <span>
+                <h4 class="title slds-text-heading--medium">Post Transaction on Dormant Account Request</h4>
+            </span>
+        </h2>
+    </header>
+    
+    <!--CH01 - Start-->
+    <div class="slds-hidden" style="height: 0px;">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account" onload="{!c.handleLoad}">
+            <lightning:inputField aura:id="Subscription_Model" fieldName="Subscription_Model__pc" />
+        </lightning:recordEditForm>
+    </div>
+    <!--CH01 - End-->
+    <lightning:card>
+        <aura:if isTrue="{! v.recordTypeId != '' }">
+            <lightning:recordEditForm aura:id="form"
+                                      recordTypeId="{!v.recordTypeId}"
+                                      objectApiName="Case"     
+                                      onload="{!c.handleOnload}"
+                                      onsubmit="{!c.handleOnSubmit}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      >
+                <lightning:messages/>
+                <!--on load handle name on Card, handle Submit -->
+                <lightning:inputField fieldName="Subject" aura:id="subject" />
+                <lightning:inputField fieldName="Description" aura:id="description" />
+                <!--CH01 Start Added by D&A technologies team 22-06-2022 add case model field -->
+                <lightning:inputField fieldName="Case_Model__c" aura:id="caseModel" required="true" value = "{!v.caseModel}"/><!--CHO1-->
+                <!--CH01 END -->
+                <lightning:inputField fieldName="Origin" aura:id="origin" required="true"/>
+                <lightning:inputField fieldName="Case_Nature__c" aura:id="CaseNature" required="true"/>
+
+                <lightning:inputField fieldName="RecordType_Name__c" aura:id="CaseRecordTypeName" required="true" value="Post Transaction on Dormant Account" />
+                <lightning:inputField fieldName="Sub_Status__c" aura:id="subStatus" required="true"/>
+
+    
+                <lightning:inputField fieldName="Type" aura:id="type" required="true" value="Post Transaction on Dormant Account" disabled="true" />
+                <lightning:inputField fieldName="Sub_Type__c" aura:id="subType" required="true" disabled="true" />
+                <lightning:inputField fieldName="ac_RequestedBy__c" aura:id="ac_RequestedBy" required="true" />
+                
+                
+                
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="AccountId" value="{!v.recordId}" aura:id="accId"/>
+                </div>
+                
+                <footer>
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" label="Save" type="submit" disabled="{!v.showSpinner}" />
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancel}" />
+                    </div>
+                </footer>
+            </lightning:recordEditForm>
+        </aura:if>
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner aura:id="mySpinner" alternativeText="Saving..." title="Saving.." variant="brand" size="large"/>
+        </aura:if>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="color-scheme" content="light dark">
+      <meta name="supported-color-schemes" content="light dark">
+      <style type="text/css">
+         .ExternalClass {width: 100%;}
+         @font-face {
+         font-family: 'Inter';
+         font-style: normal;
+         font-weight: 400;
+         src: url('https://fonts.gstatic.com/s/inter/v12/UcC03FwrQ3m1.woff2') format('woff2');
+        }
+      </style>
+   </head>
+   <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e; font-family:'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'; color:#ffffff;">
+         <tr>
+            <td align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#00153e" style="background-color: #00153e;">
+               <table border="0" cellpadding="0" cellspacing="0" style="max-width:480px;" align="center">
+                  <tbody>
+                     <tr>
+                        <td align="center">
+                           <br>
+                           <br>
+                           <a href="http://ilabank.com" target="_blank" tabindex="-1">
+                           <img src="https://images.ctfassets.net/2c8e80nprabl/5cgeqYcj46Yo7Vj76b4Pph/77905df16179591bb8a8a8b3e7d44bca/ilaemails_logo.png" width="70" style="max-width:70px; display:inline-block; display:block;">
+                           </a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <a href="http://ilabank.com" target="_blank"><img align="center" src="https://images.ctfassets.net/2c8e80nprabl/6zkh49EQnrOCM42IswE38I/08b5e1e20549ff2665a4c0aba3dd3a80/email.png" width="300" style="max-width:300px; display:inline-block; display:block;"></a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="center" style="padding: 0px 18px 9px;">
+                           <br>
+                           <br>
+                           <span style="text-align: center; font-size:30px; max-width:440px; text-decoration: none; color:#79ED00;">New Case Creation alert</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td align="left" style="padding: 0px 18px 9px;">
+                           <p style="text-align: center; font-size:18px; color:#ffffff;text-decoration: none;">
+                              Dear {!Task.Task_Owner_Name__c}, you missed to create a Case on a received call on {!Task.CreatedDate} from mobile number - {!Task.Description}.<br><br>
+                              Click to view the Task: {!Task.Subject}<br><br>
+                           </p>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+         </tr>
+         </td>
+      </table>
+   </body>
+</html>

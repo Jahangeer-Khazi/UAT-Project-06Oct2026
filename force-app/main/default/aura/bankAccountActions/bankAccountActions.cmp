@@ -1,0 +1,120 @@
+<!-- 	Organization : ABC Bank
+    * 		Created By: ABC Support
+    *		Created Date: 
+    * 		Change History: 
+    *     		      #CH03# #Jahangeer Mohammed# #04-07-2022# Added Logic for Embossing Name(PI-3384)
+
+-->
+<aura:component controller="BankAccountController">
+    
+    <aura:attribute name="customerId" type="String" required="true"/>
+    <aura:attribute name="caseId" type="String" required="true"/>
+   
+    
+    <aura:attribute name="accountDetails" type="Object" required="true"/>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <!-- ============================================ -->
+
+    <aura:attribute name="selectedAccountActionType" type="String" access="private"/>
+    <aura:attribute name="selectedActionHelpText" type="String" access="private"/>
+    <aura:attribute name="deliveryType" type="String" access="private" />
+    <aura:attribute name="productType" type="String" access="private" />
+    <aura:attribute name="regionName" type="String" access="private" />
+    <aura:attribute name="accountActionTypeOptions" type="List" default="[]" access="private"/>
+    <aura:attribute name="caseRecordType" type="String" />
+    <aura:attribute name="isButtonDisabled" type="Boolean" default="false" />
+    
+    <!-- CH02 Added by Aniss Mbarki 20-06-2022 -->
+    <!-- CH03 Start:Commented by #Jahangeer Mohammed# -->
+    <!--<aura:attribute name="embossingName" type="String" access="private" default="{! v.account.FirstName +' '+ v.account.LastName }" /> -->
+	<aura:attribute name="embossingName" type="String" access="private" />
+    <!-- CH03: END -->
+    <aura:attribute name="caseStatus" type="String" access="private" />
+    <aura:attribute name="profileName" type="String" access="private" />
+    <!-- CH02 END -->
+
+    <!-- CH01 : Added by Hamza Chaoui *** to handle alburaq Product  --> 
+    <aura:attribute name="isAlburaqProduct" type="Boolean" default="false" />
+
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <!--
+    <aura:handler name="change" value="{!v.cardId}" action="{!c.load}"/>
+    <aura:method name="reload" action="{!c.load}" />
+    -->
+    
+	
+   <aura:if isTrue="{! 'FCR' != v.caseRecordType}"> 
+    <lightning:card title="{!'Account Actions - ' + v.accountDetails.accountNumber}">
+
+        <div style="padding: 1rem;">
+            <aura:if isTrue="{!not(empty(v.selectedActionHelpText))}">
+                <ui:message title="" severity="info" closable="true">
+                    {!v.selectedActionHelpText}
+                </ui:message>
+            </aura:if>
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <lightning:radioGroup name="radioGroup"
+                        label="Select Action"
+                        options="{! v.accountActionTypeOptions }"
+                        value="{! v.selectedAccountActionType }"
+                        onchange="{!c.onActionSelectionChange}"
+                        type="radio"/>
+                </div>
+            </div>
+            
+            <!-- #CH02 : added by Aniss 20-06-2022 -->
+            <aura:if isTrue="{! or('Issue New Card (With Issuance Fee)' == v.selectedAccountActionType, 'Issue New Card (Without Issuance Fee)' == v.selectedAccountActionType ) }">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:select label="Product Type" required="true" value="{!v.productType}">
+                            <option value="">choose one...</option>
+                             <aura:if isTrue="{!!v.isAlburaqProduct}">
+                            <option value="Classic" selected="true">Classic</option>
+                            <!--<option value="{!(v.regionName=='Bahrain'?'Second Classic':'Classic2')}" >Additional Classic</option>-->
+                            <option value="Classic2" >Additional Classic</option>
+                            <option value="Virtual" >Virtual</option>
+                              <aura:set attribute="else">
+                                  <option value="AlburaqDebitClassic" selected="true">Classic</option>
+                                </aura:set>
+                            </aura:if>
+                        </lightning:select>
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:select label="Delivery Type" required="true" value="{!v.deliveryType}">
+                            <option value="">choose one...</option>
+                            <option value="CUSTOMER_ADDRESS" selected="true">Customer Address</option>
+                        </lightning:select>
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <lightning:input aura:id="embossingName" value="{!v.embossingName}" label="Embossing Name" type="text" required="true" minlength="6" maxlength="24" 
+                            pattern="([a-zA-Z]+\s)*[a-zA-Z]*" messageWhenPatternMismatch="Your entry should not have any special characters or numbers" onchange="{!c.valueChanged}"/>
+                    </div>
+                </div>
+            </aura:if>
+            <!-- #CH02 -End- -->
+
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form-element__control slds-align_absolute-center">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_1-of-1">
+                        <div class="slds-form-element">
+                            <aura:if isTrue="{!not(empty(v.selectedAccountActionType))}">
+                                <lightning:button variant="neutral" label="Submit" onclick="{! c.onSubmitClick }"  disabled="{!v.isButtonDisabled}"/>
+                                
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </lightning:card>
+   </aura:if>
+    <c:apexService aura:id="apexService"/>
+</aura:component>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Email</fullName>
+        <default>false</default>
+        <label>Email</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Phone</fullName>
+        <default>false</default>
+        <label>Phone</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Web</fullName>
+        <default>false</default>
+        <label>Web</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Facebook</fullName>
+        <default>false</default>
+        <label>Facebook</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Twitter</fullName>
+        <default>false</default>
+        <label>Twitter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>App</fullName>
+        <default>false</default>
+        <label>App</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fraud Alert</fullName>
+        <default>false</default>
+        <label>Fraud Alert</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CBB</fullName>
+        <default>false</default>
+        <label>CBB</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Senior Management</fullName>
+        <default>false</default>
+        <label>Senior Management</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Centre</fullName>
+        <default>false</default>
+        <label>Service Centre</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Siron AML</fullName>
+        <default>false</default>
+        <label>Siron AML</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal UAR</fullName>
+        <default>false</default>
+        <label>Internal UAR</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Instagram</fullName>
+        <default>false</default>
+        <label>Instagram</label>
+    </standardValue>
+    <standardValue>
+        <fullName>YouTube</fullName>
+        <default>false</default>
+        <label>YouTube</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Wathiq</fullName>
+        <default>false</default>
+        <label>Wathiq</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EKYC-SIGNOFF</fullName>
+        <default>false</default>
+        <label>EKYC-SIGNOFF</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EKYC-FETCH</fullName>
+        <default>false</default>
+        <label>EKYC-FETCH</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EKYC-UPLOAD</fullName>
+        <default>false</default>
+        <label>EKYC-UPLOAD</label>
+    </standardValue>
+    <standardValue>
+        <fullName>CRM</fullName>
+        <default>false</default>
+        <label>CRM</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Civil</fullName>
+        <default>false</default>
+        <label>Civil</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Retail Credit - Collection</fullName>
+        <default>false</default>
+        <label>Retail Credit - Collection</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dual Control</fullName>
+        <default>false</default>
+        <label>Dual Control</label>
+    </standardValue>
+    <standardValue>
+        <fullName>QA Checks</fullName>
+        <default>false</default>
+        <label>QA Checks</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dual Control &amp; QA Checks</fullName>
+        <default>false</default>
+        <label>Dual Control &amp; QA Checks</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Email-Alburaq</fullName>
+        <default>false</default>
+        <label>Email-Alburaq</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media</fullName>
+        <default>false</default>
+        <label>Social Media</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Phone-Inbound</fullName>
+        <default>false</default>
+        <label>Phone-Inbound</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Phone-Outbound</fullName>
+        <default>false</default>
+        <label>Phone-Outbound</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Roadshow</fullName>
+        <default>false</default>
+        <label>Roadshow</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Chat</fullName>
+        <default>false</default>
+        <label>Chat</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Compliance</fullName>
+        <default>false</default>
+        <label>Compliance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fraud</fullName>
+        <default>false</default>
+        <label>Fraud</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Operation</fullName>
+        <default>false</default>
+        <label>Operation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Center</fullName>
+        <default>false</default>
+        <label>Service Center</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ICU</fullName>
+        <default>false</default>
+        <label>ICU</label>
+    </standardValue>
+    <standardValue>
+        <fullName>RCD</fullName>
+        <default>false</default>
+        <label>RCD</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mobile</fullName>
+        <default>false</default>
+        <label>Mobile</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Backend</fullName>
+        <default>false</default>
+        <label>Backend</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pop Up Shop</fullName>
+        <default>false</default>
+        <label>Pop up branch</label>
+    </standardValue>
+    <standardValue>
+        <fullName>eKey</fullName>
+        <default>false</default>
+        <label>eKey</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ID&amp;V</fullName>
+        <default>false</default>
+        <label>ID&amp;V</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Genesys In-App</fullName>
+        <default>false</default>
+        <label>Genesys In-App</label>
+    </standardValue>
+    <standardValue>
+        <fullName>NBO</fullName>
+        <default>false</default>
+        <label>NBO</label>
+    </standardValue>
+</StandardValueSet>

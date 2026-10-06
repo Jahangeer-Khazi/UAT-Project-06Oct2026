@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- CRM Stage --></label>
+    <name>CRM_Stage__c</name>
+    <picklistValues>
+        <masterLabel>FRAUD_BLOCK</masterLabel>
+        <translation><!-- FRAUD_BLOCK --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_CANCELED</masterLabel>
+        <translation><!-- FRAUD_CANCELED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_COMPLETED</masterLabel>
+        <translation><!-- FRAUD_COMPLETED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FRAUD_IN_PROGRESS</masterLabel>
+        <translation><!-- FRAUD_IN_PROGRESS --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

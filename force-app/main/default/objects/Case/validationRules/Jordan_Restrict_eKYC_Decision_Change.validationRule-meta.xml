@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jordan_Restrict_eKYC_Decision_Change</fullName>
+    <active>true</active>
+    <description>UIJI-5261 - This will restrict the eKYC Decision for Jordanian eKYC Civil Cases, as a dedicated Civil Department section will be displayed with the corresponding Retry and Convert to Identification buttons.</description>
+    <errorConditionFormula>TEXT(Origin)=&apos;Civil&apos; &amp;&amp; TEXT(Type)=&apos;eKYC&apos; &amp;&amp; TEXT(Region_Flag__c)=&apos;Jordan&apos; &amp;&amp; ISCHANGED(eKYC_Decision__c) &amp;&amp; $User.LastName&lt;&gt;&quot;Integration&quot;</errorConditionFormula>
+    <errorMessage>Please use the buttons in the Civil Department section above to Retry or Convert to Identification.</errorMessage>
+</ValidationRule>

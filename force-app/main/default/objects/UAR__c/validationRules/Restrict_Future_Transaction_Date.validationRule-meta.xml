@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Future_Transaction_Date</fullName>
+    <active>true</active>
+    <description>Prevents users from entering a future date in the Transaction Date field.</description>
+    <errorConditionFormula>Transaction_Date__c &gt; TODAY()</errorConditionFormula>
+    <errorMessage>Transaction Date cannot be in the future. Please select today’s date or an earlier date.</errorMessage>
+</ValidationRule>

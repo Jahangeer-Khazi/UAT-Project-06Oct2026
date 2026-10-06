@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Waiting_Time__c</fullName>
+    <description>This field is used for Walkin Customer Requirement</description>
+    <externalId>false</externalId>
+    <formula>IF(
+Customer_Walkin_Time__c- CreatedDate &gt; 0 ,
+TEXT( FLOOR( Customer_Walkin_Time__c- CreatedDate) ) &amp; &quot; days &quot;
+&amp; TEXT( FLOOR( MOD( (Customer_Walkin_Time__c- CreatedDate) * 24, 24 ) ) ) &amp; &quot; hours &quot;
+&amp; TEXT( ROUND( MOD( (Customer_Walkin_Time__c- CreatedDate) * 24 * 60, 60 ), 0 ) ) &amp; &quot; minutes&quot;,
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Customer Waiting Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

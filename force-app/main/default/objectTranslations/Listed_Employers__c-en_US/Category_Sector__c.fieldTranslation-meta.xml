@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Category / Sector --></label>
+    <name>Category_Sector__c</name>
+    <picklistValues>
+        <masterLabel>Airlines</masterLabel>
+        <translation><!-- Airlines --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Airport</masterLabel>
+        <translation><!-- Airport --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Banking/Financial Institution</masterLabel>
+        <translation><!-- Banking/Financial Institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Corporate</masterLabel>
+        <translation><!-- Corporate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Educational Institution</masterLabel>
+        <translation><!-- Educational Institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Entertainment</masterLabel>
+        <translation><!-- Entertainment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Financial Institution</masterLabel>
+        <translation><!-- Financial Institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Government</masterLabel>
+        <translation><!-- Government --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hospital</masterLabel>
+        <translation><!-- Hospital --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hospitality</masterLabel>
+        <translation><!-- Hospitality --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Insurance/Financial Institution</masterLabel>
+        <translation><!-- Insurance/Financial Institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Large Corporate</masterLabel>
+        <translation><!-- Large Corporate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Private Company</masterLabel>
+        <translation><!-- Private Company --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Real Estate</masterLabel>
+        <translation><!-- Real Estate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telecom</masterLabel>
+        <translation><!-- Telecom --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

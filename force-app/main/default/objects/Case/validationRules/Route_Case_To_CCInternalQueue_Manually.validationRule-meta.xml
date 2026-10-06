@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Route_Case_To_CCInternalQueue_Manually</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL( Region_Flag__c ,&apos;Bahrain&apos;),
+ISCHANGED(OwnerId),
+OwnerId = &apos;00G1t000000cXPT&apos;,
+($User.LastName &lt;&gt; &quot;Integration&quot;),
+NOT(ISPICKVAL(PRIORVALUE(Status),&quot;Reassign to New Agent&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Card Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Limit Increase Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Card Cash Collateral Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Cash Collateral Credit Limit Increase Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;Credit Card Upgrade&quot;)),
+NOT(ISPICKVAL(Type , &quot;Manual Onboarding&quot;)),
+NOT(ISPICKVAL(Type , &quot;Premium Retention Application&quot;)),
+NOT(ISPICKVAL(Type , &quot;ID&amp;V Verification&quot;)),
+NOT(ISPICKVAL(Origin , &quot;EKYC-SIGNOFF&quot;)),
+NOT(ISPICKVAL(Origin , &quot;EKYC-FETCH&quot;)),
+NOT(ISPICKVAL(Origin , &quot;EKYC-UPLOAD&quot;)),
+NOT(ISPICKVAL(Origin , &quot;Wathiq&quot;)),
+NOT(ISPICKVAL(Origin , &quot;&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>Please route the case to “Contact Centre Internal Queue”</errorMessage>
+</ValidationRule>

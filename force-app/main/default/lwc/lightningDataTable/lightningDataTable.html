@@ -1,0 +1,14 @@
+<template>
+     <lightning-card title="Content List" icon-name="custom:custom18" >
+        <br/>
+        <div style="width: auto;">
+            <template lwc:if={showTable}>
+                <lightning-datatable data={recordList}
+                                     columns={columns}
+                                     key-field="id"
+                                     hide-checkbox-column="true"
+                                     onclick={handleClick}></lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>

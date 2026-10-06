@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CASH</fullName>
+        <default>false</default>
+        <label>Cash</label>
+    </customValue>
+    <customValue>
+        <fullName>GOLD_BAR</fullName>
+        <default>false</default>
+        <label>Gold Bar</label>
+    </customValue>
+    <customValue>
+        <fullName>CASHBACK</fullName>
+        <default>false</default>
+        <label>Cashback</label>
+    </customValue>
+    <customValue>
+        <fullName>VOUCHER</fullName>
+        <default>false</default>
+        <label>Voucher</label>
+    </customValue>
+    <customValue>
+        <fullName>DEVICE</fullName>
+        <default>false</default>
+        <label>Device</label>
+    </customValue>
+    <customValue>
+        <fullName>TRIP</fullName>
+        <default>false</default>
+        <label>Trip</label>
+    </customValue>
+    <masterLabel>Raffle_Prize_Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
