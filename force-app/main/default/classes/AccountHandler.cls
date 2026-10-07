@@ -251,6 +251,7 @@ public without sharing class AccountHandler extends BaseTriggerHandler {
     //CH04: END
     //CH14: Start
     private static void setReapplyingRestrictionValidity(final List<Account> newRecs){
+        System.debug('Pushing this code to Development Branch');
        Id recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Customer').getRecordTypeId();
        Date todayDate = Date.today();
         for(Account objAcc : newRecs){
