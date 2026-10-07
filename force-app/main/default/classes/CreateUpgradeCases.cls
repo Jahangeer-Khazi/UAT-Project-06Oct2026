@@ -3,6 +3,7 @@
 *      Created Date: 02-08-2026
 *      Description : Creating Upgrade Cases from Limit Increase Application
 *      Change History: 
+                    #CH01 : #Jahangeer Mohammed #07-10-2026# Added Subject, Description & CRM Stage (UATNB-232914)
 
 */ 
 global class CreateUpgradeCases implements Queueable{
@@ -22,6 +23,11 @@ global class CreateUpgradeCases implements Queueable{
         	   cs.RecordTypeId = upgradeRecordTypeId;
         	   cs.Type = 'Credit Card Upgrade';
         	   cs.Sub_Type__c = 'Credit Card Upgrade - No Limit Increase';
+               //CH01: Start
+               cs.Subject = 'Auto Upgrade Case';
+               cs.Description = 'Auto Upgrade case created automatically from Limit Increase Application';
+               cs.cc_CRM_Stage__c = 'IN PROGRESS';
+               //CH01: END
         	   cs.Origin = 'CRM';
         	   cs.Case_Nature__c = 'Credit Card';
                cs.cc_Name_on_the_Card__c = c.cc_Name_on_the_Card__c;
