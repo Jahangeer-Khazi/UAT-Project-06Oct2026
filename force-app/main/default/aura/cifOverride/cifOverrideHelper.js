@@ -1,4 +1,11 @@
 ({
+    /*
+      @change history :
+      #CH01# #Claude Code# #07-10-2026# Added date range validation on Whitelist click:
+             From Date cannot be in the past and From Date must be earlier than To Date
+             (new method validateDateRange, called from createWhitelist).
+    */
+
     getWhitelistDetails : function(component) {
 		component.set("v.isLoading", true);
         component.set("v.errorMessage", null);
@@ -81,6 +88,11 @@
 			component.set("v.errorMessage","Please select To Date.");
 			return;
 		}
+		// CH01: Start - Validate date range before calling the Whitelist API
+		if(!this.validateDateRange(component, fromDate, toDate)) {
+			return;
+		}
+		// CH01: END
 
 		//fromDate = this.formatDateTimeForApi(fromDate);
 		//toDate = this.formatDateTimeForApi(toDate);
@@ -132,6 +144,38 @@
 	
 		$A.enqueueAction(action);
 	},
+	// CH01: Start
+	// Returns true when the range is valid; otherwise sets v.errorMessage and returns false.
+	// Rules: From Date must not be in the past, and From Date must be earlier than To Date.
+	validateDateRange : function(component, fromDate, toDate) {
+		var fromDateTime = new Date(fromDate);
+		var toDateTime = new Date(toDate);
+
+		if(isNaN(fromDateTime.getTime())) {
+			component.set("v.errorMessage","Please enter a valid From Date.");
+			return false;
+		}
+		if(isNaN(toDateTime.getTime())) {
+			component.set("v.errorMessage","Please enter a valid To Date.");
+			return false;
+		}
+
+		// The datetime picker has minute precision, so compare against the start of the
+		// current minute; this lets the agent select the current time as From Date.
+		var now = new Date();
+		now.setSeconds(0, 0);
+
+		if(fromDateTime.getTime() < now.getTime()) {
+			component.set("v.errorMessage","From Date cannot be in the past. Please select the current or a future date and time.");
+			return false;
+		}
+		if(toDateTime.getTime() <= fromDateTime.getTime()) {
+			component.set("v.errorMessage","To Date must be later than From Date.");
+			return false;
+		}
+		return true;
+	},
+	// CH01: END
 	formatDateTime : function(dateTimeString) {
 		if (!dateTimeString) {
 			return "";
