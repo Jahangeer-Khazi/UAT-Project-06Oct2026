@@ -68,6 +68,12 @@
 		component.set("v.sortedDirection", "desc");
 		this.sortData(component,"creationDatetime","desc");
     },
+	/*
+	  @change history :
+	  #CH01# #Claude Code# #07-10-2026# Added date range validation inside createWhitelist
+	         (runs on Whitelist button click): From Date cannot be in the past and
+	         From Date must be earlier than To Date.
+	*/
 	createWhitelist : function(component) {
 		var fromDate = component.get("v.fromDate");
 		var toDate = component.get("v.toDate");
@@ -81,6 +87,35 @@
 			component.set("v.errorMessage","Please select To Date.");
 			return;
 		}
+		// CH01: Start - Validate date range before calling the Whitelist API
+		var fromDateTime = new Date(fromDate);
+		var toDateTime = new Date(toDate);
+
+		if(isNaN(fromDateTime.getTime())) {
+			component.set("v.errorMessage","Please enter a valid From Date.");
+			return;
+		}
+		if(isNaN(toDateTime.getTime())) {
+			component.set("v.errorMessage","Please enter a valid To Date.");
+			return;
+		}
+
+		// The datetime picker has minute precision, so compare against the start of the
+		// current minute; this lets the agent select the current time as From Date.
+		var now = new Date();
+		now.setSeconds(0, 0);
+
+		// From Date cannot be in the past
+		if(fromDateTime.getTime() < now.getTime()) {
+			component.set("v.errorMessage","From Date cannot be in the past. Please select the current or a future date and time.");
+			return;
+		}
+		// From Date must be less than To Date
+		if(toDateTime.getTime() <= fromDateTime.getTime()) {
+			component.set("v.errorMessage","To Date must be later than From Date.");
+			return;
+		}
+		// CH01: END
 
 		//fromDate = this.formatDateTimeForApi(fromDate);
 		//toDate = this.formatDateTimeForApi(toDate);
