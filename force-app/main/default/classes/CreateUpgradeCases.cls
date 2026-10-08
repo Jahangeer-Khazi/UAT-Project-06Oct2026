@@ -24,7 +24,7 @@ global class CreateUpgradeCases implements Queueable{
         	   cs.Type = 'Credit Card Upgrade';
         	   cs.Sub_Type__c = 'Credit Card Upgrade - No Limit Increase';
                //CH01: Start
-               cs.Subject = 'Auto Upgrade Case';
+               cs.Subject = 'Auto - Credit Card Upgrade';
                cs.Description = 'Auto Upgrade case created automatically from Limit Increase Application';
                cs.cc_CRM_Stage__c = 'IN PROGRESS';
                //CH01: END
