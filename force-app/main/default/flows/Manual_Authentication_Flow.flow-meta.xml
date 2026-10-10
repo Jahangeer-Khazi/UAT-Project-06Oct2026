@@ -8721,7 +8721,7 @@
         </fields>
         <fields>
             <name>Transactions</name>
-            <extensionName>c:randomTransactions</extensionName>
+            <extensionName>c:randomTransactionsLWC</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>customerId</name>

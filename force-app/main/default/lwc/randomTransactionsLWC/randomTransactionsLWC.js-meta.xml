@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <description
+  >Displays the most recent transactions of the customer's first account (LWC version of the randomTransactions Aura component)</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Random Transactions</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+
+    <targetConfigs>
+
+        <targetConfig targets="lightning__FlowScreen">
+
+            <property
+        name="customerId"
+        type="String"
+        role="inputOnly"
+        label="CIF"
+      />
+
+            <property
+        name="regionName"
+        type="String"
+        role="inputOnly"
+        label="Region Flag"
+      />
+
+        </targetConfig>
+
+    </targetConfigs>
+</LightningComponentBundle>

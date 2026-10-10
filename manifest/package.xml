@@ -10602,6 +10602,7 @@
         <members>notification</members>
         <members>payrollQuickView</members>
         <members>payrolls</members>
+        <members>randomTransactionsLWC</members>
         <members>reopenExpiredCase</members>
         <members>reportViewer</members>
         <members>returnedCardBulkRequest</members>

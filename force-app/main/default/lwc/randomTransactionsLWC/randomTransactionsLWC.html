@@ -1,0 +1,32 @@
+<template>
+  <!-- Spinner -->
+  <template lwc:if={isLoading}>
+    <lightning-spinner alternative-text="Loading Transactions" size="medium">
+    </lightning-spinner>
+  </template>
+  <!-- Spinner -->
+
+  <!-- Content after Apex completes -->
+  <template lwc:else>
+    <template lwc:if={hasTransactionData}>
+      <lightning-datatable
+        key-field="id"
+        data={gridDataRows}
+        columns={columns}
+        sorted-by={sortedBy}
+        sorted-direction={sortedDirection}
+        onsort={handleSort}
+        max-row-selection="0"
+        hide-checkbox-column
+      >
+      </lightning-datatable>
+    </template>
+    <template lwc:else>
+      <div class="slds-text-color_error slds-text-title_bold">
+        No Transaction Data found for customer: {customerId}
+      </div>
+    </template>
+  </template>
+  <!-- Content after Apex completes -->
+  <br />
+</template>
