@@ -3567,6 +3567,38 @@
             <targetReference>Dynamic_Questions</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Description_Success</name>
+        <label>Description</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>caseDescription</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>cseDescriptionQuestionsSuccess</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Authentication_List_Success</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Description_Success2</name>
+        <label>Description</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>caseDescription</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>cseDescriptionQuestionsSuccess2</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Authentication_List_Success2</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>alburaq</name>
         <choiceText>alburaq</choiceText>
@@ -3706,7 +3738,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Copy_1_of_Success_Screen</targetReference>
+                <targetReference>Authentication_List_Success2</targetReference>
             </connector>
             <label>Pass</label>
         </rules>
@@ -3717,7 +3749,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Success_Screen</targetReference>
+            <targetReference>Authentication_List_Success</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -5556,6 +5588,16 @@
 ) + 1</expression>
         <scale>0</scale>
     </formulas>
+    <formulas>
+        <name>cseDescriptionQuestionsSuccess</name>
+        <dataType>String</dataType>
+        <expression>{!Authentication_List_Success.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Success.Notes__c}) &amp; BR()</expression>
+    </formulas>
+    <formulas>
+        <name>cseDescriptionQuestionsSuccess2</name>
+        <dataType>String</dataType>
+        <expression>{!Authentication_List_Success2.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success2.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Success2.Notes__c}) &amp; BR()</expression>
+    </formulas>
     <interviewLabel>Manual Authentication Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Manual Authentication Flow</label>
     <loops>
@@ -5654,6 +5696,34 @@
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Get_Security_Questions</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Authentication_List_Success</name>
+        <label>Authentication List Success</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>AuthenticationResult</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Description_Success</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_System_Actions_Success</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Authentication_List_Success2</name>
+        <label>Authentication List Success</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>AuthenticationResult</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Description_Success2</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_System_Actions_Success2</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -6106,6 +6176,100 @@
             <field>Manual_Authentication_Successful__c</field>
             <value>
                 <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Manual Authentication</stringValue>
+            </value>
+        </inputAssignments>
+        <object>System_Action__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_System_Actions_Success</name>
+        <label>Create System Actions Success</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Success_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>AcctRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Authenticating Customer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Success</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Successful__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Manual Authentication</stringValue>
+            </value>
+        </inputAssignments>
+        <object>System_Action__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_System_Actions_Success2</name>
+        <label>Create System Actions Success</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Success_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>AcctRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Authenticating Customer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Success</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Successful__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6844,7 +7008,7 @@
         <label>Success Screen</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <allowBack>true</allowBack>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
