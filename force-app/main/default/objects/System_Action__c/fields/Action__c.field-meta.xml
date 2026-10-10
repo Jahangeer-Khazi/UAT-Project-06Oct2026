@@ -255,6 +255,11 @@
                 <default>false</default>
                 <label>Jordan Loan Status Change API</label>
             </value>
+            <value>
+                <fullName>Authenticating Customer</fullName>
+                <default>false</default>
+                <label>Authenticating Customer</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
