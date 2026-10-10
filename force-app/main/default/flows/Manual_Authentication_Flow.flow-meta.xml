@@ -5764,6 +5764,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Type__c</field>
             <value>
                 <stringValue>Manual Authentication</stringValue>
@@ -6003,6 +6009,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Type__c</field>
             <value>
                 <stringValue>Manual Authentication</stringValue>
@@ -6035,6 +6047,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Type__c</field>
             <value>
                 <stringValue>Manual Authentication</stringValue>
@@ -6064,6 +6082,12 @@
             <field>Manual_Authentication_Successful__c</field>
             <value>
                 <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

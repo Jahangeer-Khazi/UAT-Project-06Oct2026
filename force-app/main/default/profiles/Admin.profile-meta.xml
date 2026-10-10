@@ -22376,6 +22376,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>System_Action__c.Manual_Authentication_Summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>System_Action__c.Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
