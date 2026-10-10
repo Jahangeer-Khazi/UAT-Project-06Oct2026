@@ -5752,6 +5752,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Failed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Manual_Authentication_Successful__c</field>
             <value>
                 <booleanValue>false</booleanValue>
@@ -5985,6 +5991,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Failed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Manual_Authentication_Successful__c</field>
             <value>
                 <booleanValue>false</booleanValue>
@@ -6011,6 +6023,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Failed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Manual_Authentication_Successful__c</field>
             <value>
                 <booleanValue>false</booleanValue>
@@ -6034,6 +6052,12 @@
             <field>Account__c</field>
             <value>
                 <elementReference>AcctRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Failed</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
