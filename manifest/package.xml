@@ -4503,6 +4503,7 @@
         <members>System_Action__c.Jordan_Loan__c</members>
         <members>System_Action__c.Manual_Authentication_Result__c</members>
         <members>System_Action__c.Manual_Authentication_Successful__c</members>
+        <members>System_Action__c.Manual_Authentication_Summary__c</members>
         <members>System_Action__c.Method__c</members>
         <members>System_Action__c.Origin__c</members>
         <members>System_Action__c.Question_Asked_1__c</members>
