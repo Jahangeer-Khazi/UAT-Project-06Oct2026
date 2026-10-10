@@ -4,7 +4,7 @@
     <description
   >Displays the most recent transactions of the customer's first account (LWC version of the randomTransactions Aura component)</description>
     <isExposed>true</isExposed>
-    <masterLabel>Random Transactions</masterLabel>
+    <masterLabel>randomTransactionsLWC</masterLabel>
     <targets>
         <target>lightning__FlowScreen</target>
     </targets>
