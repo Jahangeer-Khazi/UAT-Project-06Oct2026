@@ -1,0 +1,52 @@
+<template>
+  <!-- Credit Cards -->
+  <template lwc:if={isLoadingCards}>
+    <lightning-spinner
+      alternative-text="Loading Credit Cards"
+      size="medium"
+    ></lightning-spinner>
+  </template>
+  <div class="slds-text-heading_small slds-m-bottom_small slds-m-top_medium">
+    <b>Credit Cards</b>
+  </div>
+  <template lwc:if={hasCreditCards}>
+    <lightning-datatable
+      key-field="id"
+      data={creditCards}
+      columns={columns}
+      hide-checkbox-column
+    >
+    </lightning-datatable>
+  </template>
+  <template lwc:else>
+    <div class="slds-text-color_error slds-text-title_bold">{message}</div>
+  </template>
+
+  <br />
+
+  <!-- Debit Cards -->
+  <template lwc:if={isLoadingDebitCards}>
+    <lightning-spinner
+      alternative-text="Loading Debit Cards"
+      size="medium"
+    ></lightning-spinner>
+  </template>
+  <div class="slds-text-heading_small slds-m-bottom_small slds-m-top_medium">
+    <b>Debit Cards</b>
+  </div>
+  <template lwc:if={hasDebitCards}>
+    <lightning-datatable
+      key-field="rowKey"
+      data={debitCards}
+      columns={debitColumns}
+      hide-checkbox-column
+    >
+    </lightning-datatable>
+  </template>
+  <template lwc:else>
+    <div class="slds-text-color_error slds-text-title_bold">{messageDebit}</div>
+    <br />
+  </template>
+
+  <br />
+</template>

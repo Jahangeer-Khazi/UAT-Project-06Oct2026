@@ -10543,6 +10543,7 @@
         <members>bulkBlockUnblockManager</members>
         <members>bulkDrawEntryReview</members>
         <members>cacheService</members>
+        <members>cardsInfoLWC</members>
         <members>caseAccountKYCInfo</members>
         <members>caseCommentsPdfButton</members>
         <members>caseCommentsPdfPreview</members>
@@ -10557,6 +10558,7 @@
         <members>collateralsHolds</members>
         <members>createCreditCardServiceRequest</members>
         <members>createUARRecordForm</members>
+        <members>creditCardInfoLWC</members>
         <members>customEmailComposer</members>
         <members>customRelatedListCustomLWC</members>
         <members>customRelatedListLWC</members>
@@ -10570,6 +10572,7 @@
         <members>faultIncidentCaseCreation</members>
         <members>fawriCancelTransactionButton</members>
         <members>fetchIGAData</members>
+        <members>foreignBankAcctsInfoLWC</members>
         <members>fullLoanApplicationReview</members>
         <members>goldAccountDetails</members>
         <members>goldAndSilver</members>
@@ -10606,9 +10609,11 @@
         <members>reopenExpiredCase</members>
         <members>reportViewer</members>
         <members>returnedCardBulkRequest</members>
+        <members>savingPotInfoLWC</members>
         <members>silverAccountDetails</members>
         <members>staffJoinerLeaverSegment</members>
         <members>temporaryCreditConsole</members>
+        <members>termDepositInfoLWC</members>
         <members>toastMessage</members>
         <members>uarDetails</members>
         <members>uarTransactionViewer</members>
