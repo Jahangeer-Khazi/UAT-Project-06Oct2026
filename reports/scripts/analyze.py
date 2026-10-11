@@ -161,6 +161,15 @@ def sim(a, b):
 def token_sort(s):
     return ' '.join(sorted(s.split()))
 
+def qualifier_match(x, y):
+    # one label is the other plus exactly one extra qualifier word (brand/region/product), e.g. 'Alburaq Customer Segment'
+    a, b = x.split(), y.split()
+    if len(a) > len(b): a, b = b, a
+    if len(a) < 2 or len(b) != len(a) + 1: return None
+    extra = [w for w in b if w not in a]
+    if len(extra) != 1 or [w for w in b if w != extra[0]] != a or extra[0].isdigit(): return None
+    return f"Label = other label + qualifier word '{extra[0]}'"
+
 names = sorted(fields)
 info = {a: dict(nl=norm_label(fields[a]['label']), na=norm_api(a)) for a in names}
 for a in names:
@@ -190,6 +199,8 @@ for i, a in enumerate(names):
             reason, score = 'Label differs only by number/version suffix', 0.97
         elif A['nav'] and A['nav'] == B['nav'] and len(A['nav']) >= 5:
             reason, score = 'API name differs only by number/version suffix', 0.96
+        elif qualifier_match(A['nl'], B['nl']):
+            reason, score = qualifier_match(A['nl'], B['nl']), 0.85
         else:
             if min(len(A['nl']), len(B['nl'])) >= 8:
                 q = difflib.SequenceMatcher(None, A['nl'], B['nl'])
