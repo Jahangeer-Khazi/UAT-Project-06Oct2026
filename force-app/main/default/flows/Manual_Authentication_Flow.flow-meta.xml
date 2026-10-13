@@ -3912,7 +3912,7 @@
             <name>Less_then_equal_to_3</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>varNumberAttemptsLstWeek</leftValueReference>
+                <leftValueReference>FailedAttemptsIncludingCurrent</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>3.0</numberValue>
@@ -3938,7 +3938,7 @@
             <name>Less_then_equal_to_3FA</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>varNumberAttemptsLstWeek</leftValueReference>
+                <leftValueReference>FailedAttemptsIncludingCurrent</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>3.0</numberValue>
@@ -5574,6 +5574,13 @@
         <name>LastWeek</name>
         <dataType>Date</dataType>
         <expression>{!$Flow.CurrentDate} - 7</expression>
+    </formulas>
+    <formulas>
+        <description>Failed attempts in the last 7 days, including the attempt that is failing now. Up to 3 creates an Enquiry case; more than 3 creates an Internal (Fraud) case.</description>
+        <name>FailedAttemptsIncludingCurrent</name>
+        <dataType>Number</dataType>
+        <expression>{!varNumberAttemptsLstWeek} + 1</expression>
+        <scale>0</scale>
     </formulas>
     <formulas>
         <name>RandomOrder</name>
