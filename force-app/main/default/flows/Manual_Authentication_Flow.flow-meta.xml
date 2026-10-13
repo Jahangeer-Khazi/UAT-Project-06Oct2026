@@ -8848,7 +8848,7 @@
         </fields>
         <fields>
             <name>CreditLimit</name>
-            <extensionName>c:creditCardInfo</extensionName>
+            <extensionName>c:creditCardInfoLWC</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>customerId</name>
@@ -8975,7 +8975,7 @@
         </fields>
         <fields>
             <name>FixedDeposits</name>
-            <extensionName>c:TermDepositInfo</extensionName>
+            <extensionName>c:termDepositInfoLWC</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>customerId</name>
@@ -9102,7 +9102,7 @@
         </fields>
         <fields>
             <name>SavingPots</name>
-            <extensionName>c:SavingPotInfo</extensionName>
+            <extensionName>c:savingPotInfoLWC</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>customerId</name>
@@ -9229,7 +9229,7 @@
         </fields>
         <fields>
             <name>Cards</name>
-            <extensionName>c:CardsInfo</extensionName>
+            <extensionName>c:cardsInfoLWC</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>customerId</name>
@@ -9356,7 +9356,7 @@
         </fields>
         <fields>
             <name>AccountInfo</name>
-            <extensionName>c:ForeignBankAcctsInfo</extensionName>
+            <extensionName>c:foreignBankAcctsInfoLWC</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>customerId</name>

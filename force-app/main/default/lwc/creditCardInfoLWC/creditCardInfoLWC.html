@@ -1,0 +1,44 @@
+<template>
+  <template lwc:if={isLoadingCards}>
+    <lightning-spinner
+      alternative-text="Loading Credit Cards"
+      size="medium"
+    ></lightning-spinner>
+  </template>
+  <template lwc:else>
+    <template lwc:if={hasCards}>
+      <lightning-datatable
+        key-field="id"
+        data={currentCards}
+        columns={columns}
+        max-row-selection="1"
+        onrowselection={handleRowSelection}
+      >
+      </lightning-datatable>
+    </template>
+    <template lwc:else>
+      <div class="slds-text-color_error slds-text-title_bold">{message}</div>
+    </template>
+  </template>
+
+  <br />
+
+  <template lwc:if={isLoadingLimit}>
+    <lightning-spinner
+      alternative-text="Loading Credit Limit"
+      size="medium"
+    ></lightning-spinner>
+  </template>
+
+  <template lwc:if={hasCreditLimit}>
+    <lightning-card title={cardTitle}>
+      <div class="slds-p-around_medium">
+        <p class="slds-text-heading_small">
+          <b>{selectedCardName} Current Credit Limit : </b>
+          <b>{currentCreditLimit}</b>
+        </p>
+      </div>
+    </lightning-card>
+  </template>
+  <br />
+</template>

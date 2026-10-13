@@ -1,0 +1,23 @@
+<template>
+  <template lwc:if={isLoading}>
+    <lightning-spinner
+      alternative-text="Loading Fixed Deposits"
+      size="medium"
+    ></lightning-spinner>
+  </template>
+  <template lwc:else>
+    <template lwc:if={hasRows}>
+      <lightning-datatable
+        key-field="id"
+        data={rows}
+        columns={columns}
+        hide-checkbox-column
+      >
+      </lightning-datatable>
+    </template>
+    <template lwc:else>
+      <div class="slds-text-color_error slds-text-title_bold">{message}</div>
+    </template>
+  </template>
+  <br />
+</template>
