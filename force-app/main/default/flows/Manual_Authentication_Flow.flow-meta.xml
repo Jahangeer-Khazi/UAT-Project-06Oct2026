@@ -4042,20 +4042,20 @@
                 <leftValueReference>TrackSkipCount</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
-                    <numberValue>2.0</numberValue>
+                    <numberValue>3.0</numberValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>TrackIncorrectCount</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
-                    <numberValue>2.0</numberValue>
+                    <numberValue>3.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Check_Correct_Answers_Count</targetReference>
             </connector>
-            <label>Skip Count less then 2</label>
+            <label>Skip and Incorrect Count up to 3</label>
         </rules>
     </decisions>
     <decisions>
@@ -5540,7 +5540,7 @@
                 <leftValueReference>TrackSkipCount</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <numberValue>3.0</numberValue>
+                    <numberValue>4.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
