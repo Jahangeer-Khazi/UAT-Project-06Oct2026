@@ -973,6 +973,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_4_of_Q_A3</targetReference>
         </connector>
@@ -987,6 +994,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -1712,6 +1726,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_2_of_Q_A4</targetReference>
         </connector>
@@ -1726,6 +1747,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2070,6 +2098,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_3_of_Q_A5</targetReference>
         </connector>
@@ -2084,6 +2119,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2368,6 +2410,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_3_of_Q_A6</targetReference>
         </connector>
@@ -2382,6 +2431,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2516,6 +2572,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_3_of_Q_A7</targetReference>
         </connector>
@@ -2530,6 +2593,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2604,6 +2674,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_4_of_Q_A8</targetReference>
         </connector>
@@ -2618,6 +2695,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2692,6 +2776,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_3_of_Q_A9</targetReference>
         </connector>
@@ -2706,6 +2797,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2780,6 +2878,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_2_of_Q_A10</targetReference>
         </connector>
@@ -2794,6 +2899,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -2866,6 +2978,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -3010,6 +3129,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_3_of_Q_A2</targetReference>
         </connector>
@@ -3026,6 +3152,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Q_A10_Incorrect</targetReference>
         </connector>
@@ -3040,6 +3173,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Incorrect</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -3074,6 +3214,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_2_of_Q_A2</targetReference>
         </connector>
@@ -3088,6 +3235,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -3106,6 +3260,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Q_A12_Skip</targetReference>
         </connector>
@@ -3120,6 +3281,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -3138,6 +3306,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Q_A14</targetReference>
         </connector>
@@ -3152,6 +3327,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -3170,6 +3352,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Q_A16</targetReference>
         </connector>
@@ -3184,6 +3373,13 @@
             <operator>Add</operator>
             <value>
                 <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LastMissType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Skip</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -4058,14 +4254,7 @@
             <name>Skip_Count_less_then_2</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>TrackSkipCount</leftValueReference>
-                <operator>LessThanOrEqualTo</operator>
-                <rightValue>
-                    <numberValue>3.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>TrackIncorrectCount</leftValueReference>
+                <leftValueReference>IncorrectAndSkippedCount</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>3.0</numberValue>
@@ -4074,7 +4263,7 @@
             <connector>
                 <targetReference>Check_Correct_Answers_Count</targetReference>
             </connector>
-            <label>Skip and Incorrect Count up to 3</label>
+            <label>Incorrect and Skipped Combined up to 3</label>
         </rules>
     </decisions>
     <decisions>
@@ -4090,10 +4279,17 @@
             <name>Skip_Countt</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>TrackSkipCount</leftValueReference>
+                <leftValueReference>IncorrectAndSkippedCount</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>4.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>LastMissType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Skip</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -4105,7 +4301,7 @@
             <name>Incorrect_Count</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>TrackIncorrectCount</leftValueReference>
+                <leftValueReference>IncorrectAndSkippedCount</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>4.0</numberValue>
@@ -5571,16 +5767,16 @@
             <name>Skip_Count</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>TrackSkipCount</leftValueReference>
-                <operator>GreaterThanOrEqualTo</operator>
+                <leftValueReference>LastMissType</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
-                    <numberValue>4.0</numberValue>
+                    <stringValue>Skip</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>MaxReplacementExhausted</targetReference>
             </connector>
-            <label>Skip Count</label>
+            <label>Last Miss Was a Replacement</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -5614,6 +5810,13 @@
         <name>FailedAttemptsIncludingCurrent</name>
         <dataType>Number</dataType>
         <expression>{!varNumberAttemptsLstWeek} + 1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Incorrect answers plus "Customer did not remember" replacements. Up to 3 combined are allowed; the 4th fails.</description>
+        <name>IncorrectAndSkippedCount</name>
+        <dataType>Number</dataType>
+        <expression>{!TrackIncorrectCount} + {!TrackSkipCount}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
@@ -10233,6 +10436,14 @@
         <value>
             <numberValue>0.0</numberValue>
         </value>
+    </variables>
+    <variables>
+        <description>Whether the most recent miss was an incorrect answer (Incorrect) or a "Customer did not remember" replacement (Skip). Picks the failure screen when the combined limit is reached.</description>
+        <name>LastMissType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>TrackIncorrectCount</name>
