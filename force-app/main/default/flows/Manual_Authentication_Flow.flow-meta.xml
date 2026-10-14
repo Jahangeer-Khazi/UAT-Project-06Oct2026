@@ -10,6 +10,9 @@
         <connector>
             <targetReference>Update_Random_Number_List</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
             <name>inputsOfOptionalQuestions</name>
@@ -5810,6 +5813,9 @@
         <connector>
             <targetReference>Copy_1_of_Create_System_Actions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -5872,6 +5878,9 @@
         <label>Create System Actions</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -5919,6 +5928,9 @@
         <connector>
             <targetReference>Create_System_ActionsFA2</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -5990,6 +6002,9 @@
         <connector>
             <targetReference>Create_System_Actions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -6061,6 +6076,9 @@
         <connector>
             <targetReference>Create_System_ActionsFA</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -6123,6 +6141,9 @@
         <label>Create System Actions</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -6167,6 +6188,9 @@
         <label>Create System Actions</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -6211,6 +6235,9 @@
         <label>Create System Actions</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -6258,6 +6285,9 @@
         <connector>
             <targetReference>Success_Screen</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Success</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -6305,6 +6335,9 @@
         <connector>
             <targetReference>Copy_1_of_Success_Screen</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Success</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -6352,6 +6385,9 @@
         <connector>
             <targetReference>Unable_To_Complete_Screen</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Unable</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>Account__c</field>
             <value>
@@ -6400,6 +6436,9 @@
         <connector>
             <targetReference>Copy_1_of_Failed_Authentication_Case</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>SobjectType</field>
@@ -6428,6 +6467,9 @@
         <connector>
             <targetReference>Failed_Auth_Case</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>SobjectType</field>
@@ -6456,6 +6498,9 @@
         <connector>
             <targetReference>Get_System_Actions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -6497,6 +6542,9 @@
         <connector>
             <targetReference>FinalPublicPrivateQuestions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Type__c</field>
@@ -6534,6 +6582,9 @@
         <connector>
             <targetReference>Get_Private_Questions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Type__c</field>
@@ -6580,6 +6631,9 @@
         <connector>
             <targetReference>Get_Private_Questions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Type__c</field>
@@ -6626,6 +6680,9 @@
         <connector>
             <targetReference>Loop_All_Security_Questions</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Is_Active__c</field>
@@ -6656,6 +6713,9 @@
         <connector>
             <targetReference>loop_System_Action</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Account__c</field>
@@ -6699,6 +6759,9 @@
         <connector>
             <targetReference>Failed_Authentication_Case</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>SobjectType</field>
@@ -6727,6 +6790,9 @@
         <connector>
             <targetReference>Failed_Authentication_CaseFA2</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Record_Failure</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>SobjectType</field>
@@ -6754,6 +6820,9 @@
         <connector>
             <targetReference>Sort_Optional_Collection_List</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Fault_Setup</targetReference>
+        </faultConnector>
         <inputReference>RandomNumberOptionalList</inputReference>
     </recordUpdates>
     <screens>
@@ -6974,6 +7043,102 @@
         <fields>
             <name>Copy_1_of_Copy_2_of_Welcome_Text</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;No more security questions available to authenticate your customer&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Fault_Setup</name>
+        <label>Unable to Start Authentication</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Fault_Setup_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to start authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The security questions for this customer could not be loaded. No questions were asked and nothing has been recorded.&lt;/p&gt;&lt;p&gt;Please close this window and start Manual Authentication again. If the problem continues, contact your Salesforce administrator.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 11px; color: rgb(112, 110, 107);&quot;&gt;Technical details: {!$Flow.FaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Fault_Record_Failure</name>
+        <label>Authentication Failed - Not Recorded</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Fault_Record_Failure_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Authentication failed, and the failure was not fully recorded&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The customer did not pass authentication. Do not proceed with the customer's request.&lt;/p&gt;&lt;p&gt;The Case or System Log for this failure could not be saved. Please report this failed authentication manually, following your team's process, and contact your Salesforce administrator.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 11px; color: rgb(112, 110, 107);&quot;&gt;Technical details: {!$Flow.FaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Fault_Record_Success</name>
+        <label>Authentication Passed - Not Recorded</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Fault_Record_Success_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Authentication passed, but the result was not saved&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;The customer answered the security questions correctly, but the result could not be saved to System Logs.&lt;/p&gt;&lt;p&gt;You may continue with the customer. Please inform your Salesforce administrator so the log can be corrected.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 11px; color: rgb(112, 110, 107);&quot;&gt;Technical details: {!$Flow.FaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Fault_Record_Unable</name>
+        <label>Unable to Complete - Not Recorded</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Fault_Record_Unable_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication, and the result was not saved&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer, and the result could not be saved to System Logs.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting, and inform your Salesforce administrator.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 11px; color: rgb(112, 110, 107);&quot;&gt;Technical details: {!$Flow.FaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
