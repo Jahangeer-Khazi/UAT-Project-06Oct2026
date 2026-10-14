@@ -20,6 +20,11 @@
                 <default>false</default>
                 <label>Failed</label>
             </value>
+            <value>
+                <fullName>Unable to Complete</fullName>
+                <default>false</default>
+                <label>Unable to Complete</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

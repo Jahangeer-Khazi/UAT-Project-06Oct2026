@@ -3599,6 +3599,22 @@
             <targetReference>Authentication_List_Success2</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Description_Unable</name>
+        <label>Description</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>caseDescription</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>cseDescriptionQuestionsUnable</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Authentication_List_Unable</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>alburaq</name>
         <choiceText>alburaq</choiceText>
@@ -4064,9 +4080,9 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_3_of_Error</targetReference>
+            <targetReference>Authentication_List_Unable</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Incorrect Count</defaultConnectorLabel>
+        <defaultConnectorLabel>Unable to Complete</defaultConnectorLabel>
         <rules>
             <name>Skip_Countt</name>
             <conditionLogic>and</conditionLogic>
@@ -4074,13 +4090,28 @@
                 <leftValueReference>TrackSkipCount</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <numberValue>3.0</numberValue>
+                    <numberValue>4.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Copy_1_of_MaxReplacementExhausted</targetReference>
             </connector>
             <label>Skip Count</label>
+        </rules>
+        <rules>
+            <name>Incorrect_Count</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TrackIncorrectCount</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>4.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_3_of_Error</targetReference>
+            </connector>
+            <label>Incorrect Count</label>
         </rules>
     </decisions>
     <decisions>
@@ -5605,6 +5636,11 @@
         <dataType>String</dataType>
         <expression>{!Authentication_List_Success2.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success2.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Success2.Notes__c}) &amp; BR()</expression>
     </formulas>
+    <formulas>
+        <name>cseDescriptionQuestionsUnable</name>
+        <dataType>String</dataType>
+        <expression>{!Authentication_List_Unable.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Unable.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Unable.Notes__c}) &amp; BR()</expression>
+    </formulas>
     <interviewLabel>Manual Authentication Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Manual Authentication Flow</label>
     <loops>
@@ -5731,6 +5767,20 @@
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Create_System_Actions_Success2</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Authentication_List_Unable</name>
+        <label>Authentication List Unable to Complete</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>AuthenticationResult</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Description_Unable</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_System_Actions_Unable</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -6294,6 +6344,53 @@
         <object>System_Action__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordCreates>
+        <name>Create_System_Actions_Unable</name>
+        <label>Create System Actions Unable to Complete</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Unable_To_Complete_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>AcctRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <stringValue>Authenticating Customer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Result__c</field>
+            <value>
+                <stringValue>Unable to Complete</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Successful__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Manual_Authentication_Summary__c</field>
+            <value>
+                <elementReference>caseDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Manual Authentication</stringValue>
+            </value>
+        </inputAssignments>
+        <object>System_Action__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <recordLookups>
         <name>Copy_1_of_Record_Type</name>
         <label>Record Type</label>
@@ -6572,6 +6669,13 @@
             <operator>EqualTo</operator>
             <value>
                 <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Manual_Authentication_Result__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Unable to Complete</stringValue>
             </value>
         </filters>
         <filters>
@@ -6870,6 +6974,30 @@
         <fields>
             <name>Copy_1_of_Copy_2_of_Welcome_Text</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;No more security questions available to authenticate your customer&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Unable_To_Complete_Screen</name>
+        <label>Unable to Complete Authentication</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Unable_To_Complete_Text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer. This attempt is not recorded as a failed authentication.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
