@@ -6997,8 +6997,64 @@
         <allowPause>false</allowPause>
         <fields>
             <name>Unable_To_Complete_Text</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer. This attempt is not recorded as a failed authentication.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Questions asked (Question - Result - Notes):&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!caseDescription}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer. This attempt is not recorded as a failed authentication.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Unable_To_Complete_Questions</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>Authentication_Logs__c</typeValue>
+            </dataTypeMappings>
+            <extensionName>flowruntime:datatable</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Questions Asked</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>selectionMode</name>
+                <value>
+                    <stringValue>NO_SELECTION</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>minRowSelection</name>
+                <value>
+                    <numberValue>0.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>tableData</name>
+                <value>
+                    <elementReference>AuthenticationResult</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columns</name>
+                <value>
+                    <stringValue>[{&quot;apiName&quot;:&quot;Questions_Name__c&quot;,&quot;guid&quot;:&quot;column-u1a1&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;sortable&quot;:false,&quot;label&quot;:&quot;Questions Name&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;Result__c&quot;,&quot;guid&quot;:&quot;column-u1a2&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;sortable&quot;:false,&quot;label&quot;:&quot;Result&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;Notes__c&quot;,&quot;guid&quot;:&quot;column-u1a3&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:2,&quot;sortable&quot;:false,&quot;label&quot;:&quot;Notes&quot;,&quot;type&quot;:&quot;text&quot;}]</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>maxRowSelection</name>
+                <value>
+                    <numberValue>0.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
