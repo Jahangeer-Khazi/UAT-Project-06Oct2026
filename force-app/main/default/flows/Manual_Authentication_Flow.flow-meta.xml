@@ -6997,7 +6997,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>Unable_To_Complete_Text</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer. This attempt is not recorded as a failed authentication.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer. This attempt is not recorded as a failed authentication.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Questions asked (Question - Result - Notes):&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!caseDescription}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
