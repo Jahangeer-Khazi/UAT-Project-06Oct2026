@@ -6995,6 +6995,9 @@
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Unable_To_Complete_Display_Questions</targetReference>
+        </connector>
         <fields>
             <name>Unable_To_Complete_Text</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(199, 10, 10);&quot;&gt;Unable to complete authentication&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are no more security questions available for this customer. This attempt is not recorded as a failed authentication.&lt;/p&gt;&lt;p&gt;Please verify the customer through another method before assisting.&lt;/p&gt;</fieldText>
@@ -7008,6 +7011,17 @@
                 </width>
             </styleProperties>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Unable_To_Complete_Display_Questions</name>
+        <label>Display Questions</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <fields>
             <name>Unable_To_Complete_Questions</name>
             <dataTypeMappings>
@@ -7019,7 +7033,7 @@
             <inputParameters>
                 <name>label</name>
                 <value>
-                    <stringValue>Questions Asked</stringValue>
+                    <stringValue>Data Table</stringValue>
                 </value>
             </inputParameters>
             <inputParameters>
