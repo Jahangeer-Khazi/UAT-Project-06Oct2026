@@ -1028,7 +1028,7 @@ global class CreditCardCashCollateral {
                         request1.setHeader('userId', objCase.Account.PersonEmail);
                         request1.setHeader('customerId', objCase.Account.CIF__pc);
                         // request1.setHeader('includeOtherProducts', 'true');
-                        
+                        request1.setTimeout(120000);
                         system.debug('---> request1 --> '+request1.getBody());
                         HttpResponse response1 = http1.send(request1);
                         system.debug('---> Response New 111 --> '+response1.getBody());
@@ -1107,7 +1107,7 @@ global class CreditCardCashCollateral {
                         request.setBody(body);
                         request.setHeader('userId', objCase.Account.PersonEmail);
                         request.setHeader('customerId', objCase.Account.CIF__pc);
-                        
+                        request.setTimeout(120000);
                         system.debug('---> request --> '+request.getBody());
                         HttpResponse response = http.send(request);
                         
@@ -1176,7 +1176,7 @@ global class CreditCardCashCollateral {
                         request1.setHeader('userId', objCase.Account.PersonEmail);
                         request1.setHeader('customerId', objCase.Account.CIF__pc);
                         // request1.setHeader('includeOtherProducts', 'true');
-                        
+                        request1.setTimeout(120000);
                         system.debug('---> request1 --> '+request1.getBody());
                         HttpResponse response1 = http1.send(request1);
                         system.debug('---> Response New 111 --> '+response1.getBody());
@@ -1286,7 +1286,7 @@ global class CreditCardCashCollateral {
                             request.setBody(body);
                             request.setHeader('userId', objCase.Account.PersonEmail);
                             request.setHeader('customerId', objCase.Account.CIF__pc);
-                            
+                            request.setTimeout(120000);
                             system.debug('---> REQUEST IN CASH COLLATERAL FOR NON BALANCE TRANSFER CARDS  --> '+request.getBody());
                             HttpResponse response = http.send(request);
                             
@@ -1397,7 +1397,7 @@ global class CreditCardCashCollateral {
                         request1.setHeader('userId', objCase.Account.PersonEmail);
                         request1.setHeader('customerId', objCase.Account.CIF__pc);
                         // request1.setHeader('includeOtherProducts', 'true');
-                        
+                        request1.setTimeout(120000);
                         system.debug('---> request1 --> '+request1.getBody());
                         HttpResponse response1 = http1.send(request1);
                         system.debug('---> Response New 111 --> '+response1.getBody());
@@ -1506,7 +1506,7 @@ global class CreditCardCashCollateral {
                                 request.setBody(body);
                                 request.setHeader('userId', objCase.Account.PersonEmail);
                                 request.setHeader('customerId', objCase.Account.CIF__pc);
-                                
+                                request.setTimeout(120000);
                                 system.debug('---> request in ILA SWITCH-BALANCE TRANSFER FOR CASH COLLATERAL --> '+request.getBody());
                                 HttpResponse response = http.send(request);
                                 if (response.getStatusCode() != 200) 
@@ -1945,7 +1945,7 @@ objCase.cc_HR_Result_Date_Time__c = system.now();
                         request1.setHeader('userId', objCase.Account.PersonEmail);
                         request1.setHeader('customerId', objCase.Account.CIF__pc);
                         // request1.setHeader('includeOtherProducts', 'true');
-                        
+                        request1.setTimeout(120000);
                         system.debug('---> request1 --> '+request1.getBody());
                         HttpResponse response1 = http1.send(request1);
                         system.debug('---> Response New 111 --> '+response1.getBody());
@@ -2012,7 +2012,7 @@ objCase.cc_HR_Result_Date_Time__c = system.now();
                             request.setBody(body);
                             request.setHeader('userId', objCase.Account.PersonEmail);
                             request.setHeader('customerId', objCase.Account.CIF__pc);
-                            
+                            request.setTimeout(120000);
                             system.debug('---> REQUEST IN CASH COLLATERAL FOR NON BALANCE TRANSFER CARDS ILA BLUE JORDAN  --> '+request.getBody());
                             HttpResponse response = http.send(request);
                             
@@ -2057,7 +2057,7 @@ objCase.cc_HR_Result_Date_Time__c = system.now();
                         request1.setHeader('userId', objCase.Account.PersonEmail);
                         request1.setHeader('customerId', objCase.Account.CIF__pc);
                         // request1.setHeader('includeOtherProducts', 'true');
-                        
+                        request1.setTimeout(120000);
                         system.debug('---> request1 --> '+request1.getBody());
                         HttpResponse response1 = http1.send(request1);
                         system.debug('---> Response New 111 --> '+response1.getBody());
@@ -2137,7 +2137,7 @@ objCase.cc_HR_Result_Date_Time__c = system.now();
                         request.setBody(body);
                         request.setHeader('userId', objCase.Account.PersonEmail);
                         request.setHeader('customerId', objCase.Account.CIF__pc);
-                        
+                        request.setTimeout(120000);
                         system.debug('---> request --> '+request.getBody());
                         HttpResponse response = http.send(request);
                         
