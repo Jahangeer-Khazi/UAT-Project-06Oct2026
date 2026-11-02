@@ -6985,7 +6985,7 @@
             <fieldText>Agent Review</fieldText>
             <fieldType>RadioButtonGroup</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -6994,6 +6994,10 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!Agent_Review}))</formulaExpression>
+            </validationRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -7562,7 +7566,7 @@
             <fieldText>Agent Review</fieldText>
             <fieldType>RadioButtonGroup</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -7571,6 +7575,10 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!Failed_Authenticatedd}))</formulaExpression>
+            </validationRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -7771,7 +7779,7 @@
             <fieldText>Agent Review</fieldText>
             <fieldType>RadioButtonGroup</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -7780,6 +7788,10 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!Copy_1_of_Agent_Review}))</formulaExpression>
+            </validationRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -7859,7 +7871,7 @@
             <fieldText>Agent Review</fieldText>
             <fieldType>RadioButtonGroup</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -7868,6 +7880,10 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!AgentReview2}))</formulaExpression>
+            </validationRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
