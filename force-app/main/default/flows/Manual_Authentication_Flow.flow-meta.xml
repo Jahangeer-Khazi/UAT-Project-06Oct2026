@@ -31,6 +31,23 @@
     <apiVersion>64.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
+        <description>Replaces the public question list with the filtered list that has no Passport Expiry Date question.</description>
+        <name>Use_Public_Questions_Without_Passport</name>
+        <label>Use Public Questions Without Passport</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varPublicQuestionList</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Remove_Passport_Question</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Private_Questions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Authentication_Answer_Null</name>
         <label>Authentication Answer Null</label>
         <locationX>0</locationX>
@@ -3715,6 +3732,28 @@
         </value>
     </choices>
     <collectionProcessors>
+        <description>Removes the Passport Expiry Date question from the public questions. Passport expiry is asked only of prospects.</description>
+        <name>Remove_Passport_Question</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Remove Passport Question</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_Remove_Passport_Question</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>varPublicQuestionList</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_Remove_Passport_Question.Account_Field_API_Name__c</leftValueReference>
+            <operator>NotEqualTo</operator>
+            <rightValue>
+                <stringValue>Passport_Expiry_Date__pc</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>Use_Public_Questions_Without_Passport</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>Sort_Optional_Collection_List</name>
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Optional Collection List</label>
@@ -3737,6 +3776,32 @@
             <stringValue>{&quot;location&quot;:&quot;top&quot;,&quot;type&quot;:&quot;simple&quot;}</stringValue>
         </value>
     </customProperties>
+    <decisions>
+        <description>Only a Prospect record type keeps the Passport Expiry Date question. Staff and customers outside Regular and Premium also reach the prospect questions, and lose it here.</description>
+        <name>Is_Prospect_Record_Type</name>
+        <label>Is Prospect Record Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Remove_Passport_Question</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not a Prospect</defaultConnectorLabel>
+        <rules>
+            <name>Prospect_Record_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AcctRecord.Customer_Record_Type__pc</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Prospect</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Private_Questions</targetReference>
+            </connector>
+            <label>Prospect</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Check_Authentication_Status</name>
         <label>Check Authentication Status</label>
@@ -6649,7 +6714,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Private_Questions</targetReference>
+            <targetReference>Is_Prospect_Record_Type</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Fault_Setup</targetReference>
@@ -10154,6 +10219,14 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>currentItem_Remove_Passport_Question</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Security_Question__c</objectType>
+    </variables>
     <variables>
         <name>AcctRecord</name>
         <dataType>SObject</dataType>
