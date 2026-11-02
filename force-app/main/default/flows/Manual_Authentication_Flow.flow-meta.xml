@@ -5605,6 +5605,12 @@
         <expression>{!Authentication_List1.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List1.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List1.Notes__c}) &amp; BR()</expression>
     </formulas>
     <formulas>
+        <description>Default Case Model for the failed-authentication and Fraud cases: the customer's Subscription Model when it is alburaq, otherwise ila. Matches the Case_Model_Match_Person_SubsModel validation rule.</description>
+        <name>CaseModelDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!AcctRecord.Subscription_Model__pc}) = &quot;alburaq&quot;, &quot;alburaq&quot;, &quot;ila&quot;)</expression>
+    </formulas>
+    <formulas>
         <name>LastWeek</name>
         <dataType>Date</dataType>
         <expression>{!$Flow.CurrentDate} - 7</expression>
@@ -6538,6 +6544,7 @@
         <queriedFields>PersonMailingPostalCode</queriedFields>
         <queriedFields>PersonMailingCountry</queriedFields>
         <queriedFields>Customer_Record_Type__pc</queriedFields>
+        <queriedFields>Subscription_Model__pc</queriedFields>
         <queriedFields>Segment__pc</queriedFields>
     </recordLookups>
     <recordLookups>
@@ -7000,7 +7007,9 @@
             <choiceReferences>ila</choiceReferences>
             <choiceReferences>alburaq</choiceReferences>
             <dataType>String</dataType>
-            <defaultSelectedChoiceReference>ila</defaultSelectedChoiceReference>
+            <defaultValue>
+                <elementReference>CaseModelDefault</elementReference>
+            </defaultValue>
             <fieldText>Case Model</fieldText>
             <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -7940,7 +7949,9 @@
             <choiceReferences>ila</choiceReferences>
             <choiceReferences>alburaq</choiceReferences>
             <dataType>String</dataType>
-            <defaultSelectedChoiceReference>ila</defaultSelectedChoiceReference>
+            <defaultValue>
+                <elementReference>CaseModelDefault</elementReference>
+            </defaultValue>
             <fieldText>Case Model</fieldText>
             <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -8029,7 +8040,9 @@
             <choiceReferences>ila</choiceReferences>
             <choiceReferences>alburaq</choiceReferences>
             <dataType>String</dataType>
-            <defaultSelectedChoiceReference>ila</defaultSelectedChoiceReference>
+            <defaultValue>
+                <elementReference>CaseModelDefault</elementReference>
+            </defaultValue>
             <fieldText>Case Model</fieldText>
             <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -8136,7 +8149,9 @@
             <choiceReferences>ila</choiceReferences>
             <choiceReferences>alburaq</choiceReferences>
             <dataType>String</dataType>
-            <defaultSelectedChoiceReference>ila</defaultSelectedChoiceReference>
+            <defaultValue>
+                <elementReference>CaseModelDefault</elementReference>
+            </defaultValue>
             <fieldText>Case Model</fieldText>
             <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
