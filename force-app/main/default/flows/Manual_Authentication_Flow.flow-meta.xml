@@ -31,6 +31,78 @@
     <apiVersion>64.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
+        <description>Agent clicked Next without choosing an outcome: show the error and return to the same screen.</description>
+        <name>Show_Agent_Review_Error_1</name>
+        <label>Show Agent Review Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ShowAgentReviewError1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_1_of_Display_Questions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Agent clicked Next without choosing an outcome: show the error and return to the same screen.</description>
+        <name>Show_Agent_Review_Error_2</name>
+        <label>Show Agent Review Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ShowAgentReviewError2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_2_of_Display_Questions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Agent clicked Next without choosing an outcome: show the error and return to the same screen.</description>
+        <name>Show_Agent_Review_Error_3</name>
+        <label>Show Agent Review Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ShowAgentReviewError3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_4_of_Display_Questions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Agent clicked Next without choosing an outcome: show the error and return to the same screen.</description>
+        <name>Show_Agent_Review_Error_4</name>
+        <label>Show Agent Review Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ShowAgentReviewError4</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_5_of_Display_Questions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Replaces the public question list with the filtered list that has no Passport Expiry Date question.</description>
         <name>Use_Public_Questions_Without_Passport</name>
         <label>Use Public Questions Without Passport</label>
@@ -3940,6 +4012,28 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
+            <name>No_Outcome_Selected_2</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Failed_Authenticatedd</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Failed_Authenticatedd</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Agent_Review_Error_2</targetReference>
+            </connector>
+            <label>No Outcome Selected</label>
+        </rules>
+        <rules>
             <name>Failed_Authentication</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -3965,6 +4059,28 @@
             <targetReference>Authentication_List1</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Outcome_Selected_3</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Copy_1_of_Agent_Review</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Copy_1_of_Agent_Review</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Agent_Review_Error_3</targetReference>
+            </connector>
+            <label>No Outcome Selected</label>
+        </rules>
         <rules>
             <name>Failed_AuthenticationFA4</name>
             <conditionLogic>and</conditionLogic>
@@ -4193,6 +4309,28 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
+            <name>No_Outcome_Selected_1</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Agent_Review</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Agent_Review</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Agent_Review_Error_1</targetReference>
+            </connector>
+            <label>No Outcome Selected</label>
+        </rules>
+        <rules>
             <name>Copy_1_of_Failed_Authentication</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -4257,6 +4395,28 @@
             <targetReference>Authentication_List1</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Outcome_Selected_4</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>AgentReview2</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AgentReview2</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Agent_Review_Error_4</targetReference>
+            </connector>
+            <label>No Outcome Selected</label>
+        </rules>
         <rules>
             <name>Copy_2_of_Failed_Authentication</name>
             <conditionLogic>and</conditionLogic>
@@ -6994,10 +7154,29 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
-            <validationRule>
-                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
-                <formulaExpression>NOT(ISBLANK({!Agent_Review}))</formulaExpression>
-            </validationRule>
+        </fields>
+        <fields>
+            <name>Agent_Review_Error_1</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowAgentReviewError1</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -7575,10 +7754,29 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
-            <validationRule>
-                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
-                <formulaExpression>NOT(ISBLANK({!Failed_Authenticatedd}))</formulaExpression>
-            </validationRule>
+        </fields>
+        <fields>
+            <name>Agent_Review_Error_2</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowAgentReviewError2</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -7788,10 +7986,29 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
-            <validationRule>
-                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
-                <formulaExpression>NOT(ISBLANK({!Copy_1_of_Agent_Review}))</formulaExpression>
-            </validationRule>
+        </fields>
+        <fields>
+            <name>Agent_Review_Error_3</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowAgentReviewError3</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -7880,10 +8097,29 @@
                     <stringValue>12</stringValue>
                 </width>
             </styleProperties>
-            <validationRule>
-                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</errorMessage>
-                <formulaExpression>NOT(ISBLANK({!AgentReview2}))</formulaExpression>
-            </validationRule>
+        </fields>
+        <fields>
+            <name>Agent_Review_Error_4</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a value for the authentication outcome to complete the process&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowAgentReviewError4</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -10235,6 +10471,46 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>ShowAgentReviewError1</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ShowAgentReviewError2</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ShowAgentReviewError3</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ShowAgentReviewError4</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
     <variables>
         <name>currentItem_Remove_Passport_Question</name>
         <dataType>SObject</dataType>
