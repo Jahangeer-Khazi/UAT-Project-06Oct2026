@@ -5611,6 +5611,12 @@
         <expression>IF(TEXT({!AcctRecord.Subscription_Model__pc}) = &quot;alburaq&quot;, &quot;alburaq&quot;, &quot;ila&quot;)</expression>
     </formulas>
     <formulas>
+        <description>"prospect" when the Account record type is Prospect, otherwise "customer". Used in the Welcome screen text.</description>
+        <name>CustomerOrProspect</name>
+        <dataType>String</dataType>
+        <expression>IF({!AcctRecord.Customer_Record_Type__pc} = &quot;Prospect&quot;, &quot;prospect&quot;, &quot;customer&quot;)</expression>
+    </formulas>
+    <formulas>
         <name>LastWeek</name>
         <dataType>Date</dataType>
         <expression>{!$Flow.CurrentDate} - 7</expression>
@@ -5657,8 +5663,8 @@
         <dataType>String</dataType>
         <expression>{!Authentication_List_Unable.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Unable.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Unable.Notes__c}) &amp; BR()</expression>
     </formulas>
-    <interviewLabel>Manual Authentication Flow {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Manual Authentication Flow</label>
+    <interviewLabel>Authentication Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Authentication Flow</label>
     <loops>
         <name>Authentication_List</name>
         <label>Authentication List</label>
@@ -10113,7 +10119,7 @@
         </connector>
         <fields>
             <name>Welcome_Text</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(98, 87, 202); font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Please use this manual authentication to identify the customer.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(98, 87, 202); font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Please use this manual authentication to identify the {!CustomerOrProspect}.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
