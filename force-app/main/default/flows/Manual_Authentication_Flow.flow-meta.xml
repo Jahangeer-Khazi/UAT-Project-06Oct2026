@@ -3764,6 +3764,15 @@
         </value>
     </choices>
     <choices>
+        <description>Agent Review label. Stores the same value as FailedAuthenticated, so the outcome decisions still match.</description>
+        <name>FailedAuthenticatedReview</name>
+        <choiceText>Failed Authenticated</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Failed Authentication</stringValue>
+        </value>
+    </choices>
+    <choices>
         <name>FailedAuthenticated</name>
         <choiceText>Failed Authentication</choiceText>
         <dataType>String</dataType>
@@ -7139,7 +7148,7 @@
         </fields>
         <fields>
             <name>Agent_Review</name>
-            <choiceReferences>FailedAuthenticated</choiceReferences>
+            <choiceReferences>FailedAuthenticatedReview</choiceReferences>
             <choiceReferences>ReportToFraud</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Agent Review</fieldText>
@@ -7753,7 +7762,7 @@
         </fields>
         <fields>
             <name>Failed_Authenticatedd</name>
-            <choiceReferences>FailedAuthenticated</choiceReferences>
+            <choiceReferences>FailedAuthenticatedReview</choiceReferences>
             <choiceReferences>ReportToFraud</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Agent Review</fieldText>
@@ -7999,7 +8008,7 @@
         </fields>
         <fields>
             <name>Copy_1_of_Agent_Review</name>
-            <choiceReferences>FailedAuthenticated</choiceReferences>
+            <choiceReferences>FailedAuthenticatedReview</choiceReferences>
             <choiceReferences>ReportToFraud</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Agent Review</fieldText>
@@ -8124,7 +8133,7 @@
         </fields>
         <fields>
             <name>AgentReview2</name>
-            <choiceReferences>FailedAuthenticated</choiceReferences>
+            <choiceReferences>FailedAuthenticatedReview</choiceReferences>
             <choiceReferences>ReportToFraud</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Agent Review</fieldText>
