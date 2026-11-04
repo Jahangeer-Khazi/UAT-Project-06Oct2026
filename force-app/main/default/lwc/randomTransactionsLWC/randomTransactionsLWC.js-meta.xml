@@ -27,6 +27,13 @@
         label="Region Flag"
       />
 
+            <property
+        name="subscriptionModel"
+        type="String"
+        role="inputOnly"
+        label="Subscription Model"
+      />
+
         </targetConfig>
 
     </targetConfigs>

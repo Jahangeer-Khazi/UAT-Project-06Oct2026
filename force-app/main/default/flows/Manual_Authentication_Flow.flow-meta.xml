@@ -5894,6 +5894,12 @@
         <expression>IF(TEXT({!AcctRecord.Subscription_Model__pc}) = &quot;alburaq&quot;, &quot;alburaq&quot;, &quot;ila&quot;)</expression>
     </formulas>
     <formulas>
+        <description>The customer's Subscription Model as text, passed to the recent-transactions component so alburaq customers are looked up with the Bahrain_alburaq region.</description>
+        <name>SubscriptionModelText</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!AcctRecord.Subscription_Model__pc})</expression>
+    </formulas>
+    <formulas>
         <description>"prospect" when the Account record type is Prospect, otherwise "customer". Used in the Welcome screen text.</description>
         <name>CustomerOrProspect</name>
         <dataType>String</dataType>
@@ -9723,6 +9729,12 @@
                 <name>regionName</name>
                 <value>
                     <elementReference>AcctRecord.Region_Flag__c</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>subscriptionModel</name>
+                <value>
+                    <elementReference>SubscriptionModelText</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>

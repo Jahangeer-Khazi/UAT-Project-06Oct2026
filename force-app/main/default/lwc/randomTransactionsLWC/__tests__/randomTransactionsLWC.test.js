@@ -40,12 +40,13 @@ function transaction(day) {
 // eslint-disable-next-line @lwc/lwc/no-async-operation
 const flushPromises = () => new Promise((resolve) => setTimeout(resolve, 0));
 
-function createComponent() {
+function createComponent(regionName = "BH", subscriptionModel) {
   const element = createElement("c-random-transactions-lwc", {
     is: RandomTransactionsLWC
   });
   element.customerId = "CIF1";
-  element.regionName = "BH";
+  element.regionName = regionName;
+  element.subscriptionModel = subscriptionModel;
   document.body.appendChild(element);
   return element;
 }
@@ -100,5 +101,37 @@ describe("c-random-transactions-lwc", () => {
     expect(element.shadowRoot.querySelector("div").textContent).toContain(
       "No Transaction Data found for customer: CIF1"
     );
+  });
+
+  it("uses the alburaq region for alburaq customers", async () => {
+    loadAccountList.mockResolvedValue(ACCOUNTS);
+    loadAccountTransactions.mockResolvedValue({
+      isSuccess: true,
+      responseData: [transaction(1)]
+    });
+
+    createComponent("Bahrain", "alburaq");
+    await flushPromises();
+    await flushPromises();
+
+    expect(loadAccountList.mock.calls[0][0].regionName).toBe("Bahrain_alburaq");
+    expect(loadAccountTransactions.mock.calls[0][0].regionName).toBe(
+      "Bahrain_alburaq"
+    );
+  });
+
+  it("keeps the region as is for other subscription models", async () => {
+    loadAccountList.mockResolvedValue(ACCOUNTS);
+    loadAccountTransactions.mockResolvedValue({
+      isSuccess: true,
+      responseData: [transaction(1)]
+    });
+
+    createComponent("Bahrain", "both");
+    await flushPromises();
+    await flushPromises();
+
+    expect(loadAccountList.mock.calls[0][0].regionName).toBe("Bahrain");
+    expect(loadAccountTransactions.mock.calls[0][0].regionName).toBe("Bahrain");
   });
 });

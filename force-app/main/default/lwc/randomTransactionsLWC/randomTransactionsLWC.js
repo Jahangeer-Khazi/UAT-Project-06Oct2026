@@ -16,6 +16,8 @@ export default class RandomTransactionsLWC extends LightningElement {
   // Input from Flow
   @api customerId;
   @api regionName;
+  // Customer's Subscription Model; alburaq customers are served by the alburaq unit
+  @api subscriptionModel;
 
   gridDataRows = [];
   isLoading = true;
@@ -71,6 +73,20 @@ export default class RandomTransactionsLWC extends LightningElement {
     this.loadData();
   }
 
+  // Region sent to Apex: alburaq customers need the "_alburaq" suffix (e.g. Bahrain_alburaq)
+  // so ApiConnection calls the alburaq unit, same as the bankAccountsList component
+  get apiRegionName() {
+    const region = this.regionName;
+    if (
+      this.subscriptionModel === "alburaq" &&
+      region &&
+      !region.toLowerCase().endsWith("_alburaq")
+    ) {
+      return `${region}_alburaq`;
+    }
+    return region;
+  }
+
   get hasTransactionData() {
     return this.gridDataRows && this.gridDataRows.length > 0;
   }
@@ -80,7 +96,7 @@ export default class RandomTransactionsLWC extends LightningElement {
     try {
       const accountResult = await loadAccountList({
         customerId: this.customerId,
-        regionName: this.regionName
+        regionName: this.apiRegionName
       });
       if (this.isApiError(accountResult)) {
         return;
@@ -123,7 +139,7 @@ export default class RandomTransactionsLWC extends LightningElement {
     const result = await loadAccountTransactions({
       customerId: this.customerId,
       searchParametersJson: JSON.stringify(searchParametersJson),
-      regionName: this.regionName
+      regionName: this.apiRegionName
     });
     if (this.isApiError(result)) {
       return;
