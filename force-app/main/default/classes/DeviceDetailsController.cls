@@ -11,16 +11,18 @@ public class DeviceDetailsController {
     public static Map<String,Object> loadDeviceList(String accID){
         Map<String,Object> retriveDeviceOptions = new Map<String,Object>();
         List<System_Action__c> lstSA = new List<System_Action__c>();
-        Account accObj = [SELECT Id, CIF__pc,PersonEmail, Region_Flag__c FROM Account WHERE Id=: accID];
+        Account accObj = [SELECT Id, CIF__pc,PersonEmail,Subscription_Model__pc, Region_Flag__c FROM Account WHERE Id=: accID];
          
-        String regionName = accObj.Region_Flag__c;
+       // String regionName = accObj.Region_Flag__c;
         
         Http http = new Http();
         HttpRequest request = new HttpRequest();
-       
-        request = con.createRequest('GET','/api/v1/ping/user/devices', regionName);
-
-        request.setHeader('customerId', accObj.CIF__pc);
+        String regionFlag = accObj.Region_Flag__c;
+        if(accObj.Subscription_Model__pc == 'alburaq'){
+            regionFlag += '_alburaq';
+        }
+        request = con.createRequest('GET','/api/v1/ping/user/devices',accObj.CIF__pc,regionFlag);
+        //request.setHeader('customerId', accObj.CIF__pc);
 
         System.debug('request==>'+Request.getEndpoint());
         system.debug('---> Request --> '+request.getBody());
