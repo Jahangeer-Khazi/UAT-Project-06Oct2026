@@ -8708,7 +8708,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_3</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Residency Permit Number found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Residency Permit Number found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -8843,7 +8843,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_5</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Passport Expiry Date found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Passport Expiry Date found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -8978,7 +8978,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_7</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Date of Birth found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Date of Birth found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -9113,7 +9113,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_8</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Employer Name found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Employer Name found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -9248,7 +9248,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_9</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Registered Residential Address found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Registered Residential Address found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -9383,7 +9383,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_6</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No CPR Number found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No CPR Number found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -9518,7 +9518,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_1</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Email found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Email found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -10486,7 +10486,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_2</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No Residency Permit Expiry Date found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No Residency Permit Expiry Date found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -10621,7 +10621,7 @@
         </fields>
         <fields>
             <name>Missing_Answer_Error_4</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Error: No CPR Expiry Date found for customer : {!AcctRecord.CIF__pc}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(194, 57, 52);&quot;&gt;No CPR Expiry Date found for customer : {!AcctRecord.CIF__pc}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
