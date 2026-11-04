@@ -5870,22 +5870,22 @@
     <formulas>
         <name>cseDescriptionQuestions</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List.Result__c}) &amp; IF(ISBLANK(TEXT({!Authentication_List.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Authentication_List.Notes__c})) &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>cseDescriptionQuestions2</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_ListFA.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_ListFA.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_ListFA.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_ListFA.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_ListFA.Result__c}) &amp; IF(ISBLANK(TEXT({!Authentication_ListFA.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Authentication_ListFA.Notes__c})) &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>cseDescriptionQuestionsFraud</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Copy_1_of_Authentication_List.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Copy_1_of_Authentication_List.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Copy_1_of_Authentication_List.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Copy_1_of_Authentication_List.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Copy_1_of_Authentication_List.Result__c}) &amp; IF(ISBLANK(TEXT({!Copy_1_of_Authentication_List.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Copy_1_of_Authentication_List.Notes__c})) &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>cseDescriptionQuestionsFraud2</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List1.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List1.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List1.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List1.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List1.Result__c}) &amp; IF(ISBLANK(TEXT({!Authentication_List1.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Authentication_List1.Notes__c})) &amp; BR()</expression>
     </formulas>
     <formulas>
         <description>Default Case Model for the failed-authentication and Fraud cases: the customer's Subscription Model when it is alburaq, otherwise ila. Matches the Case_Model_Match_Person_SubsModel validation rule.</description>
@@ -5940,17 +5940,17 @@
     <formulas>
         <name>cseDescriptionQuestionsSuccess</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List_Success.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Success.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List_Success.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success.Result__c}) &amp; IF(ISBLANK(TEXT({!Authentication_List_Success.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Authentication_List_Success.Notes__c})) &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>cseDescriptionQuestionsSuccess2</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List_Success2.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success2.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Success2.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List_Success2.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Success2.Result__c}) &amp; IF(ISBLANK(TEXT({!Authentication_List_Success2.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Authentication_List_Success2.Notes__c})) &amp; BR()</expression>
     </formulas>
     <formulas>
         <name>cseDescriptionQuestionsUnable</name>
         <dataType>String</dataType>
-        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List_Unable.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Unable.Result__c}) &amp; &quot; - &quot; &amp; TEXT({!Authentication_List_Unable.Notes__c}) &amp; BR()</expression>
+        <expression>&quot;Q&quot; &amp; TEXT({!DescriptionQuestionNumber}) &amp; &quot;: &quot; &amp; {!Authentication_List_Unable.Questions_Name__c}  &amp; &quot; - &quot;  &amp; TEXT({!Authentication_List_Unable.Result__c}) &amp; IF(ISBLANK(TEXT({!Authentication_List_Unable.Notes__c})), &quot;&quot;, &quot; - &quot; &amp; TEXT({!Authentication_List_Unable.Notes__c})) &amp; BR()</expression>
     </formulas>
     <interviewLabel>Authentication Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Authentication Flow</label>
