@@ -290,13 +290,17 @@ public class DeviceDetailsController {
         
         List<SavingPotWrapper> pots = new List<SavingPotWrapper>();
         
-        Account accObj = [SELECT Id,CIF__pc,PersonEmail,Region_Flag__c,x_canary__pc FROM Account WHERE Id = :accID];
+        Account accObj = [SELECT Id,CIF__pc,PersonEmail,Subscription_Model__pc,Region_Flag__c,x_canary__pc FROM Account WHERE Id = :accID];
         
         try {
             
             HttpRequest request = new HttpRequest();
+            String regionFlag = accObj.Region_Flag__c;
+            if(accObj.Subscription_Model__pc == 'alburaq'){
+                regionFlag += '_alburaq';
+            }
             
-            request = con.createRequest('GET','/api/v1/pots',accObj.Region_Flag__c);
+            request = con.createRequest('GET','/api/v1/pots',accObj.CIF__pc,regionFlag);
             
             request.setHeader('userId', accObj.PersonEmail);
             request.setHeader('customerId', accObj.CIF__pc);
@@ -383,8 +387,8 @@ public class DeviceDetailsController {
             
             request = con.createRequest('GET','/api/v1/cards',accObj.CIF__pc,regionFlag);
             
-            request.setHeader('userId', accObj.PersonEmail);
-            request.setHeader('customerId', accObj.CIF__pc);
+            //request.setHeader('userId', accObj.PersonEmail);
+            //request.setHeader('customerId', accObj.CIF__pc);
             
             if(accObj.x_canary__pc != null){
                 request.setHeader('x-canary', accObj.x_canary__pc);
@@ -449,16 +453,20 @@ public class DeviceDetailsController {
         
         List<BankAccountWrapper> foreignAcctsList = new List<BankAccountWrapper>();
         
-        Account accObj = [SELECT Id,CIF__pc,PersonEmail,Region_Flag__c,x_canary__pc FROM Account WHERE Id = :accID];
+        Account accObj = [SELECT Id,CIF__pc,PersonEmail,Subscription_Model__pc,Region_Flag__c,x_canary__pc FROM Account WHERE Id = :accID];
         
         try {
             
             HttpRequest request = new HttpRequest();
+            String regionFlag = accObj.Region_Flag__c;
+            if(accObj.Subscription_Model__pc == 'alburaq'){
+                regionFlag += '_alburaq';
+            }
             
-            request = con.createRequest('GET','/api/v1/accounts',accObj.Region_Flag__c);
+            request = con.createRequest('GET','/api/v1/accounts',accObj.CIF__pc,regionFlag);
             
-            request.setHeader('userId', accObj.PersonEmail);
-            request.setHeader('customerId', accObj.CIF__pc);
+           // request.setHeader('userId', accObj.PersonEmail);
+            //request.setHeader('customerId', accObj.CIF__pc);
             
             if(accObj.x_canary__pc != null){
                 request.setHeader('x-canary', accObj.x_canary__pc);
