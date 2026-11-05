@@ -5906,12 +5906,13 @@
         <expression>IF({!AcctRecord.Customer_Record_Type__pc} = &quot;Prospect&quot;, &quot;prospect&quot;, &quot;customer&quot;)</expression>
     </formulas>
     <formulas>
+        <description>Start of the failed-attempt window: today minus 30 days. The name is kept from the original 7-day window.</description>
         <name>LastWeek</name>
         <dataType>Date</dataType>
-        <expression>{!$Flow.CurrentDate} - 7</expression>
+        <expression>{!$Flow.CurrentDate} - 30</expression>
     </formulas>
     <formulas>
-        <description>Failed attempts in the last 7 days, including the attempt that is failing now. Up to 3 creates an Enquiry case; more than 3 creates an Internal (Fraud) case.</description>
+        <description>Failed attempts in the last 30 days, including the attempt that is failing now. Up to 3 creates an Enquiry case; more than 3 creates an Internal (Fraud) case.</description>
         <name>FailedAttemptsIncludingCurrent</name>
         <dataType>Number</dataType>
         <expression>{!varNumberAttemptsLstWeek} + 1</expression>
@@ -10782,7 +10783,7 @@
         </fields>
         <fields>
             <name>Number_of_Attempts_last_week</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(98, 87, 202); background-color: rgb(255, 255, 255);&quot;&gt;Failed Authentication Attempts in last seven days:  {!varNumberAttemptsLstWeek}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(98, 87, 202); background-color: rgb(255, 255, 255);&quot;&gt;Failed Authentication Attempts in last 30 days:  {!varNumberAttemptsLstWeek}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
