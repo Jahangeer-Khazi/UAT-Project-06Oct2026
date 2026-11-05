@@ -43,7 +43,16 @@ export default class DeviceDetails extends LightningElement {
         {
             label: 'Device Last Login',
             fieldName: 'deviceLastLogin',
-            type: 'text'
+            // Shown in the user's time zone, e.g. 05 Nov 2026, 18:40
+            type: 'date',
+            typeAttributes: {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }
         }
     ];
 
@@ -74,7 +83,7 @@ export default class DeviceDetails extends LightningElement {
                     manufacturer : deviceObj.manufacturer,
                     model : deviceObj.model.name,
                     os : deviceObj.os.name,
-                    deviceLastLogin : deviceObj.lastLogin.deviceLastLogin
+                    deviceLastLogin : this.toTimestamp(deviceObj.lastLogin ? deviceObj.lastLogin.deviceLastLogin : null)
                 });
 
             });
@@ -125,6 +134,16 @@ export default class DeviceDetails extends LightningElement {
             this.isLoading = false;
         });
     }
+    // The API sends UTC without a zone, e.g. 2026-11-05T13:10:25.926; read it as UTC
+    toTimestamp(value) {
+        if (!value) {
+            return null;
+        }
+        const hasZone = /(Z|[+-]\d{2}:?\d{2})$/i.test(value);
+        const time = new Date(hasZone ? value : value + 'Z').getTime();
+        return isNaN(time) ? null : time;
+    }
+
     get hasDeviceData() {
         return this.deviceData && this.deviceData.length > 0;
     }
