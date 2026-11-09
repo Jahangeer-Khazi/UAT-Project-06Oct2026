@@ -6217,7 +6217,7 @@
         <inputAssignments>
             <field>Manual_Authentication_Summary__c</field>
             <value>
-                <elementReference>caseDescription</elementReference>
+                <elementReference>Copy_1_of_Descriptionn</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6480,7 +6480,7 @@
         <inputAssignments>
             <field>Manual_Authentication_Summary__c</field>
             <value>
-                <elementReference>caseDescription</elementReference>
+                <elementReference>Descriptionn</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6527,7 +6527,7 @@
         <inputAssignments>
             <field>Manual_Authentication_Summary__c</field>
             <value>
-                <elementReference>caseDescription</elementReference>
+                <elementReference>DescriptionFA</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6574,7 +6574,7 @@
         <inputAssignments>
             <field>Manual_Authentication_Summary__c</field>
             <value>
-                <elementReference>caseDescription</elementReference>
+                <elementReference>DescriptionFA3</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
