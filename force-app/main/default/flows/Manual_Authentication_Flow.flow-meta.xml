@@ -9484,6 +9484,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question10</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question10</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_1</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -9528,14 +9556,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question10</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_1</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -9545,12 +9568,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError1</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Copy_1_of_Correct_Answer9</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question10</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question10</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question10</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -9564,7 +9615,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -10668,6 +10719,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question3</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question2</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_2</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -10712,14 +10791,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question3</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_2</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -10729,12 +10803,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError2</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer3</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question2</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question3</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question3</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -10748,7 +10850,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -10898,6 +11000,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question5</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question5</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_3</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -10942,14 +11072,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question5</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_3</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -10959,12 +11084,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError3</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer5</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question5</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question5</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question5</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -10978,7 +11131,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -11128,6 +11281,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question7</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question7</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_4</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -11172,14 +11353,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question7</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_4</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -11189,12 +11365,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError4</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer7</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question7</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question7</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question7</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -11208,7 +11412,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -11358,6 +11562,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question8</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question8</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_5</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -11402,14 +11634,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question8</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_5</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -11419,12 +11646,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError5</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer8</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question8</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question8</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question8</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -11438,7 +11693,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -11588,6 +11843,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question9</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question9</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_6</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -11632,14 +11915,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question9</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_6</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -11649,12 +11927,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError6</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer9</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question9</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question9</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question9</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -11668,7 +11974,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -11818,6 +12124,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question6</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question6</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_7</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -11862,14 +12196,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question6</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_7</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -11879,12 +12208,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError7</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer6</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question6</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question6</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question6</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -11898,7 +12255,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -12119,6 +12476,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question11</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question11</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_8</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -12163,14 +12548,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question11</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_8</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -12180,12 +12560,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError8</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer11</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question11</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question11</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question11</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -12199,7 +12607,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -12347,6 +12755,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question12</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question12</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_9</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -12391,14 +12827,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question12</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_9</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -12408,12 +12839,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError9</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer12</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question12</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question12</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question12</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -12427,7 +12886,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -12569,6 +13028,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Copy_1_of_Reason_for_replacing_this_question12</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question13</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_10</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -12613,14 +13100,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Copy_1_of_Reason_for_replacing_this_question12</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_10</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -12630,12 +13112,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError10</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer13</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question13</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Copy_1_of_Reason_for_replacing_this_question12</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Copy_1_of_Reason_for_replacing_this_question12</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -12649,7 +13159,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -12791,6 +13301,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question14</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question14</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_11</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -12835,14 +13373,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question14</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_11</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -12852,12 +13385,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError11</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer14</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question14</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question14</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question14</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -12871,7 +13432,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -13013,6 +13574,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question15</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question15</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_12</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -13057,14 +13646,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question15</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_12</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -13074,12 +13658,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError12</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer15</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question15</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question15</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question15</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -13093,7 +13705,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -13235,6 +13847,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question16</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question16</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_13</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -13279,14 +13919,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question16</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_13</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -13296,12 +13931,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError13</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer16</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question16</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question16</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question16</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -13315,7 +13978,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -13457,6 +14120,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question17</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question17</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_14</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -13501,14 +14192,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question17</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_14</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -13518,12 +14204,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError14</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer17</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question17</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question17</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question17</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -13537,7 +14251,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -13687,6 +14401,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_15</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -13731,14 +14473,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_15</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -13748,12 +14485,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError15</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -13767,7 +14532,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
@@ -13917,6 +14682,34 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Reason_for_replacing_this_question4</name>
+            <choiceReferences>Doesnotapply</choiceReferences>
+            <choiceReferences>Customerdidnotremember</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Reason for replacing this question</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>6</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_want_to_replace_this_question3</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>Replace_Question_Error_16</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Please select a choice.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -13961,14 +14754,9 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>Reason_for_replacing_this_question4</name>
-            <choiceReferences>Doesnotapply</choiceReferences>
-            <choiceReferences>Customerdidnotremember</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Reason for replacing this question</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <name>Reason_Error_Spacer_16</name>
+            <fieldText>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -13978,12 +14766,40 @@
                 </width>
             </styleProperties>
             <visibilityRule>
-                <conditionLogic>1</conditionLogic>
+                <conditionLogic>1 AND 2 AND 3 AND (4 OR 5)</conditionLogic>
+                <conditions>
+                    <leftValueReference>ShowReasonError16</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Correct_Answer4</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>Do_you_want_to_replace_this_question3</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <elementReference>Yes</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question4</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Reason_for_replacing_this_question4</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue></stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -13997,7 +14813,7 @@
                     <stringValue>top</stringValue>
                 </verticalAlignment>
                 <width>
-                    <stringValue>12</stringValue>
+                    <stringValue>6</stringValue>
                 </width>
             </styleProperties>
             <visibilityRule>
