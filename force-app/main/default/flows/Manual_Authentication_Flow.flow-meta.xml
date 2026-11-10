@@ -3769,6 +3769,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question10</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Copy_1_of_Question_9</targetReference>
@@ -3785,6 +3792,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question2</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3805,6 +3819,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question5</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Ques5</targetReference>
@@ -3821,6 +3842,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer4</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question7</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3841,6 +3869,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question8</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Ques8</targetReference>
@@ -3857,6 +3892,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer6</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question9</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3877,6 +3919,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer7</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question6</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Quest6</targetReference>
@@ -3893,6 +3942,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer8</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question11</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3913,6 +3969,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer9</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question12</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_12</targetReference>
@@ -3929,6 +3992,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question13</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3949,6 +4019,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer11</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question14</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_14</targetReference>
@@ -3965,6 +4042,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer12</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question15</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3985,6 +4069,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer13</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question16</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_16</targetReference>
@@ -4001,6 +4092,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer14</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question17</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4021,6 +4119,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer15</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_2</targetReference>
@@ -4037,6 +4142,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer16</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question3</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4057,6 +4169,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question10</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Copy_1_of_Question_9</targetReference>
@@ -4073,6 +4192,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question2</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4093,6 +4219,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question5</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Ques5</targetReference>
@@ -4109,6 +4242,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer4</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question7</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4129,6 +4269,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question8</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Ques8</targetReference>
@@ -4145,6 +4292,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer6</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question9</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4165,6 +4319,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer7</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question6</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Quest6</targetReference>
@@ -4181,6 +4342,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer8</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question11</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4201,6 +4369,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer9</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question12</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_12</targetReference>
@@ -4217,6 +4392,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question13</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4237,6 +4419,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer11</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question14</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_14</targetReference>
@@ -4253,6 +4442,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer12</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question15</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4273,6 +4469,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer13</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question16</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_16</targetReference>
@@ -4289,6 +4492,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer14</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question17</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -4309,6 +4519,13 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer15</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_2</targetReference>
@@ -4327,9 +4544,288 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer16</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_want_to_replace_this_question3</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Question_4</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_1</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_9_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_2</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_3</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_4_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_4</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer4</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_6_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_5</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_7_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_6</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer6</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_8_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_7</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer7</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_5_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_8</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer8</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count_11</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_9</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer9</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count12</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_10</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count13</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_11</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer11</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count14</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_12</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer12</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count15</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_13</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer13</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count16</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_14</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer14</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Track_Count17</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_15</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer15</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Track_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Answers are complete: forget the remembered replace-question answer so the next visit of this screen starts blank.</description>
+        <name>Clear_Replace_Answer_16</name>
+        <label>Clear Replace Answer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>ReplaceAnswer16</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_3_of_Track_Count</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -6449,7 +6945,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_9_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_1</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6525,7 +7021,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_2_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_2</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6601,7 +7097,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_4_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_3</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6677,7 +7173,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_6_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_4</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6753,7 +7249,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_7_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_5</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6829,7 +7325,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_8_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_6</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6905,7 +7401,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_5_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_7</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -6981,7 +7477,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count_11</targetReference>
+            <targetReference>Clear_Replace_Answer_8</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7057,7 +7553,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count12</targetReference>
+            <targetReference>Clear_Replace_Answer_9</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7133,7 +7629,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count13</targetReference>
+            <targetReference>Clear_Replace_Answer_10</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7209,7 +7705,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count14</targetReference>
+            <targetReference>Clear_Replace_Answer_11</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7285,7 +7781,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count15</targetReference>
+            <targetReference>Clear_Replace_Answer_12</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7361,7 +7857,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count16</targetReference>
+            <targetReference>Clear_Replace_Answer_13</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7437,7 +7933,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Track_Count17</targetReference>
+            <targetReference>Clear_Replace_Answer_14</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7513,7 +8009,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_1_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_15</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -7589,7 +8085,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Copy_3_of_Track_Count</targetReference>
+            <targetReference>Clear_Replace_Answer_16</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -9460,9 +9956,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer1</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -10695,9 +11194,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer2</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -10976,9 +11478,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer3</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -11257,9 +11762,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer4</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -11538,9 +12046,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer5</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -11819,9 +12330,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer6</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -12100,9 +12614,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer7</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -12452,9 +12969,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer8</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -12731,9 +13251,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer9</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -13004,9 +13527,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer10</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -13277,9 +13803,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer11</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -13550,9 +14079,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer12</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -13823,9 +14355,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer13</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -14096,9 +14631,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer14</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -14377,9 +14915,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer15</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -14658,9 +15199,12 @@
             <choiceReferences>Yes</choiceReferences>
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>ReplaceAnswer16</elementReference>
+            </defaultValue>
             <fieldText>Do you want to replace this question?</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <styleProperties>
                 <verticalAlignment>
@@ -15503,5 +16047,133 @@
         <value>
             <booleanValue>false</booleanValue>
         </value>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer1</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer2</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer3</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer4</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer5</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer6</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer7</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer8</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer9</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer10</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer11</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer12</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer13</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer14</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer15</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Replace-question answer kept while the screen is shown again with an error, so the picklist keeps the agent's choice.</description>
+        <name>ReplaceAnswer16</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>
