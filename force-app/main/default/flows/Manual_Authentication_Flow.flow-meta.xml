@@ -2964,6 +2964,13 @@
                 <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>MandatoryQuestionFailed</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_1_of_Q_A1</targetReference>
         </connector>
@@ -5014,6 +5021,21 @@
         </defaultConnector>
         <defaultConnectorLabel>Failed</defaultConnectorLabel>
         <rules>
+            <name>Mandatory_Question_Failed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MandatoryQuestionFailed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_3_of_Error</targetReference>
+            </connector>
+            <label>Mandatory Question Failed</label>
+        </rules>
+        <rules>
             <name>Pass</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -5052,6 +5074,21 @@
                 <targetReference>Question_Types</targetReference>
             </connector>
             <label>Count Less then 4</label>
+        </rules>
+        <rules>
+            <name>Mandatory_Question_Failed_4_Correct</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MandatoryQuestionFailed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Error</targetReference>
+            </connector>
+            <label>Mandatory Question Failed</label>
         </rules>
     </decisions>
     <decisions>
@@ -15671,6 +15708,17 @@
         <isInput>true</isInput>
         <isOutput>true</isOutput>
         <objectType>Security_Question__c</objectType>
+    </variables>
+    <variables>
+        <description>True when the customer answers a mandatory question (Registered email address) incorrectly. The remaining questions still run, but authentication always ends on the Error screen.</description>
+        <name>MandatoryQuestionFailed</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>MandatoryQuestionList</name>
