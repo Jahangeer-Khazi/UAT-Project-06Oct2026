@@ -5061,6 +5061,28 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
+            <name>Mandatory_Question_Failed_3_Correct</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>MandatoryQuestionFailed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TrackCorrectCount</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Error</targetReference>
+            </connector>
+            <label>Mandatory Question Failed</label>
+        </rules>
+        <rules>
             <name>Count_Less_then_4</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -5074,21 +5096,6 @@
                 <targetReference>Question_Types</targetReference>
             </connector>
             <label>Count Less then 4</label>
-        </rules>
-        <rules>
-            <name>Mandatory_Question_Failed_4_Correct</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>MandatoryQuestionFailed</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_1_of_Error</targetReference>
-            </connector>
-            <label>Mandatory Question Failed</label>
         </rules>
     </decisions>
     <decisions>
