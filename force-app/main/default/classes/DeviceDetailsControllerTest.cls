@@ -90,7 +90,10 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void loadDeviceListReturnsEmptyMapOnError() {
         setMock(500, false);
-        Map<String, Object> devices = DeviceDetailsController.loadDeviceList(accountId('111111'));
+        Id accId = accountId('111111');
+        Test.startTest();
+        Map<String, Object> devices = DeviceDetailsController.loadDeviceList(accId);
+        Test.stopTest();
         System.assert(devices.isEmpty());
     }
 
@@ -112,12 +115,15 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void getCurrentCardsThrowsOnInvalidResponse() {
         setMock(200, true);
+        Id accId = accountId('111111');
         Boolean thrown = false;
+        Test.startTest();
         try {
-            DeviceDetailsController.getCurrentCards(accountId('111111'));
+            DeviceDetailsController.getCurrentCards(accId);
         } catch (AuraHandledException e) {
             thrown = true;
         }
+        Test.stopTest();
         System.assert(thrown, 'An invalid response is raised as an AuraHandledException');
     }
 
@@ -133,7 +139,10 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void loadCardDetailsToFetchLimitReturnsEmptyOnError() {
         setMock(404, false);
-        Map<String, Object> details = DeviceDetailsController.loadCardDetailsToFetchLimit(accountId('222222'), 'c1');
+        Id accId = accountId('222222');
+        Test.startTest();
+        Map<String, Object> details = DeviceDetailsController.loadCardDetailsToFetchLimit(accId, 'c1');
+        Test.stopTest();
         System.assert(details.isEmpty());
     }
 
@@ -154,12 +163,15 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void getFixedDepositsThrowsOnInvalidResponse() {
         setMock(200, true);
+        Id accId = accountId('111111');
         Boolean thrown = false;
+        Test.startTest();
         try {
-            DeviceDetailsController.getFixedDeposits(accountId('111111'));
+            DeviceDetailsController.getFixedDeposits(accId);
         } catch (AuraHandledException e) {
             thrown = true;
         }
+        Test.stopTest();
         System.assert(thrown);
     }
 
@@ -179,12 +191,15 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void getSavingPotsThrowsOnInvalidResponse() {
         setMock(200, true);
+        Id accId = accountId('222222');
         Boolean thrown = false;
+        Test.startTest();
         try {
-            DeviceDetailsController.getSavingPots(accountId('222222'));
+            DeviceDetailsController.getSavingPots(accId);
         } catch (AuraHandledException e) {
             thrown = true;
         }
+        Test.stopTest();
         System.assert(thrown);
     }
 
@@ -204,12 +219,15 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void getCurrentDebitCardsThrowsOnInvalidResponse() {
         setMock(200, true);
+        Id accId = accountId('111111');
         Boolean thrown = false;
+        Test.startTest();
         try {
-            DeviceDetailsController.getCurrentDebitCards(accountId('111111'));
+            DeviceDetailsController.getCurrentDebitCards(accId);
         } catch (AuraHandledException e) {
             thrown = true;
         }
+        Test.stopTest();
         System.assert(thrown);
     }
 
@@ -229,12 +247,15 @@ private class DeviceDetailsControllerTest {
     @isTest
     static void getForeignAccountsThrowsOnInvalidResponse() {
         setMock(200, true);
+        Id accId = accountId('222222');
         Boolean thrown = false;
+        Test.startTest();
         try {
-            DeviceDetailsController.getForeignAccounts(accountId('222222'));
+            DeviceDetailsController.getForeignAccounts(accId);
         } catch (AuraHandledException e) {
             thrown = true;
         }
+        Test.stopTest();
         System.assert(thrown);
     }
 
